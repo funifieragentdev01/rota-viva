@@ -1,6 +1,6 @@
 # Arquitetura Técnica — Rota Viva
 
-**Versão:** 0.3.0
+**Versão:** 0.4.0
 **Data:** 2026-03-26
 **Autores:** Ricardo Lopes Costa + Jarvis
 
@@ -13,6 +13,7 @@
 | 0.1.0 | 2026-03-26 | Criação inicial |
 | 0.2.0 | 2026-03-26 | Segurança do `basic_token` via Find, tratamento de token expirado (online/offline), armazenamento de mídia (fotos S3 + vídeos DO Spaces), recuperação de senha com email/telefone opcionais, push notifications |
 | 0.3.0 | 2026-03-26 | Troca de armazenamento de vídeos: DigitalOcean Spaces → Cloudflare Stream (HLS, adaptive bitrate, upload direto) |
+| 0.4.0 | 2026-03-26 | Theming dinâmico por rota via `theme__c` (seção 15). Design System documentado em `doc/design-system.md` |
 
 ---
 
@@ -574,6 +575,47 @@ Para adicionar uma nova rota (ex: Rota do Açaí):
 6. **Zero alteração** na Central, nas triggers, ou nos endpoints públicos
 
 A arquitetura é escalável para 13+ rotas sem interdependência.
+
+---
+
+## 15. Theming Dinâmico por Rota
+
+### Conceito
+
+O app é um único codebase que se adapta visualmente à rota do jogador após o login. Toda identidade visual — cores, imagens, textos, sons — é configurada no Funifier Studio, dentro de cada gamificação de rota.
+
+### Implementação
+
+Cada gamificação de rota possui uma custom collection `theme__c` com um documento `_id: "default"` que define:
+
+| Grupo | Campos | Exemplo (Rota do Mel) |
+|-------|--------|----------------------|
+| `colors` | primary, background, card, text, accent, etc. | Amarelos e marrons |
+| `images` | logo, background_pattern, mascot (happy/sad), onboarding | Abelhas, favos, apiário |
+| `labels` | welcome, missions_title, diary_title, points_name | "Missões do Apiário", "Mel" |
+| `sounds` | success, levelup, notification, badge_earned | Sons temáticos de cada rota |
+| `meta` | emoji, narrative_name, mascot_name | 🐝, "Colmeia Viva", "Mel" |
+
+### Fluxo
+
+1. Login retorna JWT + apiKey da rota
+2. Frontend faz `GET /v3/database/theme__c?q=_id:'default'` com token da rota
+3. Aplica cores via CSS variables no `:root` (JavaScript)
+4. Salva tema em `localStorage` com chave `rv_theme_{apiKey}`
+5. Offline: usa tema do cache; online: atualiza se `version` mudou
+
+### Regra de ouro
+
+> Nenhum componente referencia cores literais — sempre `var(--color-*)`.
+
+### Telas pré-login vs. pós-login
+
+- **Pré-login** (Central): tema neutro verde (natureza genérica) — hardcoded no CSS base
+- **Pós-login** (Rota): tema dinâmico carregado da `theme__c`
+
+### Detalhamento completo
+
+Ver documento dedicado: [`doc/design-system.md`](design-system.md)
 
 ---
 
