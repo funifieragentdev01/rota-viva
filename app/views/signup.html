@@ -1,0 +1,79 @@
+<div class="page page-scroll">
+    <div class="brand">
+        <div class="brand-icon">🌿</div>
+        <h1>Rota Viva</h1>
+        <p>Crie sua conta</p>
+    </div>
+
+    <div class="card">
+        <div class="msg msg-error" ng-if="error">{{error}}</div>
+        <div class="msg msg-success" ng-if="success">{{success}}</div>
+
+        <form ng-submit="signup()" ng-if="!success">
+            <div class="form-group">
+                <label>Nome completo *</label>
+                <input type="text" class="form-input" ng-model="form.name"
+                       placeholder="Seu nome completo"
+                       autocomplete="name">
+            </div>
+
+            <div class="form-group">
+                <label>CPF *</label>
+                <input type="tel" class="form-input" ng-model="form.cpf"
+                       placeholder="000.000.000-00" maxlength="14"
+                       autocomplete="off">
+            </div>
+
+            <div class="form-group">
+                <label>Perfil *</label>
+                <select class="form-select" ng-model="form.profile">
+                    <option value="">Selecione seu perfil</option>
+                    <option ng-repeat="r in routes" value="{{r.profile}}">
+                        {{r.title}} — {{r.profile | capitalize}}
+                    </option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Senha *</label>
+                <input type="password" class="form-input" ng-model="form.password"
+                       placeholder="Mínimo 6 caracteres"
+                       autocomplete="new-password">
+            </div>
+
+            <div class="form-group">
+                <label>Confirmar senha *</label>
+                <input type="password" class="form-input" ng-model="form.confirmPassword"
+                       placeholder="Repita sua senha"
+                       autocomplete="new-password">
+            </div>
+
+            <hr class="form-divider">
+            <div class="form-divider-label">Opcionais</div>
+
+            <div class="form-group">
+                <label>Email <span class="optional">— para recuperar sua senha</span></label>
+                <input type="email" class="form-input" ng-model="form.email"
+                       placeholder="seu@email.com"
+                       autocomplete="email">
+            </div>
+
+            <div class="form-group">
+                <label>Telefone/WhatsApp <span class="optional">— para recuperar sua senha</span></label>
+                <input type="tel" class="form-input" ng-model="form.phone"
+                       placeholder="(00) 00000-0000"
+                       autocomplete="tel">
+            </div>
+
+            <p class="form-hint" style="margin-bottom: 20px;">
+                Informe pelo menos um contato para poder recuperar sua senha caso esqueça.
+            </p>
+
+            <button type="submit" class="btn btn-primary" ng-disabled="submitting">
+                {{submitting ? 'Cadastrando...' : 'Criar conta'}}
+            </button>
+        </form>
+
+        <a href="#!/login" class="link">Já tem conta? <strong>Entrar</strong></a>
+    </div>
+</div>

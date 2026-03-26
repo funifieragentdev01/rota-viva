@@ -1,0 +1,315 @@
+/* === Rota Viva — Theme === */
+:root {
+    --bg: #0a1a0f;
+    --bg-card: rgba(26, 56, 42, 0.85);
+    --bg-input: rgba(255, 255, 255, 0.08);
+    --primary: #4CAF50;
+    --primary-dark: #1a5632;
+    --accent: #FFD54F;
+    --text: #FFFFFF;
+    --text-muted: rgba(255, 255, 255, 0.55);
+    --text-faint: rgba(255, 255, 255, 0.35);
+    --error: #FF5252;
+    --success: #4CAF50;
+    --border: rgba(76, 175, 80, 0.25);
+    --radius: 12px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    min-height: 100dvh;
+    overflow-x: hidden;
+}
+
+/* === Loading === */
+.loading-screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    gap: 16px;
+    color: var(--text-muted);
+}
+
+.loading-spinner {
+    width: 36px; height: 36px;
+    border: 3px solid var(--border);
+    border-top-color: var(--primary);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* === Layout === */
+.view-container {
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+}
+
+.page {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 24px 20px;
+    padding-top: env(safe-area-inset-top, 24px);
+}
+
+.page-scroll {
+    justify-content: flex-start;
+    padding-top: 40px;
+}
+
+/* === Logo / Brand === */
+.brand {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.brand-icon {
+    font-size: 48px;
+    margin-bottom: 8px;
+}
+
+.brand h1 {
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    color: var(--text);
+}
+
+.brand p {
+    font-size: 14px;
+    color: var(--text-muted);
+    margin-top: 4px;
+}
+
+/* === Card === */
+.card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px;
+    width: 100%;
+    max-width: 400px;
+    backdrop-filter: blur(10px);
+}
+
+.card-title {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* === Form === */
+.form-group {
+    margin-bottom: 16px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.form-group label .optional {
+    font-weight: 400;
+    text-transform: none;
+    font-size: 11px;
+    color: var(--text-faint);
+}
+
+.form-input {
+    width: 100%;
+    padding: 14px 16px;
+    background: var(--bg-input);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: var(--text);
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.2s;
+    -webkit-appearance: none;
+}
+
+.form-input:focus {
+    border-color: var(--primary);
+}
+
+.form-input::placeholder {
+    color: var(--text-faint);
+}
+
+.form-select {
+    width: 100%;
+    padding: 14px 16px;
+    background: var(--bg-input);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: var(--text);
+    font-size: 16px;
+    outline: none;
+    -webkit-appearance: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='rgba(255,255,255,0.5)' d='M1.4 0L6 4.6 10.6 0 12 1.4l-6 6-6-6z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+}
+
+.form-select option {
+    background: #1a2e20;
+    color: var(--text);
+}
+
+.form-hint {
+    font-size: 12px;
+    color: var(--text-faint);
+    margin-top: 4px;
+}
+
+.form-divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 20px 0 16px;
+}
+
+.form-divider-label {
+    text-align: center;
+    font-size: 11px;
+    color: var(--text-faint);
+    margin: -8px 0 16px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* === Buttons === */
+.btn {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.2s, transform 0.1s;
+    text-align: center;
+    display: block;
+    text-decoration: none;
+}
+
+.btn:active { transform: scale(0.98); }
+.btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.btn-primary {
+    background: var(--primary);
+    color: #fff;
+}
+
+.btn-outline {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+}
+
+.btn + .btn { margin-top: 12px; }
+
+/* === Messages === */
+.msg {
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-size: 14px;
+    margin-bottom: 16px;
+    text-align: center;
+}
+
+.msg-error {
+    background: rgba(255, 82, 82, 0.15);
+    border: 1px solid rgba(255, 82, 82, 0.3);
+    color: var(--error);
+}
+
+.msg-success {
+    background: rgba(76, 175, 80, 0.15);
+    border: 1px solid rgba(76, 175, 80, 0.3);
+    color: var(--success);
+}
+
+/* === Links === */
+.link {
+    color: var(--primary);
+    text-decoration: none;
+    font-size: 14px;
+    text-align: center;
+    display: block;
+    margin-top: 16px;
+}
+
+.link:hover { text-decoration: underline; }
+
+/* === Dashboard (placeholder) === */
+.dashboard-header {
+    padding: 20px;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+}
+
+.dashboard-header h2 {
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.dashboard-header p {
+    color: var(--text-muted);
+    font-size: 14px;
+    margin-top: 4px;
+}
+
+.dashboard-body {
+    padding: 24px 20px;
+    text-align: center;
+}
+
+.dashboard-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px;
+    margin-bottom: 16px;
+}
+
+.dashboard-card h3 {
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+.dashboard-card p {
+    color: var(--text-muted);
+    font-size: 14px;
+}
+
+.btn-logout {
+    margin-top: 32px;
+    background: transparent;
+    border: 1px solid rgba(255, 82, 82, 0.3);
+    color: var(--error);
+}
+
+/* === Responsive === */
+@media (min-width: 480px) {
+    .card { padding: 32px; }
+}

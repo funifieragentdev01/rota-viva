@@ -1,0 +1,39 @@
+<div class="page">
+    <div class="brand">
+        <div class="brand-icon">🌿</div>
+        <h1>Rota Viva</h1>
+        <p>Gamificação para produtores rurais</p>
+    </div>
+
+    <div class="card">
+        <div class="card-title">Entrar</div>
+
+        <div class="msg msg-error" ng-if="error">{{error}}</div>
+
+        <form ng-submit="login()">
+            <div class="form-group">
+                <label>CPF</label>
+                <input type="tel" class="form-input" ng-model="form.cpf"
+                       placeholder="000.000.000-00" maxlength="14"
+                       autocomplete="username">
+            </div>
+
+            <div class="form-group">
+                <label>Senha</label>
+                <input type="password" class="form-input" ng-model="form.password"
+                       placeholder="Sua senha"
+                       autocomplete="current-password">
+            </div>
+
+            <button type="submit" class="btn btn-primary" ng-disabled="submitting">
+                {{submitting ? 'Entrando...' : 'Entrar'}}
+            </button>
+        </form>
+
+        <a href="" ng-click="" class="link">Esqueci minha senha</a>
+    </div>
+
+    <a href="#!/signup" class="link" style="margin-top: 24px;">
+        Não tem conta? <strong>Cadastre-se</strong>
+    </a>
+</div>
