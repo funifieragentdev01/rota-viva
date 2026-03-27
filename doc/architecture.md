@@ -1,6 +1,6 @@
 # Arquitetura Técnica — Rota Viva
 
-**Versão:** 0.4.0
+**Versão:** 0.5.0
 **Data:** 2026-03-26
 **Autores:** Ricardo Lopes Costa + Jarvis
 
@@ -14,6 +14,7 @@
 | 0.2.0 | 2026-03-26 | Segurança do `basic_token` via Find, tratamento de token expirado (online/offline), armazenamento de mídia (fotos S3 + vídeos DO Spaces), recuperação de senha com email/telefone opcionais, push notifications |
 | 0.3.0 | 2026-03-26 | Troca de armazenamento de vídeos: DigitalOcean Spaces → Cloudflare Stream (HLS, adaptive bitrate, upload direto) |
 | 0.4.0 | 2026-03-26 | Theming dinâmico por rota via `theme__c` (seção 15). Design System documentado em `doc/design-system.md` |
+| 0.5.0 | 2026-03-26 | Campo `landing` em `rota__c` para seções personalizadas da landing page. `landing` adicionado ao PreparedAggregate `rota_info`. Base visual pública = identidade MIDR/Governo Federal. |
 
 ---
 
@@ -72,6 +73,7 @@ Uma gamificação "Central" que funciona como roteador.
 | `profile` | String | Pública | Perfil vinculado: `apicultor` ou `pescador` |
 | `api_key` | String | Pública | API Key da gamificação da rota (retornada ao cliente no login) |
 | `basic_token` | String | **Privada — server-side only** | Token de integração — nunca exposto ao cliente (ver seção 3) |
+| `landing` | Object (JSON) | Pública | Bloco de conteúdo da seção personalizada da landing page: headline, hook, pain_points, desires, cta_label, photo_url, bg_tint — gera dinamicamente as seções "Você é apicultor?" / "Você é pescador?" (ver design-system.md seção 12.3) |
 
 **Ação `login`** — registrada como actionlog a cada login bem-sucedido.
 
@@ -103,7 +105,8 @@ Criar um **PreparedAggregate** (Find) na Central chamado `rota_info` que consult
       "image": 1,
       "intro": 1,
       "profile": 1,
-      "api_key": 1
+      "api_key": 1,
+      "landing": 1
       // basic_token: excluído intencionalmente
   }}
 ]
@@ -313,6 +316,7 @@ Isso garante que o usuário não fica bloqueado — ele consegue fazer login e a
 - `api_key` — da rota, para chamadas diretas
 - `route` — dados visuais
 - `player` — dados básicos do usuário
+- `rv_theme_{apiKey}` — objeto de tema completo (JSON) — permite aplicar o tema visual offline na próxima abertura do app (ver seção 15 e design-system.md seção 2.3)
 
 **A partir do login, o frontend trabalha 100% com a gamificação da rota.** Nenhuma chamada à Central é necessária durante a sessão.
 
