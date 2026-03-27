@@ -1,28 +1,30 @@
 <div class="view-container">
     <div class="dashboard-header">
-        <h2>{{route.title || 'Rota Viva'}}</h2>
+        <h2>{{theme.meta.narrative_name || route.title || 'Rota Viva'}}</h2>
         <p>Olá, {{player.name}}! 👋</p>
     </div>
 
     <div class="dashboard-body">
         <div class="dashboard-card">
-            <h3>🎯 Suas Missões</h3>
+            <h3><i class="fas fa-bullseye" style="color: var(--color-primary)"></i> Suas Missões</h3>
             <p>Em breve você terá missões para completar e ganhar pontos!</p>
         </div>
 
         <div class="dashboard-card">
-            <h3>🏆 Seu Progresso</h3>
+            <h3><i class="fas fa-trophy" style="color: var(--color-accent)"></i> Seu Progresso</h3>
             <p>Nível 1 — Iniciante</p>
-            <p style="color: var(--accent); margin-top: 8px;">0 XP</p>
+            <p style="color: var(--color-accent); margin-top: 8px; font: var(--font-h3);">0 {{theme.labels.points_unit || 'XP'}}</p>
         </div>
 
         <div class="dashboard-card">
-            <h3>📊 Dados da Sessão</h3>
+            <h3><i class="fas fa-chart-line" style="color: var(--color-primary)"></i> Dados da Sessão</h3>
             <p>Rota: <strong>{{route.title}}</strong></p>
             <p>Perfil: <strong>{{route.profile}}</strong></p>
             <p>ID: <strong>{{player._id}}</strong></p>
         </div>
 
-        <button class="btn btn-logout" ng-click="logout()">Sair</button>
+        <button class="btn btn-logout" ng-click="logout()">
+            <i class="fas fa-sign-out-alt"></i> Sair
+        </button>
     </div>
 </div>

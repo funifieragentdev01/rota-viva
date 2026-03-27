@@ -1,4 +1,4 @@
-var CACHE_NAME = 'rota-viva-v1';
+var CACHE_NAME = 'rota-viva-v2';
 var ASSETS = [
     '/',
     '/index.html',
@@ -6,13 +6,34 @@ var ASSETS = [
     '/js/app.js',
     '/js/services.js',
     '/js/controllers.js',
-    '/config.js'
+    '/config.js',
+    '/views/landing.html',
+    '/views/login.html',
+    '/views/signup.html',
+    '/views/dashboard.html'
+];
+
+var CDN_ASSETS = [
+    'https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js',
+    'https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-route.min.js',
+    'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css',
+    'https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&family=Inter:wght@400;500;600&display=swap'
 ];
 
 self.addEventListener('install', function(e) {
     e.waitUntil(
         caches.open(CACHE_NAME).then(function(cache) {
-            return cache.addAll(ASSETS);
+            // Cache local assets
+            return cache.addAll(ASSETS).then(function() {
+                // Cache CDN assets (best effort)
+                return Promise.allSettled(
+                    CDN_ASSETS.map(function(url) {
+                        return fetch(url).then(function(r) {
+                            if (r.ok) return cache.put(url, r);
+                        });
+                    })
+                );
+            });
         })
     );
     self.skipWaiting();
@@ -40,10 +61,21 @@ self.addEventListener('fetch', function(e) {
         );
         return;
     }
-    // Cache first for assets
+
+    // Cache first for everything else (assets + CDN)
     e.respondWith(
         caches.match(e.request).then(function(r) {
-            return r || fetch(e.request);
+            return r || fetch(e.request).then(function(response) {
+                // Cache font files and CDN resources on first load
+                if (e.request.url.includes('fonts.gstatic.com') ||
+                    e.request.url.includes('cdnjs.cloudflare.com')) {
+                    var clone = response.clone();
+                    caches.open(CACHE_NAME).then(function(cache) {
+                        cache.put(e.request, clone);
+                    });
+                }
+                return response;
+            });
         })
     );
 });

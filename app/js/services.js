@@ -17,7 +17,6 @@ angular.module('rotaViva')
             var d = cpf.replace(/\D/g, '');
             if (d.length !== 11) return false;
             if (/^(\d)\1{10}$/.test(d)) return false;
-            // Dígitos verificadores
             for (var t = 9; t < 11; t++) {
                 var sum = 0;
                 for (var i = 0; i < t; i++) {
@@ -31,8 +30,121 @@ angular.module('rotaViva')
     };
 })
 
+// === Theme Service ===
+.factory('ThemeService', function() {
+    var service = {};
+    var NEUTRAL_THEME = {
+        colors: {
+            primary: '#4CAF50',
+            primary_dark: '#1a5632',
+            primary_light: '#81C784',
+            accent: '#FFD54F',
+            background: '#0a1a0f',
+            background_gradient: 'linear-gradient(180deg, #0a1a0f 0%, #122419 100%)',
+            card: 'rgba(26, 56, 42, 0.85)',
+            card_border: 'rgba(76, 175, 80, 0.25)',
+            input_bg: 'rgba(255, 255, 255, 0.08)',
+            text: '#FFFFFF',
+            text_muted: 'rgba(255, 255, 255, 0.55)',
+            text_faint: 'rgba(255, 255, 255, 0.35)',
+            success: '#4CAF50',
+            error: '#FF5252',
+            warning: '#FF9800'
+        }
+    };
+
+    // Mapa de cores → CSS variables
+    var COLOR_MAP = {
+        primary: '--color-primary',
+        primary_dark: '--color-primary-dark',
+        primary_light: '--color-primary-light',
+        accent: '--color-accent',
+        background: '--color-bg',
+        background_gradient: '--color-bg-gradient',
+        card: '--color-card',
+        card_border: '--color-card-border',
+        input_bg: '--color-input-bg',
+        text: '--color-text',
+        text_muted: '--color-text-muted',
+        text_faint: '--color-text-faint',
+        success: '--color-success',
+        error: '--color-error',
+        warning: '--color-warning'
+    };
+
+    service.apply = function(theme, animate) {
+        var root = document.documentElement;
+        var c = (theme && theme.colors) || {};
+
+        if (animate) {
+            document.body.classList.add('theme-transitioning');
+            document.body.classList.remove('theme-ready');
+        }
+
+        // Aplicar cores
+        Object.keys(COLOR_MAP).forEach(function(key) {
+            if (c[key]) root.style.setProperty(COLOR_MAP[key], c[key]);
+        });
+
+        // Background pattern
+        if (theme && theme.images && theme.images.background_pattern) {
+            root.style.setProperty('--img-background', 'url(' + theme.images.background_pattern + ')');
+        }
+
+        if (animate) {
+            setTimeout(function() {
+                document.body.classList.remove('theme-transitioning');
+                document.body.classList.add('theme-ready');
+            }, 50);
+        }
+    };
+
+    service.reset = function() {
+        service.apply(NEUTRAL_THEME, false);
+        // Limpar inline styles
+        var root = document.documentElement;
+        Object.values(COLOR_MAP).forEach(function(v) {
+            root.style.removeProperty(v);
+        });
+        root.style.removeProperty('--img-background');
+    };
+
+    service.save = function(apiKey, theme) {
+        try {
+            localStorage.setItem('rv_theme_' + apiKey, JSON.stringify(theme));
+        } catch (e) { /* quota */ }
+    };
+
+    service.load = function(apiKey) {
+        try {
+            var stored = localStorage.getItem('rv_theme_' + apiKey);
+            return stored ? JSON.parse(stored) : null;
+        } catch (e) { return null; }
+    };
+
+    // Pré-tematização: salva rota selecionada na landing (sessionStorage)
+    service.setPreTheme = function(routeData) {
+        try {
+            sessionStorage.setItem('rv_pre_theme', JSON.stringify(routeData));
+        } catch (e) { /* ok */ }
+    };
+
+    service.getPreTheme = function() {
+        try {
+            var data = sessionStorage.getItem('rv_pre_theme');
+            return data ? JSON.parse(data) : null;
+        } catch (e) { return null; }
+    };
+
+    service.clearPreTheme = function() {
+        sessionStorage.removeItem('rv_pre_theme');
+    };
+
+    return service;
+})
+
 // === Auth Service ===
-.factory('AuthService', function($q, $location) {
+.factory('AuthService', function($q, $location, ThemeService) {
     var service = {};
 
     service.isLoggedIn = function() {
@@ -81,6 +193,7 @@ angular.module('rotaViva')
     service.logout = function() {
         var keys = ['rv_token', 'rv_token_expires_at', 'rv_api_key', 'rv_route', 'rv_player'];
         keys.forEach(function(k) { localStorage.removeItem(k); });
+        ThemeService.reset();
         $location.path('/login');
     };
 
@@ -122,12 +235,22 @@ angular.module('rotaViva')
         });
     };
 
-    // List routes (public)
+    // List routes (public) — includes landing data
     api.getRoutes = function() {
         return $http.post(baseUrl + '/v3/find/rota_info', {}, {
             headers: { 'Authorization': publicToken }
         }).then(function(res) {
             return res.data;
+        });
+    };
+
+    // Get theme from route gamification
+    api.getTheme = function(apiKey, token) {
+        return $http.get(baseUrl + '/v3/database/theme__c?q=_id:\'default\'', {
+            headers: { 'Authorization': token }
+        }).then(function(res) {
+            var data = res.data;
+            return Array.isArray(data) ? data[0] : data;
         });
     };
 

@@ -7,8 +7,12 @@ angular.module('rotaViva', ['ngRoute'])
     };
 })
 
-.config(function($routeProvider, $locationProvider) {
+.config(function($routeProvider) {
     $routeProvider
+        .when('/home', {
+            templateUrl: 'views/landing.html',
+            controller: 'LandingCtrl'
+        })
         .when('/login', {
             templateUrl: 'views/login.html',
             controller: 'LoginCtrl'
@@ -22,19 +26,45 @@ angular.module('rotaViva', ['ngRoute'])
             controller: 'DashboardCtrl',
             resolve: { auth: function(AuthService) { return AuthService.requireAuth(); } }
         })
-        .otherwise({ redirectTo: '/login' });
+        .otherwise({ redirectTo: '/home' });
 })
 
-.run(function($rootScope, $location, AuthService) {
+.run(function($rootScope, $location, AuthService, ThemeService) {
     $rootScope.$on('$routeChangeError', function() {
         $location.path('/login');
     });
 
     $rootScope.$on('$routeChangeStart', function(event, next) {
-        // Se já logado e tentando acessar login/signup, redirecionar pro dashboard
-        if (AuthService.isLoggedIn() && (next.$$route && (next.$$route.originalPath === '/login' || next.$$route.originalPath === '/signup'))) {
+        if (!next || !next.$$route) return;
+        var path = next.$$route.originalPath;
+
+        // Se logado, redirecionar login/signup pro dashboard
+        if (AuthService.isLoggedIn() && (path === '/login' || path === '/signup')) {
             event.preventDefault();
             $location.path('/dashboard');
+            return;
+        }
+
+        // Aplicar pré-tema se existir (vindo da landing)
+        if (path === '/login' || path === '/signup') {
+            var pre = ThemeService.getPreTheme();
+            if (pre && pre.colors) {
+                ThemeService.apply({ colors: pre.colors }, false);
+            }
+        }
+
+        // Reset tema na landing
+        if (path === '/home') {
+            ThemeService.reset();
         }
     });
+
+    // Se tem sessão salva, aplicar tema da rota
+    if (AuthService.isLoggedIn()) {
+        var session = AuthService.getSession();
+        if (session.apiKey) {
+            var cached = ThemeService.load(session.apiKey);
+            if (cached) ThemeService.apply(cached, false);
+        }
+    }
 });
