@@ -35,21 +35,23 @@ angular.module('rotaViva')
     var service = {};
     var NEUTRAL_THEME = {
         colors: {
-            primary: '#4CAF50',
-            primary_dark: '#1a5632',
-            primary_light: '#81C784',
-            accent: '#FFD54F',
-            background: '#0a1a0f',
-            background_gradient: 'linear-gradient(180deg, #0a1a0f 0%, #122419 100%)',
-            card: 'rgba(26, 56, 42, 0.85)',
-            card_border: 'rgba(76, 175, 80, 0.25)',
-            input_bg: 'rgba(255, 255, 255, 0.08)',
-            text: '#FFFFFF',
-            text_muted: 'rgba(255, 255, 255, 0.55)',
-            text_faint: 'rgba(255, 255, 255, 0.35)',
-            success: '#4CAF50',
-            error: '#FF5252',
-            warning: '#FF9800'
+            primary: '#005CAB',
+            primary_dark: '#003D75',
+            primary_light: '#DDEEFF',
+            accent: '#F5C200',
+            background: '#F5F9FF',
+            background_gradient: 'none',
+            surface: '#FFFFFF',
+            card: '#FFFFFF',
+            card_border: 'rgba(0, 92, 171, 0.15)',
+            input_bg: 'rgba(0, 0, 0, 0.04)',
+            text: '#0A1929',
+            text_muted: '#2A4A6B',
+            text_faint: '#7A9BBF',
+            text_on_primary: '#FFFFFF',
+            success: '#2E7D32',
+            error: '#C62828',
+            warning: '#E65100'
         }
     };
 
@@ -61,12 +63,14 @@ angular.module('rotaViva')
         accent: '--color-accent',
         background: '--color-bg',
         background_gradient: '--color-bg-gradient',
+        surface: '--color-surface',
         card: '--color-card',
         card_border: '--color-card-border',
         input_bg: '--color-input-bg',
         text: '--color-text',
         text_muted: '--color-text-muted',
         text_faint: '--color-text-faint',
+        text_on_primary: '--color-text-on-primary',
         success: '--color-success',
         error: '--color-error',
         warning: '--color-warning'

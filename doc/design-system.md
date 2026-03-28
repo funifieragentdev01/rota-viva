@@ -1,7 +1,7 @@
 # Design System — Rota Viva
 
-**Versão:** 0.1.0
-**Data:** 2026-03-26
+**Versão:** 0.2.0
+**Data:** 2026-03-27
 **Autor:** Jarvis
 
 ---
@@ -67,19 +67,21 @@ Custom collection na gamificação de cada rota. **Um único documento** com `_i
     "colors": {
         "primary": "#F5C200",
         "primary_dark": "#C49B00",
-        "primary_light": "#FFE566",
-        "accent": "#FFD54F",
-        "background": "#1A1208",
-        "background_gradient": "linear-gradient(180deg, #1A1208 0%, #2C1E0A 100%)",
-        "card": "rgba(60, 40, 10, 0.85)",
-        "card_border": "rgba(245, 166, 35, 0.25)",
-        "input_bg": "rgba(255, 255, 255, 0.08)",
-        "text": "#FFFFFF",
-        "text_muted": "rgba(255, 255, 255, 0.55)",
-        "text_faint": "rgba(255, 255, 255, 0.35)",
-        "success": "#4CAF50",
-        "error": "#FF5252",
-        "warning": "#FF9800"
+        "primary_light": "#FFF3B0",
+        "accent": "#C49B00",
+        "background": "#FFFDF5",
+        "background_gradient": "none",
+        "surface": "#FFFFFF",
+        "card": "#FFFFFF",
+        "card_border": "rgba(245, 194, 0, 0.25)",
+        "input_bg": "rgba(0, 0, 0, 0.04)",
+        "text": "#1A1208",
+        "text_muted": "#5C4A1A",
+        "text_faint": "#9E8B5A",
+        "text_on_primary": "#1A1208",
+        "success": "#2E7D32",
+        "error": "#C62828",
+        "warning": "#E65100"
     },
 
     "images": {
@@ -139,19 +141,21 @@ Custom collection na gamificação de cada rota. **Um único documento** com `_i
     "colors": {
         "primary": "#005CAB",
         "primary_dark": "#003D75",
-        "primary_light": "#4DA3FF",
-        "accent": "#00BCD4",
-        "background": "#0A1929",
-        "background_gradient": "linear-gradient(180deg, #0A1929 0%, #0D2137 100%)",
-        "card": "rgba(13, 37, 63, 0.85)",
-        "card_border": "rgba(30, 136, 229, 0.25)",
-        "input_bg": "rgba(255, 255, 255, 0.08)",
-        "text": "#FFFFFF",
-        "text_muted": "rgba(255, 255, 255, 0.55)",
-        "text_faint": "rgba(255, 255, 255, 0.35)",
-        "success": "#4CAF50",
-        "error": "#FF5252",
-        "warning": "#FF9800"
+        "primary_light": "#DDEEFF",
+        "accent": "#003D75",
+        "background": "#F5F9FF",
+        "background_gradient": "none",
+        "surface": "#FFFFFF",
+        "card": "#FFFFFF",
+        "card_border": "rgba(0, 92, 171, 0.15)",
+        "input_bg": "rgba(0, 0, 0, 0.04)",
+        "text": "#0A1929",
+        "text_muted": "#2A4A6B",
+        "text_faint": "#7A9BBF",
+        "text_on_primary": "#FFFFFF",
+        "success": "#2E7D32",
+        "error": "#C62828",
+        "warning": "#E65100"
     },
 
     "labels": {
@@ -189,18 +193,20 @@ O frontend aplica o tema injetando variáveis CSS no `:root`. Todo componente re
 ```css
 :root {
     /* Cores */
-    --color-primary: #4CAF50;
-    --color-primary-dark: #1a5632;
-    --color-primary-light: #81C784;
-    --color-accent: #FFD54F;
-    --color-bg: #0a1a0f;
-    --color-bg-gradient: linear-gradient(180deg, #0a1a0f 0%, #122419 100%);
-    --color-card: rgba(26, 56, 42, 0.85);
-    --color-card-border: rgba(76, 175, 80, 0.25);
-    --color-input-bg: rgba(255, 255, 255, 0.08);
-    --color-text: #FFFFFF;
-    --color-text-muted: rgba(255, 255, 255, 0.55);
-    --color-text-faint: rgba(255, 255, 255, 0.35);
+    --color-primary: #005CAB;
+    --color-primary-dark: #003D75;
+    --color-primary-light: #DDEEFF;
+    --color-accent: #F5C200;
+    --color-bg: #F5F9FF;
+    --color-bg-gradient: none;
+    --color-surface: #FFFFFF;
+    --color-card: #FFFFFF;
+    --color-card-border: rgba(0, 92, 171, 0.15);
+    --color-input-bg: rgba(0, 0, 0, 0.04);
+    --color-text: #0A1929;
+    --color-text-muted: #2A4A6B;
+    --color-text-faint: #7A9BBF;
+    --color-text-on-primary: #FFFFFF;
     --color-success: #4CAF50;
     --color-error: #FF5252;
     --color-warning: #FF9800;
@@ -249,6 +255,9 @@ function applyTheme(theme) {
     if (c.card_border) root.style.setProperty('--color-card-border', c.card_border);
     if (c.text) root.style.setProperty('--color-text', c.text);
     if (c.text_muted) root.style.setProperty('--color-text-muted', c.text_muted);
+    if (c.text_faint) root.style.setProperty('--color-text-faint', c.text_faint);
+    if (c.text_on_primary) root.style.setProperty('--color-text-on-primary', c.text_on_primary);
+    if (c.surface) root.style.setProperty('--color-surface', c.surface);
 
     // Background pattern
     if (theme.images && theme.images.background_pattern) {
@@ -279,9 +288,10 @@ function applyTheme(theme) {
 | Background | Fundo de todas as telas | `--color-bg` |
 | Card | Background de cards, modais | `--color-card` |
 | Card Border | Bordas sutis dos cards | `--color-card-border` |
-| Text | Texto principal (sempre branco) | `--color-text` |
+| Text | Texto principal (escuro sobre fundo claro) | `--color-text` |
 | Text Muted | Texto secundário, labels | `--color-text-muted` |
 | Text Faint | Placeholders, hints | `--color-text-faint` |
+| Text On Primary | Texto sobre botão/fundo primário (branco p/ azul, escuro p/ amarelo) | `--color-text-on-primary` |
 | Success | Missão completa, validação OK | `--color-success` |
 | Error | Erros, validação falha | `--color-error` |
 
@@ -416,8 +426,9 @@ Para ícones muito específicos sem equivalente no FA Free (abelha, favo, rede d
 ### Contraste
 
 - Todas as combinações de cor devem manter ratio ≥ 4.5:1 (WCAG AA)
-- Texto branco sobre fundos escuros é o padrão — cada tema precisa garantir fundo suficientemente escuro
-- Botão primário: texto branco sobre `primary` — ao configurar um tema, validar contraste
+- **Light mode é o padrão do app** — texto escuro (`--color-text`) sobre fundo claro (`--color-bg`). Motivo: acessibilidade para produtores rurais 40–60 anos (cataratas, uso em luz solar direta, baixo letramento digital)
+- Botão primário: verificar `text_on_primary` por rota — Colmeia Viva (#F5C200 fundo) usa texto escuro `#1A1208`; Rio em Movimento (#005CAB fundo) usa texto branco `#FFFFFF`
+- **Amarelo (#F5C200) nunca como cor de texto sobre fundo branco** — falha WCAG completamente. Amarelo só como background de botão, tag ou elemento decorativo com texto escuro por cima
 
 ### Touch targets
 

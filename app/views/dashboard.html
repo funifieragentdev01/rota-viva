@@ -1,26 +1,37 @@
 <div class="view-container">
     <div class="dashboard-header">
         <h2>{{theme.meta.narrative_name || route.title || 'Rota Viva'}}</h2>
-        <p>Olá, {{player.name}}! 👋</p>
+        <p>{{theme.labels.welcome_back || 'Olá'}}, {{player.name}}! {{theme.meta.emoji || '👋'}}</p>
     </div>
 
     <div class="dashboard-body">
         <div class="dashboard-card">
-            <h3><i class="fas fa-bullseye" style="color: var(--color-primary)"></i> Suas Missões</h3>
-            <p>Em breve você terá missões para completar e ganhar pontos!</p>
+            <h3><i class="fas fa-bullseye" style="color: var(--color-primary)"></i> {{theme.labels.missions_title || 'Suas Missões'}}</h3>
+            <p>{{theme.labels.empty_missions || 'Em breve você terá missões para completar!'}}</p>
         </div>
 
         <div class="dashboard-card">
             <h3><i class="fas fa-trophy" style="color: var(--color-accent)"></i> Seu Progresso</h3>
-            <p>Nível 1 — Iniciante</p>
+            <p>{{theme.labels.level_prefix || 'Nível'}} 1 — Iniciante</p>
             <p style="color: var(--color-accent); margin-top: 8px; font: var(--font-h3);">0 {{theme.labels.points_unit || 'XP'}}</p>
         </div>
 
         <div class="dashboard-card">
-            <h3><i class="fas fa-chart-line" style="color: var(--color-primary)"></i> Dados da Sessão</h3>
-            <p>Rota: <strong>{{route.title}}</strong></p>
-            <p>Perfil: <strong>{{route.profile}}</strong></p>
-            <p>ID: <strong>{{player._id}}</strong></p>
+            <h3><i class="fas fa-book-open" style="color: var(--color-primary-light)"></i> {{theme.labels.diary_title || 'Diário'}}</h3>
+            <p>Registre sua produção e acompanhe sua evolução.</p>
+        </div>
+
+        <div class="dashboard-card">
+            <h3><i class="fas fa-ranking-star" style="color: var(--color-accent)"></i> {{theme.labels.ranking_title || 'Ranking'}}</h3>
+            <p>Veja como seu município está se organizando.</p>
+        </div>
+
+        <div class="dashboard-card" style="background: transparent; border: none; padding: var(--spacing-sm);">
+            <p style="color: var(--color-text-faint); font: var(--font-caption);">
+                Rota: <strong>{{route.title}}</strong> · 
+                Perfil: <strong>{{route.profile}}</strong> · 
+                ID: {{player._id}}
+            </p>
         </div>
 
         <button class="btn btn-logout" ng-click="logout()">

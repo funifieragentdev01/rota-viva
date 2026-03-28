@@ -16,7 +16,33 @@ angular.module('rotaViva')
     $scope.routes = [];
     $scope.loading = true;
 
-    // Dados estáticos do "espelho de dores" (seção 2 da landing)
+    // Hero assets (rotate between mel and pesca)
+    $scope.heroVideos = [
+        'https://s3.amazonaws.com/funifier/games/69c58d85e6650e26dad2166f/landing/69c7ebaedf494d3199c02dda_original_hero-mel.mp4',
+        'https://s3.amazonaws.com/funifier/games/69c58d85e6650e26dad2166f/landing/69c7ebb1df494d3199c02e38_original_hero-pesca.mp4'
+    ];
+    $scope.heroImages = [
+        'https://s3.amazonaws.com/funifier/games/69c58d85e6650e26dad2166f/landing/69c7eba2df494d3199c02c23_original_hero-mel.png',
+        'https://s3.amazonaws.com/funifier/games/69c58d85e6650e26dad2166f/landing/69c7eba4df494d3199c02c81_original_hero-pesca.png'
+    ];
+    $scope.currentHero = 0;
+
+    // Set hero video src after DOM renders
+    $timeout(function() {
+        var vid = document.getElementById('hero-video');
+        if (vid) {
+            vid.src = $scope.heroVideos[$scope.currentHero];
+            vid.load();
+        }
+    }, 100);
+
+    // FOMO counters
+    $scope.fomoItems = [
+        { label: 'Colmeia Viva — vagas de Fundador disponíveis', icon: 'fa-seedling', color: '#F5C200' },
+        { label: 'Rio em Movimento — vagas de Fundador disponíveis', icon: 'fa-fish', color: '#005CAB' }
+    ];
+
+    // Espelho de dores
     $scope.mirrorMel = [
         'Você produz mel bom.',
         'Mas o atravessador compra barato e você não tem como negociar.',
@@ -32,6 +58,16 @@ angular.module('rotaViva')
         'E você sente que o conhecimento dos rios que você tem não é reconhecido por ninguém.'
     ];
 
+    // FAQ
+    $scope.faqs = [
+        { q: 'O app é gratuito?', a: 'Sim, 100% gratuito. O Rota Viva é um programa do Governo Federal (MIDR) e não cobra nada do produtor.' },
+        { q: 'Preciso baixar alguma coisa?', a: 'Não. O Rota Viva funciona direto no navegador do celular, como um site. Basta acessar o link e criar sua conta.' },
+        { q: 'Funciona sem internet?', a: 'Sim! Após o primeiro acesso, o app salva as informações no seu celular. Você pode usar offline e os dados sincronizam quando voltar a ter sinal.' },
+        { q: 'O que são os badges e níveis?', a: 'São reconhecimentos que você ganha ao completar trilhas de conhecimento, registrar sua produção e participar de atividades. Quanto mais você avança, mais alto seu nível — e mais reconhecido você é.' },
+        { q: 'Quem pode participar?', a: 'Apicultores do Piauí e pescadores artesanais do Amapá. Novas rotas serão adicionadas conforme o programa expandir.' },
+        { q: 'O que é ser Fundador?', a: 'Os primeiros 50 produtores cadastrados em cada município recebem o badge de Fundador — permanente, exclusivo, nunca mais disponível. É o seu nome na história do projeto.' }
+    ];
+
     // Carregar rotas da API
     ApiService.getRoutes().then(function(data) {
         $scope.routes = data;
@@ -43,43 +79,45 @@ angular.module('rotaViva')
                 _id: 'mel', profile: 'apicultor', title: 'Colmeia Viva',
                 landing: {
                     section_headline: 'Você é apicultor?',
-                    hook: 'Você produz mel bom, mas o atravessador ainda dita o preço.',
-                    desires: ['Regularize e tire nota fiscal', 'Acesse programas do governo', 'Conecte-se com outros apicultores', 'Seja reconhecido'],
+                    hook: 'Você produz mel bom, mas o atravessador ainda dita o preço. Você sabe que pode mais. A Rota do Mel abre esse caminho.',
+                    desires: ['Regularize e tire nota fiscal', 'Acesse programas do governo diretamente', 'Conecte-se com outros apicultores', 'Seja reconhecido como produtor de referência'],
                     cta_label: 'Entrar como Apicultor',
-                    bg_tint: 'rgba(245,194,0,0.10)'
+                    bg_tint: 'rgba(245,194,0,0.08)'
                 }
             },
             {
                 _id: 'pesca', profile: 'pescador', title: 'Rio em Movimento',
                 landing: {
                     section_headline: 'Você é pescador?',
-                    hook: 'Você pesca há anos, mas sua atividade ainda é informal.',
-                    desires: ['Formalize sua atividade', 'Saiba quais benefícios existem', 'Organize-se com outros pescadores', 'Seja reconhecido'],
+                    hook: 'Você pesca há anos, mas sua atividade ainda é informal. O seguro-defeso é difícil de acessar e os benefícios não chegam. A Rota da Pesca muda isso.',
+                    desires: ['Formalize sua atividade e acesse o seguro-defeso', 'Saiba quais benefícios e programas existem para você', 'Organize-se com outros pescadores para ter mais força', 'Seja reconhecido como guardião dos rios'],
                     cta_label: 'Entrar como Pescador',
-                    bg_tint: 'rgba(0,92,171,0.10)'
+                    bg_tint: 'rgba(0,92,171,0.08)'
                 }
             }
         ];
         $scope.loading = false;
     });
 
-    // Ícone da rota
     $scope.routeIcon = function(route) {
         if (route._id === 'mel') return 'fa-seedling';
         if (route._id === 'pesca') return 'fa-fish';
         return 'fa-leaf';
     };
 
-    // Cor primária da rota (para botões e ícones)
     $scope.routeColor = function(route) {
         if (route._id === 'mel') return '#F5C200';
         if (route._id === 'pesca') return '#005CAB';
-        return '#4CAF50';
+        return '#005CAB';
     };
 
-    // Entrar na rota — pré-tematiza e vai pro login/signup
+    // Texto em botão: escuro pro amarelo, branco pro azul
+    $scope.routeTextColor = function(route) {
+        if (route._id === 'mel') return '#1A1208';
+        return '#FFFFFF';
+    };
+
     $scope.enterRoute = function(route) {
-        // Montar pré-tema com cores da rota
         var preTheme = {
             routeId: route._id,
             profile: route.profile,
@@ -95,19 +133,30 @@ angular.module('rotaViva')
         $location.path('/login');
     };
 
+    $scope.scrollTo = function(id) {
+        var el = document.getElementById(id);
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+    };
+
     function _routePreColors(routeId) {
         if (routeId === 'mel') {
             return {
-                primary: '#F5C200', primary_dark: '#C49B00', primary_light: '#FFE566',
-                accent: '#FFD54F', background: '#1A1208',
-                card: 'rgba(60, 40, 10, 0.85)', card_border: 'rgba(245, 166, 35, 0.25)'
+                primary: '#F5C200', primary_dark: '#C49B00', primary_light: '#FFF3B0',
+                accent: '#C49B00', background: '#FFFDF5', surface: '#FFFFFF',
+                card: '#FFFFFF', card_border: 'rgba(245, 194, 0, 0.25)',
+                input_bg: 'rgba(0, 0, 0, 0.04)',
+                text: '#1A1208', text_muted: '#5C4A1A', text_faint: '#9E8B5A',
+                text_on_primary: '#1A1208'
             };
         }
         if (routeId === 'pesca') {
             return {
-                primary: '#005CAB', primary_dark: '#003D75', primary_light: '#4DA3FF',
-                accent: '#00BCD4', background: '#0A1929',
-                card: 'rgba(13, 37, 63, 0.85)', card_border: 'rgba(30, 136, 229, 0.25)'
+                primary: '#005CAB', primary_dark: '#003D75', primary_light: '#DDEEFF',
+                accent: '#003D75', background: '#F5F9FF', surface: '#FFFFFF',
+                card: '#FFFFFF', card_border: 'rgba(0, 92, 171, 0.15)',
+                input_bg: 'rgba(0, 0, 0, 0.04)',
+                text: '#0A1929', text_muted: '#2A4A6B', text_faint: '#7A9BBF',
+                text_on_primary: '#FFFFFF'
             };
         }
         return {};
@@ -140,19 +189,17 @@ angular.module('rotaViva')
                 if (data.success) {
                     AuthService.saveSession(data);
 
-                    // Carregar e aplicar tema da rota
-                    var cachedTheme = ThemeService.load(data.api_key);
-                    if (cachedTheme) {
-                        ThemeService.apply(cachedTheme, true);
-                    }
-
-                    // Tentar carregar tema fresco da API
-                    ApiService.getTheme(data.api_key, data.token).then(function(theme) {
-                        if (theme) {
-                            ThemeService.save(data.api_key, theme);
-                            ThemeService.apply(theme, !cachedTheme);
+                    // Aplicar tema retornado pelo login (server-side)
+                    if (data.theme) {
+                        ThemeService.save(data.api_key, data.theme);
+                        ThemeService.apply(data.theme, true);
+                    } else {
+                        // Fallback: tema em cache
+                        var cachedTheme = ThemeService.load(data.api_key);
+                        if (cachedTheme) {
+                            ThemeService.apply(cachedTheme, true);
                         }
-                    });
+                    }
 
                     ThemeService.clearPreTheme();
                     $location.path('/dashboard');
@@ -252,21 +299,15 @@ angular.module('rotaViva')
 })
 
 // === Dashboard Controller ===
-.controller('DashboardCtrl', function($scope, AuthService, ThemeService, ApiService) {
+.controller('DashboardCtrl', function($scope, AuthService, ThemeService) {
     var session = AuthService.getSession();
     $scope.player = session.player || {};
     $scope.route = session.route || {};
     $scope.theme = ThemeService.load(session.apiKey) || {};
 
-    // Carregar tema fresco se online
-    if (session.apiKey && session.token) {
-        ApiService.getTheme(session.apiKey, session.token).then(function(theme) {
-            if (theme) {
-                ThemeService.save(session.apiKey, theme);
-                ThemeService.apply(theme, false);
-                $scope.theme = theme;
-            }
-        });
+    // Aplicar tema do cache (já vem do login)
+    if ($scope.theme && $scope.theme.colors) {
+        ThemeService.apply($scope.theme, false);
     }
 
     $scope.logout = function() {
