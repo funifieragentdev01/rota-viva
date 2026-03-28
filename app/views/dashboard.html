@@ -5,19 +5,20 @@
     </div>
 
     <div class="dashboard-body">
-        <div class="dashboard-card">
-            <h3><i class="fas fa-bullseye" style="color: var(--color-primary)"></i> {{theme.labels.missions_title || 'Suas Missões'}}</h3>
-            <p>{{theme.labels.empty_missions || 'Em breve você terá missões para completar!'}}</p>
+        <!-- Trilha de Aprendizado -->
+        <div class="dashboard-card" ng-click="goTrail()" style="cursor: pointer;">
+            <h3><i class="fas fa-route" style="color: var(--color-primary)"></i> {{theme.labels.missions_title || 'Trilha de Aprendizado'}}</h3>
+            <p>Complete trilhas, ganhe {{theme.labels.points_unit || 'XP'}} e suba de nível!</p>
         </div>
 
         <div class="dashboard-card">
             <h3><i class="fas fa-trophy" style="color: var(--color-accent)"></i> Seu Progresso</h3>
             <p>{{theme.labels.level_prefix || 'Nível'}} 1 — Iniciante</p>
-            <p style="color: var(--color-accent); margin-top: 8px; font: var(--font-h3);">0 {{theme.labels.points_unit || 'XP'}}</p>
+            <p style="color: var(--color-primary); margin-top: 8px; font: var(--font-h3);">0 {{theme.labels.points_unit || 'XP'}}</p>
         </div>
 
         <div class="dashboard-card">
-            <h3><i class="fas fa-book-open" style="color: var(--color-primary-light)"></i> {{theme.labels.diary_title || 'Diário'}}</h3>
+            <h3><i class="fas fa-book-open" style="color: var(--color-primary)"></i> {{theme.labels.diary_title || 'Diário'}}</h3>
             <p>Registre sua produção e acompanhe sua evolução.</p>
         </div>
 

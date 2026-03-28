@@ -258,5 +258,33 @@ angular.module('rotaViva')
         });
     };
 
+    // FAQ (from Central, public)
+    api.getFaqs = function() {
+        return $http.get(baseUrl + '/v3/database/faq__c?sort=order:1&q=active:true', {
+            headers: { 'Authorization': publicToken }
+        }).then(function(res) {
+            return Array.isArray(res.data) ? res.data : [];
+        });
+    };
+
+    // Trail API — direto na gamificação da rota com Bearer token do player
+    api.getTrailFolders = function(parentId, token) {
+        var q = encodeURIComponent("parent:'" + (parentId || 'root') + "',active:true");
+        return $http.get(baseUrl + '/v3/database/folder?sort=position:1&q=' + q, {
+            headers: { 'Authorization': token }
+        }).then(function(res) {
+            return Array.isArray(res.data) ? res.data : [];
+        });
+    };
+
+    api.getTrailContents = function(folderId, token) {
+        var q = encodeURIComponent("folder:'" + folderId + "'");
+        return $http.get(baseUrl + '/v3/database/folder_content?sort=position:1&q=' + q, {
+            headers: { 'Authorization': token }
+        }).then(function(res) {
+            return Array.isArray(res.data) ? res.data : [];
+        });
+    };
+
     return api;
 });

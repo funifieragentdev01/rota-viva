@@ -58,15 +58,20 @@ angular.module('rotaViva')
         'E você sente que o conhecimento dos rios que você tem não é reconhecido por ninguém.'
     ];
 
-    // FAQ
-    $scope.faqs = [
-        { q: 'O app é gratuito?', a: 'Sim, 100% gratuito. O Rota Viva é um programa do Governo Federal (MIDR) e não cobra nada do produtor.' },
-        { q: 'Preciso baixar alguma coisa?', a: 'Não. O Rota Viva funciona direto no navegador do celular, como um site. Basta acessar o link e criar sua conta.' },
-        { q: 'Funciona sem internet?', a: 'Sim! Após o primeiro acesso, o app salva as informações no seu celular. Você pode usar offline e os dados sincronizam quando voltar a ter sinal.' },
-        { q: 'O que são os badges e níveis?', a: 'São reconhecimentos que você ganha ao completar trilhas de conhecimento, registrar sua produção e participar de atividades. Quanto mais você avança, mais alto seu nível — e mais reconhecido você é.' },
-        { q: 'Quem pode participar?', a: 'Apicultores do Piauí e pescadores artesanais do Amapá. Novas rotas serão adicionadas conforme o programa expandir.' },
-        { q: 'O que é ser Fundador?', a: 'Os primeiros 50 produtores cadastrados em cada município recebem o badge de Fundador — permanente, exclusivo, nunca mais disponível. É o seu nome na história do projeto.' }
-    ];
+    // FAQ — carregado da API (faq__c na Central)
+    $scope.faqs = [];
+    ApiService.getFaqs().then(function(data) {
+        $scope.faqs = data.map(function(f) {
+            return { q: f.question, a: f.answer, open: false };
+        });
+    }).catch(function() {
+        // Fallback estático
+        $scope.faqs = [
+            { q: 'O app é gratuito?', a: 'Sim, 100% gratuito. O Rota Viva é um programa do Governo Federal (MIDR) e não cobra nada do produtor.' },
+            { q: 'Preciso baixar alguma coisa?', a: 'Não. O Rota Viva funciona direto no navegador do celular, como um site.' },
+            { q: 'Funciona sem internet?', a: 'Sim! Após o primeiro acesso, o app funciona offline.' }
+        ];
+    });
 
     // Carregar rotas da API
     ApiService.getRoutes().then(function(data) {
@@ -299,18 +304,317 @@ angular.module('rotaViva')
 })
 
 // === Dashboard Controller ===
-.controller('DashboardCtrl', function($scope, AuthService, ThemeService) {
+.controller('DashboardCtrl', function($scope, $location, AuthService, ThemeService) {
     var session = AuthService.getSession();
     $scope.player = session.player || {};
     $scope.route = session.route || {};
     $scope.theme = ThemeService.load(session.apiKey) || {};
 
-    // Aplicar tema do cache (já vem do login)
     if ($scope.theme && $scope.theme.colors) {
         ThemeService.apply($scope.theme, false);
     }
 
+    $scope.goTrail = function() {
+        $location.path('/trail');
+    };
+
     $scope.logout = function() {
         AuthService.logout();
+    };
+})
+
+// === Trail Controller ===
+.controller('TrailCtrl', function($scope, $location, $routeParams, $timeout, AuthService, ApiService, ThemeService) {
+    var session = AuthService.getSession();
+    var token = session.token;
+    var playerId = (session.player || {})._id;
+    var theme = ThemeService.load(session.apiKey) || {};
+
+    if (theme && theme.colors) ThemeService.apply(theme, false);
+
+    $scope.level = 'root'; // root | subject
+    $scope.title = theme.labels ? theme.labels.missions_title : 'Trilhas';
+    $scope.loading = true;
+    $scope.subjects = [];
+    $scope.trailItems = [];
+    $scope.trailLoading = false;
+    $scope.selectedLesson = null;
+
+    var MODULE_COLORS = ['#FF9600', '#CE82FF', '#00CD9C', '#1CB0F6', '#FF4B4B', '#FFC800'];
+    var SUBJECT_COLORS = ['#005CAB', '#F5C200', '#009B3A', '#D02020', '#CE82FF', '#00CD9C'];
+
+    var folderId = $routeParams.folderId || null;
+
+    function init() {
+        if (folderId) {
+            loadSubjectTrail(folderId);
+        } else {
+            loadSubjects();
+        }
+    }
+
+    function loadSubjects() {
+        $scope.level = 'root';
+        $scope.title = theme.labels ? theme.labels.missions_title : 'Trilhas';
+
+        ApiService.getTrailFolders('root', token).then(function(folders) {
+            $scope.subjects = folders;
+
+            folders.forEach(function(sub) {
+                ApiService.getTrailFolders(sub._id, token).then(function(children) {
+                    sub._moduleCount = children.length;
+                });
+            });
+
+            $scope.loading = false;
+        }).catch(function() {
+            $scope.subjects = [];
+            $scope.loading = false;
+        });
+    }
+
+    function loadSubjectTrail(subjectId) {
+        $scope.level = 'subject';
+        $scope.trailLoading = true;
+
+        ApiService.getTrailFolders('root', token).then(function(roots) {
+            var subject = roots.find(function(r) { return r._id === subjectId; });
+            if (subject) $scope.title = subject.title;
+        });
+
+        ApiService.getTrailFolders(subjectId, token).then(function(modules) {
+            if (modules.length === 0) {
+                $scope.trailItems = [];
+                $scope.trailLoading = false;
+                $scope.loading = false;
+                return;
+            }
+
+            var pending = modules.length;
+            var allItems = [];
+
+            modules.forEach(function(mod, modIdx) {
+                var color = (mod.extra && mod.extra.color) || MODULE_COLORS[modIdx % MODULE_COLORS.length];
+
+                allItems.push({
+                    _type: 'module',
+                    _id: mod._id,
+                    title: mod.title,
+                    color: color,
+                    position: mod.position || modIdx,
+                    _lessonCount: 0
+                });
+
+                ApiService.getTrailFolders(mod._id, token).then(function(lessons) {
+                    var moduleHeader = allItems.find(function(i) { return i._id === mod._id; });
+                    if (moduleHeader) moduleHeader._lessonCount = lessons.length;
+
+                    lessons.forEach(function(lesson, lIdx) {
+                        allItems.push({
+                            _type: 'lesson',
+                            _id: lesson._id,
+                            title: lesson.title,
+                            moduleColor: color,
+                            moduleId: mod._id,
+                            lessonIndex: lIdx,
+                            position: lesson.position || lIdx,
+                            icon: 'fa-play',
+                            _locked: false,
+                            _done: false
+                        });
+                    });
+
+                    pending--;
+                    if (pending === 0) finalizeTrail(allItems);
+                }).catch(function() {
+                    pending--;
+                    if (pending === 0) finalizeTrail(allItems);
+                });
+            });
+
+            $scope.loading = false;
+        }).catch(function() {
+            $scope.trailItems = [];
+            $scope.trailLoading = false;
+            $scope.loading = false;
+        });
+    }
+
+    function finalizeTrail(items) {
+        // Sort: modules by position, lessons by their module position then lesson position
+        var modules = items.filter(function(i) { return i._type === 'module'; })
+            .sort(function(a, b) { return a.position - b.position; });
+
+        var flat = [];
+        modules.forEach(function(mod) {
+            flat.push(mod);
+            var lessons = items.filter(function(i) { return i._type === 'lesson' && i.moduleId === mod._id; })
+                .sort(function(a, b) { return a.position - b.position; });
+            lessons.forEach(function(l, idx) {
+                l.lessonIndex = idx;
+                l.icon = getLessonIcon(l, idx);
+                flat.push(l);
+            });
+        });
+
+        $scope.trailItems = flat;
+        $scope.trailLoading = false;
+        $scope.$applyAsync();
+    }
+
+    function getLessonIcon(lesson, idx) {
+        if (lesson._locked) return 'fa-lock';
+        if (lesson._done) return 'fa-star';
+        return 'fa-play';
+    }
+
+    $scope.getSubjectColor = function(idx) {
+        return SUBJECT_COLORS[idx % SUBJECT_COLORS.length];
+    };
+
+    $scope.getSubjectIcon = function(subject) {
+        var name = (subject.title || '').toLowerCase();
+        var map = {
+            'regularização': 'fa-file-invoice', 'regularizacao': 'fa-file-invoice',
+            'políticas': 'fa-building-columns', 'politicas': 'fa-building-columns',
+            'manejo': 'fa-seedling', 'produção': 'fa-industry', 'producao': 'fa-industry',
+            'comercialização': 'fa-coins', 'comercializacao': 'fa-coins',
+            'organização': 'fa-handshake', 'organizacao': 'fa-handshake',
+            'território': 'fa-map', 'territorio': 'fa-map',
+            'saúde': 'fa-heart', 'saude': 'fa-heart',
+            'meio ambiente': 'fa-leaf', 'sustentabilidade': 'fa-recycle'
+        };
+        for (var key in map) {
+            if (name.indexOf(key) !== -1) return map[key];
+        }
+        return 'fa-book';
+    };
+
+    $scope.openSubject = function(subject) {
+        $location.path('/trail/' + subject._id);
+    };
+
+    $scope.getBubbleStyle = function(item) {
+        if (item._type !== 'lesson') return {};
+        var xOffset = Math.sin(item.lessonIndex * 0.8) * 70;
+        return { 'margin-left': 'calc(50% - 28px + ' + xOffset + 'px)' };
+    };
+
+    $scope.getBubbleClass = function(item) {
+        if (item._locked) return 'duo-bubble duo-locked';
+        if (item._done) return 'duo-bubble duo-done';
+        return 'duo-bubble duo-active';
+    };
+
+    $scope.getBubbleDynamic = function(item) {
+        if (item._locked) return {};
+        return { 'background': item.moduleColor };
+    };
+
+    $scope.selectLesson = function(item, $event) {
+        $event.stopPropagation();
+        if ($scope.selectedLesson && $scope.selectedLesson._id === item._id) {
+            $scope.selectedLesson = null;
+        } else {
+            $scope.selectedLesson = item;
+        }
+    };
+
+    $scope.startLesson = function(item) {
+        if (item._locked) return;
+        ApiService.getTrailContents(item._id, token).then(function(contents) {
+            var quiz = contents.find(function(c) { return c.type === 'quiz'; });
+            if (quiz && quiz.content) {
+                $location.path('/quiz/' + quiz.content);
+            }
+        });
+    };
+
+    $scope.goBack = function() {
+        if ($scope.level === 'subject') {
+            $location.path('/trail');
+        } else {
+            $location.path('/dashboard');
+        }
+    };
+
+    $scope.goHome = function() {
+        $location.path('/dashboard');
+    };
+
+    // Close popup on body click
+    $scope.$on('$destroy', function() {});
+
+    init();
+})
+
+// === Quiz Controller (placeholder) ===
+.controller('QuizCtrl', function($scope, $routeParams, $location, AuthService, ApiService) {
+    var session = AuthService.getSession();
+    var token = session.token;
+    var quizId = $routeParams.quizId;
+
+    $scope.quizTitle = '';
+    $scope.questions = [];
+    $scope.currentIndex = 0;
+    $scope.loading = true;
+    $scope.finished = false;
+    $scope.score = 0;
+
+    // Load quiz + questions
+    ApiService.getQuiz(quizId, token).then(function(quiz) {
+        $scope.quizTitle = quiz.title || 'Quiz';
+        return ApiService.getQuestions(quizId, token);
+    }).then(function(questions) {
+        $scope.questions = questions.map(function(q) {
+            return {
+                _id: q._id,
+                text: q.description || q.title || '',
+                type: q.type || 'MULTIPLE_CHOICE',
+                options: (q.alternatives || []).map(function(a) {
+                    return { text: a.description || a.title || '', correct: !!a.correct, selected: false };
+                }),
+                answered: false,
+                correct: false
+            };
+        });
+        $scope.loading = false;
+    }).catch(function() {
+        $scope.loading = false;
+    });
+
+    $scope.current = function() {
+        return $scope.questions[$scope.currentIndex] || null;
+    };
+
+    $scope.selectOption = function(q, opt) {
+        if (q.answered) return;
+        q.options.forEach(function(o) { o.selected = false; });
+        opt.selected = true;
+    };
+
+    $scope.checkAnswer = function(q) {
+        if (q.answered) return;
+        q.answered = true;
+        var selected = q.options.find(function(o) { return o.selected; });
+        q.correct = selected && selected.correct;
+        if (q.correct) $scope.score++;
+    };
+
+    $scope.next = function() {
+        if ($scope.currentIndex < $scope.questions.length - 1) {
+            $scope.currentIndex++;
+        } else {
+            $scope.finished = true;
+        }
+    };
+
+    $scope.goBack = function() {
+        window.history.back();
+    };
+
+    $scope.progressPercent = function() {
+        if ($scope.questions.length === 0) return 0;
+        return Math.round(($scope.currentIndex / $scope.questions.length) * 100);
     };
 });

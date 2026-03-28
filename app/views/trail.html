@@ -1,0 +1,122 @@
+<div class="view-container trail-view">
+
+    <!-- Header -->
+    <div class="trail-header">
+        <button class="trail-back" ng-click="goBack()" ng-if="level !== 'root'">
+            <i class="fas fa-arrow-left"></i>
+        </button>
+        <button class="trail-back" ng-click="goHome()" ng-if="level === 'root'">
+            <i class="fas fa-house"></i>
+        </button>
+        <h2>{{title}}</h2>
+        <div class="trail-header-right"></div>
+    </div>
+
+    <!-- Loading -->
+    <div class="loading-screen" ng-if="loading" style="min-height: 200px;">
+        <div class="loading-spinner"></div>
+        <p>Carregando trilha...</p>
+    </div>
+
+    <!-- ═══ SUBJECT GRID (root level) ═══ -->
+    <div class="trail-subjects" ng-if="!loading && level === 'root'">
+        <div class="subject-card" ng-repeat="subject in subjects"
+             ng-click="openSubject(subject)"
+             ng-style="{'border-left-color': getSubjectColor($index)}">
+            <div class="subject-icon" ng-style="{'background': getSubjectColor($index)}">
+                <i class="fas" ng-class="getSubjectIcon(subject)"></i>
+            </div>
+            <div class="subject-info">
+                <h3>{{subject.title}}</h3>
+                <p ng-if="subject._moduleCount">{{subject._moduleCount}} módulo{{subject._moduleCount > 1 ? 's' : ''}}</p>
+            </div>
+            <i class="fas fa-chevron-right" style="color: var(--color-text-faint)"></i>
+        </div>
+
+        <!-- Empty state -->
+        <div class="trail-empty" ng-if="subjects.length === 0">
+            <div style="font-size: 48px; margin-bottom: 16px;">📚</div>
+            <h3>Nenhuma trilha disponível</h3>
+            <p>As trilhas de conhecimento serão disponibilizadas em breve.</p>
+        </div>
+    </div>
+
+    <!-- ═══ DUOLINGO S-CURVE TRAIL (subject level — modules + lessons) ═══ -->
+    <div class="duo-trail-container" ng-if="!loading && level === 'subject'">
+
+        <!-- Trail loading -->
+        <div class="loading-screen" ng-if="trailLoading" style="min-height: 200px;">
+            <div class="loading-spinner"></div>
+        </div>
+
+        <div class="duo-trail" ng-if="!trailLoading && trailItems.length > 0">
+            <div ng-repeat="item in trailItems" class="duo-trail-item">
+
+                <!-- Module Header -->
+                <div class="duo-module-header" ng-if="item._type === 'module'"
+                     ng-style="{'background-color': item.color}">
+                    <div class="duo-module-info">
+                        <div class="duo-module-title">{{item.title}}</div>
+                        <div class="duo-module-progress" ng-if="item._lessonCount">
+                            {{item._lessonCount}} aula{{item._lessonCount > 1 ? 's' : ''}}
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lesson Bubble -->
+                <div class="duo-bubble-wrap" ng-if="item._type === 'lesson'"
+                     ng-style="getBubbleStyle(item)">
+                    <div ng-class="getBubbleClass(item)"
+                         ng-style="getBubbleDynamic(item)"
+                         ng-click="selectLesson(item, $event)">
+                        <i class="fas" ng-class="item.icon"></i>
+                    </div>
+
+                    <!-- Popup -->
+                    <div class="duo-popup" ng-if="selectedLesson._id === item._id"
+                         ng-click="$event.stopPropagation()">
+                        <div class="duo-popup-title">{{item.title}}</div>
+                        <button class="btn btn-primary duo-popup-btn"
+                                ng-style="{'background': item.moduleColor}"
+                                ng-click="startLesson(item)"
+                                ng-disabled="item._locked">
+                            {{item._locked ? 'BLOQUEADA' : (item._done ? 'REVISAR' : 'COMEÇAR')}}
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Empty trail -->
+        <div class="trail-empty" ng-if="!trailLoading && trailItems.length === 0">
+            <div style="font-size: 48px; margin-bottom: 16px;">📂</div>
+            <h3>Nenhum módulo ainda</h3>
+            <p>O conteúdo será disponibilizado em breve.</p>
+        </div>
+    </div>
+
+    <!-- Bottom Nav -->
+    <nav class="bottom-nav" ng-if="!loading">
+        <a class="bottom-nav-item" ng-click="goHome()">
+            <i class="fas fa-house"></i>
+            <span>Início</span>
+        </a>
+        <a class="bottom-nav-item active">
+            <i class="fas fa-route"></i>
+            <span>Trilha</span>
+        </a>
+        <a class="bottom-nav-item">
+            <i class="fas fa-book-open"></i>
+            <span>Diário</span>
+        </a>
+        <a class="bottom-nav-item">
+            <i class="fas fa-ranking-star"></i>
+            <span>Ranking</span>
+        </a>
+        <a class="bottom-nav-item">
+            <i class="fas fa-circle-user"></i>
+            <span>Perfil</span>
+        </a>
+    </nav>
+</div>

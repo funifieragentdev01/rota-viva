@@ -26,6 +26,21 @@ angular.module('rotaViva', ['ngRoute'])
             controller: 'DashboardCtrl',
             resolve: { auth: function(AuthService) { return AuthService.requireAuth(); } }
         })
+        .when('/trail', {
+            templateUrl: 'views/trail.html',
+            controller: 'TrailCtrl',
+            resolve: { auth: function(AuthService) { return AuthService.requireAuth(); } }
+        })
+        .when('/trail/:folderId', {
+            templateUrl: 'views/trail.html',
+            controller: 'TrailCtrl',
+            resolve: { auth: function(AuthService) { return AuthService.requireAuth(); } }
+        })
+        .when('/quiz/:quizId', {
+            templateUrl: 'views/quiz.html',
+            controller: 'QuizCtrl',
+            resolve: { auth: function(AuthService) { return AuthService.requireAuth(); } }
+        })
         .otherwise({ redirectTo: '/home' });
 })
 

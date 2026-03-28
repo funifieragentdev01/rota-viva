@@ -1,0 +1,90 @@
+<div class="view-container quiz-view">
+
+    <!-- Header with progress -->
+    <div class="quiz-header">
+        <button class="trail-back" ng-click="goBack()">
+            <i class="fas fa-times"></i>
+        </button>
+        <div class="quiz-progress-bar">
+            <div class="quiz-progress-fill" ng-style="{'width': progressPercent() + '%'}"></div>
+        </div>
+        <span class="quiz-score">{{score}}/{{questions.length}}</span>
+    </div>
+
+    <!-- Loading -->
+    <div class="loading-screen" ng-if="loading" style="min-height: 300px;">
+        <div class="loading-spinner"></div>
+        <p>Carregando quiz...</p>
+    </div>
+
+    <!-- Question -->
+    <div class="quiz-body" ng-if="!loading && !finished && current()">
+        <div class="quiz-question">
+            <p class="quiz-question-text">{{current().text}}</p>
+        </div>
+
+        <div class="quiz-options">
+            <button class="quiz-option"
+                    ng-repeat="opt in current().options"
+                    ng-click="selectOption(current(), opt)"
+                    ng-class="{
+                        'selected': opt.selected && !current().answered,
+                        'correct': current().answered && opt.correct,
+                        'wrong': current().answered && opt.selected && !opt.correct
+                    }"
+                    ng-disabled="current().answered">
+                <span class="quiz-option-letter">{{['A','B','C','D','E'][$index]}}</span>
+                <span class="quiz-option-text">{{opt.text}}</span>
+            </button>
+        </div>
+
+        <!-- Check / Next buttons -->
+        <div class="quiz-actions">
+            <button class="btn btn-primary" ng-click="checkAnswer(current())"
+                    ng-if="!current().answered"
+                    ng-disabled="!current().options.some(function(o){return o.selected;})">
+                Verificar
+            </button>
+
+            <div class="quiz-feedback" ng-if="current().answered">
+                <div class="quiz-feedback-icon" ng-class="current().correct ? 'correct' : 'wrong'">
+                    <i class="fas" ng-class="current().correct ? 'fa-check-circle' : 'fa-times-circle'"></i>
+                    {{current().correct ? 'Correto!' : 'Incorreto'}}
+                </div>
+                <button class="btn btn-primary" ng-click="next()">
+                    {{currentIndex < questions.length - 1 ? 'Próxima' : 'Finalizar'}}
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Finished -->
+    <div class="quiz-finish" ng-if="finished">
+        <div class="quiz-finish-icon">🎉</div>
+        <h2>Quiz Concluído!</h2>
+        <p class="quiz-finish-score">{{score}} de {{questions.length}} corretas</p>
+        <div class="quiz-finish-bar">
+            <div class="quiz-finish-fill"
+                 ng-style="{'width': (score/questions.length*100) + '%', 'background': score/questions.length >= 0.7 ? 'var(--color-success)' : 'var(--color-warning)'}">
+            </div>
+        </div>
+        <p class="quiz-finish-msg" ng-if="score/questions.length >= 0.7">
+            <i class="fas fa-star" style="color: var(--color-accent)"></i>
+            Parabéns! Você passou!
+        </p>
+        <p class="quiz-finish-msg" ng-if="score/questions.length < 0.7">
+            Continue tentando! Você está aprendendo.
+        </p>
+        <button class="btn btn-primary" ng-click="goBack()" style="margin-top: 24px;">
+            <i class="fas fa-arrow-left"></i> Voltar à Trilha
+        </button>
+    </div>
+
+    <!-- Empty -->
+    <div class="quiz-empty" ng-if="!loading && questions.length === 0 && !finished">
+        <div style="font-size: 48px; margin-bottom: 16px;">📝</div>
+        <h3>Quiz sem questões</h3>
+        <p>Este quiz ainda não tem perguntas.</p>
+        <button class="btn btn-outline" ng-click="goBack()" style="margin-top: 16px;">Voltar</button>
+    </div>
+</div>
