@@ -998,28 +998,30 @@ h1, h2, h3, h4 { font-family: var(--font-display); }
 /* Lesson Bubble */
 .duo-bubble-wrap {
     position: relative;
-    width: 56px;
+    width: 64px;
     transition: margin-left 0.3s ease;
+    margin-bottom: 16px;
 }
 
 .duo-bubble {
-    width: 56px; height: 56px;
+    width: 64px; height: 64px;
     border-radius: var(--radius-full);
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     color: #fff;
-    font-size: 20px;
+    font-size: 26px;
     transition: transform 0.15s;
-    border-bottom: 4px solid rgba(0,0,0,0.2);
+    border-bottom: 5px solid rgba(0,0,0,0.2);
     box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
+.duo-bubble i { filter: drop-shadow(0 1px 1px rgba(0,0,0,0.15)); }
 
 .duo-bubble:active { transform: scale(0.9); }
 .duo-active { background: var(--color-primary); }
 .duo-done { background: var(--color-success); }
-.duo-locked { background: #CCC; color: #999; cursor: not-allowed; border-bottom-color: #AAA; }
+.duo-locked { background: #D5D5D5; color: #A0A0A0; cursor: not-allowed; border-bottom-color: #B0B0B0; }
 
 /* Lesson Popup */
 .duo-popup {

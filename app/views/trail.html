@@ -79,8 +79,8 @@
                         <button class="btn btn-primary duo-popup-btn"
                                 ng-style="{'background': item.moduleColor}"
                                 ng-click="startLesson(item)"
-                                ng-disabled="item._locked">
-                            {{item._locked ? 'BLOQUEADA' : (item._done ? 'REVISAR' : 'COMEÇAR')}}
+                                ng-disabled="!item.is_unlocked">
+                            {{!item.is_unlocked ? 'BLOQUEADA' : (item.percent >= 100 ? 'REVISAR' : 'COMEÇAR')}}
                         </button>
                     </div>
                 </div>

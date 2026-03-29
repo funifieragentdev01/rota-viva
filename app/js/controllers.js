@@ -543,7 +543,7 @@ angular.module('rotaViva')
     $scope.getBubbleStyle = function(item) {
         if (item._type !== 'lesson') return {};
         var xOffset = Math.sin(item.lessonIndex * 0.8) * 70;
-        return { 'margin-left': 'calc(50% - 28px + ' + xOffset + 'px)' };
+        return { 'margin-left': 'calc(50% - 32px + ' + xOffset + 'px)' };
     };
 
     $scope.getBubbleClass = function(item) {
