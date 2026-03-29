@@ -504,9 +504,11 @@ angular.module('rotaViva')
     };
 
     function getLessonIcon(lesson) {
+        var typeIcon = CONTENT_ICONS[lesson.contentType];
+        if (typeIcon) return typeIcon; // always show content type icon
+        // Unknown type: lock if blocked, star if open
         if (!lesson.is_unlocked) return 'fa-lock';
-        if (lesson.percent >= 100) return 'fa-circle-check';
-        return CONTENT_ICONS[lesson.contentType] || 'fa-star';
+        return 'fa-star';
     }
 
     $scope.getSubjectColor = function(idx) {
