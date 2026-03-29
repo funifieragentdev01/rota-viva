@@ -7,6 +7,20 @@ angular.module('rotaViva', ['ngRoute'])
     };
 })
 
+// Cache-busting: append ?v=VERSION to all $http requests to the API
+.config(function($httpProvider) {
+    $httpProvider.interceptors.push(function() {
+        return {
+            request: function(config) {
+                if (config.url && config.url.indexOf('/v3/') !== -1) {
+                    config.url += (config.url.indexOf('?') > -1 ? '&' : '?') + 'v=' + (CONFIG.VERSION || '0');
+                }
+                return config;
+            }
+        };
+    });
+})
+
 .config(function($routeProvider) {
     $routeProvider
         .when('/home', {
@@ -45,6 +59,7 @@ angular.module('rotaViva', ['ngRoute'])
 })
 
 .run(function($rootScope, $location, AuthService, ThemeService) {
+    $rootScope.CONFIG = CONFIG;
     $rootScope.$on('$routeChangeError', function() {
         $location.path('/login');
     });

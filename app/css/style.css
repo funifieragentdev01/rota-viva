@@ -1247,3 +1247,15 @@ h1, h2, h3, h4 { font-family: var(--font-display); }
     .landing-hero { min-height: 420px; }
     .landing-hero-content h1 { font-size: 28px; }
 }
+
+/* === App Version Footer === */
+.app-version {
+    position: fixed;
+    bottom: 64px; /* above bottom nav */
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 9px;
+    color: rgba(0,0,0,0.15);
+    pointer-events: none;
+    z-index: 9999;
+}
