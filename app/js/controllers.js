@@ -606,6 +606,8 @@ angular.module('rotaViva')
     $scope.score = 0;
     $scope.quizLogId = null;
     $scope.lessonFolderId = null; // to log folder progress on finish
+    $scope.tfAnswer = null;       // TRUE_FALSE selection
+    $scope.essayAnswer = '';      // ESSAY / SHORT_ANSWER text
 
     function authHeaders() {
         return { 'Authorization': token, 'Content-Type': 'application/json' };
@@ -629,10 +631,13 @@ angular.module('rotaViva')
 
         $scope.questions = rawQuestions.map(function(q) {
             var choices = q.choices || q.alternatives || [];
+            var type = q.type || 'MULTIPLE_CHOICE';
             return {
                 _id: q._id,
                 text: q.question || q.title || '',
-                type: q.type || 'MULTIPLE_CHOICE',
+                type: type,
+                correctAnswer: q.correctAnswer,
+                totalLines: q.totalLines || 5,
                 options: choices.map(function(c, idx) {
                     // Funifier Studio: label="A","B"... (letter), answer=text, grade=score
                     return {
@@ -643,7 +648,8 @@ angular.module('rotaViva')
                     };
                 }),
                 answered: false,
-                correct: false
+                correct: false,
+                correctLabel: ''
             };
         });
 
@@ -681,33 +687,68 @@ angular.module('rotaViva')
         opt.selected = true;
     };
 
-    $scope.hasSelection = function(q) {
-        if (!q || !q.options) return false;
-        return q.options.some(function(o) { return o.selected; });
+    $scope.selectTF = function(val) {
+        if ($scope.current() && $scope.current().answered) return;
+        $scope.tfAnswer = val;
+    };
+
+    // Can the user click "Verificar"?
+    $scope.canConfirm = function() {
+        var q = $scope.current();
+        if (!q) return false;
+        if (q.type === 'TRUE_FALSE') return $scope.tfAnswer !== null;
+        if (q.type === 'ESSAY' || q.type === 'SHORT_ANSWER') return ($scope.essayAnswer || '').trim().length > 0;
+        // MULTIPLE_CHOICE
+        return q.options && q.options.some(function(o) { return o.selected; });
     };
 
     $scope.checkAnswer = function(q) {
         if (q.answered) return;
         q.answered = true;
-        var selected = q.options.find(function(o) { return o.selected; });
-        q.correct = selected && selected.correct;
-        if (q.correct) $scope.score++;
 
-        // Log answer
-        if ($scope.quizLogId && selected) {
-            $http.post(baseUrl + '/v3/question/log/bulk', [{
-                quiz: quizId,
-                quiz_log: $scope.quizLogId,
-                question: q._id,
-                answer: [selected.answer],
-                player: playerId
-            }], { headers: authHeaders() }).catch(function() {});
+        if (q.type === 'TRUE_FALSE') {
+            q.correct = ($scope.tfAnswer === q.correctAnswer);
+            if (!q.correct) {
+                q.correctLabel = 'A resposta certa era: ' + (q.correctAnswer ? 'Verdadeiro' : 'Falso');
+            }
+            if (q.correct) $scope.score++;
+            logAnswer(q, [$scope.tfAnswer ? 'true' : 'false']);
+
+        } else if (q.type === 'ESSAY' || q.type === 'SHORT_ANSWER') {
+            // Essay is always "correct" (participation-based)
+            q.correct = true;
+            $scope.score++;
+            logAnswer(q, [$scope.essayAnswer]);
+
+        } else {
+            // MULTIPLE_CHOICE
+            var selected = q.options.find(function(o) { return o.selected; });
+            q.correct = selected && selected.correct;
+            if (!q.correct) {
+                var correctOpt = q.options.find(function(o) { return o.correct; });
+                if (correctOpt) q.correctLabel = 'Resposta correta: ' + correctOpt.text;
+            }
+            if (q.correct) $scope.score++;
+            if (selected) logAnswer(q, [selected.answer]);
         }
     };
+
+    function logAnswer(q, answerArr) {
+        if (!$scope.quizLogId) return;
+        $http.post(baseUrl + '/v3/question/log/bulk', [{
+            quiz: quizId,
+            quiz_log: $scope.quizLogId,
+            question: q._id,
+            answer: answerArr,
+            player: playerId
+        }], { headers: authHeaders() }).catch(function() {});
+    }
 
     $scope.next = function() {
         if ($scope.currentIndex < $scope.questions.length - 1) {
             $scope.currentIndex++;
+            $scope.tfAnswer = null;
+            $scope.essayAnswer = '';
         } else {
             $scope.finished = true;
 

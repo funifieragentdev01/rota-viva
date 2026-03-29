@@ -1259,3 +1259,77 @@ h1, h2, h3, h4 { font-family: var(--font-display); }
     pointer-events: none;
     z-index: 9999;
 }
+
+/* === TRUE_FALSE Buttons === */
+.quiz-tf {
+    display: flex;
+    gap: 12px;
+    padding: 0 20px;
+    margin-bottom: 24px;
+}
+.quiz-tf-btn {
+    flex: 1;
+    padding: 18px 16px;
+    border-radius: 14px;
+    border: 2px solid var(--color-card-border, rgba(0,0,0,0.1));
+    background: var(--color-card, #fff);
+    color: var(--color-text, #1a1208);
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+.quiz-tf-btn:active { transform: scale(0.97); }
+.quiz-tf-btn.selected {
+    border-color: var(--color-primary, #FF9600);
+    background: var(--color-primary-light, #FFF3B0);
+}
+.quiz-tf-btn.correct {
+    border-color: var(--color-success, #2E7D32);
+    background: #E8F5E9;
+    color: var(--color-success, #2E7D32);
+}
+.quiz-tf-btn.wrong {
+    border-color: var(--color-error, #C62828);
+    background: #FFEBEE;
+    color: var(--color-error, #C62828);
+}
+
+/* === ESSAY / SHORT_ANSWER === */
+.quiz-essay {
+    padding: 0 20px;
+    margin-bottom: 24px;
+}
+.quiz-essay-input {
+    width: 100%;
+    padding: 16px;
+    border-radius: 14px;
+    border: 2px solid var(--color-card-border, rgba(0,0,0,0.1));
+    background: var(--color-card, #fff);
+    color: var(--color-text, #1a1208);
+    font-size: 15px;
+    font-family: 'Inter', sans-serif;
+    resize: vertical;
+    min-height: 100px;
+    box-sizing: border-box;
+}
+.quiz-essay-input:focus {
+    outline: none;
+    border-color: var(--color-primary, #FF9600);
+}
+.quiz-essay-input:disabled {
+    opacity: 0.6;
+    background: var(--color-input-bg, rgba(0,0,0,0.04));
+}
+
+/* === Feedback correct label === */
+.quiz-feedback-label {
+    font-size: 14px;
+    color: var(--color-text-muted, #5C4A1A);
+    margin: 8px 0 12px;
+    text-align: center;
+}

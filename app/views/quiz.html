@@ -8,7 +8,7 @@
         <div class="quiz-progress-bar">
             <div class="quiz-progress-fill" ng-style="{'width': progressPercent() + '%'}"></div>
         </div>
-        <span class="quiz-score">{{score}}/{{questions.length}}</span>
+        <span class="quiz-score">{{currentIndex + 1}}/{{questions.length}}</span>
     </div>
 
     <!-- Loading -->
@@ -23,7 +23,8 @@
             <p class="quiz-question-text">{{current().text}}</p>
         </div>
 
-        <div class="quiz-options">
+        <!-- MULTIPLE_CHOICE -->
+        <div class="quiz-options" ng-if="current().type === 'MULTIPLE_CHOICE'">
             <button class="quiz-option"
                     ng-repeat="opt in current().options"
                     ng-click="selectOption(current(), opt)"
@@ -38,11 +39,44 @@
             </button>
         </div>
 
+        <!-- TRUE_FALSE -->
+        <div class="quiz-tf" ng-if="current().type === 'TRUE_FALSE'">
+            <button class="quiz-tf-btn"
+                    ng-click="selectTF(true)"
+                    ng-class="{
+                        'selected': tfAnswer === true && !current().answered,
+                        'correct': current().answered && current().correctAnswer === true,
+                        'wrong': current().answered && tfAnswer === true && current().correctAnswer !== true
+                    }"
+                    ng-disabled="current().answered">
+                <i class="fas fa-check"></i> Verdadeiro
+            </button>
+            <button class="quiz-tf-btn"
+                    ng-click="selectTF(false)"
+                    ng-class="{
+                        'selected': tfAnswer === false && !current().answered,
+                        'correct': current().answered && current().correctAnswer === false,
+                        'wrong': current().answered && tfAnswer === false && current().correctAnswer !== false
+                    }"
+                    ng-disabled="current().answered">
+                <i class="fas fa-times"></i> Falso
+            </button>
+        </div>
+
+        <!-- ESSAY / SHORT_ANSWER -->
+        <div class="quiz-essay" ng-if="current().type === 'ESSAY' || current().type === 'SHORT_ANSWER'">
+            <textarea class="quiz-essay-input"
+                      ng-model="essayAnswer"
+                      ng-disabled="current().answered"
+                      placeholder="Escreva sua resposta..."
+                      rows="{{current().totalLines || 5}}"></textarea>
+        </div>
+
         <!-- Check / Next buttons -->
         <div class="quiz-actions">
             <button class="btn btn-primary" ng-click="checkAnswer(current())"
                     ng-if="!current().answered"
-                    ng-disabled="!hasSelection(current())">
+                    ng-disabled="!canConfirm()">
                 Verificar
             </button>
 
@@ -50,6 +84,9 @@
                 <div class="quiz-feedback-icon" ng-class="current().correct ? 'correct' : 'wrong'">
                     <i class="fas" ng-class="current().correct ? 'fa-check-circle' : 'fa-times-circle'"></i>
                     {{current().correct ? 'Correto!' : 'Incorreto'}}
+                </div>
+                <div class="quiz-feedback-label" ng-if="!current().correct && current().correctLabel">
+                    {{current().correctLabel}}
                 </div>
                 <button class="btn btn-primary" ng-click="next()">
                     {{currentIndex < questions.length - 1 ? 'Próxima' : 'Finalizar'}}
