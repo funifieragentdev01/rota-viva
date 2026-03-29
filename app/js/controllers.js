@@ -634,9 +634,10 @@ angular.module('rotaViva')
                 text: q.question || q.title || '',
                 type: q.type || 'MULTIPLE_CHOICE',
                 options: choices.map(function(c, idx) {
+                    // Funifier Studio: label="A","B"... (letter), answer=text, grade=score
                     return {
-                        answer: c.answer || String(idx + 1),
-                        text: c.label || c.description || c.title || '',
+                        answer: c.label || String.fromCharCode(65 + idx),
+                        text: c.answer || c.label || c.description || c.title || '',
                         correct: !!(c.gradeCheck || c.correct || (c.grade && c.grade > 0)),
                         selected: false
                     };
