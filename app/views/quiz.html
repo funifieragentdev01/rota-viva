@@ -42,7 +42,7 @@
         <div class="quiz-actions">
             <button class="btn btn-primary" ng-click="checkAnswer(current())"
                     ng-if="!current().answered"
-                    ng-disabled="!current().options.some(function(o){return o.selected;})">
+                    ng-disabled="!hasSelection(current())">
                 Verificar
             </button>
 

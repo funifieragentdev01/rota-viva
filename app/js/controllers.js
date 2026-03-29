@@ -324,9 +324,9 @@ angular.module('rotaViva')
 })
 
 // === Trail Controller ===
+// Uses Funifier native /v3/folder/* endpoints (same pattern as Tutor)
 .controller('TrailCtrl', function($scope, $location, $routeParams, $timeout, AuthService, ApiService, ThemeService) {
     var session = AuthService.getSession();
-    var token = session.token;
     var playerId = (session.player || {})._id;
     var theme = ThemeService.load(session.apiKey) || {};
 
@@ -353,16 +353,21 @@ angular.module('rotaViva')
         }
     }
 
+    // Root level: list all subjects (root folders with parent: null)
     function loadSubjects() {
         $scope.level = 'root';
         $scope.title = theme.labels ? theme.labels.missions_title : 'Trilhas';
 
-        ApiService.getTrailFolders('root', token).then(function(folders) {
-            $scope.subjects = folders;
+        ApiService.folderInside(null).then(function(data) {
+            var items = data.items || [];
+            // Only show folders (subjects), not loose content at root
+            $scope.subjects = items.filter(function(i) { return i.folder !== false; });
 
-            folders.forEach(function(sub) {
-                ApiService.getTrailFolders(sub._id, token).then(function(children) {
-                    sub._moduleCount = children.length;
+            // Load module count for each subject
+            $scope.subjects.forEach(function(sub) {
+                ApiService.folderInside(sub._id).then(function(innerData) {
+                    var innerItems = innerData.items || [];
+                    sub._moduleCount = innerItems.filter(function(i) { return i.folder !== false; }).length;
                 });
             });
 
@@ -373,16 +378,23 @@ angular.module('rotaViva')
         });
     }
 
+    // Subject level: Duolingo S-curve with modules and lessons
     function loadSubjectTrail(subjectId) {
         $scope.level = 'subject';
         $scope.trailLoading = true;
 
-        ApiService.getTrailFolders('root', token).then(function(roots) {
-            var subject = roots.find(function(r) { return r._id === subjectId; });
+        // Get subject title
+        ApiService.folderInside(null).then(function(data) {
+            var items = data.items || [];
+            var subject = items.find(function(i) { return i._id === subjectId; });
             if (subject) $scope.title = subject.title;
         });
 
-        ApiService.getTrailFolders(subjectId, token).then(function(modules) {
+        // Get modules with progress
+        ApiService.folderProgress(subjectId, playerId).then(function(data) {
+            var items = data.items || [];
+            var modules = items.filter(function(i) { return i.folder !== false; });
+
             if (modules.length === 0) {
                 $scope.trailItems = [];
                 $scope.trailLoading = false;
@@ -401,11 +413,15 @@ angular.module('rotaViva')
                     _id: mod._id,
                     title: mod.title,
                     color: color,
+                    percent: mod.percent || 0,
                     position: mod.position || modIdx,
                     _lessonCount: 0
                 });
 
-                ApiService.getTrailFolders(mod._id, token).then(function(lessons) {
+                // Get lessons inside each module (with progress)
+                ApiService.folderProgress(mod._id, playerId).then(function(lessonData) {
+                    var lessonItems = lessonData.items || [];
+                    var lessons = lessonItems.filter(function(i) { return i.folder !== false; });
                     var moduleHeader = allItems.find(function(i) { return i._id === mod._id; });
                     if (moduleHeader) moduleHeader._lessonCount = lessons.length;
 
@@ -418,9 +434,9 @@ angular.module('rotaViva')
                             moduleId: mod._id,
                             lessonIndex: lIdx,
                             position: lesson.position || lIdx,
-                            icon: 'fa-play',
-                            _locked: false,
-                            _done: false
+                            percent: lesson.percent || 0,
+                            is_unlocked: lesson.is_unlocked !== false,
+                            icon: 'fa-play'
                         });
                     });
 
@@ -441,18 +457,17 @@ angular.module('rotaViva')
     }
 
     function finalizeTrail(items) {
-        // Sort: modules by position, lessons by their module position then lesson position
         var modules = items.filter(function(i) { return i._type === 'module'; })
-            .sort(function(a, b) { return a.position - b.position; });
+            .sort(function(a, b) { return (a.position || 0) - (b.position || 0); });
 
         var flat = [];
         modules.forEach(function(mod) {
             flat.push(mod);
             var lessons = items.filter(function(i) { return i._type === 'lesson' && i.moduleId === mod._id; })
-                .sort(function(a, b) { return a.position - b.position; });
+                .sort(function(a, b) { return (a.position || 0) - (b.position || 0); });
             lessons.forEach(function(l, idx) {
                 l.lessonIndex = idx;
-                l.icon = getLessonIcon(l, idx);
+                l.icon = getLessonIcon(l);
                 flat.push(l);
             });
         });
@@ -460,11 +475,22 @@ angular.module('rotaViva')
         $scope.trailItems = flat;
         $scope.trailLoading = false;
         $scope.$applyAsync();
+
+        // Auto-scroll to first available lesson
+        $timeout(function() {
+            for (var i = 0; i < flat.length; i++) {
+                if (flat[i]._type === 'lesson' && flat[i].is_unlocked && flat[i].percent < 100) {
+                    var el = document.getElementById('trail-item-' + flat[i]._id);
+                    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    break;
+                }
+            }
+        }, 300);
     }
 
-    function getLessonIcon(lesson, idx) {
-        if (lesson._locked) return 'fa-lock';
-        if (lesson._done) return 'fa-star';
+    function getLessonIcon(lesson) {
+        if (!lesson.is_unlocked) return 'fa-lock';
+        if (lesson.percent >= 100) return 'fa-star';
         return 'fa-play';
     }
 
@@ -473,6 +499,8 @@ angular.module('rotaViva')
     };
 
     $scope.getSubjectIcon = function(subject) {
+        // Check saved icon in extra first
+        if (subject.extra && subject.extra.icon) return subject.extra.icon;
         var name = (subject.title || '').toLowerCase();
         var map = {
             'regularização': 'fa-file-invoice', 'regularizacao': 'fa-file-invoice',
@@ -482,7 +510,10 @@ angular.module('rotaViva')
             'organização': 'fa-handshake', 'organizacao': 'fa-handshake',
             'território': 'fa-map', 'territorio': 'fa-map',
             'saúde': 'fa-heart', 'saude': 'fa-heart',
-            'meio ambiente': 'fa-leaf', 'sustentabilidade': 'fa-recycle'
+            'meio ambiente': 'fa-leaf', 'sustentabilidade': 'fa-recycle',
+            'mel': 'fa-seedling', 'colmeia': 'fa-seedling',
+            'pesca': 'fa-fish', 'rio': 'fa-fish',
+            'boas-vindas': 'fa-hand-wave', 'introdução': 'fa-hand-wave'
         };
         for (var key in map) {
             if (name.indexOf(key) !== -1) return map[key];
@@ -501,13 +532,13 @@ angular.module('rotaViva')
     };
 
     $scope.getBubbleClass = function(item) {
-        if (item._locked) return 'duo-bubble duo-locked';
-        if (item._done) return 'duo-bubble duo-done';
+        if (!item.is_unlocked) return 'duo-bubble duo-locked';
+        if (item.percent >= 100) return 'duo-bubble duo-done';
         return 'duo-bubble duo-active';
     };
 
     $scope.getBubbleDynamic = function(item) {
-        if (item._locked) return {};
+        if (!item.is_unlocked) return {};
         return { 'background': item.moduleColor };
     };
 
@@ -521,11 +552,22 @@ angular.module('rotaViva')
     };
 
     $scope.startLesson = function(item) {
-        if (item._locked) return;
-        ApiService.getTrailContents(item._id, token).then(function(contents) {
-            var quiz = contents.find(function(c) { return c.type === 'quiz'; });
-            if (quiz && quiz.content) {
+        if (!item.is_unlocked) return;
+        // Find quiz content inside this lesson folder
+        ApiService.folderProgress(item._id, playerId).then(function(data) {
+            var items = data.items || [];
+            var quiz = items.find(function(c) { return c.type === 'quiz' && c.folder === false; });
+            if (quiz) {
                 $location.path('/quiz/' + quiz.content);
+            } else {
+                // Fallback: try folderInside
+                ApiService.folderInside(item._id).then(function(innerData) {
+                    var innerItems = innerData.items || [];
+                    var quiz2 = innerItems.find(function(c) { return c.type === 'quiz' && c.folder === false; });
+                    if (quiz2) {
+                        $location.path('/quiz/' + quiz2.content);
+                    }
+                });
             }
         });
     };
@@ -542,17 +584,19 @@ angular.module('rotaViva')
         $location.path('/dashboard');
     };
 
-    // Close popup on body click
-    $scope.$on('$destroy', function() {});
-
     init();
 })
 
-// === Quiz Controller (placeholder) ===
-.controller('QuizCtrl', function($scope, $routeParams, $location, AuthService, ApiService) {
+// === Quiz Controller ===
+.controller('QuizCtrl', function($scope, $http, $routeParams, $location, AuthService, ApiService, ThemeService) {
     var session = AuthService.getSession();
     var token = session.token;
+    var baseUrl = CONFIG.API_URL;
     var quizId = $routeParams.quizId;
+    var playerId = (session.player || {})._id;
+    var theme = ThemeService.load(session.apiKey) || {};
+
+    if (theme && theme.colors) ThemeService.apply(theme, false);
 
     $scope.quizTitle = '';
     $scope.questions = [];
@@ -560,28 +604,71 @@ angular.module('rotaViva')
     $scope.loading = true;
     $scope.finished = false;
     $scope.score = 0;
+    $scope.quizLogId = null;
+    $scope.lessonFolderId = null; // to log folder progress on finish
 
-    // Load quiz + questions
-    ApiService.getQuiz(quizId, token).then(function(quiz) {
-        $scope.quizTitle = quiz.title || 'Quiz';
-        return ApiService.getQuestions(quizId, token);
-    }).then(function(questions) {
-        $scope.questions = questions.map(function(q) {
+    function authHeaders() {
+        return { 'Authorization': token, 'Content-Type': 'application/json' };
+    }
+
+    // 1. Load quiz info
+    $http.get(baseUrl + '/v3/database/quiz?q=_id:\'' + quizId + '\'', {
+        headers: { 'Authorization': token }
+    }).then(function(res) {
+        var quizzes = res.data || [];
+        if (quizzes.length > 0) {
+            $scope.quizTitle = quizzes[0].title || 'Quiz';
+        }
+
+        // 2. Load questions
+        return $http.get(baseUrl + '/v3/database/question?sort=position:1&q=quiz:\'' + quizId + '\'', {
+            headers: { 'Authorization': token }
+        });
+    }).then(function(res) {
+        var rawQuestions = res.data || [];
+
+        $scope.questions = rawQuestions.map(function(q) {
+            var choices = q.choices || q.alternatives || [];
             return {
                 _id: q._id,
-                text: q.description || q.title || '',
+                text: q.question || q.title || '',
                 type: q.type || 'MULTIPLE_CHOICE',
-                options: (q.alternatives || []).map(function(a) {
-                    return { text: a.description || a.title || '', correct: !!a.correct, selected: false };
+                options: choices.map(function(c, idx) {
+                    return {
+                        answer: c.answer || String(idx + 1),
+                        text: c.label || c.description || c.title || '',
+                        correct: !!(c.gradeCheck || c.correct || (c.grade && c.grade > 0)),
+                        selected: false
+                    };
                 }),
                 answered: false,
                 correct: false
             };
         });
+
+        // 3. Start quiz session
+        return $http.post(baseUrl + '/v3/quiz/start', {
+            quiz: quizId,
+            player: playerId
+        }, { headers: authHeaders() });
+    }).then(function(res) {
+        var logData = res.data || {};
+        $scope.quizLogId = logData._id || (logData.log && logData.log._id) || null;
         $scope.loading = false;
-    }).catch(function() {
+    }).catch(function(err) {
+        console.error('[Quiz] Load error:', err);
         $scope.loading = false;
     });
+
+    // Find the lesson folder that contains this quiz (for folder_log)
+    $http.get(baseUrl + '/v3/database/folder_content?q=content:\'' + quizId + '\'', {
+        headers: { 'Authorization': token }
+    }).then(function(res) {
+        var fcs = res.data || [];
+        if (fcs.length > 0) {
+            $scope.lessonFolderId = fcs[0].folder;
+        }
+    }).catch(function() {});
 
     $scope.current = function() {
         return $scope.questions[$scope.currentIndex] || null;
@@ -593,12 +680,28 @@ angular.module('rotaViva')
         opt.selected = true;
     };
 
+    $scope.hasSelection = function(q) {
+        if (!q || !q.options) return false;
+        return q.options.some(function(o) { return o.selected; });
+    };
+
     $scope.checkAnswer = function(q) {
         if (q.answered) return;
         q.answered = true;
         var selected = q.options.find(function(o) { return o.selected; });
         q.correct = selected && selected.correct;
         if (q.correct) $scope.score++;
+
+        // Log answer
+        if ($scope.quizLogId && selected) {
+            $http.post(baseUrl + '/v3/question/log/bulk', [{
+                quiz: quizId,
+                quiz_log: $scope.quizLogId,
+                question: q._id,
+                answer: [selected.answer],
+                player: playerId
+            }], { headers: authHeaders() }).catch(function() {});
+        }
     };
 
     $scope.next = function() {
@@ -606,6 +709,24 @@ angular.module('rotaViva')
             $scope.currentIndex++;
         } else {
             $scope.finished = true;
+
+            // Calculate score percent
+            var scorePercent = $scope.questions.length > 0
+                ? Math.round(($scope.score / $scope.questions.length) * 100) : 0;
+
+            // Finish quiz
+            if ($scope.quizLogId) {
+                $http.post(baseUrl + '/v3/quiz/finish', {
+                    quiz_log: $scope.quizLogId
+                }, { headers: authHeaders() }).catch(function() {});
+            }
+
+            // Log folder progress (lesson completion)
+            if ($scope.lessonFolderId) {
+                ApiService.folderLog($scope.lessonFolderId, playerId, scorePercent).catch(function(err) {
+                    console.warn('[Quiz] folder/log error:', err);
+                });
+            }
         }
     };
 
@@ -615,6 +736,6 @@ angular.module('rotaViva')
 
     $scope.progressPercent = function() {
         if ($scope.questions.length === 0) return 0;
-        return Math.round(($scope.currentIndex / $scope.questions.length) * 100);
+        return Math.round((($scope.currentIndex + ($scope.current() && $scope.current().answered ? 1 : 0)) / $scope.questions.length) * 100);
     };
 });

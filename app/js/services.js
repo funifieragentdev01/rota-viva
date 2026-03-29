@@ -267,23 +267,43 @@ angular.module('rotaViva')
         });
     };
 
-    // Trail API — direto na gamificação da rota com Bearer token do player
-    api.getTrailFolders = function(parentId, token) {
-        var q = encodeURIComponent("parent:'" + (parentId || 'root') + "',active:true");
-        return $http.get(baseUrl + '/v3/database/folder?sort=position:1&q=' + q, {
-            headers: { 'Authorization': token }
-        }).then(function(res) {
-            return Array.isArray(res.data) ? res.data : [];
+    // === Trail API (Funifier native folder endpoints) ===
+
+    // Helper: auth header from stored token
+    function trailHeaders() {
+        var t = localStorage.getItem('rv_token');
+        return { headers: { 'Authorization': t, 'Content-Type': 'application/json' } };
+    }
+
+    // Get children of a folder (no progress). null/empty = root folders.
+    api.folderInside = function(folderId) {
+        var body = folderId ? { folder: folderId } : {};
+        return $http.post(baseUrl + '/v3/folder/inside', body, trailHeaders()).then(function(res) {
+            return res.data || {};
         });
     };
 
-    api.getTrailContents = function(folderId, token) {
-        var q = encodeURIComponent("folder:'" + folderId + "'");
-        return $http.get(baseUrl + '/v3/database/folder_content?sort=position:1&q=' + q, {
-            headers: { 'Authorization': token }
-        }).then(function(res) {
-            return Array.isArray(res.data) ? res.data : [];
+    // Get children of a folder WITH player progress (percent, is_unlocked, etc.)
+    api.folderProgress = function(folderId, playerId) {
+        var body = { player: playerId };
+        if (folderId) body.folder = folderId;
+        return $http.post(baseUrl + '/v3/folder/progress', body, trailHeaders()).then(function(res) {
+            return res.data || {};
         });
+    };
+
+    // Breadcrumb navigation
+    api.folderBreadcrumb = function(folderId) {
+        return $http.post(baseUrl + '/v3/folder/breadcrumb', { folder: folderId }, trailHeaders()).then(function(res) {
+            return res.data || [];
+        });
+    };
+
+    // Log folder item completion
+    api.folderLog = function(itemId, playerId, percent) {
+        var body = { item: itemId, player: playerId, status: 'done', finished: new Date().toISOString() };
+        if (percent !== undefined) body.percent = percent;
+        return $http.post(baseUrl + '/v3/folder/log', body, trailHeaders());
     };
 
     return api;
