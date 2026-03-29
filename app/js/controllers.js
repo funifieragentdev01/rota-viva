@@ -426,6 +426,12 @@ angular.module('rotaViva')
                     if (moduleHeader) moduleHeader._lessonCount = lessons.length;
 
                     lessons.forEach(function(lesson, lIdx) {
+                        // Extract content type from items[] (returned by folder/progress)
+                        var contentItems = lesson.items || [];
+                        var firstContent = contentItems.length > 0 ? contentItems[0] : {};
+                        var contentType = firstContent.type || ''; // video, quiz, mission, etc.
+                        var contentId = firstContent.content || firstContent._id || '';
+
                         allItems.push({
                             _type: 'lesson',
                             _id: lesson._id,
@@ -436,6 +442,8 @@ angular.module('rotaViva')
                             position: lesson.position || lIdx,
                             percent: lesson.percent || 0,
                             is_unlocked: lesson.is_unlocked !== false,
+                            contentType: contentType,
+                            contentId: contentId,
                             icon: 'fa-play'
                         });
                     });
@@ -488,10 +496,17 @@ angular.module('rotaViva')
         }, 300);
     }
 
+    // Icon per content type (Duolingo style)
+    var CONTENT_ICONS = {
+        'quiz':    'fa-star',       // ⭐ estrela
+        'video':   'fa-play',       // ▶️ play
+        'mission': 'fa-wrench'      // 🔧 ferramenta
+    };
+
     function getLessonIcon(lesson) {
         if (!lesson.is_unlocked) return 'fa-lock';
-        if (lesson.percent >= 100) return 'fa-star';
-        return 'fa-play';
+        if (lesson.percent >= 100) return 'fa-circle-check';
+        return CONTENT_ICONS[lesson.contentType] || 'fa-star';
     }
 
     $scope.getSubjectColor = function(idx) {
@@ -553,21 +568,28 @@ angular.module('rotaViva')
 
     $scope.startLesson = function(item) {
         if (!item.is_unlocked) return;
-        // Find quiz content inside this lesson folder
+
+        // Route based on content type already known from trail loading
+        if (item.contentType === 'quiz' && item.contentId) {
+            $location.path('/quiz/' + item.contentId);
+            return;
+        }
+
+        // For other types or missing contentId, resolve from folder
         ApiService.folderProgress(item._id, playerId).then(function(data) {
             var items = data.items || [];
-            var quiz = items.find(function(c) { return c.type === 'quiz' && c.folder === false; });
-            if (quiz) {
-                $location.path('/quiz/' + quiz.content);
-            } else {
-                // Fallback: try folderInside
-                ApiService.folderInside(item._id).then(function(innerData) {
-                    var innerItems = innerData.items || [];
-                    var quiz2 = innerItems.find(function(c) { return c.type === 'quiz' && c.folder === false; });
-                    if (quiz2) {
-                        $location.path('/quiz/' + quiz2.content);
-                    }
-                });
+            var content = items.find(function(c) { return c.folder === false; });
+            if (content) {
+                if (content.type === 'quiz' && content.content) {
+                    $location.path('/quiz/' + content.content);
+                } else if (content.type === 'video') {
+                    // TODO: video player route
+                    alert('Vídeo em breve!');
+                } else if (content.type === 'mission' && content.content) {
+                    $location.path('/quiz/' + content.content); // missions use quiz format
+                } else {
+                    alert('Tipo de conteúdo não suportado ainda.');
+                }
             }
         });
     };
@@ -608,6 +630,7 @@ angular.module('rotaViva')
     $scope.lessonFolderId = null; // to log folder progress on finish
     $scope.tfAnswer = null;       // TRUE_FALSE selection
     $scope.essayAnswer = '';      // ESSAY / SHORT_ANSWER text
+    $scope.diyPhotoData = null;   // DIY_PROJECT photo data URL
 
     function authHeaders() {
         return { 'Authorization': token, 'Content-Type': 'application/json' };
@@ -632,14 +655,18 @@ angular.module('rotaViva')
         $scope.questions = rawQuestions.map(function(q) {
             var choices = q.choices || q.alternatives || [];
             var type = q.type || 'MULTIPLE_CHOICE';
+            var isMultiSelect = (q.select === 'multiple_answers');
             return {
                 _id: q._id,
-                text: q.question || q.title || '',
+                text: q.question || q.title || q.prompt || '',
                 type: type,
+                select: q.select || 'one_answer',
+                isMultiSelect: isMultiSelect,
                 correctAnswer: q.correctAnswer,
                 totalLines: q.totalLines || 5,
+                evidenceTypes: q.evidenceTypes || [],
+                rubric: q.rubric || '',
                 options: choices.map(function(c, idx) {
-                    // Funifier Studio: label="A","B"... (letter), answer=text, grade=score
                     return {
                         answer: c.label || String.fromCharCode(65 + idx),
                         text: c.answer || c.label || c.description || c.title || '',
@@ -683,8 +710,14 @@ angular.module('rotaViva')
 
     $scope.selectOption = function(q, opt) {
         if (q.answered) return;
-        q.options.forEach(function(o) { o.selected = false; });
-        opt.selected = true;
+        if (q.isMultiSelect) {
+            // Toggle selection (checkboxes)
+            opt.selected = !opt.selected;
+        } else {
+            // Single selection (radio)
+            q.options.forEach(function(o) { o.selected = false; });
+            opt.selected = true;
+        }
     };
 
     $scope.selectTF = function(val) {
@@ -698,7 +731,8 @@ angular.module('rotaViva')
         if (!q) return false;
         if (q.type === 'TRUE_FALSE') return $scope.tfAnswer !== null;
         if (q.type === 'ESSAY' || q.type === 'SHORT_ANSWER') return ($scope.essayAnswer || '').trim().length > 0;
-        // MULTIPLE_CHOICE
+        if (q.type === 'DIY_PROJECT') return ($scope.essayAnswer || '').trim().length > 0 || $scope.diyPhotoData;
+        // MULTIPLE_CHOICE (single or multi)
         return q.options && q.options.some(function(o) { return o.selected; });
     };
 
@@ -715,13 +749,32 @@ angular.module('rotaViva')
             logAnswer(q, [$scope.tfAnswer ? 'true' : 'false']);
 
         } else if (q.type === 'ESSAY' || q.type === 'SHORT_ANSWER') {
-            // Essay is always "correct" (participation-based)
             q.correct = true;
             $scope.score++;
             logAnswer(q, [$scope.essayAnswer]);
 
+        } else if (q.type === 'DIY_PROJECT') {
+            q.correct = true;
+            $scope.score++;
+            logAnswer(q, [$scope.essayAnswer || '(foto enviada)']);
+
+        } else if (q.isMultiSelect) {
+            // MULTIPLE_CHOICE with multiple_answers
+            var selectedOpts = q.options.filter(function(o) { return o.selected; });
+            var correctOpts = q.options.filter(function(o) { return o.correct; });
+            // All correct selected AND no incorrect selected
+            var allCorrectSelected = correctOpts.every(function(o) { return o.selected; });
+            var noWrongSelected = selectedOpts.every(function(o) { return o.correct; });
+            q.correct = allCorrectSelected && noWrongSelected;
+            if (!q.correct) {
+                var correctTexts = correctOpts.map(function(o) { return o.text; });
+                q.correctLabel = 'Respostas corretas: ' + correctTexts.join(', ');
+            }
+            if (q.correct) $scope.score++;
+            logAnswer(q, selectedOpts.map(function(o) { return o.answer; }));
+
         } else {
-            // MULTIPLE_CHOICE
+            // MULTIPLE_CHOICE single answer
             var selected = q.options.find(function(o) { return o.selected; });
             q.correct = selected && selected.correct;
             if (!q.correct) {
@@ -749,6 +802,7 @@ angular.module('rotaViva')
             $scope.currentIndex++;
             $scope.tfAnswer = null;
             $scope.essayAnswer = '';
+            $scope.diyPhotoData = null;
         } else {
             $scope.finished = true;
 
@@ -779,5 +833,25 @@ angular.module('rotaViva')
     $scope.progressPercent = function() {
         if ($scope.questions.length === 0) return 0;
         return Math.round((($scope.currentIndex + ($scope.current() && $scope.current().answered ? 1 : 0)) / $scope.questions.length) * 100);
+    };
+
+    // DIY_PROJECT: take photo via camera/gallery
+    $scope.diyTakePhoto = function() {
+        var input = document.createElement('input');
+        input.type = 'file';
+        input.accept = 'image/*';
+        input.capture = 'environment';
+        input.onchange = function(e) {
+            var file = e.target.files[0];
+            if (!file) return;
+            var reader = new FileReader();
+            reader.onload = function(ev) {
+                $scope.$apply(function() {
+                    $scope.diyPhotoData = ev.target.result;
+                });
+            };
+            reader.readAsDataURL(file);
+        };
+        input.click();
     };
 });

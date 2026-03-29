@@ -21,9 +21,12 @@
     <div class="quiz-body" ng-if="!loading && !finished && current()">
         <div class="quiz-question">
             <p class="quiz-question-text">{{current().text}}</p>
+            <p class="quiz-question-hint" ng-if="current().isMultiSelect && !current().answered">
+                <i class="fas fa-info-circle"></i> Selecione todas as corretas
+            </p>
         </div>
 
-        <!-- MULTIPLE_CHOICE -->
+        <!-- MULTIPLE_CHOICE (single or multi) -->
         <div class="quiz-options" ng-if="current().type === 'MULTIPLE_CHOICE'">
             <button class="quiz-option"
                     ng-repeat="opt in current().options"
@@ -34,7 +37,10 @@
                         'wrong': current().answered && opt.selected && !opt.correct
                     }"
                     ng-disabled="current().answered">
-                <span class="quiz-option-letter">{{['A','B','C','D','E'][$index]}}</span>
+                <span class="quiz-option-letter">
+                    <i ng-if="current().isMultiSelect && !current().answered" class="far" ng-class="opt.selected ? 'fa-square-check' : 'fa-square'"></i>
+                    <span ng-if="!current().isMultiSelect || current().answered">{{['A','B','C','D','E'][$index]}}</span>
+                </span>
                 <span class="quiz-option-text">{{opt.text}}</span>
             </button>
         </div>
@@ -70,6 +76,26 @@
                       ng-disabled="current().answered"
                       placeholder="Escreva sua resposta..."
                       rows="{{current().totalLines || 5}}"></textarea>
+        </div>
+
+        <!-- DIY_PROJECT -->
+        <div class="quiz-diy" ng-if="current().type === 'DIY_PROJECT'">
+            <div class="quiz-diy-photo" ng-if="!diyPhotoData && !current().answered">
+                <button class="quiz-diy-btn" ng-click="diyTakePhoto()">
+                    <i class="fas fa-camera"></i> Tirar Foto
+                </button>
+            </div>
+            <div class="quiz-diy-preview" ng-if="diyPhotoData">
+                <img ng-src="{{diyPhotoData}}" alt="Foto">
+                <button class="quiz-diy-retake" ng-click="diyPhotoData = null" ng-if="!current().answered">
+                    <i class="fas fa-redo"></i> Trocar
+                </button>
+            </div>
+            <textarea class="quiz-essay-input"
+                      ng-model="essayAnswer"
+                      ng-disabled="current().answered"
+                      placeholder="Descreva o que você fotografou (opcional)..."
+                      rows="3"></textarea>
         </div>
 
         <!-- Check / Next buttons -->
