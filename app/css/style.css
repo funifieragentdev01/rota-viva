@@ -1054,6 +1054,93 @@ h1, h2, h3, h4 { font-family: var(--font-display); }
     cursor: pointer;
 }
 
+/* Character in S-curve */
+.duo-character-wrap {
+    position: relative;
+    height: 120px;
+    margin-bottom: 8px;
+    pointer-events: none;
+}
+
+.duo-char-left .duo-character {
+    position: absolute;
+    left: 16px;
+}
+
+.duo-char-right .duo-character {
+    position: absolute;
+    right: 16px;
+}
+
+.duo-character {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.duo-character-img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    animation: char-float 3s ease-in-out infinite;
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.15));
+}
+
+.duo-character-shadow {
+    width: 60px;
+    height: 12px;
+    background: radial-gradient(ellipse, rgba(0,0,0,0.15) 0%, transparent 70%);
+    border-radius: 50%;
+    margin-top: -4px;
+    animation: shadow-pulse 3s ease-in-out infinite;
+}
+
+@keyframes char-float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+@keyframes shadow-pulse {
+    0%, 100% { transform: scaleX(1); opacity: 1; }
+    50% { transform: scaleX(0.8); opacity: 0.6; }
+}
+
+/* Chest (timed quiz reward) */
+.duo-chest-wrap {
+    margin-left: calc(50% - 32px) !important;
+}
+
+.duo-chest {
+    width: 64px;
+    height: 64px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #fff;
+    font-size: 28px;
+    background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+    border-bottom: 5px solid #CC8400;
+    box-shadow: 0 4px 16px rgba(255, 165, 0, 0.3);
+    transition: transform 0.15s;
+}
+
+.duo-chest:active { transform: scale(0.9); }
+
+.duo-chest-done {
+    background: linear-gradient(135deg, #C0C0C0 0%, #A0A0A0 100%);
+    border-bottom-color: #808080;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.duo-chest-locked {
+    background: #D5D5D5;
+    color: #A0A0A0;
+    border-bottom-color: #B0B0B0;
+    cursor: not-allowed;
+}
+
 /* Trail Empty State */
 .trail-empty {
     text-align: center;

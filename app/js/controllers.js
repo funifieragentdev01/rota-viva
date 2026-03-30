@@ -328,6 +328,7 @@ angular.module('rotaViva')
 .controller('TrailCtrl', function($scope, $location, $routeParams, $timeout, AuthService, ApiService, ThemeService) {
     var session = AuthService.getSession();
     var playerId = (session.player || {})._id;
+    var routeId = (session.route || {})._id || 'mel'; // 'mel' | 'pesca'
     var theme = ThemeService.load(session.apiKey) || {};
 
     if (theme && theme.colors) ThemeService.apply(theme, false);
@@ -342,6 +343,15 @@ angular.module('rotaViva')
 
     var MODULE_COLORS = ['#FF9600', '#CE82FF', '#00CD9C', '#1CB0F6', '#FF4B4B', '#FFC800'];
     var SUBJECT_COLORS = ['#005CAB', '#F5C200', '#009B3A', '#D02020', '#CE82FF', '#00CD9C'];
+
+    // === Character config per route ===
+    var CHARACTERS = {
+        mel:   ['abelha', 'apicultor', 'filho-apicultor'],
+        pesca: ['peixe', 'pescador', 'filho-pescador']
+    };
+    var LESSONS_PER_CURVE = 8; // Duolingo: ~8 lessons = 1 full S-curve
+    var charList = CHARACTERS[routeId] || CHARACTERS.mel;
+    var charBasePath = 'img/characters/' + routeId + '/trail/';
 
     var folderId = $routeParams.folderId || null;
 
@@ -469,14 +479,40 @@ angular.module('rotaViva')
             .sort(function(a, b) { return (a.position || 0) - (b.position || 0); });
 
         var flat = [];
+        var globalLessonIdx = 0;
+        var charIdx = 0; // cycles through charList
+
         modules.forEach(function(mod) {
             flat.push(mod);
             var lessons = items.filter(function(i) { return i._type === 'lesson' && i.moduleId === mod._id; })
                 .sort(function(a, b) { return (a.position || 0) - (b.position || 0); });
+
             lessons.forEach(function(l, idx) {
                 l.lessonIndex = idx;
+                l.globalIndex = globalLessonIdx;
                 l.icon = getLessonIcon(l);
                 flat.push(l);
+                globalLessonIdx++;
+
+                // Insert character at the belly of each S-curve
+                // Belly = ~3rd lesson in each group of LESSONS_PER_CURVE
+                var posInCurve = globalLessonIdx % LESSONS_PER_CURVE;
+                if (posInCurve === 3) { // 3rd lesson = deepest point of curve
+                    var curveNum = Math.floor((globalLessonIdx - 1) / LESSONS_PER_CURVE);
+                    var charName = charList[charIdx % charList.length];
+                    var xOffset = Math.sin(l.lessonIndex * 0.8) * 70;
+                    // Character goes on opposite side of bubble
+                    var charSide = xOffset >= 0 ? 'left' : 'right';
+                    flat.push({
+                        _type: 'character',
+                        _charName: charName,
+                        _charImg: charBasePath + charName + '.png',
+                        _charSide: charSide,
+                        _curveNum: curveNum,
+                        _xOffset: xOffset
+                    });
+                    charIdx++;
+                }
             });
         });
 
@@ -500,16 +536,35 @@ angular.module('rotaViva')
     var CONTENT_ICONS = {
         'quiz':    'fa-star',       // ⭐ estrela
         'video':   'fa-play',       // ▶️ play
-        'mission': 'fa-wrench'      // 🔧 ferramenta
+        'mission': 'fa-wrench',     // 🔧 ferramenta
+        'chest':   'fa-gem'            // 💎 baú (timed quiz reward)
     };
 
     function getLessonIcon(lesson) {
-        var typeIcon = CONTENT_ICONS[lesson.contentType];
-        if (typeIcon) return typeIcon; // always show content type icon
-        // Unknown type: lock if blocked, star if open
         if (!lesson.is_unlocked) return 'fa-lock';
+        if (lesson.percent >= 100) return 'fa-check';
+        var typeIcon = CONTENT_ICONS[lesson.contentType];
+        if (typeIcon) return typeIcon;
         return 'fa-star';
     }
+
+    // Character positioning in S-curve
+    $scope.getCharacterStyle = function(item) {
+        if (item._type !== 'character') return {};
+        var style = { position: 'absolute', top: '-20px' };
+        if (item._charSide === 'left') {
+            style.left = '10px';
+            style.right = 'auto';
+        } else {
+            style.right = '10px';
+            style.left = 'auto';
+        }
+        return style;
+    };
+
+    $scope.isChest = function(item) {
+        return item._type === 'lesson' && item.contentType === 'chest';
+    };
 
     $scope.getSubjectColor = function(idx) {
         return SUBJECT_COLORS[idx % SUBJECT_COLORS.length];

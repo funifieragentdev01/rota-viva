@@ -1,8 +1,73 @@
 # Design System — Rota Viva
 
-**Versão:** 0.2.0
-**Data:** 2026-03-27
+**Versão:** 0.3.0
+**Data:** 2026-03-30
 **Autor:** Jarvis
+
+---
+
+## 0. Identidade Visual — Sistema de Design Rota Viva
+
+O Rota Viva é um programa do **Ministério da Integração e do Desenvolvimento Regional (MIDR)** e segue a **Identidade Visual do Governo Federal Brasileiro** como base em todos os contextos — landing page, telas de entrada do PWA e app de cada rota.
+
+### 0.1 Como o sistema funciona
+
+O design é **um único sistema com variações de ênfase por rota** — não paletas independentes:
+
+```
+BASE GOVERNO FEDERAL
+(verde + amarelo + azul + vermelho + branco + geométrico)
+        │
+        ├── Landing page → paleta equilibrada, todas as cores
+        │
+        ├── Rota do Mel  → mesma base, AMARELO como cor primária de destaque
+        │
+        └── Rota da Pesca → mesma base, AZUL como cor primária de destaque
+```
+
+**Decorações geométricas** (círculos, retângulos, pirâmides) estão presentes nos **três contextos** — não são exclusivas da landing page.
+
+### 0.2 Paleta base — Governo Federal
+
+| Cor | Nome | Hex | Presença nas variações |
+|-----|------|-----|----------------------|
+| Verde Brasil | Campo verde da bandeira | `#009C3B` | Landing + Mel + Pesca |
+| Amarelo Brasil | Losango amarelo | `#FFDF00` | Landing + **primário Mel** + suporte Pesca |
+| Azul Brasil | Esfera celeste | `#1351B4` | Landing + suporte Mel + **primário Pesca** |
+| Vermelho acento | Acento pontual | `#EF3E42` | Landing + Mel + Pesca (sempre discreto) |
+| Branco | Fundo principal | `#FFFFFF` | Landing + Mel + Pesca |
+| Preto editorial | Texto sobre fundo claro | `#222222` | Landing + Mel + Pesca |
+
+### 0.3 Variações por contexto
+
+| Contexto | Cor primária de destaque | Cor de suporte | Fundo |
+|----------|--------------------------|----------------|-------|
+| **Landing page** | Amarelo `#FFDF00` (CTA principal) | Verde + Azul equilibrados | Branco `#FFFFFF` |
+| **Rota do Mel** | Amarelo `#FFDF00` | Verde `#009C3B` | Branco `#FFFFFF` |
+| **Rota da Pesca** | Azul `#1351B4` | Verde `#009C3B` | Branco `#FFFFFF` |
+
+> O vermelho `#EF3E42` e o verde `#009C3B` aparecem nos três contextos, sempre como acento ou suporte — nunca como cor dominante.
+
+### 0.4 Elementos decorativos geométricos
+
+Formas geométricas **inspiradas na bandeira do Brasil** — presentes em todos os contextos (landing, app Mel, app Pesca). Aparecem nos cantos de seções/telas, parcialmente cortadas pela borda.
+
+| Forma | Cor base | Contexto de ênfase |
+|-------|----------|--------------------|
+| Círculo grande | Azul `#1351B4` | Todos; maior destaque na Pesca |
+| Retângulo | Amarelo `#FFDF00` | Todos; maior destaque no Mel |
+| Círculo médio | Verde `#009C3B` | Todos |
+| Quadrado/triângulo pequeno | Vermelho `#EF3E42` | Todos (discreto) |
+| Pirâmide / triângulo | Verde ou Amarelo | Separadores de seção |
+
+> Em cada rota, as formas na **cor primária da rota** ficam maiores/mais visíveis; as demais ficam em tamanho suporte. Isso cria a sensação de "puxar para o amarelo" (Mel) ou "puxar para o azul" (Pesca) sem quebrar o sistema.
+
+### 0.5 Referências visuais
+
+| Arquivo | O que mostra |
+|---------|-------------|
+| `doc/assets/midr-banner.png` | Padrão geométrico e paleta base do MIDR — referência canônica |
+| `doc/assets/hero-apicultor.png` | Aplicação correta da landing: foto real + formas geométricas + botão amarelo |
 
 ---
 
@@ -20,9 +85,10 @@ O Rota Viva é um único codebase PWA que atende todas as rotas. A identidade vi
 
 | Contexto | Tema | Fonte |
 |----------|------|-------|
-| Tela de Login / Cadastro | **Neutro** (verde natureza) | Hardcoded no CSS base |
-| Seleção de perfil no cadastro | Cards com preview de cada rota | `rota_info` (Central) |
-| Após login (toda a experiência) | **Tema da rota** | `theme__c` (gamificação da rota) |
+| Landing page | **Base Governo Federal** — paleta equilibrada | Seção 0 deste documento |
+| Tela de Login / Cadastro | **Base Governo Federal** — paleta equilibrada | Hardcoded no CSS base |
+| Seleção de perfil no cadastro | Cards com preview de cada rota (amarelo Mel / azul Pesca) | `rota_info` (Central) |
+| Após login (toda a experiência) | **Tema da rota** — variação de ênfase (ver Seção 0.3) | `theme__c` (gamificação da rota) |
 
 ### 2.2 Fluxo de carregamento do tema
 
@@ -59,29 +125,35 @@ Toda a UI se adapta automaticamente
 
 Custom collection na gamificação de cada rota. **Um único documento** com `_id: "default"`.
 
+As cores seguem a paleta do Governo Federal (Seção 0), com `primary` sendo a **cor de destaque da rota** — amarelo para Mel, azul para Pesca. As demais cores da paleta base permanecem presentes como `accent`, bordas e decorações.
+
+### Exemplo: Rota do Mel (ênfase amarelo)
+
 ```json
 {
     "_id": "default",
     "version": "1.0.0",
 
     "colors": {
-        "primary": "#F5C200",
-        "primary_dark": "#C49B00",
-        "primary_light": "#FFF3B0",
-        "accent": "#C49B00",
-        "background": "#FFFDF5",
+        "primary": "#FFDF00",
+        "primary_dark": "#C9B000",
+        "primary_light": "#FFFBE0",
+        "accent": "#009C3B",
+        "accent_secondary": "#1351B4",
+        "decoration_red": "#EF3E42",
+        "background": "#FFFFFF",
         "background_gradient": "none",
         "surface": "#FFFFFF",
         "card": "#FFFFFF",
-        "card_border": "rgba(245, 194, 0, 0.25)",
+        "card_border": "rgba(255, 223, 0, 0.35)",
         "input_bg": "rgba(0, 0, 0, 0.04)",
-        "text": "#1A1208",
-        "text_muted": "#5C4A1A",
-        "text_faint": "#9E8B5A",
-        "text_on_primary": "#1A1208",
-        "success": "#2E7D32",
-        "error": "#C62828",
-        "warning": "#E65100"
+        "text": "#222222",
+        "text_muted": "#555555",
+        "text_faint": "#999999",
+        "text_on_primary": "#222222",
+        "success": "#009C3B",
+        "error": "#EF3E42",
+        "warning": "#FFDF00"
     },
 
     "images": {
@@ -131,7 +203,7 @@ Custom collection na gamificação de cada rota. **Um único documento** com `_i
 }
 ```
 
-### 3.1 Exemplo: Rota da Pesca
+### 3.1 Exemplo: Rota da Pesca (ênfase azul)
 
 ```json
 {
@@ -139,23 +211,25 @@ Custom collection na gamificação de cada rota. **Um único documento** com `_i
     "version": "1.0.0",
 
     "colors": {
-        "primary": "#005CAB",
-        "primary_dark": "#003D75",
+        "primary": "#1351B4",
+        "primary_dark": "#0D3A80",
         "primary_light": "#DDEEFF",
-        "accent": "#003D75",
-        "background": "#F5F9FF",
+        "accent": "#009C3B",
+        "accent_secondary": "#FFDF00",
+        "decoration_red": "#EF3E42",
+        "background": "#FFFFFF",
         "background_gradient": "none",
         "surface": "#FFFFFF",
         "card": "#FFFFFF",
-        "card_border": "rgba(0, 92, 171, 0.15)",
+        "card_border": "rgba(19, 81, 180, 0.2)",
         "input_bg": "rgba(0, 0, 0, 0.04)",
-        "text": "#0A1929",
-        "text_muted": "#2A4A6B",
-        "text_faint": "#7A9BBF",
+        "text": "#222222",
+        "text_muted": "#555555",
+        "text_faint": "#999999",
         "text_on_primary": "#FFFFFF",
-        "success": "#2E7D32",
-        "error": "#C62828",
-        "warning": "#E65100"
+        "success": "#009C3B",
+        "error": "#EF3E42",
+        "warning": "#FFDF00"
     },
 
     "labels": {
@@ -188,28 +262,32 @@ Custom collection na gamificação de cada rota. **Um único documento** com `_i
 
 O frontend aplica o tema injetando variáveis CSS no `:root`. Todo componente referencia variáveis — nunca cores literais.
 
-### 4.1 Variáveis base (tema neutro — pré-login)
+### 4.1 Variáveis base (tema neutro — landing page e pré-login)
+
+Paleta base do Governo Federal, equilibrada. Nenhuma cor de rota específica assume o papel primário.
 
 ```css
 :root {
-    /* Cores */
-    --color-primary: #005CAB;
-    --color-primary-dark: #003D75;
-    --color-primary-light: #DDEEFF;
-    --color-accent: #F5C200;
-    --color-bg: #F5F9FF;
+    /* Cores — base Governo Federal */
+    --color-primary: #FFDF00;         /* Amarelo Brasil — CTA principal */
+    --color-primary-dark: #C9B000;
+    --color-primary-light: #FFFBE0;
+    --color-accent: #009C3B;          /* Verde Brasil */
+    --color-accent-secondary: #1351B4;/* Azul Brasil */
+    --color-decoration-red: #EF3E42;  /* Vermelho acento */
+    --color-bg: #FFFFFF;
     --color-bg-gradient: none;
     --color-surface: #FFFFFF;
     --color-card: #FFFFFF;
-    --color-card-border: rgba(0, 92, 171, 0.15);
+    --color-card-border: rgba(0, 0, 0, 0.1);
     --color-input-bg: rgba(0, 0, 0, 0.04);
-    --color-text: #0A1929;
-    --color-text-muted: #2A4A6B;
-    --color-text-faint: #7A9BBF;
-    --color-text-on-primary: #FFFFFF;
-    --color-success: #4CAF50;
-    --color-error: #FF5252;
-    --color-warning: #FF9800;
+    --color-text: #222222;
+    --color-text-muted: #555555;
+    --color-text-faint: #999999;
+    --color-text-on-primary: #222222; /* texto escuro sobre amarelo */
+    --color-success: #009C3B;
+    --color-error: #EF3E42;
+    --color-warning: #FFDF00;
 
     /* Imagens */
     --img-background: none;
