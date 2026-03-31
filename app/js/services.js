@@ -55,12 +55,13 @@ angular.module('rotaViva')
         }
     };
 
-    // Mapa de cores → CSS variables
+    // Mapa de cores → CSS variables (supports both 'bg' and 'background' keys)
     var COLOR_MAP = {
         primary: '--color-primary',
         primary_dark: '--color-primary-dark',
         primary_light: '--color-primary-light',
         accent: '--color-accent',
+        bg: '--color-bg',
         background: '--color-bg',
         background_gradient: '--color-bg-gradient',
         surface: '--color-surface',
