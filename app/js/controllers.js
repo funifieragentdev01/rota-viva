@@ -491,28 +491,21 @@ angular.module('rotaViva')
                 l.lessonIndex = idx;
                 l.globalIndex = globalLessonIdx;
                 l.icon = getLessonIcon(l);
-                flat.push(l);
                 globalLessonIdx++;
 
-                // Insert character at the belly of each S-curve
+                // Attach character at the belly of each S-curve (as property, not separate item)
                 // Belly = ~3rd lesson in each group of LESSONS_PER_CURVE
                 var posInCurve = globalLessonIdx % LESSONS_PER_CURVE;
-                if (posInCurve === 3) { // 3rd lesson = deepest point of curve
-                    var curveNum = Math.floor((globalLessonIdx - 1) / LESSONS_PER_CURVE);
+                if (posInCurve === 3) {
                     var charName = charList[charIdx % charList.length];
                     var xOffset = Math.sin(l.lessonIndex * 0.8) * 70;
-                    // Character goes on opposite side of bubble
-                    var charSide = xOffset >= 0 ? 'left' : 'right';
-                    flat.push({
-                        _type: 'character',
-                        _charName: charName,
-                        _charImg: charBasePath + charName + '.png',
-                        _charSide: charSide,
-                        _curveNum: curveNum,
-                        _xOffset: xOffset
-                    });
+                    l._charImg = charBasePath + charName + '.png';
+                    l._charName = charName;
+                    l._charSide = xOffset >= 0 ? 'left' : 'right';
                     charIdx++;
                 }
+
+                flat.push(l);
             });
         });
 
@@ -548,16 +541,19 @@ angular.module('rotaViva')
         return 'fa-star';
     }
 
-    // Character positioning in S-curve
+    // Character positioning — absolute within duo-bubble-wrap (opposite side of curve)
     $scope.getCharacterStyle = function(item) {
-        if (item._type !== 'character') return {};
-        var style = { position: 'absolute', top: '-20px' };
-        if (item._charSide === 'left') {
-            style.left = '10px';
+        if (!item._charImg) return { display: 'none' };
+        var xOffset = Math.sin(item.lessonIndex * 0.8) * 70;
+        var style = { position: 'absolute', top: '-30px' };
+        if (xOffset >= 0) {
+            // Bubble is to the RIGHT → character goes LEFT
             style.right = 'auto';
+            style.left = '-120px';
         } else {
-            style.right = '10px';
+            // Bubble is to the LEFT → character goes RIGHT
             style.left = 'auto';
+            style.right = '-120px';
         }
         return style;
     };
