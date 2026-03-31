@@ -18,21 +18,23 @@
     <!-- Video Player -->
     <div class="video-container" ng-if="!loading && embedUrl">
         <div class="video-responsive">
-            <iframe ng-src="{{embedUrl}}" frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            <iframe ng-src="{{embedUrl}}"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin"
                     allowfullscreen></iframe>
         </div>
-    </div>
 
-    <!-- Video Info -->
-    <div class="video-info" ng-if="!loading && embedUrl">
-        <h3>{{title}}</h3>
-        <button class="btn btn-primary video-done-btn" ng-click="markDone()"
-                ng-style="{'background': themeColor}" ng-if="!completed">
-            <i class="fas fa-check"></i> CONCLUIR VÍDEO
-        </button>
-        <div class="video-completed" ng-if="completed">
-            <i class="fas fa-check-circle"></i> Concluído!
+        <!-- Video Info -->
+        <div class="video-info">
+            <h3>{{title}}</h3>
+            <button class="btn btn-primary video-done-btn" ng-click="markDone()"
+                    ng-style="{'background': themeColor}" ng-if="!completed">
+                <i class="fas fa-check"></i> CONCLUIR VÍDEO
+            </button>
+            <div class="video-completed" ng-if="completed">
+                <i class="fas fa-check-circle"></i> Concluído!
+            </div>
         </div>
     </div>
 
@@ -41,7 +43,12 @@
         <div style="font-size: 48px; margin-bottom: 16px;">📹</div>
         <h3>Vídeo não encontrado</h3>
         <p>Não foi possível carregar este vídeo.</p>
-        <button class="btn" ng-click="goBack()" style="margin-top: 16px;">Voltar</button>
+        <button class="btn" ng-click="goBack()" style="margin-top: 16px; background: var(--color-primary); color: #fff; padding: 10px 24px; border: none; border-radius: 8px; cursor: pointer;">Voltar</button>
+    </div>
+
+    <!-- Debug (remove later) -->
+    <div ng-if="rawEmbedUrl && !loading" style="display:none;">
+        <!-- embedUrl: {{rawEmbedUrl}} -->
     </div>
 
 </div>
