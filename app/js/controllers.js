@@ -632,9 +632,10 @@ angular.module('rotaViva')
             $location.path('/quiz/' + item.contentId);
             return;
         }
-        if (item.contentType === 'video' && item.contentId) {
-            $location.path('/video/' + item.contentId);
-            return;
+        if (item.contentType === 'video') {
+            // contentId = video__c._id (if linked) or folder_content._id (fallback)
+            var vid = item.contentId || item._foldContentId;
+            if (vid) { $location.path('/video/' + vid); return; }
         }
         if (item.contentType === 'mission' && item.contentId) {
             $location.path('/quiz/' + item.contentId); // missions use quiz format
@@ -695,18 +696,43 @@ angular.module('rotaViva')
     $scope.themeColor = (theme.colors && theme.colors.primary) || '#FF9600';
 
     function init() {
-        // Fetch video__c document by _id
+        // Try video__c first, then fall back to folder_content (which may have url in extra)
         ApiService.dbGet('video__c', videoId).then(function(data) {
-            var video = data;
-            if (!video || !video.url) {
+            if (data && data.url) {
+                $scope.title = data.title || 'Vídeo';
+                $scope.embedUrl = $sce.trustAsResourceUrl(toEmbedUrl(data.url));
                 $scope.loading = false;
-                return;
+            } else {
+                // video__c not found — try folder_content itself
+                loadFromFolderContent();
             }
-            $scope.title = video.title || 'Vídeo';
-            $scope.embedUrl = $sce.trustAsResourceUrl(toEmbedUrl(video.url));
-            $scope.loading = false;
-        }).catch(function(err) {
-            console.error('[Video] Failed to load video__c:', videoId, err);
+        }).catch(function() {
+            loadFromFolderContent();
+        });
+    }
+
+    function loadFromFolderContent() {
+        // The videoId might be a folder_content _id (fallback when content field is missing)
+        ApiService.dbGet('folder_content', videoId).then(function(fc) {
+            if (fc && fc.extra && fc.extra.url) {
+                $scope.title = fc.title || 'Vídeo';
+                $scope.embedUrl = $sce.trustAsResourceUrl(toEmbedUrl(fc.extra.url));
+                $scope.loading = false;
+            } else if (fc && fc.content) {
+                // folder_content has a content reference — load the actual video__c
+                ApiService.dbGet('video__c', fc.content).then(function(v) {
+                    if (v && v.url) {
+                        $scope.title = v.title || fc.title || 'Vídeo';
+                        $scope.embedUrl = $sce.trustAsResourceUrl(toEmbedUrl(v.url));
+                    }
+                    $scope.loading = false;
+                }).catch(function() { $scope.loading = false; });
+            } else {
+                console.error('[Video] No video data found for:', videoId);
+                $scope.loading = false;
+            }
+        }).catch(function() {
+            console.error('[Video] Failed to load folder_content:', videoId);
             $scope.loading = false;
         });
     }
