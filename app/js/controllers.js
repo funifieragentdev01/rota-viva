@@ -493,14 +493,16 @@ angular.module('rotaViva')
                 l.icon = getLessonIcon(l);
                 globalLessonIdx++;
 
-                // Attach character at the belly of each S-curve (as property, not separate item)
-                // Belly = ~3rd lesson in each group of LESSONS_PER_CURVE
-                var posInCurve = globalLessonIdx % LESSONS_PER_CURVE;
-                if (posInCurve === 3) {
+                // Character at the belly of each half-wave of the S-curve
+                // sin(idx * 0.8) has half-period ≈ 3.93, bellies at idx 2, 6, 10, 14...
+                // First belly: lessonIndex 2 (sin positive = rightward peak)
+                // Second belly: lessonIndex 6 (sin negative = leftward peak)
+                if (idx >= 2 && (idx - 2) % 4 === 0) {
                     var charName = charList[charIdx % charList.length];
-                    var xOffset = Math.sin(l.lessonIndex * 0.8) * 70;
+                    var xOffset = Math.sin(idx * 0.8) * 70;
                     l._charImg = charBasePath + charName + '.png';
                     l._charName = charName;
+                    // Character on opposite side: positive sin = right bubble → char left
                     l._charSide = xOffset >= 0 ? 'left' : 'right';
                     charIdx++;
                 }
@@ -534,10 +536,12 @@ angular.module('rotaViva')
     };
 
     function getLessonIcon(lesson) {
-        if (!lesson.is_unlocked) return 'fa-lock';
-        if (lesson.percent >= 100) return 'fa-check';
+        // Always show content type icon (locked state = gray color, not different icon)
         var typeIcon = CONTENT_ICONS[lesson.contentType];
         if (typeIcon) return typeIcon;
+        // Unknown content type: show lock if blocked, check if done, star otherwise
+        if (!lesson.is_unlocked) return 'fa-lock';
+        if (lesson.percent >= 100) return 'fa-check';
         return 'fa-star';
     }
 
@@ -627,19 +631,30 @@ angular.module('rotaViva')
             $location.path('/quiz/' + item.contentId);
             return;
         }
+        if (item.contentType === 'video' && item.contentId) {
+            $location.path('/video/' + item.contentId);
+            return;
+        }
+        if (item.contentType === 'mission' && item.contentId) {
+            $location.path('/quiz/' + item.contentId); // missions use quiz format
+            return;
+        }
+        if (item.contentType === 'chest' && item.contentId) {
+            $location.path('/quiz/' + item.contentId); // chest = timed quiz
+            return;
+        }
 
-        // For other types or missing contentId, resolve from folder
+        // Fallback: resolve content from folder
         ApiService.folderProgress(item._id, playerId).then(function(data) {
             var items = data.items || [];
             var content = items.find(function(c) { return c.folder === false; });
             if (content) {
                 if (content.type === 'quiz' && content.content) {
                     $location.path('/quiz/' + content.content);
-                } else if (content.type === 'video') {
-                    // TODO: video player route
-                    alert('Vídeo em breve!');
+                } else if (content.type === 'video' && content.content) {
+                    $location.path('/video/' + content.content);
                 } else if (content.type === 'mission' && content.content) {
-                    $location.path('/quiz/' + content.content); // missions use quiz format
+                    $location.path('/quiz/' + content.content);
                 } else {
                     alert('Tipo de conteúdo não suportado ainda.');
                 }
@@ -657,6 +672,63 @@ angular.module('rotaViva')
 
     $scope.goHome = function() {
         $location.path('/dashboard');
+    };
+
+    init();
+})
+
+// === Video Controller ===
+.controller('VideoCtrl', function($scope, $routeParams, $location, $sce, AuthService, ApiService, ThemeService) {
+    var session = AuthService.getSession();
+    var token = session.token;
+    var baseUrl = CONFIG.API_URL;
+    var videoId = $routeParams.videoId;
+    var theme = ThemeService.load(session.apiKey) || {};
+
+    if (theme && theme.colors) ThemeService.apply(theme, false);
+
+    $scope.loading = true;
+    $scope.title = '';
+    $scope.embedUrl = null;
+    $scope.completed = false;
+    $scope.themeColor = (theme.colors && theme.colors.primary) || '#FF9600';
+
+    function init() {
+        // Fetch video__c document by _id
+        ApiService.dbGet('video__c', videoId).then(function(data) {
+            var video = data;
+            if (!video || !video.url) {
+                $scope.loading = false;
+                return;
+            }
+            $scope.title = video.title || 'Vídeo';
+            $scope.embedUrl = $sce.trustAsResourceUrl(toEmbedUrl(video.url));
+            $scope.loading = false;
+        }).catch(function(err) {
+            console.error('[Video] Failed to load video__c:', videoId, err);
+            $scope.loading = false;
+        });
+    }
+
+    // Convert YouTube URLs to embed format
+    function toEmbedUrl(url) {
+        if (!url) return '';
+        // youtu.be/ID or youtube.com/watch?v=ID
+        var match = url.match(/(?:youtu\.be\/|youtube\.com\/watch\?v=|youtube\.com\/embed\/)([a-zA-Z0-9_-]+)/);
+        if (match && match[1]) {
+            return 'https://www.youtube.com/embed/' + match[1] + '?rel=0';
+        }
+        // Already an embed URL or other video
+        return url;
+    }
+
+    $scope.markDone = function() {
+        // TODO: register action/progress in Funifier
+        $scope.completed = true;
+    };
+
+    $scope.goBack = function() {
+        window.history.back();
     };
 
     init();

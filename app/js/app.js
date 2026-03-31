@@ -50,6 +50,11 @@ angular.module('rotaViva', ['ngRoute'])
             controller: 'TrailCtrl',
             resolve: { auth: function(AuthService) { return AuthService.requireAuth(); } }
         })
+        .when('/video/:videoId', {
+            templateUrl: 'views/video.html',
+            controller: 'VideoCtrl',
+            requiresAuth: true
+        })
         .when('/quiz/:quizId', {
             templateUrl: 'views/quiz.html',
             controller: 'QuizCtrl',

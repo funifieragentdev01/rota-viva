@@ -299,6 +299,16 @@ angular.module('rotaViva')
         });
     };
 
+    // Generic database GET by collection and _id (uses strict mode)
+    api.dbGet = function(collection, id) {
+        var url = baseUrl + '/v3/database/' + collection + '?strict=true&q=_id:\'' + id + '\'';
+        return $http.get(url, trailHeaders()).then(function(res) {
+            var data = res.data;
+            if (Array.isArray(data)) return data[0] || null;
+            return data;
+        });
+    };
+
     // Log folder item completion
     api.folderLog = function(itemId, playerId, percent) {
         var body = { item: itemId, player: playerId, status: 'done', finished: new Date().toISOString() };
