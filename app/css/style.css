@@ -1066,16 +1066,16 @@ h1, h2, h3, h4 { font-family: var(--font-display); }
 }
 
 .duo-character-img {
-    width: 150px;
-    height: 150px;
+    width: 220px;
+    height: 220px;
     object-fit: contain;
     animation: char-float 3s ease-in-out infinite;
     filter: drop-shadow(0 4px 8px rgba(0,0,0,0.15));
 }
 
 .duo-character-shadow {
-    width: 80px;
-    height: 14px;
+    width: 100px;
+    height: 16px;
     background: radial-gradient(ellipse, rgba(0,0,0,0.15) 0%, transparent 70%);
     border-radius: 50%;
     margin-top: -4px;

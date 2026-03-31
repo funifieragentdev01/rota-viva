@@ -549,15 +549,15 @@ angular.module('rotaViva')
     $scope.getCharacterStyle = function(item) {
         if (!item._charImg) return { display: 'none' };
         var xOffset = Math.sin(item.lessonIndex * 0.8) * 70;
-        var style = { position: 'absolute', top: '-50px' };
+        var style = { position: 'absolute', top: '-80px' };
         if (xOffset >= 0) {
             // Bubble is to the RIGHT → character goes LEFT
             style.right = 'auto';
-            style.left = '-160px';
+            style.left = '-230px';
         } else {
             // Bubble is to the LEFT → character goes RIGHT
             style.left = 'auto';
-            style.right = '-160px';
+            style.right = '-230px';
         }
         return style;
     };
