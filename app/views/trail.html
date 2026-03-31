@@ -9,7 +9,15 @@
             <i class="fas fa-house"></i>
         </button>
         <h2>{{title}}</h2>
-        <div class="trail-header-right"></div>
+        <div class="trail-header-stats" ng-if="level === 'subject'">
+            <span class="trail-stat trail-stat-points">
+                <i class="fas fa-trophy"></i> {{playerPoints || 0}}
+            </span>
+            <span class="trail-stat trail-stat-streak">
+                <i class="fas fa-bolt"></i> {{playerStreak || 0}}
+            </span>
+        </div>
+        <div class="trail-header-right" ng-if="level !== 'subject'"></div>
     </div>
 
     <!-- Loading -->
@@ -53,14 +61,15 @@
             <div ng-repeat="item in trailItems" class="duo-trail-item"
                  id="{{item._id ? 'trail-item-' + item._id : ''}}">
 
-                <!-- Module Header -->
+                <!-- Module Header — wide box with section + title + icon -->
                 <div class="duo-module-header" ng-if="item._type === 'module'"
                      ng-style="{'background-color': item.color}">
                     <div class="duo-module-info">
+                        <div class="duo-module-section">Seção {{item.moduleIndex + 1}}, Unidade {{item.moduleIndex + 1}}</div>
                         <div class="duo-module-title">{{item.title}}</div>
-                        <div class="duo-module-progress" ng-if="item._lessonCount">
-                            {{item._lessonCount}} aula{{item._lessonCount > 1 ? 's' : ''}}
-                        </div>
+                    </div>
+                    <div class="duo-module-icon">
+                        <i class="fas fa-book-open"></i>
                     </div>
                 </div>
 
@@ -73,6 +82,11 @@
                         <img ng-src="{{item._charImg}}" class="duo-character-img"
                              alt="{{item._charName}}">
                         <div class="duo-character-shadow"></div>
+                        <div class="duo-character-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
                     </div>
                     <div ng-class="getBubbleClass(item)"
                          ng-style="getBubbleDynamic(item)"
@@ -95,7 +109,7 @@
 
                 <!-- Chest Bubble (timed quiz reward) -->
                 <div class="duo-bubble-wrap duo-chest-wrap" ng-if="item._type === 'lesson' && isChest(item)"
-                     style="margin-left: calc(50% - 32px);">
+                     style="margin-left: calc(50% - 36px);">
                     <div class="duo-chest" ng-class="{'duo-chest-done': item.percent >= 100, 'duo-chest-locked': !item.is_unlocked}"
                          ng-click="selectLesson(item, $event)">
                         <i class="fas fa-gem"></i>

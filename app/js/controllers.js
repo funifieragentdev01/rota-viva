@@ -482,7 +482,8 @@ angular.module('rotaViva')
         var globalLessonIdx = 0;
         var charIdx = 0; // cycles through charList
 
-        modules.forEach(function(mod) {
+        modules.forEach(function(mod, modIdx) {
+            mod.moduleIndex = modIdx;
             flat.push(mod);
             var lessons = items.filter(function(i) { return i._type === 'lesson' && i.moduleId === mod._id; })
                 .sort(function(a, b) { return (a.position || 0) - (b.position || 0); });
@@ -600,7 +601,7 @@ angular.module('rotaViva')
     $scope.getBubbleStyle = function(item) {
         if (item._type !== 'lesson') return {};
         var xOffset = Math.sin(item.lessonIndex * 0.8) * 70;
-        return { 'margin-left': 'calc(50% - 32px + ' + xOffset + 'px)' };
+        return { 'margin-left': 'calc(50% - 36px + ' + xOffset + 'px)' };
     };
 
     $scope.getBubbleClass = function(item) {
