@@ -1,4 +1,4 @@
-var CACHE_NAME = 'rota-viva-v0.6.3';
+var CACHE_NAME = 'rota-viva-v0.7.2';
 var ASSETS = [
     '/',
     '/index.html',
@@ -10,7 +10,10 @@ var ASSETS = [
     '/views/landing.html',
     '/views/login.html',
     '/views/signup.html',
-    '/views/dashboard.html'
+    '/views/dashboard.html',
+    '/views/trail.html',
+    '/views/video.html',
+    '/views/quiz.html'
 ];
 
 var CDN_ASSETS = [

@@ -181,9 +181,27 @@ angular.module('rotaViva')
 
     // Route-specific character image and title
     var routeId = preTheme ? preTheme.routeId : null;
+    // Fallback: detect route from profile name
+    if (!routeId && preTheme && preTheme.profile) {
+        if (preTheme.profile === 'apicultor') routeId = 'mel';
+        if (preTheme.profile === 'pescador') routeId = 'pesca';
+    }
+    // Fallback: detect from title
+    if (!routeId && preTheme && preTheme.title) {
+        var t = preTheme.title.toLowerCase();
+        if (t.indexOf('mel') >= 0 || t.indexOf('colmeia') >= 0) routeId = 'mel';
+        if (t.indexOf('pesca') >= 0 || t.indexOf('rio') >= 0) routeId = 'pesca';
+    }
     if (!routeId) {
         var session = AuthService.getSession();
         if (session && session.route && session.route._id) routeId = session.route._id;
+    }
+    // Last fallback: check stored route in localStorage
+    if (!routeId) {
+        try {
+            var storedRoute = JSON.parse(localStorage.getItem('rv_route') || '{}');
+            if (storedRoute && storedRoute._id) routeId = storedRoute._id;
+        } catch(e) {}
     }
 
     var ROUTE_CHARS = {
