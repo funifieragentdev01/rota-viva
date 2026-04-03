@@ -146,21 +146,21 @@ angular.module('rotaViva')
     function _routePreColors(routeId) {
         if (routeId === 'mel') {
             return {
-                primary: '#F5C200', primary_dark: '#C49B00', primary_light: '#FFF3B0',
-                accent: '#C49B00', background: '#FFFDF5', surface: '#FFFFFF',
-                card: '#FFFFFF', card_border: 'rgba(245, 194, 0, 0.25)',
-                input_bg: 'rgba(0, 0, 0, 0.04)',
-                text: '#1A1208', text_muted: '#5C4A1A', text_faint: '#9E8B5A',
-                text_on_primary: '#1A1208'
+                primary: '#FF9600', primary_dark: '#CC7A00', primary_light: '#f5e6c8',
+                accent: '#FFD700', background: '#1a2f38', surface: '#152530',
+                card: 'transparent', card_border: 'rgba(255,150,0,0.15)',
+                input_bg: '#f5e6c8',
+                text: '#FFFFFF', text_muted: 'rgba(255,255,255,0.6)', text_faint: 'rgba(255,255,255,0.3)',
+                text_on_primary: '#FFFFFF'
             };
         }
         if (routeId === 'pesca') {
             return {
-                primary: '#005CAB', primary_dark: '#003D75', primary_light: '#DDEEFF',
-                accent: '#003D75', background: '#F5F9FF', surface: '#FFFFFF',
-                card: '#FFFFFF', card_border: 'rgba(0, 92, 171, 0.15)',
-                input_bg: 'rgba(0, 0, 0, 0.04)',
-                text: '#0A1929', text_muted: '#2A4A6B', text_faint: '#7A9BBF',
+                primary: '#1E88E5', primary_dark: '#1565C0', primary_light: '#d8e8f0',
+                accent: '#4FC3F7', background: '#1a2535', surface: '#152030',
+                card: 'transparent', card_border: 'rgba(30,136,229,0.15)',
+                input_bg: '#d8e8f0',
+                text: '#FFFFFF', text_muted: 'rgba(255,255,255,0.6)', text_faint: 'rgba(255,255,255,0.3)',
                 text_on_primary: '#FFFFFF'
             };
         }
@@ -178,6 +178,25 @@ angular.module('rotaViva')
     var preTheme = ThemeService.getPreTheme();
     $scope.preTheme = preTheme;
     $scope.welcomeText = preTheme ? ('Bem-vindo à ' + (preTheme.title || 'Rota Viva')) : 'Entrar';
+
+    // Route-specific character image and title
+    var routeId = preTheme ? preTheme.routeId : null;
+    if (!routeId) {
+        var session = AuthService.getSession();
+        if (session && session.route && session.route._id) routeId = session.route._id;
+    }
+
+    var ROUTE_CHARS = {
+        mel: 'img/characters/mel/front/abelha.png',
+        pesca: 'img/characters/pesca/front/peixe.png'
+    };
+    var ROUTE_DISPLAY_NAMES = {
+        mel: 'Rota do Mel',
+        pesca: 'Rota da Pesca'
+    };
+
+    $scope.routeCharImg = routeId ? ROUTE_CHARS[routeId] : null;
+    $scope.routeTitle = routeId ? ROUTE_DISPLAY_NAMES[routeId] : 'Rota Viva';
 
     $scope.login = function() {
         $scope.error = '';
