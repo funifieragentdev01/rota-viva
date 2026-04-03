@@ -343,6 +343,7 @@ angular.module('rotaViva')
 
     var MODULE_COLORS = ['#FF9600', '#CE82FF', '#00CD9C', '#1CB0F6', '#FF4B4B', '#FFC800'];
     var SUBJECT_COLORS = ['#005CAB', '#F5C200', '#009B3A', '#D02020', '#CE82FF', '#00CD9C'];
+    var ROUTE_NAMES = { mel: 'Rota do Mel', pesca: 'Rota da Pesca' };
 
     // === Character config per route ===
     var CHARACTERS = {
@@ -393,12 +394,8 @@ angular.module('rotaViva')
         $scope.level = 'subject';
         $scope.trailLoading = true;
 
-        // Get subject title
-        ApiService.folderInside(null).then(function(data) {
-            var items = data.items || [];
-            var subject = items.find(function(i) { return i._id === subjectId; });
-            if (subject) $scope.title = subject.title;
-        });
+        // Set route display name as nav title
+        $scope.title = ROUTE_NAMES[routeId] || 'Trilha';
 
         // Get modules with progress
         ApiService.folderProgress(subjectId, playerId).then(function(data) {

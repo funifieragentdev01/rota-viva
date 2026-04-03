@@ -7,10 +7,12 @@
     --color-primary-dark: #CC7A00;
     --color-primary-light: #FFB84D;
     --color-accent: #FFD700;
-    --color-bg: #1A1A2E;
+    --color-bg: #2A2A2A;
     --color-bg-gradient: none;
-    --color-surface: #12121E;
+    --color-surface: #1E1E1E;
     --color-card: #22223A;
+    --color-nav-bg: var(--color-primary);
+    --color-nav-text: #FFFFFF;
     --color-card-border: rgba(255, 150, 0, 0.12);
     --color-input-bg: rgba(255, 255, 255, 0.06);
     --color-text: #FFFFFF;
@@ -922,7 +924,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); }
     flex: 1;
     font-size: 20px;
     font-weight: 800;
-    color: var(--color-text);
+    color: var(--color-primary);
     text-align: left;
     margin: 0;
 }
@@ -1019,12 +1021,13 @@ h1, h2, h3, h4 { font-family: var(--font-display); }
     display: flex;
     align-items: center;
     padding: 14px 18px;
-    margin: 8px 0 20px;
-    width: 100%;
+    margin: 8px auto 20px;
+    width: 95%;
     border-radius: 14px;
     color: #fff;
     position: relative;
     box-shadow: 0 4px 16px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.15);
+    border-bottom: 3px solid rgba(255,200,50,0.4);
 }
 
 .duo-module-info { flex: 1; }
@@ -1358,8 +1361,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); }
     bottom: 0;
     left: 0; right: 0;
     display: flex;
-    background: var(--color-surface);
-    border-top: 1px solid var(--color-card-border);
+    background: var(--color-nav-bg);
     padding: 8px 0 env(safe-area-inset-bottom, 8px);
     z-index: 100;
 }
@@ -1371,7 +1373,8 @@ h1, h2, h3, h4 { font-family: var(--font-display); }
     align-items: center;
     gap: 2px;
     padding: 6px 0;
-    color: var(--color-text-faint);
+    color: var(--color-nav-text);
+    opacity: 0.7;
     font: var(--font-caption);
     text-decoration: none;
     cursor: pointer;
@@ -1380,7 +1383,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); }
 }
 
 .bottom-nav-item i { font-size: 18px; }
-.bottom-nav-item.active { color: var(--color-primary); }
+.bottom-nav-item.active { color: #FFFFFF; opacity: 1; }
 
 
 

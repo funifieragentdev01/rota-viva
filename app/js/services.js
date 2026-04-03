@@ -74,7 +74,9 @@ angular.module('rotaViva')
         text_on_primary: '--color-text-on-primary',
         success: '--color-success',
         error: '--color-error',
-        warning: '--color-warning'
+        warning: '--color-warning',
+        nav_bg: '--color-nav-bg',
+        nav_text: '--color-nav-text'
     };
 
     service.apply = function(theme, animate) {
