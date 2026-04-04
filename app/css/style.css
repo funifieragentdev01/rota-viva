@@ -1014,13 +1014,13 @@ h1, h2, h3, h4 { font-family: var(--font-display); }
 
 .duo-trail-item { margin-bottom: 18px; }
 
-/* Module Header — wide box, ~95% width */
+/* Module Header — full-width bleed out of container */
 .duo-module-header {
     display: flex;
     align-items: center;
     padding: 14px 18px;
-    margin: 8px 0 20px;
-    width: 100%;
+    margin: 8px -10px 20px;
+    width: calc(100% + 20px);
     border-radius: 14px;
     color: #fff;
     position: relative;

@@ -714,11 +714,12 @@ angular.module('rotaViva')
 })
 
 // === Video Controller ===
-.controller('VideoCtrl', function($scope, $routeParams, $location, $sce, AuthService, ApiService, ThemeService) {
+.controller('VideoCtrl', function($scope, $http, $routeParams, $location, $sce, AuthService, ApiService, ThemeService) {
     var session = AuthService.getSession();
     var token = session.token;
     var baseUrl = CONFIG.API_URL;
     var videoId = $routeParams.videoId;
+    var playerId = (session.player || {})._id;
     var theme = ThemeService.load(session.apiKey) || {};
 
     if (theme && theme.colors) ThemeService.apply(theme, false);
@@ -728,6 +729,7 @@ angular.module('rotaViva')
     $scope.embedUrl = null;
     $scope.completed = false;
     $scope.themeColor = (theme.colors && theme.colors.primary) || '#FF9600';
+    var lessonFolderId = null;
 
     function setVideo(title, url) {
         $scope.title = title || 'Vídeo';
@@ -784,9 +786,38 @@ angular.module('rotaViva')
         return url;
     }
 
+    // Find the lesson folder that contains this video content (for folder_log unlock)
+    $http.get(baseUrl + '/v3/database/folder_content?q=content:\'' + videoId + '\'', {
+        headers: { 'Authorization': token }
+    }).then(function(res) {
+        var fcs = res.data || [];
+        if (fcs.length > 0) {
+            lessonFolderId = fcs[0].folder;
+        } else {
+            // videoId might be the folder_content _id itself
+            $http.get(baseUrl + '/v3/database/folder_content?q=_id:\'' + videoId + '\'', {
+                headers: { 'Authorization': token }
+            }).then(function(res2) {
+                var fcs2 = res2.data || [];
+                if (fcs2.length > 0) {
+                    lessonFolderId = fcs2[0].folder;
+                }
+            }).catch(function() {});
+        }
+    }).catch(function() {});
+
     $scope.markDone = function() {
-        // TODO: register action/progress in Funifier
         $scope.completed = true;
+        // Register folder_log to unlock next lesson
+        if (lessonFolderId && playerId) {
+            ApiService.folderLog(lessonFolderId, playerId, 100).then(function() {
+                console.log('[Video] folder/log registered for', lessonFolderId);
+            }).catch(function(err) {
+                console.warn('[Video] folder/log error:', err);
+            });
+        } else {
+            console.warn('[Video] No lessonFolderId or playerId, cannot log completion');
+        }
     };
 
     $scope.goBack = function() {
