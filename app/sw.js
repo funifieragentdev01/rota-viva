@@ -1,4 +1,4 @@
-var CACHE_NAME = 'rota-viva-v0.7.2';
+var CACHE_NAME = 'rota-viva-v0.7.4';
 var ASSETS = [
     '/',
     '/index.html',
@@ -26,9 +26,7 @@ var CDN_ASSETS = [
 self.addEventListener('install', function(e) {
     e.waitUntil(
         caches.open(CACHE_NAME).then(function(cache) {
-            // Cache local assets
             return cache.addAll(ASSETS).then(function() {
-                // Cache CDN assets (best effort)
                 return Promise.allSettled(
                     CDN_ASSETS.map(function(url) {
                         return fetch(url).then(function(r) {
@@ -65,11 +63,26 @@ self.addEventListener('fetch', function(e) {
         return;
     }
 
-    // Cache first for everything else (assets + CDN)
+    // Network first for local assets (always get latest, fallback to cache offline)
+    if (e.request.url.includes(self.location.origin)) {
+        e.respondWith(
+            fetch(e.request).then(function(response) {
+                var clone = response.clone();
+                caches.open(CACHE_NAME).then(function(cache) {
+                    cache.put(e.request, clone);
+                });
+                return response;
+            }).catch(function() {
+                return caches.match(e.request);
+            })
+        );
+        return;
+    }
+
+    // Cache first for CDN/external (fonts, libraries)
     e.respondWith(
         caches.match(e.request).then(function(r) {
             return r || fetch(e.request).then(function(response) {
-                // Cache font files and CDN resources on first load
                 if (e.request.url.includes('fonts.gstatic.com') ||
                     e.request.url.includes('cdnjs.cloudflare.com')) {
                     var clone = response.clone();

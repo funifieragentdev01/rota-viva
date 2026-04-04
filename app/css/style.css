@@ -1755,3 +1755,12 @@ h1, h2, h3, h4 { font-family: var(--font-display); }
     cursor: pointer;
 }
 .quiz-diy-retake i { margin-right: 4px; }
+
+/* Version footer */
+.version-footer {
+    text-align: center;
+    font-size: 11px;
+    color: rgba(255,255,255,0.2);
+    padding: 16px 0 calc(env(safe-area-inset-bottom, 0px) + 8px);
+    letter-spacing: 0.5px;
+}
