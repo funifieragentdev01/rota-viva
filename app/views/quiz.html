@@ -72,7 +72,7 @@
         <!-- ESSAY / SHORT_ANSWER -->
         <div class="quiz-essay" ng-if="current().type === 'ESSAY' || current().type === 'SHORT_ANSWER'">
             <textarea class="quiz-essay-input"
-                      ng-model="essayAnswer"
+                      ng-model="$parent.essayAnswer"
                       ng-disabled="current().answered"
                       placeholder="Escreva sua resposta..."
                       rows="{{current().totalLines || 5}}"></textarea>
@@ -92,7 +92,7 @@
                 </button>
             </div>
             <textarea class="quiz-essay-input"
-                      ng-model="essayAnswer"
+                      ng-model="$parent.essayAnswer"
                       ng-disabled="current().answered"
                       placeholder="Descreva o que você fotografou (opcional)..."
                       rows="3"></textarea>

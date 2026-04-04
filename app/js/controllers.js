@@ -1005,7 +1005,18 @@ angular.module('rotaViva')
             if (q.correct) $scope.score++;
             if (selected) logAnswer(q, [selected.answer]);
         }
+
+        // Audio feedback
+        playSound(q.correct ? 'correct' : 'wrong');
     };
+
+    function playSound(type) {
+        try {
+            if (type === 'correct') {
+                new Audio('audio/beep.mp3').play();
+            }
+        } catch(e) {}
+    }
 
     function logAnswer(q, answerArr) {
         if (!$scope.quizLogId) return;
