@@ -786,13 +786,15 @@ angular.module('rotaViva')
         return url;
     }
 
-    // Find the lesson folder that contains this video content (for folder_log unlock)
+    // Find the folder_content record for this video (for folder_log unlock)
+    var folderContentId = null;
     $http.get(baseUrl + '/v3/database/folder_content?q=content:\'' + videoId + '\'', {
         headers: { 'Authorization': token }
     }).then(function(res) {
         var fcs = res.data || [];
         if (fcs.length > 0) {
-            lessonFolderId = fcs[0].folder;
+            folderContentId = fcs[0]._id;
+            console.log('[Video] Found folder_content by content:', folderContentId);
         } else {
             // videoId might be the folder_content _id itself
             $http.get(baseUrl + '/v3/database/folder_content?q=_id:\'' + videoId + '\'', {
@@ -800,7 +802,8 @@ angular.module('rotaViva')
             }).then(function(res2) {
                 var fcs2 = res2.data || [];
                 if (fcs2.length > 0) {
-                    lessonFolderId = fcs2[0].folder;
+                    folderContentId = fcs2[0]._id;
+                    console.log('[Video] Found folder_content by _id:', folderContentId);
                 }
             }).catch(function() {});
         }
@@ -808,15 +811,15 @@ angular.module('rotaViva')
 
     $scope.markDone = function() {
         $scope.completed = true;
-        // Register folder_log to unlock next lesson
-        if (lessonFolderId && playerId) {
-            ApiService.folderLog(lessonFolderId, playerId, 100).then(function() {
-                console.log('[Video] folder/log registered for', lessonFolderId);
+        // Register folder_log with folder_content._id (same pattern as Tutor)
+        if (folderContentId && playerId) {
+            ApiService.folderLog(folderContentId, playerId, 100).then(function() {
+                console.log('[Video] folder/log OK for folder_content:', folderContentId);
             }).catch(function(err) {
                 console.warn('[Video] folder/log error:', err);
             });
         } else {
-            console.warn('[Video] No lessonFolderId or playerId, cannot log completion');
+            console.warn('[Video] No folderContentId or playerId, cannot log completion. videoId=' + videoId);
         }
     };
 
@@ -912,13 +915,13 @@ angular.module('rotaViva')
         $scope.loading = false;
     });
 
-    // Find the lesson folder that contains this quiz (for folder_log)
+    // Find the folder_content record for this quiz (for folder_log)
     $http.get(baseUrl + '/v3/database/folder_content?q=content:\'' + quizId + '\'', {
         headers: { 'Authorization': token }
     }).then(function(res) {
         var fcs = res.data || [];
         if (fcs.length > 0) {
-            $scope.lessonFolderId = fcs[0].folder;
+            $scope.lessonFolderId = fcs[0]._id; // folder_content._id, NOT folder
         }
     }).catch(function() {});
 
