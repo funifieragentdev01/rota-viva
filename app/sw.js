@@ -1,4 +1,4 @@
-var CACHE_NAME = 'rota-viva-v0.7.7';
+var CACHE_NAME = 'rota-viva-v0.7.8';
 var ASSETS = [
     '/',
     '/index.html',

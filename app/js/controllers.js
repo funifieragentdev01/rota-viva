@@ -850,7 +850,7 @@ angular.module('rotaViva')
     $scope.quizLogId = null;
     $scope.lessonFolderId = null; // to log folder progress on finish
     $scope.tfAnswer = null;       // TRUE_FALSE selection
-    $scope.essayAnswer = '';      // ESSAY / SHORT_ANSWER text
+    $scope.form = { essayAnswer: '' };  // object to survive ng-if child scopes
     $scope.diyPhotoData = null;   // DIY_PROJECT photo data URL
 
     function authHeaders() {
@@ -951,8 +951,8 @@ angular.module('rotaViva')
         var q = $scope.current();
         if (!q) return false;
         if (q.type === 'TRUE_FALSE') return $scope.tfAnswer !== null;
-        if (q.type === 'ESSAY' || q.type === 'SHORT_ANSWER') return ($scope.essayAnswer || '').trim().length > 0;
-        if (q.type === 'DIY_PROJECT') return ($scope.essayAnswer || '').trim().length > 0 || $scope.diyPhotoData;
+        if (q.type === 'ESSAY' || q.type === 'SHORT_ANSWER') return ($scope.form.essayAnswer || '').trim().length > 0;
+        if (q.type === 'DIY_PROJECT') return ($scope.form.essayAnswer || '').trim().length > 0 || $scope.diyPhotoData;
         // MULTIPLE_CHOICE (single or multi)
         return q.options && q.options.some(function(o) { return o.selected; });
     };
@@ -972,12 +972,12 @@ angular.module('rotaViva')
         } else if (q.type === 'ESSAY' || q.type === 'SHORT_ANSWER') {
             q.correct = true;
             $scope.score++;
-            logAnswer(q, [$scope.essayAnswer]);
+            logAnswer(q, [$scope.form.essayAnswer]);
 
         } else if (q.type === 'DIY_PROJECT') {
             q.correct = true;
             $scope.score++;
-            logAnswer(q, [$scope.essayAnswer || '(foto enviada)']);
+            logAnswer(q, [$scope.form.essayAnswer || '(foto enviada)']);
 
         } else if (q.isMultiSelect) {
             // MULTIPLE_CHOICE with multiple_answers
@@ -1033,7 +1033,7 @@ angular.module('rotaViva')
         if ($scope.currentIndex < $scope.questions.length - 1) {
             $scope.currentIndex++;
             $scope.tfAnswer = null;
-            $scope.essayAnswer = '';
+            $scope.form.essayAnswer = '';
             $scope.diyPhotoData = null;
         } else {
             $scope.finished = true;
