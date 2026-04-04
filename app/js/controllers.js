@@ -341,14 +341,87 @@ angular.module('rotaViva')
 })
 
 // === Dashboard Controller ===
-.controller('DashboardCtrl', function($scope, $location, AuthService, ThemeService) {
+.controller('DashboardCtrl', function($scope, $location, AuthService, ThemeService, ApiService) {
     var session = AuthService.getSession();
     $scope.player = session.player || {};
     $scope.route = session.route || {};
     $scope.theme = ThemeService.load(session.apiKey) || {};
+    var playerId = ($scope.player || {})._id;
+
+    // Gamification state
+    $scope.totalPoints = 0;
+    $scope.levelName = 'Carregando...';
+    $scope.levelPosition = 0;
+    $scope.levelPercent = 0;
+    $scope.nextLevelName = '';
+    $scope.nextPoints = 0;
+    $scope.totalLevels = 0;
+    $scope.streak = 0;
+    $scope.statusLoaded = false;
+    $scope.showLevelUp = false;
 
     if ($scope.theme && $scope.theme.colors) {
         ThemeService.apply($scope.theme, false);
+    }
+
+    // Fetch player status (points, level, progress)
+    if (playerId) {
+        ApiService.getPlayerStatus(playerId).then(function(status) {
+            $scope.totalPoints = Math.floor(status.total_points || 0);
+            var lp = status.level_progress || {};
+            var level = lp.level || {};
+            $scope.levelName = level.level || 'Iniciante';
+            $scope.levelPosition = level.position || 0;
+            $scope.levelPercent = Math.round(lp.percent_completed || 0);
+            $scope.nextLevelName = (lp.next_level || {}).level || '';
+            $scope.nextPoints = Math.ceil(lp.next_points || 0);
+            $scope.totalLevels = lp.total_levels || 0;
+            $scope.statusLoaded = true;
+        }).catch(function() {
+            $scope.levelName = 'Iniciante';
+            $scope.statusLoaded = true;
+        });
+
+        // Calculate streak from action logs (consecutive days with activity)
+        ApiService.getActionLogs(playerId, 60).then(function(logs) {
+            $scope.streak = calculateStreak(logs);
+        }).catch(function() {
+            $scope.streak = 0;
+        });
+    }
+
+    function calculateStreak(logs) {
+        if (!logs || logs.length === 0) return 0;
+
+        // Get unique days with activity (in local timezone)
+        var days = {};
+        logs.forEach(function(log) {
+            var d = new Date(log.time);
+            var key = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate();
+            days[key] = true;
+        });
+
+        // Count consecutive days ending today or yesterday
+        var today = new Date();
+        var streak = 0;
+        var check = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+
+        // Check if today has activity, if not start from yesterday
+        var todayKey = check.getFullYear() + '-' + (check.getMonth() + 1) + '-' + check.getDate();
+        if (!days[todayKey]) {
+            check.setDate(check.getDate() - 1);
+        }
+
+        while (true) {
+            var key = check.getFullYear() + '-' + (check.getMonth() + 1) + '-' + check.getDate();
+            if (days[key]) {
+                streak++;
+                check.setDate(check.getDate() - 1);
+            } else {
+                break;
+            }
+        }
+        return streak;
     }
 
     $scope.goTrail = function() {
@@ -392,6 +465,33 @@ angular.module('rotaViva')
     var charBasePath = 'img/characters/' + routeId + '/trail/';
 
     var folderId = $routeParams.folderId || null;
+
+    // Fetch player points and streak for header display
+    $scope.playerPoints = 0;
+    $scope.playerStreak = 0;
+    if (playerId) {
+        ApiService.getPlayerStatus(playerId).then(function(status) {
+            $scope.playerPoints = Math.floor(status.total_points || 0);
+        }).catch(function() {});
+
+        ApiService.getActionLogs(playerId, 60).then(function(logs) {
+            if (!logs || logs.length === 0) return;
+            var days = {};
+            logs.forEach(function(log) {
+                var d = new Date(log.time);
+                days[d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate()] = true;
+            });
+            var check = new Date();
+            var streak = 0;
+            var todayKey = check.getFullYear() + '-' + (check.getMonth() + 1) + '-' + check.getDate();
+            if (!days[todayKey]) check.setDate(check.getDate() - 1);
+            while (true) {
+                var key = check.getFullYear() + '-' + (check.getMonth() + 1) + '-' + check.getDate();
+                if (days[key]) { streak++; check.setDate(check.getDate() - 1); } else break;
+            }
+            $scope.playerStreak = streak;
+        }).catch(function() {});
+    }
 
     function init() {
         if (folderId) {
@@ -821,6 +921,16 @@ angular.module('rotaViva')
         } else {
             console.warn('[Video] No folderContentId or playerId, cannot log completion. videoId=' + videoId);
         }
+        // Log action for gamification (points/challenges)
+        if (playerId) {
+            ApiService.logAction('complete_lesson', playerId, {
+                lesson_type: 'video',
+                lesson_id: videoId,
+                score: 100
+            }).catch(function(err) {
+                console.warn('[Video] action/log error:', err);
+            });
+        }
     };
 
     $scope.goBack = function() {
@@ -1053,6 +1163,17 @@ angular.module('rotaViva')
             if ($scope.lessonFolderId) {
                 ApiService.folderLog($scope.lessonFolderId, playerId, scorePercent).catch(function(err) {
                     console.warn('[Quiz] folder/log error:', err);
+                });
+            }
+
+            // Log action for gamification (points/challenges)
+            if (playerId) {
+                ApiService.logAction('complete_lesson', playerId, {
+                    lesson_type: 'quiz',
+                    lesson_id: quizId,
+                    score: scorePercent
+                }).catch(function(err) {
+                    console.warn('[Quiz] action/log error:', err);
                 });
             }
         }

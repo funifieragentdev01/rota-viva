@@ -319,5 +319,26 @@ angular.module('rotaViva')
         return $http.post(baseUrl + '/v3/folder/log', body, trailHeaders());
     };
 
+    // Get player status (points, level, challenges, etc.)
+    api.getPlayerStatus = function(playerId) {
+        return $http.get(baseUrl + '/v3/player/' + playerId + '/status', trailHeaders()).then(function(res) {
+            return res.data || {};
+        });
+    };
+
+    // Log action (for gamification: challenges, points, levels)
+    api.logAction = function(actionId, playerId, attributes) {
+        var body = { actionId: actionId, userId: playerId, attributes: attributes || {} };
+        return $http.post(baseUrl + '/v3/action/log', body, trailHeaders());
+    };
+
+    // Get action logs for a player (for streak calculation)
+    api.getActionLogs = function(playerId, limit) {
+        var url = baseUrl + '/v3/database/action_log?strict=true&sort=time:-1&limit=' + (limit || 30) + '&q=userId:\'' + playerId + '\'';
+        return $http.get(url, trailHeaders()).then(function(res) {
+            return Array.isArray(res.data) ? res.data : [];
+        });
+    };
+
     return api;
 });
