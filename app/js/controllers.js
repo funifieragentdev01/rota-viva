@@ -438,7 +438,11 @@ angular.module('rotaViva')
 .controller('TrailCtrl', function($scope, $location, $routeParams, $timeout, AuthService, ApiService, ThemeService) {
     var session = AuthService.getSession();
     var playerId = (session.player || {})._id;
-    var routeId = (session.route || {})._id || 'mel'; // 'mel' | 'pesca'
+    var route = session.route || {};
+    var routeId = route._id
+        || (route.profile === 'pescador' ? 'pesca' : null)
+        || (route.profile === 'apicultor' ? 'mel' : null)
+        || 'mel';
     var theme = ThemeService.load(session.apiKey) || {};
 
     if (theme && theme.colors) ThemeService.apply(theme, false);
@@ -531,8 +535,13 @@ angular.module('rotaViva')
         $scope.level = 'subject';
         $scope.trailLoading = true;
 
-        // Set route display name as nav title
+        // Set fallback title, then override with folder subject
         $scope.title = ROUTE_NAMES[routeId] || 'Trilha';
+        ApiService.dbGet('folder', subjectId).then(function(folder) {
+            if (folder && folder.subject) {
+                $scope.title = folder.subject;
+            }
+        }).catch(function() {});
 
         // Get modules with progress
         ApiService.folderProgress(subjectId, playerId).then(function(data) {
