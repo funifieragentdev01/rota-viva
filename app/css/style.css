@@ -15,6 +15,7 @@
     --color-nav-text: #FFFFFF;
     --color-card-border: rgba(255, 150, 0, 0.12);
     --color-input-bg: rgba(255, 255, 255, 0.06);
+    --color-input-text: #FFFFFF;
     --color-text: #FFFFFF;
     --color-text-muted: rgba(255, 255, 255, 0.6);
     --color-text-faint: rgba(255, 255, 255, 0.3);
@@ -199,7 +200,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); }
     background: var(--color-input-bg);
     border: 1px solid var(--color-card-border);
     border-radius: var(--radius-sm);
-    color: var(--color-text);
+    color: var(--color-input-text);
     font: var(--font-body);
     outline: none;
     transition: border-color 0.2s;
@@ -211,7 +212,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); }
 }
 
 .form-input::placeholder {
-    color: var(--color-text-faint);
+    color: rgba(0, 0, 0, 0.4);
 }
 
 .form-select {
@@ -220,7 +221,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); }
     background: var(--color-input-bg);
     border: 1px solid var(--color-card-border);
     border-radius: var(--radius-sm);
-    color: var(--color-text);
+    color: var(--color-input-text);
     font: var(--font-body);
     outline: none;
     -webkit-appearance: none;
@@ -232,7 +233,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); }
 
 .form-select option {
     background: #fff;
-    color: var(--color-text);
+    color: #1A1A1A;
 }
 
 .form-hint {

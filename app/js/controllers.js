@@ -149,7 +149,7 @@ angular.module('rotaViva')
                 primary: '#FF9600', primary_dark: '#CC7A00', primary_light: '#f5e6c8',
                 accent: '#FFD700', background: '#1a2f38', surface: '#152530',
                 card: 'transparent', card_border: 'rgba(255,150,0,0.15)',
-                input_bg: '#f5e6c8',
+                input_bg: '#f5e6c8', input_text: '#1A1A1A',
                 text: '#FFFFFF', text_muted: 'rgba(255,255,255,0.6)', text_faint: 'rgba(255,255,255,0.3)',
                 text_on_primary: '#FFFFFF'
             };
@@ -159,7 +159,7 @@ angular.module('rotaViva')
                 primary: '#1E88E5', primary_dark: '#1565C0', primary_light: '#d8e8f0',
                 accent: '#4FC3F7', background: '#1a2535', surface: '#152030',
                 card: 'transparent', card_border: 'rgba(30,136,229,0.15)',
-                input_bg: '#d8e8f0',
+                input_bg: '#d8e8f0', input_text: '#1A1A1A',
                 text: '#FFFFFF', text_muted: 'rgba(255,255,255,0.6)', text_faint: 'rgba(255,255,255,0.3)',
                 text_on_primary: '#FFFFFF'
             };
