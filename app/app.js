@@ -1,4 +1,4 @@
-angular.module('rotaViva', ['ngRoute'])
+angular.module('rotaViva', ['ngRoute', 'ngSanitize'])
 
 .filter('capitalize', function() {
     return function(input) {
@@ -14,7 +14,7 @@ angular.module('rotaViva', ['ngRoute'])
     };
 })
 
-// Cache-busting: append ?v=VERSION to all $http requests to the API
+// Cache-busting: append ?v=VERSION to all /v3/ API requests
 .config(function($httpProvider) {
     $httpProvider.interceptors.push(function() {
         return {
@@ -31,45 +31,50 @@ angular.module('rotaViva', ['ngRoute'])
 .config(function($routeProvider) {
     $routeProvider
         .when('/home', {
-            templateUrl: 'views/landing.html',
+            templateUrl: 'pages/landing/landing.html',
             controller: 'LandingCtrl'
         })
         .when('/login', {
-            templateUrl: 'views/login.html',
+            templateUrl: 'pages/login/login.html',
             controller: 'LoginCtrl'
         })
         .when('/signup', {
-            templateUrl: 'views/signup.html',
+            templateUrl: 'pages/signup/signup.html',
             controller: 'SignupCtrl'
         })
         .when('/dashboard', {
-            templateUrl: 'views/dashboard.html',
+            templateUrl: 'pages/dashboard/dashboard.html',
             controller: 'DashboardCtrl',
             resolve: { auth: function(AuthService) { return AuthService.requireAuth(); } }
         })
         .when('/trail', {
-            templateUrl: 'views/trail.html',
+            templateUrl: 'pages/trail/trail.html',
             controller: 'TrailCtrl',
             resolve: { auth: function(AuthService) { return AuthService.requireAuth(); } }
         })
         .when('/trail/:folderId', {
-            templateUrl: 'views/trail.html',
+            templateUrl: 'pages/trail/trail.html',
             controller: 'TrailCtrl',
             resolve: { auth: function(AuthService) { return AuthService.requireAuth(); } }
         })
         .when('/video/:videoId', {
-            templateUrl: 'views/video.html',
+            templateUrl: 'pages/video/video.html',
             controller: 'VideoCtrl',
-            requiresAuth: true
+            resolve: { auth: function(AuthService) { return AuthService.requireAuth(); } }
         })
         .when('/quiz/:quizId', {
-            templateUrl: 'views/quiz.html',
+            templateUrl: 'pages/quiz/quiz.html',
             controller: 'QuizCtrl',
             resolve: { auth: function(AuthService) { return AuthService.requireAuth(); } }
         })
         .when('/gallery', {
-            templateUrl: 'views/gallery.html',
+            templateUrl: 'pages/gallery/gallery.html',
             controller: 'GalleryCtrl',
+            resolve: { auth: function(AuthService) { return AuthService.requireAuth(); } }
+        })
+        .when('/profile', {
+            templateUrl: 'pages/profile/profile.html',
+            controller: 'ProfileCtrl',
             resolve: { auth: function(AuthService) { return AuthService.requireAuth(); } }
         })
         .otherwise({ redirectTo: '/home' });
@@ -77,6 +82,7 @@ angular.module('rotaViva', ['ngRoute'])
 
 .run(function($rootScope, $location, AuthService, ThemeService) {
     $rootScope.CONFIG = CONFIG;
+
     $rootScope.$on('$routeChangeError', function() {
         $location.path('/login');
     });
@@ -85,28 +91,20 @@ angular.module('rotaViva', ['ngRoute'])
         if (!next || !next.$$route) return;
         var path = next.$$route.originalPath;
 
-        // Se logado, redirecionar login/signup pro dashboard
         if (AuthService.isLoggedIn() && (path === '/login' || path === '/signup')) {
             event.preventDefault();
             $location.path('/dashboard');
             return;
         }
 
-        // Aplicar pré-tema se existir (vindo da landing)
         if (path === '/login' || path === '/signup') {
             var pre = ThemeService.getPreTheme();
-            if (pre && pre.colors) {
-                ThemeService.apply({ colors: pre.colors }, false);
-            }
+            if (pre && pre.colors) ThemeService.apply({ colors: pre.colors }, false);
         }
 
-        // Reset tema na landing
-        if (path === '/home') {
-            ThemeService.reset();
-        }
+        if (path === '/home') ThemeService.reset();
     });
 
-    // Se tem sessão salva, aplicar tema da rota
     if (AuthService.isLoggedIn()) {
         var session = AuthService.getSession();
         if (session.apiKey) {
@@ -114,4 +112,9 @@ angular.module('rotaViva', ['ngRoute'])
             if (cached) ThemeService.apply(cached, false);
         }
     }
+})
+
+// MainCtrl — used as ng-controller on <body>
+.controller('MainCtrl', function($scope) {
+    $scope.loading = false;
 });

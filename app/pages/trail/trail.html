@@ -20,7 +20,7 @@
         <div class="trail-header-right" ng-if="level !== 'subject'"></div>
     </div>
 
-    <!-- Sticky Active Module Box (Duolingo style — updates on scroll) -->
+    <!-- Sticky Active Module Box (scroll-based) -->
     <div class="duo-sticky-module"
          ng-if="!loading && level === 'subject' && activeModule"
          ng-style="{'background-color': activeModule.color}">
@@ -39,10 +39,9 @@
         <p>Carregando trilha...</p>
     </div>
 
-    <!-- ═══ DUOLINGO S-CURVE TRAIL (subject level — modules + lessons) ═══ -->
+    <!-- Duolingo S-curve trail -->
     <div class="duo-trail-container" ng-if="!loading && level === 'subject'">
 
-        <!-- Trail loading -->
         <div class="loading-screen" ng-if="trailLoading" style="min-height: 200px;">
             <div class="loading-spinner"></div>
         </div>
@@ -51,16 +50,14 @@
             <div ng-repeat="item in trailItems" class="duo-trail-item"
                  id="{{item._id ? 'trail-item-' + item._id : ''}}">
 
-                <!-- Module Divider (text separator — scroll anchor for sticky box) -->
-                <div class="duo-module-divider" ng-if="item._type === 'module'"
-                     ng-attr-data-mid="item._id">
+                <!-- Module Divider -->
+                <div class="duo-module-divider" ng-if="item._type === 'module'">
                     — {{item.title}} —
                 </div>
 
                 <!-- Lesson Bubble (normal) -->
                 <div class="duo-bubble-wrap" ng-if="item._type === 'lesson' && !isChest(item)"
                      ng-style="getBubbleStyle(item)">
-                    <!-- Character alongside (absolute, opposite side of curve) -->
                     <div class="duo-character-float" ng-if="item._charImg"
                          ng-style="getCharacterStyle(item)">
                         <img ng-src="{{item._charImg}}" class="duo-character-img"
@@ -78,7 +75,6 @@
                         <i class="fas" ng-class="item.icon"></i>
                     </div>
 
-                    <!-- Popup -->
                     <div class="duo-popup" ng-if="selectedLesson._id === item._id"
                          ng-click="$event.stopPropagation()">
                         <div class="duo-popup-title">{{item.title}}</div>
@@ -91,15 +87,14 @@
                     </div>
                 </div>
 
-                <!-- Chest Bubble (timed quiz reward) -->
+                <!-- Chest Bubble -->
                 <div class="duo-bubble-wrap duo-chest-wrap" ng-if="item._type === 'lesson' && isChest(item)"
-                     style="margin-left: calc(50% - 36px);">
+                     ng-style="getBubbleStyle(item)">
                     <div class="duo-chest" ng-class="{'duo-chest-done': item.percent >= 100, 'duo-chest-locked': !item.is_unlocked}"
                          ng-click="selectLesson(item, $event)">
-                        <i class="fas fa-gem"></i>
+                        <img src="img/icon/trail/chest.png" class="duo-chest-img" alt="baú">
                     </div>
 
-                    <!-- Popup -->
                     <div class="duo-popup" ng-if="selectedLesson._id === item._id"
                          ng-click="$event.stopPropagation()">
                         <div class="duo-popup-title">{{item.title}}</div>
@@ -115,7 +110,6 @@
             </div>
         </div>
 
-        <!-- Empty trail -->
         <div class="trail-empty" ng-if="!trailLoading && trailItems.length === 0">
             <div style="font-size: 48px; margin-bottom: 16px;">📂</div>
             <h3>Nenhum módulo ainda</h3>

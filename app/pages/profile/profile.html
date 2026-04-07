@@ -1,0 +1,86 @@
+<div class="view-container profile-view">
+
+    <!-- Header -->
+    <div class="profile-header">
+        <h2>Perfil</h2>
+    </div>
+
+    <!-- Avatar + info -->
+    <div class="profile-hero">
+        <div class="profile-avatar-wrap" ng-click="triggerPhotoUpload()">
+            <div class="profile-avatar">
+                <img ng-if="playerPhoto" ng-src="{{playerPhoto}}" alt="Foto de perfil" />
+                <div ng-if="!playerPhoto" class="profile-avatar-initial">
+                    {{playerName | firstWord | limitTo:1}}
+                </div>
+                <div class="profile-avatar-overlay" ng-class="{'profile-avatar-loading': uploadingPhoto}">
+                    <i class="fas fa-spinner fa-spin" ng-if="uploadingPhoto"></i>
+                    <i class="fas fa-camera" ng-if="!uploadingPhoto"></i>
+                </div>
+            </div>
+        </div>
+        <input id="profile-photo-input" type="file" accept="image/*" style="display:none"
+               onchange="angular.element(this).scope().onPhotoSelected(this)">
+
+        <!-- Nome (editável) -->
+        <div class="profile-name-wrap" ng-if="!editingName" ng-click="startEditName()">
+            <span class="profile-name">{{playerName}}</span>
+            <i class="fas fa-pen profile-edit-icon"></i>
+        </div>
+        <div class="profile-name-edit" ng-if="editingName">
+            <input id="profile-name-input" type="text" class="profile-name-input"
+                   ng-model="editName"
+                   ng-keyup="$event.keyCode === 13 && saveName()"
+                   maxlength="60" />
+            <button class="profile-name-save" ng-click="saveName()"
+                    ng-style="{'background': theme.colors && theme.colors.primary || '#FF9600'}">
+                Salvar
+            </button>
+            <button class="profile-name-cancel" ng-click="cancelEditName()">
+                <i class="fas fa-xmark"></i>
+            </button>
+        </div>
+
+        <div class="profile-route">{{routeName}}</div>
+    </div>
+
+    <!-- Stats -->
+    <div class="profile-stats">
+        <div class="profile-stat-card">
+            <div class="profile-stat-icon" style="color: #FFC800;"><i class="fas fa-trophy"></i></div>
+            <div class="profile-stat-value">{{playerPoints || 0}}</div>
+            <div class="profile-stat-label">Pontos</div>
+        </div>
+        <div class="profile-stat-divider"></div>
+        <div class="profile-stat-card">
+            <div class="profile-stat-icon" style="color: #1CB0F6;"><i class="fas fa-bolt"></i></div>
+            <div class="profile-stat-value">{{playerStreak || 0}}</div>
+            <div class="profile-stat-label">Sequência</div>
+        </div>
+    </div>
+
+    <!-- Actions -->
+    <div class="profile-actions">
+        <button class="profile-action-btn profile-action-logout" ng-click="logout()">
+            <i class="fas fa-right-from-bracket"></i>
+            <span>Sair da conta</span>
+        </button>
+    </div>
+
+    <!-- Bottom Nav -->
+    <nav class="bottom-nav">
+        <a class="bottom-nav-item" ng-click="goHome()">
+            <i class="fas fa-house"></i><span>Início</span>
+        </a>
+        <a class="bottom-nav-item" ng-click="goTrail()">
+            <i class="fas fa-route"></i><span>Trilha</span>
+        </a>
+        <a class="bottom-nav-item" ng-click="goGallery()">
+            <i class="fas fa-images"></i><span>Galeria</span>
+        </a>
+        <a class="bottom-nav-item active">
+            <i class="fas fa-circle-user"></i><span>Perfil</span>
+        </a>
+    </nav>
+
+</div>

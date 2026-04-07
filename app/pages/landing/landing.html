@@ -1,0 +1,182 @@
+<div class="landing">
+
+    <!-- Loading -->
+    <div class="loading-screen" ng-if="loading">
+        <div class="loading-spinner"></div>
+        <p>Carregando...</p>
+    </div>
+
+    <div ng-if="!loading">
+
+        <!-- Navbar -->
+        <nav class="landing-nav">
+            <div class="landing-nav-brand">
+                <i class="fas fa-leaf"></i>
+                <span>Rota Viva</span>
+            </div>
+            <a href="" ng-click="goLogin()">Já sou cadastrado</a>
+        </nav>
+
+        <!-- Hero — Video/Image background -->
+        <section class="landing-hero" id="hero">
+            <video id="hero-video" class="landing-hero-media"
+                   autoplay muted loop playsinline
+                   poster="{{heroImages[currentHero]}}"></video>
+            <div class="landing-hero-overlay"></div>
+
+            <div class="geo-circle"></div>
+            <div class="geo-rect"></div>
+            <div class="geo-semi"></div>
+
+            <div class="landing-hero-content">
+                <h1>Regularize. Organize.<br>Venda mais.</h1>
+                <p>O programa do Governo Federal que fortalece o produtor rural com acesso a crédito, regularização e mercado.</p>
+                <a href="" ng-click="scrollTo('routes')" class="btn-hero">
+                    <i class="fas fa-route"></i> Descobrir minha rota
+                </a>
+                <div class="landing-hero-proof">
+                    <i class="fas fa-users"></i>
+                    <span>+5.000 produtores beneficiados</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Espelho de Dores -->
+        <section class="landing-mirror">
+            <h2>A gente sabe que você já ouviu promessas assim antes.</h2>
+            <p class="subtitle">Por isso vamos ser diretos.</p>
+
+            <div class="landing-mirror-grid">
+                <div class="landing-mirror-block mel">
+                    <h3><i class="fas fa-seedling" style="color: var(--midr-yellow)"></i> Apicultor</h3>
+                    <p ng-repeat="line in mirrorMel">{{line}}</p>
+                </div>
+                <div class="landing-mirror-block pesca">
+                    <h3><i class="fas fa-fish" style="color: var(--midr-blue)"></i> Pescador</h3>
+                    <p ng-repeat="line in mirrorPesca">{{line}}</p>
+                </div>
+            </div>
+        </section>
+        <div class="landing-transition">
+            "Rota Viva não resolve tudo. Mas abre o caminho."
+        </div>
+
+        <!-- Funcionalidades do App -->
+        <section class="landing-features">
+            <h2>O que o app faz por você</h2>
+            <div class="landing-features-grid">
+                <div class="landing-feature-item">
+                    <i class="fas fa-building-columns"></i>
+                    <h3>Acesso ao Governo</h3>
+                    <p>Descubra quais programas (PAA, PNAE, seguro-defeso) são para você — e como acessar.</p>
+                </div>
+                <div class="landing-feature-item">
+                    <i class="fas fa-file-invoice"></i>
+                    <h3>Regularização</h3>
+                    <p>Passo a passo para tirar nota fiscal, formalizar a atividade e vender direto.</p>
+                </div>
+                <div class="landing-feature-item">
+                    <i class="fas fa-book-open"></i>
+                    <h3>Trilhas de Conhecimento</h3>
+                    <p>Aprenda boas práticas de manejo, organização e comercialização no seu ritmo.</p>
+                </div>
+                <div class="landing-feature-item">
+                    <i class="fas fa-trophy"></i>
+                    <h3>Reconhecimento</h3>
+                    <p>Ganhe badges, suba de nível e seja reconhecido como produtor de referência.</p>
+                </div>
+                <div class="landing-feature-item">
+                    <i class="fas fa-handshake"></i>
+                    <h3>Organização Coletiva</h3>
+                    <p>Conecte-se com outros produtores do seu município para ganhar escala.</p>
+                </div>
+                <div class="landing-feature-item">
+                    <i class="fas fa-certificate"></i>
+                    <h3>Certificação</h3>
+                    <p>Complete trilhas e receba certificados oficiais de capacitação.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seções por Rota (dinâmicas) -->
+        <div id="routes">
+            <section class="landing-route-section"
+                     ng-repeat="route in routes"
+                     ng-style="{'background': route.landing.bg_tint || 'transparent'}">
+                <div class="landing-route-inner">
+                    <div class="landing-route-visual">
+                        <div class="photo-placeholder">
+                            <i class="fas" ng-class="routeIcon(route)" ng-style="{'color': routeColor(route)}"></i>
+                        </div>
+                    </div>
+                    <div class="landing-route-content">
+                        <h2>{{route.landing.section_headline || ('Você é ' + route.profile + '?')}}</h2>
+                        <p class="hook">{{route.landing.hook || ''}}</p>
+                        <ul class="landing-route-desires">
+                            <li ng-repeat="desire in route.landing.desires">
+                                <i class="fas fa-check" ng-style="{'color': routeColor(route)}"></i>
+                                {{desire}}
+                            </li>
+                        </ul>
+                        <button class="btn-route" ng-click="enterRoute(route)"
+                                ng-style="{'background': routeColor(route), 'color': routeTextColor(route)}">
+                            <i class="fas fa-arrow-right"></i>
+                            {{route.landing.cta_label || ('Entrar como ' + route.profile)}}
+                        </button>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- FAQ -->
+        <section class="landing-faq">
+            <h2>Perguntas Frequentes</h2>
+            <div class="landing-faq-list">
+                <div class="landing-faq-item" ng-repeat="faq in faqs"
+                     ng-class="{'open': faq.open}" ng-click="faq.open = !faq.open">
+                    <h3><i class="fas fa-chevron-right"></i> {{faq.q}}</h3>
+                    <p>{{faq.a}}</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Prova Social -->
+        <section class="landing-proof">
+            <h2>Um projeto nacional</h2>
+            <div class="landing-proof-stats">
+                <div class="landing-proof-stat">
+                    <div class="number">2</div>
+                    <div class="label">Territórios</div>
+                </div>
+                <div class="landing-proof-stat">
+                    <div class="number">10+</div>
+                    <div class="label">Municípios</div>
+                </div>
+                <div class="landing-proof-stat">
+                    <div class="number">50</div>
+                    <div class="label">Vagas Fundador / município</div>
+                </div>
+            </div>
+            <div class="landing-proof-logos">
+                <span>MIDR</span> · <span>FADEX</span> · <span>UFPI</span>
+            </div>
+        </section>
+
+        <!-- CTA Fundador -->
+        <section class="landing-founder">
+            <h2>Os primeiros 50 produtores de cada município são Fundadores — para sempre.</h2>
+            <p>Placa permanente no app. Badge exclusivo que nunca mais estará disponível. Seu nome na história do projeto.</p>
+            <button class="btn-founder" ng-click="scrollTo('routes')">
+                <i class="fas fa-star"></i> Quero ser Fundador
+            </button>
+            <p class="landing-founder-trust">Gratuito · Sem downloads · Funciona sem internet</p>
+        </section>
+
+        <!-- Footer -->
+        <footer class="landing-footer">
+            <p>Rota Viva — Projeto MIDR · FADEX · UFPI</p>
+            <p>© 2026 — <a href="#!/login">Entrar</a> · <a href="#!/home">Início</a></p>
+        </footer>
+
+    </div>
+</div>

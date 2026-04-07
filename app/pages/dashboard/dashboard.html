@@ -5,13 +5,11 @@
     </div>
 
     <div class="dashboard-body">
-        <!-- Trilha de Aprendizado -->
         <div class="dashboard-card" ng-click="goTrail()" style="cursor: pointer;">
             <h3><i class="fas fa-route" style="color: var(--color-primary)"></i> {{theme.labels.missions_title || 'Trilha de Aprendizado'}}</h3>
             <p>Complete trilhas, ganhe {{theme.labels.points_unit || 'XP'}} e suba de nível!</p>
         </div>
 
-        <!-- Progresso / XP / Nível -->
         <div class="dashboard-card dashboard-card-progress">
             <div class="progress-header">
                 <div class="progress-level">
@@ -37,7 +35,6 @@
             </div>
         </div>
 
-        <!-- Streak -->
         <div class="dashboard-card dashboard-card-streak" ng-if="statusLoaded">
             <div class="streak-display">
                 <div class="streak-icon" ng-class="{'streak-active': streak > 0}">
@@ -70,7 +67,6 @@
         <div class="version-footer">v{{CONFIG.VERSION}}</div>
     </div>
 
-    <!-- Bottom Nav -->
     <nav class="bottom-nav">
         <a class="bottom-nav-item active">
             <i class="fas fa-house"></i>

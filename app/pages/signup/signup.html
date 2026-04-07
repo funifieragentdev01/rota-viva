@@ -1,6 +1,7 @@
 <div class="page page-scroll">
     <div class="brand">
-        <div class="brand-icon"><i class="fas fa-leaf"></i></div>
+        <img ng-src="{{routeCharImg}}" class="brand-character" ng-if="routeCharImg">
+        <div class="brand-icon" ng-if="!routeCharImg"><i class="fas fa-leaf"></i></div>
         <h1>Rota Viva</h1>
         <p ng-if="preTheme">{{preTheme.title}} — Crie sua conta</p>
         <p ng-if="!preTheme">Crie sua conta</p>
@@ -29,7 +30,6 @@
                        autocomplete="off">
             </div>
 
-            <!-- Perfil: locked se veio da landing, select se acesso direto -->
             <div class="form-group" ng-if="profileLocked">
                 <label><i class="fas fa-route"></i> Perfil</label>
                 <input type="text" class="form-input" value="{{preTheme.title}} — {{form.profile | capitalize}}" readonly

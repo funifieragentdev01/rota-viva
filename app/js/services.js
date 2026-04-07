@@ -342,5 +342,30 @@ angular.module('rotaViva')
         });
     };
 
+    // === Gallery API ===
+
+    api.getGalleryPosts = function(limit, skip) {
+        return $http.get(
+            baseUrl + '/v3/database/post__c?sort=created:-1&limit=' + (limit || 20) + '&skip=' + (skip || 0),
+            trailHeaders()
+        ).then(function(res) {
+            return Array.isArray(res.data) ? res.data : [];
+        });
+    };
+
+    api.getTopUsers = function() {
+        return $http.get(baseUrl + '/v3/leaderboard?period=week&limit=5', trailHeaders())
+            .then(function(res) {
+                return res.data || [];
+            });
+    };
+
+    api.likePost = function(postId, playerId) {
+        return $http.post(baseUrl + '/v3/database/post_like__c', {
+            post: postId,
+            player: playerId
+        }, trailHeaders());
+    };
+
     return api;
 });

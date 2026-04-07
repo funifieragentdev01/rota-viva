@@ -1,0 +1,263 @@
+<div class="view-container gallery-view" ng-click="closeMenu()">
+
+    <!-- Header -->
+    <div class="gallery-header">
+        <h2>Galeria de Saberes</h2>
+        <div class="gallery-header-stats">
+            <span class="gallery-stat"><i class="fas fa-trophy"></i> {{playerPoints || 0}}</span>
+            <span class="gallery-stat"><i class="fas fa-bolt"></i> {{playerStreak || 0}}</span>
+        </div>
+    </div>
+
+    <!-- Top Users -->
+    <div class="gallery-top-users" ng-if="topUsers.length > 0">
+        <div class="gallery-top-users-scroll">
+            <div class="gallery-top-user" ng-repeat="u in topUsers">
+                <div class="gallery-top-user-avatar">
+                    <img ng-if="u.photo" ng-src="{{u.photo}}" alt="{{u.name}}" />
+                    <div ng-if="!u.photo" class="gallery-top-user-initial">{{u.name | firstWord | limitTo:1}}</div>
+                </div>
+                <div class="gallery-top-user-name">{{u.name | firstWord}}</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading -->
+    <div class="loading-screen" ng-if="loading" style="min-height: 300px;">
+        <div class="loading-spinner"></div>
+        <p>Carregando...</p>
+    </div>
+
+    <!-- Feed -->
+    <div class="gallery-feed" ng-if="!loading">
+
+        <div class="gallery-post" ng-repeat="post in posts"
+             ng-class="{'gallery-post-official': post._isOfficial}">
+
+            <!-- Post Header -->
+            <div class="gallery-post-header">
+                <div class="gallery-post-avatar">
+                    <img ng-if="post._authorPhoto" ng-src="{{post._authorPhoto}}" alt="" />
+                    <span ng-if="!post._authorPhoto" class="gallery-post-avatar-initial">
+                        {{post._authorName | firstWord | limitTo:1}}
+                    </span>
+                </div>
+                <div class="gallery-post-meta">
+                    <div class="gallery-post-author">
+                        {{post._authorName}}
+                        <span class="gallery-verified-badge" ng-if="post._isOfficial"><i class="fas fa-shield-halved"></i></span>
+                    </div>
+                    <div class="gallery-post-sub">
+                        <span ng-if="post._municipality">{{post._municipality}}</span>
+                        <span ng-if="post._municipality && post._trailName"> · </span>
+                        <span ng-if="post._trailName">{{post._trailName}}</span>
+                    </div>
+                </div>
+                <!-- Menu 3 pontos -->
+                <div class="gallery-post-menu-wrap">
+                    <button class="gallery-post-menu" ng-click="openPostMenu($event, post)">
+                        <i class="fas fa-ellipsis"></i>
+                    </button>
+                    <div class="gallery-post-dropdown" ng-if="menuPost._id === post._id" ng-click="$event.stopPropagation()">
+                        <button class="gallery-dropdown-item gallery-dropdown-danger"
+                                ng-if="post._isOwner"
+                                ng-click="deletePost(post)">
+                            <i class="fas fa-trash"></i> Remover publicação
+                        </button>
+                        <button class="gallery-dropdown-item" ng-click="sharePost(post); closeMenu()">
+                            <i class="fas fa-share-nodes"></i> Compartilhar
+                        </button>
+                        <button class="gallery-dropdown-item" ng-click="closeMenu()">
+                            <i class="fas fa-xmark"></i> Fechar
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Media -->
+            <div class="gallery-post-media" ng-if="post.media_url || post.photo">
+                <img ng-if="post.media_type !== 'video'" ng-src="{{post.media_url || post.photo}}" alt="" loading="lazy" />
+                <video ng-if="post.media_type === 'video'" ng-src="{{post.media_url}}" controls playsinline class="gallery-video"></video>
+                <div class="gallery-top-badge" ng-if="post._isTop">
+                    <i class="fas fa-star"></i> Top da Semana
+                </div>
+            </div>
+
+            <!-- Actions -->
+            <div class="gallery-post-actions">
+                <button class="gallery-action" ng-class="{'gallery-action-liked': post._liked}" ng-click="toggleLike(post)">
+                    <i class="fas fa-heart"></i><span>Curtir</span>
+                </button>
+                <button class="gallery-action" ng-click="openComments(post)">
+                    <i class="fas fa-comment"></i><span>Comentar</span>
+                </button>
+                <button class="gallery-action" ng-click="sharePost(post)">
+                    <i class="fas fa-share-nodes"></i><span>Compartilhar</span>
+                </button>
+            </div>
+
+            <!-- Like count -->
+            <div class="gallery-post-likes" ng-if="post._likeCount > 0">
+                <i class="fas fa-heart gallery-likes-heart"></i>
+                {{post._likeCount}} curtida{{post._likeCount !== 1 ? 's' : ''}}
+            </div>
+
+            <!-- Caption -->
+            <div class="gallery-post-caption" ng-if="post.description || post.text">
+                <strong>{{post._authorName | firstWord}}</strong>
+                <span ng-bind-html="post._captionHtml"></span>
+            </div>
+
+            <!-- Comments link -->
+            <div class="gallery-post-comments-link" ng-if="post._commentCount > 0 && !(commentsPost._id === post._id)"
+                 ng-click="openComments(post)">
+                Ver todos os {{post._commentCount}} comentário{{post._commentCount !== 1 ? 's' : ''}}
+            </div>
+
+            <!-- Timestamp -->
+            <div class="gallery-post-time">{{post._timeAgo}}</div>
+
+        </div>
+
+        <!-- Empty state -->
+        <div class="gallery-empty" ng-if="posts.length === 0">
+            <div class="gallery-empty-icon"><i class="fas fa-images"></i></div>
+            <h3>Nenhuma publicação ainda</h3>
+            <p>Seja o primeiro a compartilhar uma boa prática com a comunidade!</p>
+        </div>
+
+    </div>
+
+    <!-- FAB -->
+    <button class="gallery-fab" ng-click="openNewPost()" ng-if="!loading && !newPost && !commentsPost"
+            ng-style="{'background': theme.colors && theme.colors.primary || '#FF9600'}">
+        <i class="fas fa-plus"></i>
+    </button>
+
+    <!-- ═══ COMENTÁRIOS — Bottom Sheet ═══ -->
+    <div class="np-overlay" ng-if="commentsPost" ng-click="closeComments()"></div>
+    <div class="np-sheet comments-sheet" ng-if="commentsPost">
+        <div class="np-handle"></div>
+        <div class="np-header">
+            <button class="np-cancel" ng-click="closeComments()"><i class="fas fa-xmark"></i></button>
+            <h3>Comentários</h3>
+            <span></span>
+        </div>
+
+        <!-- Lista de comentários -->
+        <div class="comments-list">
+            <div class="comments-loading" ng-if="!commentsPost._commentsLoaded">
+                <div class="loading-spinner" style="width:24px;height:24px;border-width:3px;"></div>
+            </div>
+            <div class="comment-item" ng-repeat="c in commentsPost._comments">
+                <div class="comment-avatar">
+                    <img ng-if="c._authorPhoto" ng-src="{{c._authorPhoto}}" alt="" />
+                    <span ng-if="!c._authorPhoto">{{c._authorName | firstWord | limitTo:1}}</span>
+                </div>
+                <div class="comment-body">
+                    <span class="comment-author">{{c._authorName | firstWord}}</span>
+                    <span class="comment-text">{{c._text}}</span>
+                    <div class="comment-time">{{c._timeAgo}}</div>
+                </div>
+            </div>
+            <div class="comments-empty" ng-if="commentsPost._commentsLoaded && commentsPost._comments.length === 0">
+                <p>Nenhum comentário ainda. Seja o primeiro!</p>
+            </div>
+        </div>
+
+        <!-- Campo de novo comentário -->
+        <div class="comment-input-wrap">
+            <div class="comment-input-avatar">
+                <img ng-if="theme.playerPhoto" ng-src="{{theme.playerPhoto}}" alt="" />
+                <span ng-if="!theme.playerPhoto">{{playerName | firstWord | limitTo:1}}</span>
+            </div>
+            <input class="comment-input"
+                   type="text"
+                   ng-model="$parent.comment.text"
+                   placeholder="Deixe um comentário..."
+                   ng-keyup="$event.keyCode === 13 && sendComment()" />
+            <button class="comment-send"
+                    ng-click="sendComment()"
+                    ng-disabled="!comment.text || sendingComment"
+                    ng-style="{'color': theme.colors && theme.colors.primary || '#FF9600'}">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- ═══ NOVA PUBLICAÇÃO — Bottom Sheet ═══ -->
+    <div class="np-overlay" ng-if="newPost" ng-click="closeNewPost()"></div>
+    <div class="np-sheet" ng-if="newPost">
+        <div class="np-handle"></div>
+        <div class="np-header">
+            <button class="np-cancel" ng-click="closeNewPost()">Cancelar</button>
+            <h3>Nova publicação</h3>
+            <button class="np-submit"
+                    ng-click="submitPost()"
+                    ng-disabled="!newPost.mediaFile || submitting"
+                    ng-style="{'opacity': (!newPost.mediaFile || submitting) ? 0.4 : 1}">
+                {{submitting ? 'Enviando...' : 'Publicar'}}
+            </button>
+        </div>
+
+        <!-- Seleção de mídia -->
+        <div class="np-media-zone" ng-if="!newPost.mediaPreview">
+            <div class="np-media-placeholder">
+                <i class="fas fa-image"></i>
+                <p>Adicione uma foto ou vídeo</p>
+            </div>
+            <div class="np-media-buttons">
+                <button class="np-media-btn" ng-click="triggerCamera()">
+                    <i class="fas fa-camera"></i><span>Câmera</span>
+                </button>
+                <button class="np-media-btn" ng-click="triggerGallery()">
+                    <i class="fas fa-images"></i><span>Galeria</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Preview -->
+        <div class="np-preview-wrap" ng-if="newPost.mediaPreview">
+            <img ng-if="newPost.mediaType === 'image'" ng-src="{{newPost.mediaPreview}}" class="np-preview-img" />
+            <video ng-if="newPost.mediaType === 'video'" ng-src="{{newPost.mediaPreview}}"
+                   class="np-preview-img" controls playsinline></video>
+            <button class="np-preview-remove" ng-click="removeMedia()"><i class="fas fa-xmark"></i></button>
+            <div class="np-video-note" ng-if="newPost.mediaType === 'video'">
+                <i class="fas fa-clock"></i> Vídeos passam por revisão antes de aparecer no feed
+            </div>
+        </div>
+
+        <!-- Legenda -->
+        <div class="np-caption-wrap">
+            <textarea class="np-caption"
+                      ng-model="newPost.caption"
+                      ng-change="updateCharCount()"
+                      placeholder="Escreva uma legenda... (opcional)"
+                      maxlength="280"
+                      rows="3"></textarea>
+            <div class="np-char-count" ng-class="{'np-char-warn': newPost.charCount > 250}">
+                {{newPost.charCount}}/280
+            </div>
+        </div>
+
+        <input id="gallery-input-camera"  class="gallery-file-input" type="file" accept="image/*" capture="environment" style="display:none" onchange="angular.element(this).scope().onFileSelected(this)">
+        <input id="gallery-input-gallery" class="gallery-file-input" type="file" accept="image/*,video/*" style="display:none" onchange="angular.element(this).scope().onFileSelected(this)">
+    </div>
+
+    <!-- Bottom Nav -->
+    <nav class="bottom-nav" ng-if="!newPost && !commentsPost">
+        <a class="bottom-nav-item" ng-click="goHome()">
+            <i class="fas fa-house"></i><span>Início</span>
+        </a>
+        <a class="bottom-nav-item" ng-click="goTrail()">
+            <i class="fas fa-route"></i><span>Trilha</span>
+        </a>
+        <a class="bottom-nav-item active">
+            <i class="fas fa-images"></i><span>Galeria</span>
+        </a>
+        <a class="bottom-nav-item" ng-click="goPerfil()">
+            <i class="fas fa-circle-user"></i><span>Perfil</span>
+        </a>
+    </nav>
+
+</div>

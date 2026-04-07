@@ -1,9 +1,11 @@
 # Especificação de Funcionalidades — App Rota Viva (PWA)
 
-**Versão:** 1.0.0
-**Data:** 2026-03-31
+**Versão:** 1.1.0
+**Data:** 2026-04-06
 
 > Este documento especifica as funcionalidades do PWA Rota Viva: fluxo de cada tela, comportamento offline, regras de negócio e critérios de aceite. Para conteúdo pedagógico (trilhas, lições, questões), ver `trilhas.md`. Para visual e temas, ver `design-system.md`.
+>
+> **v1.1.0 — Revisão de UX (2026-04-06):** simplificação do menu de 5 para 4 itens; Diário e Escuta Ativa integrados como tipos de lição na Trilha (DIY e Essay); Ranking substituído pela barra de top users na Galeria; Galeria promovida a item fixo do menu; navegação direta para trilha raiz; telefone obrigatório no cadastro. Ver `doc/bmad-review-2026-04-06.md` para o histórico completo da decisão.
 
 ---
 
@@ -13,9 +15,9 @@ Antes das features, é necessário entender os quatro tipos de pontos — cada u
 
 | Moeda | Sigla | Quem ganha | Como | Para que serve |
 |-------|-------|-----------|------|----------------|
-| Pontos de Trilha | XP | Todos | Completar lições, missões, diário | Subir de nível, progressão |
-| Gotas de Mel / Peixes | ML / ESP | Todos | Missões longas, publicar na Galeria, streak longa | Moeda temática — futura loja |
-| Pontos de Voz | VOZ | Todos | Responder Escuta Ativa | Mede participação na escuta; relatório MIDR |
+| Pontos de Trilha | XP | Todos | Completar lições (video, quiz, DIY, essay) | Subir de nível, progressão |
+| Gotas de Mel / Peixes | ML / ESP | Todos | Lições longas, publicar na Galeria, streak longa | Moeda temática — futura loja |
+| Pontos de Voz | VOZ | Todos | Completar lições do tipo Essay | Mede participação na escuta; relatório MIDR |
 | Pontos de Campo | CPO | Multiplicadores | Onboarding de novos produtores | Certificação + bolsa FADEX |
 
 > Recompensas externas (certificado FADEX/UFPI, bolsa Multiplicador) são gerenciadas fora do app. O app emite o badge e registra o marco; a FADEX processa o benefício.
@@ -26,17 +28,17 @@ Antes das features, é necessário entender os quatro tipos de pontos — cada u
 
 ```
 Bottom Nav (fixo em todas as telas pós-login)
-├── 🏠  Início     → Home screen
-├── 🗺️  Trilha     → Tela da trilha ativa (caminho em S)
-├── 📓  Diário     → Diário do Produtor
-├── 🏆  Ranking    → Ranking por município
+├── 🏠  Início     → Home screen (XP, streak, card "continue")
+├── 🗺️  Trilha     → Trilha raiz da rota (caminho em S) — entra direto, sem tela de lista
+├── 🌿  Galeria    → Feed estilo Instagram da comunidade
 └── 👤  Perfil     → Perfil, badges, certificados
 ```
 
-Features acessíveis via Home ou contexto (não no nav fixo):
-- 📷 **Registrar** — submissão de evidência ad-hoc
-- 🎙️ **Escuta Ativa** — instrumentos disponíveis (badge no ícone quando há novo)
-- 🌿 **Galeria de Saberes** — acessível via Home ou tab dentro de Perfil/Comunidade
+> **Decisão v1.1.0:** menu simplificado de 5 para 4 itens.
+> - **Diário do Produtor** integrado como tipo de lição `DIY` dentro da Trilha
+> - **Escuta Ativa** integrada como tipo de lição `Essay` dentro da Trilha
+> - **Ranking** substituído pela barra de top users no topo da Galeria (ver seção 5)
+> - **Galeria** promovida de feature secundária para item fixo do menu
 
 ---
 
@@ -72,17 +74,19 @@ Features acessíveis via Home ou contexto (não no nav fixo):
 
 ## 2. Trilhas (Caminho em S)
 
-**Propósito:** visualizar a progressão nas trilhas e acessar cada lição/conteúdo. Para especificação do conteúdo de cada trilha, ver `trilhas.md`.
+**Propósito:** experiência central de aprendizado. O usuário entra direto na trilha raiz da sua rota — sem tela de lista de trilhas. Toda a jornada de conhecimento, registros de campo e escuta do Ministério acontece aqui.
+
+> **Navegação direta:** ao tocar em "Trilha" no menu, o app busca automaticamente o primeiro folder com `parent: null` e `type: 'subject'` da gamificação da rota e abre esse folder diretamente. Sem tela intermediária.
 
 ### Layout e componentes
 
 | Componente | Descrição |
 |-----------|-----------|
 | Header | Nome da rota, XP, streak |
-| Card de contexto | "SEÇÃO X, UNIDADE Y — [Título da lição atual]" |
-| Caminho em S | Bolinhas circulares conectadas por linha curva — uma por conteúdo |
-| Bolinha | Ícone do tipo (fa-video, fa-star, fa-camera, fa-headphones) + estado (ativa, completa, bloqueada) |
-| Mascote | Personagem posicionado na bolinha atual |
+| Sticky module box | Box do módulo corrente, preso abaixo do header — atualiza conforme o scroll (ver comportamento abaixo) |
+| Caminho em S | Bolinhas circulares conectadas por linha curva — uma por lição |
+| Bolinha | Ícone do tipo de lição + estado (ativa, completa, bloqueada) |
+| Personagem mascote | Aparece a cada 5 bolinhas globais na inflexão da curva S |
 | Estrelas | 0–3 estrelas abaixo de bolinhas completadas |
 
 ### Estados de bolinha
@@ -93,41 +97,53 @@ Features acessíveis via Home ou contexto (não no nav fixo):
 | Ativa | Cor sólida + borda pulsando | Abre o conteúdo |
 | Bloqueada | Cinza escuro, ícone cadeado | Toast: "Complete a lição anterior primeiro" |
 
-### Conteúdo por tipo de bolinha
+### Tipos de lição (bolinhas)
 
-| `folder_content_type` | Abre | Comportamento |
-|----------------------|------|---------------|
-| `video` | Player de vídeo embutido | Concede XP ao assistir ≥ 80% |
-| `quiz` | Sequência de questões (tipos variados) | XP proporcional ao acerto; VOZ points para ESSAY |
-| `mission` | Tela de missão de campo (DIY_PROJECT) | Upload de foto + texto; avaliação por IA ou manual |
-| `listen` | Player de áudio + questões LISTEN/LISTEN_AND_ORDER | XP ao completar |
+| `folder_content_type` | Ícone | Abre | Comportamento |
+|----------------------|-------|------|---------------|
+| `video` | `fa-play` | Player de vídeo embutido | Concede XP ao assistir ≥ 80% |
+| `quiz` | `fa-star` | Sequência de questões (true/false, múltipla escolha, ouvir e ordenar) | XP proporcional ao acerto |
+| `diy` | `fa-camera` | Tela de registro com câmera | Usuário tira foto do seu ambiente/produção + texto curto; concede XP + VOZ ao sincronizar; substitui o Diário do Produtor como feature separada |
+| `essay` | `fa-comment` | Formulário de resposta aberta | Pergunta do Ministério (máx. 5 por instrumento); feedback positivo, sem gabarito; concede VOZ points; substitui a Escuta Ativa como feature separada |
+
+### Comportamento do Sticky Module Box (estilo Duolingo)
+
+O módulo corrente é determinado pelo **scroll**, não pelo progresso do usuário:
+
+1. Cada módulo tem um **divisor de texto simples** no flow da trilha: `— Título do Módulo —`
+2. Um **sticky box** único fica colado logo abaixo do header, com título e cor do módulo visível no momento
+3. Um `IntersectionObserver` monitora os divisores: quando um divisor entra na zona superior da viewport (cruzando o sticky box), o sticky box atualiza para aquele módulo
+4. Scroll para baixo → próximo módulo vira corrente; scroll para cima → módulo anterior volta a ser corrente
+
+### Posicionamento do Personagem Mascote
+
+- Um personagem aparece a cada **5 lições globais** (contagem global, não por módulo), posicionado na inflexão da curva S
+- Nunca inserido quando o item anterior no array for um divisor de módulo (evita sobreposição visual)
+- Personagem fica no lado oposto da curva em relação à bolinha
 
 ### Comportamento offline
 
 - Bolinhas e estado de progressão: sempre disponível offline (cache)
 - Conteúdo de vídeo: requer download prévio ou conexão; exibe aviso se offline
-- Quiz e missão: funcionam offline; resultado sincroniza ao reconectar
+- Quiz, DIY e essay: funcionam offline; resultado sincroniza ao reconectar
 - XP e progresso: concedidos localmente, confirmados após sync
 
 ---
 
-## 3. Registrar — Submissão de Evidência (Ad-hoc)
+## 3. Registrar Evidência via Lição DIY
 
-**Propósito:** permitir que o produtor registre uma evidência de ação de campo espontânea — não atrelada a uma lição específica. Alimenta o AAGE (base de dados do projeto) e pode ser encaminhada para a Galeria de Saberes.
+> **v1.1.0:** o registro de evidências de campo passou a ser uma lição do tipo `DIY` dentro da Trilha, e não mais uma feature ad-hoc separada. O produtor registra foto + texto no contexto de uma atividade de campo definida pela equipe de conteúdo. Ao concluir, pode optar por publicar na Galeria.
 
-> **Distinção importante:** a `mission` bolinha dentro da trilha é uma evidência *contextual* com rubrica definida pela lição. O "Registrar" é uma evidência *espontânea*, sem rubrica fixa.
-
-### Fluxo
+### Fluxo (dentro de uma lição DIY na Trilha)
 
 ```
-1. Usuário toca no ícone 📷 (na Home ou via atalho)
-2. Tela de registro abre com câmera ativa
-3. Usuário captura foto (ou faz upload da galeria) — obrigatório
-4. Campo de texto: descrição curta (≤ 280 chars) — obrigatório
-5. Campo opcional: vídeo ≤ 60s (gravação ou upload)
-6. Seleção de categoria: lista das trilhas ativas + "Geral"
-7. Botão "Registrar" → salva localmente + envia quando tiver conexão
-8. Confirmação: animação de XP ganho + pergunta "Quer publicar na Galeria?"
+1. Usuário toca na bolinha 📷 na trilha
+2. Popup com título da lição e botão "Começar"
+3. Tela de registro abre com câmera ativa
+4. Usuário captura foto (ou faz upload da galeria) — obrigatório
+5. Campo de texto: descrição curta (≤ 280 chars) — obrigatório
+6. Botão "Registrar" → salva localmente + envia quando tiver conexão
+7. Confirmação: animação de XP ganho + pergunta "Quer publicar na Galeria?"
    └── Sim → entra na fila de aprovação para a Galeria
    └── Não → fica apenas como evidência privada no AAGE
 ```
@@ -135,75 +151,44 @@ Features acessíveis via Home ou contexto (não no nav fixo):
 ### Regras de negócio
 
 - Foto é obrigatória — sem foto não há envio
-- Vídeo é opcional; se enviado, passa por aprovação antes de aparecer na Galeria
-- Usuário pode registrar múltiplas vezes por dia — sem limite
 - Todos os registros vão para o AAGE independentemente da escolha de publicar na Galeria
 - XP concedido imediatamente ao salvar offline; confirmado após sync
 
 ### Comportamento offline
 
-- Foto, texto e vídeo salvos localmente (IndexedDB / cache)
-- Ícone de "pendente de sync" na entrada do diário até a sincronização
+- Foto e texto salvos localmente (IndexedDB)
 - Sync automático ao reconectar — sem ação do usuário
 
 ### Critérios de aceite
 
 - [ ] Foto capturada ou importada é comprimida antes de salvar (max 1MB)
-- [ ] Registro salvo offline aparece na lista com indicador de pendente
-- [ ] Após sync, indicador de pendente desaparece
 - [ ] XP é concedido ao salvar (offline) e não duplicado ao sincronizar
 - [ ] Vídeos enviados para Galeria não aparecem publicamente antes de aprovação do admin
 
 ---
 
-## 4. Escuta Ativa
+## 4. Escuta Ativa via Lição Essay
 
-**Propósito:** coletar dados qualitativos sobre os territórios para subsidiar decisões de política pública (relatório MIDR/AAGE). É fundamentalmente diferente do quiz de conhecimento — não tem resposta certa ou errada, e o produtor está sendo *ouvido*, não *avaliado*.
+> **v1.1.0:** a Escuta Ativa passou a ser uma lição do tipo `Essay` dentro da Trilha — não mais uma feature separada acessada por ícone. O Ministério configura as perguntas via Funifier Studio como lições `Essay` em posições específicas da trilha. O produtor responde naturalmente no fluxo de aprendizado.
 
-> **Por que feature separada e não quiz dentro da trilha:** ciclo de vida próprio (publicado/arquivado pelo admin independentemente das trilhas), pode ser sazonal, gera VOZ points (moeda separada do XP), e misturá-lo com quizzes cria confusão de UX — o produtor precisa entender que aqui sua opinião importa, não seu conhecimento.
+### Comportamento da lição Essay
 
-### Fluxo
-
-```
-1. Badge vermelho aparece no ícone 🎙️ quando há instrumento novo
-2. Usuário abre a Escuta Ativa
-3. Tela mostra o instrumento ativo: título, tema, quantidade de perguntas (máx. 5)
-4. Usuário responde pergunta por pergunta
-   └── Feedback visual por resposta: animação de "obrigado", não de "certo/errado"
-5. Ao concluir: animação de VOZ points ganhos + mensagem de reconhecimento
-   ("Sua voz chegou até quem decide. Obrigado.")
-6. Instrumento arquivado — não aparece mais como disponível
-```
-
-### Estrutura de um instrumento
-
-| Campo | Descrição |
-|-------|-----------|
-| Título | Ex: "Como foi sua safra de mel este ano?" |
-| Tema | Vinculado a uma trilha ou "Geral" |
-| Perguntas | Máx. 5; tipos: ESSAY, MULTIPLE_CHOICE (sem gabarito), TRUE_FALSE |
-| Recompensa | VOZ points definidos pelo admin ao publicar |
-| Validade | Data de início e fim — admin define; após fim, arquivado automaticamente |
-
-### Regras de negócio
-
-- Máximo 5 perguntas por instrumento — nunca mais
-- Sem gabarito: nenhuma resposta é marcada como certa ou errada
-- Feedback é sempre positivo: "Obrigado por responder", nunca "Errado"
-- Um instrumento só pode ser respondido 1x por usuário
-- Respostas vão para o AAGE via Funifier com tag `escuta_ativa`
-- Admin publica e arquiva instrumentos via Funifier Studio — independente das trilhas
+- Pergunta aberta do Ministério (ex: "Como foi sua safra de mel este ano?")
+- Máx. 5 perguntas por lição Essay — nunca mais
+- **Sem gabarito:** nenhuma resposta é marcada como certa ou errada
+- Feedback sempre positivo: "Obrigado por responder" — nunca "Errado"
+- Uma lição Essay só pode ser respondida 1x por usuário
+- Respostas enviadas ao AAGE via Funifier com tag `escuta_ativa`
+- Concede VOZ points ao completar
 
 ### Comportamento offline
 
-- Se instrumento foi carregado antes de ficar offline: pode ser respondido offline
+- Pode ser respondida offline se a lição já foi carregada
 - Respostas salvas localmente e sincronizadas ao reconectar
 - VOZ points concedidos após sync
 
 ### Critérios de aceite
 
-- [ ] Badge some após o usuário abrir a Escuta Ativa (mesmo sem responder)
-- [ ] Instrumento não aparece novamente após ser respondido
 - [ ] Sem nenhuma indicação visual de "certo" ou "errado" em nenhuma resposta
 - [ ] VOZ points aparecem no perfil do usuário após sync
 - [ ] Respostas offline sincronizam sem perda de dado
@@ -212,20 +197,55 @@ Features acessíveis via Home ou contexto (não no nav fixo):
 
 ## 5. Galeria de Saberes
 
-**Propósito:** espaço comunitário onde produtores compartilham boas práticas com foto ou vídeo curto. Modelo de feed inspirado no Instagram — padrão já familiar ao público, sem curva de aprendizado. O conteúdo aqui não é do projeto — é *dos produtores*.
+**Propósito:** item fixo do menu principal (tab 3). Espaço comunitário onde produtores compartilham boas práticas com foto, vídeo curto, texto e hashtags. Modelo de feed estilo Instagram — padrão já familiar ao público. O conteúdo aqui não é do projeto — é *dos produtores*.
 
-> **Autorização de uso de imagem:** aceita uma única vez nos Termos de Uso no momento do cadastro. Não há confirmação por publicação — mesmo comportamento do Instagram, TikTok e similares.
+> **v1.1.0:** Galeria promovida de feature secundária para tab principal do menu. O Ranking de municípios foi substituído pela barra de top users no topo da Galeria. O perfil oficial do MIDR/FADEX no feed substitui a necessidade de uma tela separada de notificações institucionais.
+
+> **Autorização de uso de imagem:** aceita uma única vez nos Termos de Uso no momento do cadastro. Não há confirmação por publicação — mesmo comportamento do Instagram.
+
+### Layout da tela
+
+```
+┌─────────────────────────────────────────┐
+│  Header: "Galeria"                       │
+├─────────────────────────────────────────┤
+│  [Barra de Top Users — scroll horizontal] │  ← substitui Ranking
+│  [Avatar] [Avatar] [Avatar] [Avatar]...  │
+│   Zé · Mel  Maria · Rio  João · Mel ...  │
+├─────────────────────────────────────────┤
+│  [Post 1 — oficial MIDR/FADEX]           │  ← destaque visual (badge verificado)
+│  [Post 2 — produtor]                     │
+│  [Post 3 — produtor]                     │
+│  ...scroll infinito...                   │
+└─────────────────────────────────────────┘
+```
+
+### Barra de Top Users (substitui Ranking)
+
+- Lista horizontal scrollável no topo da tela, estilo Stories do Instagram
+- Exibe os **5 usuários mais curtidos da semana** por rota (não por município)
+- Cada item: avatar circular + nome curto + rota
+- Toque no avatar: abre perfil público simplificado do produtor (nome, município, posts públicos)
+- Calculado às segundas-feiras 00h via Funifier; sem exposição de números de pontos
+- **Efeito:** produz motivação social (CD5) sem o efeito negativo de leaderboard punitivo
+
+### Perfil Oficial do MIDR/FADEX
+
+- O MIDR/FADEX tem um perfil com flag `extra.is_official = true` no Funifier
+- Posts desse perfil recebem badge de verificação (ícone de escudo/estrela) e prioridade no feed
+- Equipe FADEX publica via Funifier Studio — sem desenvolvimento adicional no frontend além do estilo visual do badge
+- Substitui a necessidade de tela de notificações institucionais separada
 
 ### Feed da Galeria
 
-Layout de feed vertical contínuo, um post por vez, scroll infinito (carrega mais posts ao chegar no fim).
+Layout de feed vertical contínuo, scroll infinito.
 
 **Estrutura de cada post:**
 
 ```
 ┌─────────────────────────────────────────┐
-│ [Foto avatar]  Nome do produtor          │  ← header do post
-│               Município · Trilha · ···  │  ← município, trilha, menu (3 pontos)
+│ [Avatar]  Nome do produtor          ✓   │  ← ✓ aparece apenas em perfis oficiais
+│           Município · #hashtag · ···    │  ← município, hashtag, menu (3 pontos)
 ├─────────────────────────────────────────┤
 │                                         │
 │         [Foto ou vídeo ≤ 60s]           │  ← mídia full-width
@@ -240,8 +260,6 @@ Layout de feed vertical contínuo, um post por vez, scroll infinito (carrega mai
 ```
 
 **Badge "Top da Semana":** faixa verde com estrela no canto superior direito da mídia — aplicada automaticamente ao top 3 semanal por município.
-
-**Filtros:** pills fixas no topo da tela durante o scroll — "Município" e "Trilha". Seleção filtra o feed em tempo real.
 
 **Botão de publicar:** FAB circular com ícone **+** no canto inferior direito, sobre o nav bar — visível somente na tela da Galeria.
 
@@ -301,87 +319,7 @@ Layout de feed vertical contínuo, um post por vez, scroll infinito (carrega mai
 
 ---
 
-## 6. Diário do Produtor
-
-**Propósito:** caderno pessoal e privado de acompanhamento da produção. O produtor registra o dia a dia — não para a comunidade, mas para si mesmo. Mantém streak própria independente da trilha. Visível apenas para o próprio produtor.
-
-> **Distinção:** o Diário é o caderno privado. A Galeria é o palco público. Missão de Vídeo e fotos "Reels-style" vão para a Galeria, não para o Diário.
-
-### Fluxo de novo registro
-
-```
-1. Usuário abre o Diário (nav) ou toca no campo fixo no rodapé da tela
-2. Campo de texto (≤ 280 chars) com placeholder temático
-   → Mel: "Como foi hoje no apiário?"
-   → Pesca: "Como foi hoje no rio?"
-3. Botão de câmera: adiciona foto opcional (não obrigatória)
-4. Toca "Registrar"
-5. Animação de XP + atualização do contador de streak
-6. Entrada aparece no topo do histórico
-```
-
-### Histórico
-
-| Componente | Descrição |
-|-----------|-----------|
-| Timeline | Entradas em ordem cronológica decrescente |
-| Card de entrada | Data, texto, foto em miniatura (se houver) |
-| Indicador de sync | Ícone de relógio em entradas pendentes de sincronização |
-| Streak | Ícone de chama + número de dias consecutivos — no topo da tela |
-
-### Regras de negócio
-
-- Streak do Diário é **independente** da streak de missões de trilha
-- Registro conta para a streak do dia apenas 1x (múltiplos registros no mesmo dia = 1 ponto de streak)
-- Streak quebra se nenhum registro for feito no dia — notificação push às 19h como lembrete
-- Conteúdo é privado — admin não lê entradas individuais (apenas contagens agregadas para métricas)
-- Fotos do Diário não vão para a Galeria automaticamente — o usuário decide separadamente
-
-### Comportamento offline
-
-- Novo registro salva imediatamente offline (IndexedDB)
-- Streak calculada localmente — não depende de conexão
-- Sync automático ao reconectar; XP confirmado após sync
-- Histórico completo disponível offline
-
-### Critérios de aceite
-
-- [ ] Streak do Diário e streak de trilha são contadores separados no Perfil
-- [ ] Registro salvo offline aparece no histórico com indicador de pendente
-- [ ] Após sync, indicador desaparece e XP é confirmado
-- [ ] XP não duplicado se o usuário abrir o app offline e online no mesmo dia
-- [ ] Notificação push de lembrete às 19h se nenhum registro foi feito no dia
-
----
-
-## 7. Ranking
-
-**Propósito:** competição saudável entre municípios — não entre indivíduos. Ativa CD6 (Escassez e Impaciência) e CD5 (Influência Social). O foco em município (e não em pessoa) incentiva cooperação interna e reduz comportamento negativo.
-
-### Estrutura
-
-| Tab | Critério | Período |
-|-----|---------|---------|
-| Município | XP total de todos os produtores do município | Semana atual |
-| Trilha | XP total por trilha no município | Semana atual |
-| Histórico | Ranking acumulado desde o início | Todo o período |
-
-### Regras de negócio
-
-- Ranking calculado automaticamente pelo Funifier — sem intervenção manual
-- Produtor vê seu município destacado na lista (mesmo que não esteja no top)
-- Ranking reset semanal às segundas-feiras às 00h
-- Municípios com < 5 produtores ativos na semana ficam em categoria separada ("Em formação")
-
-### Critérios de aceite
-
-- [ ] Município do usuário logado sempre visível na lista (com scroll até sua posição se necessário)
-- [ ] Reset semanal acontece sem intervenção manual
-- [ ] Municípios "Em formação" não competem contra municípios ativos
-
----
-
-## 8. Perfil
+## 6. Perfil
 
 **Propósito:** identidade do produtor dentro do app — nível, badges conquistados, certificados, histórico.
 
@@ -404,7 +342,7 @@ Layout de feed vertical contínuo, um post por vez, scroll infinito (carrega mai
 
 ---
 
-## 9. Jovem Multiplicador
+## 7. Jovem Multiplicador
 
 **Propósito:** papel especial para jovens produtores (18–35 anos) selecionados como agentes de campo digitais. Formados pelo app, chegam presencialmente aos produtores mais velhos para facilitar o onboarding.
 
@@ -433,24 +371,46 @@ Layout de feed vertical contínuo, um post por vez, scroll infinito (carrega mai
 
 ---
 
-## 10. Notificações Push
+## 8. Notificações Push
 
 **Propósito:** reengajamento de usuários inativos e alertas de eventos com prazo.
 
 | Trigger | Mensagem | Horário |
 |---------|---------|---------|
 | Streak em risco (24h sem atividade) | "Sua sequência está em risco! Abra o app e mantenha o ritmo." | 19h |
-| Nenhum registro no Diário | "Como foi hoje no campo? Registre no Diário antes de dormir." | 19h |
-| Novo instrumento de Escuta Ativa | "Queremos ouvir você sobre [tema]. Leva menos de 2 minutos." | 10h |
+| Nova lição Essay disponível na trilha | "Queremos ouvir você sobre [tema]. Continue sua trilha." | 10h |
 | Nova lição desbloqueada | "Nova lição disponível: [título]. Continue sua trilha." | Imediato |
-| Top da Galeria (semanal) | "Você está no top 3 da semana no seu município! 🎉" | Segunda-feira 8h |
+| Top da Galeria (semanal) | "Você está no top 3 da semana no seu município!" | Segunda-feira 8h |
 | Inatividade (7 dias) | "[Nome], o apiário / o rio está esperando por você." | 10h |
 
 ### Regras de negócio
 
-- Máximo 1 notificação por dia por usuário — se múltiplos triggers no mesmo dia, prioridade: Escuta Ativa > Streak > Diário > Inatividade
+- Máximo 1 notificação por dia por usuário — se múltiplos triggers no mesmo dia, prioridade: Essay > Streak > Inatividade
 - Usuário pode desativar notificações individualmente nas Configurações
 - Notificações não enviadas entre 21h e 8h
+
+---
+
+## 9. Cadastro
+
+**Campos obrigatórios:**
+
+| Campo | Tipo | Observação |
+|-------|------|------------|
+| Nome completo | Texto | — |
+| CPF | Numérico | Validado com dígitos verificadores |
+| Perfil / Rota | Select ou locked | Locked se veio da landing com rota pré-selecionada |
+| Senha | Senha | Mínimo 6 caracteres |
+| Confirmar senha | Senha | — |
+| **Telefone / WhatsApp** | Tel | **Obrigatório** — principal canal de reengajamento e recuperação de conta para o público-alvo |
+
+**Campos opcionais:**
+
+| Campo | Tipo | Observação |
+|-------|------|------------|
+| Email | Email | Para recuperação de senha alternativa |
+
+> **v1.1.0:** telefone passou de opcional para obrigatório. Justificativa: para o público-alvo (produtores rurais), WhatsApp é o único canal de comunicação confiável. Email raramente é verificado.
 
 ---
 
@@ -461,7 +421,7 @@ Layout de feed vertical contínuo, um post por vez, scroll infinito (carrega mai
 | Definir threshold de XP para cada nível temático | ❌ A definir |
 | Definir valor de ML/ESP por ação | ❌ A definir |
 | Definir meta de CPO para certificação do Multiplicador | ❌ A definir com FADEX |
-| Definir critério exato de streak do Diário (dia corrido ou 24h?) | ❌ A definir |
 | Confirmar municípios do Piauí (5 placeholders) | ❌ Aguardando FADEX/MIDR |
 | Definir política de moderação de vídeo (SLA de aprovação) | ❌ A definir |
 | Parâmetro `?perfil=multiplicador` na URL de cadastro | ❌ A implementar |
+| API de posts da Galeria: endpoint nativo Funifier ou customizado? | ❌ Tec avaliar |

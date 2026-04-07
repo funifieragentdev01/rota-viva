@@ -1,0 +1,49 @@
+<div class="page login-page">
+    <div class="brand">
+        <img ng-src="{{routeCharImg}}" class="brand-character" ng-if="routeCharImg">
+        <div class="brand-icon" ng-if="!routeCharImg"><i class="fas fa-leaf"></i></div>
+        <h1 class="login-title">{{routeTitle}}</h1>
+        <p ng-if="!preTheme">Gamificação para produtores rurais</p>
+        <p ng-if="preTheme">{{preTheme.title}}</p>
+    </div>
+
+    <div class="login-form-container">
+        <div class="msg msg-error" ng-if="error">
+            <i class="fas fa-exclamation-circle"></i> {{error}}
+        </div>
+
+        <form ng-submit="login()">
+            <div class="login-input-group">
+                <i class="fas fa-user login-input-icon"></i>
+                <input type="tel" class="login-input" ng-model="form.cpf"
+                       placeholder="CPF" maxlength="14"
+                       autocomplete="username">
+            </div>
+
+            <div class="login-input-group">
+                <i class="fas fa-lock login-input-icon"></i>
+                <input type="password" class="login-input" ng-model="form.password"
+                       placeholder="Senha"
+                       autocomplete="current-password">
+            </div>
+
+            <button type="submit" class="btn btn-primary login-btn" ng-disabled="submitting">
+                {{submitting ? 'Entrando...' : 'Entrar'}}
+            </button>
+        </form>
+
+        <a href="" ng-click="" class="login-link">
+            Esqueci minha senha
+        </a>
+    </div>
+
+    <a href="#!/signup" class="login-link" style="margin-top: 24px;">
+        Não tem conta? <strong>Cadastre-se</strong>
+    </a>
+
+    <a href="#!/home" class="login-link" style="margin-top: 8px; opacity: 0.5;">
+        <i class="fas fa-arrow-left"></i> Voltar ao início
+    </a>
+
+    <div class="version-footer">v{{CONFIG.VERSION}}</div>
+</div>

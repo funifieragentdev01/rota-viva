@@ -295,8 +295,8 @@ angular.module('rotaViva')
         $scope.error = '';
         $scope.success = '';
 
-        if (!$scope.form.name || !$scope.form.cpf || !$scope.form.password || !$scope.form.profile) {
-            $scope.error = 'Preencha todos os campos obrigatórios.';
+        if (!$scope.form.name || !$scope.form.cpf || !$scope.form.password || !$scope.form.profile || !$scope.form.phone) {
+            $scope.error = 'Preencha todos os campos obrigatórios, incluindo o telefone/WhatsApp.';
             return;
         }
 
@@ -428,6 +428,10 @@ angular.module('rotaViva')
         $location.path('/trail');
     };
 
+    $scope.goGallery = function() {
+        $location.path('/gallery');
+    };
+
     $scope.logout = function() {
         AuthService.logout();
     };
@@ -497,36 +501,44 @@ angular.module('rotaViva')
         }).catch(function() {});
     }
 
+    // Active module for sticky box (scroll-based)
+    $scope.activeModule = null;
+
     function init() {
         if (folderId) {
             loadSubjectTrail(folderId);
         } else {
-            loadSubjects();
+            loadRootFolder();
         }
     }
 
-    // Root level: list all subjects (root folders with parent: null)
-    function loadSubjects() {
-        $scope.level = 'root';
-        $scope.title = theme.labels ? theme.labels.missions_title : 'Trilhas';
-
+    // Find root folder (type: subject, no parent) and redirect directly
+    function loadRootFolder() {
+        $scope.loading = true;
         ApiService.folderInside(null).then(function(data) {
             var items = data.items || [];
-            // Only show folders (subjects), not loose content at root
-            $scope.subjects = items.filter(function(i) { return i.folder !== false; });
-
-            // Load module count for each subject
-            $scope.subjects.forEach(function(sub) {
-                ApiService.folderInside(sub._id).then(function(innerData) {
-                    var innerItems = innerData.items || [];
-                    sub._moduleCount = innerItems.filter(function(i) { return i.folder !== false; }).length;
-                });
+            // Find first folder with type 'subject' (no parent implied by folderInside(null))
+            var rootFolder = items.find(function(i) {
+                return i.folder !== false && i.type === 'subject';
             });
-
-            $scope.loading = false;
+            // Fallback: first folder of any type
+            if (!rootFolder) {
+                rootFolder = items.find(function(i) { return i.folder !== false; });
+            }
+            if (rootFolder) {
+                $location.path('/trail/' + rootFolder._id).replace();
+            } else {
+                // No folders found — show empty state inline
+                $scope.loading = false;
+                $scope.level = 'subject';
+                $scope.trailItems = [];
+                $scope.trailLoading = false;
+            }
         }).catch(function() {
-            $scope.subjects = [];
             $scope.loading = false;
+            $scope.level = 'subject';
+            $scope.trailItems = [];
+            $scope.trailLoading = false;
         });
     }
 
@@ -637,30 +649,35 @@ angular.module('rotaViva')
                 l.icon = getLessonIcon(l);
                 globalLessonIdx++;
 
-                // Character at the belly of each half-wave of the S-curve
-                // sin(idx * 0.8) has half-period ≈ 3.93, bellies at idx 2, 6, 10, 14...
-                // First belly: lessonIndex 2 (sin positive = rightward peak)
-                // Second belly: lessonIndex 6 (sin negative = leftward peak)
-                if (idx >= 2 && (idx - 2) % 4 === 0) {
-                    var charName = charList[charIdx % charList.length];
-                    var xOffset = Math.sin(idx * 0.8) * 70;
-                    l._charImg = charBasePath + charName + '.png';
-                    l._charName = charName;
-                    // Character on opposite side: positive sin = right bubble → char left
-                    l._charSide = xOffset >= 0 ? 'left' : 'right';
-                    charIdx++;
+                // Character every 5 global lessons (at globalIndex 2, 7, 12, 17...)
+                // Guard: never place character if the previous flat item is a module header
+                if (l.globalIndex % 5 === 2) {
+                    var prevItem = flat.length > 0 ? flat[flat.length - 1] : null;
+                    if (!prevItem || prevItem._type !== 'module') {
+                        var charName = charList[charIdx % charList.length];
+                        l._charImg = charBasePath + charName + '.png';
+                        l._charName = charName;
+                        charIdx++;
+                    }
                 }
 
                 flat.push(l);
             });
         });
 
+        // Initialize active module to first module
+        var firstModule = flat.find(function(i) { return i._type === 'module'; });
+        if (firstModule) $scope.activeModule = firstModule;
+
         $scope.trailItems = flat;
         $scope.trailLoading = false;
         $scope.$applyAsync();
 
-        // Auto-scroll to first available lesson
+        // Setup scroll-based sticky module observer after DOM renders
         $timeout(function() {
+            setupModuleScrollObserver();
+
+            // Auto-scroll to first available lesson
             for (var i = 0; i < flat.length; i++) {
                 if (flat[i]._type === 'lesson' && flat[i].is_unlocked && flat[i].percent < 100) {
                     var el = document.getElementById('trail-item-' + flat[i]._id);
@@ -668,7 +685,56 @@ angular.module('rotaViva')
                     break;
                 }
             }
-        }, 300);
+        }, 350);
+    }
+
+    // Scroll observer: updates activeModule based on which module divider is at the top
+    function setupModuleScrollObserver() {
+        var lastModuleId = null;
+
+        function updateActiveModule() {
+            var dividers = document.querySelectorAll('.duo-module-divider[data-mid]');
+            if (!dividers.length) return;
+
+            // Measure sticky header height dynamically
+            var headerEl = document.querySelector('.trail-header');
+            var stickyEl = document.querySelector('.duo-sticky-module');
+            var threshold = (headerEl ? headerEl.offsetHeight : 56) +
+                            (stickyEl ? stickyEl.offsetHeight : 54) + 8;
+
+            var activeDivider = null;
+            dividers.forEach(function(el) {
+                if (el.getBoundingClientRect().top <= threshold) {
+                    activeDivider = el;
+                }
+            });
+
+            if (!activeDivider) {
+                // Above first divider — first module is active
+                activeDivider = dividers[0];
+            }
+
+            var mid = activeDivider.getAttribute('data-mid');
+            if (mid && mid !== lastModuleId) {
+                lastModuleId = mid;
+                for (var i = 0; i < $scope.trailItems.length; i++) {
+                    if ($scope.trailItems[i]._id === mid) {
+                        $scope.$apply(function() {
+                            $scope.activeModule = $scope.trailItems[i];
+                        });
+                        break;
+                    }
+                }
+            }
+        }
+
+        window.addEventListener('scroll', updateActiveModule, { passive: true });
+        $scope.$on('$destroy', function() {
+            window.removeEventListener('scroll', updateActiveModule);
+        });
+
+        // Initial call to set correct module on load
+        updateActiveModule();
     }
 
     // Icon per content type (Duolingo style)
@@ -676,7 +742,9 @@ angular.module('rotaViva')
         'quiz':    'fa-star',       // ⭐ estrela
         'video':   'fa-play',       // ▶️ play
         'mission': 'fa-wrench',     // 🔧 ferramenta
-        'chest':   'fa-gem'            // 💎 baú (timed quiz reward)
+        'diy':     'fa-camera',     // 📷 registro de campo (substitui Diário)
+        'essay':   'fa-comment',    // 💬 escuta ativa (substitui Escuta Ativa)
+        'chest':   'fa-gem'         // 💎 baú (timed quiz reward)
     };
 
     function getLessonIcon(lesson) {
@@ -808,15 +876,15 @@ angular.module('rotaViva')
     };
 
     $scope.goBack = function() {
-        if ($scope.level === 'subject') {
-            $location.path('/trail');
-        } else {
-            $location.path('/dashboard');
-        }
+        $location.path('/dashboard');
     };
 
     $scope.goHome = function() {
         $location.path('/dashboard');
+    };
+
+    $scope.goGallery = function() {
+        $location.path('/gallery');
     };
 
     init();
@@ -1216,4 +1284,98 @@ angular.module('rotaViva')
         };
         input.click();
     };
+})
+
+// === Gallery Controller ===
+.controller('GalleryCtrl', function($scope, $location, $timeout, AuthService, ApiService, ThemeService) {
+    var session = AuthService.getSession();
+    var playerId = (session.player || {})._id;
+    var theme = ThemeService.load(session.apiKey) || {};
+
+    if (theme && theme.colors) ThemeService.apply(theme, false);
+
+    $scope.theme = theme;
+    $scope.loading = true;
+    $scope.posts = [];
+    $scope.topUsers = [];
+
+    function timeAgo(dateStr) {
+        if (!dateStr) return '';
+        var diff = Math.floor((Date.now() - new Date(dateStr)) / 1000);
+        if (diff < 60) return 'agora';
+        if (diff < 3600) return Math.floor(diff / 60) + 'min';
+        if (diff < 86400) return Math.floor(diff / 3600) + 'h';
+        return Math.floor(diff / 86400) + 'd';
+    }
+
+    function normalizePost(p) {
+        return angular.extend({}, p, {
+            _authorName: p.author_name || p.player_name || 'Produtor',
+            _authorPhoto: p.author_photo || p.player_photo || null,
+            _municipality: (p.extra && p.extra.municipality) || p.municipality || '',
+            _hashtag: (p.extra && p.extra.hashtag) || p.hashtag || '',
+            _isOfficial: !!(p.extra && p.extra.is_official),
+            _isTop: !!(p.extra && p.extra.is_top),
+            _likeCount: p.like_count || p.likes || 0,
+            _liked: false,
+            _timeAgo: timeAgo(p.created || p.time)
+        });
+    }
+
+    // Load posts
+    ApiService.getGalleryPosts(20, 0).then(function(data) {
+        $scope.posts = (data || []).map(normalizePost);
+    }).catch(function() {
+        $scope.posts = [];
+    }).finally(function() {
+        $scope.loading = false;
+    });
+
+    // Load top users
+    ApiService.getTopUsers().then(function(data) {
+        var items = Array.isArray(data) ? data : (data.items || data.leaderboard || []);
+        $scope.topUsers = items.slice(0, 5).map(function(u) {
+            return {
+                _id: u.player || u._id,
+                name: u.player_name || u.name || 'Produtor',
+                photo: u.player_photo || u.photo || null
+            };
+        });
+    }).catch(function() {
+        $scope.topUsers = [];
+    });
+
+    $scope.toggleLike = function(post) {
+        post._liked = !post._liked;
+        post._likeCount += post._liked ? 1 : -1;
+        if (post._liked && playerId) {
+            ApiService.likePost(post._id, playerId).catch(function() {
+                post._liked = false;
+                post._likeCount--;
+            });
+        }
+    };
+
+    $scope.sharePost = function(post) {
+        if (navigator.share) {
+            navigator.share({
+                title: 'Rota Viva',
+                text: post.description || post.text || '',
+                url: window.location.origin
+            }).catch(function() {});
+        }
+    };
+
+    $scope.openNewPost = function() {
+        // TODO: tela de nova publicação
+        alert('Em breve: publicar na Galeria!');
+    };
+
+    $scope.postMenu = function($event, post) {
+        $event.stopPropagation();
+    };
+
+    $scope.goHome = function() { $location.path('/dashboard'); };
+    $scope.goTrail = function() { $location.path('/trail'); };
+    $scope.goPerfil = function() { /* TODO: perfil */ };
 });
