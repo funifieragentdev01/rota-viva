@@ -1,88 +1,89 @@
 <div class="view-container">
-    <div class="dashboard-header">
-        <h2>{{theme.meta.narrative_name || route.title || 'Rota Viva'}}</h2>
-        <p>{{theme.labels.welcome_back || 'Olá'}}, {{player.name}}! {{theme.meta.emoji || ''}}</p>
+
+    <!-- Header compacto: saudação + streak + XP -->
+    <div class="dash-header">
+        <div class="dash-greeting">
+            <span class="dash-greeting-time">{{greeting}}</span>
+            <span class="dash-greeting-name">{{firstName}}!</span>
+        </div>
+        <div class="dash-header-stats">
+            <div class="dash-stat dash-stat-streak" ng-class="{'dash-streak-risk': streakAtRisk}">
+                <i class="fas fa-fire"></i>
+                <span>{{streak}} {{streak === 1 ? 'dia' : 'dias'}}</span>
+            </div>
+            <div class="dash-stat dash-stat-xp">
+                <i class="fas fa-star"></i>
+                <span>{{totalPoints}}</span>
+            </div>
+        </div>
     </div>
 
-    <div class="dashboard-body">
-        <div class="dashboard-card" ng-click="goTrail()" style="cursor: pointer;">
-            <h3><i class="fas fa-route" style="color: var(--color-primary)"></i> {{theme.labels.missions_title || 'Trilha de Aprendizado'}}</h3>
-            <p>Complete trilhas, ganhe {{theme.labels.points_unit || 'XP'}} e suba de nível!</p>
+    <div class="dash-body">
+
+        <!-- Streak em risco -->
+        <div class="dash-streak-risk-card" ng-if="streakAtRisk && streak > 0">
+            <i class="fas fa-fire"></i>
+            <span>Sua sequência de {{streak}} {{streak === 1 ? 'dia' : 'dias'}} está em risco! Complete uma lição hoje.</span>
         </div>
 
-        <div class="dashboard-card dashboard-card-progress">
-            <div class="progress-header">
-                <div class="progress-level">
-                    <i class="fas fa-trophy" style="color: var(--color-accent)"></i>
-                    <span class="progress-level-name">{{levelName}}</span>
-                </div>
-                <div class="progress-points">
-                    <span class="progress-points-value">{{totalPoints}}</span>
-                    <span class="progress-points-unit">{{theme.labels.points_unit || 'XP'}}</span>
-                </div>
-            </div>
-            <div class="progress-bar-wrap" ng-if="nextLevelName">
-                <div class="progress-bar">
-                    <div class="progress-bar-fill" ng-style="{'width': levelPercent + '%'}"></div>
-                </div>
-                <div class="progress-bar-label">
-                    <span>{{levelPercent}}%</span>
-                    <span>{{nextLevelName}} ({{nextPoints}} {{theme.labels.points_unit || 'XP'}})</span>
-                </div>
-            </div>
-            <div class="progress-bar-label" ng-if="!nextLevelName && statusLoaded" style="text-align: center; margin-top: 8px;">
-                <span style="color: var(--color-accent);">Nível máximo alcançado!</span>
+        <!-- Card primário: próxima lição -->
+        <div class="dash-cta-loading" ng-if="nextLessonLoading">
+            <div class="loading-spinner-sm"></div>
+        </div>
+
+        <!-- Próxima lição encontrada -->
+        <div class="dash-cta-card" ng-if="!nextLessonLoading && nextLesson" ng-click="continueTrail()">
+            <div class="dash-cta-eyebrow">Continuar Trilha</div>
+            <div class="dash-cta-module">{{nextLesson.moduleName}}</div>
+            <div class="dash-cta-lesson">{{nextLesson.title}}</div>
+            <div class="dash-cta-btn">
+                <i class="fas fa-play"></i> CONTINUAR
             </div>
         </div>
 
-        <div class="dashboard-card dashboard-card-streak" ng-if="statusLoaded">
-            <div class="streak-display">
-                <div class="streak-icon" ng-class="{'streak-active': streak > 0}">
-                    <i class="fas fa-fire"></i>
-                </div>
-                <div class="streak-info">
-                    <span class="streak-count">{{streak}}</span>
-                    <span class="streak-label">dia{{streak !== 1 ? 's' : ''}} seguido{{streak !== 1 ? 's' : ''}}</span>
+        <!-- Trilha não iniciada -->
+        <div class="dash-cta-card dash-cta-start" ng-if="!nextLessonLoading && !nextLesson && !trailDone" ng-click="goTrail()">
+            <div class="dash-cta-eyebrow">Sua jornada começa aqui</div>
+            <div class="dash-cta-lesson">{{theme.labels.missions_title || 'Trilha de Aprendizado'}}</div>
+            <div class="dash-cta-btn">
+                <i class="fas fa-rocket"></i> COMEÇAR
+            </div>
+        </div>
+
+        <!-- Trilha concluída -->
+        <div class="dash-cta-card dash-cta-done" ng-if="!nextLessonLoading && trailDone">
+            <div class="dash-cta-eyebrow">Parabéns!</div>
+            <div class="dash-cta-lesson">🎉 Trilha concluída!</div>
+            <div class="dash-cta-btn" ng-click="goGallery()">
+                <i class="fas fa-images"></i> VER GALERIA
+            </div>
+        </div>
+
+        <!-- Barra de nível -->
+        <div class="dash-level-bar" ng-if="statusLoaded">
+            <div class="dash-level-info">
+                <span class="dash-level-name">{{levelName}}</span>
+                <span class="dash-level-next" ng-if="nextLevelName">→ {{nextLevelName}}</span>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-bar-fill" ng-style="{'width': levelPercent + '%'}"></div>
+            </div>
+        </div>
+
+        <!-- Preview da comunidade -->
+        <div class="dash-community" ng-if="communityPosts.length > 0">
+            <div class="dash-community-header">
+                <span class="dash-community-title">Da Comunidade</span>
+                <a class="dash-community-more" ng-click="goGallery()">Ver tudo <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="dash-community-photos">
+                <div class="dash-community-photo" ng-repeat="post in communityPosts" ng-click="goGallery()">
+                    <img ng-src="{{post.image_url}}" alt="Foto da comunidade" loading="lazy" />
                 </div>
             </div>
         </div>
 
-        <div class="dashboard-card" ng-click="goGallery()" style="cursor: pointer;">
-            <h3><i class="fas fa-images" style="color: var(--color-accent)"></i> Galeria de Saberes</h3>
-            <p>Veja e compartilhe boas práticas da sua comunidade.</p>
-        </div>
-
-        <div class="dashboard-card" style="background: transparent; border: none; padding: var(--spacing-sm);">
-            <p style="color: var(--color-text-faint); font: var(--font-caption);">
-                Rota: <strong>{{route.title}}</strong> ·
-                Perfil: <strong>{{route.profile}}</strong> ·
-                ID: {{player._id}}
-            </p>
-        </div>
-
-        <button class="btn btn-logout" ng-click="logout()">
-            <i class="fas fa-sign-out-alt"></i> Sair
-        </button>
-
-        <div class="version-footer">v{{CONFIG.VERSION}}</div>
     </div>
 
-    <nav class="bottom-nav">
-        <a class="bottom-nav-item active">
-            <i class="fas fa-house"></i>
-            <span>Início</span>
-        </a>
-        <a class="bottom-nav-item" ng-click="goTrail()">
-            <i class="fas fa-route"></i>
-            <span>Trilha</span>
-        </a>
-        <a class="bottom-nav-item" ng-click="goGallery()">
-            <i class="fas fa-images"></i>
-            <span>Galeria</span>
-        </a>
-        <a class="bottom-nav-item">
-            <i class="fas fa-circle-user"></i>
-            <span>Perfil</span>
-        </a>
-    </nav>
+    <bottom-nav active="home"></bottom-nav>
 </div>

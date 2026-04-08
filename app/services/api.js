@@ -255,6 +255,15 @@ angular.module('rotaViva')
         }).then(parseUploadUrl);
     };
 
+    // === Challenges / Badges ===
+
+    // Retorna todos os challenges com nome e URL do badge
+    api.getChallenges = function() {
+        return $http.get(baseUrl + '/v3/challenge?fields=challenge,badge', trailHeaders()).then(function(res) {
+            return Array.isArray(res.data) ? res.data : [];
+        });
+    };
+
     // Atualiza dados do player (nome, foto)
     api.updatePlayer = function(playerId, data) {
         return $http.post(baseUrl + '/v3/player', angular.extend({ _id: playerId }, data), trailHeaders())

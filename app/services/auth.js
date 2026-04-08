@@ -51,5 +51,24 @@ angular.module('rotaViva')
         $location.path('/login');
     };
 
+    service.deleteAccount = function(playerId) {
+        var token = localStorage.getItem('rv_token');
+        return $q(function(resolve, reject) {
+            var xhr = new XMLHttpRequest();
+            xhr.open('DELETE', CONFIG.API_URL + '/v3/player/' + playerId);
+            xhr.setRequestHeader('Authorization', token);
+            xhr.onload = function() {
+                if (xhr.status >= 200 && xhr.status < 300) {
+                    service.logout();
+                    resolve();
+                } else {
+                    reject(xhr.status);
+                }
+            };
+            xhr.onerror = function() { reject('network_error'); };
+            xhr.send();
+        });
+    };
+
     return service;
 });

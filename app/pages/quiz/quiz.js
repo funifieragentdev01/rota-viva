@@ -1,6 +1,6 @@
 angular.module('rotaViva')
 
-.controller('QuizCtrl', function($scope, $http, $routeParams, $location, AuthService, ApiService, ThemeService) {
+.controller('QuizCtrl', function($scope, $http, $routeParams, $location, $timeout, AuthService, ApiService, SoundService, ThemeService) {
     var session = AuthService.getSession();
     var token = session.token;
     var baseUrl = CONFIG.API_URL;
@@ -21,6 +21,8 @@ angular.module('rotaViva')
     $scope.tfAnswer = null;
     $scope.form = { essayAnswer: '' };
     $scope.diyPhotoData = null;
+    $scope.showConfetti = false;
+    $scope.scorePercent = 0;
 
     function authHeaders() {
         return { 'Authorization': token, 'Content-Type': 'application/json' };
@@ -158,14 +160,15 @@ angular.module('rotaViva')
             if (selected) logAnswer(q, [selected.answer]);
         }
 
-        playSound(q.correct ? 'correct' : 'wrong');
+        // Feedback sensorial
+        if (q.correct) {
+            SoundService.play('correct');
+            if (navigator.vibrate) navigator.vibrate(80);
+        } else {
+            SoundService.play('wrong');
+            if (navigator.vibrate) navigator.vibrate([60, 40, 60]);
+        }
     };
-
-    function playSound(type) {
-        try {
-            if (type === 'correct') new Audio('audio/beep.mp3').play();
-        } catch(e) {}
-    }
 
     function logAnswer(q, answerArr) {
         if (!$scope.quizLogId) return;
@@ -185,10 +188,10 @@ angular.module('rotaViva')
             $scope.form.essayAnswer = '';
             $scope.diyPhotoData = null;
         } else {
-            $scope.finished = true;
-
-            var scorePercent = $scope.questions.length > 0
+            $scope.scorePercent = $scope.questions.length > 0
                 ? Math.round(($scope.score / $scope.questions.length) * 100) : 0;
+
+            $scope.finished = true;
 
             if ($scope.quizLogId) {
                 $http.post(baseUrl + '/v3/quiz/finish', {
@@ -197,7 +200,7 @@ angular.module('rotaViva')
             }
 
             if ($scope.lessonFolderId) {
-                ApiService.folderLog($scope.lessonFolderId, playerId, scorePercent).catch(function(err) {
+                ApiService.folderLog($scope.lessonFolderId, playerId, $scope.scorePercent).catch(function(err) {
                     console.warn('[Quiz] folder/log error:', err);
                 });
             }
@@ -206,13 +209,59 @@ angular.module('rotaViva')
                 ApiService.logAction('complete_lesson', playerId, {
                     lesson_type: 'quiz',
                     lesson_id: quizId,
-                    score: scorePercent
-                }).catch(function(err) {
-                    console.warn('[Quiz] action/log error:', err);
-                });
+                    score: $scope.scorePercent
+                }).catch(function() {});
+            }
+
+            // Celebração
+            if ($scope.scorePercent >= 70) {
+                triggerCelebration();
+                SoundService.play('levelup');
+                if (navigator.vibrate) navigator.vibrate([80, 50, 80, 50, 120]);
+            }
+
+            // Toast de XP
+            var xp = Math.round($scope.score * 10);
+            if (xp > 0) {
+                $timeout(function() { showXpToast(xp); }, 300);
             }
         }
     };
+
+    function triggerCelebration() {
+        $scope.showConfetti = true;
+        if (typeof window.confetti === 'function') {
+            window.confetti({
+                particleCount: 120,
+                spread: 80,
+                origin: { y: 0.5 },
+                colors: ['#FF9600', '#1a5632', '#FFC800', '#00CD9C', '#1CB0F6']
+            });
+            $timeout(function() {
+                window.confetti({
+                    particleCount: 60,
+                    spread: 60,
+                    origin: { x: 0.1, y: 0.6 }
+                });
+                window.confetti({
+                    particleCount: 60,
+                    spread: 60,
+                    origin: { x: 0.9, y: 0.6 }
+                });
+            }, 400);
+        }
+        $timeout(function() { $scope.showConfetti = false; }, 3000);
+    }
+
+    function showXpToast(points) {
+        var el = document.createElement('div');
+        el.className = 'xp-toast';
+        el.textContent = '+' + points + ' favos';
+        document.body.appendChild(el);
+        $timeout(function() {
+            if (el.parentNode) el.parentNode.removeChild(el);
+        }, 1900);
+    }
 
     $scope.goBack = function() { window.history.back(); };
 

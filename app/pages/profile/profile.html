@@ -44,7 +44,7 @@
         <div class="profile-route">{{routeName}}</div>
     </div>
 
-    <!-- Stats -->
+    <!-- Stats: pontos + sequência + nível -->
     <div class="profile-stats">
         <div class="profile-stat-card">
             <div class="profile-stat-icon" style="color: #FFC800;"><i class="fas fa-trophy"></i></div>
@@ -53,34 +53,135 @@
         </div>
         <div class="profile-stat-divider"></div>
         <div class="profile-stat-card">
-            <div class="profile-stat-icon" style="color: #1CB0F6;"><i class="fas fa-bolt"></i></div>
+            <div class="profile-stat-icon" style="color: #FF6400;"><i class="fas fa-fire"></i></div>
             <div class="profile-stat-value">{{playerStreak || 0}}</div>
             <div class="profile-stat-label">Sequência</div>
         </div>
+        <div class="profile-stat-divider"></div>
+        <div class="profile-stat-card">
+            <div class="profile-stat-icon" style="color: #1CB0F6;"><i class="fas fa-star"></i></div>
+            <div class="profile-stat-value">{{playerLevel || 1}}</div>
+            <div class="profile-stat-label">Nível</div>
+        </div>
     </div>
 
-    <!-- Actions -->
-    <div class="profile-actions">
-        <button class="profile-action-btn profile-action-logout" ng-click="logout()">
-            <i class="fas fa-right-from-bracket"></i>
-            <span>Sair da conta</span>
-        </button>
+    <!-- Conquistas -->
+    <div class="profile-section" ng-if="achievementsLoaded">
+        <div class="profile-section-title">
+            Conquistas
+            <span class="profile-section-count" ng-if="achievements.length > 0">({{achievements.length}})</span>
+        </div>
+        <div class="profile-badges" ng-if="achievements.length > 0">
+            <div class="profile-badge" ng-repeat="badge in achievements"
+                 ng-class="{'profile-badge-locked': !badge.earned}">
+                <div class="profile-badge-icon">
+                    <img ng-if="badge.image && badge.earned" ng-src="{{badge.image}}" alt="{{badge.name}}" />
+                    <i ng-if="!badge.image && badge.earned" class="fas fa-award"></i>
+                    <i ng-if="!badge.earned" class="fas fa-lock"></i>
+                    <!-- Contador de vezes ganhou -->
+                    <span class="profile-badge-count" ng-if="badge.earned && badge.count > 1">×{{badge.count}}</span>
+                </div>
+                <!-- Barra de progresso para em andamento -->
+                <div class="profile-badge-progress" ng-if="!badge.earned && badge.percent > 0">
+                    <div class="profile-badge-progress-fill" ng-style="{'width': badge.percent + '%'}"></div>
+                </div>
+                <div class="profile-badge-name">{{badge.name | limitTo:14}}</div>
+            </div>
+        </div>
+        <div class="profile-badges-empty" ng-if="achievements.length === 0">
+            <i class="fas fa-award"></i>
+            <p>Complete lições para ganhar conquistas!</p>
+        </div>
     </div>
 
-    <!-- Bottom Nav -->
-    <nav class="bottom-nav">
-        <a class="bottom-nav-item" ng-click="goHome()">
-            <i class="fas fa-house"></i><span>Início</span>
-        </a>
-        <a class="bottom-nav-item" ng-click="goTrail()">
-            <i class="fas fa-route"></i><span>Trilha</span>
-        </a>
-        <a class="bottom-nav-item" ng-click="goGallery()">
-            <i class="fas fa-images"></i><span>Galeria</span>
-        </a>
-        <a class="bottom-nav-item active">
-            <i class="fas fa-circle-user"></i><span>Perfil</span>
-        </a>
-    </nav>
+    <!-- Menu: Conta -->
+    <div class="profile-section">
+        <div class="profile-section-title">Conta</div>
+        <div class="profile-menu">
+            <button class="profile-menu-item" ng-click="startEditName()">
+                <i class="fas fa-user profile-menu-icon"></i>
+                <span class="profile-menu-label">Editar nome</span>
+                <i class="fas fa-chevron-right profile-menu-chevron"></i>
+            </button>
+            <div class="profile-menu-divider"></div>
+            <button class="profile-menu-item" ng-click="showModal = 'terms'">
+                <i class="fas fa-file-lines profile-menu-icon"></i>
+                <span class="profile-menu-label">Termos de uso</span>
+                <i class="fas fa-chevron-right profile-menu-chevron"></i>
+            </button>
+            <div class="profile-menu-divider"></div>
+            <button class="profile-menu-item" ng-click="showModal = 'privacy'">
+                <i class="fas fa-shield-halved profile-menu-icon"></i>
+                <span class="profile-menu-label">Política de privacidade</span>
+                <i class="fas fa-chevron-right profile-menu-chevron"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Menu: Zona de perigo -->
+    <div class="profile-section">
+        <div class="profile-section-title">Zona de perigo</div>
+        <div class="profile-menu">
+            <button class="profile-menu-item" ng-click="logout()">
+                <i class="fas fa-right-from-bracket profile-menu-icon"></i>
+                <span class="profile-menu-label">Sair</span>
+                <i class="fas fa-chevron-right profile-menu-chevron"></i>
+            </button>
+            <div class="profile-menu-divider"></div>
+            <button class="profile-menu-item profile-menu-danger" ng-click="deleteAccount()">
+                <i class="fas fa-trash-can profile-menu-icon"></i>
+                <span class="profile-menu-label">Excluir conta</span>
+                <i class="fas fa-chevron-right profile-menu-chevron"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Modal: Termos -->
+    <div class="profile-modal-overlay" ng-if="showModal === 'terms'" ng-click="closeModal()">
+        <div class="profile-modal" ng-click="$event.stopPropagation()">
+            <div class="profile-modal-header">
+                <span>Termos de Uso</span>
+                <button class="profile-modal-close" ng-click="closeModal()"><i class="fas fa-xmark"></i></button>
+            </div>
+            <div class="profile-modal-body">
+                <p>Ao usar o Rota Viva, você concorda em utilizar o aplicativo de forma responsável para fins de aprendizado. Os dados fornecidos são utilizados exclusivamente para personalizar sua experiência.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: Privacidade -->
+    <div class="profile-modal-overlay" ng-if="showModal === 'privacy'" ng-click="closeModal()">
+        <div class="profile-modal" ng-click="$event.stopPropagation()">
+            <div class="profile-modal-header">
+                <span>Política de Privacidade</span>
+                <button class="profile-modal-close" ng-click="closeModal()"><i class="fas fa-xmark"></i></button>
+            </div>
+            <div class="profile-modal-body">
+                <p>Seus dados pessoais (nome, CPF, progresso) são armazenados de forma segura e utilizados apenas para funcionamento do aplicativo. Não compartilhamos seus dados com terceiros.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: Confirmar exclusão de conta -->
+    <div class="profile-modal-overlay" ng-if="showModal === 'delete-confirm'" ng-click="closeModal()">
+        <div class="profile-modal" ng-click="$event.stopPropagation()">
+            <div class="profile-modal-header">
+                <span>Excluir conta</span>
+                <button class="profile-modal-close" ng-click="closeModal()"><i class="fas fa-xmark"></i></button>
+            </div>
+            <div class="profile-modal-body">
+                <p style="margin-bottom: 16px;">Tem certeza que deseja excluir sua conta? <strong>Todos os seus dados e progresso serão apagados permanentemente.</strong> Esta ação não pode ser desfeita.</p>
+                <button class="btn profile-delete-confirm-btn" ng-click="confirmDeleteAccount()" ng-disabled="deletingAccount">
+                    <i class="fas fa-spinner fa-spin" ng-if="deletingAccount"></i>
+                    <span ng-if="!deletingAccount">Sim, excluir minha conta</span>
+                </button>
+                <button class="btn btn-secondary profile-delete-cancel-btn" ng-click="closeModal()">
+                    Cancelar
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <bottom-nav active="profile"></bottom-nav>
 
 </div>

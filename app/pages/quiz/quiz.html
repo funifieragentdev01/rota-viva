@@ -123,25 +123,42 @@
 
     <!-- Finished -->
     <div class="quiz-finish" ng-if="finished">
-        <div class="quiz-finish-icon">🎉</div>
-        <h2>Quiz Concluído!</h2>
-        <p class="quiz-finish-score">{{score}} de {{questions.length}} corretas</p>
-        <div class="quiz-finish-bar">
-            <div class="quiz-finish-fill"
-                 ng-style="{'width': (score/questions.length*100) + '%', 'background': score/questions.length >= 0.7 ? 'var(--color-success)' : 'var(--color-warning)'}">
+
+        <!-- Celebração (score alto) -->
+        <div class="quiz-finish-celebration" ng-if="scorePercent >= 70">
+            <div class="quiz-finish-emoji quiz-finish-emoji-win">🎉</div>
+            <h2 class="quiz-finish-title-win">Lição concluída!</h2>
+            <div class="quiz-finish-xp">
+                <i class="fas fa-star"></i> +{{score * 10}} favos
             </div>
         </div>
-        <p class="quiz-finish-msg" ng-if="score/questions.length >= 0.7">
-            <i class="fas fa-star" style="color: var(--color-accent)"></i>
-            Parabéns! Você passou!
+
+        <!-- Resultado neutro (score baixo) -->
+        <div class="quiz-finish-neutral" ng-if="scorePercent < 70">
+            <div class="quiz-finish-emoji">📚</div>
+            <h2>Continue praticando!</h2>
+        </div>
+
+        <p class="quiz-finish-score">{{score}} de {{questions.length}} corretas</p>
+
+        <div class="quiz-finish-bar">
+            <div class="quiz-finish-fill"
+                 ng-style="{'width': scorePercent + '%',
+                            'background': scorePercent >= 70 ? 'var(--color-primary)' : 'var(--color-warning)'}">
+            </div>
+        </div>
+
+        <p class="quiz-finish-msg" ng-if="scorePercent < 70">
+            Você precisa de 70% para passar. Tente novamente!
         </p>
-        <p class="quiz-finish-msg" ng-if="score/questions.length < 0.7">
-            Continue tentando! Você está aprendendo.
-        </p>
-        <button class="btn btn-primary" ng-click="goBack()" style="margin-top: 24px;">
-            <i class="fas fa-arrow-left"></i> Voltar à Trilha
+
+        <button class="btn btn-primary quiz-finish-btn" ng-click="goBack()">
+            <i class="fas fa-route"></i> Voltar à Trilha
         </button>
     </div>
+
+    <!-- Confetti overlay -->
+    <div class="confetti-container" ng-if="showConfetti"></div>
 
     <!-- Empty -->
     <div class="quiz-empty" ng-if="!loading && questions.length === 0 && !finished">

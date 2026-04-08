@@ -244,20 +244,6 @@
         <input id="gallery-input-gallery" class="gallery-file-input" type="file" accept="image/*,video/*" style="display:none" onchange="angular.element(this).scope().onFileSelected(this)">
     </div>
 
-    <!-- Bottom Nav -->
-    <nav class="bottom-nav" ng-if="!newPost && !commentsPost">
-        <a class="bottom-nav-item" ng-click="goHome()">
-            <i class="fas fa-house"></i><span>Início</span>
-        </a>
-        <a class="bottom-nav-item" ng-click="goTrail()">
-            <i class="fas fa-route"></i><span>Trilha</span>
-        </a>
-        <a class="bottom-nav-item active">
-            <i class="fas fa-images"></i><span>Galeria</span>
-        </a>
-        <a class="bottom-nav-item" ng-click="goPerfil()">
-            <i class="fas fa-circle-user"></i><span>Perfil</span>
-        </a>
-    </nav>
+    <bottom-nav active="gallery" ng-if="!newPost && !commentsPost"></bottom-nav>
 
 </div>
