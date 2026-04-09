@@ -67,6 +67,11 @@ angular.module('rotaViva', ['ngRoute', 'ngSanitize'])
             controller: 'QuizCtrl',
             resolve: { auth: function(AuthService) { return AuthService.requireAuth(); } }
         })
+        .when('/reading/:readingId', {
+            templateUrl: 'pages/reading/reading.html',
+            controller: 'ReadingCtrl',
+            resolve: { auth: function(AuthService) { return AuthService.requireAuth(); } }
+        })
         .when('/gallery', {
             templateUrl: 'pages/gallery/gallery.html',
             controller: 'GalleryCtrl',

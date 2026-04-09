@@ -20,14 +20,26 @@
     <!-- Question -->
     <div class="quiz-body" ng-if="!loading && !finished && current()">
         <div class="quiz-question">
-            <p class="quiz-question-text">{{current().text}}</p>
+
+            <!-- LISTEN: play button replaces/precedes question text -->
+            <div class="quiz-listen-area" ng-if="isListen()">
+                <button class="quiz-listen-btn" ng-click="speakTTS()" ng-class="{'speaking': isSpeaking}" ng-disabled="isSpeaking">
+                    <i class="fas" ng-class="isSpeaking ? 'fa-volume-high' : 'fa-play'"></i>
+                    <span ng-if="!isSpeaking">Ouvir</span>
+                    <span ng-if="isSpeaking">Reproduzindo...</span>
+                </button>
+                <p class="quiz-listen-hint" ng-if="current().type === 'LISTEN'">Ouça e escolha a resposta correta</p>
+                <p class="quiz-listen-hint" ng-if="current().type === 'LISTEN_AND_ORDER'">Ouça e ordene os itens na sequência certa</p>
+            </div>
+
+            <p class="quiz-question-text" ng-if="!isListen()">{{current().text}}</p>
             <p class="quiz-question-hint" ng-if="current().isMultiSelect && !current().answered">
                 <i class="fas fa-info-circle"></i> Selecione todas as corretas
             </p>
         </div>
 
-        <!-- MULTIPLE_CHOICE -->
-        <div class="quiz-options" ng-if="current().type === 'MULTIPLE_CHOICE'">
+        <!-- MULTIPLE_CHOICE or LISTEN (same UI — options below the play button) -->
+        <div class="quiz-options" ng-if="current().type === 'MULTIPLE_CHOICE' || current().type === 'LISTEN'">
             <button class="quiz-option"
                     ng-repeat="opt in current().options"
                     ng-click="selectOption(current(), opt)"
@@ -78,24 +90,268 @@
                       rows="{{current().totalLines || 5}}"></textarea>
         </div>
 
+        <!-- Prova de Campo: shown before every DIY question, in 3 states -->
+        <div class="prova-campo" ng-if="current().type === 'DIY_PROJECT'">
+
+            <!-- State 1: Loading -->
+            <div class="prova-campo-loading" ng-if="provasDeCampoLoading">
+                <div class="loading-spinner" style="width:24px;height:24px;border-width:3px;"></div>
+            </div>
+
+            <!-- State 2: Empty — "Seja o primeiro!" -->
+            <div ng-if="provasDeCampoLoaded && provasDeCampo.length === 0">
+                <div class="prova-campo-header">
+                    <img class="prova-campo-char" ng-src="{{charImg}}" alt="" onerror="this.style.display='none'">
+                    <div class="prova-campo-balao prova-campo-balao-pioneer">
+                        Você vai ser o primeiro produtor a completar esta etapa!
+                        Sua contribuição vai aparecer aqui para motivar os próximos.
+                        <div class="pioneer-badge"><i class="fas fa-star"></i> Seja o pioneiro</div>
+                    </div>
+                </div>
+                <div class="prova-campo-empty-hint">
+                    Complete e compartilhe — sua foto ficará aqui para inspirar outros produtores.
+                </div>
+            </div>
+
+            <!-- State 3: Has posts -->
+            <div ng-if="provasDeCampoLoaded && provasDeCampo.length > 0">
+                <div class="prova-campo-header">
+                    <img class="prova-campo-char" ng-src="{{charImg}}" alt="" onerror="this.style.display='none'">
+                    <div class="prova-campo-balao">
+                        Veja o que outros produtores fizeram nesta etapa:
+                    </div>
+                </div>
+                <div class="prova-campo-grid">
+                    <div class="prova-campo-item" ng-repeat="post in provasDeCampo">
+                        <img ng-if="post.image" ng-src="{{post.image}}" alt="{{post.player_name}}">
+                        <div ng-if="!post.image" class="prova-campo-no-img">
+                            <i class="fas" ng-class="post.extra.evidence_type === 'location' ? 'fa-map-marker-alt' : 'fa-camera'"></i>
+                        </div>
+                        <span class="prova-campo-name">{{post.player_name | firstWord}}</span>
+                    </div>
+                </div>
+                <p class="prova-campo-count" ng-if="provasDeCampoCount > 3">
+                    +{{provasDeCampoCount - 3}} produtores também completaram esta etapa
+                </p>
+            </div>
+        </div>
+
         <!-- DIY_PROJECT -->
         <div class="quiz-diy" ng-if="current().type === 'DIY_PROJECT'">
-            <div class="quiz-diy-photo" ng-if="!diyPhotoData && !current().answered">
-                <button class="quiz-diy-btn" ng-click="diyTakePhoto()">
-                    <i class="fas fa-camera"></i> Tirar Foto
-                </button>
+
+            <!-- Photo capture (when not a pure location question) -->
+            <div ng-if="!needsLocation() || current().evidenceTypes.indexOf('photo') >= 0">
+                <div class="quiz-diy-photo" ng-if="!diyPhotoData && !current().answered">
+                    <button class="quiz-diy-btn" ng-click="diyTakePhoto()">
+                        <i class="fas fa-camera"></i> Tirar Foto
+                    </button>
+                </div>
+                <div class="quiz-diy-preview" ng-if="diyPhotoData">
+                    <img ng-src="{{diyPhotoData}}" alt="Foto">
+                    <button class="quiz-diy-retake" ng-click="diyPhotoData = null" ng-if="!current().answered">
+                        <i class="fas fa-redo"></i> Trocar
+                    </button>
+                </div>
             </div>
-            <div class="quiz-diy-preview" ng-if="diyPhotoData">
-                <img ng-src="{{diyPhotoData}}" alt="Foto">
-                <button class="quiz-diy-retake" ng-click="diyPhotoData = null" ng-if="!current().answered">
-                    <i class="fas fa-redo"></i> Trocar
+
+            <!-- GPS Location (when evidenceTypes includes 'location') -->
+            <div class="quiz-location" ng-if="needsLocation()">
+
+                <!-- Map display after capture -->
+                <div class="quiz-location-map-wrap" ng-if="locationData">
+                    <div id="quiz-location-map" class="quiz-location-map"></div>
+                    <p class="quiz-location-coords">
+                        <i class="fas fa-map-marker-alt"></i>
+                        {{locationData.lat | number:5}}, {{locationData.lng | number:5}}
+                        &nbsp;±{{locationData.accuracy}}m
+                    </p>
+                    <button class="quiz-location-retry" ng-click="getLocation()" ng-if="!current().answered">
+                        <i class="fas fa-rotate"></i> Atualizar localização
+                    </button>
+                </div>
+
+                <!-- Capture button -->
+                <button class="quiz-location-btn" ng-click="getLocation()"
+                        ng-if="!locationData && !locationLoading && !current().answered">
+                    <i class="fas fa-location-dot"></i> Registrar Localização no Mapa
                 </button>
+
+                <!-- Loading -->
+                <div class="quiz-location-loading" ng-if="locationLoading">
+                    <div class="loading-spinner" style="width: 32px; height: 32px; border-width: 3px;"></div>
+                    <p>Capturando GPS...</p>
+                </div>
+
+                <!-- Error -->
+                <p class="quiz-location-error" ng-if="locationError">
+                    <i class="fas fa-triangle-exclamation"></i> {{locationError}}
+                </p>
             </div>
+
             <textarea class="quiz-essay-input"
                       ng-model="form.essayAnswer"
                       ng-disabled="current().answered"
-                      placeholder="Descreva o que você fotografou (opcional)..."
+                      placeholder="Descreva (opcional)..."
                       rows="3"></textarea>
+        </div>
+
+        <!-- MATCHING: left column + select for right column -->
+        <div class="quiz-matching" ng-if="current().type === 'MATCHING'">
+            <div class="quiz-match-pair"
+                 ng-repeat="left in current().matchLeft track by $index"
+                 ng-class="{
+                     'match-correct': current().answered && current().matchCorrect[$index],
+                     'match-wrong':   current().answered && !current().matchCorrect[$index]
+                 }">
+                <div class="quiz-match-left" ng-bind-html="left.text"></div>
+                <select class="quiz-match-select"
+                        ng-model="current().matchAnswers[left.id]"
+                        ng-disabled="current().answered">
+                    <option value="">— Escolher —</option>
+                    <option ng-repeat="right in current().matchRight" ng-value="right.id">{{right.text}}</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- SELECT_MISSING_WORDS: inline blanks as selects -->
+        <div class="quiz-missing-words" ng-if="current().type === 'SELECT_MISSING_WORDS'">
+            <div class="quiz-mw-text">
+                <span ng-repeat="seg in current().mwSegments track by $index">
+                    <span ng-if="seg.type === 'text'">{{seg.text}}</span>
+                    <select ng-if="seg.type === 'blank'"
+                            class="quiz-mw-select"
+                            ng-model="current().mwAnswers[seg.id]"
+                            ng-disabled="current().answered"
+                            ng-class="{
+                                'mw-correct': current().answered && current().mwCorrect[seg.id],
+                                'mw-wrong':   current().answered && !current().mwCorrect[seg.id] && current().mwAnswers[seg.id]
+                            }">
+                        <option value="">___</option>
+                        <option ng-repeat="opt in seg.options" ng-value="opt.id">{{opt.text}}</option>
+                    </select>
+                </span>
+            </div>
+        </div>
+
+        <!-- DRAG_AND_DROP_INTO_TEXT: numbered slots + word bank -->
+        <div class="quiz-drag-drop" ng-if="current().type === 'DRAG_AND_DROP_INTO_TEXT'">
+
+            <!-- Slots row -->
+            <div class="quiz-dd-slots">
+                <div class="quiz-dd-slot"
+                     ng-repeat="slot in current().ddSlots track by $index"
+                     ng-click="ddRemoveFromSlot($index)"
+                     ng-class="{
+                         'dd-filled':  !!slot,
+                         'dd-correct': current().answered && current().ddSlotCorrect[$index],
+                         'dd-wrong':   current().answered && !current().ddSlotCorrect[$index] && !!slot
+                     }">
+                    <span ng-if="slot">{{slot.text}}</span>
+                    <span ng-if="!slot" class="quiz-dd-placeholder">{{$index + 1}}</span>
+                    <i ng-if="slot && !current().answered" class="fas fa-times quiz-dd-remove"></i>
+                </div>
+            </div>
+
+            <!-- Word bank -->
+            <div class="quiz-dd-bank" ng-if="!current().answered">
+                <button class="quiz-dd-word"
+                        ng-repeat="word in current().ddAvailable track by $index"
+                        ng-click="ddAddToSlot(word)">
+                    {{word.text}}
+                </button>
+                <p class="quiz-dd-empty" ng-if="current().ddAvailable.length === 0">
+                    <i class="fas fa-check-circle"></i> Todos posicionados — verifique!
+                </p>
+            </div>
+        </div>
+
+        <!-- LISTEN_AND_ORDER: sequence builder -->
+        <div class="quiz-listen-order" ng-if="current().type === 'LISTEN_AND_ORDER'">
+
+            <!-- Selected sequence (top) -->
+            <div class="quiz-listen-order-seq" ng-class="{'has-items': current().listenSelected.length > 0}">
+                <p class="quiz-listen-order-label" ng-if="current().listenSelected.length === 0">Toque nos itens abaixo para ordenar</p>
+                <div class="quiz-listen-order-item quiz-listen-order-item-seq"
+                     ng-repeat="item in current().listenSelected"
+                     ng-click="listenOrderRemove(item)"
+                     ng-class="{
+                         'correct-item': current().answered && current().options[$index] && item.text === current().options[$index].text,
+                         'wrong-item': current().answered && (!current().options[$index] || item.text !== current().options[$index].text)
+                     }">
+                    <span class="quiz-listen-order-num">{{$index + 1}}</span>
+                    <span>{{item.text}}</span>
+                    <i class="fas fa-times quiz-listen-order-remove" ng-if="!current().answered"></i>
+                </div>
+            </div>
+
+            <!-- Available bank (bottom) -->
+            <div class="quiz-listen-order-bank" ng-if="!current().answered">
+                <div class="quiz-listen-order-item"
+                     ng-repeat="item in current().listenAvail"
+                     ng-click="listenOrderAdd(item)">
+                    <span>{{item.text}}</span>
+                    <i class="fas fa-plus quiz-listen-order-add"></i>
+                </div>
+                <p class="quiz-listen-order-empty" ng-if="current().listenAvail.length === 0 && !current().answered">
+                    <i class="fas fa-check-circle"></i> Todos posicionados — verifique!
+                </p>
+            </div>
+        </div>
+
+        <!-- SPEAK: voice recording UI -->
+        <div class="quiz-speak" ng-if="current().type === 'SPEAK'">
+
+            <!-- Hint -->
+            <p class="quiz-speak-hint" ng-if="speakStatus === 'idle'">
+                <i class="fas fa-microphone"></i> Toque no botão e fale sua resposta
+            </p>
+
+            <!-- Mic button (idle or error) -->
+            <button class="quiz-speak-btn"
+                    ng-if="speakStatus === 'idle' || speakStatus === 'error'"
+                    ng-click="startSpeakRecord()"
+                    ng-disabled="current().answered">
+                <i class="fas fa-microphone"></i>
+                <span>Falar</span>
+            </button>
+
+            <!-- Recording active -->
+            <div class="quiz-speak-recording" ng-if="speakStatus === 'listening'">
+                <div class="quiz-speak-pulse"></div>
+                <p class="quiz-speak-recording-label">Ouvindo...</p>
+                <button class="quiz-speak-stop-btn" ng-click="stopSpeakRecord()">
+                    <i class="fas fa-stop"></i> Parar
+                </button>
+            </div>
+
+            <!-- Transcript -->
+            <div class="quiz-speak-transcript" ng-if="speakTranscript">
+                <p class="quiz-speak-transcript-label">
+                    <i class="fas fa-quote-left"></i> Sua resposta:
+                </p>
+                <p class="quiz-speak-transcript-text">{{speakTranscript}}</p>
+                <button class="quiz-speak-retry" ng-click="retrySpeakRecord()" ng-if="!current().answered">
+                    <i class="fas fa-rotate"></i> Tentar novamente
+                </button>
+            </div>
+
+            <!-- Unsupported: fallback to text -->
+            <div ng-if="speakStatus === 'unsupported'">
+                <p class="quiz-speak-fallback-hint">
+                    <i class="fas fa-triangle-exclamation"></i>
+                    Reconhecimento de voz não disponível neste dispositivo. Digite sua resposta:
+                </p>
+                <textarea class="quiz-essay-input"
+                          ng-model="speakTranscript"
+                          ng-disabled="current().answered"
+                          placeholder="Escreva sua resposta..."
+                          rows="3"></textarea>
+            </div>
+
+            <!-- Error -->
+            <p class="quiz-speak-error" ng-if="speakStatus === 'error' && speakError">
+                <i class="fas fa-triangle-exclamation"></i> {{speakError}}
+            </p>
         </div>
 
         <!-- Check / Next -->
@@ -151,6 +407,26 @@
         <p class="quiz-finish-msg" ng-if="scorePercent < 70">
             Você precisa de 70% para passar. Tente novamente!
         </p>
+
+        <!-- Prova de Campo: shown on finish when quiz had a Diário -->
+        <div class="prova-campo-finish" ng-if="hadDiario && provasDeCampo.length > 0">
+            <p class="prova-campo-finish-title">
+                <i class="fas fa-users"></i>
+                Sua contribuição entrou para a Galeria dos Saberes!
+            </p>
+            <div class="prova-campo-grid">
+                <div class="prova-campo-item" ng-repeat="post in provasDeCampo | limitTo:3">
+                    <img ng-if="post.image" ng-src="{{post.image}}" alt="">
+                    <div ng-if="!post.image" class="prova-campo-no-img">
+                        <i class="fas" ng-class="post.extra.evidence_type === 'location' ? 'fa-map-marker-alt' : 'fa-camera'"></i>
+                    </div>
+                    <span class="prova-campo-name">{{post.player_name | firstWord}}</span>
+                </div>
+            </div>
+            <p class="prova-campo-count" ng-if="provasDeCampoCount > 0">
+                {{provasDeCampoCount}} produtores completaram esta etapa
+            </p>
+        </div>
 
         <button class="btn btn-primary quiz-finish-btn" ng-click="goBack()">
             <i class="fas fa-route"></i> Voltar à Trilha

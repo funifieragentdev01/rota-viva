@@ -1,0 +1,79 @@
+<div class="view-container reading-view">
+
+    <!-- Header -->
+    <div class="trail-header reading-header">
+        <button class="trail-back" ng-click="goBack()">
+            <i class="fas fa-arrow-left"></i>
+        </button>
+        <h2>{{title}}</h2>
+        <div class="trail-header-right">
+            <span class="reading-time-badge" ng-if="estimatedTime">
+                <i class="fas fa-clock"></i> {{estimatedTime}} min
+            </span>
+        </div>
+    </div>
+
+    <!-- Read progress bar (fills as user reads) -->
+    <div class="reading-progress-bar">
+        <div class="reading-progress-fill" ng-style="{'width': readProgress + '%'}"></div>
+    </div>
+
+    <!-- Loading -->
+    <div class="loading-screen" ng-if="loading" style="min-height: 300px;">
+        <div class="loading-spinner"></div>
+        <p>Carregando leitura...</p>
+    </div>
+
+    <!-- Content -->
+    <div class="reading-content" ng-if="!loading && body">
+
+        <!-- Cover image -->
+        <div class="reading-cover" ng-if="coverImage">
+            <img ng-src="{{coverImage}}" alt="{{title}}">
+        </div>
+
+        <!-- Body HTML -->
+        <div class="reading-body" ng-bind-html="body"></div>
+
+        <!-- Advance area -->
+        <div class="reading-advance">
+
+            <!-- Celebrating -->
+            <div class="video-celebrating" ng-if="celebrating">
+                <i class="fas fa-star" style="color: #FFC800; font-size: 28px;"></i>
+                <span>Lição concluída! Voltando à trilha...</span>
+            </div>
+
+            <!-- Not yet ready -->
+            <div class="reading-advance-hint" ng-if="!canAdvance && !celebrating">
+                <div class="reading-advance-progress">
+                    <div class="reading-advance-fill" ng-style="{'width': readProgress + '%'}"></div>
+                </div>
+                <p>Continue lendo para avançar ({{readProgress}}%)</p>
+            </div>
+
+            <!-- Ready to advance -->
+            <button class="btn btn-primary reading-done-btn"
+                    ng-click="markDone()"
+                    ng-style="{'background': themeColor}"
+                    ng-if="canAdvance && !completed">
+                <i class="fas fa-check"></i> Avançar
+            </button>
+        </div>
+    </div>
+
+    <!-- Error -->
+    <div class="trail-empty" ng-if="!loading && !body">
+        <div style="font-size: 48px; margin-bottom: 16px;">📖</div>
+        <h3>Leitura não encontrada</h3>
+        <p>Não foi possível carregar este conteúdo.</p>
+        <button class="btn" ng-click="goBack()"
+                style="margin-top: 16px; background: var(--color-primary); color: #fff; padding: 10px 24px; border: none; border-radius: 8px; cursor: pointer;">
+            Voltar
+        </button>
+    </div>
+
+    <!-- Confetti overlay -->
+    <div class="confetti-container" ng-if="celebrating"></div>
+
+</div>

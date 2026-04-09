@@ -27,15 +27,23 @@
 
         <div class="video-info">
             <h3>{{title}}</h3>
-            <button class="btn btn-primary video-done-btn" ng-click="markDone()"
-                    ng-style="{'background': themeColor}" ng-if="!completed">
-                <i class="fas fa-check"></i> CONCLUIR VÍDEO
+
+            <button class="btn btn-primary video-done-btn"
+                    ng-click="markDone()"
+                    ng-style="{'background': themeColor}"
+                    ng-if="!completed">
+                <i class="fas fa-check"></i> Avançar
             </button>
-            <div class="video-completed" ng-if="completed">
-                <i class="fas fa-check-circle"></i> Concluído!
+
+            <div class="video-celebrating" ng-if="celebrating">
+                <i class="fas fa-star" style="color: #FFC800; font-size: 28px; animation: quiz-finish-pop 0.5s ease-out;"></i>
+                <span>Lição concluída! Voltando à trilha...</span>
             </div>
         </div>
     </div>
+
+    <!-- Confetti overlay -->
+    <div class="confetti-container" ng-if="celebrating"></div>
 
     <!-- Error -->
     <div class="trail-empty" ng-if="!loading && !embedUrl">

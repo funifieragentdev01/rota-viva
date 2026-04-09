@@ -279,11 +279,14 @@ angular.module('rotaViva')
 
     var CONTENT_ICONS = {
         'quiz':    'fa-star',
+        'review':  'fa-trophy',
         'video':   'fa-play',
+        'reading': 'fa-book-open',
         'mission': 'fa-wrench',
         'diy':     'fa-camera',
         'essay':   'fa-comment',
-        'chest':   'fa-gem'
+        'chest':   'fa-gem',
+        'listen':  'fa-headphones'
     };
 
     function getLessonIcon(lesson) {
@@ -338,23 +341,31 @@ angular.module('rotaViva')
         }
     };
 
+    function lessonCtx(item) {
+        return { lesson: item._id, module: item.moduleId || '', lessonTitle: item.title || '' };
+    }
+
     $scope.startLesson = function(item) {
         if (!item.is_unlocked) return;
 
-        if (item.contentType === 'quiz' && item.contentId) {
-            $location.path('/quiz/' + item.contentId);
+        if ((item.contentType === 'quiz' || item.contentType === 'review') && item.contentId) {
+            $location.path('/quiz/' + item.contentId).search(lessonCtx(item));
             return;
         }
         if (item.contentType === 'video') {
             var vid = item.contentId || item._foldContentId;
-            if (vid) { $location.path('/video/' + vid); return; }
+            if (vid) { $location.path('/video/' + vid).search(lessonCtx(item)); return; }
+        }
+        if (item.contentType === 'reading' && item.contentId) {
+            $location.path('/reading/' + item.contentId).search(lessonCtx(item));
+            return;
         }
         if (item.contentType === 'mission' && item.contentId) {
-            $location.path('/quiz/' + item.contentId);
+            $location.path('/quiz/' + item.contentId).search(lessonCtx(item));
             return;
         }
         if (item.contentType === 'chest' && item.contentId) {
-            $location.path('/quiz/' + item.contentId);
+            $location.path('/quiz/' + item.contentId).search(lessonCtx(item));
             return;
         }
 
@@ -362,12 +373,15 @@ angular.module('rotaViva')
             var items = data.items || [];
             var content = items.find(function(c) { return c.folder === false; });
             if (content) {
+                var ctx = lessonCtx(item);
                 if (content.type === 'quiz' && content.content) {
-                    $location.path('/quiz/' + content.content);
+                    $location.path('/quiz/' + content.content).search(ctx);
                 } else if (content.type === 'video' && content.content) {
-                    $location.path('/video/' + content.content);
+                    $location.path('/video/' + content.content).search(ctx);
+                } else if (content.type === 'reading' && content.content) {
+                    $location.path('/reading/' + content.content).search(ctx);
                 } else if (content.type === 'mission' && content.content) {
-                    $location.path('/quiz/' + content.content);
+                    $location.path('/quiz/' + content.content).search(ctx);
                 } else {
                     alert('Tipo de conteúdo não suportado ainda.');
                 }

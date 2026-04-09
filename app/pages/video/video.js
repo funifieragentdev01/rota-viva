@@ -1,6 +1,6 @@
 angular.module('rotaViva')
 
-.controller('VideoCtrl', function($scope, $http, $routeParams, $location, $sce, AuthService, ApiService, ThemeService) {
+.controller('VideoCtrl', function($scope, $http, $routeParams, $location, $timeout, $sce, AuthService, ApiService, SoundService, ThemeService) {
     var session = AuthService.getSession();
     var token = session.token;
     var baseUrl = CONFIG.API_URL;
@@ -14,6 +14,7 @@ angular.module('rotaViva')
     $scope.title = '';
     $scope.embedUrl = null;
     $scope.completed = false;
+    $scope.celebrating = false;
     $scope.themeColor = (theme.colors && theme.colors.primary) || '#FF9600';
     var folderContentId = null;
 
@@ -21,7 +22,6 @@ angular.module('rotaViva')
         $scope.title = title || 'Vídeo';
         $scope.rawEmbedUrl = toEmbedUrl(url);
         $scope.embedUrl = $sce.trustAsResourceUrl($scope.rawEmbedUrl);
-        console.log('[Video] Embed URL:', $scope.rawEmbedUrl);
     }
 
     function toEmbedUrl(url) {
@@ -55,11 +55,9 @@ angular.module('rotaViva')
                     $scope.loading = false;
                 }).catch(function() { $scope.loading = false; });
             } else {
-                console.error('[Video] No video data for:', videoId);
                 $scope.loading = false;
             }
         }).catch(function() {
-            console.error('[Video] Failed to load:', videoId);
             $scope.loading = false;
         });
     }
@@ -81,11 +79,13 @@ angular.module('rotaViva')
     }).catch(function() {});
 
     $scope.markDone = function() {
+        if ($scope.completed) return;
         $scope.completed = true;
+        $scope.celebrating = true;
+
+        // Registrar conclusão
         if (folderContentId && playerId) {
-            ApiService.folderLog(folderContentId, playerId, 100).then(function() {
-                console.log('[Video] folder/log OK:', folderContentId);
-            }).catch(function(err) {
+            ApiService.folderLog(folderContentId, playerId, 100).catch(function(err) {
                 console.warn('[Video] folder/log error:', err);
             });
         }
@@ -94,10 +94,33 @@ angular.module('rotaViva')
                 lesson_type: 'video',
                 lesson_id: videoId,
                 score: 100
-            }).catch(function(err) {
-                console.warn('[Video] action/log error:', err);
+            }).catch(function() {});
+        }
+
+        // Celebração igual ao quiz
+        SoundService.play('levelup');
+        if (navigator.vibrate) navigator.vibrate([80, 50, 80]);
+
+        if (typeof window.confetti === 'function') {
+            window.confetti({
+                particleCount: 100,
+                spread: 70,
+                origin: { y: 0.5 },
+                colors: ['#FF9600', '#1a5632', '#FFC800', '#00CD9C']
             });
         }
+
+        // Toast XP
+        var el = document.createElement('div');
+        el.className = 'xp-toast';
+        el.textContent = '+10 favos';
+        document.body.appendChild(el);
+        $timeout(function() { if (el.parentNode) el.parentNode.removeChild(el); }, 1900);
+
+        // Volta para a trilha após celebração
+        $timeout(function() {
+            window.history.back();
+        }, 2500);
     };
 
     $scope.goBack = function() { window.history.back(); };

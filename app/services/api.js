@@ -255,6 +255,50 @@ angular.module('rotaViva')
         }).then(parseUploadUrl);
     };
 
+    // === Prova de Campo (Galeria ↔ Trilha) ===
+
+    // Busca posts da comunidade para uma lição específica (para exibir antes/depois do Diário)
+    api.getProvasDeCampo = function(lessonId, limit) {
+        var pipeline = [
+            { $match: { 'extra.lesson_id': lessonId } },
+            { $sort:  { created: -1 } },
+            { $limit: limit || 3 },
+            { $lookup: { from: 'player', localField: 'player', foreignField: '_id', as: '_pd' } },
+            { $addFields: { _p: { $arrayElemAt: ['$_pd', 0] } } },
+            { $addFields: {
+                player_name:  '$_p.name',
+                player_photo: '$_p.image.original.url'
+            }},
+            { $project: { _pd: 0, _p: 0 } }
+        ];
+        return $http.post(
+            baseUrl + '/v3/database/post__c/aggregate?strict=true',
+            pipeline,
+            trailHeaders()
+        ).then(function(res) {
+            return Array.isArray(res.data) ? res.data : [];
+        });
+    };
+
+    // Conta total de produtores que fizeram o Diário de uma lição
+    api.countProvasDeCampo = function(lessonId) {
+        return $http.post(
+            baseUrl + '/v3/database/post__c/aggregate?strict=true',
+            [{ $match: { 'extra.lesson_id': lessonId } }, { $count: 'total' }],
+            trailHeaders()
+        ).then(function(res) {
+            var data = res.data;
+            if (Array.isArray(data) && data.length > 0) return data[0].total || 0;
+            return 0;
+        });
+    };
+
+    // Publica um Diário na Galeria dos Saberes com metadados da lição
+    api.publishDiario = function(payload) {
+        return $http.post(baseUrl + '/v3/database/post__c', payload, trailHeaders())
+            .then(function(res) { return res.data; });
+    };
+
     // === Challenges / Badges ===
 
     // Retorna todos os challenges com nome e URL do badge
