@@ -14,6 +14,12 @@ angular.module('rotaViva', ['ngRoute', 'ngSanitize'])
     };
 })
 
+.filter('trustHtml', function($sce) {
+    return function(input) {
+        return $sce.trustAsHtml(input || '');
+    };
+})
+
 // Cache-busting: append ?v=VERSION to all /v3/ API requests
 .config(function($httpProvider) {
     $httpProvider.interceptors.push(function() {
@@ -82,7 +88,7 @@ angular.module('rotaViva', ['ngRoute', 'ngSanitize'])
             controller: 'ProfileCtrl',
             resolve: { auth: function(AuthService) { return AuthService.requireAuth(); } }
         })
-        .otherwise({ redirectTo: '/home' });
+        .otherwise({ redirectTo: '/trail' });
 })
 
 .run(function($rootScope, $location, AuthService, ThemeService) {
@@ -98,7 +104,7 @@ angular.module('rotaViva', ['ngRoute', 'ngSanitize'])
 
         if (AuthService.isLoggedIn() && (path === '/login' || path === '/signup')) {
             event.preventDefault();
-            $location.path('/dashboard');
+            $location.path('/trail');
             return;
         }
 

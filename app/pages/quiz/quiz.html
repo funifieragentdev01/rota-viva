@@ -98,20 +98,7 @@
                 <div class="loading-spinner" style="width:24px;height:24px;border-width:3px;"></div>
             </div>
 
-            <!-- State 2: Empty — "Seja o primeiro!" -->
-            <div ng-if="provasDeCampoLoaded && provasDeCampo.length === 0">
-                <div class="prova-campo-header">
-                    <img class="prova-campo-char" ng-src="{{charImg}}" alt="" onerror="this.style.display='none'">
-                    <div class="prova-campo-balao prova-campo-balao-pioneer">
-                        Você vai ser o primeiro produtor a completar esta etapa!
-                        Sua contribuição vai aparecer aqui para motivar os próximos.
-                        <div class="pioneer-badge"><i class="fas fa-star"></i> Seja o pioneiro</div>
-                    </div>
-                </div>
-                <div class="prova-campo-empty-hint">
-                    Complete e compartilhe — sua foto ficará aqui para inspirar outros produtores.
-                </div>
-            </div>
+            <!-- State 2 (empty) is hidden — no pioneer state shown -->
 
             <!-- State 3: Has posts -->
             <div ng-if="provasDeCampoLoaded && provasDeCampo.length > 0">
@@ -193,6 +180,12 @@
                       ng-disabled="current().answered"
                       placeholder="Descreva (opcional)..."
                       rows="3"></textarea>
+
+            <!-- Gallery consent checkbox -->
+            <label class="diy-consent-label" ng-if="!current().answered">
+                <input type="checkbox" ng-model="form.diaryConsent">
+                <span>Autorizo publicar minha contribuição na Galeria dos Saberes para inspirar outros produtores</span>
+            </label>
         </div>
 
         <!-- MATCHING: left column + select for right column -->
@@ -233,23 +226,25 @@
             </div>
         </div>
 
-        <!-- DRAG_AND_DROP_INTO_TEXT: numbered slots + word bank -->
+        <!-- DRAG_AND_DROP_INTO_TEXT: inline text with blanks + word bank -->
         <div class="quiz-drag-drop" ng-if="current().type === 'DRAG_AND_DROP_INTO_TEXT'">
 
-            <!-- Slots row -->
-            <div class="quiz-dd-slots">
-                <div class="quiz-dd-slot"
-                     ng-repeat="slot in current().ddSlots track by $index"
-                     ng-click="ddRemoveFromSlot($index)"
-                     ng-class="{
-                         'dd-filled':  !!slot,
-                         'dd-correct': current().answered && current().ddSlotCorrect[$index],
-                         'dd-wrong':   current().answered && !current().ddSlotCorrect[$index] && !!slot
-                     }">
-                    <span ng-if="slot">{{slot.text}}</span>
-                    <span ng-if="!slot" class="quiz-dd-placeholder">{{$index + 1}}</span>
-                    <i ng-if="slot && !current().answered" class="fas fa-times quiz-dd-remove"></i>
-                </div>
+            <!-- Inline text with blanks -->
+            <div class="quiz-dd-text">
+                <span ng-repeat="seg in current().ddSegments track by $index">
+                    <span ng-if="seg.type === 'text'">{{seg.text}}</span>
+                    <span ng-if="seg.type === 'blank'"
+                          class="quiz-dd-inline-slot"
+                          ng-click="ddRemoveFromSlot(seg.slotIdx)"
+                          ng-class="{
+                              'dd-filled':  !!current().ddSlots[seg.slotIdx],
+                              'dd-correct': current().answered && current().ddSlotCorrect[seg.slotIdx],
+                              'dd-wrong':   current().answered && !current().ddSlotCorrect[seg.slotIdx] && !!current().ddSlots[seg.slotIdx]
+                          }">
+                        <span ng-if="current().ddSlots[seg.slotIdx]">{{current().ddSlots[seg.slotIdx].text}}<i ng-if="!current().answered" class="fas fa-times quiz-dd-remove"></i></span>
+                        <span ng-if="!current().ddSlots[seg.slotIdx]" class="quiz-dd-placeholder">___</span>
+                    </span>
+                </span>
             </div>
 
             <!-- Word bank -->

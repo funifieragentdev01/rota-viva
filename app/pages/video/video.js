@@ -15,21 +15,95 @@ angular.module('rotaViva')
     $scope.embedUrl = null;
     $scope.completed = false;
     $scope.celebrating = false;
+    $scope.videoReady = false;   // true after 90% watched
     $scope.themeColor = (theme.colors && theme.colors.primary) || '#FF9600';
     var folderContentId = null;
+    var ytPlayer = null;
+    var progressInterval = null;
 
     function setVideo(title, url) {
         $scope.title = title || 'Vídeo';
-        $scope.rawEmbedUrl = toEmbedUrl(url);
-        $scope.embedUrl = $sce.trustAsResourceUrl($scope.rawEmbedUrl);
+        var videoId = extractYouTubeId(url);
+        $scope.rawVideoId = videoId;
+        if (videoId) {
+            // Use enablejsapi=1 so IFrame API can attach
+            $scope.embedUrl = $sce.trustAsResourceUrl(
+                'https://www.youtube.com/embed/' + videoId + '?rel=0&enablejsapi=1&origin=' + encodeURIComponent(window.location.origin)
+            );
+            initYouTubePlayer(videoId);
+        } else {
+            $scope.embedUrl = $sce.trustAsResourceUrl(url);
+            // Non-YouTube: unlock button immediately
+            $scope.videoReady = true;
+        }
+    }
+
+    function extractYouTubeId(url) {
+        if (!url) return '';
+        var m = url.match(/(?:youtu\.be\/|youtube\.com\/watch\?v=|youtube\.com\/embed\/)([a-zA-Z0-9_-]+)/);
+        return m ? m[1] : '';
     }
 
     function toEmbedUrl(url) {
         if (!url) return '';
-        var match = url.match(/(?:youtu\.be\/|youtube\.com\/watch\?v=|youtube\.com\/embed\/)([a-zA-Z0-9_-]+)/);
-        if (match && match[1]) return 'https://www.youtube.com/embed/' + match[1] + '?rel=0';
+        var id = extractYouTubeId(url);
+        if (id) return 'https://www.youtube.com/embed/' + id + '?rel=0';
         return url;
     }
+
+    function initYouTubePlayer(videoId) {
+        function createPlayer() {
+            if (!window.YT || !window.YT.Player) return;
+            var iframe = document.querySelector('.video-responsive iframe');
+            if (!iframe) {
+                $timeout(createPlayer, 300);
+                return;
+            }
+            ytPlayer = new window.YT.Player(iframe, {
+                events: {
+                    onStateChange: function(e) {
+                        // State 1 = playing
+                        if (e.data === 1) startProgressCheck();
+                        else stopProgressCheck();
+                    }
+                }
+            });
+        }
+
+        if (window.YT && window.YT.Player) {
+            $timeout(createPlayer, 500);
+        } else {
+            // Load IFrame API if not already loading
+            if (!document.getElementById('yt-iframe-api')) {
+                var tag = document.createElement('script');
+                tag.id = 'yt-iframe-api';
+                tag.src = 'https://www.youtube.com/iframe_api';
+                document.head.appendChild(tag);
+            }
+            window.onYouTubeIframeAPIReady = function() {
+                $timeout(createPlayer, 500);
+            };
+        }
+    }
+
+    function startProgressCheck() {
+        stopProgressCheck();
+        progressInterval = setInterval(function() {
+            if (!ytPlayer || typeof ytPlayer.getCurrentTime !== 'function') return;
+            var current = ytPlayer.getCurrentTime();
+            var duration = ytPlayer.getDuration();
+            if (duration > 0 && current / duration >= 0.9) {
+                $scope.$apply(function() { $scope.videoReady = true; });
+                stopProgressCheck();
+            }
+        }, 2000);
+    }
+
+    function stopProgressCheck() {
+        if (progressInterval) { clearInterval(progressInterval); progressInterval = null; }
+    }
+
+    $scope.$on('$destroy', function() { stopProgressCheck(); });
 
     function init() {
         ApiService.dbGet('video__c', videoId).then(function(data) {

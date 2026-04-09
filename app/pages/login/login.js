@@ -66,7 +66,7 @@ angular.module('rotaViva')
                     }
 
                     ThemeService.clearPreTheme();
-                    $location.path('/dashboard');
+                    $location.path('/trail');
                 } else {
                     $scope.error = data.message || 'Erro ao fazer login.';
                 }

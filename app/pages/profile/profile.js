@@ -20,6 +20,28 @@ angular.module('rotaViva')
     $scope.showModal = null;
     $scope.achievements = [];
     $scope.achievementsLoaded = false;
+    $scope.legalTexts = { terms: null, privacy: null };
+
+    // Refresh player data on load to pick up photo changes made in previous sessions
+    if (playerId) {
+        ApiService.getPlayer(playerId).then(function(fresh) {
+            if (!fresh) return;
+            var freshPhoto = (fresh.image && fresh.image.original && fresh.image.original.url) || fresh.photo || null;
+            if (freshPhoto) $scope.playerPhoto = freshPhoto;
+            if (fresh.name) $scope.playerName = fresh.name;
+            // Persist updated player data so next session starts with fresh info
+            var merged = angular.extend({}, player, fresh);
+            localStorage.setItem('rv_player', JSON.stringify(merged));
+        }).catch(function() {});
+    }
+
+    // Load legal texts
+    ApiService.getLegal('terms').then(function(doc) {
+        if (doc) $scope.legalTexts.terms = doc;
+    }).catch(function() {});
+    ApiService.getLegal('privacy').then(function(doc) {
+        if (doc) $scope.legalTexts.privacy = doc;
+    }).catch(function() {});
 
     var route = session.route || {};
     var ROUTE_NAMES = { mel: 'Rota do Mel', pesca: 'Rota da Pesca' };

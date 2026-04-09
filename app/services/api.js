@@ -224,9 +224,20 @@ angular.module('rotaViva')
     function parseUploadUrl(res) {
         var d = res.data;
         if (!d) return null;
-        var uploads = d.uploads || d.files || [];
-        if (uploads.length > 0) return uploads[0].url || uploads[0];
-        return d.url || null;
+        // Handle string responses
+        if (typeof d === 'string' && d.startsWith('http')) return d;
+        // Array of upload objects
+        var uploads = d.uploads || d.files || (Array.isArray(d) ? d : []);
+        if (uploads.length > 0) {
+            var u = uploads[0];
+            return (typeof u === 'string') ? u : (u.url || u.original || (u.image && u.image.original && u.image.original.url) || null);
+        }
+        // Direct URL field
+        if (d.url) return d.url;
+        // Funifier image object
+        if (d.image && d.image.original && d.image.original.url) return d.image.original.url;
+        if (d.original && d.original.url) return d.original.url;
+        return null;
     }
 
     // Upload de imagem ou vídeo via FormData — retorna URL pública
@@ -308,10 +319,25 @@ angular.module('rotaViva')
         });
     };
 
+    // Busca dados frescos do player (incluindo imagem atualizada)
+    api.getPlayer = function(playerId) {
+        return $http.get(baseUrl + '/v3/player/' + playerId, trailHeaders())
+            .then(function(res) { return res.data; });
+    };
+
     // Atualiza dados do player (nome, foto)
     api.updatePlayer = function(playerId, data) {
         return $http.post(baseUrl + '/v3/player', angular.extend({ _id: playerId }, data), trailHeaders())
             .then(function(res) { return res.data; });
+    };
+
+    // Busca texto legal (terms/privacy) da coleção legal__c
+    api.getLegal = function(slug) {
+        return $http.get(baseUrl + '/v3/database/legal__c?q=slug:\'' + slug + '\'', trailHeaders())
+            .then(function(res) {
+                var data = Array.isArray(res.data) ? res.data : [];
+                return data.length > 0 ? data[0] : null;
+            });
     };
 
     return api;

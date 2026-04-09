@@ -98,12 +98,6 @@
     <div class="profile-section">
         <div class="profile-section-title">Conta</div>
         <div class="profile-menu">
-            <button class="profile-menu-item" ng-click="startEditName()">
-                <i class="fas fa-user profile-menu-icon"></i>
-                <span class="profile-menu-label">Editar nome</span>
-                <i class="fas fa-chevron-right profile-menu-chevron"></i>
-            </button>
-            <div class="profile-menu-divider"></div>
             <button class="profile-menu-item" ng-click="showModal = 'terms'">
                 <i class="fas fa-file-lines profile-menu-icon"></i>
                 <span class="profile-menu-label">Termos de uso</span>
@@ -140,11 +134,14 @@
     <div class="profile-modal-overlay" ng-if="showModal === 'terms'" ng-click="closeModal()">
         <div class="profile-modal" ng-click="$event.stopPropagation()">
             <div class="profile-modal-header">
-                <span>Termos de Uso</span>
+                <span>{{legalTexts.terms ? legalTexts.terms.title : 'Termos de Uso'}}</span>
                 <button class="profile-modal-close" ng-click="closeModal()"><i class="fas fa-xmark"></i></button>
             </div>
             <div class="profile-modal-body">
-                <p>Ao usar o Rota Viva, você concorda em utilizar o aplicativo de forma responsável para fins de aprendizado. Os dados fornecidos são utilizados exclusivamente para personalizar sua experiência.</p>
+                <div ng-if="legalTexts.terms" ng-bind-html="legalTexts.terms.body | trustHtml"></div>
+                <div ng-if="!legalTexts.terms" class="profile-legal-loading">
+                    <div class="loading-spinner" style="width:24px;height:24px;border-width:3px;"></div>
+                </div>
             </div>
         </div>
     </div>
@@ -153,11 +150,14 @@
     <div class="profile-modal-overlay" ng-if="showModal === 'privacy'" ng-click="closeModal()">
         <div class="profile-modal" ng-click="$event.stopPropagation()">
             <div class="profile-modal-header">
-                <span>Política de Privacidade</span>
+                <span>{{legalTexts.privacy ? legalTexts.privacy.title : 'Política de Privacidade'}}</span>
                 <button class="profile-modal-close" ng-click="closeModal()"><i class="fas fa-xmark"></i></button>
             </div>
             <div class="profile-modal-body">
-                <p>Seus dados pessoais (nome, CPF, progresso) são armazenados de forma segura e utilizados apenas para funcionamento do aplicativo. Não compartilhamos seus dados com terceiros.</p>
+                <div ng-if="legalTexts.privacy" ng-bind-html="legalTexts.privacy.body | trustHtml"></div>
+                <div ng-if="!legalTexts.privacy" class="profile-legal-loading">
+                    <div class="loading-spinner" style="width:24px;height:24px;border-width:3px;"></div>
+                </div>
             </div>
         </div>
     </div>

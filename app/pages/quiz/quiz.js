@@ -87,7 +87,25 @@ angular.module('rotaViva')
         var pool = shuffleArray((dd.optionsPool || []).slice());
         var slots = [];
         for (var si = 0; si < targets.length; si++) slots.push(null);
-        return { slots: slots, available: pool, targets: targets };
+
+        // Parse the text field (e.g. "Abelhas [[1]] e [[2]] a colmeia") into segments
+        // so the template can render inline blanks
+        var text = dd.text || dd.sentence || '';
+        var segments = [];
+        var re = /\[\[(\d+)\]\]/g;
+        var lastIdx = 0, m;
+        // Build a map from target id to index
+        var targetIdxMap = {};
+        for (var ti = 0; ti < targets.length; ti++) targetIdxMap[targets[ti].id] = ti;
+        while ((m = re.exec(text)) !== null) {
+            if (m.index > lastIdx) segments.push({ type: 'text', text: text.substring(lastIdx, m.index) });
+            var slotIdx = targetIdxMap[m[1]];
+            segments.push({ type: 'blank', slotIdx: (slotIdx !== undefined ? slotIdx : segments.length) });
+            lastIdx = m.index + m[0].length;
+        }
+        if (lastIdx < text.length) segments.push({ type: 'text', text: text.substring(lastIdx) });
+
+        return { slots: slots, available: pool, targets: targets, segments: segments };
     }
 
     $http.get(baseUrl + '/v3/database/quiz?q=_id:\'' + quizId + '\'', {
@@ -129,7 +147,10 @@ angular.module('rotaViva')
             // MATCHING: left/right pairs from model.matching
             var matchLeft = [], matchRight = [], matchAnswers = {}, matchCorrect = [];
             if (type === 'MATCHING' && model.matching) {
-                matchLeft = (model.matching.left || []).slice();
+                var matchSolutions = model.matching.solutions || {};
+                matchLeft = (model.matching.left || []).map(function(item) {
+                    return { id: item.id, text: item.text, correctRightId: matchSolutions[item.id] || '' };
+                });
                 matchRight = shuffleArray((model.matching.right || []).slice());
             }
 
@@ -140,17 +161,24 @@ angular.module('rotaViva')
             }
 
             // DRAG_AND_DROP_INTO_TEXT: slots + word pool from model.dragDropText
-            var ddSlots = [], ddAvailable = [], ddTargets = [], ddSlotCorrect = [];
+            var ddSlots = [], ddAvailable = [], ddTargets = [], ddSlotCorrect = [], ddSegments = [];
             if (type === 'DRAG_AND_DROP_INTO_TEXT' && model.dragDropText) {
                 var ddParsed = parseDragDrop(model.dragDropText);
                 ddSlots = ddParsed.slots;
                 ddAvailable = ddParsed.available;
                 ddTargets = ddParsed.targets;
+                ddSegments = ddParsed.segments;
             }
+
+            // For DragDrop and SelectMissingWords, the `question` field holds the sentence
+            // template ([[1]] / [[b1]] etc.), so the human-readable title comes from `title`.
+            var displayText = (type === 'DRAG_AND_DROP_INTO_TEXT' || type === 'SELECT_MISSING_WORDS')
+                ? (q.title || q.question || q.prompt || '')
+                : (q.question || q.title || q.prompt || '');
 
             return {
                 _id: q._id,
-                text: q.question || q.title || q.prompt || '',
+                text: displayText,
                 type: type,
                 select: q.select || 'one_answer',
                 isMultiSelect: isMultiSelect,
@@ -175,6 +203,7 @@ angular.module('rotaViva')
                 ddAvailable: ddAvailable,
                 ddTargets: ddTargets,
                 ddSlotCorrect: ddSlotCorrect,
+                ddSegments: ddSegments,
                 answered: false,
                 correct: false,
                 correctLabel: ''
@@ -411,8 +440,11 @@ angular.module('rotaViva')
             // Upload photo first, then create post with URL
             var blob = dataURItoBlob($scope.diyPhotoData);
             ApiService.uploadMedia(blob, false).then(function(url) {
+                console.log('[Diário] upload url:', url);
                 if (url) post.image = url;
-                ApiService.publishDiario(post).catch(function() {});
+                ApiService.publishDiario(post).then(function(r) {
+                    console.log('[Diário] published:', r);
+                }).catch(function(e) { console.warn('[Diário] publish error:', e); });
                 // Refresh Prova de Campo after publishing
                 $timeout(function() {
                     ApiService.getProvasDeCampo(lessonId, 3).then(function(posts) {
@@ -420,7 +452,8 @@ angular.module('rotaViva')
                         $scope.provasDeCampoCount = ($scope.provasDeCampoCount || 0) + 1;
                     }).catch(function() {});
                 }, 1500);
-            }).catch(function() {
+            }).catch(function(e) {
+                console.warn('[Diário] upload error, publishing without image:', e);
                 ApiService.publishDiario(post).catch(function() {});
             });
         } else {
@@ -503,8 +536,8 @@ angular.module('rotaViva')
         if (q.type === 'DIY_PROJECT') {
             var needsLoc = $scope.needsLocation();
             var hasEvidence = ($scope.form.essayAnswer || '').trim().length > 0 || !!$scope.diyPhotoData;
-            if (needsLoc) return hasEvidence || !!$scope.locationData;
-            return hasEvidence;
+            var hasEvidence2 = needsLoc ? (hasEvidence || !!$scope.locationData) : hasEvidence;
+            return hasEvidence2 && !!$scope.form.diaryConsent;
         }
         if (q.type === 'LISTEN_AND_ORDER') return q.listenAvail.length === 0 && q.listenSelected.length > 0;
         if (q.type === 'MATCHING') return q.matchLeft.length > 0 && q.matchLeft.every(function(l) { return !!q.matchAnswers[l.id]; });
@@ -557,7 +590,8 @@ angular.module('rotaViva')
             var ddOk = 0;
             q.ddSlots.forEach(function(slot, i) {
                 var target = q.ddTargets[i];
-                var isOk = !!(slot && target && slot.id === target.correctOptionId);
+                var accepted = target && (target.acceptedOptionIds || (target.correctOptionId ? [target.correctOptionId] : []));
+                var isOk = !!(slot && accepted && accepted.indexOf(slot.id) !== -1);
                 q.ddSlotCorrect[i] = isOk;
                 if (isOk) ddOk++;
             });
@@ -602,7 +636,7 @@ angular.module('rotaViva')
             if ($scope.locationData) answers.push('lat:' + $scope.locationData.lat + ',lng:' + $scope.locationData.lng + ',acc:' + $scope.locationData.accuracy + 'm');
             if (!answers.length) answers.push('(evidência enviada)');
             logAnswer(q, answers);
-            publishDiario();
+            if ($scope.form.diaryConsent) publishDiario();
 
         } else if (q.isMultiSelect) {
             var selectedOpts = q.options.filter(function(o) { return o.selected; });
