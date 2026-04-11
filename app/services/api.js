@@ -23,6 +23,13 @@ angular.module('rotaViva')
         if (data.email && data.email.trim()) payload.email = data.email.trim();
         if (data.phone && data.phone.trim()) payload.phone = data.phone.trim();
 
+        // Código de convite — capturado na página /mel ou /pesca
+        var refBy = localStorage.getItem('rv_ref');
+        if (refBy) {
+            payload.ref_by = refBy;
+            localStorage.removeItem('rv_ref'); // consome o código após usar
+        }
+
         return $http.put(baseUrl + '/v3/database/signup__c', payload, {
             headers: { 'Authorization': publicToken }
         }).then(function(res) { return res.data; });
@@ -329,6 +336,25 @@ angular.module('rotaViva')
     api.updatePlayer = function(playerId, data) {
         return $http.post(baseUrl + '/v3/player', angular.extend({ _id: playerId }, data), trailHeaders())
             .then(function(res) { return res.data; });
+    };
+
+    // === Passaporte Digital ===
+
+    api.getProgramas = function() {
+        return $http.get(baseUrl + '/v3/database/programa__c?sort=order:1&q=active:true', trailHeaders())
+            .then(function(res) { return Array.isArray(res.data) ? res.data : []; });
+    };
+
+    api.getReferralCount = function(refCode) {
+        return $http.post(
+            baseUrl + '/v3/database/player/aggregate?strict=true',
+            [{ $match: { 'extra.ref_by': refCode } }, { $count: 'total' }],
+            trailHeaders()
+        ).then(function(res) {
+            var data = res.data;
+            if (Array.isArray(data) && data.length > 0) return data[0].total || 0;
+            return 0;
+        });
     };
 
     // Busca texto legal (terms/privacy) da coleção legal__c

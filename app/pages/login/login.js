@@ -66,7 +66,22 @@ angular.module('rotaViva')
                     }
 
                     ThemeService.clearPreTheme();
-                    $location.path('/trail');
+                    // Busca player completo (login não retorna extra) para checar onboarding
+                    var playerId = (data.player || {})._id;
+                    ApiService.getPlayer(playerId).then(function(fullPlayer) {
+                        if (fullPlayer) {
+                            // Persiste o player completo com extra na sessão
+                            var updated = angular.extend({}, data.player || {}, fullPlayer);
+                            localStorage.setItem('rv_player', JSON.stringify(updated));
+                        }
+                        var extra = (fullPlayer && fullPlayer.extra) || {};
+                        $location.path(extra.onboarding_done ? '/trail' : '/onboarding');
+                    }).catch(function() {
+                        // Se falhar, usa o que tiver na sessão
+                        var playerData = data.player || {};
+                        var onboardingDone = playerData.extra && playerData.extra.onboarding_done;
+                        $location.path(onboardingDone ? '/trail' : '/onboarding');
+                    });
                 } else {
                     $scope.error = data.message || 'Erro ao fazer login.';
                 }

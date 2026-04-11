@@ -1,0 +1,114 @@
+<div class="onboarding-wrap" ng-class="{'onboarding-celebrating': celebrating}">
+
+    <!-- Slides de onboarding -->
+    <div class="onboarding-slides" ng-if="!celebrating">
+
+        <!-- Botão pular -->
+        <button class="onboarding-skip" ng-click="skip()" ng-if="slide < 4">Pular</button>
+
+        <!-- Indicador de progresso -->
+        <div class="onboarding-dots">
+            <span class="onboarding-dot" ng-repeat="i in [0,1,2,3]"
+                  ng-class="{'active': slide === i, 'done': slide > i}"></span>
+        </div>
+
+        <!-- TELA 1 — Boas-vindas -->
+        <div class="onboarding-slide" ng-if="slide === 0" ng-class="{'onboarding-slide-enter': slideEnter}">
+            <img ng-src="{{chars.welcome}}" class="onboarding-char onboarding-char-welcome" alt="">
+            <div class="onboarding-text">
+                <h1>Bem-vindo, {{playerName}}!</h1>
+                <p>Sua jornada na <strong>{{routeTitle}}</strong> começa agora.<br>Deixa eu te mostrar como funciona.</p>
+            </div>
+            <button class="onboarding-btn-next" ng-click="next()"
+                    ng-style="{'background': primaryColor}">
+                Vamos começar <i class="fas fa-arrow-right"></i>
+            </button>
+        </div>
+
+        <!-- TELA 2 — A Trilha -->
+        <div class="onboarding-slide" ng-if="slide === 1" ng-class="{'onboarding-slide-enter': slideEnter}">
+            <img ng-src="{{chars.trail}}" class="onboarding-char" alt="">
+            <div class="onboarding-text">
+                <h1>Cada bolinha é uma lição</h1>
+                <p>Vídeos, perguntas, fotos de campo — tudo no seu ritmo, pelo celular.</p>
+            </div>
+            <div class="onboarding-lesson-types">
+                <div class="onboarding-lesson-type">
+                    <div class="onboarding-lesson-icon" ng-style="{'background': primaryColor + '22', 'color': primaryColor}">
+                        <i class="fas fa-play"></i>
+                    </div>
+                    <span>Vídeo</span>
+                </div>
+                <div class="onboarding-lesson-type">
+                    <div class="onboarding-lesson-icon" ng-style="{'background': primaryColor + '22', 'color': primaryColor}">
+                        <i class="fas fa-question"></i>
+                    </div>
+                    <span>Quiz</span>
+                </div>
+                <div class="onboarding-lesson-type">
+                    <div class="onboarding-lesson-icon" ng-style="{'background': primaryColor + '22', 'color': primaryColor}">
+                        <i class="fas fa-camera"></i>
+                    </div>
+                    <span>Foto</span>
+                </div>
+                <div class="onboarding-lesson-type">
+                    <div class="onboarding-lesson-icon" ng-style="{'background': primaryColor + '22', 'color': primaryColor}">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <span>Leitura</span>
+                </div>
+            </div>
+            <button class="onboarding-btn-next" ng-click="next()"
+                    ng-style="{'background': primaryColor}">
+                Entendi <i class="fas fa-arrow-right"></i>
+            </button>
+        </div>
+
+        <!-- TELA 3 — A Galeria -->
+        <div class="onboarding-slide" ng-if="slide === 2" ng-class="{'onboarding-slide-enter': slideEnter}">
+            <img ng-src="{{chars.gallery}}" class="onboarding-char" alt="">
+            <div class="onboarding-text">
+                <h1>Compartilhe sua produção</h1>
+                <p>Publique fotos e inspire outros produtores da sua região. Juntos, vocês formam uma rede.</p>
+            </div>
+            <button class="onboarding-btn-next" ng-click="next()"
+                    ng-style="{'background': primaryColor}">
+                Legal! <i class="fas fa-arrow-right"></i>
+            </button>
+        </div>
+
+        <!-- TELA 4 — Notificações -->
+        <div class="onboarding-slide" ng-if="slide === 3" ng-class="{'onboarding-slide-enter': slideEnter}">
+            <img ng-src="{{chars.phone}}" class="onboarding-char" alt="">
+            <div class="onboarding-text">
+                <h1>Não perca nenhuma novidade</h1>
+                <p>Ative as notificações para saber quando tem lição nova ou evento especial.</p>
+            </div>
+            <button class="onboarding-btn-next" ng-click="finish()"
+                    ng-style="{'background': primaryColor}">
+                Entrar na trilha <i class="fas fa-arrow-right"></i>
+            </button>
+        </div>
+
+    </div>
+
+    <!-- Celebração pós-onboarding -->
+    <div class="onboarding-celebration" ng-if="celebrating">
+        <div class="onboarding-celebration-inner">
+            <img ng-src="{{chars.reward}}" class="onboarding-char-reward" alt="">
+            <div class="onboarding-celebration-badge" ng-style="{'border-color': primaryColor}">
+                <i class="fas fa-star" ng-style="{'color': primaryColor}"></i>
+                <span>Explorador da Rota</span>
+            </div>
+            <h2>Você ganhou sua primeira conquista!</h2>
+            <p class="onboarding-xp" ng-style="{'color': primaryColor}">
+                <i class="fas fa-bolt"></i> +50 XP
+            </p>
+            <button class="onboarding-btn-trail" ng-click="goTrail()"
+                    ng-style="{'background': primaryColor, 'color': textOnPrimary}">
+                Ver minha trilha <i class="fas fa-arrow-right"></i>
+            </button>
+        </div>
+    </div>
+
+</div>

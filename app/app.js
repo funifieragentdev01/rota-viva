@@ -40,9 +40,21 @@ angular.module('rotaViva', ['ngRoute', 'ngSanitize'])
             templateUrl: 'pages/landing/landing.html',
             controller: 'LandingCtrl'
         })
+        .when('/mel', {
+            templateUrl: 'pages/rota/rota.html',
+            controller: 'RotaCtrl'
+        })
+        .when('/pesca', {
+            templateUrl: 'pages/rota/rota.html',
+            controller: 'RotaCtrl'
+        })
         .when('/login', {
             templateUrl: 'pages/login/login.html',
             controller: 'LoginCtrl'
+        })
+        .when('/onboarding', {
+            templateUrl: 'pages/onboarding/onboarding.html',
+            controller: 'OnboardingCtrl'
         })
         .when('/signup', {
             templateUrl: 'pages/signup/signup.html',
@@ -113,7 +125,7 @@ angular.module('rotaViva', ['ngRoute', 'ngSanitize'])
             if (pre && pre.colors) ThemeService.apply({ colors: pre.colors }, false);
         }
 
-        if (path === '/home') ThemeService.reset();
+        if (path === '/home' || path === '/mel' || path === '/pesca') ThemeService.reset();
     });
 
     if (AuthService.isLoggedIn()) {

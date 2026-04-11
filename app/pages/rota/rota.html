@@ -1,0 +1,185 @@
+<div class="rota-page" ng-class="r.bgClass">
+
+    <!-- Sticky header -->
+    <nav class="rota-nav" ng-style="{'border-bottom-color': r.primaryColor}">
+        <div class="rota-nav-brand">
+            <button class="rota-nav-back" ng-click="goBack()" title="Voltar">
+                <i class="fas fa-arrow-left"></i>
+            </button>
+            <img src="img/logo-midr.png" alt="MIDR" class="rota-nav-logo" onerror="this.style.display='none'">
+            <div class="rota-nav-brand-text">
+                <span class="rota-nav-title" ng-style="{'color': r.primaryColor}">{{r.name}}</span>
+                <span class="rota-nav-sub">{{r.territory}} · MIDR</span>
+            </div>
+        </div>
+        <div class="rota-nav-actions">
+            <button class="rota-btn-login" ng-click="goLogin()"
+                    ng-style="{'border-color': r.primaryColor, 'color': r.primaryColor}">
+                Entrar
+            </button>
+            <button class="rota-btn-signup" ng-click="goSignup()"
+                    ng-style="{'background': r.primaryColor, 'color': r.textOnPrimary}">
+                Cadastrar
+            </button>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="rota-hero">
+        <img ng-src="{{r.heroPhoto}}" class="rota-hero-photo" alt="{{r.name}}">
+        <div class="rota-hero-overlay" ng-style="{'background': 'linear-gradient(to bottom, rgba(0,0,0,0.15) 0%, ' + r.primaryDark + 'cc 100%)'}"></div>
+        <div class="rota-hero-content">
+            <span class="rota-hero-badge" ng-style="{'background': r.primaryColor, 'color': r.textOnPrimary}">
+                <i class="fas" ng-class="r.id === 'mel' ? 'fa-seedling' : 'fa-fish'"></i>
+                {{r.name}} · {{r.territory}}
+            </span>
+            <h1>{{r.heroTitle}}</h1>
+            <p>{{r.heroSubtitle}}</p>
+            <div class="rota-hero-ctas">
+                <button class="rota-btn-hero-primary" ng-click="goSignup()"
+                        ng-style="{'background': r.primaryColor, 'color': r.textOnPrimary}">
+                    Quero participar <i class="fas fa-arrow-right"></i>
+                </button>
+                <button class="rota-btn-hero-secondary" ng-click="scrollTo('rota-benefits')">
+                    Como funciona <i class="fas fa-chevron-down"></i>
+                </button>
+            </div>
+            <div class="rota-hero-trust">
+                <span><i class="fas fa-check-circle"></i> Gratuito</span>
+                <span><i class="fas fa-wifi-slash"></i> Funciona offline</span>
+                <span><i class="fas fa-mobile-alt"></i> Sem downloads</span>
+            </div>
+        </div>
+        <!-- Character decoration -->
+        <img ng-src="{{r.charHero}}" class="rota-hero-char" alt="">
+    </section>
+
+    <!-- HOOK — Jobs-to-be-Done (Victor) -->
+    <section class="rota-hook">
+        <div class="rota-hook-inner">
+            <img ng-src="{{r.charDocs}}" class="rota-hook-char" alt="">
+            <div class="rota-hook-text">
+                <p class="rota-hook-quote">"{{r.hook}}"</p>
+                <p class="rota-hook-sub">O Rota Viva não resolve tudo. Mas abre o caminho — na palma da sua mão.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- BENEFITS -->
+    <section class="rota-benefits" id="rota-benefits">
+        <div class="rota-section-inner">
+            <span class="rota-section-label" ng-style="{'color': r.primaryColor}">O que você vai acessar</span>
+            <h2>Benefícios reais para <span ng-style="{'color': r.primaryColor}">{{r.profile === 'apicultor' ? 'apicultores' : 'pescadores'}}</span></h2>
+            <div class="rota-benefits-grid">
+                <div class="rota-benefit-card" ng-repeat="b in r.benefits">
+                    <div class="rota-benefit-icon" ng-style="{'background': r.primaryColor + '22', 'color': r.primaryColor}">
+                        <i class="fas" ng-class="b.icon"></i>
+                    </div>
+                    <h3>{{b.title}}</h3>
+                    <p>{{b.desc}}</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOCIAL PROOF -->
+    <section class="rota-proof" ng-style="{'background': r.primaryColor}">
+        <div class="rota-proof-inner">
+            <div class="rota-proof-stat">
+                <span class="rota-proof-number" ng-style="{'color': r.textOnPrimary}">10+</span>
+                <span class="rota-proof-label" ng-style="{'color': r.id === 'mel' ? '#5c3d00' : 'rgba(255,255,255,0.8)'}">Municípios no {{r.territory}}</span>
+            </div>
+            <div class="rota-proof-divider"></div>
+            <div class="rota-proof-stat">
+                <span class="rota-proof-number" ng-style="{'color': r.textOnPrimary}">7</span>
+                <span class="rota-proof-label" ng-style="{'color': r.id === 'mel' ? '#5c3d00' : 'rgba(255,255,255,0.8)'}">Trilhas de conhecimento</span>
+            </div>
+            <div class="rota-proof-divider"></div>
+            <div class="rota-proof-stat">
+                <span class="rota-proof-number" ng-style="{'color': r.textOnPrimary}">100%</span>
+                <span class="rota-proof-label" ng-style="{'color': r.id === 'mel' ? '#5c3d00' : 'rgba(255,255,255,0.8)'}">Gratuito · MIDR</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- DORES (espelho) -->
+    <section class="rota-mirror">
+        <div class="rota-section-inner rota-mirror-inner">
+            <div class="rota-mirror-text">
+                <span class="rota-section-label" ng-style="{'color': r.primaryColor}">A realidade que conhecemos</span>
+                <h2>Você se identifica com isso?</h2>
+                <ul class="rota-mirror-list">
+                    <li ng-repeat="line in r.mirror">
+                        <i class="fas fa-dot-circle" ng-style="{'color': r.primaryColor}"></i>
+                        <span>{{line}}</span>
+                    </li>
+                </ul>
+                <p class="rota-mirror-answer">O Rota Viva não resolve tudo — mas dá o primeiro passo com você.</p>
+            </div>
+            <img ng-src="{{r.charField}}" class="rota-mirror-char" alt="">
+        </div>
+    </section>
+
+    <!-- COMO FUNCIONA (steps) -->
+    <section class="rota-steps">
+        <div class="rota-section-inner">
+            <span class="rota-section-label" ng-style="{'color': r.primaryColor}">Como funciona</span>
+            <h2>Três passos para começar</h2>
+            <div class="rota-steps-grid">
+                <div class="rota-step" ng-repeat="step in r.steps">
+                    <div class="rota-step-num" ng-style="{'background': r.primaryColor, 'color': r.textOnPrimary}">
+                        {{step.num}}
+                    </div>
+                    <h3>{{step.title}}</h3>
+                    <p>{{step.desc}}</p>
+                </div>
+            </div>
+            <div class="rota-steps-char-wrap">
+                <img ng-src="{{r.charReward}}" class="rota-steps-char" alt="">
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="rota-faq">
+        <div class="rota-section-inner">
+            <span class="rota-section-label" ng-style="{'color': r.primaryColor}">Dúvidas</span>
+            <h2>Perguntas frequentes</h2>
+            <div class="rota-faq-list">
+                <div class="rota-faq-item" ng-repeat="faq in r.faqs"
+                     ng-class="{'open': faq.open}"
+                     ng-click="faq.open = !faq.open">
+                    <div class="rota-faq-q">
+                        <span>{{faq.q}}</span>
+                        <i class="fas fa-chevron-down" ng-style="{'color': r.primaryColor}"></i>
+                    </div>
+                    <p class="rota-faq-a">{{faq.a}}</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="rota-cta-final" ng-style="{'background': r.primaryDark}">
+        <img ng-src="{{r.charRead}}" class="rota-cta-char" alt="">
+        <div class="rota-cta-final-text">
+            <h2>Comece agora — é gratuito</h2>
+            <p>Crie sua conta em 2 minutos e dê o primeiro passo na {{r.name}}.</p>
+            <button class="rota-btn-cta-primary" ng-click="goSignup()"
+                    ng-style="{'background': r.primaryColor, 'color': r.textOnPrimary}">
+                <i class="fas" ng-class="r.id === 'mel' ? 'fa-seedling' : 'fa-fish'"></i>
+                Cadastrar — {{r.name}}
+            </button>
+            <div class="rota-cta-login-link">
+                Já tem conta? <a href="" ng-click="goLogin()">Entrar</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="rota-footer">
+        <p>{{r.name}} · Projeto MIDR · FADEX · UFPI</p>
+        <p>© 2026 — <a href="" ng-click="goBack()">← Voltar ao início</a></p>
+    </footer>
+
+</div>

@@ -2,32 +2,13 @@ angular.module('rotaViva')
 
 .controller('LandingCtrl', function($scope, $location, $timeout, ApiService, ThemeService, AuthService) {
     if (AuthService.isLoggedIn()) {
-        $timeout(function() { $location.path('/dashboard'); });
+        $timeout(function() { $location.path('/trail'); });
         return;
     }
 
     $scope.routes = [];
     $scope.loading = true;
-
-    $scope.heroVideos = [
-        'https://s3.amazonaws.com/funifier/games/69c58d85e6650e26dad2166f/landing/69c7ebaedf494d3199c02dda_original_hero-mel.mp4',
-        'https://s3.amazonaws.com/funifier/games/69c58d85e6650e26dad2166f/landing/69c7ebb1df494d3199c02e38_original_hero-pesca.mp4'
-    ];
-    $scope.heroImages = [
-        'https://s3.amazonaws.com/funifier/games/69c58d85e6650e26dad2166f/landing/69c7eba2df494d3199c02c23_original_hero-mel.png',
-        'https://s3.amazonaws.com/funifier/games/69c58d85e6650e26dad2166f/landing/69c7eba4df494d3199c02c81_original_hero-pesca.png'
-    ];
-    $scope.currentHero = 0;
-
-    $timeout(function() {
-        var vid = document.getElementById('hero-video');
-        if (vid) { vid.src = $scope.heroVideos[$scope.currentHero]; vid.load(); }
-    }, 100);
-
-    $scope.fomoItems = [
-        { label: 'Colmeia Viva — vagas de Fundador disponíveis', icon: 'fa-seedling', color: '#F5C200' },
-        { label: 'Rio em Movimento — vagas de Fundador disponíveis', icon: 'fa-fish', color: '#005CAB' }
-    ];
+    $scope.routeModal = { show: false, action: null };
 
     $scope.mirrorMel = [
         'Você produz mel bom.',
@@ -51,9 +32,10 @@ angular.module('rotaViva')
         });
     }).catch(function() {
         $scope.faqs = [
-            { q: 'O app é gratuito?', a: 'Sim, 100% gratuito. O Rota Viva é um programa do Governo Federal (MIDR) e não cobra nada do produtor.' },
-            { q: 'Preciso baixar alguma coisa?', a: 'Não. O Rota Viva funciona direto no navegador do celular, como um site.' },
-            { q: 'Funciona sem internet?', a: 'Sim! Após o primeiro acesso, o app funciona offline.' }
+            { q: 'O app é gratuito?', a: 'Sim, 100% gratuito. O Rota Viva é um programa do Governo Federal (MIDR) e não cobra nada do produtor.', open: false },
+            { q: 'Preciso baixar alguma coisa?', a: 'Não. O Rota Viva funciona direto no navegador do celular, como um site. Você pode adicionar na tela inicial do celular para ter acesso rápido.', open: false },
+            { q: 'Funciona sem internet?', a: 'Sim! Após o primeiro acesso, o app funciona offline. Perfeito para áreas com sinal fraco.', open: false },
+            { q: 'Quem pode participar?', a: 'Apicultores do Piauí e pescadores artesanais do Amapá que fazem parte do programa Rotas de Integração Nacional do MIDR.', open: false }
         ];
     });
 
@@ -66,31 +48,67 @@ angular.module('rotaViva')
                 _id: 'mel', profile: 'apicultor', title: 'Colmeia Viva',
                 landing: {
                     section_headline: 'Você é apicultor?',
-                    hook: 'Você produz mel bom, mas o atravessador ainda dita o preço. Você sabe que pode mais. A Rota do Mel abre esse caminho.',
-                    desires: ['Regularize e tire nota fiscal', 'Acesse programas do governo diretamente', 'Conecte-se com outros apicultores', 'Seja reconhecido como produtor de referência'],
+                    hook: 'Você produz mel bom, mas o atravessador ainda dita o preço. A Rota do Mel abre o caminho: regularize, acesse o CAF e conecte-se com outros apicultores do Piauí.',
+                    desires: [
+                        'Regularize e tire nota fiscal da sua produção',
+                        'Acesse CAF, PRONAF e outros programas do governo',
+                        'Conecte-se com apicultores de toda a região',
+                        'Seja reconhecido como produtor de referência'
+                    ],
                     cta_label: 'Entrar como Apicultor',
-                    bg_tint: 'rgba(245,194,0,0.08)'
+                    bg_tint: 'rgba(245,194,0,0.06)'
                 }
             },
             {
                 _id: 'pesca', profile: 'pescador', title: 'Rio em Movimento',
                 landing: {
                     section_headline: 'Você é pescador?',
-                    hook: 'Você pesca há anos, mas sua atividade ainda é informal. O seguro-defeso é difícil de acessar e os benefícios não chegam. A Rota da Pesca muda isso.',
-                    desires: ['Formalize sua atividade e acesse o seguro-defeso', 'Saiba quais benefícios e programas existem para você', 'Organize-se com outros pescadores para ter mais força', 'Seja reconhecido como guardião dos rios'],
+                    hook: 'Você pesca há anos, mas sua atividade ainda é informal. A Rota da Pesca muda isso: formalize, acesse o seguro-defeso e ganhe o reconhecimento que você merece.',
+                    desires: [
+                        'Formalize sua atividade e tire o RGP',
+                        'Acesse o seguro-defeso e outros benefícios',
+                        'Organize-se com pescadores do Amapá',
+                        'Seja reconhecido como guardião dos rios'
+                    ],
                     cta_label: 'Entrar como Pescador',
-                    bg_tint: 'rgba(0,92,171,0.08)'
+                    bg_tint: 'rgba(0,92,171,0.06)'
                 }
             }
         ];
         $scope.loading = false;
     });
 
-    $scope.routeIcon = function(route) {
-        if (route._id === 'mel') return 'fa-seedling';
-        if (route._id === 'pesca') return 'fa-fish';
-        return 'fa-leaf';
+    // ── Modal de seleção de rota ──
+    $scope.openRouteModal = function(action) {
+        $scope.routeModal.show = true;
+        $scope.routeModal.action = action; // 'login' | 'signup'
     };
+
+    $scope.closeRouteModal = function() {
+        $scope.routeModal.show = false;
+    };
+
+    $scope.selectRoute = function(routeId) {
+        _applyPreTheme(routeId);
+        $scope.closeRouteModal();
+        $location.path($scope.routeModal.action === 'login' ? '/login' : '/signup');
+    };
+
+    // ── Entrar direto pela rota (hero / seção / CTA final) ──
+    $scope.enterRoute = function(routeId) {
+        $location.path('/' + routeId);
+    };
+
+    function _applyPreTheme(routeId) {
+        var titles = { mel: 'Colmeia Viva', pesca: 'Rio em Movimento' };
+        var profiles = { mel: 'apicultor', pesca: 'pescador' };
+        ThemeService.setPreTheme({
+            routeId: routeId,
+            profile: profiles[routeId] || routeId,
+            title: titles[routeId] || routeId,
+            colors: _routePreColors(routeId)
+        });
+    }
 
     $scope.routeColor = function(route) {
         if (route._id === 'mel') return '#F5C200';
@@ -101,22 +119,6 @@ angular.module('rotaViva')
     $scope.routeTextColor = function(route) {
         if (route._id === 'mel') return '#1A1208';
         return '#FFFFFF';
-    };
-
-    $scope.enterRoute = function(route) {
-        var preTheme = {
-            routeId: route._id,
-            profile: route.profile,
-            title: route.title,
-            colors: _routePreColors(route._id)
-        };
-        ThemeService.setPreTheme(preTheme);
-        $location.path('/signup');
-    };
-
-    $scope.goLogin = function() {
-        ThemeService.clearPreTheme();
-        $location.path('/login');
     };
 
     $scope.scrollTo = function(id) {

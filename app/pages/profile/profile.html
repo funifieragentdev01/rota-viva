@@ -44,6 +44,126 @@
         <div class="profile-route">{{routeName}}</div>
     </div>
 
+    <!-- Passaporte Digital -->
+    <div class="passport-card" ng-class="{'passport-card-complete': passaporteComplete}">
+        <div class="passport-card-header">
+            <div class="passport-card-title">
+                <i class="fas fa-id-card" ng-style="{'color': theme.colors && theme.colors.primary || '#FF9600'}"></i>
+                Passaporte Digital
+            </div>
+            <span class="passport-card-badge" ng-if="passaporteComplete">
+                <i class="fas fa-check-circle"></i> Completo
+            </span>
+            <span class="passport-card-badge passport-card-badge-pending" ng-if="!passaporteComplete">
+                +30 XP
+            </span>
+        </div>
+        <p class="passport-card-desc" ng-if="!passaporteComplete">
+            Conte sua situação e descubra os programas do governo para você.
+        </p>
+
+        <div class="passport-fields">
+            <!-- CAF — só mel -->
+            <div class="passport-field" ng-if="!isPesca">
+                <label class="passport-label">Você tem CAF (Cadastro da Agricultura Familiar)?</label>
+                <div class="passport-radio-group">
+                    <label class="passport-radio" ng-repeat="opt in [{v:'sim',l:'Sim'},{v:'nao',l:'Não'},{v:'nao_sei',l:'Não sei'}]">
+                        <input type="radio" ng-model="passaporte.caf" ng-value="opt.v" ng-change="onPassaporteChange()">
+                        <span class="passport-radio-label" ng-class="{'passport-radio-label-active': passaporte.caf === opt.v}"
+                              ng-style="passaporte.caf === opt.v ? {'background': theme.colors && theme.colors.primary || '#FF9600', 'color': '#fff', 'border-color': theme.colors && theme.colors.primary || '#FF9600'} : {}">
+                            {{opt.l}}
+                        </span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- RGP — só pesca -->
+            <div class="passport-field" ng-if="isPesca">
+                <label class="passport-label">Você tem RGP (Registro Geral da Pesca)?</label>
+                <div class="passport-radio-group">
+                    <label class="passport-radio" ng-repeat="opt in [{v:'sim',l:'Sim'},{v:'nao',l:'Não'},{v:'nao_sei',l:'Não sei'}]">
+                        <input type="radio" ng-model="passaporte.rgp" ng-value="opt.v" ng-change="onPassaporteChange()">
+                        <span class="passport-radio-label" ng-class="{'passport-radio-label-active': passaporte.rgp === opt.v}"
+                              ng-style="passaporte.rgp === opt.v ? {'background': theme.colors && theme.colors.primary || '#FF9600', 'color': '#fff', 'border-color': theme.colors && theme.colors.primary || '#FF9600'} : {}">
+                            {{opt.l}}
+                        </span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- PRONAF -->
+            <div class="passport-field">
+                <label class="passport-label">Já acessou alguma linha do PRONAF?</label>
+                <div class="passport-radio-group">
+                    <label class="passport-radio" ng-repeat="opt in [{v:'sim',l:'Sim'},{v:'nao',l:'Não'},{v:'nao_sei',l:'Não sei'}]">
+                        <input type="radio" ng-model="passaporte.pronaf" ng-value="opt.v" ng-change="onPassaporteChange()">
+                        <span class="passport-radio-label" ng-class="{'passport-radio-label-active': passaporte.pronaf === opt.v}"
+                              ng-style="passaporte.pronaf === opt.v ? {'background': theme.colors && theme.colors.primary || '#FF9600', 'color': '#fff', 'border-color': theme.colors && theme.colors.primary || '#FF9600'} : {}">
+                            {{opt.l}}
+                        </span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Cooperativa -->
+            <div class="passport-field">
+                <label class="passport-label">Faz parte de cooperativa ou associação?</label>
+                <div class="passport-radio-group">
+                    <label class="passport-radio" ng-repeat="opt in [{v:'sim',l:'Sim'},{v:'nao',l:'Não'}]">
+                        <input type="radio" ng-model="passaporte.cooperativa" ng-value="opt.v" ng-change="onPassaporteChange()">
+                        <span class="passport-radio-label" ng-class="{'passport-radio-label-active': passaporte.cooperativa === opt.v}"
+                              ng-style="passaporte.cooperativa === opt.v ? {'background': theme.colors && theme.colors.primary || '#FF9600', 'color': '#fff', 'border-color': theme.colors && theme.colors.primary || '#FF9600'} : {}">
+                            {{opt.l}}
+                        </span>
+                    </label>
+                </div>
+                <input ng-if="passaporte.cooperativa === 'sim'" type="text"
+                       class="passport-input"
+                       ng-model="passaporte.cooperativa_nome"
+                       placeholder="Nome da cooperativa ou associação"
+                       maxlength="100">
+            </div>
+
+            <!-- Município -->
+            <div class="passport-field">
+                <label class="passport-label">Qual é o seu município?</label>
+                <input type="text" class="passport-input"
+                       ng-model="passaporte.municipio"
+                       ng-change="onPassaporteChange()"
+                       placeholder="Ex: Floriano, Picos, Macapá..."
+                       maxlength="80">
+            </div>
+        </div>
+
+        <button class="passport-save-btn" ng-click="savePassaporte()"
+                ng-disabled="savingPassaporte"
+                ng-style="{'background': theme.colors && theme.colors.primary || '#FF9600'}">
+            <i class="fas fa-spinner fa-spin" ng-if="savingPassaporte"></i>
+            <i class="fas fa-check" ng-if="passaporteSaved && !savingPassaporte"></i>
+            <i class="fas fa-save" ng-if="!savingPassaporte && !passaporteSaved"></i>
+            {{savingPassaporte ? 'Salvando...' : passaporteSaved ? 'Salvo!' : 'Salvar'}}
+        </button>
+    </div>
+
+    <!-- Meus Programas -->
+    <div class="profile-section" ng-if="programas.length > 0">
+        <div class="profile-section-title">Meus Programas</div>
+        <div class="programa-list">
+            <a class="programa-card" ng-repeat="prog in programas"
+               ng-href="{{prog.link}}" target="_blank" rel="noopener">
+                <div class="programa-card-icon"
+                     ng-style="{'background': theme.colors && theme.colors.primary + '22' || '#FF960022', 'color': theme.colors && theme.colors.primary || '#FF9600'}">
+                    <i class="fas" ng-class="prog.icon || 'fa-landmark'"></i>
+                </div>
+                <div class="programa-card-text">
+                    <strong>{{prog.title}}</strong>
+                    <span>{{prog.description}}</span>
+                </div>
+                <i class="fas fa-chevron-right programa-card-arrow"></i>
+            </a>
+        </div>
+    </div>
+
     <!-- Stats: pontos + sequência + nível -->
     <div class="profile-stats">
         <div class="profile-stat-card">
@@ -91,6 +211,26 @@
         <div class="profile-badges-empty" ng-if="achievements.length === 0">
             <i class="fas fa-award"></i>
             <p>Complete lições para ganhar conquistas!</p>
+        </div>
+    </div>
+
+    <!-- Compartilhar -->
+    <div class="profile-section">
+        <div class="profile-section-title">Convidar amigos</div>
+        <div class="share-card">
+            <div class="share-card-text">
+                <p>Compartilhe o app com outros produtores da sua região e ajude a fortalecer a rede.</p>
+                <p class="share-card-count" ng-if="referralCount > 0">
+                    <i class="fas fa-users"></i>
+                    Você já convidou <strong>{{referralCount}}</strong> {{referralCount === 1 ? 'pessoa' : 'pessoas'}}
+                </p>
+            </div>
+            <button class="share-btn" ng-click="shareApp()"
+                    ng-style="{'background': theme.colors && theme.colors.primary || '#FF9600'}">
+                <i class="fas fa-check" ng-if="shareSuccess"></i>
+                <i class="fas fa-share-nodes" ng-if="!shareSuccess"></i>
+                {{shareSuccess ? 'Link copiado!' : 'Compartilhar'}}
+            </button>
         </div>
     </div>
 

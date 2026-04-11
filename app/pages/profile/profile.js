@@ -22,17 +22,26 @@ angular.module('rotaViva')
     $scope.achievementsLoaded = false;
     $scope.legalTexts = { terms: null, privacy: null };
 
+    // freshPlayer guarda o objeto completo mais recente do servidor (necessário para updatePlayer correto)
+    var freshPlayer = angular.copy(player);
+
     // Refresh player data on load to pick up photo changes made in previous sessions
     if (playerId) {
         ApiService.getPlayer(playerId).then(function(fresh) {
             if (!fresh) return;
+            freshPlayer = fresh;
             var freshPhoto = (fresh.image && fresh.image.original && fresh.image.original.url) || fresh.photo || null;
             if (freshPhoto) $scope.playerPhoto = freshPhoto;
             if (fresh.name) $scope.playerName = fresh.name;
-            // Persist updated player data so next session starts with fresh info
-            var merged = angular.extend({}, player, fresh);
-            localStorage.setItem('rv_player', JSON.stringify(merged));
-        }).catch(function() {});
+            _loadPassaporte(fresh.extra || {});
+            _updateShareUrl(fresh.extra || {}, true); // canSave=true: tem o player fresco completo
+            localStorage.setItem('rv_player', JSON.stringify(fresh));
+        }).catch(function() {
+            _loadPassaporte(player.extra || {});
+            _updateShareUrl(player.extra || {}, false); // canSave=false: não tem dados suficientes
+        });
+    } else {
+        _loadPassaporte(player.extra || {});
     }
 
     // Load legal texts
@@ -47,6 +56,138 @@ angular.module('rotaViva')
     var ROUTE_NAMES = { mel: 'Rota do Mel', pesca: 'Rota da Pesca' };
     var routeId = route._id || (route.profile === 'apicultor' ? 'mel' : null) || (route.profile === 'pescador' ? 'pesca' : null) || 'mel';
     $scope.routeName = ROUTE_NAMES[routeId] || 'Rota Viva';
+    $scope.isPesca = (routeId === 'pesca');
+
+    // ─── Passaporte Digital ────────────────────────────────────────────────────
+    $scope.passaporte = {
+        caf: '', rgp: '', pronaf: '', cooperativa: '', cooperativa_nome: '', municipio: ''
+    };
+    $scope.passaporteComplete = false;
+    $scope.savingPassaporte = false;
+    $scope.passaporteSaved = false;
+    $scope.programas = [];
+
+    function _loadPassaporte(extra) {
+        $scope.passaporte = {
+            caf:              extra.passaporte_caf              || '',
+            rgp:              extra.passaporte_rgp              || '',
+            pronaf:           extra.passaporte_pronaf           || '',
+            cooperativa:      extra.passaporte_cooperativa      || '',
+            cooperativa_nome: extra.passaporte_cooperativa_nome || '',
+            municipio:        extra.passaporte_municipio        || ''
+        };
+        _checkPassaporteComplete();
+    }
+
+    function _checkPassaporteComplete() {
+        var p = $scope.passaporte;
+        var baseComplete = p.pronaf && p.cooperativa && p.municipio;
+        var melComplete  = p.caf;
+        var pescaComplete = p.rgp;
+        $scope.passaporteComplete = !!(baseComplete && ($scope.isPesca ? pescaComplete : melComplete));
+    }
+
+    $scope.onPassaporteChange = function() {
+        _checkPassaporteComplete();
+        // Limpa nome da cooperativa se mudou para Não
+        if ($scope.passaporte.cooperativa !== 'sim') {
+            $scope.passaporte.cooperativa_nome = '';
+        }
+    };
+
+    $scope.savePassaporte = function() {
+        if ($scope.savingPassaporte) return;
+        $scope.savingPassaporte = true;
+        $scope.passaporteSaved = false;
+
+        var p = $scope.passaporte;
+        var extraUpdate = angular.extend({}, freshPlayer.extra || {}, {
+            passaporte_caf:              p.caf,
+            passaporte_rgp:              p.rgp,
+            passaporte_pronaf:           p.pronaf,
+            passaporte_cooperativa:      p.cooperativa,
+            passaporte_cooperativa_nome: p.cooperativa_nome,
+            passaporte_municipio:        p.municipio
+        });
+        // Envia o player completo — POST /v3/player faz replace total
+        var playerUpdate = angular.extend({}, freshPlayer, { extra: extraUpdate });
+
+        ApiService.updatePlayer(playerId, playerUpdate)
+            .then(function() {
+                freshPlayer = playerUpdate;
+                localStorage.setItem('rv_player', JSON.stringify(playerUpdate));
+                _checkPassaporteComplete();
+                $scope.passaporteSaved = true;
+                // Recompensa se acabou de completar
+                if ($scope.passaporteComplete) {
+                    ApiService.logAction('passaporte_completo', playerId, { route: routeId });
+                }
+                $timeout(function() { $scope.passaporteSaved = false; }, 3000);
+            })
+            .catch(function() {})
+            .finally(function() { $scope.savingPassaporte = false; });
+    };
+
+    // Carrega programas da rota
+    ApiService.getProgramas().then(function(list) {
+        $scope.programas = list;
+    }).catch(function() {});
+
+    // ─── Compartilhar / Convite ────────────────────────────────────────────────
+    $scope.referralCount = 0;
+    $scope.shareSuccess = false;
+
+    var appBase = window.location.origin + window.location.pathname;
+    var shareUrl = appBase + '#/' + routeId;
+
+    function _updateShareUrl(extra, canSave) {
+        var myRef = (extra && extra.ref) || null;
+
+        if (!myRef && canSave) {
+            // Usuário criado antes da trigger ter o campo ref — gera agora e salva
+            myRef = Math.random().toString(36).substr(2, 8).toUpperCase();
+            var extraWithRef = angular.extend({}, freshPlayer.extra || {}, { ref: myRef });
+            var playerWithRef = angular.extend({}, freshPlayer, { extra: extraWithRef });
+            ApiService.updatePlayer(playerId, playerWithRef).then(function() {
+                freshPlayer = playerWithRef;
+                localStorage.setItem('rv_player', JSON.stringify(freshPlayer));
+            }).catch(function() {});
+        }
+
+        shareUrl = myRef
+            ? (appBase + '#/' + routeId + '?ref=' + myRef)
+            : (appBase + '#/' + routeId);
+
+        if (myRef) {
+            ApiService.getReferralCount(myRef).then(function(count) {
+                $scope.referralCount = count;
+            }).catch(function() {});
+        }
+    }
+
+    $scope.shareApp = function() {
+        var text = 'Estou na ' + $scope.routeName + '! É gratuito e funciona no celular. Vem aprender comigo:';
+        if (navigator.share) {
+            navigator.share({ title: 'Rota Viva', text: text, url: shareUrl })
+                .catch(function() {});
+        } else {
+            // Fallback: copia link
+            _copyToClipboard(shareUrl);
+            $scope.shareSuccess = true;
+            $timeout(function() { $scope.shareSuccess = false; }, 3000);
+        }
+    };
+
+    function _copyToClipboard(text) {
+        var el = document.createElement('textarea');
+        el.value = text;
+        el.style.position = 'fixed';
+        el.style.opacity = '0';
+        document.body.appendChild(el);
+        el.select();
+        document.execCommand('copy');
+        document.body.removeChild(el);
+    }
 
     // ─── Stats + conquistas ────────────────────────────────────────────────────
     if (playerId) {
@@ -173,13 +314,13 @@ angular.module('rotaViva')
                     $scope.playerPhoto = url;
                     var imgEntry = { url: url, size: 0, width: 0, height: 0, depth: 0 };
                     var imgObj = { small: imgEntry, medium: imgEntry, original: imgEntry };
-                    return ApiService.updatePlayer(playerId, {
+                    var playerWithPhoto = angular.extend({}, freshPlayer, {
                         name: $scope.playerName,
                         image: imgObj
-                    }).then(function() {
-                        player.image = imgObj;
-                        player.photo = url;
-                        localStorage.setItem('rv_player', JSON.stringify(player));
+                    });
+                    return ApiService.updatePlayer(playerId, playerWithPhoto).then(function() {
+                        freshPlayer = playerWithPhoto;
+                        localStorage.setItem('rv_player', JSON.stringify(freshPlayer));
                     });
                 }
             }).catch(function() {
@@ -204,9 +345,10 @@ angular.module('rotaViva')
         if (!name) { $scope.editingName = false; return; }
         $scope.playerName = name;
         $scope.editingName = false;
-        ApiService.updatePlayer(playerId, { name: name }).then(function() {
-            player.name = name;
-            localStorage.setItem('rv_player', JSON.stringify(player));
+        var playerWithName = angular.extend({}, freshPlayer, { name: name });
+        ApiService.updatePlayer(playerId, playerWithName).then(function() {
+            freshPlayer = playerWithName;
+            localStorage.setItem('rv_player', JSON.stringify(freshPlayer));
         }).catch(function() {});
     };
 
