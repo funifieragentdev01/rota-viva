@@ -4,8 +4,12 @@
     <div class="gallery-header">
         <h2>Galeria de Saberes</h2>
         <div class="gallery-header-stats">
-            <span class="gallery-stat"><i class="fas fa-trophy"></i> {{playerPoints || 0}}</span>
-            <span class="gallery-stat"><i class="fas fa-bolt"></i> {{playerStreak || 0}}</span>
+            <span class="trail-stat trail-stat-points">
+                <i class="fas fa-star"></i> {{playerPoints || 0}}
+            </span>
+            <span class="trail-stat trail-stat-coins">
+                <i class="fas fa-coins"></i> {{playerCoins || 0}}
+            </span>
         </div>
     </div>
 

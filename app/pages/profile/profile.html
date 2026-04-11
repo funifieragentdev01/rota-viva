@@ -45,104 +45,226 @@
     </div>
 
     <!-- Passaporte Digital -->
-    <div class="passport-card" ng-class="{'passport-card-complete': passaporteComplete}">
-        <div class="passport-card-header">
-            <div class="passport-card-title">
-                <i class="fas fa-id-card" ng-style="{'color': theme.colors && theme.colors.primary || '#FF9600'}"></i>
-                Passaporte Digital
-            </div>
-            <span class="passport-card-badge" ng-if="passaporteComplete">
-                <i class="fas fa-check-circle"></i> Completo
-            </span>
-            <span class="passport-card-badge passport-card-badge-pending" ng-if="!passaporteComplete">
-                +30 XP
-            </span>
-        </div>
-        <p class="passport-card-desc" ng-if="!passaporteComplete">
-            Conte sua situação e descubra os programas do governo para você.
-        </p>
 
-        <div class="passport-fields">
-            <!-- CAF — só mel -->
-            <div class="passport-field" ng-if="!isPesca">
-                <label class="passport-label">Você tem CAF (Cadastro da Agricultura Familiar)?</label>
-                <div class="passport-radio-group">
-                    <label class="passport-radio" ng-repeat="opt in [{v:'sim',l:'Sim'},{v:'nao',l:'Não'},{v:'nao_sei',l:'Não sei'}]">
-                        <input type="radio" ng-model="passaporte.caf" ng-value="opt.v" ng-change="onPassaporteChange()">
-                        <span class="passport-radio-label" ng-class="{'passport-radio-label-active': passaporte.caf === opt.v}"
-                              ng-style="passaporte.caf === opt.v ? {'background': theme.colors && theme.colors.primary || '#FF9600', 'color': '#fff', 'border-color': theme.colors && theme.colors.primary || '#FF9600'} : {}">
-                            {{opt.l}}
-                        </span>
-                    </label>
-                </div>
+    <!-- Estado: ainda não emitido -->
+    <div class="passport-create-card" ng-if="!passaporteEmitido" ng-click="openPassaporteModal()">
+        <div class="passport-create-left">
+            <div class="passport-create-icon"
+                 ng-style="{'color': theme.colors && theme.colors.primary || '#FF9600'}">
+                <i class="fas fa-id-card"></i>
             </div>
-
-            <!-- RGP — só pesca -->
-            <div class="passport-field" ng-if="isPesca">
-                <label class="passport-label">Você tem RGP (Registro Geral da Pesca)?</label>
-                <div class="passport-radio-group">
-                    <label class="passport-radio" ng-repeat="opt in [{v:'sim',l:'Sim'},{v:'nao',l:'Não'},{v:'nao_sei',l:'Não sei'}]">
-                        <input type="radio" ng-model="passaporte.rgp" ng-value="opt.v" ng-change="onPassaporteChange()">
-                        <span class="passport-radio-label" ng-class="{'passport-radio-label-active': passaporte.rgp === opt.v}"
-                              ng-style="passaporte.rgp === opt.v ? {'background': theme.colors && theme.colors.primary || '#FF9600', 'color': '#fff', 'border-color': theme.colors && theme.colors.primary || '#FF9600'} : {}">
-                            {{opt.l}}
-                        </span>
-                    </label>
-                </div>
-            </div>
-
-            <!-- PRONAF -->
-            <div class="passport-field">
-                <label class="passport-label">Já acessou alguma linha do PRONAF?</label>
-                <div class="passport-radio-group">
-                    <label class="passport-radio" ng-repeat="opt in [{v:'sim',l:'Sim'},{v:'nao',l:'Não'},{v:'nao_sei',l:'Não sei'}]">
-                        <input type="radio" ng-model="passaporte.pronaf" ng-value="opt.v" ng-change="onPassaporteChange()">
-                        <span class="passport-radio-label" ng-class="{'passport-radio-label-active': passaporte.pronaf === opt.v}"
-                              ng-style="passaporte.pronaf === opt.v ? {'background': theme.colors && theme.colors.primary || '#FF9600', 'color': '#fff', 'border-color': theme.colors && theme.colors.primary || '#FF9600'} : {}">
-                            {{opt.l}}
-                        </span>
-                    </label>
-                </div>
-            </div>
-
-            <!-- Cooperativa -->
-            <div class="passport-field">
-                <label class="passport-label">Faz parte de cooperativa ou associação?</label>
-                <div class="passport-radio-group">
-                    <label class="passport-radio" ng-repeat="opt in [{v:'sim',l:'Sim'},{v:'nao',l:'Não'}]">
-                        <input type="radio" ng-model="passaporte.cooperativa" ng-value="opt.v" ng-change="onPassaporteChange()">
-                        <span class="passport-radio-label" ng-class="{'passport-radio-label-active': passaporte.cooperativa === opt.v}"
-                              ng-style="passaporte.cooperativa === opt.v ? {'background': theme.colors && theme.colors.primary || '#FF9600', 'color': '#fff', 'border-color': theme.colors && theme.colors.primary || '#FF9600'} : {}">
-                            {{opt.l}}
-                        </span>
-                    </label>
-                </div>
-                <input ng-if="passaporte.cooperativa === 'sim'" type="text"
-                       class="passport-input"
-                       ng-model="passaporte.cooperativa_nome"
-                       placeholder="Nome da cooperativa ou associação"
-                       maxlength="100">
-            </div>
-
-            <!-- Município -->
-            <div class="passport-field">
-                <label class="passport-label">Qual é o seu município?</label>
-                <input type="text" class="passport-input"
-                       ng-model="passaporte.municipio"
-                       ng-change="onPassaporteChange()"
-                       placeholder="Ex: Floriano, Picos, Macapá..."
-                       maxlength="80">
+            <div class="passport-create-text">
+                <strong>Passaporte Digital</strong>
+                <span>Sua credencial de acesso aos programas do governo</span>
             </div>
         </div>
-
-        <button class="passport-save-btn" ng-click="savePassaporte()"
-                ng-disabled="savingPassaporte"
+        <button class="passport-create-btn"
                 ng-style="{'background': theme.colors && theme.colors.primary || '#FF9600'}">
-            <i class="fas fa-spinner fa-spin" ng-if="savingPassaporte"></i>
-            <i class="fas fa-check" ng-if="passaporteSaved && !savingPassaporte"></i>
-            <i class="fas fa-save" ng-if="!savingPassaporte && !passaporteSaved"></i>
-            {{savingPassaporte ? 'Salvando...' : passaporteSaved ? 'Salvo!' : 'Salvar'}}
+            Criar →
         </button>
+    </div>
+
+    <!-- Estado: emitido — ID card com flip -->
+    <div class="passport-id-wrap" ng-if="passaporteEmitido">
+
+        <div class="passport-id-card" ng-class="{'passport-id-flipped': passaporteFlipped}"
+             ng-click="togglePassaporteFlip()">
+
+            <!-- FRENTE -->
+            <div class="passport-id-front">
+                <div class="passport-id-top">
+                    <img src="img/logo-midr.png" class="passport-id-logo" alt="MIDR">
+                    <div class="passport-id-title-block">
+                        <div class="passport-id-brand">ROTA VIVA</div>
+                        <div class="passport-id-subtitle">Passaporte Digital do Produtor</div>
+                    </div>
+                </div>
+                <div class="passport-id-body">
+                    <div class="passport-id-photo">
+                        <img ng-if="playerPhoto" ng-src="{{playerPhoto}}" alt="">
+                        <div ng-if="!playerPhoto" class="passport-id-photo-initial">
+                            {{playerName | firstWord | limitTo:1}}
+                        </div>
+                    </div>
+                    <div class="passport-id-info">
+                        <div class="passport-id-name">{{playerName}}</div>
+                        <div class="passport-id-cpf">CPF: {{passaporteCpf}}</div>
+                        <div class="passport-id-route">{{routeName}}</div>
+                        <div class="passport-id-municipio" ng-if="passaporte.municipio">{{passaporte.municipio}}</div>
+                        <div class="passport-id-fields">
+                            <span ng-if="!isPesca && passaporte.caf">CAF: {{fmtPassaporteOpt(passaporte.caf)}}</span>
+                            <span ng-if="isPesca && passaporte.rgp">RGP: {{fmtPassaporteOpt(passaporte.rgp)}}</span>
+                            <span ng-if="passaporte.pronaf">PRONAF: {{fmtPassaporteOpt(passaporte.pronaf)}}</span>
+                        </div>
+                        <div class="passport-id-date">Emitido em {{passaporteEmitidoEm}}</div>
+                    </div>
+                </div>
+                <div class="passport-id-flip-hint">Toque para ver o verso →</div>
+            </div>
+
+            <!-- VERSO -->
+            <div class="passport-id-back">
+                <div class="passport-id-back-top">
+                    <div class="passport-id-qr-wrap">
+                        <div id="passport-qr"></div>
+                    </div>
+                    <div class="passport-id-back-info">
+                        <div ng-if="passaporte.cooperativa">
+                            <strong>Cooperativa:</strong>
+                            {{passaporte.cooperativa === 'sim' ? (passaporte.cooperativa_nome || 'Sim') : 'Não'}}
+                        </div>
+                        <div ng-if="passaporte.phone"><strong>WhatsApp:</strong> {{passaporte.phone}}</div>
+                        <div ng-if="passaporte.email"><strong>Email:</strong> {{passaporte.email}}</div>
+                    </div>
+                </div>
+                <div class="passport-id-back-footer">Compartilhe com agentes do MIDR</div>
+                <div class="passport-id-flip-hint">← Toque para ver a frente</div>
+            </div>
+        </div>
+
+        <!-- Editar passaporte -->
+        <div class="passport-edit-row">
+            <div class="passport-incomplete-badge" ng-if="passaporteIncomplete">
+                <div class="passport-incomplete-dot"></div>
+                Informações incompletas
+            </div>
+            <button class="passport-edit-btn" ng-click="openPassaporteEdit()">
+                <i class="fas fa-pen"></i> Editar passaporte
+            </button>
+        </div>
+    </div>
+
+    <!-- Modal: Criar / Editar Passaporte -->
+    <div class="passport-modal-overlay" ng-if="passaporteModal" ng-click="closePassaporteModal()">
+        <div class="passport-modal" ng-click="$event.stopPropagation()">
+
+            <!-- Slide 1: Explicação -->
+            <div ng-if="passaporteModalSlide === 1" class="passport-modal-slide">
+                <img ng-src="{{isPesca ? 'img/characters/pesca/trail/1.png' : 'img/characters/mel/trail/1.png'}}"
+                     class="passport-modal-char" alt="">
+                <h3 class="passport-modal-title">Passaporte Digital</h3>
+                <p class="passport-modal-text">
+                    Seu Passaporte Digital é uma credencial que facilita seu acesso aos programas do governo federal.
+                </p>
+                <p class="passport-modal-text">
+                    Com ele, os agentes do MIDR identificam sua situação e podem te encaminhar para o programa certo.
+                </p>
+                <button class="btn btn-primary passport-modal-btn"
+                        ng-style="{'background': theme.colors && theme.colors.primary || '#FF9600'}"
+                        ng-click="passaporteModalNext()">
+                    Continuar →
+                </button>
+                <button class="passport-modal-skip" ng-click="closePassaporteModal()">Agora não</button>
+            </div>
+
+            <!-- Slide 2: Formulário -->
+            <div ng-if="passaporteModalSlide === 2" class="passport-modal-slide">
+                <h3 class="passport-modal-title">{{passaporteEmitido ? 'Editar passaporte' : 'Suas informações'}}</h3>
+
+                <!-- Campos pré-preenchidos (readonly) -->
+                <div class="passport-prefill">
+                    <span class="passport-prefill-item">
+                        <i class="fas fa-user"></i> {{playerName}}
+                    </span>
+                    <span class="passport-prefill-item">
+                        <i class="fas fa-id-card"></i> {{passaporteCpf}}
+                    </span>
+                    <span class="passport-prefill-item" ng-if="passaporte.phone">
+                        <i class="fas fa-phone"></i> {{passaporte.phone}}
+                    </span>
+                </div>
+
+                <!-- Município -->
+                <div class="passport-field">
+                    <label class="passport-label">Município</label>
+                    <input type="text" class="passport-input"
+                           ng-model="passaporte.municipio"
+                           placeholder="Ex: Floriano, Picos, Macapá..."
+                           maxlength="80">
+                </div>
+
+                <!-- Localização GPS -->
+                <button class="passport-location-btn" ng-click="getLocation()" ng-disabled="gettingLocation">
+                    <i class="fas fa-spinner fa-spin" ng-if="gettingLocation"></i>
+                    <i class="fas fa-location-dot" ng-if="!gettingLocation"></i>
+                    {{gettingLocation ? 'Obtendo localização...' : passaporte.lat ? '✓ Localização capturada' : 'Usar minha localização'}}
+                </button>
+
+                <!-- CAF / RGP -->
+                <div class="passport-field" ng-if="!isPesca">
+                    <label class="passport-label">Você tem CAF (Cadastro da Agricultura Familiar)?</label>
+                    <div class="passport-radio-group">
+                        <label class="passport-radio" ng-repeat="opt in [{v:'sim',l:'Sim'},{v:'nao',l:'Não'},{v:'nao_sei',l:'Não sei'}]">
+                            <input type="radio" ng-model="passaporte.caf" ng-value="opt.v">
+                            <span class="passport-radio-label"
+                                  ng-class="{'passport-radio-label-active': passaporte.caf === opt.v}"
+                                  ng-style="passaporte.caf === opt.v ? {'background': theme.colors && theme.colors.primary || '#FF9600', 'color': '#fff', 'border-color': theme.colors && theme.colors.primary || '#FF9600'} : {}">
+                                {{opt.l}}
+                            </span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="passport-field" ng-if="isPesca">
+                    <label class="passport-label">Você tem RGP (Registro Geral da Pesca)?</label>
+                    <div class="passport-radio-group">
+                        <label class="passport-radio" ng-repeat="opt in [{v:'sim',l:'Sim'},{v:'nao',l:'Não'},{v:'nao_sei',l:'Não sei'}]">
+                            <input type="radio" ng-model="passaporte.rgp" ng-value="opt.v">
+                            <span class="passport-radio-label"
+                                  ng-class="{'passport-radio-label-active': passaporte.rgp === opt.v}"
+                                  ng-style="passaporte.rgp === opt.v ? {'background': theme.colors && theme.colors.primary || '#FF9600', 'color': '#fff', 'border-color': theme.colors && theme.colors.primary || '#FF9600'} : {}">
+                                {{opt.l}}
+                            </span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- PRONAF -->
+                <div class="passport-field">
+                    <label class="passport-label">Já acessou alguma linha do PRONAF?</label>
+                    <div class="passport-radio-group">
+                        <label class="passport-radio" ng-repeat="opt in [{v:'sim',l:'Sim'},{v:'nao',l:'Não'},{v:'nao_sei',l:'Não sei'}]">
+                            <input type="radio" ng-model="passaporte.pronaf" ng-value="opt.v">
+                            <span class="passport-radio-label"
+                                  ng-class="{'passport-radio-label-active': passaporte.pronaf === opt.v}"
+                                  ng-style="passaporte.pronaf === opt.v ? {'background': theme.colors && theme.colors.primary || '#FF9600', 'color': '#fff', 'border-color': theme.colors && theme.colors.primary || '#FF9600'} : {}">
+                                {{opt.l}}
+                            </span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Cooperativa -->
+                <div class="passport-field">
+                    <label class="passport-label">Faz parte de cooperativa ou associação?</label>
+                    <div class="passport-radio-group">
+                        <label class="passport-radio" ng-repeat="opt in [{v:'sim',l:'Sim'},{v:'nao',l:'Não'}]">
+                            <input type="radio" ng-model="passaporte.cooperativa" ng-value="opt.v" ng-change="onPassaporteChange()">
+                            <span class="passport-radio-label"
+                                  ng-class="{'passport-radio-label-active': passaporte.cooperativa === opt.v}"
+                                  ng-style="passaporte.cooperativa === opt.v ? {'background': theme.colors && theme.colors.primary || '#FF9600', 'color': '#fff', 'border-color': theme.colors && theme.colors.primary || '#FF9600'} : {}">
+                                {{opt.l}}
+                            </span>
+                        </label>
+                    </div>
+                    <input ng-if="passaporte.cooperativa === 'sim'" type="text"
+                           class="passport-input" style="margin-top: 8px;"
+                           ng-model="passaporte.cooperativa_nome"
+                           placeholder="Nome da cooperativa ou associação"
+                           maxlength="100">
+                </div>
+
+                <button class="btn btn-primary passport-modal-btn"
+                        ng-style="{'background': theme.colors && theme.colors.primary || '#FF9600'}"
+                        ng-click="emitirPassaporte()"
+                        ng-disabled="savingPassaporte">
+                    <i class="fas fa-spinner fa-spin" ng-if="savingPassaporte"></i>
+                    <i class="fas fa-id-card" ng-if="!savingPassaporte"></i>
+                    {{savingPassaporte ? 'Salvando...' : passaporteEmitido ? 'Salvar alterações' : 'Emitir meu Passaporte'}}
+                </button>
+                <button class="passport-modal-skip" ng-click="passaporteModalBack()">← Voltar</button>
+            </div>
+        </div>
     </div>
 
     <!-- Meus Programas -->
@@ -164,22 +286,28 @@
         </div>
     </div>
 
-    <!-- Stats: pontos + sequência + nível -->
+    <!-- Stats: pontos + moedas + sequência + nível -->
     <div class="profile-stats">
         <div class="profile-stat-card">
-            <div class="profile-stat-icon" style="color: #FFC800;"><i class="fas fa-trophy"></i></div>
+            <div class="profile-stat-icon" style="color: #FFB800;"><i class="fas fa-star"></i></div>
             <div class="profile-stat-value">{{playerPoints || 0}}</div>
-            <div class="profile-stat-label">Pontos</div>
+            <div class="profile-stat-label">XP</div>
         </div>
         <div class="profile-stat-divider"></div>
         <div class="profile-stat-card">
-            <div class="profile-stat-icon" style="color: #FF6400;"><i class="fas fa-fire"></i></div>
+            <div class="profile-stat-icon" style="color: #FFD700;"><i class="fas fa-coins"></i></div>
+            <div class="profile-stat-value">{{playerCoins || 0}}</div>
+            <div class="profile-stat-label">Moedas</div>
+        </div>
+        <div class="profile-stat-divider"></div>
+        <div class="profile-stat-card">
+            <div class="profile-stat-icon" style="color: #FF9600;"><i class="fas fa-bolt"></i></div>
             <div class="profile-stat-value">{{playerStreak || 0}}</div>
             <div class="profile-stat-label">Sequência</div>
         </div>
         <div class="profile-stat-divider"></div>
         <div class="profile-stat-card">
-            <div class="profile-stat-icon" style="color: #1CB0F6;"><i class="fas fa-star"></i></div>
+            <div class="profile-stat-icon" style="color: #CE82FF;"><i class="fas fa-medal"></i></div>
             <div class="profile-stat-value">{{playerLevel || 1}}</div>
             <div class="profile-stat-label">Nível</div>
         </div>
@@ -249,13 +377,7 @@
                 <span class="profile-menu-label">Política de privacidade</span>
                 <i class="fas fa-chevron-right profile-menu-chevron"></i>
             </button>
-        </div>
-    </div>
-
-    <!-- Menu: Zona de perigo -->
-    <div class="profile-section">
-        <div class="profile-section-title">Zona de perigo</div>
-        <div class="profile-menu">
+            <div class="profile-menu-divider"></div>
             <button class="profile-menu-item" ng-click="logout()">
                 <i class="fas fa-right-from-bracket profile-menu-icon"></i>
                 <span class="profile-menu-label">Sair</span>

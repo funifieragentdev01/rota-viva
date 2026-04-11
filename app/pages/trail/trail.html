@@ -2,22 +2,15 @@
 
     <!-- Header -->
     <div class="trail-header">
-        <button class="trail-back" ng-click="goBack()" ng-if="level !== 'root'">
-            <i class="fas fa-arrow-left"></i>
-        </button>
-        <button class="trail-back" ng-click="goHome()" ng-if="level === 'root'">
-            <i class="fas fa-house"></i>
-        </button>
         <h2>{{title}}</h2>
-        <div class="trail-header-stats" ng-if="level === 'subject'">
+        <div class="trail-header-stats">
             <span class="trail-stat trail-stat-points">
-                <i class="fas fa-trophy"></i> {{playerPoints || 0}}
+                <i class="fas fa-star"></i> {{playerPoints || 0}}
             </span>
-            <span class="trail-stat trail-stat-streak">
-                <i class="fas fa-bolt"></i> {{playerStreak || 0}}
+            <span class="trail-stat trail-stat-coins">
+                <i class="fas fa-coins"></i> {{playerCoins || 0}}
             </span>
         </div>
-        <div class="trail-header-right" ng-if="level !== 'subject'"></div>
     </div>
 
     <!-- Sticky Active Module Box (scroll-based) -->

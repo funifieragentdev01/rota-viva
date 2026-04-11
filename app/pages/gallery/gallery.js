@@ -6,6 +6,10 @@ angular.module('rotaViva')
     var playerName = (session.player || {}).name || 'Produtor';
     var playerPhoto = (session.player || {}).photo || null;
     var route = session.route || {};
+    var routeId = route._id
+        || (route.profile === 'pescador' ? 'pesca' : null)
+        || (route.profile === 'apicultor' ? 'mel' : null)
+        || 'mel';
     var theme = ThemeService.load(session.apiKey) || {};
 
     if (theme && theme.colors) ThemeService.apply(theme, false);
@@ -15,6 +19,7 @@ angular.module('rotaViva')
     $scope.posts = [];
     $scope.topUsers = [];
     $scope.playerPoints = 0;
+    $scope.playerCoins = 0;
     $scope.playerStreak = 0;
 
     // UI state
@@ -29,6 +34,12 @@ angular.module('rotaViva')
     if (playerId) {
         ApiService.getPlayerStatus(playerId).then(function(status) {
             $scope.playerPoints = Math.floor(status.total_points || 0);
+            var wallets = status.wallets || status.virtual_currencies || [];
+            wallets.forEach(function(w) {
+                if (w.virtualCurrency === 'cristais' || (w.name && w.name.toLowerCase().indexOf('cristal') >= 0)) {
+                    $scope.playerCoins = Math.floor(w.balance || 0);
+                }
+            });
         }).catch(function() {});
 
         ApiService.getActionLogs(playerId, 60).then(function(logs) {

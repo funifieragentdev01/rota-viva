@@ -654,5 +654,90 @@ Reconexão:                                     Background Sync API → flush da
 
 ---
 
-*Documento gerado em sessão de Party Mode BMAD — 2026-04-10*
-*Próxima ação: gerar personagens faltantes → executar Sprint 1 (landing page)*
+Tenho duas coisas que eu quero discutir antes de começarmos a implementar:
+
+1. Bugs e Ajustes
+2. Gamificacao
+
+Quero sua opiniao a respeito dos items abaixo. Quero saber o que voce acha e como pensa em planejar cada uma das coisas abaixo.
+
+# BUGS E AJUSTES
+
+## Termos e Politica
+- Eu falei para colocar os termos e politica dentro da gamificacao de cada rota, mas como estes dois documentos sao genericos, eu acho melhor incliur eles na gamificacao central. Entao eu acho que voce pode criar a pagina customizada de administracao destes documentos dentro da gamificacao central, copia estas paginas de administracao que estao na colecao "studio_page" da gamificacao da rota do mel e coloca na gamificacao central, bem como o conteudo da colecao "legal__c". E cria um endpoint publico na gamificacao central para acessar estes documentos, como esta sendo feito para o FAQ e cadastro de usuario na landing. Tem que ver como esta sendo feito la. Como podemos fazer isso?
+
+## Navigation
+- Acho que podemos aumentar o tamanho dos icones e titulos da bottom nav, ja que temos apenas 3 items? 
+- Acho que podemos deixar mais destacado qual a opcao da navbar esta selecionada. 
+
+## Tela Trilha
+- O botão de sair da trilha ainda leva para a home. Que não existe mais. /jarvis/rota-viva/doc/assets/issue/bug-voltar.jpeg
+- O boneco esta tampando o título da seção. /jarvis/rota-viva/doc/assets/issue/bug-module.jpeg
+- Aqui tem que colocar um favo de mel como ícone da pontuação. E precisa tb adicionar os cristais que você comentou que ganha. /jarvis/rota-viva/doc/assets/issue/bug-points.jpeg
+
+## Tela Profile
+- Nao gostei dessa estrutura para passaporte. Nao se parece com um passaporte. /jarvis/rota-viva/doc/assets/issue/bug-passport.jpeg
+- Acho que este nome “zona de perigo” ficou ruim. E' assim que outros apps fazem? /jarvis/rota-viva/doc/assets/issue/bug-danger.jpeg
+
+## Outras Coisa
+- Faltou a opcao de recuperar senha na pagina publica /landing. E a opcao de alterar senha na pagina /profile.
+
+---
+
+# GAMIFICATION
+
+Quero discutir sobre os detalhes da gamificacao antes de iniciar as implementacoes. Quero fazer um mapeamento segundo o octalysis de quais elementos de gamificacao ja estao incluidos. Por exemplo, o onboarding (que e' um step by step tutorial); os sons quando o usuario acerta ou erra uma pergunta; as aulas bloqueadas; o FOMO com o feed da galeria, a influencia social com a publicacao do usuario; o convidar amigos; etc. Quero essa analise para termos uma base para decidir quais elementos de gamificacao ainda precisamos implementar. 
+
+Abaixo estao as coisas que eu acho que ainda precisamos resolver.
+
+## Acoes Desejadas
+Quais sao as actions que vamos cadastrar no studio? Complete lesson, Complete module, Invite friend, Publish, Edit Profile, etc. Pois isso precisa estar especificado para agente saber o que vai dar pontos aqui na gamificacao. 
+
+## Pontuacao
+Quais os tipos de pontos teremos, e quando estes pontos sao atribuidos? Podemos ter pontos XP para o sistema de nivel (que so incrementa) e pontos Cristais para gastar (que podem ser perdidos ou gastos). E quais vao ser os icones destes pontos. Quando tivermos com esses pontos bem definidos, precisamos replicar isso no header do app, para mostrar os tipos de pontos e o streak. 
+
+## Desafios
+Quais os challenges que precisamos configurar no studio? Por exemplo, completar licao ganha 5 xp, completar licao do tipo "bau" ganha 10 xp + 3 cristais, completar os dados do passaporte ganha 5 xp, etc. 
+
+## Bau na trilha
+O bau e' uma lesson, uma atividade onde o usuario ganha cristais, o conteudo e' um quiz para coleta de evidencias (foto, video, localizacao de gps), e pode ser publicada no feed da galeria. Precisamos definir como sera o fluxo do usuario no bau. Vamos mostrar o que outros usuarios fizeram nesta licao tambem?
+
+## Personagem na trilha
+O persogem e' onde temos as 3 estrelinhas. O personagem esta aparecendo a cada 5 licoes. Entao eu preciso definir o que e' o personagem. Ele vai ser mais uma lesson do modulo? Se for, como eu vou cadastrar isso? Defino um tipo diferente de folder? Ao inves de ser um folder do tipo lesson, pode ser um folder do tipo cartoon, e ai eu posso atrelar um conteudo do mesmo jeito, por exemplo um quiz, igual fazemos nos folder do tipo lesson. E ai eu posso colocar estes folders dentro dos modulos, por exemplo a cada 5 folder do tipo lesson. Eu preciso definir o que e' o personagem, e como ele vai ser cadastrado. As estrelas podem estar atreladas ao total de perguntas certas. E talvez estes personagens possam gerar cristais tambem. Preciso definir estes detalhes. 
+
+---
+
+# CONSIDERACOES
+
+Eu preciso definir melhor os tipos de pontos e como eles funcionam. E eu quero que voce registre no documento "/jarvis/rota-viva/doc/bmad-review-2026-04-11.md" este planejamento de correcoes de bugs e gamificacao. Abaixo estao as minhas consideracoes. 
+
+# BUGS & AJUSTES
+
+## Bug voltar na trilha
+- Pode simplesmente remover este botao de voltar.
+
+## Personagem tampando o título
+- Pode ignorar o personagem tampando o titulo do modulo. Deixa como esta. 
+
+## Passaporte — design
+- Ainda nao gostei da sua proposta. Eu acho que poderia ter um marcacao tracejada com um botao "Criar Passaporte" abaixo dela. E isso abre uma modal, explicando o que e' o passaporte, pode colocar uma imagem de algum personagem. Explicar que o passaporte e' uma credencial de identificacao para facilitar o acesso do produtor aos programas do governo. Mostrar que isso e' importante para ele. E para isso ele precisa informar alguns dados pessoais como por exemplo nome, cpf, telefone, email, endereco, localizacao gps, CAF, etc. E quando ele cria, podemos mostrar o documento como uma carteira de motorista digital, que tem a frente do documento e o verso do documento com um qrcode (que pode ser compartilhado depois com autoridades atravez do app rota viva). Na frente temos algumas informacoes e uma cara de documento, cartao do governo, e no verso outras informacoes + qrcode. O que acha? Preciso que o usuario veja vantagem em criar este passaporte. 
+
+## Recuperar e alterar senha
+- O topico "Alteração de Senha" no documento "/doc/knowledge/modules/patterns.md" explica como implementa a recuperacao e alteracao de senha, na area publica e privada. Talvez tenha que adaptar alguma coisa, pois um dos fluxos usa email no processo, mas pode ser que o usuario tenha apenas telefone celular. Entao preciso entender como voce pretende fazer isso. Voce pode ler o endpoint de alteracao de senha em "/funifier/funifier-service/src/main/java/com/funifier/rest/v3/rest/PlayerRest.java".
+
+# GAMIFICACAO
+
+## Actions para cadastrar no studio
+Eu acho que podemos ter apenas:
+- login
+- complete_onboarding
+- complete_lesson com atributos lesson, type, score (com isso eu consigo substituir todas as outras variacoes de lesson_quiz, lesson_video, lesson_diy, lesson_bau, cartoon)
+- complete_module
+- complete_passport
+- edit_profile
+- publish_post
+- invite_accepted
+
+Os challenges vao ser configurados assim: ex: complete_lesson type cartoon, score 3, ganha 3 cristais * score. entendeu? 
+
+O que voce acha? Faz estes ajustes e registra este plano de correcoes de bugs e de implementacao da gamificacao no documento "/jarvis/rota-viva/doc/bmad-review-2026-04-11.md"

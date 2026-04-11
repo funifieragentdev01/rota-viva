@@ -33,10 +33,17 @@ angular.module('rotaViva')
     var folderId = $routeParams.folderId || null;
 
     $scope.playerPoints = 0;
+    $scope.playerCoins = 0;
     $scope.playerStreak = 0;
     if (playerId) {
         ApiService.getPlayerStatus(playerId).then(function(status) {
             $scope.playerPoints = Math.floor(status.total_points || 0);
+            var wallets = status.wallets || status.virtual_currencies || [];
+            wallets.forEach(function(w) {
+                if (w.virtualCurrency === 'cristais' || (w.name && w.name.toLowerCase().indexOf('cristal') >= 0)) {
+                    $scope.playerCoins = Math.floor(w.balance || 0);
+                }
+            });
         }).catch(function() {});
 
         ApiService.getActionLogs(playerId, 60).then(function(logs) {

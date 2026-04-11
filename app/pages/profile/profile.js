@@ -12,6 +12,7 @@ angular.module('rotaViva')
     $scope.playerName = player.name || 'Produtor';
     $scope.playerPhoto = (player.image && player.image.original && player.image.original.url) || player.photo || null;
     $scope.playerPoints = 0;
+    $scope.playerCoins = 0;
     $scope.playerStreak = 0;
     $scope.playerLevel = 1;
     $scope.uploadingPhoto = false;
@@ -33,15 +34,15 @@ angular.module('rotaViva')
             var freshPhoto = (fresh.image && fresh.image.original && fresh.image.original.url) || fresh.photo || null;
             if (freshPhoto) $scope.playerPhoto = freshPhoto;
             if (fresh.name) $scope.playerName = fresh.name;
-            _loadPassaporte(fresh.extra || {});
+            _loadPassaporte(fresh.extra || {}, fresh);
             _updateShareUrl(fresh.extra || {}, true); // canSave=true: tem o player fresco completo
             localStorage.setItem('rv_player', JSON.stringify(fresh));
         }).catch(function() {
-            _loadPassaporte(player.extra || {});
+            _loadPassaporte(player.extra || {}, null);
             _updateShareUrl(player.extra || {}, false); // canSave=false: não tem dados suficientes
         });
     } else {
-        _loadPassaporte(player.extra || {});
+        _loadPassaporte(player.extra || {}, null);
     }
 
     // Load legal texts
@@ -60,46 +61,131 @@ angular.module('rotaViva')
 
     // ─── Passaporte Digital ────────────────────────────────────────────────────
     $scope.passaporte = {
-        caf: '', rgp: '', pronaf: '', cooperativa: '', cooperativa_nome: '', municipio: ''
+        caf: '', rgp: '', pronaf: '', cooperativa: '', cooperativa_nome: '', municipio: '',
+        phone: player.phone || '', email: player.email || '', lat: null, lng: null
     };
-    $scope.passaporteComplete = false;
+    $scope.passaporteEmitido = !!(player.extra && player.extra.passaporte_emitido_em);
+    $scope.passaporteEmitidoEm = '';
+    $scope.passaporteIncomplete = false;
+    $scope.passaporteModal = false;
+    $scope.passaporteModalSlide = 1;
+    $scope.passaporteFlipped = false;
     $scope.savingPassaporte = false;
-    $scope.passaporteSaved = false;
+    $scope.gettingLocation = false;
     $scope.programas = [];
 
-    function _loadPassaporte(extra) {
+    function _maskCpf(cpf) {
+        if (!cpf) return '';
+        cpf = String(cpf).replace(/\D/g, '');
+        if (cpf.length !== 11) return cpf;
+        return '***.' + cpf.substr(3, 3) + '.' + cpf.substr(6, 3) + '-**';
+    }
+    $scope.passaporteCpf = _maskCpf(playerId);
+
+    function _fmtPassaporteOpt(val) {
+        if (val === 'sim') return 'Sim';
+        if (val === 'nao') return 'Não';
+        if (val === 'nao_sei') return 'Não sei';
+        return val || '—';
+    }
+    $scope.fmtPassaporteOpt = _fmtPassaporteOpt;
+
+    function _loadPassaporte(extra, freshP) {
         $scope.passaporte = {
             caf:              extra.passaporte_caf              || '',
             rgp:              extra.passaporte_rgp              || '',
             pronaf:           extra.passaporte_pronaf           || '',
             cooperativa:      extra.passaporte_cooperativa      || '',
             cooperativa_nome: extra.passaporte_cooperativa_nome || '',
-            municipio:        extra.passaporte_municipio        || ''
+            municipio:        extra.passaporte_municipio        || '',
+            phone: (freshP && freshP.phone) || player.phone || '',
+            email: (freshP && freshP.email) || player.email || '',
+            lat: extra.passaporte_lat || null,
+            lng: extra.passaporte_lng || null
         };
-        _checkPassaporteComplete();
+        $scope.passaporteEmitido = !!extra.passaporte_emitido_em;
+        if (extra.passaporte_emitido_em) {
+            $scope.passaporteEmitidoEm = new Date(extra.passaporte_emitido_em).toLocaleDateString('pt-BR');
+        }
+        _checkPassaporteIncomplete();
+        if ($scope.passaporteEmitido) {
+            $timeout(function() { _renderPassaporteQr(); });
+        }
     }
 
-    function _checkPassaporteComplete() {
-        var p = $scope.passaporte;
-        var baseComplete = p.pronaf && p.cooperativa && p.municipio;
-        var melComplete  = p.caf;
-        var pescaComplete = p.rgp;
-        $scope.passaporteComplete = !!(baseComplete && ($scope.isPesca ? pescaComplete : melComplete));
+    function _renderPassaporteQr() {
+        var el = document.getElementById('passport-qr');
+        if (!el || typeof QRCode === 'undefined') return;
+        el.innerHTML = '';
+        var ref = (freshPlayer.extra && freshPlayer.extra.ref) || playerId || '';
+        if (!ref) return;
+        new QRCode(el, {
+            text: ref,
+            width: 96,
+            height: 96,
+            colorDark: '#1A1A1A',
+            colorLight: '#FFFFFF',
+            correctLevel: QRCode.CorrectLevel.M
+        });
     }
+
+    function _checkPassaporteIncomplete() {
+        if (!$scope.passaporteEmitido) { $scope.passaporteIncomplete = false; return; }
+        var p = $scope.passaporte;
+        var required = [p.pronaf, p.cooperativa, p.municipio];
+        if ($scope.isPesca) required.push(p.rgp); else required.push(p.caf);
+        $scope.passaporteIncomplete = required.some(function(v) { return !v; });
+    }
+
+    $scope.openPassaporteModal = function() {
+        $scope.passaporteModal = true;
+        $scope.passaporteModalSlide = 1;
+    };
+
+    $scope.openPassaporteEdit = function() {
+        $scope.passaporteModal = true;
+        $scope.passaporteModalSlide = 2;
+    };
+
+    $scope.closePassaporteModal = function() {
+        $scope.passaporteModal = false;
+    };
+
+    $scope.passaporteModalNext = function() {
+        $scope.passaporteModalSlide = 2;
+    };
+
+    $scope.passaporteModalBack = function() {
+        $scope.passaporteModalSlide = 1;
+    };
+
+    $scope.togglePassaporteFlip = function() {
+        $scope.passaporteFlipped = !$scope.passaporteFlipped;
+    };
 
     $scope.onPassaporteChange = function() {
-        _checkPassaporteComplete();
-        // Limpa nome da cooperativa se mudou para Não
         if ($scope.passaporte.cooperativa !== 'sim') {
             $scope.passaporte.cooperativa_nome = '';
         }
     };
 
-    $scope.savePassaporte = function() {
+    $scope.getLocation = function() {
+        if (!navigator.geolocation || $scope.gettingLocation) return;
+        $scope.gettingLocation = true;
+        navigator.geolocation.getCurrentPosition(function(pos) {
+            $scope.$apply(function() {
+                $scope.passaporte.lat = pos.coords.latitude.toFixed(5);
+                $scope.passaporte.lng = pos.coords.longitude.toFixed(5);
+                $scope.gettingLocation = false;
+            });
+        }, function() {
+            $scope.$apply(function() { $scope.gettingLocation = false; });
+        });
+    };
+
+    $scope.emitirPassaporte = function() {
         if ($scope.savingPassaporte) return;
         $scope.savingPassaporte = true;
-        $scope.passaporteSaved = false;
-
         var p = $scope.passaporte;
         var extraUpdate = angular.extend({}, freshPlayer.extra || {}, {
             passaporte_caf:              p.caf,
@@ -109,20 +195,24 @@ angular.module('rotaViva')
             passaporte_cooperativa_nome: p.cooperativa_nome,
             passaporte_municipio:        p.municipio
         });
-        // Envia o player completo — POST /v3/player faz replace total
+        if (!extraUpdate.passaporte_emitido_em) {
+            extraUpdate.passaporte_emitido_em = new Date().toISOString();
+        }
+        if (p.lat) extraUpdate.passaporte_lat = p.lat;
+        if (p.lng) extraUpdate.passaporte_lng = p.lng;
         var playerUpdate = angular.extend({}, freshPlayer, { extra: extraUpdate });
-
         ApiService.updatePlayer(playerId, playerUpdate)
             .then(function() {
                 freshPlayer = playerUpdate;
-                localStorage.setItem('rv_player', JSON.stringify(playerUpdate));
-                _checkPassaporteComplete();
-                $scope.passaporteSaved = true;
-                // Recompensa se acabou de completar
-                if ($scope.passaporteComplete) {
-                    ApiService.logAction('passaporte_completo', playerId, { route: routeId });
-                }
-                $timeout(function() { $scope.passaporteSaved = false; }, 3000);
+                localStorage.setItem('rv_player', JSON.stringify(freshPlayer));
+                $scope.passaporteEmitido = true;
+                $scope.passaporteEmitidoEm = new Date(extraUpdate.passaporte_emitido_em).toLocaleDateString('pt-BR');
+                $scope.passaporte.phone = freshPlayer.phone || p.phone || '';
+                $scope.passaporte.email = freshPlayer.email || p.email || '';
+                $scope.passaporteModal = false;
+                _checkPassaporteIncomplete();
+                ApiService.logAction('complete_passport', playerId, { route: routeId });
+                $timeout(function() { _renderPassaporteQr(); });
             })
             .catch(function() {})
             .finally(function() { $scope.savingPassaporte = false; });
@@ -199,6 +289,12 @@ angular.module('rotaViva')
             $scope.playerPoints = Math.floor(status.total_points || 0);
             var lp = status.level_progress || {};
             $scope.playerLevel = (lp.level || {}).position || 1;
+            var wallets = status.wallets || status.virtual_currencies || [];
+            wallets.forEach(function(w) {
+                if (w.virtualCurrency === 'cristais' || (w.name && w.name.toLowerCase().indexOf('cristal') >= 0)) {
+                    $scope.playerCoins = Math.floor(w.balance || 0);
+                }
+            });
 
             // Aguarda catálogo de challenges para cruzar com earned + in-progress
             challengesPromise.then(function(allChallenges) {
