@@ -187,27 +187,46 @@ angular.module('rotaViva')
         var globalLessonIdx = 0;
         var charIdx = 0;
 
+        // Load stored cartoon scores from localStorage
+        var cartoonScores = {};
+        try { cartoonScores = JSON.parse(localStorage.getItem('rv_cartoon_scores') || '{}'); } catch(e) {}
+
         modules.forEach(function(mod, modIdx) {
             mod.moduleIndex = modIdx;
             flat.push(mod);
             var lessons = items.filter(function(i) { return i._type === 'lesson' && i.moduleId === mod._id; })
                 .sort(function(a, b) { return (a.position || 0) - (b.position || 0); });
 
+            var displayIdx = 0; // S-curve index — counts only non-cartoon lessons
+
             lessons.forEach(function(l, idx) {
-                l.lessonIndex = idx;
                 l.globalIndex = globalLessonIdx;
                 l.icon = getLessonIcon(l);
                 globalLessonIdx++;
 
-                if (l.globalIndex % 4 === 2) {
-                    var prevItem = flat.length > 0 ? flat[flat.length - 1] : null;
-                    if (!prevItem || prevItem._type !== 'module') {
-                        var charName = charList[charIdx % charList.length];
-                        l._charImg = charBasePath + charName + '.png';
-                        l._charName = charName;
-                        charIdx++;
+                // Cartoon checkpoint: attach to preceding lesson's float area (not a standalone bubble)
+                if (l.contentType === 'cartoon') {
+                    var charName = charList[charIdx % charList.length];
+                    l._charImg = charBasePath + charName + '.png';
+                    l._charName = charName;
+                    var savedCartoonScore = cartoonScores[l._id];
+                    l.cartoonStars = savedCartoonScore !== undefined ? savedCartoonScore : 0;
+                    charIdx++;
+                    // Find the last lesson already in flat and attach cartoon to it
+                    var prevLesson = null;
+                    for (var fi = flat.length - 1; fi >= 0; fi--) {
+                        if (flat[fi]._type === 'lesson') { prevLesson = flat[fi]; break; }
                     }
+                    if (prevLesson) prevLesson._cartoon = l;
+                    // Do NOT push to flat — cartoon renders inside the preceding lesson's float
+                    return;
                 }
+
+                // Use displayIdx (excludes cartoons) so the S-curve stays continuous
+                l.lessonIndex = displayIdx;
+                displayIdx++;
+
+                // (Decorative static character float removed — only cartoon checkpoints show characters)
 
                 flat.push(l);
             });
@@ -293,7 +312,8 @@ angular.module('rotaViva')
         'diy':     'fa-camera',
         'essay':   'fa-comment',
         'chest':   'fa-gem',
-        'listen':  'fa-headphones'
+        'listen':  'fa-headphones',
+        'cartoon': 'fa-star'
     };
 
     function getLessonIcon(lesson) {
@@ -303,6 +323,20 @@ angular.module('rotaViva')
         if (lesson.percent >= 100) return 'fa-check';
         return 'fa-star';
     }
+
+    // Style for the cartoon checkpoint float (always visible, high z-index)
+    $scope.getCartoonFloatStyle = function(item) {
+        var xOffset = Math.sin(item.lessonIndex * 0.8) * 70;
+        var style = { position: 'absolute', top: '-80px', 'z-index': 20, cursor: 'pointer' };
+        if (xOffset >= 0) {
+            style.right = 'auto';
+            style.left = '-230px';
+        } else {
+            style.left = 'auto';
+            style.right = '-230px';
+        }
+        return style;
+    };
 
     $scope.getCharacterStyle = function(item) {
         if (!item._charImg) return { display: 'none' };
@@ -320,6 +354,10 @@ angular.module('rotaViva')
 
     $scope.isChest = function(item) {
         return item._type === 'lesson' && item.contentType === 'chest';
+    };
+
+    $scope.isCartoon = function(item) {
+        return item._type === 'lesson' && item.contentType === 'cartoon';
     };
 
     $scope.getBubbleStyle = function(item) {
@@ -349,7 +387,12 @@ angular.module('rotaViva')
     };
 
     function lessonCtx(item) {
-        return { lesson: item._id, module: item.moduleId || '', lessonTitle: item.title || '' };
+        return {
+            lesson: item._id,
+            module: item.moduleId || '',
+            lessonTitle: item.title || '',
+            contentType: item.contentType || ''
+        };
     }
 
     $scope.startLesson = function(item) {
@@ -372,6 +415,10 @@ angular.module('rotaViva')
             return;
         }
         if (item.contentType === 'chest' && item.contentId) {
+            $location.path('/quiz/' + item.contentId).search(lessonCtx(item));
+            return;
+        }
+        if (item.contentType === 'cartoon' && item.contentId) {
             $location.path('/quiz/' + item.contentId).search(lessonCtx(item));
             return;
         }

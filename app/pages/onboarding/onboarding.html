@@ -16,7 +16,7 @@
         <div class="onboarding-slide" ng-if="slide === 0" ng-class="{'onboarding-slide-enter': slideEnter}">
             <img ng-src="{{chars.welcome}}" class="onboarding-char onboarding-char-welcome" alt="">
             <div class="onboarding-text">
-                <h1>Bem-vindo, {{playerName}}!</h1>
+                <h1>Olá, {{playerName}}!</h1>
                 <p>Sua jornada na <strong>{{routeTitle}}</strong> começa agora.<br>Deixa eu te mostrar como funciona.</p>
             </div>
             <button class="onboarding-btn-next" ng-click="next()"
@@ -27,7 +27,7 @@
 
         <!-- TELA 2 — A Trilha -->
         <div class="onboarding-slide" ng-if="slide === 1" ng-class="{'onboarding-slide-enter': slideEnter}">
-            <img ng-src="{{chars.trail}}" class="onboarding-char" alt="">
+            <img ng-src="{{chars.screenTrail}}" class="onboarding-char onboarding-screen-trail" alt="">
             <div class="onboarding-text">
                 <h1>Cada bolinha é uma lição</h1>
                 <p>Vídeos, perguntas, fotos de campo — tudo no seu ritmo, pelo celular.</p>

@@ -741,3 +741,39 @@ Eu acho que podemos ter apenas:
 Os challenges vao ser configurados assim: ex: complete_lesson type cartoon, score 3, ganha 3 cristais * score. entendeu? 
 
 O que voce acha? Faz estes ajustes e registra este plano de correcoes de bugs e de implementacao da gamificacao no documento "/jarvis/rota-viva/doc/bmad-review-2026-04-11.md"
+
+---
+
+
+
+## GERAL
+- Colocar a logo do midr para ser o favicon do app.
+
+## PROFILE
+- Na pagina "/profile" o item profile-section-title esta muito colado no profile-stats. Precisa incluir um espaco entre eles. 
+- Como nos estamos criando os desafios (challenges) eu acho que o usuario precisa saber o que ele precisa fazer para ganhar pontos. Isso pode estar na sessao profile-section. Atualmente so esta mostrando as imagens dos desafios concluidos, mas eu acho que podemos mudar isso para mostrar a imagem de todos os desafios. Os desafios que o usuario ainda nao completou podem ser mostrados com a cor cinza, e os que ele ja completou ficam com a cor original. E se o usuario clicar no icone do desafio ele pode ver mais detalhes sobre o desafio (como por exemplo a image, titulo, descricao). O que acha? 
+
+## B4 — Cartoon/Checkpoint interativo na trilha
+Precisa corrigir o item `### 2.5 Personagem/Checkpoint na Trilha` da documentacao "/jarvis/rota-viva/doc/bmad-review-2026-04-11.md" pois alguns pontos estao incorretos, segue abaixo o que precisa ser discutido e corrigido antes de implementar:
+
+- Eu nao gostei da sua proposta de calculo das 3 estrelas, ele esta levando em consideracao as licoes anteriores, mas o certo e' levar em consideracao o desempenho do usuario no Cartoon/Chekpoint igual acontece no duolingo. No duolingo este checkpoint tem um tempo de execucao, por exemplo 1 minuto, e se o usuario fizer em menos de 1 minuto ele ganha 3 estrelas, se fizer em mais de 1 minuto ele ganha 2 estrelas, se fizer em mais de 2 minutos ele ganha 1 estrela. Ou pode ser com base no resultado do quiz. Eu quero discutir esse calculo com voce, antes de iniciar a implementacao, e registrar nossa conclusao no documento de planejamento "/jarvis/rota-viva/doc/bmad-review-2026-04-11.md"
+
+- O que muda no Studio (admin): Criar folder content type "cartoon" igual foi feito para o content type "chest" dentro de "/funifier/funifier-studio/app/scripts/controllers/studio/folder/type/content.js", e depois configurar o conteúdo (cartoon) dentro do folder lesson igual foi feito com o (chest). Use os tokens abaixo para cadastrar o "folder_content_type" -> "folder" (com type lesson, dentro dos modules) -> "folder_content" -> "quiz" -> "question" (tudo igual a estrutura do chest). Entendeu?
+
+## TOKENS
+Para cadastrar conteudos nas gamificacoes das duas rotas voce pode usar os tokens abaixo:
+
+- ROTA DO MEL = 'Basic NjljNThkMjRlNjY1MGUyNmRhZDIxNTM3OjY5YzU5MWEyZTY2NTBlMjZkYWQyMmNmNw==';
+
+- ROTA DA PESCA = 'Basic NjljNThkNGRlNjY1MGUyNmRhZDIxNWIyOjY5YzU5MWVkZTY2NTBlMjZkYWQyMmRkMQ==';
+
+
+## Recuperação de senha sem email
+- Voce nao colocou no documento de planejamento "/jarvis/rota-viva/doc/bmad-review-2026-04-11.md" o que discutimos em relacao ao usuario conseguir acessar o app se ele tiver esquecido a senha. Nos discutimos que como o publico alvo pode esquecer a senha com frequencia e eles tem apenas o numero de celular, seria interessante pensar em um fluxo onde o usuario pode se logar com a senha, ou com o numero de celular e um codigo de verificacao enviado para o celular (por sms ou whatsapp). Isso ja e' feito em outros apps. Entao preciso entender como voce pretende fazer isso. Alem disso existe uma documentacao sobre recuperacao e alteracao de senha em "/doc/knowledge/modules/patterns.md" que pode ser util que explica como implementa a recuperacao e alteracao de senha, na area publica e privada. Talvez tenha que adaptar alguma coisa, pois um dos fluxos usa email no processo, mas pode ser que o usuario tenha apenas telefone celular. Entao preciso entender como voce pretende fazer isso. Voce pode ler o endpoint de alteracao de senha em "/funifier/funifier-service/src/main/java/com/funifier/rest/v3/rest/PlayerRest.java". Preciso que este plano de como fazer esse login pelo numero de celular seja incluido no documento de planejamento bem como a forma que sera implementada a recuperacao/alteracao de senha, antes de implementar isso. 
+
+## Fase C — Loja de Dicas (futura)
+Para a loja de dicas eu encontrei este video que achei interessante, para colocar como uma primeira dica que o usuario pode resgatar com as coins (https://www.instagram.com/reels/DWK7V3PkzB3); A loja e' cadastrada usando o endpoint "/funifier/funifier-service/src/main/java/com/funifier/rest/v3/rest/VirtualGoodsRest.java". Precisa primeiro criar um catalog, que pode ter o id "rewards" e dentro do catalogo voce pode adicionar os itens da loja. Eu tambem quero isso planejado no documento de planejamento.
+
+---
+
+Pode ajustar a documentacao e remover o que nao for mais relevante ou ja tiver sido implementado por favor.

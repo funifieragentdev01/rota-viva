@@ -19,7 +19,9 @@ angular.module('rotaViva')
     }
 
     // ── Dados de tema/personagens por rota ──
-    var routeId = (route._id || player.profile || '').toLowerCase();
+    // rv_route_id é salvo no login (before clearPreTheme) com os valores 'mel' ou 'pesca'
+    // Fallback: player.profile pode ser 'apicultor' ou 'pescador'
+    var routeId = localStorage.getItem('rv_route_id') || (player.profile || '').toLowerCase();
     if (routeId === 'apicultor') routeId = 'mel';
     if (routeId === 'pescador')  routeId = 'pesca';
 
@@ -29,11 +31,11 @@ angular.module('rotaViva')
             textOnPrimary: '#FFFFFF',
             routeTitle:    'Rota do Mel',
             chars: {
-                welcome: 'img/characters/mel/front/abelha.png',
-                trail:   'img/characters/mel/trail/2.png',
-                gallery: 'img/characters/mel/trail/27.png',
-                phone:   'img/characters/mel/trail/18.png',
-                reward:  'img/characters/mel/trail/17.png'
+                welcome:     'img/characters/mel/front/abelha.png',
+                screenTrail: 'img/characters/mel/screen/trail.png',
+                gallery:     'img/characters/mel/trail/27.png',
+                phone:       'img/characters/mel/trail/18.png',
+                reward:      'img/characters/mel/trail/17.png'
             }
         },
         pesca: {
@@ -41,11 +43,11 @@ angular.module('rotaViva')
             textOnPrimary: '#FFFFFF',
             routeTitle:    'Rota da Pesca',
             chars: {
-                welcome: 'img/characters/pesca/front/peixe.png',
-                trail:   'img/characters/pesca/trail/2.png',
-                gallery: 'img/characters/pesca/trail/33.png',
-                phone:   'img/characters/pesca/trail/25.png',
-                reward:  'img/characters/pesca/trail/24.png'
+                welcome:     'img/characters/pesca/front/peixe.png',
+                screenTrail: 'img/characters/pesca/screen/trail.png',
+                gallery:     'img/characters/pesca/trail/33.png',
+                phone:       'img/characters/pesca/trail/25.png',
+                reward:      'img/characters/pesca/trail/24.png'
             }
         }
     };

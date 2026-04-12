@@ -93,8 +93,8 @@
                         <div class="passport-id-municipio" ng-if="passaporte.municipio">{{passaporte.municipio}}</div>
                         <div class="passport-id-fields">
                             <span ng-if="!isPesca && passaporte.caf">CAF: {{fmtPassaporteOpt(passaporte.caf)}}</span>
-                            <span ng-if="isPesca && passaporte.rgp">RGP: {{fmtPassaporteOpt(passaporte.rgp)}}</span>
-                            <span ng-if="passaporte.pronaf">PRONAF: {{fmtPassaporteOpt(passaporte.pronaf)}}</span>
+                            <span ng-if="isPesca && passaporte.rgp !== '' && passaporte.rgp !== undefined">RGP: {{fmtPassaporteOpt(passaporte.rgp)}}</span>
+                            <span ng-if="passaporte.pronaf !== '' && passaporte.pronaf !== undefined">PRONAF: {{fmtPassaporteOpt(passaporte.pronaf)}}</span>
                         </div>
                         <div class="passport-id-date">Emitido em {{passaporteEmitidoEm}}</div>
                     </div>
@@ -109,9 +109,9 @@
                         <div id="passport-qr"></div>
                     </div>
                     <div class="passport-id-back-info">
-                        <div ng-if="passaporte.cooperativa">
+                        <div ng-if="passaporte.cooperativa !== '' && passaporte.cooperativa !== undefined">
                             <strong>Cooperativa:</strong>
-                            {{passaporte.cooperativa === 'sim' ? (passaporte.cooperativa_nome || 'Sim') : 'Não'}}
+                            {{passaporte.cooperativa === true ? (passaporte.cooperativa_nome || 'Sim') : 'Não'}}
                         </div>
                         <div ng-if="passaporte.phone"><strong>WhatsApp:</strong> {{passaporte.phone}}</div>
                         <div ng-if="passaporte.email"><strong>Email:</strong> {{passaporte.email}}</div>
@@ -208,7 +208,7 @@
                 <div class="passport-field" ng-if="isPesca">
                     <label class="passport-label">Você tem RGP (Registro Geral da Pesca)?</label>
                     <div class="passport-radio-group">
-                        <label class="passport-radio" ng-repeat="opt in [{v:'sim',l:'Sim'},{v:'nao',l:'Não'},{v:'nao_sei',l:'Não sei'}]">
+                        <label class="passport-radio" ng-repeat="opt in [{v:true,l:'Sim'},{v:false,l:'Não'},{v:null,l:'Não sei'}]">
                             <input type="radio" ng-model="passaporte.rgp" ng-value="opt.v">
                             <span class="passport-radio-label"
                                   ng-class="{'passport-radio-label-active': passaporte.rgp === opt.v}"
@@ -223,7 +223,7 @@
                 <div class="passport-field">
                     <label class="passport-label">Já acessou alguma linha do PRONAF?</label>
                     <div class="passport-radio-group">
-                        <label class="passport-radio" ng-repeat="opt in [{v:'sim',l:'Sim'},{v:'nao',l:'Não'},{v:'nao_sei',l:'Não sei'}]">
+                        <label class="passport-radio" ng-repeat="opt in [{v:true,l:'Sim'},{v:false,l:'Não'},{v:null,l:'Não sei'}]">
                             <input type="radio" ng-model="passaporte.pronaf" ng-value="opt.v">
                             <span class="passport-radio-label"
                                   ng-class="{'passport-radio-label-active': passaporte.pronaf === opt.v}"
@@ -238,7 +238,7 @@
                 <div class="passport-field">
                     <label class="passport-label">Faz parte de cooperativa ou associação?</label>
                     <div class="passport-radio-group">
-                        <label class="passport-radio" ng-repeat="opt in [{v:'sim',l:'Sim'},{v:'nao',l:'Não'}]">
+                        <label class="passport-radio" ng-repeat="opt in [{v:true,l:'Sim'},{v:false,l:'Não'}]">
                             <input type="radio" ng-model="passaporte.cooperativa" ng-value="opt.v" ng-change="onPassaporteChange()">
                             <span class="passport-radio-label"
                                   ng-class="{'passport-radio-label-active': passaporte.cooperativa === opt.v}"
@@ -247,7 +247,7 @@
                             </span>
                         </label>
                     </div>
-                    <input ng-if="passaporte.cooperativa === 'sim'" type="text"
+                    <input ng-if="passaporte.cooperativa === true" type="text"
                            class="passport-input" style="margin-top: 8px;"
                            ng-model="passaporte.cooperativa_nome"
                            placeholder="Nome da cooperativa ou associação"
@@ -317,28 +317,52 @@
     <div class="profile-section" ng-if="achievementsLoaded">
         <div class="profile-section-title">
             Conquistas
-            <span class="profile-section-count" ng-if="achievements.length > 0">({{achievements.length}})</span>
+            <span class="profile-section-count" ng-if="achievements.length > 0">
+                ({{(achievements | filter:{earned:true}).length}}/{{achievements.length}})
+            </span>
         </div>
-        <div class="profile-badges" ng-if="achievements.length > 0">
+        <div class="profile-badges">
             <div class="profile-badge" ng-repeat="badge in achievements"
-                 ng-class="{'profile-badge-locked': !badge.earned}">
+                 ng-class="{'profile-badge-locked': !badge.earned}"
+                 ng-click="openChallengeDetail(badge)">
                 <div class="profile-badge-icon">
-                    <img ng-if="badge.image && badge.earned" ng-src="{{badge.image}}" alt="{{badge.name}}" />
-                    <i ng-if="!badge.image && badge.earned" class="fas fa-award"></i>
-                    <i ng-if="!badge.earned" class="fas fa-lock"></i>
-                    <!-- Contador de vezes ganhou -->
+                    <img ng-if="badge.image" ng-src="{{badge.image}}" alt="{{badge.name}}" />
+                    <i ng-if="!badge.image" class="fas fa-award"></i>
                     <span class="profile-badge-count" ng-if="badge.earned && badge.count > 1">×{{badge.count}}</span>
                 </div>
-                <!-- Barra de progresso para em andamento -->
                 <div class="profile-badge-progress" ng-if="!badge.earned && badge.percent > 0">
                     <div class="profile-badge-progress-fill" ng-style="{'width': badge.percent + '%'}"></div>
                 </div>
                 <div class="profile-badge-name">{{badge.name | limitTo:14}}</div>
             </div>
         </div>
-        <div class="profile-badges-empty" ng-if="achievements.length === 0">
-            <i class="fas fa-award"></i>
-            <p>Complete lições para ganhar conquistas!</p>
+    </div>
+
+    <!-- Modal: Detalhe do desafio -->
+    <div class="challenge-detail-overlay" ng-if="selectedChallenge" ng-click="closeChallengeDetail()">
+        <div class="challenge-detail-modal" ng-click="$event.stopPropagation()">
+            <div ng-if="selectedChallenge.image">
+                <img class="challenge-detail-img"
+                     ng-class="{'profile-badge-locked': !selectedChallenge.earned}"
+                     ng-src="{{selectedChallenge.image}}" alt="{{selectedChallenge.name}}">
+            </div>
+            <div ng-if="!selectedChallenge.image"
+                 class="challenge-detail-img-placeholder"
+                 ng-class="{'locked': !selectedChallenge.earned}">
+                <i class="fas fa-award"></i>
+            </div>
+            <div class="challenge-detail-title">{{selectedChallenge.name}}</div>
+            <div class="challenge-detail-desc" ng-if="selectedChallenge.description">{{selectedChallenge.description}}</div>
+            <div class="challenge-detail-status earned" ng-if="selectedChallenge.earned">
+                <i class="fas fa-check-circle"></i> Conquistado!
+            </div>
+            <div class="challenge-detail-status locked" ng-if="!selectedChallenge.earned && selectedChallenge.percent > 0">
+                <i class="fas fa-clock"></i> Em andamento — {{selectedChallenge.percent | number:0}}%
+            </div>
+            <div class="challenge-detail-status locked" ng-if="!selectedChallenge.earned && !selectedChallenge.percent">
+                <i class="fas fa-lock"></i> Ainda não conquistado
+            </div>
+            <button class="challenge-detail-close" ng-click="closeChallengeDetail()">Fechar</button>
         </div>
     </div>
 

@@ -45,7 +45,7 @@ angular.module('rotaViva')
     };
 
     service.logout = function() {
-        var keys = ['rv_token', 'rv_token_expires_at', 'rv_api_key', 'rv_route', 'rv_player'];
+        var keys = ['rv_token', 'rv_token_expires_at', 'rv_api_key', 'rv_route', 'rv_player', 'rv_route_id'];
         keys.forEach(function(k) { localStorage.removeItem(k); });
         ThemeService.reset();
         $location.path('/login');

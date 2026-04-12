@@ -375,33 +375,59 @@
     <!-- Finished -->
     <div class="quiz-finish" ng-if="finished">
 
-        <!-- Celebração (score alto) -->
-        <div class="quiz-finish-celebration" ng-if="scorePercent >= 70">
-            <div class="quiz-finish-emoji quiz-finish-emoji-win">🎉</div>
-            <h2 class="quiz-finish-title-win">Lição concluída!</h2>
-            <div class="quiz-finish-xp">
-                <i class="fas fa-star"></i> +{{score * 10}} favos
+        <!-- Cartoon Checkpoint: Stars overlay -->
+        <div class="quiz-cartoon-finish" ng-if="showCartoonFinish">
+            <div class="quiz-cartoon-char">
+                <img ng-src="{{charImg}}" class="quiz-cartoon-char-img" alt="">
             </div>
-        </div>
-
-        <!-- Resultado neutro (score baixo) -->
-        <div class="quiz-finish-neutral" ng-if="scorePercent < 70">
-            <div class="quiz-finish-emoji">📚</div>
-            <h2>Continue praticando!</h2>
-        </div>
-
-        <p class="quiz-finish-score">{{score}} de {{questions.length}} corretas</p>
-
-        <div class="quiz-finish-bar">
-            <div class="quiz-finish-fill"
-                 ng-style="{'width': scorePercent + '%',
-                            'background': scorePercent >= 70 ? 'var(--color-primary)' : 'var(--color-warning)'}">
+            <div class="quiz-cartoon-stars-row">
+                <i class="fas fa-star quiz-cartoon-star"
+                   ng-class="cartoonStars >= 1 ? 'quiz-star-on' : 'quiz-star-off'"
+                   style="animation-delay: 0.1s"></i>
+                <i class="fas fa-star quiz-cartoon-star quiz-cartoon-star-mid"
+                   ng-class="cartoonStars >= 2 ? 'quiz-star-on' : 'quiz-star-off'"
+                   style="animation-delay: 0.25s"></i>
+                <i class="fas fa-star quiz-cartoon-star"
+                   ng-class="cartoonStars >= 3 ? 'quiz-star-on' : 'quiz-star-off'"
+                   style="animation-delay: 0.4s"></i>
             </div>
+            <h2 class="quiz-cartoon-title">Checkpoint!</h2>
+            <div class="quiz-cartoon-reward">
+                <i class="fas fa-coins"></i> +{{cartoonStars * 3}} moedas
+            </div>
+            <p class="quiz-finish-score">{{score}} de {{questions.length}} corretas</p>
         </div>
 
-        <p class="quiz-finish-msg" ng-if="scorePercent < 70">
-            Você precisa de 70% para passar. Tente novamente!
-        </p>
+        <!-- Lição normal: Celebração (score alto) -->
+        <div ng-if="!showCartoonFinish">
+            <div class="quiz-finish-celebration" ng-if="scorePercent >= 70">
+                <div class="quiz-finish-emoji quiz-finish-emoji-win">🎉</div>
+                <h2 class="quiz-finish-title-win">Lição concluída!</h2>
+                <div class="quiz-finish-xp">
+                    <i class="fas fa-star"></i> +{{score * 10}} XP
+                </div>
+            </div>
+
+            <!-- Resultado neutro (score baixo) -->
+            <div class="quiz-finish-neutral" ng-if="scorePercent < 70">
+                <div class="quiz-finish-emoji">📚</div>
+                <h2>Continue praticando!</h2>
+            </div>
+
+            <p class="quiz-finish-score">{{score}} de {{questions.length}} corretas</p>
+        </div>
+
+        <div ng-if="!showCartoonFinish">
+            <div class="quiz-finish-bar">
+                <div class="quiz-finish-fill"
+                     ng-style="{'width': scorePercent + '%',
+                                'background': scorePercent >= 70 ? 'var(--color-primary)' : 'var(--color-warning)'}">
+                </div>
+            </div>
+            <p class="quiz-finish-msg" ng-if="scorePercent < 70">
+                Você precisa de 70% para passar. Tente novamente!
+            </p>
+        </div>
 
         <!-- Prova de Campo: shown on finish when quiz had a Diário -->
         <div class="prova-campo-finish" ng-if="hadDiario && provasDeCampo.length > 0">

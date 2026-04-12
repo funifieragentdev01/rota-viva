@@ -321,7 +321,7 @@ angular.module('rotaViva')
 
     // Retorna todos os challenges com nome e URL do badge
     api.getChallenges = function() {
-        return $http.get(baseUrl + '/v3/challenge?fields=challenge,badge', trailHeaders()).then(function(res) {
+        return $http.get(baseUrl + '/v3/challenge?fields=challenge,badge,description', trailHeaders()).then(function(res) {
             return Array.isArray(res.data) ? res.data : [];
         });
     };

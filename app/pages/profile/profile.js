@@ -21,6 +21,7 @@ angular.module('rotaViva')
     $scope.showModal = null;
     $scope.achievements = [];
     $scope.achievementsLoaded = false;
+    $scope.selectedChallenge = null;
     $scope.legalTexts = { terms: null, privacy: null };
 
     // freshPlayer guarda o objeto completo mais recente do servidor (necessário para updatePlayer correto)
@@ -82,10 +83,21 @@ angular.module('rotaViva')
     }
     $scope.passaporteCpf = _maskCpf(playerId);
 
+    // Converte valor salvo (boolean/null ou string legada) para o valor do radio button
+    function _boolLoad(v) {
+        if (v === true  || v === 'sim')     return true;
+        if (v === false || v === 'nao')     return false;
+        if (v === null  || v === 'nao_sei') return null;
+        return '';
+    }
+
+    // Verifica se um campo booleano foi respondido (qualquer opção selecionada)
+    function _isSet(v) { return v !== '' && v !== undefined; }
+
     function _fmtPassaporteOpt(val) {
-        if (val === 'sim') return 'Sim';
-        if (val === 'nao') return 'Não';
-        if (val === 'nao_sei') return 'Não sei';
+        if (val === true  || val === 'sim')     return 'Sim';
+        if (val === false || val === 'nao')     return 'Não';
+        if (val === null  || val === 'nao_sei') return 'Não sei';
         return val || '—';
     }
     $scope.fmtPassaporteOpt = _fmtPassaporteOpt;
@@ -93,9 +105,9 @@ angular.module('rotaViva')
     function _loadPassaporte(extra, freshP) {
         $scope.passaporte = {
             caf:              extra.passaporte_caf              || '',
-            rgp:              extra.passaporte_rgp              || '',
-            pronaf:           extra.passaporte_pronaf           || '',
-            cooperativa:      extra.passaporte_cooperativa      || '',
+            rgp:              _boolLoad(extra.passaporte_rgp),
+            pronaf:           _boolLoad(extra.passaporte_pronaf),
+            cooperativa:      _boolLoad(extra.passaporte_cooperativa),
             cooperativa_nome: extra.passaporte_cooperativa_nome || '',
             municipio:        extra.passaporte_municipio        || '',
             phone: (freshP && freshP.phone) || player.phone || '',
@@ -134,7 +146,8 @@ angular.module('rotaViva')
         var p = $scope.passaporte;
         var required = [p.pronaf, p.cooperativa, p.municipio];
         if ($scope.isPesca) required.push(p.rgp); else required.push(p.caf);
-        $scope.passaporteIncomplete = required.some(function(v) { return !v; });
+        // _isSet trata booleans corretamente: false === "Não" (preenchido), '' === não respondido
+        $scope.passaporteIncomplete = required.some(function(v) { return !_isSet(v); });
     }
 
     $scope.openPassaporteModal = function() {
@@ -164,7 +177,7 @@ angular.module('rotaViva')
     };
 
     $scope.onPassaporteChange = function() {
-        if ($scope.passaporte.cooperativa !== 'sim') {
+        if ($scope.passaporte.cooperativa !== true) {
             $scope.passaporte.cooperativa_nome = '';
         }
     };
@@ -189,9 +202,9 @@ angular.module('rotaViva')
         var p = $scope.passaporte;
         var extraUpdate = angular.extend({}, freshPlayer.extra || {}, {
             passaporte_caf:              p.caf,
-            passaporte_rgp:              p.rgp,
-            passaporte_pronaf:           p.pronaf,
-            passaporte_cooperativa:      p.cooperativa,
+            passaporte_rgp:              _boolLoad(p.rgp),        // garante boolean/null mesmo se vier string
+            passaporte_pronaf:           _boolLoad(p.pronaf),
+            passaporte_cooperativa:      _boolLoad(p.cooperativa),
             passaporte_cooperativa_nome: p.cooperativa_nome,
             passaporte_municipio:        p.municipio
         });
@@ -309,34 +322,54 @@ angular.module('rotaViva')
                 Object.keys(earned).forEach(function(id) {
                     var def = catalog[id] || {};
                     list.push({
-                        _id:    id,
-                        name:   def.challenge || def.title || id,
-                        image:  def.badgeUrl || null,
-                        earned: true,
-                        count:  earned[id]
+                        _id:         id,
+                        name:        def.challenge || def.title || id,
+                        description: def.description || '',
+                        image:       def.badgeUrl || null,
+                        earned:      true,
+                        count:       earned[id]
                     });
                 });
 
                 // 2. Challenges EM ANDAMENTO: player.challenge_progress (array)
                 var inProgress = status.challenge_progress || [];
+                var inProgressIds = {};
                 inProgress.forEach(function(p) {
-                    // Só mostra se não está já na lista de ganhos
                     var alreadyEarned = !!earned[p._id || p.challenge];
                     if (!alreadyEarned) {
-                        var def = catalog[p._id || p.challenge] || {};
+                        var id = p._id || p.challenge;
+                        inProgressIds[id] = true;
+                        var def = catalog[id] || {};
                         list.push({
-                            _id:     p._id || p.challenge,
-                            name:    p.name || def.challenge || 'Conquista',
-                            image:   p.image || def.badgeUrl || null,
-                            earned:  false,
-                            percent: p.percent_completed || 0
+                            _id:         id,
+                            name:        p.name || def.challenge || 'Conquista',
+                            description: def.description || '',
+                            image:       p.image || def.badgeUrl || null,
+                            earned:      false,
+                            percent:     p.percent_completed || 0
                         });
                     }
                 });
 
-                // Ganhos primeiro, depois em progresso
+                // 3. Challenges NÃO INICIADOS: restante do catálogo
+                allChallenges.forEach(function(c) {
+                    if (!earned[c._id] && !inProgressIds[c._id]) {
+                        list.push({
+                            _id:         c._id,
+                            name:        c.challenge || c.title || c._id,
+                            description: c.description || '',
+                            image:       c.badgeUrl || null,
+                            earned:      false,
+                            percent:     0
+                        });
+                    }
+                });
+
+                // Ganhos primeiro, depois em progresso, depois não iniciados
                 list.sort(function(a, b) {
-                    return (b.earned ? 1 : 0) - (a.earned ? 1 : 0);
+                    var aW = a.earned ? 2 : (a.percent > 0 ? 1 : 0);
+                    var bW = b.earned ? 2 : (b.percent > 0 ? 1 : 0);
+                    return bW - aW;
                 });
 
                 $scope.achievements = list;
@@ -368,9 +401,17 @@ angular.module('rotaViva')
     }
 
     // ─── Modal ─────────────────────────────────────────────────────────────────
-    // Função no controller evita o bug de child scope do ng-if
     $scope.closeModal = function() {
         $scope.showModal = null;
+    };
+
+    // ─── Challenge detail ──────────────────────────────────────────────────────
+    $scope.openChallengeDetail = function(badge) {
+        $scope.selectedChallenge = badge;
+    };
+
+    $scope.closeChallengeDetail = function() {
+        $scope.selectedChallenge = null;
     };
 
     // ─── Foto de perfil ────────────────────────────────────────────────────────

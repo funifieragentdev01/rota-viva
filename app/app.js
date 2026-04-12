@@ -125,6 +125,15 @@ angular.module('rotaViva', ['ngRoute', 'ngSanitize'])
             if (pre && pre.colors) ThemeService.apply({ colors: pre.colors }, false);
         }
 
+        // Reaplica o tema cacheado ao entrar no onboarding (preTheme já foi limpo neste ponto)
+        if (path === '/onboarding' && AuthService.isLoggedIn()) {
+            var onbSession = AuthService.getSession();
+            if (onbSession && onbSession.apiKey) {
+                var onbTheme = ThemeService.load(onbSession.apiKey);
+                if (onbTheme) ThemeService.apply(onbTheme, false);
+            }
+        }
+
         if (path === '/home' || path === '/mel' || path === '/pesca') ThemeService.reset();
     });
 

@@ -12,9 +12,13 @@ angular.module('rotaViva')
     var lessonId    = $location.search().lesson || null;
     var moduleId    = $location.search().module || null;
     var lessonTitle = decodeURIComponent($location.search().lessonTitle || '');
+    var contentType = $location.search().contentType || '';
+    var isCartoon   = contentType === 'cartoon';
     var routeId     = (session.route && session.route.profile === 'pescador') ? 'pesca' : 'mel';
     var charBasePath = 'img/characters/' + routeId + '/trail/';
     $scope.charImg = charBasePath + '1.png';
+    $scope.cartoonStars = 0;
+    $scope.showCartoonFinish = false;
 
     if (theme && theme.colors) ThemeService.apply(theme, false);
 
@@ -92,11 +96,14 @@ angular.module('rotaViva')
         // so the template can render inline blanks
         var text = dd.text || dd.sentence || '';
         var segments = [];
-        var re = /\[\[(\d+)\]\]/g;
+        var re = /\[(\d+)\]/g;
         var lastIdx = 0, m;
-        // Build a map from target id to index
+        // Build a map from target id to index — supports both [1] (1-based) and [[t1]] formats
         var targetIdxMap = {};
-        for (var ti = 0; ti < targets.length; ti++) targetIdxMap[targets[ti].id] = ti;
+        for (var ti = 0; ti < targets.length; ti++) {
+            targetIdxMap[String(ti + 1)] = ti;        // "[1]" → slot 0
+            targetIdxMap[targets[ti].id] = ti;         // "t1" → slot 0
+        }
         while ((m = re.exec(text)) !== null) {
             if (m.index > lastIdx) segments.push({ type: 'text', text: text.substring(lastIdx, m.index) });
             var slotIdx = targetIdxMap[m[1]];
@@ -704,6 +711,18 @@ angular.module('rotaViva')
             $scope.scorePercent = $scope.questions.length > 0
                 ? Math.round(($scope.score / $scope.questions.length) * 100) : 0;
 
+            // Cartoon checkpoint: calculate star score
+            if (isCartoon) {
+                $scope.cartoonStars = $scope.scorePercent >= 80 ? 3 : ($scope.scorePercent >= 50 ? 2 : 1);
+                $scope.showCartoonFinish = true;
+                // Save score to localStorage so trail can display correct stars
+                try {
+                    var savedScores = JSON.parse(localStorage.getItem('rv_cartoon_scores') || '{}');
+                    if (lessonId) savedScores[lessonId] = $scope.cartoonStars;
+                    localStorage.setItem('rv_cartoon_scores', JSON.stringify(savedScores));
+                } catch(e) {}
+            }
+
             $scope.finished = true;
 
             if ($scope.quizLogId) {
@@ -719,7 +738,12 @@ angular.module('rotaViva')
             }
 
             if (playerId) {
-                ApiService.logAction('complete_lesson', playerId, {
+                ApiService.logAction('complete_lesson', playerId, isCartoon ? {
+                    lesson_type: 'cartoon',
+                    type: 'cartoon',
+                    lesson_id: lessonId,
+                    score: $scope.cartoonStars
+                } : {
                     lesson_type: 'quiz',
                     lesson_id: quizId,
                     score: $scope.scorePercent
@@ -727,16 +751,20 @@ angular.module('rotaViva')
             }
 
             // Celebração
-            if ($scope.scorePercent >= 70) {
+            if ($scope.scorePercent >= 70 || isCartoon) {
                 triggerCelebration();
                 SoundService.play('levelup');
                 if (navigator.vibrate) navigator.vibrate([80, 50, 80, 50, 120]);
             }
 
-            // Toast de XP
-            var xp = Math.round($scope.score * 10);
-            if (xp > 0) {
-                $timeout(function() { showXpToast(xp); }, 300);
+            // Toast
+            if (isCartoon) {
+                $timeout(function() { showCoinsToast($scope.cartoonStars * 3); }, 500);
+            } else {
+                var xp = Math.round($scope.score * 10);
+                if (xp > 0) {
+                    $timeout(function() { showXpToast(xp); }, 300);
+                }
             }
         }
     };
@@ -766,10 +794,20 @@ angular.module('rotaViva')
         $timeout(function() { $scope.showConfetti = false; }, 3000);
     }
 
+    function showCoinsToast(coins) {
+        var el = document.createElement('div');
+        el.className = 'xp-toast xp-toast-coins';
+        el.innerHTML = '<i class="fas fa-coins"></i> +' + coins + ' moedas';
+        document.body.appendChild(el);
+        $timeout(function() {
+            if (el.parentNode) el.parentNode.removeChild(el);
+        }, 1900);
+    }
+
     function showXpToast(points) {
         var el = document.createElement('div');
         el.className = 'xp-toast';
-        el.textContent = '+' + points + ' favos';
+        el.textContent = '+' + points + ' XP';
         document.body.appendChild(el);
         $timeout(function() {
             if (el.parentNode) el.parentNode.removeChild(el);

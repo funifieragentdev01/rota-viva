@@ -65,6 +65,18 @@ angular.module('rotaViva')
                         if (cachedTheme) ThemeService.apply(cachedTheme, true);
                     }
 
+                    // Fonte 1: player.profile da resposta do login (independe de preTheme)
+                    // Cobre o caso de login direto via /login sem passar pela landing da rota
+                    var loginProfile = ((data.player && data.player.profile) || '').toLowerCase();
+                    if (loginProfile === 'apicultor') localStorage.setItem('rv_route_id', 'mel');
+                    else if (loginProfile === 'pescador') localStorage.setItem('rv_route_id', 'pesca');
+
+                    // Fonte 2: preTheme (set pela landing /mel ou /pesca antes do redirect para /login)
+                    // Sobrescreve se disponível — é a fonte mais explícita
+                    var preThemeNow = ThemeService.getPreTheme();
+                    if (preThemeNow && preThemeNow.routeId) {
+                        localStorage.setItem('rv_route_id', preThemeNow.routeId);
+                    }
                     ThemeService.clearPreTheme();
                     // Busca player completo (login não retorna extra) para checar onboarding
                     var playerId = (data.player || {})._id;
