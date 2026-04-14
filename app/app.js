@@ -1,4 +1,4 @@
-angular.module('rotaViva', ['ngRoute', 'ngSanitize'])
+angular.module('rotaViva', ['ngRoute', 'ngSanitize', 'duoTrail'])
 
 .filter('capitalize', function() {
     return function(input) {

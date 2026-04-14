@@ -15,6 +15,8 @@ angular.module('rotaViva')
     $scope.playerCoins = 0;
     $scope.playerStreak = 0;
     $scope.playerLevel = 1;
+    $scope.playerLevelName = null;
+    $scope.pointsToNextLevel = null;
     $scope.uploadingPhoto = false;
     $scope.editingName = false;
     $scope.editName = '';
@@ -56,9 +58,17 @@ angular.module('rotaViva')
 
     var route = session.route || {};
     var ROUTE_NAMES = { mel: 'Rota do Mel', pesca: 'Rota da Pesca' };
+    var CARD_TITLES = { mel: 'Cartão do Apicultor', pesca: 'Cartão do Pescador' };
     var routeId = route._id || (route.profile === 'apicultor' ? 'mel' : null) || (route.profile === 'pescador' ? 'pesca' : null) || 'mel';
     $scope.routeName = ROUTE_NAMES[routeId] || 'Rota Viva';
+    $scope.cardTitle = CARD_TITLES[routeId] || 'Cartão do Produtor';
     $scope.isPesca = (routeId === 'pesca');
+    $scope.routeThemeClass = 'card-theme-' + routeId;  // card-theme-mel | card-theme-pesca
+    $scope.totalEmitidos = 0;
+
+    ApiService.countEmitidos(routeId).then(function(count) {
+        $scope.totalEmitidos = count;
+    }).catch(angular.noop);
 
     // ─── Passaporte Digital ────────────────────────────────────────────────────
     $scope.passaporte = {
@@ -74,6 +84,9 @@ angular.module('rotaViva')
     $scope.savingPassaporte = false;
     $scope.gettingLocation = false;
     $scope.programas = [];
+    $scope.contatoEnviado    = {};   // programaId -> true (enviado nesta sessão)
+    $scope.contatoSolicitando = {};  // programaId -> true (loading)
+    $scope.contatoSuccess    = null; // nome do programa confirmado
 
     function _maskCpf(cpf) {
         if (!cpf) return '';
@@ -231,10 +244,45 @@ angular.module('rotaViva')
             .finally(function() { $scope.savingPassaporte = false; });
     };
 
-    // Carrega programas da rota
+    // Carrega programas da rota e verifica contatos já enviados
     ApiService.getProgramas().then(function(list) {
         $scope.programas = list;
+        // Marca programas com contato já aberto (evita duplicatas entre sessões)
+        if (playerId && list.length) {
+            list.forEach(function(prog) {
+                ApiService.getContatoPendente(playerId, prog._id).then(function(c) {
+                    if (c) $scope.contatoEnviado[prog._id] = true;
+                }).catch(angular.noop);
+            });
+        }
     }).catch(function() {});
+
+    // ── CTA: Falar com agente ─────────────────────────────────────────────────
+    $scope.solicitarContato = function(prog) {
+        if ($scope.contatoEnviado[prog._id] || $scope.contatoSolicitando[prog._id]) return;
+        $scope.contatoSolicitando[prog._id] = true;
+
+        var payload = {
+            player:         playerId,
+            player_name:    $scope.playerName || '',
+            phone:          ($scope.passaporte.phone || '').replace(/\D/g, ''),
+            municipio:      $scope.passaporte.municipio || '',
+            route:          routeId,
+            programa_id:    prog._id,
+            programa_title: prog.title,
+            status:         'pendente',
+            created:        new Date().toISOString()
+        };
+
+        ApiService.solicitarContato(payload).then(function() {
+            $scope.contatoEnviado[prog._id]    = true;
+            $scope.contatoSolicitando[prog._id] = false;
+            $scope.contatoSuccess = prog.title;
+            $timeout(function() { $scope.contatoSuccess = null; }, 5000);
+        }).catch(function() {
+            $scope.contatoSolicitando[prog._id] = false;
+        });
+    };
 
     // ─── Compartilhar / Convite ────────────────────────────────────────────────
     $scope.referralCount = 0;
@@ -281,6 +329,18 @@ angular.module('rotaViva')
         }
     };
 
+    $scope.shareCard = function() {
+        var title = $scope.cardTitle || 'Cartão do Produtor';
+        var text = 'Este é o meu ' + title + ', emitido pelo MIDR através do programa Rota Viva! Participe você também:';
+        if (navigator.share) {
+            navigator.share({ title: title, text: text, url: shareUrl }).catch(function() {});
+        } else {
+            _copyToClipboard(shareUrl);
+            $scope.shareSuccess = true;
+            $timeout(function() { $scope.shareSuccess = false; }, 3000);
+        }
+    };
+
     function _copyToClipboard(text) {
         var el = document.createElement('textarea');
         el.value = text;
@@ -302,6 +362,14 @@ angular.module('rotaViva')
             $scope.playerPoints = Math.floor(status.total_points || 0);
             var lp = status.level_progress || {};
             $scope.playerLevel = (lp.level || {}).position || 1;
+            $scope.playerLevelName = (lp.level || {}).name || null;
+            var nextLvl = lp.nextLevel || lp.next_level || null;
+            if (nextLvl && nextLvl.points) {
+                var diff = Math.max(0, nextLvl.points - $scope.playerPoints);
+                $scope.pointsToNextLevel = diff > 0 ? diff : null;
+            } else {
+                $scope.pointsToNextLevel = null;
+            }
             var wallets = status.wallets || status.virtual_currencies || [];
             wallets.forEach(function(w) {
                 if (w.virtualCurrency === 'cristais' || (w.name && w.name.toLowerCase().indexOf('cristal') >= 0)) {
@@ -421,12 +489,15 @@ angular.module('rotaViva')
         reader.onload = function(e) {
             var img = new Image();
             img.onload = function() {
-                var size = Math.min(img.width, img.height, maxPx);
+                // Center-crop to square using the full image, then scale down to maxPx.
+                // Bug fix: previously cropped srcSize=512px from the original large photo
+                // (appeared zoomed in). Now srcSize = full smaller dimension of the photo.
+                var srcSize = Math.min(img.width, img.height);
+                var sx = (img.width  - srcSize) / 2;
+                var sy = (img.height - srcSize) / 2;
                 var canvas = document.createElement('canvas');
-                canvas.width = size; canvas.height = size;
-                var sx = (img.width  - size) / 2;
-                var sy = (img.height - size) / 2;
-                canvas.getContext('2d').drawImage(img, sx, sy, size, size, 0, 0, size, size);
+                canvas.width = maxPx; canvas.height = maxPx;
+                canvas.getContext('2d').drawImage(img, sx, sy, srcSize, srcSize, 0, 0, maxPx, maxPx);
                 callback(canvas.toDataURL('image/jpeg', 0.85));
             };
             img.src = e.target.result;

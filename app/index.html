@@ -26,7 +26,8 @@
     <!-- QRCode.js (passaporte digital) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 
-    <link rel="stylesheet" href="css/style.css?v=1.4.8">
+    <link rel="stylesheet" href="css/style.css?v=1.4.9">
+    <link rel="stylesheet" href="directives/duo-trail/duo-trail.css?v=1.4.9">
 </head>
 <body ng-controller="MainCtrl">
 
@@ -51,42 +52,188 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-sanitize.min.js"></script>
 
     <!-- Config -->
-    <script src="config.js?v=1.4.8"></script>
+    <script src="config.js?v=1.4.9"></script>
 
     <!-- App module + routes -->
-    <script src="app.js?v=1.4.8"></script>
+    <script src="app.js?v=1.4.9"></script>
 
     <!-- Services -->
-    <script src="services/cpf.js?v=1.4.8"></script>
-    <script src="services/sound.js?v=1.4.8"></script>
-    <script src="services/theme.js?v=1.4.8"></script>
-    <script src="services/auth.js?v=1.4.8"></script>
-    <script src="services/api.js?v=1.4.8"></script>
+    <script src="services/cpf.js?v=1.4.9"></script>
+    <script src="services/sound.js?v=1.4.9"></script>
+    <script src="services/theme.js?v=1.4.9"></script>
+    <script src="services/auth.js?v=1.4.9"></script>
+    <script src="services/api.js?v=1.4.9"></script>
+
+    <!-- Directives -->
+    <script src="directives/duo-trail/duo-trail.js?v=1.4.9"></script>
+    <script src="directives/question/question.js?v=1.4.9"></script>
 
     <!-- Components -->
-    <script src="components/bottom-nav/bottom-nav.js?v=1.4.8"></script>
+    <script src="components/bottom-nav/bottom-nav.js?v=1.4.9"></script>
 
     <!-- Pages -->
-    <script src="pages/landing/landing.js?v=1.4.8"></script>
-    <script src="pages/rota/rota.js?v=1.4.8"></script>
-    <script src="pages/onboarding/onboarding.js?v=1.4.8"></script>
-    <script src="pages/login/login.js?v=1.4.8"></script>
-    <script src="pages/signup/signup.js?v=1.4.8"></script>
-    <script src="pages/dashboard/dashboard.js?v=1.4.8"></script>
-    <script src="pages/trail/trail.js?v=1.4.8"></script>
-    <script src="pages/gallery/gallery.js?v=1.4.8"></script>
-    <script src="pages/profile/profile.js?v=1.4.8"></script>
-    <script src="pages/quiz/quiz.js?v=1.4.8"></script>
-    <script src="pages/video/video.js?v=1.4.8"></script>
-    <script src="pages/reading/reading.js?v=1.4.8"></script>
+    <script src="pages/landing/landing.js?v=1.4.9"></script>
+    <script src="pages/rota/rota.js?v=1.4.9"></script>
+    <script src="pages/onboarding/onboarding.js?v=1.4.9"></script>
+    <script src="pages/login/login.js?v=1.4.9"></script>
+    <script src="pages/signup/signup.js?v=1.4.9"></script>
+    <script src="pages/dashboard/dashboard.js?v=1.4.9"></script>
+    <script src="pages/trail/trail.js?v=1.4.9"></script>
+    <script src="pages/gallery/gallery.js?v=1.4.9"></script>
+    <script src="pages/profile/profile.js?v=1.4.9"></script>
+    <script src="pages/quiz/quiz.js?v=1.4.9"></script>
+    <script src="pages/video/video.js?v=1.4.9"></script>
+    <script src="pages/reading/reading.js?v=1.4.9"></script>
 
-    <!-- Service Worker -->
+    <!-- ─── PWA: Offline indicator ─────────────────────────────────────── -->
+    <div id="pwa-offline-banner" style="
+        display:none; position:fixed; top:0; left:0; right:0; z-index:9999;
+        background:#333; color:#fff; font-size:13px; font-weight:600;
+        padding:8px 16px; text-align:center; align-items:center;
+        justify-content:center; gap:8px;">
+        <i class="fas fa-wifi-slash"></i> Sem conexão — usando dados salvos
+    </div>
+
+    <!-- ─── PWA: Update available ────────────────────────────────────────── -->
+    <div id="pwa-update-banner" style="
+        display:none; position:fixed; bottom:80px; left:12px; right:12px; z-index:9998;
+        background:#1a3a52; color:#fff; border-radius:14px;
+        padding:14px 16px; box-shadow:0 4px 20px rgba(0,0,0,0.4);
+        align-items:center; justify-content:space-between; gap:12px;">
+        <div style="font-size:13px; font-weight:600; flex:1;">
+            <i class="fas fa-arrow-rotate-right" style="margin-right:6px;"></i>
+            Nova versão disponível
+        </div>
+        <button id="pwa-update-btn" style="
+            background:#FF9600; border:none; color:#fff; border-radius:20px;
+            padding:7px 16px; font-size:12px; font-weight:700; cursor:pointer;">
+            Atualizar
+        </button>
+        <button id="pwa-update-dismiss" style="
+            background:none; border:none; color:rgba(255,255,255,0.5);
+            font-size:18px; cursor:pointer; padding:0 4px; line-height:1;">✕</button>
+    </div>
+
+    <!-- ─── PWA: Install prompt ──────────────────────────────────────────── -->
+    <div id="pwa-install-banner" style="
+        display:none; position:fixed; bottom:80px; left:12px; right:12px; z-index:9997;
+        background:#0d2035; color:#fff; border-radius:14px;
+        padding:14px 16px; box-shadow:0 4px 20px rgba(0,0,0,0.5);
+        align-items:center; gap:12px;">
+        <img src="img/icon-192.png" style="width:40px;height:40px;border-radius:10px;flex-shrink:0;" alt="">
+        <div style="flex:1; min-width:0;">
+            <div style="font-size:13px;font-weight:700;">Rota Viva</div>
+            <div style="font-size:11px;color:rgba(255,255,255,0.65);">Funciona sem internet!</div>
+        </div>
+        <button id="pwa-install-btn" style="
+            background:#FF9600; border:none; color:#fff; border-radius:20px;
+            padding:7px 14px; font-size:12px; font-weight:700; cursor:pointer;
+            white-space:nowrap; flex-shrink:0;">
+            Instalar
+        </button>
+        <button id="pwa-install-dismiss" style="
+            background:none; border:none; color:rgba(255,255,255,0.4);
+            font-size:18px; cursor:pointer; padding:0 4px; line-height:1;">✕</button>
+    </div>
+
+    <!-- ─── Service Worker ───────────────────────────────────────────────── -->
     <script>
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('sw.js').catch(function(err) {
-                console.log('SW registration failed:', err);
-            });
+    (function() {
+        // ── Offline / Online indicator ──────────────────────────────────────
+        var offlineBanner = document.getElementById('pwa-offline-banner');
+        function setOffline(isOffline) {
+            offlineBanner.style.display = isOffline ? 'flex' : 'none';
         }
+        if (!navigator.onLine) setOffline(true);
+        window.addEventListener('offline', function() { setOffline(true);  });
+        window.addEventListener('online',  function() { setOffline(false); });
+
+        // ── Install prompt (Add to Home Screen) ─────────────────────────────
+        var deferredInstallPrompt = null;
+        var installBanner   = document.getElementById('pwa-install-banner');
+        var installBtn      = document.getElementById('pwa-install-btn');
+        var installDismiss  = document.getElementById('pwa-install-dismiss');
+
+        window.addEventListener('beforeinstallprompt', function(e) {
+            e.preventDefault();
+            deferredInstallPrompt = e;
+
+            // Mostra apenas a partir da 2ª visita e se nunca foi dispensado
+            var visits    = parseInt(localStorage.getItem('rv_visit_count') || '0', 10) + 1;
+            localStorage.setItem('rv_visit_count', visits);
+            var dismissed = localStorage.getItem('rv_install_dismissed') === 'true';
+            var installed = window.matchMedia('(display-mode: standalone)').matches;
+
+            if (visits >= 2 && !dismissed && !installed) {
+                installBanner.style.display = 'flex';
+            }
+        });
+
+        installBtn && installBtn.addEventListener('click', function() {
+            installBanner.style.display = 'none';
+            if (deferredInstallPrompt) {
+                deferredInstallPrompt.prompt();
+                deferredInstallPrompt.userChoice.then(function() {
+                    deferredInstallPrompt = null;
+                });
+            }
+        });
+
+        installDismiss && installDismiss.addEventListener('click', function() {
+            installBanner.style.display = 'none';
+            localStorage.setItem('rv_install_dismissed', 'true');
+        });
+
+        // Esconde banner se app já foi instalado (standalone mode)
+        window.addEventListener('appinstalled', function() {
+            installBanner.style.display = 'none';
+        });
+
+        // ── Service Worker registration + update handling ────────────────────
+        if (!('serviceWorker' in navigator)) return;
+
+        var updateBanner   = document.getElementById('pwa-update-banner');
+        var updateBtn      = document.getElementById('pwa-update-btn');
+        var updateDismiss  = document.getElementById('pwa-update-dismiss');
+        var swRegistration = null;
+
+        navigator.serviceWorker.register('sw.js').then(function(reg) {
+            swRegistration = reg;
+
+            reg.addEventListener('updatefound', function() {
+                var newWorker = reg.installing;
+                newWorker.addEventListener('statechange', function() {
+                    // Mostra banner apenas se há SW anterior ativo (não no primeiro install)
+                    if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                        updateBanner.style.display = 'flex';
+                    }
+                });
+            });
+
+            // Verifica atualização a cada foco na aba (usuário volta ao app)
+            document.addEventListener('visibilitychange', function() {
+                if (document.visibilityState === 'visible') reg.update();
+            });
+        }).catch(function(err) {
+            console.warn('[SW] Registro falhou:', err);
+        });
+
+        updateBtn && updateBtn.addEventListener('click', function() {
+            updateBanner.style.display = 'none';
+            if (swRegistration && swRegistration.waiting) {
+                swRegistration.waiting.postMessage({ type: 'SKIP_WAITING' });
+            }
+        });
+
+        updateDismiss && updateDismiss.addEventListener('click', function() {
+            updateBanner.style.display = 'none';
+        });
+
+        // Recarrega quando o novo SW assumir o controle
+        navigator.serviceWorker.addEventListener('controllerchange', function() {
+            window.location.reload();
+        });
+    })();
     </script>
 </body>
 </html>

@@ -1,0 +1,127 @@
+<div class="duo-trail-view" ng-click="closePopup()">
+
+    <!-- Sticky Active Module Box (scroll-based) -->
+    <div class="duo-sticky-module"
+         ng-if="activeModule"
+         ng-style="{'background-color': activeModule.color}">
+        <div class="duo-sticky-module-info">
+            <div class="duo-sticky-module-section">Seção {{activeModule.moduleIndex + 1}}</div>
+            <div class="duo-sticky-module-title">{{activeModule.title}}</div>
+        </div>
+        <div class="duo-sticky-module-icon">
+            <i class="fas fa-book-open"></i>
+        </div>
+    </div>
+
+    <!-- Trail Loading -->
+    <div class="duo-trail-loading" ng-if="trailLoading">
+        <div class="duo-trail-spinner"></div>
+    </div>
+
+    <!-- S-Curve Trail -->
+    <div class="duo-trail-container" ng-if="!trailLoading">
+
+        <div class="duo-trail" ng-if="trailItems.length > 0">
+            <div ng-repeat="item in trailItems" class="duo-trail-item"
+                 id="{{item._id ? 'trail-item-' + item._id : ''}}">
+
+                <!-- Module Divider -->
+                <div class="duo-module-divider" ng-if="item._type === 'module'">
+                    — {{item.title}} —
+                </div>
+
+                <!-- Normal Lesson Bubble -->
+                <div class="duo-bubble-wrap"
+                     ng-if="item._type === 'lesson' && !isChest(item) && !isCartoon(item)"
+                     ng-style="getBubbleStyle(item)">
+
+                    <!-- Cartoon checkpoint float: placed in the open inflection area beside this bubble -->
+                    <div class="duo-character-float duo-cartoon-float"
+                         ng-if="item._cartoon"
+                         ng-style="getCartoonFloatStyle(item)">
+                        <div class="duo-cartoon-checkpoint"
+                             ng-class="{'duo-cartoon-done': item._cartoon.percent >= 100, 'duo-cartoon-locked': !item._cartoon.is_unlocked}"
+                             ng-click="selectLesson(item._cartoon, $event)">
+                            <img ng-src="{{item._cartoon._charImg}}"
+                                 class="duo-cartoon-checkpoint-img"
+                                 alt="{{item._cartoon.title}}">
+                            <div class="duo-cartoon-stars">
+                                <i class="fas fa-star"
+                                   ng-class="(item._cartoon.is_unlocked && item._cartoon.cartoonStars >= 1) ? 'duo-star-on' : 'duo-star-off'"></i>
+                                <i class="fas fa-star"
+                                   ng-class="(item._cartoon.is_unlocked && item._cartoon.cartoonStars >= 2) ? 'duo-star-on' : 'duo-star-off'"></i>
+                                <i class="fas fa-star"
+                                   ng-class="(item._cartoon.is_unlocked && item._cartoon.cartoonStars >= 3) ? 'duo-star-on' : 'duo-star-off'"></i>
+                            </div>
+                        </div>
+                        <div class="duo-popup"
+                             ng-if="selectedLesson._id === item._cartoon._id"
+                             ng-click="$event.stopPropagation()">
+                            <div class="duo-popup-title">{{item._cartoon.title}}</div>
+                            <button class="btn btn-primary duo-popup-btn"
+                                    ng-style="{'background': item._cartoon.moduleColor}"
+                                    ng-click="startLesson(item._cartoon)"
+                                    ng-disabled="!item._cartoon.is_unlocked">
+                                {{!item._cartoon.is_unlocked ? 'BLOQUEADA' : (item._cartoon.percent >= 100 ? 'REVISAR' : 'CHECKPOINT')}}
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Lesson bubble -->
+                    <div ng-class="getBubbleClass(item)"
+                         ng-style="getBubbleDynamic(item)"
+                         ng-click="selectLesson(item, $event)">
+                        <i class="fas" ng-class="item.icon"></i>
+                    </div>
+
+                    <!-- Lesson popup -->
+                    <div class="duo-popup"
+                         ng-if="selectedLesson._id === item._id"
+                         ng-click="$event.stopPropagation()">
+                        <div class="duo-popup-title">{{item.title}}</div>
+                        <button class="btn btn-primary duo-popup-btn"
+                                ng-style="{'background': item.moduleColor}"
+                                ng-click="startLesson(item)"
+                                ng-disabled="!item.is_unlocked">
+                            {{!item.is_unlocked ? 'BLOQUEADA' : (item.percent >= 100 ? 'REVISAR' : 'COMEÇAR')}}
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Chest Bubble -->
+                <div class="duo-bubble-wrap duo-chest-wrap"
+                     ng-if="item._type === 'lesson' && isChest(item)"
+                     ng-style="getBubbleStyle(item)">
+                    <div class="duo-chest"
+                         ng-class="{'duo-chest-done': item.percent >= 100, 'duo-chest-locked': !item.is_unlocked}"
+                         ng-click="selectLesson(item, $event)">
+                        <img ng-src="{{getChestImage()}}" class="duo-chest-img" alt="baú">
+                        <div class="duo-chest-done-badge" ng-if="item.percent >= 100">
+                            <i class="fas fa-check"></i>
+                        </div>
+                    </div>
+                    <div class="duo-popup"
+                         ng-if="selectedLesson._id === item._id"
+                         ng-click="$event.stopPropagation()">
+                        <div class="duo-popup-title">{{item.title}}</div>
+                        <button class="btn btn-primary duo-popup-btn"
+                                ng-style="{'background': item.moduleColor}"
+                                ng-click="startLesson(item)"
+                                ng-disabled="!item.is_unlocked">
+                            {{!item.is_unlocked ? 'BLOQUEADA' : (item.percent >= 100 ? 'ABRIR' : 'DESAFIO')}}
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Empty state -->
+        <div class="duo-trail-empty" ng-if="!trailLoading && trailItems.length === 0">
+            <div class="duo-trail-empty-icon">📂</div>
+            <h3>Nenhum módulo ainda</h3>
+            <p>O conteúdo será disponibilizado em breve.</p>
+        </div>
+
+    </div>
+</div>

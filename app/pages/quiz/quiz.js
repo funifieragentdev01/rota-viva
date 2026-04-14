@@ -9,8 +9,9 @@ angular.module('rotaViva')
     var theme = ThemeService.load(session.apiKey) || {};
 
     // Lesson context passed from trail.js via query params
-    var lessonId    = $location.search().lesson || null;
-    var moduleId    = $location.search().module || null;
+    var lessonId    = $location.search().lesson   || null;
+    var subjectId   = $location.search().subject  || null; // parent subject folder (for cache bust)
+    var moduleId    = $location.search().module   || null;
     var lessonTitle = decodeURIComponent($location.search().lessonTitle || '');
     var contentType = $location.search().contentType || '';
     var isCartoon   = contentType === 'cartoon';
@@ -137,18 +138,31 @@ angular.module('rotaViva')
 
             var options = choices.map(function(c, idx) {
                 return {
-                    answer: c.label || String.fromCharCode(65 + idx),
-                    text: c.answer || c.label || c.description || c.title || '',
+                    // After DB fix: answer = letter (A/B/C/D), label = option text
+                    answer: c.answer || String.fromCharCode(65 + idx),
+                    text: c.label || c.answer || c.description || c.title || '',
                     correct: !!(c.gradeCheck || c.correct || (c.grade && c.grade > 0)),
                     selected: false
                 };
             });
 
-            // LISTEN_AND_ORDER: shuffled available + empty selected sequence
+            // LISTEN_AND_ORDER: usa orderItems (campo correto no banco)
+            // options = sequência correta ordenada por correctPosition (para grading)
+            // listenAvail = pool embaralhado para o usuário ordenar
             var listenAvail = [];
             var listenSelected = [];
             if (type === 'LISTEN_AND_ORDER') {
-                listenAvail = shuffleArray(options.slice());
+                var orderItems = q.orderItems || [];
+                if (orderItems.length > 0) {
+                    // Constrói options na ordem correta (para grading via item.text)
+                    options = orderItems.slice().sort(function(a, b) {
+                        return (a.correctPosition || 0) - (b.correctPosition || 0);
+                    }).map(function(item) {
+                        return { text: item.text, correct: true, selected: false };
+                    });
+                }
+                // Pool embaralhado para o usuário
+                listenAvail = shuffleArray(options.map(function(o) { return { text: o.text }; }));
             }
 
             // MATCHING: left/right pairs from model.matching
@@ -195,6 +209,7 @@ angular.module('rotaViva')
                 rubric: q.rubric || '',
                 speechText: speechText,
                 ttsLang: ttsLang,
+                imageUrl: q.imageUrl || (q.image && (q.image.original || q.image)) || null,
                 model: model,
                 options: options,
                 listenAvail: listenAvail,
@@ -248,18 +263,34 @@ angular.module('rotaViva')
         return q && (q.type === 'LISTEN' || q.type === 'LISTEN_AND_ORDER');
     };
 
+    // Referência mantida no scope para evitar GC prematuro (bug Chrome)
+    var _ttsUtt = null;
+
     $scope.speakTTS = function() {
         var q = $scope.current();
         if (!q || !q.speechText) return;
-        if (!window.speechSynthesis) return;
-        window.speechSynthesis.cancel();
-        var utt = new SpeechSynthesisUtterance(q.speechText);
-        utt.lang = q.ttsLang || 'pt-BR';
-        utt.rate = 0.9;
+        var ss = window.speechSynthesis;
+        if (!ss) return;
+
+        // Cancela qualquer reprodução anterior e força resume (bug Chrome: fila congela)
+        ss.cancel();
+        ss.resume();
+
+        _ttsUtt = new SpeechSynthesisUtterance(q.speechText);
+        _ttsUtt.lang = q.ttsLang || 'pt-BR';
+        _ttsUtt.rate = 0.9;
         $scope.isSpeaking = true;
-        utt.onend = function() { $scope.$apply(function() { $scope.isSpeaking = false; }); };
-        utt.onerror = function() { $scope.$apply(function() { $scope.isSpeaking = false; }); };
-        window.speechSynthesis.speak(utt);
+
+        var keepAlive = setInterval(function() {
+            if (!ss.speaking) { clearInterval(keepAlive); return; }
+            ss.pause();
+            ss.resume();
+        }, 10000);
+
+        _ttsUtt.onend   = function() { clearInterval(keepAlive); $scope.$apply(function() { $scope.isSpeaking = false; }); };
+        _ttsUtt.onerror = function() { clearInterval(keepAlive); $scope.$apply(function() { $scope.isSpeaking = false; }); };
+
+        ss.speak(_ttsUtt);
     };
 
     // ── SPEAK helpers ───────────────────────────────────────────────────────
@@ -422,18 +453,30 @@ angular.module('rotaViva')
         if (!lessonId || !playerId) return;
         $scope.hadDiario = true;
 
+        var player      = (session.player || {});
+        var playerName  = player.name || '';
+        var playerPhoto = (player.image && player.image.original && player.image.original.url) || '';
+
         var evidenceType = $scope.diyPhotoData ? 'photo'
             : $scope.locationData ? 'location' : 'text';
 
+        var mediaType = $scope.diyPhotoData ? 'image' : 'text';
+
         var post = {
-            player:  playerId,
-            text:    'Completei: ' + (lessonTitle || 'Diário'),
-            created: new Date().toISOString(),
+            player:        playerId,
+            player_name:   playerName,
+            player_photo:  playerPhoto,
+            description:   ($scope.form.essayAnswer || '').trim(),
+            media_type:    mediaType,
+            media_url:     '',
+            like_count:    0,
+            comment_count: 0,
+            created:       new Date().toISOString(),
             extra: {
-                lesson_id:    lessonId,
-                module_id:    moduleId || '',
-                lesson_title: lessonTitle,
-                route:        routeId,
+                lesson_id:     lessonId,
+                module_id:     moduleId || '',
+                lesson_title:  lessonTitle,
+                route:         routeId,
                 evidence_type: evidenceType
             }
         };
@@ -444,14 +487,13 @@ angular.module('rotaViva')
         }
 
         if ($scope.diyPhotoData) {
-            // Upload photo first, then create post with URL
+            // Upload photo first, then create post with media_url
             var blob = dataURItoBlob($scope.diyPhotoData);
             ApiService.uploadMedia(blob, false).then(function(url) {
-                console.log('[Diário] upload url:', url);
-                if (url) post.image = url;
-                ApiService.publishDiario(post).then(function(r) {
-                    console.log('[Diário] published:', r);
-                }).catch(function(e) { console.warn('[Diário] publish error:', e); });
+                if (url) post.media_url = url;
+                ApiService.publishDiario(post).catch(function(e) {
+                    console.warn('[Diário] publish error:', e);
+                });
                 // Refresh Prova de Campo after publishing
                 $timeout(function() {
                     ApiService.getProvasDeCampo(lessonId, 3).then(function(posts) {
@@ -566,7 +608,7 @@ angular.module('rotaViva')
                 q.correctLabel = 'Ordem correta: ' + q.options.map(function(o) { return o.text; }).join(' → ');
             }
             if (q.correct) $scope.score++;
-            logAnswer(q, q.listenSelected.map(function(o) { return o.answer; }));
+            logAnswer(q, q.listenSelected.map(function(o) { return o.text; }));
 
         } else if (q.type === 'MATCHING') {
             var matchOk = 0;
@@ -748,6 +790,14 @@ angular.module('rotaViva')
                     lesson_id: quizId,
                     score: $scope.scorePercent
                 }).catch(function() {});
+
+                // Invalida cache da trilha para que o progresso atualizado
+                // apareça na próxima vez que o usuário abrir a trilha
+                if (subjectId) {
+                    try {
+                        localStorage.removeItem('rv_trail_cache_' + playerId + '_' + subjectId);
+                    } catch(e) {}
+                }
             }
 
             // Celebração

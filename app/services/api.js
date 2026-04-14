@@ -345,6 +345,19 @@ angular.module('rotaViva')
             .then(function(res) { return Array.isArray(res.data) ? res.data : []; });
     };
 
+    api.countEmitidos = function(routeId) {
+        var match = { 'extra.passaporte_emitido_em': { $exists: true } };
+        return $http.post(
+            baseUrl + '/v3/database/player/aggregate?strict=true',
+            [{ $match: match }, { $count: 'total' }],
+            trailHeaders()
+        ).then(function(res) {
+            var data = res.data;
+            if (Array.isArray(data) && data.length > 0) return data[0].total || 0;
+            return 0;
+        });
+    };
+
     api.getReferralCount = function(refCode) {
         return $http.post(
             baseUrl + '/v3/database/player/aggregate?strict=true',
@@ -354,6 +367,21 @@ angular.module('rotaViva')
             var data = res.data;
             if (Array.isArray(data) && data.length > 0) return data[0].total || 0;
             return 0;
+        });
+    };
+
+    // Cria solicitação de contato com agente (coleção contato_agente__c)
+    api.solicitarContato = function(data) {
+        return $http.post(baseUrl + '/v3/database/contato_agente__c', data, trailHeaders())
+            .then(function(res) { return res.data; });
+    };
+
+    // Verifica se já existe contato pendente/em_atendimento do player para um programa
+    api.getContatoPendente = function(playerId, programaId) {
+        var url = baseUrl + '/v3/database/contato_agente__c?strict=true&q=player:\'' + playerId + '\',programa_id:\'' + programaId + '\'';
+        return $http.get(url, trailHeaders()).then(function(res) {
+            var list = Array.isArray(res.data) ? res.data : [];
+            return list.find(function(c) { return c.status !== 'atendido'; }) || null;
         });
     };
 

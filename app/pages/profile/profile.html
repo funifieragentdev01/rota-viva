@@ -5,69 +5,48 @@
         <h2>Perfil</h2>
     </div>
 
-    <!-- Avatar + info -->
-    <div class="profile-hero">
-        <div class="profile-avatar-wrap" ng-click="triggerPhotoUpload()">
-            <div class="profile-avatar">
-                <img ng-if="playerPhoto" ng-src="{{playerPhoto}}" alt="Foto de perfil" />
-                <div ng-if="!playerPhoto" class="profile-avatar-initial">
-                    {{playerName | firstWord | limitTo:1}}
+    <!-- Hidden photo input — accessible from anywhere via triggerPhotoUpload() -->
+    <input id="profile-photo-input" type="file" accept="image/*" style="display:none"
+           onchange="angular.element(this).scope().onPhotoSelected(this)">
+
+    <!-- ═══ CARTÃO DO PRODUTOR — hero ═══ -->
+
+    <!-- Estado: não emitido -->
+    <div class="card-hero-wrap" ng-if="!passaporteEmitido">
+        <div class="card-preview-empty {{routeThemeClass}}" ng-click="openPassaporteModal()">
+            <div class="card-preview-top">
+                <img src="img/logo-midr.png" class="card-preview-logo" alt="MIDR">
+                <div class="card-preview-title-block">
+                    <div class="card-preview-brand">ROTA VIVA</div>
+                    <div class="card-preview-title">{{cardTitle}}</div>
                 </div>
-                <div class="profile-avatar-overlay" ng-class="{'profile-avatar-loading': uploadingPhoto}">
-                    <i class="fas fa-spinner fa-spin" ng-if="uploadingPhoto"></i>
-                    <i class="fas fa-camera" ng-if="!uploadingPhoto"></i>
+            </div>
+            <div class="card-preview-body">
+                <div class="card-preview-photo-empty">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="card-preview-cta">
+                    <div class="card-preview-cta-title">Emita seu {{cardTitle}}</div>
+                    <div class="card-preview-cta-text">
+                        Sua credencial de acesso aos programas do governo federal
+                    </div>
+                    <div class="card-preview-cta-btn"
+                         ng-style="{'background': theme.colors && theme.colors.primary || '#FF9600'}">
+                        Emitir meu Cartão →
+                    </div>
                 </div>
             </div>
+            <div class="card-preview-footer">Emitido pelo MIDR através do programa Rota Viva</div>
         </div>
-        <input id="profile-photo-input" type="file" accept="image/*" style="display:none"
-               onchange="angular.element(this).scope().onPhotoSelected(this)">
-
-        <!-- Nome (editável) -->
-        <div class="profile-name-wrap" ng-if="!editingName" ng-click="startEditName()">
-            <span class="profile-name">{{playerName}}</span>
-            <i class="fas fa-pen profile-edit-icon"></i>
+        <div class="card-social-proof" ng-if="totalEmitidos > 0">
+            <i class="fas fa-users"></i> {{totalEmitidos}} produtores já emitiram o {{cardTitle}}
         </div>
-        <div class="profile-name-edit" ng-if="editingName">
-            <input id="profile-name-input" type="text" class="profile-name-input"
-                   ng-model="editName"
-                   ng-keyup="$event.keyCode === 13 && saveName()"
-                   maxlength="60" />
-            <button class="profile-name-save" ng-click="saveName()"
-                    ng-style="{'background': theme.colors && theme.colors.primary || '#FF9600'}">
-                Salvar
-            </button>
-            <button class="profile-name-cancel" ng-click="cancelEditName()">
-                <i class="fas fa-xmark"></i>
-            </button>
-        </div>
-
-        <div class="profile-route">{{routeName}}</div>
-    </div>
-
-    <!-- Passaporte Digital -->
-
-    <!-- Estado: ainda não emitido -->
-    <div class="passport-create-card" ng-if="!passaporteEmitido" ng-click="openPassaporteModal()">
-        <div class="passport-create-left">
-            <div class="passport-create-icon"
-                 ng-style="{'color': theme.colors && theme.colors.primary || '#FF9600'}">
-                <i class="fas fa-id-card"></i>
-            </div>
-            <div class="passport-create-text">
-                <strong>Passaporte Digital</strong>
-                <span>Sua credencial de acesso aos programas do governo</span>
-            </div>
-        </div>
-        <button class="passport-create-btn"
-                ng-style="{'background': theme.colors && theme.colors.primary || '#FF9600'}">
-            Criar →
-        </button>
     </div>
 
     <!-- Estado: emitido — ID card com flip -->
-    <div class="passport-id-wrap" ng-if="passaporteEmitido">
+    <div class="card-hero-wrap" ng-if="passaporteEmitido">
 
-        <div class="passport-id-card" ng-class="{'passport-id-flipped': passaporteFlipped}"
+        <div class="passport-id-card {{routeThemeClass}}" ng-class="{'passport-id-flipped': passaporteFlipped}"
              ng-click="togglePassaporteFlip()">
 
             <!-- FRENTE -->
@@ -76,39 +55,73 @@
                     <img src="img/logo-midr.png" class="passport-id-logo" alt="MIDR">
                     <div class="passport-id-title-block">
                         <div class="passport-id-brand">ROTA VIVA</div>
-                        <div class="passport-id-subtitle">Passaporte Digital do Produtor</div>
+                        <div class="passport-id-subtitle">{{cardTitle}}</div>
                     </div>
                 </div>
                 <div class="passport-id-body">
-                    <div class="passport-id-photo">
-                        <img ng-if="playerPhoto" ng-src="{{playerPhoto}}" alt="">
-                        <div ng-if="!playerPhoto" class="passport-id-photo-initial">
+                    <!-- Foto: clicável para trocar, sem propagar o flip -->
+                    <div class="passport-id-photo" ng-click="$event.stopPropagation(); triggerPhotoUpload()">
+                        <img ng-if="playerPhoto && !uploadingPhoto" ng-src="{{playerPhoto}}" alt="">
+                        <div ng-if="!playerPhoto && !uploadingPhoto" class="passport-id-photo-initial">
                             {{playerName | firstWord | limitTo:1}}
+                        </div>
+                        <div class="passport-id-photo-overlay" ng-class="{'is-loading': uploadingPhoto}">
+                            <i class="fas fa-spinner fa-spin" ng-if="uploadingPhoto"></i>
+                            <i class="fas fa-camera" ng-if="!uploadingPhoto"></i>
                         </div>
                     </div>
                     <div class="passport-id-info">
-                        <div class="passport-id-name">{{playerName}}</div>
+                        <!-- Nome: editável inline, sem propagar o flip -->
+                        <div class="passport-id-name"
+                             ng-if="!editingName"
+                             ng-click="$event.stopPropagation(); startEditName()">
+                            {{playerName}} <i class="fas fa-pen" style="font-size:9px; opacity:0.5;"></i>
+                        </div>
+                        <div class="passport-id-name-edit" ng-if="editingName"
+                             ng-click="$event.stopPropagation()">
+                            <input id="profile-name-input" type="text" class="passport-name-input"
+                                   ng-model="editName"
+                                   ng-keyup="$event.keyCode === 13 && saveName()"
+                                   maxlength="60" />
+                            <button class="passport-name-save"
+                                    ng-style="{'background': theme.colors && theme.colors.primary || '#FF9600'}"
+                                    ng-click="saveName()">✓</button>
+                        </div>
                         <div class="passport-id-cpf">CPF: {{passaporteCpf}}</div>
                         <div class="passport-id-route">{{routeName}}</div>
                         <div class="passport-id-municipio" ng-if="passaporte.municipio">{{passaporte.municipio}}</div>
-                        <div class="passport-id-fields">
-                            <span ng-if="!isPesca && passaporte.caf">CAF: {{fmtPassaporteOpt(passaporte.caf)}}</span>
-                            <span ng-if="isPesca && passaporte.rgp !== '' && passaporte.rgp !== undefined">RGP: {{fmtPassaporteOpt(passaporte.rgp)}}</span>
-                            <span ng-if="passaporte.pronaf !== '' && passaporte.pronaf !== undefined">PRONAF: {{fmtPassaporteOpt(passaporte.pronaf)}}</span>
-                        </div>
-                        <div class="passport-id-date">Emitido em {{passaporteEmitidoEm}}</div>
                     </div>
                 </div>
+                <div class="passport-id-footer-brand">Emitido em {{passaporteEmitidoEm}} pelo MIDR · Programa Rota Viva</div>
                 <div class="passport-id-flip-hint">Toque para ver o verso →</div>
             </div>
 
             <!-- VERSO -->
             <div class="passport-id-back">
                 <div class="passport-id-back-top">
-                    <div class="passport-id-qr-wrap">
-                        <div id="passport-qr"></div>
+                    <div class="passport-id-qr-col">
+                        <div class="passport-id-qr-wrap">
+                            <div id="passport-qr"></div>
+                        </div>
+                        <div class="passport-id-qr-label">Convide um produtor · escaneie</div>
                     </div>
                     <div class="passport-id-back-info">
+                        <div class="passport-id-back-points">
+                            <i class="fas fa-star"></i> <strong>{{playerPoints}}</strong> pts
+                        </div>
+                        <div class="passport-id-back-level" ng-if="playerLevelName">
+                            Nível {{playerLevel}} · {{playerLevelName}}
+                        </div>
+                        <div class="passport-id-back-level" ng-if="!playerLevelName">
+                            Nível {{playerLevel}}
+                        </div>
+                        <div class="passport-id-back-next" ng-if="pointsToNextLevel">
+                            Faltam {{pointsToNextLevel}} pts para o próximo nível
+                        </div>
+                        <div class="passport-id-back-next" ng-if="!pointsToNextLevel && playerPoints === 0">
+                            Complete uma lição para ganhar pontos!
+                        </div>
+                        <div class="passport-id-back-sep" ng-if="passaporte.cooperativa || passaporte.phone || passaporte.email"></div>
                         <div ng-if="passaporte.cooperativa !== '' && passaporte.cooperativa !== undefined">
                             <strong>Cooperativa:</strong>
                             {{passaporte.cooperativa === true ? (passaporte.cooperativa_nome || 'Sim') : 'Não'}}
@@ -117,24 +130,31 @@
                         <div ng-if="passaporte.email"><strong>Email:</strong> {{passaporte.email}}</div>
                     </div>
                 </div>
-                <div class="passport-id-back-footer">Compartilhe com agentes do MIDR</div>
+                <div class="passport-id-back-footer">Compartilhe com agentes do MIDR · Programa Rota Viva</div>
                 <div class="passport-id-flip-hint">← Toque para ver a frente</div>
             </div>
         </div>
 
-        <!-- Editar passaporte -->
-        <div class="passport-edit-row">
+        <!-- Ações abaixo do cartão -->
+        <div class="card-actions-row">
             <div class="passport-incomplete-badge" ng-if="passaporteIncomplete">
                 <div class="passport-incomplete-dot"></div>
-                Informações incompletas
+                Requer atualização
             </div>
-            <button class="passport-edit-btn" ng-click="openPassaporteEdit()">
-                <i class="fas fa-pen"></i> Editar passaporte
-            </button>
+            <div class="card-actions-btns">
+                <button class="card-action-btn" ng-click="openPassaporteEdit()">
+                    <i class="fas fa-pen"></i> Editar cartão
+                </button>
+                <button class="card-action-btn card-action-share" ng-click="shareCard()">
+                    <i class="fas fa-check" ng-if="shareSuccess"></i>
+                    <i class="fas fa-share-nodes" ng-if="!shareSuccess"></i>
+                    {{shareSuccess ? 'Link copiado!' : 'Compartilhar'}}
+                </button>
+            </div>
         </div>
     </div>
 
-    <!-- Modal: Criar / Editar Passaporte -->
+    <!-- Modal: Criar / Editar Cartão -->
     <div class="passport-modal-overlay" ng-if="passaporteModal" ng-click="closePassaporteModal()">
         <div class="passport-modal" ng-click="$event.stopPropagation()">
 
@@ -142,9 +162,9 @@
             <div ng-if="passaporteModalSlide === 1" class="passport-modal-slide">
                 <img ng-src="{{isPesca ? 'img/characters/pesca/trail/1.png' : 'img/characters/mel/trail/1.png'}}"
                      class="passport-modal-char" alt="">
-                <h3 class="passport-modal-title">Passaporte Digital</h3>
+                <h3 class="passport-modal-title">{{cardTitle}}</h3>
                 <p class="passport-modal-text">
-                    Seu Passaporte Digital é uma credencial que facilita seu acesso aos programas do governo federal.
+                    Seu {{cardTitle}} é uma credencial que facilita seu acesso aos programas do governo federal.
                 </p>
                 <p class="passport-modal-text">
                     Com ele, os agentes do MIDR identificam sua situação e podem te encaminhar para o programa certo.
@@ -159,7 +179,7 @@
 
             <!-- Slide 2: Formulário -->
             <div ng-if="passaporteModalSlide === 2" class="passport-modal-slide">
-                <h3 class="passport-modal-title">{{passaporteEmitido ? 'Editar passaporte' : 'Suas informações'}}</h3>
+                <h3 class="passport-modal-title">{{passaporteEmitido ? 'Editar cartão' : 'Suas informações'}}</h3>
 
                 <!-- Campos pré-preenchidos (readonly) -->
                 <div class="passport-prefill">
@@ -260,7 +280,7 @@
                         ng-disabled="savingPassaporte">
                     <i class="fas fa-spinner fa-spin" ng-if="savingPassaporte"></i>
                     <i class="fas fa-id-card" ng-if="!savingPassaporte"></i>
-                    {{savingPassaporte ? 'Salvando...' : passaporteEmitido ? 'Salvar alterações' : 'Emitir meu Passaporte'}}
+                    {{savingPassaporte ? 'Salvando...' : passaporteEmitido ? 'Salvar alterações' : 'Emitir meu Cartão'}}
                 </button>
                 <button class="passport-modal-skip" ng-click="passaporteModalBack()">← Voltar</button>
             </div>
@@ -269,20 +289,45 @@
 
     <!-- Meus Programas -->
     <div class="profile-section" ng-if="programas.length > 0">
-        <div class="profile-section-title">Meus Programas</div>
+        <div class="profile-section-title">Programas para você</div>
         <div class="programa-list">
-            <a class="programa-card" ng-repeat="prog in programas"
-               ng-href="{{prog.link}}" target="_blank" rel="noopener">
-                <div class="programa-card-icon"
-                     ng-style="{'background': theme.colors && theme.colors.primary + '22' || '#FF960022', 'color': theme.colors && theme.colors.primary || '#FF9600'}">
-                    <i class="fas" ng-class="prog.icon || 'fa-landmark'"></i>
+            <div class="programa-card" ng-repeat="prog in programas">
+                <!-- Linha principal: ícone + texto + link -->
+                <div class="programa-card-main">
+                    <div class="programa-card-icon"
+                         ng-style="{'background': theme.colors && theme.colors.primary + '22' || '#FF960022',
+                                    'color':      theme.colors && theme.colors.primary || '#FF9600'}">
+                        <i class="fas" ng-class="prog.icon || 'fa-landmark'"></i>
+                    </div>
+                    <div class="programa-card-text">
+                        <strong>{{prog.title}}</strong>
+                        <span>{{prog.description}}</span>
+                    </div>
+                    <a ng-if="prog.link" ng-href="{{prog.link}}" target="_blank" rel="noopener"
+                       class="programa-card-link" ng-click="$event.stopPropagation()"
+                       title="Saiba mais">
+                        <i class="fas fa-arrow-up-right-from-square"></i>
+                    </a>
                 </div>
-                <div class="programa-card-text">
-                    <strong>{{prog.title}}</strong>
-                    <span>{{prog.description}}</span>
-                </div>
-                <i class="fas fa-chevron-right programa-card-arrow"></i>
-            </a>
+                <!-- CTA: Falar com agente -->
+                <button class="programa-contato-btn"
+                        ng-click="solicitarContato(prog)"
+                        ng-disabled="contatoEnviado[prog._id] || contatoSolicitando[prog._id]"
+                        ng-class="{'programa-contato-done': contatoEnviado[prog._id]}"
+                        ng-style="{'border-color': contatoEnviado[prog._id] ? '#4CAF50' : (theme.colors && theme.colors.primary || '#FF9600'),
+                                   'color':        contatoEnviado[prog._id] ? '#4CAF50' : (theme.colors && theme.colors.primary || '#FF9600')}">
+                    <i class="fas fa-spinner fa-spin" ng-if="contatoSolicitando[prog._id]"></i>
+                    <i class="fas fa-check"   ng-if="contatoEnviado[prog._id] && !contatoSolicitando[prog._id]"></i>
+                    <i class="fas fa-headset" ng-if="!contatoEnviado[prog._id] && !contatoSolicitando[prog._id]"></i>
+                    {{contatoEnviado[prog._id] ? 'Agente notificado' : 'Falar com agente'}}
+                </button>
+            </div>
+        </div>
+
+        <!-- Toast: contato enviado com sucesso -->
+        <div class="programa-contato-toast" ng-if="contatoSuccess">
+            <i class="fas fa-circle-check"></i>
+            Solicitação enviada! Um agente entrará em contato via WhatsApp sobre <strong>{{contatoSuccess}}</strong>.
         </div>
     </div>
 
@@ -401,6 +446,12 @@
                 <span class="profile-menu-label">Política de privacidade</span>
                 <i class="fas fa-chevron-right profile-menu-chevron"></i>
             </button>
+            <div class="profile-menu-divider"></div>
+            <div class="profile-menu-item profile-menu-version">
+                <i class="fas fa-code-branch profile-menu-icon"></i>
+                <span class="profile-menu-label">Versão</span>
+                <span class="profile-menu-version-tag">v{{CONFIG.VERSION}}</span>
+            </div>
             <div class="profile-menu-divider"></div>
             <button class="profile-menu-item" ng-click="logout()">
                 <i class="fas fa-right-from-bracket profile-menu-icon"></i>

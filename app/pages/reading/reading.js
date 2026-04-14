@@ -6,6 +6,7 @@ angular.module('rotaViva')
     var baseUrl = CONFIG.API_URL;
     var readingId = $routeParams.readingId;
     var playerId = (session.player || {})._id;
+    var subjectId = $location.search().subject || null; // parent subject folder (for cache bust)
     var theme = ThemeService.load(session.apiKey) || {};
 
     if (theme && theme.colors) ThemeService.apply(theme, false);
@@ -119,6 +120,11 @@ angular.module('rotaViva')
                 lesson_id: readingId,
                 score: 100
             }).catch(function() {});
+        }
+
+        // Invalida cache da trilha para refletir progresso ao voltar
+        if (subjectId) {
+            try { localStorage.removeItem('rv_trail_cache_' + playerId + '_' + subjectId); } catch(e) {}
         }
 
         SoundService.play('levelup');

@@ -6,6 +6,7 @@ angular.module('rotaViva')
     var baseUrl = CONFIG.API_URL;
     var videoId = $routeParams.videoId;
     var playerId = (session.player || {})._id;
+    var subjectId = $location.search().subject || null; // parent subject folder (for cache bust)
     var theme = ThemeService.load(session.apiKey) || {};
 
     if (theme && theme.colors) ThemeService.apply(theme, false);
@@ -169,6 +170,11 @@ angular.module('rotaViva')
                 lesson_id: videoId,
                 score: 100
             }).catch(function() {});
+        }
+
+        // Invalida cache da trilha para refletir progresso ao voltar
+        if (subjectId) {
+            try { localStorage.removeItem('rv_trail_cache_' + playerId + '_' + subjectId); } catch(e) {}
         }
 
         // Celebração igual ao quiz
