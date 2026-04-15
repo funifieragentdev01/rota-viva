@@ -231,7 +231,7 @@ angular.module('duoTrail', [])
 
             $scope.getCartoonFloatStyle = function(item) {
                 var xOffset = Math.sin(item.lessonIndex * 0.8) * 70;
-                var style = { position: 'absolute', top: '-80px', 'z-index': 20, cursor: 'pointer' };
+                var style = { position: 'absolute', top: '-80px', 'z-index': 10, cursor: 'pointer' };
                 if (xOffset >= 0) { style.right = 'auto'; style.left = '-230px'; }
                 else              { style.left  = 'auto'; style.right = '-230px'; }
                 return style;

@@ -17,7 +17,7 @@ angular.module('rotaViva')
     $scope.theme = theme;
     $scope.loading = true;
     $scope.posts = [];
-    $scope.topUsers = [];
+    $scope.storiesBar = [];
     $scope.playerPoints = 0;
     $scope.playerCoins = 0;
     $scope.playerStreak = 0;
@@ -110,13 +110,32 @@ angular.module('rotaViva')
         $scope.loading = false;
     });
 
-    // ─── Load top users ────────────────────────────────────────────────────────
-    ApiService.getTopUsers().then(function(data) {
-        var items = Array.isArray(data) ? data : (data.items || data.leaderboard || []);
-        $scope.topUsers = items.slice(0, 8).map(function(u) {
-            return { _id: u.player || u._id, name: u.player_name || u.name || 'Produtor', photo: u.player_photo || u.photo || null };
+    // ─── Load stories bar ─────────────────────────────────────────────────────
+    ApiService.getStoriesBar().then(function(data) {
+        $scope.storiesBar = data.map(function(u) {
+            // "seen" tracking: compare last post date vs localStorage timestamp
+            var lastSeen = 0;
+            try { lastSeen = parseInt(localStorage.getItem('rv_stories_seen_' + u._id) || '0', 10); } catch(e) {}
+            var lastPost = u.last_post_created;
+            var hasNew = false;
+            if (lastPost) {
+                var postTime = (lastPost && lastPost.$date)
+                    ? new Date(lastPost.$date).getTime()
+                    : new Date(lastPost).getTime();
+                hasNew = !isNaN(postTime) && postTime > lastSeen;
+            } else {
+                // Fixed-slot profiles without posts: always show as "new" to draw attention
+                hasNew = !!u.fixed_slot;
+            }
+            return {
+                _id:        u._id,
+                name:       u.name || 'Produtor',
+                photo:      u.photo || null,
+                fixed_slot: !!u.fixed_slot,
+                hasNew:     hasNew
+            };
         });
-    }).catch(function() { $scope.topUsers = []; });
+    }).catch(function() { $scope.storiesBar = []; });
 
     // ─── Feed actions ──────────────────────────────────────────────────────────
     $scope.toggleLike = function(post) {
@@ -314,7 +333,7 @@ angular.module('rotaViva')
                 trail_name:    trailName,
                 media_url:     mediaUrl || '',
                 media_type:    $scope.newPost.mediaType,
-                created:       new Date().toISOString(),
+                created:       { '$date': new Date().toISOString() },
                 like_count:    0,
                 comment_count: 0
             };
@@ -328,6 +347,13 @@ angular.module('rotaViva')
         }).finally(function() {
             $scope.submitting = false;
         });
+    };
+
+    // ─── Stories bar ──────────────────────────────────────────────────────────
+    $scope.openStories = function(user) {
+        // Mark as seen — update timestamp and clear hasNew flag
+        try { localStorage.setItem('rv_stories_seen_' + user._id, Date.now().toString()); } catch(e) {}
+        user.hasNew = false;
     };
 
     // ─── Navegação ─────────────────────────────────────────────────────────────

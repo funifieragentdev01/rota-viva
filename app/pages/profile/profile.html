@@ -92,7 +92,7 @@
                         <div class="passport-id-municipio" ng-if="passaporte.municipio">{{passaporte.municipio}}</div>
                     </div>
                 </div>
-                <div class="passport-id-footer-brand">Emitido em {{passaporteEmitidoEm}} pelo MIDR · Programa Rota Viva</div>
+                <div class="passport-id-footer-brand">Emitido em {{passaporteEmitidoEm}} pelo MIDR através do Programa Rota Viva</div>
                 <div class="passport-id-flip-hint">Toque para ver o verso →</div>
             </div>
 
@@ -287,47 +287,83 @@
         </div>
     </div>
 
-    <!-- Meus Programas -->
+    <!-- Programas para você -->
     <div class="profile-section" ng-if="programas.length > 0">
         <div class="profile-section-title">Programas para você</div>
-        <div class="programa-list">
-            <div class="programa-card" ng-repeat="prog in programas">
-                <!-- Linha principal: ícone + texto + link -->
-                <div class="programa-card-main">
-                    <div class="programa-card-icon"
-                         ng-style="{'background': theme.colors && theme.colors.primary + '22' || '#FF960022',
-                                    'color':      theme.colors && theme.colors.primary || '#FF9600'}">
-                        <i class="fas" ng-class="prog.icon || 'fa-landmark'"></i>
-                    </div>
-                    <div class="programa-card-text">
-                        <strong>{{prog.title}}</strong>
-                        <span>{{prog.description}}</span>
-                    </div>
-                    <a ng-if="prog.link" ng-href="{{prog.link}}" target="_blank" rel="noopener"
-                       class="programa-card-link" ng-click="$event.stopPropagation()"
-                       title="Saiba mais">
-                        <i class="fas fa-arrow-up-right-from-square"></i>
-                    </a>
+
+        <!-- Estado: bloqueado — cartão não emitido -->
+        <div class="programas-locked-wrap" ng-if="!passaporteEmitido">
+            <div class="programas-locked-header">
+                <div class="programas-locked-icon">
+                    <i class="fas fa-lock"></i>
                 </div>
-                <!-- CTA: Falar com agente -->
-                <button class="programa-contato-btn"
-                        ng-click="solicitarContato(prog)"
-                        ng-disabled="contatoEnviado[prog._id] || contatoSolicitando[prog._id]"
-                        ng-class="{'programa-contato-done': contatoEnviado[prog._id]}"
-                        ng-style="{'border-color': contatoEnviado[prog._id] ? '#4CAF50' : (theme.colors && theme.colors.primary || '#FF9600'),
-                                   'color':        contatoEnviado[prog._id] ? '#4CAF50' : (theme.colors && theme.colors.primary || '#FF9600')}">
-                    <i class="fas fa-spinner fa-spin" ng-if="contatoSolicitando[prog._id]"></i>
-                    <i class="fas fa-check"   ng-if="contatoEnviado[prog._id] && !contatoSolicitando[prog._id]"></i>
-                    <i class="fas fa-headset" ng-if="!contatoEnviado[prog._id] && !contatoSolicitando[prog._id]"></i>
-                    {{contatoEnviado[prog._id] ? 'Agente notificado' : 'Falar com agente'}}
-                </button>
+                <div class="programas-locked-info">
+                    <div class="programas-locked-title">Acesso bloqueado</div>
+                    <div class="programas-locked-text">Emita seu {{cardTitle}} para acessar os programas federais disponíveis para você.</div>
+                </div>
             </div>
+            <!-- Preview borrado: até 3 programas -->
+            <div class="programa-list programas-list-preview">
+                <div class="programa-card programa-card-locked" ng-repeat="prog in programas | limitTo:3">
+                    <div class="programa-card-main">
+                        <div class="programa-card-icon">
+                            <i class="fas" ng-class="prog.icon || 'fa-landmark'"></i>
+                        </div>
+                        <div class="programa-card-text">
+                            <strong>{{prog.title}}</strong>
+                            <span>{{prog.description}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="btn programas-locked-btn"
+                    ng-style="{'background': theme.colors && theme.colors.primary || '#FF9600'}"
+                    ng-click="openPassaporteModal()">
+                <i class="fas fa-id-card"></i> Emitir meu {{cardTitle}}
+            </button>
         </div>
 
-        <!-- Toast: contato enviado com sucesso -->
-        <div class="programa-contato-toast" ng-if="contatoSuccess">
-            <i class="fas fa-circle-check"></i>
-            Solicitação enviada! Um agente entrará em contato via WhatsApp sobre <strong>{{contatoSuccess}}</strong>.
+        <!-- Estado: desbloqueado — programas completos -->
+        <div ng-if="passaporteEmitido">
+            <div class="programa-list">
+                <div class="programa-card" ng-repeat="prog in programas">
+                    <!-- Linha principal: ícone + texto + link -->
+                    <div class="programa-card-main">
+                        <div class="programa-card-icon"
+                             ng-style="{'background': theme.colors && theme.colors.primary + '22' || '#FF960022',
+                                        'color':      theme.colors && theme.colors.primary || '#FF9600'}">
+                            <i class="fas" ng-class="prog.icon || 'fa-landmark'"></i>
+                        </div>
+                        <div class="programa-card-text">
+                            <strong>{{prog.title}}</strong>
+                            <span>{{prog.description}}</span>
+                        </div>
+                        <a ng-if="prog.link" ng-href="{{prog.link}}" target="_blank" rel="noopener"
+                           class="programa-card-link" ng-click="$event.stopPropagation()"
+                           title="Saiba mais">
+                            <i class="fas fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+                    <!-- CTA: Falar com agente -->
+                    <button class="programa-contato-btn"
+                            ng-click="solicitarContato(prog)"
+                            ng-disabled="contatoEnviado[prog._id] || contatoSolicitando[prog._id]"
+                            ng-class="{'programa-contato-done': contatoEnviado[prog._id]}"
+                            ng-style="{'border-color': contatoEnviado[prog._id] ? '#4CAF50' : (theme.colors && theme.colors.primary || '#FF9600'),
+                                       'color':        contatoEnviado[prog._id] ? '#4CAF50' : (theme.colors && theme.colors.primary || '#FF9600')}">
+                        <i class="fas fa-spinner fa-spin" ng-if="contatoSolicitando[prog._id]"></i>
+                        <i class="fas fa-check"   ng-if="contatoEnviado[prog._id] && !contatoSolicitando[prog._id]"></i>
+                        <i class="fas fa-headset" ng-if="!contatoEnviado[prog._id] && !contatoSolicitando[prog._id]"></i>
+                        {{contatoEnviado[prog._id] ? 'Agente notificado' : 'Falar com agente'}}
+                    </button>
+                </div>
+            </div>
+
+            <!-- Toast: contato enviado com sucesso -->
+            <div class="programa-contato-toast" ng-if="contatoSuccess">
+                <i class="fas fa-circle-check"></i>
+                Solicitação enviada! Um agente entrará em contato via WhatsApp sobre <strong>{{contatoSuccess}}</strong>.
+            </div>
         </div>
     </div>
 

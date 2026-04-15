@@ -2,8 +2,8 @@
 // Versão deve ser sincronizada com CONFIG.VERSION em config.js.
 // Mudar CACHE_VERSION força reinstalação e limpeza dos caches antigos.
 
-var CACHE_VERSION = 'rv-v1.4.9';
-var API_CACHE     = 'rv-api-v1.4.9';
+var CACHE_VERSION = 'rv-v1.4.12';
+var API_CACHE     = 'rv-api-v1.4.12';
 
 // ── App shell: pré-cacheado no install ──────────────────────────────────────
 // Inclui todos os JS/CSS versionados + templates HTML (sem versão) + assets core.
@@ -12,35 +12,35 @@ var SHELL_ASSETS = [
     '/',
     '/index.html',
     // Config + App
-    '/config.js?v=1.4.9',
-    '/app.js?v=1.4.9',
+    '/config.js?v=1.4.11',
+    '/app.js?v=1.4.11',
     // CSS
-    '/css/style.css?v=1.4.9',
-    '/directives/duo-trail/duo-trail.css?v=1.4.9',
+    '/css/style.css?v=1.4.11',
+    '/directives/duo-trail/duo-trail.css?v=1.4.11',
     // Services
-    '/services/cpf.js?v=1.4.9',
-    '/services/sound.js?v=1.4.9',
-    '/services/theme.js?v=1.4.9',
-    '/services/auth.js?v=1.4.9',
-    '/services/api.js?v=1.4.9',
+    '/services/cpf.js?v=1.4.11',
+    '/services/sound.js?v=1.4.11',
+    '/services/theme.js?v=1.4.11',
+    '/services/auth.js?v=1.4.11',
+    '/services/api.js?v=1.4.11',
     // Directives + Components
-    '/directives/duo-trail/duo-trail.js?v=1.4.9',
-    '/directives/question/question.js?v=1.4.9',
+    '/directives/duo-trail/duo-trail.js?v=1.4.11',
+    '/directives/question/question.js?v=1.4.11',
     '/directives/question/question.html',
-    '/components/bottom-nav/bottom-nav.js?v=1.4.9',
+    '/components/bottom-nav/bottom-nav.js?v=1.4.11',
     // Pages JS
-    '/pages/landing/landing.js?v=1.4.9',
-    '/pages/rota/rota.js?v=1.4.9',
-    '/pages/onboarding/onboarding.js?v=1.4.9',
-    '/pages/login/login.js?v=1.4.9',
-    '/pages/signup/signup.js?v=1.4.9',
-    '/pages/dashboard/dashboard.js?v=1.4.9',
-    '/pages/trail/trail.js?v=1.4.9',
-    '/pages/gallery/gallery.js?v=1.4.9',
-    '/pages/profile/profile.js?v=1.4.9',
-    '/pages/quiz/quiz.js?v=1.4.9',
-    '/pages/video/video.js?v=1.4.9',
-    '/pages/reading/reading.js?v=1.4.9',
+    '/pages/landing/landing.js?v=1.4.11',
+    '/pages/rota/rota.js?v=1.4.11',
+    '/pages/onboarding/onboarding.js?v=1.4.11',
+    '/pages/login/login.js?v=1.4.11',
+    '/pages/signup/signup.js?v=1.4.11',
+    '/pages/dashboard/dashboard.js?v=1.4.11',
+    '/pages/trail/trail.js?v=1.4.11',
+    '/pages/gallery/gallery.js?v=1.4.11',
+    '/pages/profile/profile.js?v=1.4.11',
+    '/pages/quiz/quiz.js?v=1.4.11',
+    '/pages/video/video.js?v=1.4.11',
+    '/pages/reading/reading.js?v=1.4.11',
     // Pages HTML (AngularJS busca sem versão via $http)
     '/pages/landing/landing.html',
     '/pages/rota/rota.html',

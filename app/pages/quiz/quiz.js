@@ -471,7 +471,7 @@ angular.module('rotaViva')
             media_url:     '',
             like_count:    0,
             comment_count: 0,
-            created:       new Date().toISOString(),
+            created:       { '$date': new Date().toISOString() },
             extra: {
                 lesson_id:     lessonId,
                 module_id:     moduleId || '',

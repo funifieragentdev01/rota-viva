@@ -42,21 +42,221 @@ Itens pendentes de implementação no app, em ordem de discussão (prioridade a 
 
 **O que:** Carrossel horizontal no topo do feed da galeria, estilo Instagram Stories, mostrando avatares dos produtores/entidades em destaque.
 
-**Algoritmo de destaque (a definir pesos exatos):**
-- **Ministério (MIDR/FADEX):** sempre aparece primeiro, peso máximo
-- **Cooperativas e associações:** peso alto — aparecem logo após o ministério
-- **Produtores ativos com muitos seguidores/likes/comentários:** peso médio
-- **Produtores novos ou sem engajamento:** peso baixo ou ausentes do carrossel
+---
 
-**Alcance de uma postagem:**
-- O algoritmo de peso define para quantas pessoas o post é exibido no feed
-- Entidade com peso alto → post aparece para todos os usuários
-- Produtor novo → post aparece apenas para seguidores diretos ou região
+### Estrutura das coleções relevantes
 
-**O que implementar:**
-- Componente Stories no topo do feed (scroll horizontal, avatares circulares)
-- API de ranking de usuários baseada nos pesos acima
-- Lógica de filtragem de feed por relevância (não apenas cronológica)
+**`post__c`**
+```json
+{
+  "_id": "69d65afe28fe032bb2503d9c",
+  "player": "69549486168",
+  "player_name": "Ricardo Lopes Costa",
+  "media_type": "image",
+  "media_url": "https://...",
+  "description": "...",
+  "created": "2026-04-08T13:41:18.338Z"
+}
+```
+
+**`post_like__c`**
+```json
+{ "_id": "...", "post": "69d480bc52fe0c34f38dedf6", "player": "69549486168" }
+```
+
+**`post_comment__c`**
+```json
+{
+  "_id": "...", "post": "69dd92d79d58a5339b00520f",
+  "player": "69549486168", "player_name": "...",
+  "text": "...", "created": "2026-04-14T20:16:52.973Z"
+}
+```
+
+---
+
+### Campos obrigatórios no player
+
+| Campo | Tipo | Descrição |
+|-------|------|-----------|
+| `extra.weight` | inteiro | Peso do perfil. Default: `1`. Admin ajusta manualmente no Studio. |
+| `extra.fixed_slot` | boolean | `true` → aparece sempre no carrossel, independente de posts recentes. Usar para MIDR, FADEX, e outros perfis institucionais fixos. |
+| `extra.route` | string | `mel` ou `pesca` — filtra o carrossel por rota do usuário logado. |
+
+**Tabela de referência de pesos:**
+
+| Perfil | `extra.weight` | `extra.fixed_slot` |
+|--------|---------------|-------------------|
+| MIDR / FADEX | 100 | `true` |
+| Cooperativa / Associação | 10 | `false` |
+| Produtor ativo | 1–5 (admin ajusta) | `false` |
+| Produtor novo (default) | 1 | `false` |
+
+---
+
+### Algoritmo do carrossel de Stories
+
+**Score de ranking por perfil:**
+```
+score = extra.weight × (posts_últimos_30_dias + 1)
+```
+
+**Regras de exibição:**
+1. **Slot fixo** (`extra.fixed_slot: true`): sempre aparece no carrossel, mesmo sem posts recentes. Score calculado com multiplicador 10.000 para garantir posição no topo. Ordenados entre si por `extra.weight DESC`.
+2. **Slots dinâmicos**: perfis com ao menos 1 post nos últimos 7 dias. Ordenados por score DESC.
+3. **Ausentes**: perfis sem posts nos últimos 7 dias E sem `fixed_slot: true` não aparecem no carrossel.
+4. **Limite:** máximo 20 perfis exibidos.
+
+**Aggregate MongoDB (Public Endpoint — coleção `player`):**
+```json
+[
+  { "$match": { "extra.route": "{{route}}", "active": true } },
+  { "$lookup": {
+      "from": "post__c",
+      "localField": "_id",
+      "foreignField": "player",
+      "pipeline": [
+        { "$match": {
+            "created": { "$gte": { "$dateSubtract": { "startDate": "$$NOW", "unit": "day", "amount": 30 } } }
+        }},
+        { "$sort": { "created": -1 } },
+        { "$limit": 1 },
+        { "$project": { "created": 1, "media_url": 1, "_id": 0 } }
+      ],
+      "as": "last_post"
+  }},
+  { "$addFields": {
+    "last_post_data": { "$arrayElemAt": ["$last_post", 0] },
+    "weight": { "$ifNull": ["$extra.weight", 1] },
+    "fixed_slot": { "$ifNull": ["$extra.fixed_slot", false] }
+  }},
+  { "$match": {
+    "$or": [
+      { "fixed_slot": true },
+      { "last_post_data": { "$exists": true } }
+    ]
+  }},
+  { "$addFields": {
+    "score": {
+      "$cond": [
+        "$fixed_slot",
+        { "$multiply": ["$weight", 10000] },
+        "$weight"
+      ]
+    }
+  }},
+  { "$sort": { "score": -1 } },
+  { "$limit": 20 },
+  { "$project": {
+    "_id": 1, "name": 1, "photo": 1,
+    "weight": 1, "fixed_slot": 1,
+    "last_post_created": "$last_post_data.created",
+    "last_post_media": "$last_post_data.media_url",
+    "score": 1
+  }}
+]
+```
+
+---
+
+### Indicador visual de "novo" vs "já visto"
+
+- **Borda colorida (gradiente da rota):** perfil tem post mais recente que a última vez que o usuário abriu esse perfil.
+- **Borda cinza:** perfil já visto (ou sem post novo).
+- **Rastreamento:** `localStorage` no browser. Chave: `rv_stories_seen_{authorPlayerId}`, valor: timestamp da última visualização.
+- **Lógica:** ao abrir o Stories de um perfil, salva `Date.now()` na chave. Na renderização do carrossel, compara `last_post_created` (vindo do aggregate) com o `lastSeenAt` do localStorage — se o post é mais recente, borda colorida.
+- **MVP:** todos aparecem no carrossel (vistos e não vistos), pois o volume inicial de posts é baixo. Ocultar vistos é V2.
+
+---
+
+### Algoritmo de relevância do feed de posts
+
+**V1 (MVP) — Cronológico reverso:**
+- Ordenação simples por `created DESC`, filtrado por rota.
+- Sem personalização.
+
+**V2 — Score de relevância por post:**
+
+```
+relevance_score = author_weight × (total_likes + 1) × recency_score
+```
+
+Onde `recency_score`:
+- Post < 24h → `3`
+- Post entre 24h e 7 dias → `2`
+- Post > 7 dias → `1`
+
+**Aggregate MongoDB para V2 (coleção `post__c`):**
+```json
+[
+  { "$match": { "active": true } },
+  { "$lookup": {
+      "from": "post_like__c",
+      "localField": "_id", "foreignField": "post",
+      "as": "likes_data"
+  }},
+  { "$lookup": {
+      "from": "post_comment__c",
+      "localField": "_id", "foreignField": "post",
+      "as": "comments_data"
+  }},
+  { "$lookup": {
+      "from": "player",
+      "localField": "player", "foreignField": "_id",
+      "pipeline": [{ "$project": { "weight": { "$ifNull": ["$extra.weight", 1] } } }],
+      "as": "author_data"
+  }},
+  { "$addFields": {
+    "total_likes": { "$size": "$likes_data" },
+    "total_comments": { "$size": "$comments_data" },
+    "author_weight": { "$ifNull": [{ "$arrayElemAt": ["$author_data.weight", 0] }, 1] },
+    "hours_since": {
+      "$divide": [{ "$subtract": ["$$NOW", "$created"] }, 3600000]
+    }
+  }},
+  { "$addFields": {
+    "recency_score": {
+      "$cond": [{ "$lte": ["$hours_since", 24] }, 3,
+        { "$cond": [{ "$lte": ["$hours_since", 168] }, 2, 1] }]
+    }
+  }},
+  { "$addFields": {
+    "relevance_score": {
+      "$multiply": ["$author_weight", { "$add": ["$total_likes", 1] }, "$recency_score"]
+    }
+  }},
+  { "$sort": { "relevance_score": -1 } },
+  { "$limit": 15 }
+]
+```
+
+---
+
+### Gamificação do alcance (Yu-kai Chou — CD2 + CD6)
+
+O ranking do carrossel deve ser comunicado ao produtor como progressão visível:
+
+> "Você está entre os produtores em destaque desta semana. Continue publicando para aparecer para mais produtores."
+
+Usar buckets discretos de alcance (comunicados ao usuário):
+
+| Bucket | Critério | Alcance no feed |
+|--------|----------|-----------------|
+| 🏛️ Autoridade | `extra.fixed_slot: true` | Aparece para todos os usuários da rota |
+| 🤝 Destaque | `weight ≥ 5` E ≥ 3 posts/30 dias | Aparece para todos da rota |
+| 🌿 Ativo | ≥ 1 post/30 dias | Aparece para usuários do mesmo município |
+| 🌱 Novo | sem posts recentes | Apenas seguidores diretos (V2) |
+
+---
+
+### O que implementar
+
+- [ ] Campo `extra.fixed_slot` e `extra.weight` nos players institucionais (Studio)
+- [ ] Public Endpoint Funifier com o aggregate de ranking do Stories bar
+- [ ] Componente Stories no topo do feed: scroll horizontal, avatares circulares, borda colorida/cinza
+- [ ] `localStorage` para rastreamento de "visto" por perfil (`rv_stories_seen_{playerId}`)
+- [ ] Feed V1: ordenação cronológica reversa com filtro de rota (já implementado parcialmente)
+- [ ] Feed V2: Public Endpoint com aggregate de relevância (backlog)
 
 ---
 
@@ -180,7 +380,7 @@ POST /v3/virtualgoods/item/{id}/redeem → usuário resgata
 [Banner discreto — bottom sheet]
 ┌─────────────────────────────────────────┐
 │ [ícone do app]  Rota do Mel   │
-│       Funciona sem internet!  │
+│   Funciona sem internet!  │
 │  [Adicionar à tela inicial]  [Agora não]│
 └─────────────────────────────────────────┘
 ```
@@ -193,8 +393,8 @@ POST /v3/virtualgoods/item/{id}/redeem → usuário resgata
 
 ```
 Recursos estáticos (JS, CSS, HTML, imagens):  Cache-first
-Dados da API (/v3/):       Network-first com fallback para cache
-Fila de sync (DIY, Essay, Quiz):     IndexedDB local
+Dados da API (/v3/):   Network-first com fallback para cache
+Fila de sync (DIY, Essay, Quiz): IndexedDB local
 Reconexão:  Background Sync API → flush da fila
 ```
 
@@ -367,9 +567,9 @@ Criada quando o produtor toca em "Falar com agente":
 {
   "player":    "cpf_do_produtor",
   "player_name":    "Nome do Produtor",
-  "phone":     "11999999999",
+  "phone": "11999999999",
   "municipio": "Nome do município",
-  "route":     "mel",
+  "route": "mel",
   "programa_id":    "pronaf",
   "programa_title": "PRONAF — Crédito Rural",
   "status":    "pendente",
@@ -421,292 +621,31 @@ Duas instâncias criadas (uma por rota):
 ## Profile Photo Zoom
 - Na pagina /profile, quando eu vou editar a foto de perfil, se eu uso a opccao de tirar foto com a camera, a foto fica com zoom. Veja na imagem "/jarvis/rota-viva/doc/assets/issue/bug-photo-zoom.jpeg", precisa ajustar isso para pegar a foto normal. Talvez seja por que a resolucao do meu celular seja grande. Sera que da para pegar a foto como aparece na camera em uma resolucao menor? Na hora de salvar coloca ela com a resolucao menor.
 
-## Geral
-- Inclua na pagina /profile na sessao de Conta, apos a politica de privacidade, um item Versao, para mostrar a versao atual do app, ex: "Versao 1.4.8". 
+## GERAL
+Otimo, agora que ja planejamos de forma completa como sera feito essa parte da galeria dos saberes, pode implementar os 5 items abaixo: 
 
-## Question (MULTIPLE_CHOICE)
-- Acabei de perceber que a estrutura do JSON das perguntas do tipo "multiple_choice" nao esta correta. O campo "label" deve ser o texto da opcao, e nao o valor, o valor deve ser o "answer". Aqui esta a estrutura errada como esta no banco:
+- Na hora de cadastrar uma publicação no feed da galeria dos saberes, você está cadastrando o campo created no JSON da seguinte forma: "created": "2026-04-08T13:41:18.338Z", porém como estamos usando o MongoDB você precisa cadastrar este campo de data no formato BSON da seguinte forma: "created": {“$date”: "2026-04-08T13:41:18.338Z"}. Ajuste isso por favor tanto em “/jarvis/rota-viva/app/pages/gallery” no cadastro da publicação, quanto na questão do tipo “diy” que também faz o cadastro na galeria, acho que através da diretiva de question “/jarvis/rota-viva/app/directives/question”. Ajuste isso, por favor, pois precisamos do campo de data correto para fazer a ordenação dos registros a serem apresentados para o usuário usando um campo de data de criação válido. Faz este mesmo ajuste nas colecoes "post_comment__c" e "post_like__c".
 
-```json
-{
-    "_id": "69d7a4cc28fe032bb252428f",
-    "quiz": "69d7a4cc28fe032bb252428e",
-    "type": "MULTIPLE_CHOICE",
-    "title": "Qual é o papel principal das abelhas na natureza além de produzir mel?",
-    "question": "Qual é o papel principal das abelhas na natureza além de produzir mel?",
-    "grade": 1,
-    "choices": [
- {
-   "answer": "Decompor matéria orgânica",
-   "label": "A",
-   "grade": 0,
-   "extra": {}
- },
- {
-   "answer": "Polinizar plantas e culturas agrícolas",
-   "label": "B",
-   "grade": 1,
-   "extra": {}
- },
- {
-   "answer": "Controlar pragas de insetos",
-   "label": "C",
-   "grade": 0,
-   "extra": {}
- },
- {
-   "answer": "Produzir cera para a indústria",
-   "label": "D",
-   "grade": 0,
-   "extra": {}
- }
-    ],
-    "i18n": {},
-    "techniques": [
- "GT05"
-    ],
-    "select": "one_answer",
-    "shuffle": false,
-    "feedbacks": [],
-    "gradingMode": "ai",
-    "extra": {},
-    "requires": []
-}
-```
+- Pode implementar o item “3. Topo da Galeria Estilo Stories” conforme voces planejaram no documento “/jarvis/rota-viva/doc/bmad-review-2026-04-12.md”. 
 
-E aqui esta a estrutura correta:
+- Na trilha do projeto “rota-viva” em “/jarvis/rota-viva/app/pages/trail”, temos a lição do tipo escuta ativa, quando está bloqueada mostra um ícone de fone de ouvido “fa-headphones”, quando completa a lição está mostrando um ícone diferente de balão “.fa-comment” Eu quero que mantenha o ícone do fone de ouvido “fa-headphones”. 
 
-```json
-{
-    "_id": "69d7a4cc28fe032bb252428f",
-    "quiz": "69d7a4cc28fe032bb252428e",
-    "type": "MULTIPLE_CHOICE",
-    "title": "Qual é o papel principal das abelhas na natureza além de produzir mel?",
-    "question": "Qual é o papel principal das abelhas na natureza além de produzir mel?",
-    "grade": 1,
-    "choices": [
- {
-   "answer": "A",
-   "label": "Decompor matéria orgânica",
-   "grade": 0,
-   "extra": {}
- },
- {
-   "answer": "B",
-   "label": "Polinizar plantas e culturas agrícolas",
-   "grade": 1,
-   "extra": {}
- },
- {
-   "answer": "C",
-   "label": "Controlar pragas de insetos",
-   "grade": 0,
-   "extra": {}
- },
- {
-   "answer": "D",
-   "label": "Produzir cera para a indústria",
-   "grade": 0,
-   "extra": {}
- }
-    ],
-    "i18n": {},
-    "techniques": [
- "GT05"
-    ],
-    "select": "one_answer",
-    "answerNumbering": "uppercase_letters",
-    "shuffle": false,
-    "feedbacks": [],
-    "model": {},
-    "gradingMode": "ai",
-    "extra": {},
-    "requires": []
-}
-```
+- Na trilha quando eu clico em uma bolinha de uma lição, e ele abre o pop up para entrar, o pop up está ficando embaixo de algumas imagens de Cartoon, isso está atrapalhando o usuário a clicar no pop up. Eu acho que precisa ajustar o z-index apenas do pop up ativo, pra ele sempre ficar acima de qualquer outro elemento na diretiva “/jarvis/rota-viva/app/directives/duo-trail”. Assim o usuário vai conseguir clicar no pop up. Veja na imagem “/jarvis/rota-viva/doc/assets/issue/bug-trail-popup.png” que o popup está aparecendo embaixo da imagem do cartoon. 
 
-Entao eu preciso da sua ajuda para fazer duas coisas:
+- Na página “/profile” mostrar os programas bloqueados se o usuário não tiver feito o “cartão do produtor”. Para o usuário ficar com vontade de fazer o cartão. Mostrar na seção de “Programas para você” alguma informação falando que está bloqueado, e só desbloqueia para quem tem o cartão. Quando o usuário cadastrar o cartao a seção de programas para você desbloqueia e mostra a lista de programas. 
 
-1. Montar um comando aggregate que troque o campo "label" pelo campo "answer", e campo "answer" pelo campo "label", em questions do tipo "MULTIPLE_CHOICE". O comando aggregate precisa ser no formato JSON. Aqui esta o exemplo de como deve ser a estrutura do comando aggregate:
 
-```json
-{
-  "pipeline": [
-    {"$match": { "type": "MULTIPLE_CHOICE"}},
-    {"$addFields": { 
- "choices.$.label": "$choices.$.answer", 
- "choices.$.answer": "$choices.$.label" }}
-  ]
-}
-```
+## TUTOR
+Otimo, agora que voce terminou os ajustes no projeto "rota-viva" preciso que voce apliqu os 4 ajustes abaixo no projeto "tutor":
 
-Eu vou usar o resultado desse comando aggregate para atualizar os questions no banco de dados manualmente.
+- No projeto “tutor” aplique na diretiva de “duo-trail” que está em “/jarvis/tutor/app/directives/duo-trail”, esses ajustes do popup ativo ficar sobre o cartoon que você fez no projeto “rota-viva” na diretiva de “duo-trail” que está em “/jarvis/rota-viva/app/directives/duo-trail”. 
 
-2. Criar uma diretiva "question" no app em "/jarvis/rota-viva/app/directives" que funcione como a diretiva question do funifier studio que esta funcionando "/funifier/funifier-studio/app/scripts/directives/question.js" e usa da forma correta as estruturas JSON, e aplique na pagina de "/jarvis/rota-viva/app/pages/quiz".
+- No projeto “tutor” eu quero que você implemente o feed de projetos feitos pela criança, igual o feed do projeto “rota-viva”, que estamos chamando de galeria dos saberes. Incluindo a funcionalidade onde dentro das questões do tipo “diy”, a criança pode falar se quer publicar o trabalho feito, na galeria, para outras crianças verem. 
 
+- No projeto “tutor” tem algo estranho na navegação na trilha na rota da criança. Quando eu acesso a trilha “/child/folder/:id” a partir da home “/child” eu vejo a diretiva duo-trail corretamente, igual na imagem “/jarvis/tutor/doc/issue/trail-from-home.png”, mas quando eu estou fazendo uma lição e clico em voltar na página “/quiz/:id” então eu vejo outra coisa na página “/child/folder/:id”, vejo a seguinte imagem “/jarvis/tutor/doc/issue/trail-from-back.png”. Precisa ajustar isso para ele sempre mostrar a diretiva duo-trail. Pois neste app ele sempre deverá acessar esta página a partir de um folder raiz sem parent.  
+
+- No projeto “tutor” temos a funcionalidade de criar a versão cartoon da criança, e as variações para usar na trilha. Eu quero usar uma referência de imagem do duolingo para gerar a versão cartoon da criança, esta e' a imagem que deve ser usada como referencia para criar a versao cartoon vista de frente "/jarvis/tutor/app/img/ref/front.png", e para gerar as variações do cartoon vista do alto para ser usada na trilha eu quero usar duas referências de imagem, a imagem da versão cartoon da criança (gerada no primeiro passo) + outra referência de imagem de personagem do duolingo com vista aérea, que e' esta imagem aqui "/jarvis/tutor/app/img/ref/trail.png".
 
 ---
 
-Acabei de identificar o mesmo erro do campo "choices.answer" e "choices.label" estarem trocados nas questions do tipo "LISTEN" que tambem esta com a estrutura de JSON errada. Este e' o JSON errado:
-
-```json
-{
-    "_id": "69d7a4ce28fe032bb2524296",
-    "quiz": "69d7a4cc28fe032bb252428e",
-    "type": "LISTEN",
-    "title": "O que a apicultura no Piauí combina, segundo o texto?",
-    "question": "O que a apicultura no Piauí combina, segundo o texto?",
-    "grade": 1,
-    "choices": [
-      {
-        "answer": "Produção industrial e exportação",
-        "label": "A",
-        "grade": 0,
-        "extra": {}
-      },
-      {
-        "answer": "Geração de renda e preservação ambiental",
-        "label": "B",
-        "grade": 1,
-        "extra": {}
-      },
-      {
-        "answer": "Turismo rural e agricultura familiar",
-        "label": "C",
-        "grade": 0,
-        "extra": {}
-      },
-      {
-        "answer": "Mel orgânico e cosméticos naturais",
-        "label": "D",
-        "grade": 0,
-        "extra": {}
-      }
-    ],
-    "i18n": {},
-    "techniques": [
-      "GT05"
-    ],
-    "shuffle": false,
-    "feedbacks": [],
-    "speechText": "A apicultura no Piauí combina geração de renda com preservação ambiental, pois as abelhas polinizam a vegetação nativa do cerrado e da caatinga.",
-    "gradingMode": "ai",
-    "extra": {
-      "speechText": "A apicultura no Piauí combina geração de renda com preservação ambiental, pois as abelhas polinizam a vegetação nativa do cerrado e da caatinga.",
-      "ttsLang": "pt-BR"
-    },
-    "requires": []
-}
-```
-
-E este e' o JSON correto:
-```json
-{
-    "_id": "69d7a4ce28fe032bb2524296",
-    "quiz": "69d7a4cc28fe032bb252428e",
-    "type": "LISTEN",
-    "title": "O que a apicultura no Piauí combina, segundo o texto?",
-    "question": "O que a apicultura no Piauí combina, segundo o texto?",
-    "grade": 1,
-    "choices": [
-      {
-        "answer": "A",
-        "label": "Produção industrial e exportação",
-        "grade": 0,
-        "extra": {}
-      },
-      {
-        "answer": "B",
-        "label": "Geração de renda e preservação ambiental",
-        "grade": 1,
-        "extra": {}
-      },
-      {
-        "answer": "C",
-        "label": "Turismo rural e agricultura familiar",
-        "grade": 0,
-        "extra": {}
-      },
-      {
-        "answer": "D",
-        "label": "Mel orgânico e cosméticos naturais",
-        "grade": 0,
-        "extra": {}
-      }
-    ],
-    "i18n": {},
-    "techniques": [
-      "GT05"
-    ],
-    "answerNumbering": "uppercase_letters",
-    "shuffle": false,
-    "feedbacks": [],
-    "model": {},
-    "speechText": "A apicultura no Piauí combina geração de renda com preservação ambiental, pois as abelhas polinizam a vegetação nativa do cerrado e da caatinga.",
-    "gradingMode": "ai",
-    "extra": {
-      "speechText": "A apicultura no Piauí combina geração de renda com preservação ambiental, pois as abelhas polinizam a vegetação nativa do cerrado e da caatinga.",
-      "ttsLang": "pt-BR"
-    },
-    "updated": 1776116896347,
-    "requires": []
-}
-```
-
-Eu ja corrigi o JSON do banco de dados, preciso apenas que voce confira se esta tudo certo no app para este tipo de question, e caso nao esteja corrija por favor. 
-
---- 
-
-Acabei de ver mais um erro. As questoes podem ter uma imagem para ilustrar a pergunta, e esta imagem nao esta sendo apresentada na questao dentro do app. A diretiva question nao esta considerando a imagem. Mas a diretiva do studio que e' nossa fonte da verdade mostra a imagem. Por favor, corrija isso.
-
-Aqui esta um exemplo do JSON com a imagem:
-```json
-{
-    "_id": "69d7a4cc28fe032bb252428f",
-    "quiz": "69d7a4cc28fe032bb252428e",
-    "type": "MULTIPLE_CHOICE",
-    "title": "Qual é o papel principal das abelhas na natureza além de produzir mel?",
-    "question": "Qual é o papel principal das abelhas na natureza além de produzir mel?",
-    "grade": 1,
-    "choices": [
-      {
-        "answer": "A",
-        "label": "Decompor matéria orgânica",
-        "grade": 0,
-        "extra": {}
-      },
-      {
-        "answer": "B",
-        "label": "Polinizar plantas e culturas agrícolas",
-        "grade": 1,
-        "extra": {}
-      },
-      {
-        "answer": "C",
-        "label": "Controlar pragas de insetos",
-        "grade": 0,
-        "extra": {}
-      },
-      {
-        "answer": "D",
-        "label": "Produzir cera para a indústria",
-        "grade": 0,
-        "extra": {}
-      }
-    ],
-    "i18n": {},
-    "techniques": [
-      "GT05"
-    ],
-    "select": "one_answer",
-    "answerNumbering": "uppercase_letters",
-    "shuffle": false,
-    "feedbacks": [],
-    "model": {},
-    "gradingMode": "ai",
-    "imageUrl": "https://rotaviva.app/img/characters/mel/trail/11.png",
-    "extra": {},
-    "updated": 1776117834596,
-    "requires": []
-}
-```
+Marcione, autoridade em espiritualidade

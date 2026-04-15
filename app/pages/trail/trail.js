@@ -159,6 +159,8 @@ angular.module('rotaViva')
 
                 return ApiService.folderProgress(mod._id, playerId).then(function(lessonData) {
                     var lessons = (lessonData.items || []).filter(function(i) { return i.folder !== false; });
+                    // Generic folder types — not content-type icons
+                    var GENERIC_TYPES = ['lesson', 'module', 'subject', 'quiz', 'folder'];
                     return {
                         _id:      mod._id,
                         title:    mod.title,
@@ -167,10 +169,14 @@ angular.module('rotaViva')
                         position: mod.position || modIdx,
                         lessons:  lessons.map(function(l, lIdx) {
                             var firstContent = (l.items || [])[0] || {};
+                            // Prefer lesson's own type for specific interaction types (e.g. 'listen', 'diy')
+                            // This prevents the icon from changing when items order changes after completion
+                            var lessonType = (l.type && GENERIC_TYPES.indexOf(l.type) === -1) ? l.type : '';
+                            var contentType = lessonType || firstContent.type || '';
                             return {
                                 _id:         l._id,
                                 title:       l.title,
-                                contentType: firstContent.type    || '',
+                                contentType: contentType,
                                 contentId:   firstContent.content || firstContent._id || '',
                                 percent:     l.percent      || 0,
                                 is_unlocked: l.is_unlocked !== false,
@@ -214,7 +220,7 @@ angular.module('rotaViva')
 
         if ((type === 'quiz' || type === 'review' || type === 'mission' ||
              type === 'chest' || type === 'cartoon' || type === 'diy' ||
-             type === 'essay') && id) {
+             type === 'essay' || type === 'listen') && id) {
             $location.path('/quiz/' + id).search(ctx); return;
         }
         if (type === 'video' && id) {

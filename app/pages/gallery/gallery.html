@@ -13,15 +13,17 @@
         </div>
     </div>
 
-    <!-- Top Users -->
-    <div class="gallery-top-users" ng-if="topUsers.length > 0">
-        <div class="gallery-top-users-scroll">
-            <div class="gallery-top-user" ng-repeat="u in topUsers">
-                <div class="gallery-top-user-avatar">
-                    <img ng-if="u.photo" ng-src="{{u.photo}}" alt="{{u.name}}" />
-                    <div ng-if="!u.photo" class="gallery-top-user-initial">{{u.name | firstWord | limitTo:1}}</div>
+    <!-- Stories Bar -->
+    <div class="gallery-stories-bar" ng-if="storiesBar.length > 0">
+        <div class="gallery-stories-scroll">
+            <div class="gallery-story" ng-repeat="u in storiesBar" ng-click="openStories(u)">
+                <div class="gallery-story-ring" ng-class="{'gallery-story-ring-new': u.hasNew, 'gallery-story-ring-seen': !u.hasNew}">
+                    <div class="gallery-story-avatar">
+                        <img ng-if="u.photo" ng-src="{{u.photo}}" alt="{{u.name}}" />
+                        <div ng-if="!u.photo" class="gallery-story-initial">{{u.name | firstWord | limitTo:1}}</div>
+                    </div>
                 </div>
-                <div class="gallery-top-user-name">{{u.name | firstWord}}</div>
+                <div class="gallery-story-name">{{u.name | firstWord}}</div>
             </div>
         </div>
     </div>

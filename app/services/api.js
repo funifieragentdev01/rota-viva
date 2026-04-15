@@ -159,15 +159,42 @@ angular.module('rotaViva')
         });
     };
 
-    api.getTopUsers = function() {
-        return $http.get(baseUrl + '/v3/leaderboard?period=week&limit=5', trailHeaders())
-            .then(function(res) { return res.data || []; });
+    // Stories bar: ranked players who posted recently, fixed-slot profiles always first
+    api.getStoriesBar = function() {
+        var pipeline = [
+            { $sort:  { created: -1 } },
+            { $limit: 100 },
+            { $group: {
+                _id:               '$player',
+                last_post_created: { $first: '$created' },
+                player_name:       { $first: '$player_name' }
+            }},
+            { $lookup: { from: 'player', localField: '_id', foreignField: '_id', as: '_pd' } },
+            { $addFields: { pd: { $arrayElemAt: ['$_pd', 0] } } },
+            { $addFields: {
+                name:       { $ifNull: ['$pd.name', '$player_name'] },
+                photo:      '$pd.image.original.url',
+                weight:     { $ifNull: ['$pd.extra.weight', 1] },
+                fixed_slot: { $ifNull: ['$pd.extra.fixed_slot', false] }
+            }},
+            { $sort: { fixed_slot: -1, weight: -1, last_post_created: -1 } },
+            { $limit: 20 },
+            { $project: { _id: 1, name: 1, photo: 1, weight: 1, fixed_slot: 1, last_post_created: 1 } }
+        ];
+        return $http.post(
+            baseUrl + '/v3/database/post__c/aggregate?strict=true',
+            pipeline,
+            trailHeaders()
+        ).then(function(res) {
+            return Array.isArray(res.data) ? res.data : [];
+        });
     };
 
     api.likePost = function(postId, playerId) {
         return $http.post(baseUrl + '/v3/database/post_like__c', {
-            post: postId,
-            player: playerId
+            post:    postId,
+            player:  playerId,
+            created: { '$date': new Date().toISOString() }
         }, trailHeaders()).then(function(res) { return res.data; });
     };
 
@@ -207,7 +234,7 @@ angular.module('rotaViva')
             player_name:  playerName,
             player_photo: playerPhoto || '',
             text:         text,
-            created:      new Date().toISOString()
+            created:      { '$date': new Date().toISOString() }
         }, trailHeaders()).then(function(res) { return res.data; });
     };
 
