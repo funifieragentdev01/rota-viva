@@ -31,8 +31,8 @@ angular.module('rotaViva')
     }
 
     var ROUTE_CHARS = {
-        mel: 'img/characters/mel/front/abelha.png',
-        pesca: 'img/characters/pesca/front/peixe.png'
+        mel: 'img/characters/mel/front/abelha.apng',
+        pesca: 'img/characters/pesca/front/peixe.apng'
     };
     var ROUTE_DISPLAY_NAMES = {
         mel: 'Rota do Mel',
