@@ -1435,8 +1435,8 @@ h1, h2, h3, h4 { font-family: var(--font-display); }
 }
 
 .brand-character {
-    width: 120px;
-    height: 120px;
+    width: 200px;
+    height: 200px;
     object-fit: contain;
     margin-bottom: var(--spacing-sm);
     filter: drop-shadow(0 4px 12px rgba(0,0,0,0.4));
