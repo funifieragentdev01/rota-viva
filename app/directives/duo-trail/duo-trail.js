@@ -52,7 +52,7 @@ angular.module('duoTrail', [])
                 'reading': 'fa-book-open',
                 'mission': 'fa-wrench',
                 'diy':     'fa-camera',
-                'essay':   'fa-comment',
+                'essay':   'fa-headphones',
                 'chest':   'fa-gem',
                 'listen':  'fa-headphones',
                 'cartoon': 'fa-star'

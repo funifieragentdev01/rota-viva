@@ -1,4 +1,25 @@
 <div class="page login-page">
+
+    <!-- Modal: qual é a sua rota? (aparece quando não há tema em cache) -->
+    <div class="route-modal-overlay" ng-if="showRouteModal">
+        <div class="route-modal">
+            <img src="img/logo-midr.png" alt="MIDR" class="route-modal-logo" onerror="this.style.display='none'">
+            <h2 class="route-modal-title">Qual é a sua rota?</h2>
+            <p class="route-modal-sub">Selecione seu perfil para continuar</p>
+            <div class="route-modal-options">
+                <button class="route-modal-card route-modal-card--mel" ng-click="selectRoute('mel')">
+                    <img src="img/characters/mel/front/abelha.apng" alt="Apicultor" class="route-modal-char">
+                    <span class="route-modal-label">Apicultor</span>
+                    <span class="route-modal-name">Rota do Mel</span>
+                </button>
+                <button class="route-modal-card route-modal-card--pesca" ng-click="selectRoute('pesca')">
+                    <img src="img/characters/pesca/front/peixe.apng" alt="Pescador" class="route-modal-char">
+                    <span class="route-modal-label">Pescador</span>
+                    <span class="route-modal-name">Rota da Pesca</span>
+                </button>
+            </div>
+        </div>
+    </div>
     <div class="brand">
         <img ng-src="{{routeCharImg}}" class="brand-character" ng-if="routeCharImg">
         <div class="brand-icon" ng-if="!routeCharImg"><i class="fas fa-leaf"></i></div>

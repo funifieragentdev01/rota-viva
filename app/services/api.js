@@ -266,6 +266,10 @@ angular.module('rotaViva')
             var u = uploads[0];
             return (typeof u === 'string') ? u : (u.url || u.original || (u.image && u.image.original && u.image.original.url) || null);
         }
+        // Video-specific fields
+        if (d.video_url) return d.video_url;
+        if (d.video && d.video.url) return d.video.url;
+        if (d.video && d.video.original && d.video.original.url) return d.video.original.url;
         // Direct URL field
         if (d.url) return d.url;
         // Funifier image object
@@ -275,12 +279,13 @@ angular.module('rotaViva')
     }
 
     // Upload de imagem ou vídeo via FormData — retorna URL pública
+    // Nota: não existe /v3/upload/video — usa /v3/upload/file para qualquer arquivo
     api.uploadMedia = function(file, isVideo) {
         var formData = new FormData();
         formData.append('file', file, file.name || (isVideo ? 'video.mp4' : 'photo.jpg'));
-        formData.append('extra', JSON.stringify({ session: 'images', playerId: '' }));
+        formData.append('extra', JSON.stringify({ session: isVideo ? 'videos' : 'images', playerId: '' }));
 
-        var endpoint = isVideo ? '/v3/upload/video' : '/v3/upload/image';
+        var endpoint = isVideo ? '/v3/upload/file' : '/v3/upload/image';
         return $http.post(baseUrl + endpoint, formData, {
             headers: uploadHeaders(),
             transformRequest: angular.identity
@@ -410,6 +415,69 @@ angular.module('rotaViva')
             var list = Array.isArray(res.data) ? res.data : [];
             return list.find(function(c) { return c.status !== 'atendido'; }) || null;
         });
+    };
+
+    // === Search ===
+
+    // Busca tags que começam com o texto digitado (agrupa posts__c por tag)
+    api.searchTags = function(query) {
+        var pipeline = [
+            { $match: { tags: { $regex: query, $options: 'i' } } },
+            { $unwind: '$tags' },
+            { $match: { tags: { $regex: '^' + query, $options: 'i' } } },
+            { $group: { _id: '$tags', count: { $sum: 1 } } },
+            { $sort: { count: -1 } },
+            { $limit: 10 }
+        ];
+        return $http.post(
+            baseUrl + '/v3/database/post__c/aggregate?strict=true',
+            pipeline,
+            trailHeaders()
+        ).then(function(res) {
+            return Array.isArray(res.data) ? res.data : [];
+        });
+    };
+
+    // Busca players por nome (para search modal e marcação de pessoas)
+    api.searchPlayers = function(query) {
+        var pipeline = [
+            { $match: { name: { $regex: query, $options: 'i' } } },
+            { $limit: 10 },
+            { $project: { _id: 1, name: 1, profile: 1, 'image.original.url': 1, 'extra.municipality': 1 } }
+        ];
+        return $http.post(
+            baseUrl + '/v3/database/player/aggregate?strict=true',
+            pipeline,
+            trailHeaders()
+        ).then(function(res) {
+            return Array.isArray(res.data) ? res.data : [];
+        });
+    };
+
+    // === Relacionamentos (Item I — Marcação de Pessoas) ===
+
+    // Busca o tipo de relacionamento já registrado entre dois players
+    api.getRelacionamento = function(playerId, mentionedId) {
+        var id = playerId + '__' + mentionedId;
+        var url = baseUrl + '/v3/database/relacionamento__c?strict=true&q=_id:\'' + id + '\'';
+        return $http.get(url, trailHeaders()).then(function(res) {
+            var data = Array.isArray(res.data) ? res.data : [];
+            return data.length > 0 ? data[0] : null;
+        });
+    };
+
+    // Salva (cria ou atualiza) o relacionamento entre dois players
+    api.saveRelacionamento = function(playerId, mentionedId, tipo, mentionedName) {
+        var payload = {
+            _id:            playerId + '__' + mentionedId,
+            player:         playerId,
+            mentioned:      mentionedId,
+            tipo:           tipo,
+            mentioned_name: mentionedName || '',
+            created:        { '$date': new Date().toISOString() }
+        };
+        return $http.post(baseUrl + '/v3/database/relacionamento__c', payload, trailHeaders())
+            .then(function(res) { return res.data; });
     };
 
     // Busca texto legal (terms/privacy) da coleção legal__c

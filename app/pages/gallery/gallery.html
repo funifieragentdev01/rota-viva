@@ -10,15 +10,24 @@
             <span class="trail-stat trail-stat-coins">
                 <i class="fas fa-coins"></i> {{playerCoins || 0}}
             </span>
+            <button class="gallery-search-btn" ng-click="openSearch()">
+                <i class="fas fa-magnifying-glass"></i>
+            </button>
         </div>
     </div>
 
     <!-- Stories Bar -->
     <div class="gallery-stories-bar" ng-if="storiesBar.length > 0">
         <div class="gallery-stories-scroll">
-            <div class="gallery-story" ng-repeat="u in storiesBar" ng-click="openStories(u)">
+            <div class="gallery-story"
+                 ng-repeat="u in storiesBar"
+                 ng-click="openStories(u)"
+                 ng-class="{'gallery-story-filter-active': u.isFilterSlot && filterTag === u.filterTag}">
                 <div class="gallery-story-ring" ng-class="{'gallery-story-ring-new': u.hasNew, 'gallery-story-ring-seen': !u.hasNew}">
-                    <div class="gallery-story-avatar">
+                    <div class="gallery-story-avatar gallery-story-avatar-char" ng-if="u.isFilterSlot">
+                        <img ng-src="{{u.photo}}" alt="{{u.name}}" />
+                    </div>
+                    <div class="gallery-story-avatar" ng-if="!u.isFilterSlot">
                         <img ng-if="u.photo" ng-src="{{u.photo}}" alt="{{u.name}}" />
                         <div ng-if="!u.photo" class="gallery-story-initial">{{u.name | firstWord | limitTo:1}}</div>
                     </div>
@@ -26,6 +35,24 @@
                 <div class="gallery-story-name">{{u.name | firstWord}}</div>
             </div>
         </div>
+    </div>
+
+    <!-- Filter bar — hashtag -->
+    <div class="gallery-filter-bar" ng-if="filterTag">
+        <i class="fas fa-hashtag"></i>
+        <span>{{filterTag}}</span>
+        <button class="gallery-filter-clear" ng-click="clearFilter()">
+            <i class="fas fa-xmark"></i>
+        </button>
+    </div>
+
+    <!-- Filter bar — player -->
+    <div class="gallery-filter-bar gallery-filter-bar-player" ng-if="filterPlayerId">
+        <i class="fas fa-user"></i>
+        <span>{{filterPlayerName}}</span>
+        <button class="gallery-filter-clear" ng-click="clearFilter()">
+            <i class="fas fa-xmark"></i>
+        </button>
     </div>
 
     <!-- Loading -->
@@ -37,7 +64,7 @@
     <!-- Feed -->
     <div class="gallery-feed" ng-if="!loading">
 
-        <div class="gallery-post" ng-repeat="post in posts"
+        <div class="gallery-post" ng-repeat="post in postsToShow"
              ng-class="{'gallery-post-official': post._isOfficial}">
 
             <!-- Post Header -->
@@ -80,10 +107,65 @@
                 </div>
             </div>
 
-            <!-- Media -->
-            <div class="gallery-post-media" ng-if="post.media_url || post.photo">
-                <img ng-if="post.media_type !== 'video'" ng-src="{{post.media_url || post.photo}}" alt="" loading="lazy" />
-                <video ng-if="post.media_type === 'video'" ng-src="{{post.media_url}}" controls playsinline class="gallery-video"></video>
+            <!-- Media — Carousel -->
+            <div class="gallery-post-media gallery-post-carousel" ng-if="post.media_type === 'carousel' && post.media_items && post.media_items.length > 0">
+                <div class="carousel-track" rv-carousel="post">
+                    <div class="carousel-slide" ng-repeat="item in post.media_items">
+                        <img ng-src="{{item.url}}" alt="" loading="lazy" />
+                        <!-- CTA button overlay per slide — só na primeira -->
+                        <a ng-if="$index === 0 && post._ctaButton" class="post-cta-btn"
+                           href="{{post._ctaButton.url}}" target="_blank" rel="noopener"
+                           ng-style="{left: post._ctaButton.pos_x + '%', top: post._ctaButton.pos_y + '%'}"
+                           ng-click="$event.stopPropagation()">
+                            {{post._ctaButton.label}}
+                        </a>
+                    </div>
+                </div>
+                <!-- Arrow: prev -->
+                <button class="carousel-arrow carousel-arrow-prev"
+                        ng-if="post.media_items.length > 1 && post._carouselIndex > 0"
+                        ng-click="carouselPrev(post); $event.stopPropagation()">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <!-- Arrow: next -->
+                <button class="carousel-arrow carousel-arrow-next"
+                        ng-if="post.media_items.length > 1 && post._carouselIndex < post.media_items.length - 1"
+                        ng-click="carouselNext(post); $event.stopPropagation()">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                <!-- Dots — inside image, bottom center -->
+                <div class="carousel-dots" ng-if="post.media_items.length > 1">
+                    <span class="carousel-dot"
+                          ng-repeat="item in post.media_items track by $index"
+                          ng-class="{'carousel-dot-active': $index === post._carouselIndex}">
+                    </span>
+                </div>
+            </div>
+
+            <!-- Media — Imagem única ou vídeo -->
+            <div class="gallery-post-media" ng-if="post.media_type !== 'carousel' && (post.media_url || post.photo)">
+                <div style="position:relative; display:block;">
+                    <img ng-if="post.media_type !== 'video'" ng-src="{{post.media_url || post.photo}}" alt="" loading="lazy" />
+                    <!-- F2: vídeo autoplay via IntersectionObserver -->
+                    <div class="gallery-video-wrap" ng-if="post.media_type === 'video'">
+                        <video rv-video-obs
+                               ng-src="{{post.media_url}}"
+                               playsinline
+                               ng-prop-muted="videoMuted"
+                               loop
+                               class="gallery-video"></video>
+                        <button class="gallery-video-mute" ng-click="toggleVideoMute($event)">
+                            <i ng-class="videoMuted ? 'fas fa-volume-xmark' : 'fas fa-volume-high'"></i>
+                        </button>
+                    </div>
+                    <!-- CTA button overlay -->
+                    <a ng-if="post._ctaButton" class="post-cta-btn"
+                       href="{{post._ctaButton.url}}" target="_blank" rel="noopener"
+                       ng-style="{left: post._ctaButton.pos_x + '%', top: post._ctaButton.pos_y + '%'}"
+                       ng-click="$event.stopPropagation()">
+                        {{post._ctaButton.label}}
+                    </a>
+                </div>
                 <div class="gallery-top-badge" ng-if="post._isTop">
                     <i class="fas fa-star"></i> Top da Semana
                 </div>
@@ -111,7 +193,19 @@
             <!-- Caption -->
             <div class="gallery-post-caption" ng-if="post.description || post.text">
                 <strong>{{post._authorName | firstWord}}</strong>
-                <span ng-bind-html="post._captionHtml"></span>
+                <span ng-if="!post._captionExpanded" ng-bind-html="post._captionShort"></span>
+                <span ng-if="post._captionExpanded"  ng-bind-html="post._captionFull"></span>
+                <button class="gallery-caption-more" ng-if="post._captionLong && !post._captionExpanded" ng-click="toggleCaption(post)">ver mais</button>
+                <button class="gallery-caption-more" ng-if="post._captionLong && post._captionExpanded"  ng-click="toggleCaption(post)">ver menos</button>
+            </div>
+
+            <!-- Mentions -->
+            <div class="gallery-post-mentions" ng-if="post._mentions && post._mentions.length > 0">
+                <i class="fas fa-user-tag"></i>
+                com
+                <span ng-repeat="m in post._mentions">
+                    <span class="gallery-mention-name">{{m.player_name | firstWord}}</span><span class="gallery-mention-tipo" ng-if="m.tipo"> ({{m.tipo}})</span><span ng-if="!$last">, </span>
+                </span>
             </div>
 
             <!-- Comments link -->
@@ -126,10 +220,20 @@
         </div>
 
         <!-- Empty state -->
-        <div class="gallery-empty" ng-if="posts.length === 0">
+        <div class="gallery-empty" ng-if="postsToShow.length === 0 && !filterTag && !filterPlayerId">
             <div class="gallery-empty-icon"><i class="fas fa-images"></i></div>
             <h3>Nenhuma publicação ainda</h3>
             <p>Seja o primeiro a compartilhar uma boa prática com a comunidade!</p>
+        </div>
+        <div class="gallery-empty" ng-if="postsToShow.length === 0 && filterTag">
+            <div class="gallery-empty-icon"><i class="fas fa-heart"></i></div>
+            <h3>Nenhuma publicação com #{{filterTag}} ainda</h3>
+            <p>Conclua uma lição família na Trilha para ser o primeiro!</p>
+        </div>
+        <div class="gallery-empty" ng-if="postsToShow.length === 0 && filterPlayerId">
+            <div class="gallery-empty-icon"><i class="fas fa-user"></i></div>
+            <h3>Nenhuma publicação de {{filterPlayerName | firstWord}}</h3>
+            <p>Este produtor ainda não publicou nada no feed carregado.</p>
         </div>
 
     </div>
@@ -195,61 +299,339 @@
     <div class="np-overlay" ng-if="newPost" ng-click="closeNewPost()"></div>
     <div class="np-sheet" ng-if="newPost">
         <div class="np-handle"></div>
-        <div class="np-header">
-            <button class="np-cancel" ng-click="closeNewPost()">Cancelar</button>
-            <h3>Nova publicação</h3>
-            <button class="np-submit"
-                    ng-click="submitPost()"
-                    ng-disabled="!newPost.mediaFile || submitting"
-                    ng-style="{'opacity': (!newPost.mediaFile || submitting) ? 0.4 : 1}">
-                {{submitting ? 'Enviando...' : 'Publicar'}}
+
+        <!-- ── STATE: Editor de Texto (F1.3) ── -->
+        <div ng-if="newPost.showTextEditor">
+            <div class="np-header">
+                <button class="np-cancel" ng-click="closeTextEditor()"><i class="fas fa-arrow-left"></i></button>
+                <h3>Texto sobre imagem</h3>
+                <button class="np-submit" ng-click="applyTextOverlay()" ng-disabled="!newPost.textConfig.text">Aplicar</button>
+            </div>
+            <!-- Canvas preview — toque para reposicionar -->
+            <div class="np-text-preview-wrap" ng-click="setTextPos($event)" ng-touchstart="setTextPos($event)">
+                <img class="np-text-preview-img"
+                     ng-src="{{newPost.textPreview || newPost.mediaPreview}}" alt="" />
+                <div class="np-text-crosshair" ng-if="newPost.textConfig.text"
+                     ng-style="{left: newPost.textConfig.x + '%', top: newPost.textConfig.y + '%'}">
+                </div>
+            </div>
+            <div class="np-text-controls">
+                <textarea class="np-text-input"
+                          ng-model="newPost.textConfig.text"
+                          ng-change="renderTextCanvas()"
+                          placeholder="Digite o texto sobre a imagem..."
+                          rows="2" maxlength="120"></textarea>
+                <!-- Tamanho -->
+                <div class="np-text-row">
+                    <span class="np-text-row-label">Tamanho</span>
+                    <div class="np-text-size-btns">
+                        <button ng-class="{'active': newPost.textConfig.fontSize===24}" ng-click="newPost.textConfig.fontSize=24; renderTextCanvas()">P</button>
+                        <button ng-class="{'active': newPost.textConfig.fontSize===36}" ng-click="newPost.textConfig.fontSize=36; renderTextCanvas()">M</button>
+                        <button ng-class="{'active': newPost.textConfig.fontSize===52}" ng-click="newPost.textConfig.fontSize=52; renderTextCanvas()">G</button>
+                    </div>
+                </div>
+                <!-- Cor do texto -->
+                <div class="np-text-row">
+                    <span class="np-text-row-label">Cor</span>
+                    <div class="np-text-color-swatches">
+                        <span class="np-text-swatch"
+                              ng-repeat="c in textColors"
+                              ng-style="{background: c.value}"
+                              ng-class="{'active': newPost.textConfig.color === c.value}"
+                              ng-click="newPost.textConfig.color = c.value; renderTextCanvas()">
+                        </span>
+                    </div>
+                </div>
+                <!-- Fundo -->
+                <div class="np-text-row">
+                    <span class="np-text-row-label">Fundo</span>
+                    <div class="np-text-bg-btns">
+                        <button ng-repeat="bg in textBgOptions"
+                                ng-class="{'active': newPost.textConfig.bgColor === bg.value}"
+                                ng-click="newPost.textConfig.bgColor = bg.value; renderTextCanvas()">
+                            {{bg.label}}
+                        </button>
+                    </div>
+                </div>
+                <p class="np-text-hint"><i class="fas fa-hand-pointer"></i> Toque na imagem para reposicionar o texto</p>
+            </div>
+        </div>
+
+        <!-- ── STATE: Editor de CTA Button (F1.2) ── -->
+        <div ng-if="newPost.showCtaEditor">
+            <div class="np-header">
+                <button class="np-cancel" ng-click="closeCtaEditor()"><i class="fas fa-arrow-left"></i></button>
+                <h3>Botão na imagem</h3>
+                <button class="np-submit" ng-click="confirmCta()"
+                        ng-disabled="!newPost.ctaLabel || !newPost.ctaUrl">Confirmar</button>
+            </div>
+            <!-- Preview com posicionamento por toque -->
+            <div class="np-cta-preview-wrap" ng-click="setCtaPos($event)" ng-touchstart="setCtaPos($event)">
+                <img class="np-cta-preview-img" ng-src="{{newPost.mediaPreview}}" alt="" />
+                <div class="np-cta-preview-btn"
+                     ng-style="{left: newPost.ctaPos.x + '%', top: newPost.ctaPos.y + '%'}">
+                    {{newPost.ctaLabel || 'Texto do botão'}}
+                </div>
+            </div>
+            <div class="np-cta-fields">
+                <div class="np-cta-field">
+                    <label>Texto do botão</label>
+                    <input type="text" ng-model="newPost.ctaLabel" placeholder="Ex: Me inscrever no mutirão" maxlength="40" />
+                </div>
+                <div class="np-cta-field">
+                    <label>URL de destino</label>
+                    <input type="url" ng-model="newPost.ctaUrl" placeholder="https://..." />
+                </div>
+                <p class="np-text-hint"><i class="fas fa-hand-pointer"></i> Toque na imagem para posicionar o botão</p>
+            </div>
+        </div>
+
+        <!-- ── STATE: Principal ── -->
+        <div ng-if="!newPost.showTextEditor && !newPost.showCtaEditor">
+            <div class="np-header">
+                <button class="np-cancel" ng-click="closeNewPost()">Cancelar</button>
+                <h3>Nova publicação</h3>
+                <button class="np-submit"
+                        ng-click="submitPost()"
+                        ng-disabled="!newPost.mediaFile || submitting"
+                        ng-style="{'opacity': (!newPost.mediaFile || submitting) ? 0.4 : 1}">
+                    {{submitting ? 'Enviando...' : 'Publicar'}}
+                </button>
+            </div>
+
+            <!-- Seleção de mídia -->
+            <div class="np-media-zone" ng-if="!newPost.mediaPreview">
+                <div class="np-media-placeholder">
+                    <i class="fas fa-image"></i>
+                    <p>Adicione uma foto ou vídeo</p>
+                </div>
+                <div class="np-media-buttons">
+                    <button class="np-media-btn" ng-click="triggerCamera()">
+                        <i class="fas fa-camera"></i><span>Câmera</span>
+                    </button>
+                    <button class="np-media-btn" ng-click="triggerGallery()">
+                        <i class="fas fa-images"></i><span>Galeria</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Preview da imagem principal -->
+            <div class="np-preview-wrap" ng-if="newPost.mediaPreview">
+                <img ng-if="newPost.mediaType === 'image'" ng-src="{{newPost.mediaPreview}}" class="np-preview-img" />
+                <video ng-if="newPost.mediaType === 'video'" ng-src="{{newPost.mediaPreview}}"
+                       class="np-preview-img" controls playsinline></video>
+                <button class="np-preview-remove" ng-click="removeMedia()"><i class="fas fa-xmark"></i></button>
+                <div class="np-video-note" ng-if="newPost.mediaType === 'video'">
+                    <i class="fas fa-clock"></i> Vídeos passam por revisão antes de aparecer no feed
+                </div>
+                <!-- Contador de fotos do carrossel -->
+                <div class="np-carousel-count" ng-if="newPost.mediaType === 'image' && newPost.mediaItems.length > 1">
+                    <i class="fas fa-images"></i> {{newPost.mediaItems.length}} fotos
+                </div>
+            </div>
+
+            <!-- Strip de miniaturas do carrossel (F1.1) -->
+            <div class="np-carousel-strip" ng-if="newPost.mediaType === 'image' && newPost.mediaItems.length > 0">
+                <div class="np-carousel-thumb" ng-repeat="item in newPost.mediaItems track by $index">
+                    <img ng-src="{{item.dataUrl}}" alt="" />
+                    <button class="np-carousel-thumb-remove" ng-click="removeCarouselItem($index)" ng-if="newPost.mediaItems.length > 1">
+                        <i class="fas fa-xmark"></i>
+                    </button>
+                </div>
+                <button class="np-carousel-add" ng-if="newPost.mediaItems.length < 10" ng-click="triggerCarouselAdd()">
+                    <i class="fas fa-plus"></i>
+                    <span>{{newPost.mediaItems.length}}/10</span>
+                </button>
+            </div>
+
+            <!-- Legenda -->
+            <div class="np-caption-wrap">
+                <textarea class="np-caption"
+                          ng-model="newPost.caption"
+                          ng-change="updateCharCount()"
+                          placeholder="Escreva uma legenda... use #hashtags"
+                          maxlength="800"
+                          rows="3"></textarea>
+                <div class="np-char-count" ng-class="{'np-char-warn': newPost.charCount > 720}">
+                    {{newPost.charCount}}/800
+                </div>
+            </div>
+
+            <!-- Botão: Adicionar texto sobre imagem (F1.3) -->
+            <button class="np-action-btn" ng-click="openTextEditor()"
+                    ng-if="newPost.mediaType === 'image' && !newPost.textApplied">
+                <i class="fas fa-font"></i>
+                <span>Adicionar texto sobre a imagem</span>
+                <i class="fas fa-chevron-right" style="margin-left:auto"></i>
             </button>
-        </div>
+            <button class="np-action-btn np-action-btn-active" ng-click="removeTextOverlay()"
+                    ng-if="newPost.textApplied">
+                <i class="fas fa-font"></i>
+                <span>Texto aplicado — toque para remover</span>
+                <i class="fas fa-xmark" style="margin-left:auto"></i>
+            </button>
 
-        <!-- Seleção de mídia -->
-        <div class="np-media-zone" ng-if="!newPost.mediaPreview">
-            <div class="np-media-placeholder">
-                <i class="fas fa-image"></i>
-                <p>Adicione uma foto ou vídeo</p>
-            </div>
-            <div class="np-media-buttons">
-                <button class="np-media-btn" ng-click="triggerCamera()">
-                    <i class="fas fa-camera"></i><span>Câmera</span>
-                </button>
-                <button class="np-media-btn" ng-click="triggerGallery()">
-                    <i class="fas fa-images"></i><span>Galeria</span>
-                </button>
-            </div>
-        </div>
+            <!-- Botão: CTA button (F1.2 — apenas perfis oficiais) -->
+            <button class="np-action-btn" ng-click="openCtaEditor()"
+                    ng-if="isOfficial && newPost.mediaType === 'image' && !newPost.ctaButton">
+                <i class="fas fa-square-arrow-up-right"></i>
+                <span>Adicionar botão com link</span>
+                <i class="fas fa-chevron-right" style="margin-left:auto"></i>
+            </button>
+            <button class="np-action-btn np-action-btn-active" ng-click="openCtaEditor()"
+                    ng-if="isOfficial && newPost.ctaButton">
+                <i class="fas fa-square-arrow-up-right"></i>
+                <span>{{newPost.ctaButton.label}}</span>
+                <button class="np-action-remove" ng-click="$event.stopPropagation(); removeCta()"><i class="fas fa-xmark"></i></button>
+            </button>
 
-        <!-- Preview -->
-        <div class="np-preview-wrap" ng-if="newPost.mediaPreview">
-            <img ng-if="newPost.mediaType === 'image'" ng-src="{{newPost.mediaPreview}}" class="np-preview-img" />
-            <video ng-if="newPost.mediaType === 'video'" ng-src="{{newPost.mediaPreview}}"
-                   class="np-preview-img" controls playsinline></video>
-            <button class="np-preview-remove" ng-click="removeMedia()"><i class="fas fa-xmark"></i></button>
-            <div class="np-video-note" ng-if="newPost.mediaType === 'video'">
-                <i class="fas fa-clock"></i> Vídeos passam por revisão antes de aparecer no feed
+            <!-- Mention chips -->
+            <div class="np-mentions-list" ng-if="newPost.mentions && newPost.mentions.length > 0">
+                <div class="np-mention-chip" ng-repeat="m in newPost.mentions">
+                    <div class="np-mention-chip-avatar">
+                        <img ng-if="m.player_photo" ng-src="{{m.player_photo}}" alt="" />
+                        <span ng-if="!m.player_photo">{{m.player_name | firstWord | limitTo:1}}</span>
+                    </div>
+                    <span>{{m.player_name | firstWord}}</span>
+                    <span class="np-mention-tipo" ng-if="m.tipo">({{m.tipo}})</span>
+                    <button class="np-mention-chip-remove" ng-click="removeMention($index)"><i class="fas fa-xmark"></i></button>
+                </div>
             </div>
-        </div>
 
-        <!-- Legenda -->
-        <div class="np-caption-wrap">
-            <textarea class="np-caption"
-                      ng-model="newPost.caption"
-                      ng-change="updateCharCount()"
-                      placeholder="Escreva uma legenda... (opcional)"
-                      maxlength="280"
-                      rows="3"></textarea>
-            <div class="np-char-count" ng-class="{'np-char-warn': newPost.charCount > 250}">
-                {{newPost.charCount}}/280
+            <!-- Marcar pessoas -->
+            <button class="np-action-btn" ng-click="openMentionSearch()"
+                    ng-if="!newPost.showMentionSearch && !newPost.showTipoModal && newPost.mentions.length < 10">
+                <i class="fas fa-user-tag"></i>
+                <span>Marcar pessoas</span>
+                <i class="fas fa-chevron-right" style="margin-left:auto"></i>
+            </button>
+
+            <!-- Mention search -->
+            <div class="np-mention-search-wrap" ng-if="newPost.showMentionSearch">
+                <div class="np-mention-search-header">
+                    <span class="np-mention-search-title">Marcar pessoas</span>
+                    <button class="np-mention-search-close" ng-click="closeMentionSearch()"><i class="fas fa-xmark"></i></button>
+                </div>
+                <div class="np-mention-input-wrap">
+                    <i class="fas fa-magnifying-glass" style="color: var(--color-text-muted); font-size:13px"></i>
+                    <input class="np-mention-input mention-search-input"
+                           type="text"
+                           ng-model="newPost.mentionQuery"
+                           ng-change="onMentionInput()"
+                           placeholder="Buscar por nome..." />
+                </div>
+                <ul class="np-mention-results" ng-if="newPost.mentionResults.length > 0">
+                    <li class="np-mention-result-item" ng-repeat="p in newPost.mentionResults" ng-click="selectMentionResult(p)">
+                        <div class="np-mention-result-avatar">
+                            <img ng-if="p.player_photo" ng-src="{{p.player_photo}}" alt="" />
+                            <i ng-if="!p.player_photo" class="fas fa-user"></i>
+                        </div>
+                        <span class="np-mention-result-name">{{p.player_name}}</span>
+                    </li>
+                </ul>
+                <p class="np-mention-hint" ng-if="newPost.mentionQuery.length >= 2 && newPost.mentionResults.length === 0">Nenhum produtor encontrado.</p>
+                <p class="np-mention-hint" ng-if="newPost.mentionQuery.length < 2">Digite ao menos 2 letras para buscar.</p>
             </div>
-        </div>
+        </div><!-- /#main state -->
 
-        <input id="gallery-input-camera"  class="gallery-file-input" type="file" accept="image/*" capture="environment" style="display:none" onchange="angular.element(this).scope().onFileSelected(this)">
-        <input id="gallery-input-gallery" class="gallery-file-input" type="file" accept="image/*,video/*" style="display:none" onchange="angular.element(this).scope().onFileSelected(this)">
+        <input id="gallery-input-camera"   class="gallery-file-input" type="file" accept="image/*" capture="environment" style="display:none" onchange="angular.element(this).scope().onFileSelected(this)">
+        <input id="gallery-input-gallery"  class="gallery-file-input" type="file" accept="image/*,video/*" style="display:none" onchange="angular.element(this).scope().onFileSelected(this)">
+        <input id="gallery-input-carousel" class="gallery-file-input" type="file" accept="image/*" style="display:none" onchange="angular.element(this).scope().onCarouselFileSelected(this)">
     </div>
 
-    <bottom-nav active="gallery" ng-if="!newPost && !commentsPost"></bottom-nav>
+    <!-- ═══ TIPO MODAL — overlay fixo sobre o sheet ═══ -->
+    <div class="np-tipo-overlay" ng-if="newPost && newPost.showTipoModal">
+        <div class="np-tipo-card">
+            <p class="np-tipo-title">Qual é sua relação com {{newPost.pendingMention.player_name | firstWord}}?</p>
+            <p class="np-tipo-sub">Essa informação fica salva para as próximas marcações.</p>
+            <div class="np-tipo-options">
+                <button class="np-tipo-option" ng-repeat="opt in tipoOptions" ng-click="confirmTipo(opt.value)">
+                    <i class="fas fa-user-group"></i> {{opt.label}}
+                </button>
+            </div>
+            <button class="np-tipo-cancel" ng-click="cancelTipo()">Cancelar</button>
+        </div>
+    </div>
+
+    <!-- ═══ SEARCH MODAL — fullscreen ═══ -->
+    <div class="search-modal-overlay" ng-if="showSearch">
+        <div class="search-modal-header">
+            <button class="search-modal-back" ng-click="closeSearch()"><i class="fas fa-arrow-left"></i></button>
+            <div class="search-modal-input-wrap">
+                <i class="fas fa-magnifying-glass"></i>
+                <input class="search-modal-input"
+                       type="text"
+                       ng-model="searchQuery"
+                       ng-change="onSearchInput()"
+                       placeholder="Pesquisar #hashtag ou nome de produtor..." />
+                <button class="search-modal-clear" ng-if="searchQuery" ng-click="searchQuery = ''; searchResults = []; searchLoading = false">
+                    <i class="fas fa-xmark"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="search-modal-body">
+
+            <!-- Estado vazio: sugestões + recentes -->
+            <div ng-if="!searchQuery">
+                <p class="search-section-title">Sugestões</p>
+                <ul class="search-suggestion-list">
+                    <li class="search-suggestion-item" ng-repeat="tag in searchSuggestions" ng-click="selectSuggestion(tag)">
+                        <div class="search-suggestion-icon"><i class="fas fa-hashtag"></i></div>
+                        <span class="search-item-label">#{{tag}}</span>
+                        <i class="fas fa-arrow-up-left" style="color: var(--color-text-muted); font-size:12px"></i>
+                    </li>
+                </ul>
+
+                <div class="search-section-header" ng-if="searchRecents.length > 0">
+                    <p class="search-section-title" style="margin:0">Recentes</p>
+                    <button class="search-clear-all" ng-click="clearRecents()">Limpar tudo</button>
+                </div>
+                <ul class="search-recent-list" ng-if="searchRecents.length > 0">
+                    <li class="search-recent-item" ng-repeat="r in searchRecents" ng-click="selectRecent(r)">
+                        <div class="search-recent-icon">
+                            <i ng-if="r.type === 'tag'" class="fas fa-hashtag"></i>
+                            <i ng-if="r.type === 'player'" class="fas fa-user"></i>
+                        </div>
+                        <div style="flex:1">
+                            <div class="search-item-label">{{r.label}}</div>
+                        </div>
+                        <button class="search-recent-remove" ng-click="removeRecent($event, $index)">
+                            <i class="fas fa-xmark"></i>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Estado digitando: spinner ou resultados -->
+            <div ng-if="searchQuery">
+                <div class="search-loading-wrap" ng-if="searchLoading">
+                    <div class="loading-spinner" style="width:24px;height:24px;border-width:3px;"></div>
+                </div>
+                <ul class="search-results-list" ng-if="!searchLoading && searchResults.length > 0">
+                    <li class="search-result-item" ng-repeat="r in searchResults" ng-click="selectSearchResult(r)">
+                        <div class="search-result-icon">
+                            <i ng-if="r.type === 'tag' && !r.photo" class="fas fa-hashtag"></i>
+                            <i ng-if="r.type === 'player' && !r.photo" class="fas fa-user"></i>
+                            <img ng-if="r.photo" ng-src="{{r.photo}}" alt="" />
+                        </div>
+                        <div style="flex:1">
+                            <div class="search-result-main">{{r.label}}</div>
+                            <div class="search-result-sub" ng-if="r.count">{{r.count}} publicaç{{r.count === 1 ? 'ão' : 'ões'}}</div>
+                            <div class="search-result-sub" ng-if="r.sub">{{r.sub}}</div>
+                        </div>
+                        <i class="fas fa-arrow-right" style="color: var(--color-text-muted); font-size:12px"></i>
+                    </li>
+                </ul>
+                <div class="search-empty" ng-if="!searchLoading && searchResults.length === 0">
+                    <p>Nenhum resultado para "<strong>{{searchQuery}}</strong>"</p>
+                    <p style="font-size:12px; color: var(--color-text-muted)">Use # para buscar hashtags, ou escreva o nome de um produtor.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <bottom-nav active="gallery" ng-if="!newPost && !commentsPost && !showSearch"></bottom-nav>
 
 </div>

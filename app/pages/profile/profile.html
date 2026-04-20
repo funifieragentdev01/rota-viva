@@ -447,6 +447,21 @@
         </div>
     </div>
 
+    <!-- Minha Família no Rota Viva -->
+    <div class="profile-section">
+        <div class="profile-section-title">Minha Família no Rota Viva</div>
+        <div class="familia-invite-card">
+            <img ng-src="{{celebrationCharImg}}" class="familia-invite-char" alt="">
+            <p class="familia-invite-text">Convide um familiar para entrar no Rota Viva e aprendam juntos.</p>
+            <button class="share-btn" ng-click="shareFamiliaLink()"
+                    ng-style="{'background': theme.colors && theme.colors.primary || '#FF9600'}">
+                <i class="fas fa-check" ng-if="familiaShareSuccess"></i>
+                <i class="fas fa-heart" ng-if="!familiaShareSuccess"></i>
+                {{familiaShareSuccess ? 'Link copiado!' : 'Convidar familiar'}}
+            </button>
+        </div>
+    </div>
+
     <!-- Compartilhar -->
     <div class="profile-section">
         <div class="profile-section-title">Convidar amigos</div>

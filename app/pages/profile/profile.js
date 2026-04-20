@@ -287,6 +287,8 @@ angular.module('rotaViva')
     // ─── Compartilhar / Convite ────────────────────────────────────────────────
     $scope.referralCount = 0;
     $scope.shareSuccess = false;
+    $scope.celebrationCharImg = 'img/characters/' + routeId + '/celebration/1.png';
+    $scope.familiaShareSuccess = false;
 
     var appBase = window.location.origin + window.location.pathname;
     var shareUrl = appBase + '#/' + routeId;
@@ -326,6 +328,18 @@ angular.module('rotaViva')
             _copyToClipboard(shareUrl);
             $scope.shareSuccess = true;
             $timeout(function() { $scope.shareSuccess = false; }, 3000);
+        }
+    };
+
+    $scope.shareFamiliaLink = function() {
+        var familiaUrl = appBase + '#/' + routeId + '?familia_ref=' + playerId;
+        var text = 'Estou no Rota Viva! Vem aprender comigo e fazer desafios juntos:';
+        if (navigator.share) {
+            navigator.share({ title: 'Rota Viva', text: text, url: familiaUrl }).catch(function() {});
+        } else {
+            _copyToClipboard(familiaUrl);
+            $scope.familiaShareSuccess = true;
+            $timeout(function() { $scope.familiaShareSuccess = false; }, 3000);
         }
     };
 

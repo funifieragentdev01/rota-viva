@@ -42,6 +42,19 @@ angular.module('rotaViva')
     $scope.routeCharImg = routeId ? ROUTE_CHARS[routeId] : null;
     $scope.routeTitle = routeId ? ROUTE_DISPLAY_NAMES[routeId] : 'Rota Viva';
 
+    // Show route selector modal when there is no cached route identity
+    $scope.showRouteModal = !routeId;
+
+    var ROUTE_PROFILES = { mel: 'apicultor', pesca: 'pescador' };
+    var ROUTE_TITLES = ROUTE_DISPLAY_NAMES;
+
+    $scope.selectRoute = function(rId) {
+        ThemeService.setPreTheme({ routeId: rId, profile: ROUTE_PROFILES[rId], title: ROUTE_TITLES[rId] });
+        $scope.routeCharImg = ROUTE_CHARS[rId];
+        $scope.routeTitle = ROUTE_TITLES[rId];
+        $scope.showRouteModal = false;
+    };
+
     $scope.login = function() {
         $scope.error = '';
 

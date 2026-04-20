@@ -49,8 +49,8 @@
         <!-- Lição normal: Celebração (score alto) -->
         <div ng-if="!showCartoonFinish">
             <div class="quiz-finish-celebration" ng-if="scorePercent >= 70">
-                <div class="quiz-finish-emoji quiz-finish-emoji-win">🎉</div>
                 <h2 class="quiz-finish-title-win">Lição concluída!</h2>
+                <img ng-if="celebrationImg" ng-src="{{celebrationImg}}" class="quiz-finish-celebration-img" alt="">
                 <div class="quiz-finish-xp">
                     <i class="fas fa-star"></i> +{{score * 10}} XP
                 </div>
@@ -60,6 +60,7 @@
             <div class="quiz-finish-neutral" ng-if="scorePercent < 70">
                 <div class="quiz-finish-emoji">📚</div>
                 <h2>Continue praticando!</h2>
+                <img ng-if="celebrationImg" ng-src="{{celebrationImg}}" class="quiz-finish-celebration-img" alt="">
             </div>
 
             <p class="quiz-finish-score">{{score}} de {{questions.length}} corretas</p>

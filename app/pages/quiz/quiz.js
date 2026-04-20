@@ -35,6 +35,8 @@ angular.module('rotaViva')
     $scope.form = { essayAnswer: '' };
     $scope.diyPhotoData = null;
     $scope.showConfetti = false;
+    $scope.celebrationImg = null;
+    $scope.lessonTag = null;
     $scope.scorePercent = 0;
     $scope.isSpeaking = false;
     $scope.locationData = null;
@@ -54,6 +56,29 @@ angular.module('rotaViva')
     $scope.provasDeCampoLoading = false;
     $scope.provasDeCampoLoaded = false;
     $scope.hadDiario = false;
+
+    function fetchProvasDeCampo() {
+        var q = $scope.current();
+        if (q && q.type === 'DIY_PROJECT' && lessonId) {
+            $scope.provasDeCampoLoading = true;
+            $scope.provasDeCampoLoaded = false;
+            $scope.provasDeCampo = [];
+            ApiService.getProvasDeCampo(lessonId, 3).then(function(posts) {
+                $scope.provasDeCampo = posts;
+            }).catch(function() {
+                $scope.provasDeCampo = [];
+            }).finally(function() {
+                $scope.provasDeCampoLoading = false;
+                $scope.provasDeCampoLoaded = true;
+            });
+            ApiService.countProvasDeCampo(lessonId).then(function(count) {
+                $scope.provasDeCampoCount = count;
+            }).catch(function() {});
+        } else {
+            $scope.provasDeCampoLoading = false;
+            $scope.provasDeCampoLoaded = false;
+        }
+    }
 
     function authHeaders() {
         return { 'Authorization': token, 'Content-Type': 'application/json' };
@@ -240,6 +265,8 @@ angular.module('rotaViva')
         var logData = res.data || {};
         $scope.quizLogId = logData._id || (logData.log && logData.log._id) || null;
         $scope.loading = false;
+        // O watch dispara antes das questões carregarem — dispara aqui quando já estão prontas
+        fetchProvasDeCampo();
     }).catch(function(err) {
         console.error('[Quiz] Load error:', err);
         $scope.loading = false;
@@ -249,7 +276,10 @@ angular.module('rotaViva')
         headers: { 'Authorization': token }
     }).then(function(res) {
         var fcs = res.data || [];
-        if (fcs.length > 0) $scope.lessonFolderId = fcs[0]._id;
+        if (fcs.length > 0) {
+            $scope.lessonFolderId = fcs[0]._id;
+            $scope.lessonTag = (fcs[0].extra && fcs[0].extra.tag) || null;
+        }
     }).catch(function() {});
 
     $scope.current = function() {
@@ -424,29 +454,8 @@ angular.module('rotaViva')
 
     // ── Prova de Campo ──────────────────────────────────────────────────────
 
-    // Fetch community posts when landing on a DIY_PROJECT question
-    $scope.$watch('currentIndex', function() {
-        var q = $scope.current();
-        if (q && q.type === 'DIY_PROJECT' && lessonId) {
-            $scope.provasDeCampoLoading = true;
-            $scope.provasDeCampoLoaded = false;
-            $scope.provasDeCampo = [];
-            ApiService.getProvasDeCampo(lessonId, 3).then(function(posts) {
-                $scope.provasDeCampo = posts;
-            }).catch(function() {
-                $scope.provasDeCampo = [];
-            }).finally(function() {
-                $scope.provasDeCampoLoading = false;
-                $scope.provasDeCampoLoaded = true;
-            });
-            ApiService.countProvasDeCampo(lessonId).then(function(count) {
-                $scope.provasDeCampoCount = count;
-            }).catch(function() {});
-        } else {
-            $scope.provasDeCampoLoading = false;
-            $scope.provasDeCampoLoaded = false;
-        }
-    });
+    // Fetch community posts when navigating to a DIY_PROJECT question
+    $scope.$watch('currentIndex', fetchProvasDeCampo);
 
     // Publish Diário to Galeria dos Saberes after DIY_PROJECT submission
     function publishDiario() {
@@ -471,6 +480,7 @@ angular.module('rotaViva')
             media_url:     '',
             like_count:    0,
             comment_count: 0,
+            tags:          $scope.lessonTag ? [$scope.lessonTag] : [],
             created:       { '$date': new Date().toISOString() },
             extra: {
                 lesson_id:     lessonId,
@@ -586,7 +596,7 @@ angular.module('rotaViva')
             var needsLoc = $scope.needsLocation();
             var hasEvidence = ($scope.form.essayAnswer || '').trim().length > 0 || !!$scope.diyPhotoData;
             var hasEvidence2 = needsLoc ? (hasEvidence || !!$scope.locationData) : hasEvidence;
-            return hasEvidence2 && !!$scope.form.diaryConsent;
+            return hasEvidence2;
         }
         if (q.type === 'LISTEN_AND_ORDER') return q.listenAvail.length === 0 && q.listenSelected.length > 0;
         if (q.type === 'MATCHING') return q.matchLeft.length > 0 && q.matchLeft.every(function(l) { return !!q.matchAnswers[l.id]; });
@@ -766,6 +776,13 @@ angular.module('rotaViva')
             }
 
             $scope.finished = true;
+
+            // Random celebration image from /celebration
+            var celebImgs = [
+                'img/characters/' + routeId + '/celebration/1.png',
+                'img/characters/' + routeId + '/celebration/2.png'
+            ];
+            $scope.celebrationImg = celebImgs[Math.floor(Math.random() * 2)];
 
             if ($scope.quizLogId) {
                 $http.post(baseUrl + '/v3/quiz/finish', {
