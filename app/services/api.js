@@ -489,5 +489,27 @@ angular.module('rotaViva')
             });
     };
 
+    // === História Interativa (Item L) ===
+
+    api.getStory = function(storyId) {
+        return $http.get(baseUrl + "/v3/database/story?strict=true&q=_id:'" + storyId + "'", trailHeaders())
+            .then(function(res) {
+                var data = Array.isArray(res.data) ? res.data : [];
+                return data.length > 0 ? data[0] : null;
+            });
+    };
+
+    api.getStoryCharacters = function(storyId) {
+        return $http.post(baseUrl + '/v3/database/story_character/aggregate?strict=true',
+            [{ $match: { story_id: storyId } }], trailHeaders())
+            .then(function(res) { return Array.isArray(res.data) ? res.data : []; });
+    };
+
+    api.getStoryScenes = function(storyId) {
+        return $http.post(baseUrl + '/v3/database/story_scene/aggregate?strict=true',
+            [{ $match: { story_id: storyId } }, { $sort: { position: 1 } }], trailHeaders())
+            .then(function(res) { return Array.isArray(res.data) ? res.data : []; });
+    };
+
     return api;
 });

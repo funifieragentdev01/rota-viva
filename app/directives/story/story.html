@@ -1,0 +1,401 @@
+<style>
+  .rv-story-player {
+    position: relative;
+    background: #000;
+    color: #fff;
+    overflow: hidden;
+    width: 100%;
+  }
+  .rv-story-loading {
+    padding: 48px 24px;
+    text-align: center;
+    color: #888;
+    font-size: 14px;
+  }
+  .rv-story-loading i { font-size: 28px; margin-bottom: 12px; display: block; }
+  .rv-story-scene-wrap { position: relative; }
+  .rv-story-scene-wrap.rv-story-transitioning { opacity: 0; transition: opacity 0.3s; }
+
+  /* Media */
+  .rv-story-media {
+    width: 100%;
+    position: relative;
+    background: #111;
+  }
+  .rv-story-media-inner {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+  }
+  .rv-story-media-inner > img,
+  .rv-story-media-inner > video {
+    width: 100%; height: 100%; display: block; object-fit: cover;
+  }
+
+  /* Subtitle overlay — Netflix-style, inside image */
+  .rv-story-subtitle {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    background: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.75) 35%);
+    padding: 32px 16px 12px;
+    pointer-events: none;
+  }
+  .rv-story-char-row {
+    display: flex; align-items: flex-end; gap: 12px; margin-bottom: 8px;
+  }
+  .rv-story-char-avatar {
+    width: 64px; height: 64px; border-radius: 50%; object-fit: cover;
+    border: 2px solid var(--color-primary, #FF9600); flex-shrink: 0;
+  }
+  .rv-story-dialogue-text {
+    font-size: 15px; line-height: 1.5; margin: 0;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.9);
+  }
+  .rv-story-dialogue-counter {
+    font-size: 10px; color: rgba(255,255,255,0.4); text-align: right; margin-top: 4px;
+  }
+
+  /* Cast panel */
+  .rv-story-cast-panel {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    background: rgba(10,10,10,0.96); padding: 14px 16px;
+    border-top: 1px solid #333; z-index: 10;
+    animation: rvStorySlideUp 0.2s ease-out;
+  }
+  @keyframes rvStorySlideUp {
+    from { transform: translateY(100%); opacity: 0; }
+    to   { transform: translateY(0);    opacity: 1; }
+  }
+  .rv-story-cast-title { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #888; margin-bottom: 10px; }
+  .rv-story-cast-item  { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+  .rv-story-cast-item:last-child { margin-bottom: 0; }
+  .rv-story-cast-avatar {
+    width: 44px; height: 44px; border-radius: 50%; object-fit: cover;
+    border: 2px solid #444; flex-shrink: 0;
+    background: #333; display: flex; align-items: center; justify-content: center; color: #666;
+  }
+  .rv-story-cast-name { font-size: 13px; font-weight: 700; color: var(--color-primary, #FF9600); }
+  .rv-story-cast-desc { font-size: 11px; color: #888; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+  /* Controls bar */
+  .rv-story-controls {
+    padding: 8px 12px;
+    background: rgba(0,0,0,0.9);
+    display: flex; align-items: center; justify-content: flex-end; gap: 8px;
+    min-height: 44px;
+  }
+  .rv-story-btn {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 8px;
+    color: #fff;
+    font-size: 13px;
+    font-family: var(--font-ui, Inter, sans-serif);
+    padding: 6px 14px;
+    cursor: pointer;
+    display: flex; align-items: center; gap: 6px;
+    transition: background 0.15s;
+  }
+  .rv-story-btn:active { background: rgba(255,255,255,0.2); }
+  .rv-story-btn-cast { margin-right: auto; }
+
+  /* Decision options */
+  .rv-story-decision-wrap {
+    padding: 14px 16px;
+    background: rgba(0,0,0,0.92);
+    border-top: 1px solid #222;
+  }
+  .rv-story-decision-prompt { font-size: 14px; color: #ddd; margin-bottom: 10px; }
+  .rv-story-option-btn {
+    display: block; width: 100%; text-align: left;
+    margin-bottom: 8px; background: rgba(255,255,255,0.06);
+    color: #fff; border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 10px; padding: 10px 14px; font-size: 14px;
+    cursor: pointer; font-family: var(--font-ui, Inter, sans-serif);
+    transition: background 0.15s, border-color 0.15s;
+  }
+  .rv-story-option-btn:last-child { margin-bottom: 0; }
+  .rv-story-option-btn:active { background: rgba(255,255,255,0.12); border-color: var(--color-primary, #FF9600); }
+
+  /* End scene */
+  .rv-story-end-wrap {
+    padding: 20px 16px; text-align: center; background: rgba(0,0,0,0.92);
+  }
+  .rv-story-end-label { font-size: 20px; font-weight: 700; color: var(--color-primary, #FF9600); margin-bottom: 6px; }
+  .rv-story-end-badge { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #888; margin-bottom: 4px; }
+  .rv-story-end-score { font-size: 15px; color: #ccc; }
+
+  /* Cover screen (Netflix-style) */
+  .rv-story-cover-media {
+    width: 100%;
+    position: relative;
+    background: #111;
+  }
+  .rv-story-cover-media-inner {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+  }
+  .rv-story-cover-media-inner > img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+  }
+  .rv-story-cover-overlay {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.45) 0%, transparent 28%, transparent 48%, rgba(0,0,0,0.88) 100%);
+    display: flex; flex-direction: column; justify-content: space-between;
+    padding: 14px 16px 16px; box-sizing: border-box;
+  }
+  .rv-story-cover-title {
+    font-size: 20px; font-weight: 700; color: #fff;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.9); margin: 0; line-height: 1.2;
+  }
+  .rv-story-cover-bottom {
+    display: flex; flex-direction: column; gap: 6px;
+  }
+  .rv-story-cover-synopsis {
+    font-size: 12px; color: rgba(255,255,255,0.82);
+    text-shadow: 0 1px 4px rgba(0,0,0,0.9); margin: 0; line-height: 1.4;
+  }
+  .rv-story-cover-cast-mini {
+    display: flex; align-items: center; gap: 6px;
+  }
+  .rv-story-cover-cast-avatar {
+    width: 28px; height: 28px; border-radius: 50%; object-fit: cover;
+    border: 2px solid rgba(255,255,255,0.55); flex-shrink: 0;
+  }
+  .rv-story-cover-cast-names {
+    font-size: 11px; color: rgba(255,255,255,0.65);
+    text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+  }
+  .rv-story-cover-controls {
+    padding: 10px 12px;
+    background: rgba(0,0,0,0.92);
+    display: flex; align-items: center; gap: 10px;
+  }
+  .rv-story-cover-play-btn {
+    background: var(--color-primary, #FF9600);
+    border: none; border-radius: 8px;
+    color: #000; font-size: 14px; font-weight: 700;
+    padding: 8px 22px; cursor: pointer;
+    font-family: var(--font-ui, Inter, sans-serif);
+    display: flex; align-items: center; gap: 6px;
+    transition: opacity 0.15s;
+  }
+  .rv-story-cover-play-btn:active { opacity: 0.8; }
+
+  /* Progress bars */
+  .rv-story-progress-bars { padding: 8px 12px 6px; background: rgba(0,0,0,0.92); border-top: 1px solid #1a1a1a; }
+  .rv-story-progress-row  { display: flex; align-items: center; gap: 8px; margin-bottom: 5px; }
+  .rv-story-progress-row:last-child { margin-bottom: 0; }
+  .rv-story-progress-label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.5px; color: #666; width: 36px; flex-shrink: 0; }
+  .rv-story-progress-track { flex: 1; height: 4px; background: rgba(255,255,255,0.1); border-radius: 2px; overflow: hidden; }
+  .rv-story-progress-fill  { height: 100%; border-radius: 2px; transition: width 0.1s linear; }
+  .rv-story-progress-fill-scene { background: var(--color-primary, #FF9600); }
+  .rv-story-progress-fill-story { background: rgba(255,255,255,0.55); }
+  .rv-story-progress-time { font-size: 10px; color: #666; width: 52px; text-align: right; flex-shrink: 0; white-space: nowrap; }
+</style>
+
+<div class="rv-story-player">
+
+  <!-- Loading -->
+  <div ng-if="isLoading" class="rv-story-loading">
+    <i class="fas fa-spinner fa-spin"></i>
+    Carregando história...
+  </div>
+
+  <!-- Not found -->
+  <div ng-if="!isLoading && !currentScene && !story && !showCover" class="rv-story-loading">
+    <i class="fas fa-book-open"></i>
+    História não encontrada.
+  </div>
+
+  <!-- Cover screen (Netflix-style) -->
+  <div ng-if="!isLoading && showCover && story">
+    <div class="rv-story-cover-media" ng-style="{'padding-top': getMediaPaddingTop()}">
+      <div class="rv-story-cover-media-inner">
+        <img ng-if="story.cover_image" ng-src="{{story.cover_image}}" alt="" />
+        <div ng-if="!story.cover_image"
+             style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:#333;font-size:40px;">
+          <i class="fas fa-book-open"></i>
+        </div>
+        <div class="rv-story-cover-overlay">
+          <!-- Title at top -->
+          <h2 class="rv-story-cover-title">{{story.title}}</h2>
+          <!-- Synopsis + cast at bottom -->
+          <div class="rv-story-cover-bottom">
+            <p ng-if="story.synopsis" class="rv-story-cover-synopsis">
+              {{story.synopsis.length > 130 ? (story.synopsis | limitTo:130) + '…' : story.synopsis}}
+            </p>
+            <div ng-if="getAllCast().length > 0" class="rv-story-cover-cast-mini">
+              <img ng-repeat="char in getAllCast() | limitTo:4"
+                   ng-if="char.avatar_thumbnail"
+                   ng-src="{{char.avatar_thumbnail}}"
+                   class="rv-story-cover-cast-avatar"
+                   title="{{char.name}}" alt="" />
+              <span class="rv-story-cover-cast-names">{{getCoverCastNames()}}</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cast panel overlay on cover -->
+        <div ng-if="showCoverCast" class="rv-story-cast-panel" ng-click="showCoverCast = false">
+          <div class="rv-story-cast-title">Elenco</div>
+          <div ng-repeat="char in getAllCast()" class="rv-story-cast-item">
+            <img ng-if="char.avatar_thumbnail" ng-src="{{char.avatar_thumbnail}}"
+                 class="rv-story-cast-avatar" alt="" />
+            <div ng-if="!char.avatar_thumbnail" class="rv-story-cast-avatar">
+              <i class="fas fa-user"></i>
+            </div>
+            <div style="flex:1; min-width:0;">
+              <div class="rv-story-cast-name">{{char.name}}</div>
+              <div class="rv-story-cast-desc">{{char.description}}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Controls below cover -->
+    <div class="rv-story-cover-controls">
+      <button ng-if="getAllCast().length > 0"
+              ng-click="showCoverCast = !showCoverCast"
+              class="rv-story-btn rv-story-btn-cast">
+        <i class="fas fa-users"></i>
+        {{showCoverCast ? 'Fechar' : 'Elenco'}}
+      </button>
+      <button ng-click="startStory()" class="rv-story-cover-play-btn">
+        <i class="fas fa-play"></i> Reproduzir
+      </button>
+    </div>
+  </div>
+
+  <!-- Current Scene -->
+  <div ng-if="currentScene" class="rv-story-scene-wrap" ng-class="{'rv-story-transitioning': transitioning}">
+
+    <!-- Media: image / video -->
+    <div class="rv-story-media" ng-style="{'padding-top': getMediaPaddingTop()}">
+      <div class="rv-story-media-inner">
+
+        <img ng-if="currentScene.media && currentScene.media.url && currentScene.media.type === 'image'"
+             ng-src="{{currentScene.media.url}}" alt="" />
+
+        <video ng-if="currentScene.media && currentScene.media.url && currentScene.media.type === 'video'"
+               ng-src="{{currentScene.media.url}}" autoplay playsinline></video>
+
+        <!-- Placeholder sem mídia -->
+        <div ng-if="!currentScene.media || !currentScene.media.url"
+             style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:#333;font-size:40px;">
+          <i class="fas fa-book-open"></i>
+        </div>
+
+        <!-- Legenda/subtitle overlay (dentro da imagem, na base) -->
+        <div ng-if="currentScene.subtitles_enabled && currentDialogue()" class="rv-story-subtitle">
+          <div class="rv-story-char-row">
+            <img ng-if="getCharacter(currentDialogue().character_id) && getCharacter(currentDialogue().character_id).avatar_thumbnail"
+                 ng-src="{{getCharacter(currentDialogue().character_id).avatar_thumbnail}}"
+                 class="rv-story-char-avatar" alt="" />
+            <div style="flex:1; min-width:0;">
+              <p class="rv-story-dialogue-text"
+                 ng-style="{'font-size': (story.subtitle_font_size || 15) + 'px'}">
+                {{currentDialogue().text}}
+              </p>
+              <div class="rv-story-dialogue-counter">
+                {{dialogueIndex + 1}} / {{currentScene.dialogues.length}}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Painel de elenco -->
+        <div ng-if="showCast" class="rv-story-cast-panel" ng-click="toggleCast()">
+          <div class="rv-story-cast-title">Em cena</div>
+          <div ng-repeat="char in getCastForScene()" class="rv-story-cast-item">
+            <img ng-if="char.avatar_thumbnail" ng-src="{{char.avatar_thumbnail}}"
+                 class="rv-story-cast-avatar" alt="" />
+            <div ng-if="!char.avatar_thumbnail" class="rv-story-cast-avatar">
+              <i class="fas fa-user"></i>
+            </div>
+            <div style="flex:1; min-width:0;">
+              <div class="rv-story-cast-name">{{char.name}}</div>
+              <div class="rv-story-cast-desc">{{char.description}}</div>
+            </div>
+          </div>
+          <div ng-if="getCastForScene().length === 0" style="color:#555; font-size:12px;">
+            Nenhum personagem nesta cena.
+          </div>
+        </div>
+
+      </div>
+    </div><!-- /.rv-story-media -->
+
+    <!-- Áudio oculto para diálogos -->
+    <audio id="rv-story-dialogue-audio" style="display:none"></audio>
+
+    <!-- Barra de controles (fora da imagem) -->
+    <div class="rv-story-controls" ng-if="currentScene.type !== 'end'">
+      <button ng-if="getCastForScene().length > 0"
+              ng-click="toggleCast()"
+              class="rv-story-btn rv-story-btn-cast">
+        <i class="fas fa-users"></i>
+        {{showCast ? 'Fechar' : 'Elenco'}}
+      </button>
+      <button ng-if="hasMoreDialogues()"
+              ng-click="nextDialogue()"
+              class="rv-story-btn">
+        Pular <i class="fas fa-forward-step"></i>
+      </button>
+      <button ng-if="allDialoguesDone() && currentScene.type === 'scene' && currentScene.next_scene_id"
+              ng-click="advance()"
+              class="rv-story-btn">
+        Continuar <i class="fas fa-chevron-right"></i>
+      </button>
+      <span ng-if="allDialoguesDone() && currentScene.type === 'scene' && !currentScene.next_scene_id"
+            style="color:#555; font-size:12px;">— Fim —</span>
+    </div>
+
+    <!-- Opções de decisão (fora da imagem) -->
+    <div class="rv-story-decision-wrap"
+         ng-if="allDialoguesDone() && currentScene.type === 'decision'">
+      <div class="rv-story-decision-prompt">{{currentScene.decision.prompt}}</div>
+      <button ng-repeat="opt in currentScene.decision.options"
+              class="rv-story-option-btn"
+              ng-click="chooseOption(opt)">
+        {{opt.label}}
+      </button>
+    </div>
+
+    <!-- Cena de fim -->
+    <div class="rv-story-end-wrap" ng-if="currentScene.type === 'end'">
+      <div ng-if="currentScene.end_label" class="rv-story-end-label">
+        {{currentScene.end_label}}
+      </div>
+      <div class="rv-story-end-badge">Pontuação final</div>
+      <div class="rv-story-end-score">{{score}} pontos</div>
+    </div>
+
+  </div><!-- /.rv-story-scene-wrap -->
+
+  <!-- Barras de progresso -->
+  <div class="rv-story-progress-bars" ng-if="currentScene && currentScene.type !== 'end'">
+    <div class="rv-story-progress-row">
+      <span class="rv-story-progress-label">Cena</span>
+      <div class="rv-story-progress-track">
+        <div class="rv-story-progress-fill rv-story-progress-fill-scene"
+             ng-style="{'width': (sceneDuration ? ((sceneElapsed / sceneDuration) * 100) : 100) + '%'}">
+        </div>
+      </div>
+      <span class="rv-story-progress-time" ng-if="sceneDuration">
+        {{sceneElapsed | number:0}}s / {{sceneDuration | number:0}}s
+      </span>
+      <span class="rv-story-progress-time" ng-if="!sceneDuration" style="color:#444">—</span>
+    </div>
+    <div class="rv-story-progress-row">
+      <span class="rv-story-progress-label">Story</span>
+      <div class="rv-story-progress-track">
+        <div class="rv-story-progress-fill rv-story-progress-fill-story"
+             ng-style="{'width': (totalScenes ? ((sceneIndex / totalScenes) * 100) : 0) + '%'}">
+        </div>
+      </div>
+      <span class="rv-story-progress-time">{{sceneIndex}} / {{totalScenes}}</span>
+    </div>
+  </div>
+
+  <!-- Áudios globais -->
+  <audio id="rv-story-global-audio" style="display:none"></audio>
+  <audio id="rv-story-bg-audio"     style="display:none"></audio>
+
+</div>

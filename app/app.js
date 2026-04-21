@@ -90,6 +90,11 @@ angular.module('rotaViva', ['ngRoute', 'ngSanitize', 'duoTrail'])
             controller: 'ReadingCtrl',
             resolve: { auth: function(AuthService) { return AuthService.requireAuth(); } }
         })
+        .when('/story/:storyId', {
+            templateUrl: 'pages/story/story.html',
+            controller: 'StoryCtrl',
+            resolve: { auth: function(AuthService) { return AuthService.requireAuth(); } }
+        })
         .when('/gallery', {
             templateUrl: 'pages/gallery/gallery.html',
             controller: 'GalleryCtrl',

@@ -1808,11 +1808,14 @@ Escolhas:
 
 **No app Rota Viva:**
 - [ ] Tipo de lição `story` na diretiva `duo-trail` (ícone `fa-book-open`, bolinha maior com brilho)
-- [ ] Diretiva `story-player` (ou reusar a `<story>` directive já existente no Studio) para renderizar a história
-- [ ] Tela de consequência entre escolha e próxima cena
-- [ ] Tela de encerramento: final bom (APNG celebração) / final ruim (reflexivo) / final neutro
+- [x] Diretiva `<rv-story>` criada em `app/directives/story/story.js` + `story.html` — adaptada do Studio, prefixos `rv-story-*`, FontAwesome, `var(--color-primary)`, `ApiService` substituindo `Marketplace.auth`
+- [x] Rota `/story/:storyId` adicionada em `app.js` → `StoryCtrl`
+- [x] `trail.js`: tipo `cartoon` redirecionado para `/story/:contentId` (em vez de `/quiz/`)
+- [x] `pages/story/story.js` — `StoryCtrl`: lê parâmetros de URL, `handleStoryComplete()` calcula estrelas, salva `rv_cartoon_scores`, chama `logAction`, invalida cache da trilha
+- [x] `pages/story/story.html` — tela com header, `<rv-story>`, overlay de conclusão com confetti + estrelas
+- [x] `services/api.js`: `getStory()`, `getStoryCharacters()`, `getStoryScenes()` adicionados
+- [ ] Tela de consequência entre escolha e próxima cena (nice-to-have — a diretiva já avança automaticamente)
 - [ ] Opção "Tentar novamente" no final ruim
-- [ ] `logAction('complete_lesson', { type: 'story', score, outcome })` ao encerrar
 - [ ] Challenge `historia_decisiva` no Studio (+150 XP + 2 coins + badge)
 
 ---
@@ -2111,7 +2114,8 @@ Tudo via configuração no Studio e redes sociais:
 - [ ] Hashtags: campo `tags[]` + busca por hashtag na galeria (item G)
 - [ ] Notificações para pessoas marcadas em posts (item I)
 - [ ] **História Interativa — Studio** (item L): score em `next_scenes`, `outcome`, `consequence`, `video_id`, substituir `alert()` por `Notification`, indicador ⚠️ de cenas sem saída
-- [ ] **História Interativa — App** (item L): tipo `story` na trilha, player com tela de consequência, tela de encerramento bom/ruim, logAction + challenge
+- [x] **História Interativa — App** (item L): diretiva `<rv-story>` criada, rota `/story/:id`, `StoryCtrl`, `trail.js` redireciona `cartoon → /story/`, `logAction` + estrelas implementados
+- [ ] **História Interativa — App restante** (item L): "Tentar novamente" no final ruim, challenge `historia_decisiva` no Studio, ícone diferenciado na `duo-trail`
 - [ ] Trilhas avançadas: desbloqueio por competência mínima (item E)
 - [ ] Stories bar completo com algoritmo de ranking (backlog item 3)
 - [ ] Scroll infinito do feed (backlog item 10)

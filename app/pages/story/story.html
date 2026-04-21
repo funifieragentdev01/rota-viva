@@ -1,0 +1,199 @@
+<style>
+  .story-view {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: #000;
+    position: relative;
+  }
+
+  /* Header */
+  .story-view-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 14px;
+    background: rgba(0,0,0,0.85);
+    border-bottom: 1px solid #1a1a1a;
+    z-index: 20;
+    flex-shrink: 0;
+  }
+  .story-view-back {
+    background: rgba(255,255,255,0.1);
+    border: none;
+    border-radius: 50%;
+    width: 36px; height: 36px;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .story-view-back:active { background: rgba(255,255,255,0.2); }
+  .story-view-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  /* Completion overlay */
+  .story-completion-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.92);
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    animation: storyFadeIn 0.35s ease-out;
+  }
+  @keyframes storyFadeIn {
+    from { opacity: 0; transform: scale(0.96); }
+    to   { opacity: 1; transform: scale(1); }
+  }
+  .story-completion-char {
+    width: 100px; height: 100px;
+    border-radius: 50%;
+    object-fit: contain;
+    margin-bottom: 16px;
+  }
+  .story-completion-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 4px;
+    text-align: center;
+  }
+  .story-completion-subtitle {
+    font-size: 13px;
+    color: #888;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  .story-completion-stars-row {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 20px;
+    align-items: center;
+    justify-content: center;
+  }
+  .story-completion-star {
+    font-size: 36px;
+    transition: transform 0.2s, color 0.2s;
+  }
+  .story-completion-star-mid {
+    font-size: 46px;
+    margin-top: -4px;
+  }
+  .story-star-on  { color: #FFC800; animation: storyStarPop 0.4s ease-out both; }
+  .story-star-off { color: #333; }
+  @keyframes storyStarPop {
+    0%   { transform: scale(0); opacity: 0; }
+    60%  { transform: scale(1.3); }
+    100% { transform: scale(1);   opacity: 1; }
+  }
+  .story-completion-reward {
+    font-size: 15px;
+    color: var(--color-primary, #FF9600);
+    margin-bottom: 24px;
+    font-weight: 600;
+  }
+  .story-completion-btn {
+    background: var(--color-primary, #FF9600);
+    color: #000;
+    border: none;
+    border-radius: 12px;
+    padding: 14px 40px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: var(--font-ui, Inter, sans-serif);
+    transition: opacity 0.15s;
+  }
+  .story-completion-btn:active { opacity: 0.8; }
+
+  /* Confetti */
+  .story-confetti-wrap {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+  .story-confetti-piece {
+    position: absolute;
+    width: 8px; height: 8px;
+    border-radius: 2px;
+    animation: storyConfettiFall linear infinite;
+    opacity: 0.85;
+  }
+  @keyframes storyConfettiFall {
+    0%   { transform: translateY(-10%) rotate(0deg);   opacity: 1; }
+    100% { transform: translateY(110vh) rotate(720deg); opacity: 0; }
+  }
+</style>
+
+<div class="story-view">
+
+  <!-- Header -->
+  <div class="story-view-header">
+    <button class="story-view-back" ng-click="goBack()">
+      <i class="fas fa-arrow-left"></i>
+    </button>
+    <span class="story-view-title">{{lessonTitle || 'História'}}</span>
+  </div>
+
+  <!-- Story player directive -->
+  <rv-story story-id="{{storyId}}" on-complete="handleStoryComplete(result)"></rv-story>
+
+  <!-- Completion overlay -->
+  <div class="story-completion-overlay" ng-if="showCompletion">
+
+    <!-- Confetti -->
+    <div class="story-confetti-wrap">
+      <div ng-repeat="i in confettiItems"
+           class="story-confetti-piece"
+           ng-style="{
+             left:             (($index * 8.3) % 100) + '%',
+             top:              '-10%',
+             background:       ['#FF9600','#FFC800','#00CD9C','#1CB0F6','#CE82FF','#FF4B4B'][$index % 6],
+             'animation-duration': (1.5 + ($index * 0.18)) + 's',
+             'animation-delay':    ($index * 0.12) + 's'
+           }">
+      </div>
+    </div>
+
+    <img ng-src="{{charImg}}" class="story-completion-char" alt="">
+
+    <div class="story-completion-title">Checkpoint!</div>
+    <div class="story-completion-subtitle" ng-if="scoreDisplay > 0">
+      Pontuação: {{scoreDisplay}} pts
+    </div>
+
+    <div class="story-completion-stars-row">
+      <i class="fas fa-star story-completion-star"
+         ng-class="starsEarned >= 1 ? 'story-star-on' : 'story-star-off'"
+         style="animation-delay: 0.1s"></i>
+      <i class="fas fa-star story-completion-star story-completion-star-mid"
+         ng-class="starsEarned >= 2 ? 'story-star-on' : 'story-star-off'"
+         style="animation-delay: 0.25s"></i>
+      <i class="fas fa-star story-completion-star"
+         ng-class="starsEarned >= 3 ? 'story-star-on' : 'story-star-off'"
+         style="animation-delay: 0.4s"></i>
+    </div>
+
+    <div class="story-completion-reward">
+      <i class="fas fa-coins"></i> +{{starsEarned * 3}} moedas
+    </div>
+
+    <button class="story-completion-btn" ng-click="closeCompletion()">
+      Continuar <i class="fas fa-chevron-right"></i>
+    </button>
+
+  </div>
+
+</div>

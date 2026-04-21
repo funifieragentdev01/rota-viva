@@ -218,8 +218,11 @@ angular.module('rotaViva')
         var type = lesson.contentType;
         var id   = lesson.contentId;
 
+        if (type === 'cartoon' && id) {
+            $location.path('/story/' + id).search(ctx); return;
+        }
         if ((type === 'quiz' || type === 'review' || type === 'mission' ||
-             type === 'chest' || type === 'cartoon' || type === 'diy' ||
+             type === 'chest' || type === 'diy' ||
              type === 'essay' || type === 'listen') && id) {
             $location.path('/quiz/' + id).search(ctx); return;
         }
