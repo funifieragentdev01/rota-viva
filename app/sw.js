@@ -2,8 +2,8 @@
 // Versão deve ser sincronizada com CONFIG.VERSION em config.js.
 // Mudar CACHE_VERSION força reinstalação e limpeza dos caches antigos.
 
-var CACHE_VERSION = 'rv-v1.4.15';
-var API_CACHE     = 'rv-api-v1.4.15';
+var CACHE_VERSION = 'rv-v1.5.1';
+var API_CACHE     = 'rv-api-v1.5.1';
 
 // ── App shell: pré-cacheado no install ──────────────────────────────────────
 // Inclui todos os JS/CSS versionados + templates HTML (sem versão) + assets core.
@@ -12,35 +12,39 @@ var SHELL_ASSETS = [
     '/',
     '/index.html',
     // Config + App
-    '/config.js?v=1.4.11',
-    '/app.js?v=1.4.11',
+    '/config.js?v=1.4.15',
+    '/app.js?v=1.5.1',
     // CSS
-    '/css/style.css?v=1.4.11',
-    '/directives/duo-trail/duo-trail.css?v=1.4.11',
+    '/css/style.css?v=1.5.1',
+    '/directives/duo-trail/duo-trail.css?v=1.4.15',
     // Services
-    '/services/cpf.js?v=1.4.11',
-    '/services/sound.js?v=1.4.11',
-    '/services/theme.js?v=1.4.11',
-    '/services/auth.js?v=1.4.11',
-    '/services/api.js?v=1.4.11',
+    '/services/cpf.js?v=1.4.15',
+    '/services/sound.js?v=1.4.15',
+    '/services/theme.js?v=1.4.15',
+    '/services/auth.js?v=1.4.15',
+    '/services/api.js?v=1.5.1',
     // Directives + Components
-    '/directives/duo-trail/duo-trail.js?v=1.4.11',
-    '/directives/question/question.js?v=1.4.11',
+    '/directives/duo-trail/duo-trail.js?v=1.4.15',
+    '/directives/question/question.js?v=1.4.15',
     '/directives/question/question.html',
-    '/components/bottom-nav/bottom-nav.js?v=1.4.11',
+    '/directives/gallery/gallery-carousel.js?v=1.5.1',
+    '/directives/story/story.js?v=1.5.1',
+    '/directives/story/story.html',
+    '/components/bottom-nav/bottom-nav.js?v=1.4.15',
     // Pages JS
-    '/pages/landing/landing.js?v=1.4.11',
-    '/pages/rota/rota.js?v=1.4.11',
-    '/pages/onboarding/onboarding.js?v=1.4.11',
-    '/pages/login/login.js?v=1.4.11',
-    '/pages/signup/signup.js?v=1.4.11',
-    '/pages/dashboard/dashboard.js?v=1.4.11',
-    '/pages/trail/trail.js?v=1.4.11',
-    '/pages/gallery/gallery.js?v=1.4.11',
-    '/pages/profile/profile.js?v=1.4.11',
-    '/pages/quiz/quiz.js?v=1.4.11',
-    '/pages/video/video.js?v=1.4.11',
-    '/pages/reading/reading.js?v=1.4.11',
+    '/pages/landing/landing.js?v=1.4.15',
+    '/pages/rota/rota.js?v=1.4.15',
+    '/pages/onboarding/onboarding.js?v=1.4.15',
+    '/pages/login/login.js?v=1.4.15',
+    '/pages/signup/signup.js?v=1.4.15',
+    '/pages/dashboard/dashboard.js?v=1.4.15',
+    '/pages/trail/trail.js?v=1.5.1',
+    '/pages/gallery/gallery.js?v=1.5.1',
+    '/pages/profile/profile.js?v=1.4.15',
+    '/pages/quiz/quiz.js?v=1.4.15',
+    '/pages/video/video.js?v=1.4.15',
+    '/pages/reading/reading.js?v=1.4.15',
+    '/pages/story/story.js?v=1.5.1',
     // Pages HTML (AngularJS busca sem versão via $http)
     '/pages/landing/landing.html',
     '/pages/rota/rota.html',
@@ -54,6 +58,7 @@ var SHELL_ASSETS = [
     '/pages/quiz/quiz.html',
     '/pages/video/video.html',
     '/pages/reading/reading.html',
+    '/pages/story/story.html',
     '/components/bottom-nav/bottom-nav.html',
     // Audio
     '/audio/beep.mp3',
