@@ -1,0 +1,545 @@
+{
+  "story": {
+    "_id": "pf1",
+    "title": "A Colônia que nos Representa",
+    "synopsis": "É dia de eleição na colônia. Seu Raimundo leva Lucas pela primeira vez — e a liderança eleita vai definir quem representa os pescadores na mesa com o governo pelos próximos 4 anos. A presidente da colônia explica o papel legal da entidade, a estrutura FEPA-AP/CONFEP e por que o voto consciente protege os direitos de todos.",
+    "cover_image": "",
+    "aspect_ratio": "9:16",
+    "subtitle_font_size": 22,
+    "default_scene_duration": 6,
+    "passing_score": 28,
+    "genre": "Drama",
+    "show_cover_first": true,
+    "first_scene_id": "pf1_s1",
+    "background_audio": {
+      "loop": true,
+      "volume": 0.25,
+      "url": ""
+    },
+    "status": "active"
+  },
+  "characters": [
+    {
+      "_id": "pf1_c1",
+      "story_id": "pf1",
+      "name": "Seu Raimundo",
+      "full_name": "Raimundo Lopes",
+      "description": "Pescador de 50 anos, patriarca da família Lopes. Colete surrado, rosto marcado pelo rio. Vota na colônia há décadas — leva Lucas pela primeira vez e explica o que está em jogo.",
+      "voice_profile": "onyx",
+      "avatar_thumbnail": "",
+      "reference_image": ""
+    },
+    {
+      "_id": "pf1_c2",
+      "story_id": "pf1",
+      "name": "Lucas",
+      "full_name": "Lucas Lopes",
+      "description": "Filho mais velho da família Lopes, 18 anos. Colete de pescador, cabelo curto. Primeira vez na eleição da colônia — aprende que o voto aqui tem tanto peso quanto qualquer eleição geral.",
+      "voice_profile": "alloy",
+      "avatar_thumbnail": "",
+      "reference_image": ""
+    },
+    {
+      "_id": "pf1_c3",
+      "story_id": "pf1",
+      "name": "Presidente",
+      "full_name": "Presidente da Colônia",
+      "description": "Presidente da colônia de pescadores, 45 anos, feminina. Uniforme da colônia. Liderança firme e didática — explica o papel legal da entidade, a FEPA-AP e como qualquer sócio pode se candidatar.",
+      "voice_profile": "shimmer",
+      "avatar_thumbnail": "",
+      "reference_image": ""
+    }
+  ],
+  "scenes": [
+    {
+      "_id": "pf1_s1",
+      "story_id": "pf1",
+      "title": "CAPA — A Colônia que nos Representa",
+      "type": "scene",
+      "position": 1,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 10 },
+      "description": "TODO — Seu Raimundo (50 anos, colete) de pé em frente à sede da colônia de pescadores com urna eleitoral. Lucas (18 anos) ao lado. Presidente da colônia (45 anos, feminina, uniforme) ao fundo com ata. Rio e barcos ao fundo. Estilo cartoon Gravity Falls — paleta azul-rio e verde-ribeirinha.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "pf1_s2",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": null,
+          "text": "A colônia não é só o lugar onde se paga a mensalidade. É onde os pescadores escolhem quem vai falar por eles.",
+          "audio_url": "",
+          "voice_profile": "nova"
+        }
+      ]
+    },
+    {
+      "_id": "pf1_s2",
+      "story_id": "pf1",
+      "title": "C0 — Dia de Eleição",
+      "type": "scene",
+      "position": 2,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 14 },
+      "description": "TODO — Interior da sede da colônia de pescadores do Amapá. Pescadores votando com cédulas. Urna sobre mesa. Seu Raimundo chegando com Lucas. Cartazes com chapas dos candidatos nas paredes. Movimento de comunidade. Estilo cartoon Gravity Falls — paleta interior quente.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "pf1_s3",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": null,
+          "text": "A cada 4 anos, os pescadores elegem quem vai sentar na mesa com o governo por eles.",
+          "audio_url": "",
+          "voice_profile": "nova"
+        },
+        {
+          "position": 2,
+          "character_id": "pf1_c1",
+          "text": "Lucas, venha conhecer onde a gente decide. Isso aqui vale tanto quanto qualquer eleição.",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        },
+        {
+          "position": 3,
+          "character_id": "pf1_c2",
+          "text": "Por que a eleição da colônia é tão importante?",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        }
+      ]
+    },
+    {
+      "_id": "pf1_s3",
+      "story_id": "pf1",
+      "title": "C0.1 — O Papel Legal da Colônia",
+      "type": "scene",
+      "position": 3,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 12 },
+      "description": "TODO — Presidente da colônia recebendo Seu Raimundo e Lucas com sorriso firme. Mesa com documentos visíveis: lista de beneficiários do Seguro-Defeso, ofício para o MPA, registro de sócios ativos. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "pf1_s4",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "pf1_c3",
+          "text": "A colônia não é clube social. É entidade de classe reconhecida pelo MPA — e tem papel legal específico.",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        },
+        {
+          "position": 2,
+          "character_id": "pf1_c2",
+          "text": "Que papel é esse?",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 3,
+          "character_id": "pf1_c3",
+          "text": "Qual o principal papel legal da colônia de pescadores para o pescador artesanal?",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        }
+      ]
+    },
+    {
+      "_id": "pf1_s4",
+      "story_id": "pf1",
+      "title": "C1 — Qual o Papel Legal da Colônia?",
+      "type": "decision",
+      "position": 4,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 12 },
+      "description": "TODO — Lucas e Seu Raimundo olhando para os documentos na mesa da colônia, pensando. Presidente aguardando. Sede da colônia ao fundo. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "decision": {
+        "prompt": "Qual o principal papel legal da colônia de pescadores para o pescador artesanal?",
+        "interaction_type": "single_choice",
+        "options": [
+          {
+            "label": "Garante o acesso ao Seguro-Defeso e representa institucionalmente o pescador junto ao governo",
+            "next_scene_id": "pf1_s6",
+            "score": 10
+          },
+          {
+            "label": "É apenas um clube social — a filiação é opcional e não afeta direitos do pescador",
+            "next_scene_id": "pf1_s5",
+            "score": 1
+          },
+          {
+            "label": "Não sei ainda",
+            "next_scene_id": "pf1_s5",
+            "score": 1
+          }
+        ]
+      },
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "pf1_c1",
+          "text": "Qual o principal papel legal da colônia de pescadores para o pescador artesanal?",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        }
+      ]
+    },
+    {
+      "_id": "pf1_s5",
+      "story_id": "pf1",
+      "title": "C1B — A Colônia na Lei",
+      "type": "scene",
+      "position": 5,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 16 },
+      "description": "TODO — Ilustração com dois fluxos: pescador com RGP filiado à colônia → colônia valida lista → MPA libera Seguro-Defeso (✓); pescador sem colônia → não consta na lista → não recebe Seguro-Defeso (✗). Fundo azul suave. Estilo cartoon Gravity Falls — diferente de C0.1.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "pf1_s4",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "pf1_c3",
+          "text": "O Seguro-Defeso passa pela colônia. É ela que valida quem está ativo, quem cumpriu o defeso, quem tem RGP regularizado.",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        },
+        {
+          "position": 2,
+          "character_id": "pf1_c3",
+          "text": "Além disso, a colônia representa o pescador no conselho municipal, nos editais do PAA, nas negociações com o IBAMA.",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        },
+        {
+          "position": 3,
+          "character_id": "pf1_c3",
+          "text": "Então — qual o principal papel legal da colônia?",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        }
+      ]
+    },
+    {
+      "_id": "pf1_s6",
+      "story_id": "pf1",
+      "title": "C2 — FEPA-AP: A Voz que Sobe",
+      "type": "scene",
+      "position": 6,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 14 },
+      "description": "TODO — Presidente mostrando organograma em cartaz na parede da colônia: colônias locais → FEPA-AP (estado do Amapá) → CONFEP (nacional). Setas indicando quem articula com governo estadual e quem representa no Congresso. Seu Raimundo e Lucas atentos. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "pf1_s7",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "pf1_c3",
+          "text": "A FEPA-AP é a Federação Estadual dos Pescadores do Amapá. Ela reúne todas as colônias e fala com o governo estadual com a voz de todos.",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        },
+        {
+          "position": 2,
+          "character_id": "pf1_c2",
+          "text": "E a nível nacional?",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 3,
+          "character_id": "pf1_c3",
+          "text": "A CONFEP — Confederação Nacional. É quem representa os pescadores junto ao MPA e ao Congresso. O que é a FEPA-AP?",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        }
+      ]
+    },
+    {
+      "_id": "pf1_s7",
+      "story_id": "pf1",
+      "title": "C3D — O Que É a FEPA-AP?",
+      "type": "decision",
+      "position": 7,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 12 },
+      "description": "TODO — Lucas olhando para o organograma na parede, pensando. Seu Raimundo e Presidente aguardando. Sede da colônia ao fundo. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "decision": {
+        "prompt": "O que é a FEPA-AP?",
+        "interaction_type": "single_choice",
+        "options": [
+          {
+            "label": "A federação estadual que articula as colônias do Amapá e representa os pescadores junto ao governo estadual",
+            "next_scene_id": "pf1_s9",
+            "score": 10
+          },
+          {
+            "label": "Uma agência federal de fiscalização da pesca no Amapá, ligada ao IBAMA",
+            "next_scene_id": "pf1_s8",
+            "score": 3
+          }
+        ]
+      },
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "pf1_c2",
+          "text": "O que é a FEPA-AP?",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        }
+      ]
+    },
+    {
+      "_id": "pf1_s8",
+      "story_id": "pf1",
+      "title": "C3B — Os Três Níveis da Representação",
+      "type": "scene",
+      "position": 8,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 16 },
+      "description": "TODO — Pirâmide com três níveis: base (colônia local — Seguro-Defeso, conselho municipal, RESEX); meio (FEPA-AP — governo estadual, infraestrutura, PRONAF estadual); topo (CONFEP — MPA, IBAMA, legislação federal). Fundo azul suave. Estilo cartoon Gravity Falls — diferente visual.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "pf1_s9",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "pf1_c3",
+          "text": "Cada colônia representa o pescador no nível local. A FEPA-AP amplifica essa voz para o estado. A CONFEP leva para Brasília.",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        },
+        {
+          "position": 2,
+          "character_id": "pf1_c3",
+          "text": "Uma colônia fraca enfraquece a federação. Uma colônia forte — fortalece todos os pescadores do Amapá.",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        },
+        {
+          "position": 3,
+          "character_id": null,
+          "text": "O pescador que vota na colônia vota também na federação. A cadeia começa aqui.",
+          "audio_url": "",
+          "voice_profile": "nova"
+        }
+      ]
+    },
+    {
+      "_id": "pf1_s9",
+      "story_id": "pf1",
+      "title": "C4 — Qualquer Sócio Pode Se Candidatar",
+      "type": "scene",
+      "position": 9,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 14 },
+      "description": "TODO — Presidente mostrando estatuto da colônia aberto para Lucas: artigo destacado — 'qualquer sócio com RGP ativo e em dia com as obrigações pode se candidatar à diretoria'. Lucas lendo com expressão de surpresa. Seu Raimundo ao lado. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "pf1_s10",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "pf1_c2",
+          "text": "Qualquer um pode se candidatar? Eu poderia me candidatar?",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 2,
+          "character_id": "pf1_c3",
+          "text": "Com RGP ativo e filiação regular — sim. A eleição é de todos para todos.",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        },
+        {
+          "position": 3,
+          "character_id": "pf1_c1",
+          "text": "É por isso que o voto consciente importa. A liderança que a gente elege protege ou fragiliza o nosso Seguro-Defeso.",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        }
+      ]
+    },
+    {
+      "_id": "pf1_s10",
+      "story_id": "pf1",
+      "title": "C5 — O Voto e o Direito",
+      "type": "scene",
+      "position": 10,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 12 },
+      "description": "TODO — Seu Raimundo depositando cédula na urna. Lucas observando com atenção. Presidente verificando lista de votantes. Expressão de cerimônia e responsabilidade. Outros pescadores ao fundo na fila. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "pf1_s11",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "pf1_c2",
+          "text": "Pai, você vota todo mandato?",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 2,
+          "character_id": "pf1_c1",
+          "text": "Desde os 18 anos. A liderança que eu elegi conseguiu regularizar o Seguro-Defeso de 40 pescadores com problema no RGP.",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        },
+        {
+          "position": 3,
+          "character_id": "pf1_c1",
+          "text": "Como participar ativamente da colônia protege os direitos do pescador?",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        }
+      ]
+    },
+    {
+      "_id": "pf1_s11",
+      "story_id": "pf1",
+      "title": "C5D — Como a Participação Protege?",
+      "type": "decision",
+      "position": 11,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 12 },
+      "description": "TODO — Lucas olhando para a urna pensando. Seu Raimundo ao lado. Presidente ao fundo com lista de sócios. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "decision": {
+        "prompt": "Como a participação ativa na colônia protege os direitos do pescador artesanal?",
+        "interaction_type": "single_choice",
+        "options": [
+          {
+            "label": "Voto consciente e candidatura à diretoria garantem lideranças comprometidas com Seguro-Defeso, crédito e representação",
+            "next_scene_id": "pf1_s12",
+            "score": 10
+          },
+          {
+            "label": "Basta pagar a mensalidade — a diretoria cuida do resto sem precisar de participação dos sócios",
+            "next_scene_id": "pf1_s13",
+            "score": 3
+          }
+        ]
+      },
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "pf1_c2",
+          "text": "Como a participação ativa na colônia protege os direitos do pescador artesanal?",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        }
+      ]
+    },
+    {
+      "_id": "pf1_s12",
+      "story_id": "pf1",
+      "title": "C6A — A Colônia Forte",
+      "type": "end",
+      "position": 12,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 16 },
+      "description": "TODO — Nova diretoria da colônia tomando posse. Seu Raimundo aplaudindo na plateia. Lucas ao lado com expressão de quem entendeu o significado. Bandeira da colônia ao fundo. Rio e barcos visíveis pela janela. Estilo cartoon Gravity Falls — épica e calorosa.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "end_label": "A Colônia Forte",
+      "end_score": 10,
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": null,
+          "text": "Voto dado. Diretoria eleita. Colônia fortalecida.",
+          "audio_url": "",
+          "voice_profile": "nova"
+        },
+        {
+          "position": 2,
+          "character_id": "pf1_c2",
+          "text": "A gente votou hoje na pessoa que vai falar por todos os pescadores daqui por 4 anos.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 3,
+          "character_id": "pf1_c1",
+          "text": "A colônia forte é o primeiro passo. A FEPA-AP vem depois. E Brasília vem depois.",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        }
+      ]
+    },
+    {
+      "_id": "pf1_s13",
+      "story_id": "pf1",
+      "title": "C6B — O Voto Dado",
+      "type": "end",
+      "position": 13,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 16 },
+      "description": "TODO — Seu Raimundo e Lucas saindo da sede da colônia após votarem. Rio ao fundo, barcos atracados. Expressão de quem fez o dever mas sabe que tem mais. Tarde calma. Estilo cartoon Gravity Falls, paleta suave.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "end_label": "O Voto Dado",
+      "end_score": 5,
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": null,
+          "text": "Voto dado. Diretoria a ser anunciada.",
+          "audio_url": "",
+          "voice_profile": "nova"
+        },
+        {
+          "position": 2,
+          "character_id": "pf1_c2",
+          "text": "Ano que vem posso me candidatar ao conselho fiscal.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 3,
+          "character_id": "pf1_c1",
+          "text": "Quem vota escolhe. Quem não vota — aceita o que escolheram.",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        }
+      ]
+    }
+  ]
+}

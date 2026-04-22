@@ -1,0 +1,654 @@
+{
+  "story": {
+    "_id": "pin1",
+    "title": "O Rio que Alimenta",
+    "synopsis": "Lucas Lopes, 18 anos, está prestes a sair sozinho de barco pela primeira vez. Mas antes de largar as amarras, Seu Raimundo — pescador de décadas — para o filho: pescar não é só lançar rede. É entender o rio.\n\nAtravés da conversa entre pai, filho, mãe e filha, o jogador descobre o que é a piracema, por que respeitá-la garante a fartura futura, e como o cuidado com o peixe na hora certa pode dobrar a renda da safra.\n\nUma história de rio, família e o conhecimento que passa de geração em geração.",
+    "cover_image": "",
+    "aspect_ratio": "9:16",
+    "subtitle_font_size": 22,
+    "default_scene_duration": 6,
+    "passing_score": 28,
+    "genre": "Drama",
+    "show_cover_first": true,
+    "first_scene_id": "pin1_s1",
+    "background_audio": {
+      "loop": true,
+      "volume": 0.25,
+      "url": ""
+    },
+    "status": "active"
+  },
+
+  "characters": [
+    {
+      "_id": "pin1_c1",
+      "story_id": "pin1",
+      "name": "Seu Raimundo",
+      "description": "Raimundo Lopes, pescador artesanal de 50 anos, do interior do Nordeste. Pele curtida de sol e rio, barba rala, colete de pescador. Conhece as águas como ninguém. Sério, digno e com muito a ensinar.",
+      "avatar_thumbnail": "",
+      "reference_image": "",
+      "voice_profile": "onyx"
+    },
+    {
+      "_id": "pin1_c2",
+      "story_id": "pin1",
+      "name": "Dona Graça",
+      "description": "Graça Lopes, 46 anos, esposa de Seu Raimundo. Cabelos crespos presos, avental simples. Extrovertida e forte. Gerencia a parte comercial da pesca e a vida da família. Boa de conselho e de número.",
+      "avatar_thumbnail": "",
+      "reference_image": "",
+      "voice_profile": "shimmer"
+    },
+    {
+      "_id": "pin1_c3",
+      "story_id": "pin1",
+      "name": "Lucas",
+      "description": "Lucas Lopes, 18 anos, filho mais velho de Seu Raimundo e Dona Graça. Aprendiz de pescador, sonha em profissionalizar o negócio. Questionador e com vontade de crescer.",
+      "avatar_thumbnail": "",
+      "reference_image": "",
+      "voice_profile": "alloy"
+    },
+    {
+      "_id": "pin1_c4",
+      "story_id": "pin1",
+      "name": "Júlia",
+      "description": "Júlia Lopes, 13 anos, filha caçula de Seu Raimundo e Dona Graça. Cabelos crespos soltos, olhos grandes e curiosos. Adora o rio e os peixes. Observadora e aprende rápido.",
+      "avatar_thumbnail": "",
+      "reference_image": "",
+      "voice_profile": "nova"
+    }
+  ],
+
+  "scenes": [
+
+    {
+      "_id": "pin1_s1",
+      "story_id": "pin1",
+      "title": "A Beira do Rio",
+      "type": "scene",
+      "position": 1,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": {
+        "type": "image",
+        "url": "",
+        "duration": 14
+      },
+      "description": "TODO — Margem de rio do interior do Nordeste ao amanhecer. Névoa suave sobre a água azul-esverdeada, luz dourada nascente filtrando pelas árvores ribeirinhas. Dona Graça (mulher nordestina de 46 anos, cabelos crespos presos, avental simples) chama os filhos da beira d'água. Júlia (menina de 13 anos, cabelos crespos soltos, olhos grandes) já está olhando fascinada para o rio. Lucas (jovem de 18 anos) se aproxima carregando equipamento de pesca, animado. Barco de madeira amarrado na margem ao fundo. Estilo cartoon Gravity Falls — paleta azul-rio, verde-ribeirinha, dourado do sol nascente.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "dialogues": [
+        {
+          "position": 0,
+          "text": "No interior do Nordeste, há famílias que vivem da terra. E há famílias que vivem da água. A família Lopes conhece o rio há gerações.",
+          "audio_url": ""
+        },
+        {
+          "position": 1,
+          "character_id": "pin1_c2",
+          "text": "Lucas! Júlia! Vem cá. Seu pai tem algo importante pra dizer antes de você sair de barco hoje.",
+          "audio_url": ""
+        }
+      ],
+      "next_scene_id": "pin1_s2"
+    },
+
+    {
+      "_id": "pin1_s2",
+      "story_id": "pin1",
+      "title": "A Primeira Saída Solo",
+      "type": "scene",
+      "position": 2,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": {
+        "type": "image",
+        "url": "",
+        "duration": 14
+      },
+      "description": "TODO — Beira do rio, barco de madeira ao fundo amarrado. Lucas (18 anos) de pé com redes no ombro, expressão empolgada e um pouco impaciente. Seu Raimundo (50 anos, colete de pescador, barba rala) de braços cruzados olha para o filho com calma e sabedoria. Dona Graça e Júlia ao lado ouvindo. O rio brilha ao fundo com luz do amanhecer. Estilo cartoon Gravity Falls, paleta quente do sol nascente sobre o azul do rio.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "dialogues": [
+        {
+          "position": 0,
+          "character_id": "pin1_c3",
+          "text": "Pai, o barco já tá pronto! Redes conferidas, isca preparada. Pode deixar que eu sei o que faço.",
+          "audio_url": ""
+        },
+        {
+          "position": 1,
+          "character_id": "pin1_c1",
+          "text": "Sei que sabe, filho. Mas saber pescar não é só lançar rede. Vem cá — você precisa entender o rio antes de ir sozinho.",
+          "audio_url": ""
+        },
+        {
+          "position": 2,
+          "character_id": "pin1_c4",
+          "text": "Conta pra ele sobre a piracema, pai! Conta o que o senhor me ensinou!",
+          "audio_url": ""
+        }
+      ],
+      "next_scene_id": "pin1_s3"
+    },
+
+    {
+      "_id": "pin1_s3",
+      "story_id": "pin1",
+      "title": "O Vizinho que Não Espera",
+      "type": "decision",
+      "position": 3,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": {
+        "type": "image",
+        "url": "",
+        "duration": 9
+      },
+      "description": "TODO — Rio em perspectiva, névoa matinal. Uma canoa ao longe com um pescador lançando rede. Na margem, placa visível: 'DEFESO — Pesca proibida neste trecho'. Seu Raimundo aponta para a canoa, expressão séria. Lucas olha na direção com curiosidade e dúvida. A família ao fundo observa. Estilo cartoon Gravity Falls — azul-rio profundo, tom de tensão suave.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "dialogues": [
+        {
+          "position": 0,
+          "text": "Seu Raimundo aponta para uma canoa rio abaixo. Um vizinho está pescando — mas o período de defeso ainda não encerrou oficialmente nesse trecho do rio.",
+          "audio_url": ""
+        },
+        {
+          "position": 1,
+          "character_id": "pin1_c3",
+          "text": "Pai... aquele ali tá pescando no defeso. Não seria uma chance boa, com tanto peixe concentrado no rio?",
+          "audio_url": ""
+        }
+      ],
+      "decision": {
+        "prompt": "O que Lucas faz?",
+        "interaction_type": "click",
+        "options": [
+          {
+            "label": "Vai até o vizinho avisar e explicar as regras",
+            "next_scene_id": "pin1_s4",
+            "score": 10
+          },
+          {
+            "label": "Aproveita também — todo mundo faz, não vai fazer diferença",
+            "next_scene_id": "pin1_s5",
+            "score": 1
+          }
+        ]
+      }
+    },
+
+    {
+      "_id": "pin1_s4",
+      "story_id": "pin1",
+      "title": "A Lição de Seu Raimundo",
+      "type": "scene",
+      "position": 4,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": {
+        "type": "image",
+        "url": "",
+        "duration": 12
+      },
+      "description": "TODO — Seu Raimundo e Lucas lado a lado na beira do rio, conversa séria. Dona Graça e Júlia um pouco atrás, ouvindo atentas. Expressão de Seu Raimundo: firme, didático, sem raiva — ensinando. Lucas atento, processando. O rio calmo ao fundo. Estilo cartoon Gravity Falls, luz do amanhecer, paleta azul-verde.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "dialogues": [
+        {
+          "position": 0,
+          "character_id": "pin1_c1",
+          "text": "Você fez certo, Lucas. Pescar no defeso é crime — pode perder o barco, o equipamento e a licença de pesca.",
+          "audio_url": ""
+        },
+        {
+          "position": 1,
+          "text": "Mas mais do que a lei, Seu Raimundo explica o que está por trás da regra.",
+          "audio_url": ""
+        },
+        {
+          "position": 2,
+          "character_id": "pin1_c1",
+          "text": "No defeso, os peixes migram pra se reproduzir. Se a gente pesca agora, mata a próxima geração. Em dois anos, o rio fica vazio — e nossa família fica sem renda.",
+          "audio_url": ""
+        }
+      ],
+      "next_scene_id": "pin1_s6"
+    },
+
+    {
+      "_id": "pin1_s5",
+      "story_id": "pin1",
+      "title": "O Custo do Descuido",
+      "type": "scene",
+      "position": 5,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": {
+        "type": "image",
+        "url": "",
+        "duration": 11
+      },
+      "description": "TODO — Margem do rio, cena mais tensa. Barco de fiscalização ambiental se aproxima da canoa do vizinho. Agente ambiental gesticula para o pescador parar. Lucas observa de longe, expressão de quem entendeu o erro. Seu Raimundo ao lado, braços cruzados, expressão séria mas sem julgamento excessivo. Estilo cartoon Gravity Falls, tons mais frios e sombrios para indicar consequência.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "dialogues": [
+        {
+          "position": 0,
+          "text": "A fiscalização chegou minutos depois. O vizinho perdeu o barco e o equipamento de pesca.",
+          "audio_url": ""
+        },
+        {
+          "position": 1,
+          "character_id": "pin1_c1",
+          "text": "É assim, filho. Pescar no defeso destrói o que alimenta nossa família há gerações. E ainda tem multa e apreensão.",
+          "audio_url": ""
+        },
+        {
+          "position": 2,
+          "character_id": "pin1_c2",
+          "text": "O rio nos sustenta se a gente respeitar o tempo dele. Sem respeito, o rio seca de peixe — e nós secamos junto.",
+          "audio_url": ""
+        }
+      ],
+      "next_scene_id": "pin1_s6"
+    },
+
+    {
+      "_id": "pin1_s6",
+      "story_id": "pin1",
+      "title": "O Que é a Piracema?",
+      "type": "decision",
+      "position": 6,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": {
+        "type": "image",
+        "url": "",
+        "duration": 9
+      },
+      "description": "TODO — Ilustração didática do rio com cardume de peixes nadando em direção a montante — peixes dourados em movimento fluido, setas indicando migração rio acima. Vegetação ribeirinha nas margens, luz filtrada. Seu Raimundo aponta para a ilustração enquanto a família o rodeia. Júlia levanta o dedo como quem quer responder. Estilo cartoon Gravity Falls — azul profundo e dourado dos peixes.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "dialogues": [
+        {
+          "position": 0,
+          "character_id": "pin1_c1",
+          "text": "Então me diz — por que existe o defeso? O que acontece com os peixes nesse período?",
+          "audio_url": ""
+        },
+        {
+          "position": 1,
+          "character_id": "pin1_c4",
+          "text": "Eu aprendi na escola! Mas quero ver se você sabe, Lucas.",
+          "audio_url": ""
+        }
+      ],
+      "decision": {
+        "prompt": "O que é a piracema?",
+        "interaction_type": "click",
+        "options": [
+          {
+            "label": "O período em que os peixes migram rio acima para se reproduzir",
+            "next_scene_id": "pin1_s7",
+            "score": 10
+          },
+          {
+            "label": "A época de seca, quando o rio fica raso e os peixes somem",
+            "next_scene_id": "pin1_s8",
+            "score": 1
+          },
+          {
+            "label": "Não sei ainda",
+            "next_scene_id": "pin1_s8",
+            "score": 1
+          }
+        ]
+      }
+    },
+
+    {
+      "_id": "pin1_s7",
+      "story_id": "pin1",
+      "title": "O Ciclo que Alimenta",
+      "type": "scene",
+      "position": 7,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": {
+        "type": "image",
+        "url": "",
+        "duration": 13
+      },
+      "description": "TODO — Vista subaquática do rio, luz verde-azulada. Cardume de peixes de várias espécies nadando juntos em direção ao fundo do quadro, representando a migração. Ovos em suspensão, filhotes minúsculos ao redor. Cena transmite abundância e ciclo natural. Em moldura ao redor, os rostos da família reagindo: Júlia encantada, Lucas surpreso, Dona Graça sorrindo, Seu Raimundo orgulhoso. Estilo cartoon Gravity Falls, cores tropicais ricas.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "dialogues": [
+        {
+          "position": 0,
+          "character_id": "pin1_c1",
+          "text": "Isso mesmo! Os peixes sobem o rio em cardumes imensos pra desovar. Uma fêmea pode botar milhares de ovos numa única migração.",
+          "audio_url": ""
+        },
+        {
+          "position": 1,
+          "text": "É por isso que a pesca é proibida nesse período. Cada peixe que sobrevive à piracema se torna dezenas de peixes na próxima safra.",
+          "audio_url": ""
+        },
+        {
+          "position": 2,
+          "character_id": "pin1_c4",
+          "text": "É igual plantar, né pai? A gente não come a semente pra colher mais depois.",
+          "audio_url": ""
+        },
+        {
+          "position": 3,
+          "character_id": "pin1_c1",
+          "text": "Essa menina entendeu em dois minutos o que leva anos pra alguns aprenderem.",
+          "audio_url": ""
+        }
+      ],
+      "next_scene_id": "pin1_s9"
+    },
+
+    {
+      "_id": "pin1_s8",
+      "story_id": "pin1",
+      "title": "Entendendo a Piracema",
+      "type": "scene",
+      "position": 8,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": {
+        "type": "image",
+        "url": "",
+        "duration": 12
+      },
+      "description": "TODO — Ilustração didática comparativa: lado esquerdo mostra rio cheio na época das chuvas com setas de peixes subindo (etiqueta 'PIRACEMA — reprodução'); lado direito mostra rio com nível médio na seca (etiqueta 'NÃO é piracema'). Seu Raimundo aponta para cada lado explicando. Fundo azul suave, visual educativo. Estilo cartoon Gravity Falls — visual distinto da cena S6.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "dialogues": [
+        {
+          "position": 0,
+          "character_id": "pin1_c1",
+          "text": "Não é a seca — a piracema acontece na época das chuvas, quando o rio enche. Os peixes precisam de água alta pra migrar.",
+          "audio_url": ""
+        },
+        {
+          "position": 1,
+          "character_id": "pin1_c1",
+          "text": "É o período de reprodução. Eles sobem o rio em cardumes pra desovar — garantir a próxima geração de peixes.",
+          "audio_url": ""
+        },
+        {
+          "position": 2,
+          "character_id": "pin1_c1",
+          "text": "Agora que você entendeu — o que é a piracema?",
+          "audio_url": ""
+        }
+      ],
+      "next_scene_id": "pin1_s6"
+    },
+
+    {
+      "_id": "pin1_s9",
+      "story_id": "pin1",
+      "title": "O Negócio da Pesca",
+      "type": "scene",
+      "position": 9,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": {
+        "type": "image",
+        "url": "",
+        "duration": 14
+      },
+      "description": "TODO — Pequena feira ou frigorífico artesanal à beira do rio. Peixes expostos sobre gelo picado, etiquetas com preços escritos à mão. Dona Graça atrás da bancada com expressão confiante de quem conhece o negócio. Seu Raimundo ao lado segurando um tambaqui grande com orgulho. Lucas e Júlia olham para os preços com atenção. Luz quente, cores vibrantes, clima de comércio local vivo. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "dialogues": [
+        {
+          "position": 0,
+          "character_id": "pin1_c2",
+          "text": "Mas vamos falar de negócio também, minha gente. Saber pescar é uma coisa. Saber vender é outra.",
+          "audio_url": ""
+        },
+        {
+          "position": 1,
+          "character_id": "pin1_c1",
+          "text": "O tambaqui aqui na região chega a R$ 18 o quilo na venda direta. O tucunaré, R$ 22. Mas só tem esse preço se o peixe chegar limpo, fresco, com gelo.",
+          "audio_url": ""
+        },
+        {
+          "position": 2,
+          "text": "A pesca artesanal familiar movimenta bilhões de reais no Brasil. Com planejamento certo, a família Lopes pode aumentar muito a renda a cada safra.",
+          "audio_url": ""
+        },
+        {
+          "position": 3,
+          "character_id": "pin1_c3",
+          "text": "O que faz o peixe valer mais, pai? Como a gente garante o melhor preço?",
+          "audio_url": ""
+        }
+      ],
+      "next_scene_id": "pin1_s10"
+    },
+
+    {
+      "_id": "pin1_s10",
+      "story_id": "pin1",
+      "title": "O Que Aumenta o Valor do Peixe?",
+      "type": "decision",
+      "position": 10,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": {
+        "type": "image",
+        "url": "",
+        "duration": 8
+      },
+      "description": "TODO — Dois peixes lado a lado como comparação visual: um bem cuidado, brilhante, sobre gelo, aparência fresca (etiqueta: R$ 22/kg); outro sem cuidado, opaco, sem gelo (etiqueta: R$ 12/kg). Dona Graça aponta para a diferença com expressão de quem entende do negócio. Lucas e Júlia olham comparando. Estilo cartoon Gravity Falls, foco em elementos comerciais.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "dialogues": [
+        {
+          "position": 0,
+          "character_id": "pin1_c2",
+          "text": "Essa é a pergunta que separa quem vende bem de quem aceita qualquer preço.",
+          "audio_url": ""
+        },
+        {
+          "position": 1,
+          "text": "O peixe certo, no ponto certo, para o comprador certo — essa é a fórmula da família Lopes.",
+          "audio_url": ""
+        }
+      ],
+      "decision": {
+        "prompt": "O que mais aumenta o valor do peixe na venda?",
+        "interaction_type": "click",
+        "options": [
+          {
+            "label": "Cuidar da qualidade — gelo, higiene e limpeza adequada",
+            "next_scene_id": "pin1_s11",
+            "score": 10
+          },
+          {
+            "label": "Pescar mais quantidade pra ter volume maior",
+            "next_scene_id": "pin1_s12",
+            "score": 3
+          }
+        ]
+      }
+    },
+
+    {
+      "_id": "pin1_s11",
+      "story_id": "pin1",
+      "title": "O Pescador Completo",
+      "type": "scene",
+      "position": 11,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": {
+        "type": "image",
+        "url": "",
+        "duration": 12
+      },
+      "description": "TODO — Lucas e Seu Raimundo lado a lado no barco de madeira, rio ao fundo com luz dourada da manhã. Lucas segura um peixe com cuidado, usando luvas, colocando-o em caixa de isopor com gelo. Seu Raimundo observa com sorriso orgulhoso. Dona Graça e Júlia na margem acenando. Cena de transmissão de conhecimento entre gerações. Estilo cartoon Gravity Falls, luz quente e dourada sobre o rio.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "dialogues": [
+        {
+          "position": 0,
+          "character_id": "pin1_c1",
+          "text": "Isso mesmo, Lucas! Peixe com gelo e bem tratado vale 30% a mais que peixe largado no calor. O comprador paga pela qualidade.",
+          "audio_url": ""
+        },
+        {
+          "position": 1,
+          "character_id": "pin1_c2",
+          "text": "E quem cuida bem do peixe faz nome na feira. Voltam sempre, pagam melhor, recomendam pra todo mundo.",
+          "audio_url": ""
+        },
+        {
+          "position": 2,
+          "character_id": "pin1_c3",
+          "text": "Então é conhecimento mais do que força. Entendi, pai.",
+          "audio_url": ""
+        }
+      ],
+      "next_scene_id": "pin1_s13"
+    },
+
+    {
+      "_id": "pin1_s12",
+      "story_id": "pin1",
+      "title": "Qualidade Antes de Quantidade",
+      "type": "scene",
+      "position": 12,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": {
+        "type": "image",
+        "url": "",
+        "duration": 10
+      },
+      "description": "TODO — Seu Raimundo mostrando caderno de registros de vendas para Lucas. Colunas com preços por tipo de peixe e qualidade. Dona Graça ao lado conferindo. Júlia curiosa ao fundo. Ambiente rústico de trabalho sério. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "dialogues": [
+        {
+          "position": 0,
+          "character_id": "pin1_c1",
+          "text": "Quantidade ajuda — mas qualidade é o que garante o preço. Dez quilos bem cuidados valem mais do que vinte jogados no calor.",
+          "audio_url": ""
+        },
+        {
+          "position": 1,
+          "text": "No mercado artesanal, a reputação do pescador vale tanto quanto o produto. Um peixe mal cuidado destrói uma clientela de anos.",
+          "audio_url": ""
+        },
+        {
+          "position": 2,
+          "character_id": "pin1_c3",
+          "text": "Faz sentido. Não é só sobre pescar mais — é sobre pescar melhor.",
+          "audio_url": ""
+        }
+      ],
+      "next_scene_id": "pin1_s14"
+    },
+
+    {
+      "_id": "pin1_s13",
+      "story_id": "pin1",
+      "title": "Um Pescador Completo",
+      "type": "end",
+      "position": 13,
+      "transition": "fade",
+      "transition_duration": 300,
+      "end_label": "Um pescador completo!",
+      "end_score": 10,
+      "media_mode": "image",
+      "media": {
+        "type": "image",
+        "url": "",
+        "duration": 13
+      },
+      "description": "TODO — Lucas de pé no barco de madeira saindo para o rio, postura confiante, olhar no horizonte. Na margem, a família toda acenando: Seu Raimundo com polegar levantado e sorriso orgulhoso, Dona Graça sorrindo, Júlia agitando as mãos animada. Peixes saltando na superfície do rio ao fundo. Luz dourada do amanhecer refletindo na água. Cena épica de passagem de tocha entre gerações. Estilo cartoon Gravity Falls, inspiradora.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "dialogues": [
+        {
+          "position": 0,
+          "text": "Lucas não sai mais como um jovem que quer pescar. Sai como um pescador que entende o rio, respeita as regras e sabe cuidar do que traz pra casa.",
+          "audio_url": ""
+        },
+        {
+          "position": 1,
+          "character_id": "pin1_c1",
+          "text": "A pesca é herança, filho. O rio nos dá — se a gente cuidar. Quem cuida do rio garante que seus filhos também vão pescar aqui.",
+          "audio_url": ""
+        },
+        {
+          "position": 2,
+          "character_id": "pin1_c2",
+          "text": "E nessa família, a gente aprende junto. É assim que a família Lopes trabalha há gerações.",
+          "audio_url": ""
+        }
+      ]
+    },
+
+    {
+      "_id": "pin1_s14",
+      "story_id": "pin1",
+      "title": "O Aprendizado Começa Agora",
+      "type": "end",
+      "position": 14,
+      "transition": "fade",
+      "transition_duration": 300,
+      "end_label": "O aprendizado começa agora",
+      "end_score": 5,
+      "media_mode": "image",
+      "media": {
+        "type": "image",
+        "url": "",
+        "duration": 11
+      },
+      "description": "TODO — Lucas e Seu Raimundo sentados lado a lado no barco amarrado na margem, olhando para o rio juntos. Dona Graça e Júlia na margem próximas. O sol nascendo ao fundo, reflexo dourado na água. Cena tranquila de conversa entre pai e filho, aprendizado em andamento. Estilo cartoon Gravity Falls, paleta suave de fim de madrugada virando amanhecer.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "dialogues": [
+        {
+          "position": 0,
+          "text": "Os números ainda estão se encaixando na cabeça de Lucas. Mas a vontade de aprender está ali — e o Rota Viva vai ensinar cada detalhe.",
+          "audio_url": ""
+        },
+        {
+          "position": 1,
+          "character_id": "pin1_c1",
+          "text": "Não aprende tudo de uma vez, filho. O rio ensina quem tem paciência.",
+          "audio_url": ""
+        },
+        {
+          "position": 2,
+          "character_id": "pin1_c4",
+          "text": "A gente aprende junto, Lucas. Começando agora.",
+          "audio_url": ""
+        }
+      ]
+    }
+
+  ]
+}

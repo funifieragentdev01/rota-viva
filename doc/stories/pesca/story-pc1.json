@@ -1,0 +1,550 @@
+{
+  "story": {
+    "_id": "pc1",
+    "title": "O Peixe do Restaurante",
+    "synopsis": "Lucas encontra um restaurante em Macapá que quer comprar pescado local toda semana — preço justo, volumes garantidos. Mas o dono exige nota fiscal e inspeção sanitária mínima. Com Seu Raimundo, Lucas visita a cooperativa e descobre o caminho: SIE para o restaurante, SIF via cooperativa para mercados maiores.",
+    "cover_image": "",
+    "aspect_ratio": "9:16",
+    "subtitle_font_size": 22,
+    "default_scene_duration": 6,
+    "passing_score": 28,
+    "genre": "Drama",
+    "show_cover_first": true,
+    "first_scene_id": "pc1_s1",
+    "background_audio": {
+      "loop": true,
+      "volume": 0.25,
+      "url": ""
+    },
+    "status": "active"
+  },
+  "characters": [
+    {
+      "_id": "pc1_c1",
+      "story_id": "pc1",
+      "name": "Lucas",
+      "full_name": "Lucas Lopes",
+      "description": "Filho mais velho da família Lopes, 18 anos. Colete de pescador, expressão animada. Já vende peixe na feira mas quer mercados maiores. Empreendedor e curioso.",
+      "voice_profile": "alloy",
+      "avatar_thumbnail": "",
+      "reference_image": ""
+    },
+    {
+      "_id": "pc1_c2",
+      "story_id": "pc1",
+      "name": "Seu Raimundo",
+      "full_name": "Raimundo Lopes",
+      "description": "Pescador de 50 anos. Pele queimada de sol e rio, mãos calejadas, colete de pescador, barba rala. Sério e digno. Trinta anos pescando — agora aprende com o filho que o peixe pode ir mais longe.",
+      "voice_profile": "onyx",
+      "avatar_thumbnail": "",
+      "reference_image": ""
+    },
+    {
+      "_id": "pc1_c3",
+      "story_id": "pc1",
+      "name": "Representante",
+      "full_name": "Representante da Cooperativa",
+      "description": "Representante da cooperativa de pescadores, mulher de 40 anos. Uniforme da cooperativa, postura profissional. Conhece bem o caminho da inspeção sanitária e do SIF.",
+      "voice_profile": "shimmer",
+      "avatar_thumbnail": "",
+      "reference_image": ""
+    }
+  ],
+  "scenes": [
+    {
+      "_id": "pc1_s1",
+      "story_id": "pc1",
+      "title": "CAPA — O Peixe do Restaurante",
+      "type": "scene",
+      "position": 1,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 10 },
+      "description": "TODO — Lucas (18 anos, colete) conversando com dono de restaurante (40 anos, avental branco) que mostra formulário de requisitos. Seu Raimundo (50 anos, barba rala) ao lado atento. Cozinha de restaurante com peixe fresco na bancada. Estilo cartoon Gravity Falls — paleta azul-rio, dourado.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "pc1_s2",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": null,
+          "text": "O melhor peixe do rio merece a melhor mesa da cidade. Falta o papel certo.",
+          "audio_url": "",
+          "voice_profile": "nova"
+        }
+      ]
+    },
+    {
+      "_id": "pc1_s2",
+      "story_id": "pc1",
+      "title": "C0 — O Restaurante Quer Peixe",
+      "type": "scene",
+      "position": 2,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 14 },
+      "description": "TODO — Fachada de restaurante em Macapá, tarde. Lucas (18 anos, colete) saindo animado com papel na mão. Rua movimentada ao fundo. Expressão de quem trouxe boa notícia e quer contar rápido. Estilo cartoon Gravity Falls — paleta azul e dourado urbano.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "pc1_s3",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": null,
+          "text": "Lucas passou pelo restaurante mais badalado da cidade — e entrou pra conversar.",
+          "audio_url": "",
+          "voice_profile": "nova"
+        },
+        {
+          "position": 2,
+          "character_id": "pc1_c1",
+          "text": "Pai! O dono do restaurante quer comprar peixe direto da gente toda semana. Mapará, surubim, dourada. Preço 70% acima da feira.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 3,
+          "character_id": "pc1_c2",
+          "text": "Ótimo. E o que ele quer além do peixe?",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        }
+      ]
+    },
+    {
+      "_id": "pc1_s3",
+      "story_id": "pc1",
+      "title": "C0.1 — Quem Pode Fornecer?",
+      "type": "scene",
+      "position": 3,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 12 },
+      "description": "TODO — Seu Raimundo e Lucas sentados à mesa em casa revisando o papel que Lucas trouxe. Lista de requisitos do restaurante: nota fiscal, inspeção sanitária mínima SIE. Expressão de Seu Raimundo: sério, reconhecendo um obstáculo real. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "pc1_s4",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "pc1_c2",
+          "text": "Nota fiscal de produtor rural a gente consegue. Mas inspeção sanitária — SIE...",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        },
+        {
+          "position": 2,
+          "character_id": "pc1_c1",
+          "text": "O que é SIE, pai?",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 3,
+          "character_id": "pc1_c2",
+          "text": "É o que a gente precisa descobrir hoje. Mas antes — qual inspeção um restaurante formal exige para comprar pescado?",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        }
+      ]
+    },
+    {
+      "_id": "pc1_s4",
+      "story_id": "pc1",
+      "title": "C1 — Qual Inspeção o Restaurante Exige?",
+      "type": "decision",
+      "position": 4,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 12 },
+      "description": "TODO — Lucas olhando para a lista de requisitos na mesa. Seu Raimundo ao lado esperando a resposta. Peixe fresco em caixas ao fundo. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "decision": {
+        "prompt": "Qual inspeção sanitária mínima um restaurante formal exige para comprar pescado regularmente?",
+        "interaction_type": "single_choice",
+        "options": [
+          {
+            "label": "SIE ou SIF — inspeção estadual ou federal que garante segurança alimentar ao estabelecimento",
+            "next_scene_id": "pc1_s6",
+            "score": 10
+          },
+          {
+            "label": "Nenhuma — restaurante pode comprar de qualquer fornecedor sem documentação",
+            "next_scene_id": "pc1_s5",
+            "score": 1
+          },
+          {
+            "label": "Não sei ainda",
+            "next_scene_id": "pc1_s5",
+            "score": 1
+          }
+        ]
+      },
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "pc1_c1",
+          "text": "Qual inspeção sanitária mínima um restaurante formal precisa para comprar pescado?",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        }
+      ]
+    },
+    {
+      "_id": "pc1_s5",
+      "story_id": "pc1",
+      "title": "C1B — O Risco do Restaurante",
+      "type": "scene",
+      "position": 5,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 16 },
+      "description": "TODO — Ilustração: dois cenários — esquerda mostra restaurante comprando peixe sem inspeção, Vigilância Sanitária aparece, produto apreendido em caixas vermelhas, restaurante multado, relação comercial encerrada; direita mostra restaurante comprando com SIE, fornecimento regular, preço melhor, parceria de longo prazo. Seu Raimundo aponta para a diferença. Fundo azul suave. Estilo cartoon Gravity Falls — diferente de C0.1.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "pc1_s4",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "pc1_c2",
+          "text": "Restaurante formal que compra sem inspeção corre risco de interdição. O dono não vai arriscar o negócio dele.",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        },
+        {
+          "position": 2,
+          "character_id": "pc1_c2",
+          "text": "Com SIE ou SIF, o restaurante tem segurança legal pra comprar — e paga mais porque o produto é rastreável.",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        },
+        {
+          "position": 3,
+          "character_id": "pc1_c2",
+          "text": "Então — qual inspeção mínima um restaurante formal exige?",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        }
+      ]
+    },
+    {
+      "_id": "pc1_s6",
+      "story_id": "pc1",
+      "title": "C2 — A Visita à Cooperativa",
+      "type": "scene",
+      "position": 6,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 12 },
+      "description": "TODO — Seu Raimundo e Lucas na sede da cooperativa de pescadores local. Placas do MAPA na parede, câmara fria visível ao fundo. Representante da cooperativa (mulher de 40 anos, uniforme) recebe os dois com aperto de mão. Ambiente profissional e organizado. Estilo cartoon Gravity Falls — paleta azul e institucional.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "pc1_s7",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": null,
+          "text": "Seu Raimundo conhecia a cooperativa de nome. Nunca tinha entrado.",
+          "audio_url": "",
+          "voice_profile": "nova"
+        },
+        {
+          "position": 2,
+          "character_id": "pc1_c3",
+          "text": "Seu Raimundo, bem-vindo. O que o traz até nós?",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        },
+        {
+          "position": 3,
+          "character_id": "pc1_c1",
+          "text": "A gente quer entender como funciona a inspeção sanitária pra conseguir vender pro restaurante.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        }
+      ]
+    },
+    {
+      "_id": "pc1_s7",
+      "story_id": "pc1",
+      "title": "C3 — Quem Emite o SIF?",
+      "type": "scene",
+      "position": 7,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 12 },
+      "description": "TODO — Representante da cooperativa mostrando o certificado SIF emoldurado na parede. Lucas e Seu Raimundo olhando com atenção. Logo do MAPA visível no certificado emoldurado. Ambiente profissional da cooperativa. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "pc1_s8",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "pc1_c3",
+          "text": "Esse é o SIF. Serviço de Inspeção Federal. Com ele, a cooperativa vende peixe em qualquer estado do Brasil e exporta.",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        },
+        {
+          "position": 2,
+          "character_id": "pc1_c1",
+          "text": "Quem emite o SIF do pescado?",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 3,
+          "character_id": "pc1_c3",
+          "text": "Boa pergunta.",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        }
+      ]
+    },
+    {
+      "_id": "pc1_s8",
+      "story_id": "pc1",
+      "title": "C3D — Quem Emite o SIF do Pescado?",
+      "type": "decision",
+      "position": 8,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 12 },
+      "description": "TODO — Lucas olhando para o certificado SIF na parede, pensando. Seu Raimundo ao lado com expressão séria. Representante aguardando. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "decision": {
+        "prompt": "Quem emite o SIF do pescado no Brasil?",
+        "interaction_type": "single_choice",
+        "options": [
+          {
+            "label": "DIPOA — Departamento de Inspeção de Produtos de Origem Animal, vinculado ao MAPA",
+            "next_scene_id": "pc1_s10",
+            "score": 10
+          },
+          {
+            "label": "IBAMA — Instituto Brasileiro do Meio Ambiente e dos Recursos Naturais Renováveis",
+            "next_scene_id": "pc1_s9",
+            "score": 1
+          },
+          {
+            "label": "Não sei ainda",
+            "next_scene_id": "pc1_s9",
+            "score": 1
+          }
+        ]
+      },
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "pc1_c1",
+          "text": "Quem emite o SIF do pescado no Brasil?",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        }
+      ]
+    },
+    {
+      "_id": "pc1_s9",
+      "story_id": "pc1",
+      "title": "C3B — DIPOA, Não IBAMA",
+      "type": "scene",
+      "position": 9,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 16 },
+      "description": "TODO — Ilustração mostrando estrutura: MAPA (Ministério) → DIPOA (Departamento de Inspeção) → SIF (emitido para pescado). Separado: IBAMA (fiscaliza pesca predatória, meio ambiente, tamanhos e cotas). Representante explica a diferença. Fundo azul suave. Estilo cartoon Gravity Falls — diferente de C3.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "pc1_s8",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "pc1_c3",
+          "text": "O IBAMA fiscaliza o meio ambiente e a pesca predatória. O DIPOA, vinculado ao MAPA, é quem emite e fiscaliza o SIF — o certificado de segurança alimentar do pescado.",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        },
+        {
+          "position": 2,
+          "character_id": "pc1_c3",
+          "text": "São órgãos diferentes com funções diferentes.",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        },
+        {
+          "position": 3,
+          "character_id": "pc1_c3",
+          "text": "Então — quem emite o SIF?",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        }
+      ]
+    },
+    {
+      "_id": "pc1_s10",
+      "story_id": "pc1",
+      "title": "C4 — O SIF da Cooperativa",
+      "type": "scene",
+      "position": 10,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 14 },
+      "description": "TODO — Representante explicando para Seu Raimundo e Lucas o processo com diagrama simples no quadro: pescador entrega peixe fresco na cooperativa → cooperativa processa e embala com SIF → vende para restaurantes e outros estados → repassa valor ao pescador. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "pc1_s11",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "pc1_c3",
+          "text": "Seu Raimundo, o SIF individual exige câmara fria, laboratório, responsável técnico — investimento alto. Por isso o caminho é a cooperativa.",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        },
+        {
+          "position": 2,
+          "character_id": "pc1_c2",
+          "text": "Então eu entrego o peixe aqui e vocês vendem com o SIF de vocês?",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        },
+        {
+          "position": 3,
+          "character_id": "pc1_c1",
+          "text": "Como o pescador acessa o SIF sem ter estrutura industrial?",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        }
+      ]
+    },
+    {
+      "_id": "pc1_s11",
+      "story_id": "pc1",
+      "title": "C4D — Como Acessar o SIF sem Estrutura?",
+      "type": "decision",
+      "position": 11,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 12 },
+      "description": "TODO — Seu Raimundo e Lucas olhando para o diagrama do processo cooperativa-SIF no quadro, pensando. Representante aguardando. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "decision": {
+        "prompt": "Como o pescador artesanal individual pode acessar o SIF e vender em outros estados?",
+        "interaction_type": "single_choice",
+        "options": [
+          {
+            "label": "Através de uma cooperativa de pescadores com SIF — ela processa com padrão sanitário e repassa o valor ao associado",
+            "next_scene_id": "pc1_s12",
+            "score": 10
+          },
+          {
+            "label": "Tirando o SIF individualmente — basta ter RGP e registrar a embarcação como pessoa jurídica",
+            "next_scene_id": "pc1_s13",
+            "score": 3
+          }
+        ]
+      },
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "pc1_c2",
+          "text": "A cooperativa. O pescador artesanal acessa o SIF pela cooperativa.",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        }
+      ]
+    },
+    {
+      "_id": "pc1_s12",
+      "story_id": "pc1",
+      "title": "C5A — O Peixe na Prateleira",
+      "type": "end",
+      "position": 12,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 16 },
+      "description": "TODO — Lucas entregando caixas de peixe fresco na cooperativa. Representante assinando recibo. Corte para prateleira de supermercado com embalagem da cooperativa, peixe do Amapá com SIF visível. Seu Raimundo ao fundo com expressão de quem realizou algo importante. Estilo cartoon Gravity Falls — épica e calorosa.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "end_label": "O Peixe na Prateleira",
+      "end_score": 10,
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": null,
+          "text": "Filiação aprovada. Primeiro lote entregue à cooperativa. Peixe da família Lopes nos restaurantes da cidade.",
+          "audio_url": "",
+          "voice_profile": "nova"
+        },
+        {
+          "position": 2,
+          "character_id": "pc1_c1",
+          "text": "Pai, o restaurante confirmou o pedido para toda semana. Com preço 70% maior que a feira.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 3,
+          "character_id": "pc1_c2",
+          "text": "Trinta anos no rio. O peixe sempre foi bom. Agora vai para onde merecia.",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        }
+      ]
+    },
+    {
+      "_id": "pc1_s13",
+      "story_id": "pc1",
+      "title": "C5B — O Primeiro Passo",
+      "type": "end",
+      "position": 13,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 16 },
+      "description": "TODO — Lucas e Seu Raimundo saindo da cooperativa com formulário de filiação nas mãos. Tarde no cais, barco ao fundo. Expressão de quem tem o caminho mas ainda vai percorrê-lo. Estilo cartoon Gravity Falls, paleta suave.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "end_label": "O Primeiro Passo",
+      "end_score": 5,
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": null,
+          "text": "Formulário de filiação em mãos. A cooperativa analisa em 15 dias.",
+          "audio_url": "",
+          "voice_profile": "nova"
+        },
+        {
+          "position": 2,
+          "character_id": "pc1_c1",
+          "text": "15 dias e a gente tá dentro. O restaurante pode esperar.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 3,
+          "character_id": "pc1_c2",
+          "text": "Trinta anos no informal. 15 dias não é nada.",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,583 @@
+{
+  "story": {
+    "_id": "md1",
+    "title": "O Preço que o Mel Não Mostra",
+    "synopsis": "Pedro volta da feira satisfeito — vendeu todo o mel. Dona Maria abre o caderno de custos e faz a pergunta que ele nunca soube responder: quanto custou fazer esse mel? Pedro descobre que nunca contou o próprio trabalho nem a depreciação da centrífuga. O preço que parecia certo estava escondendo um prejuízo silencioso.",
+    "cover_image": "",
+    "aspect_ratio": "9:16",
+    "subtitle_font_size": 22,
+    "default_scene_duration": 6,
+    "passing_score": 28,
+    "genre": "Drama",
+    "show_cover_first": true,
+    "first_scene_id": "md1_s1",
+    "background_audio": {
+      "loop": true,
+      "volume": 0.25,
+      "url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/documents/69e7aaf8501f000cfda76559_enlivening.mp3"
+    },
+    "status": "active"
+  },
+  "characters": [
+    {
+      "_id": "md1_c1",
+      "story_id": "md1",
+      "name": "Pedro",
+      "full_name": "Pedro Costa",
+      "description": "Filho mais velho da família Costa, 19 anos. Chapéu de palha, camiseta. Empreendedor e animado. Vende o mel da família na feira, mas nunca calculou o custo real de produção.",
+      "voice_profile": "alloy",
+      "avatar_thumbnail": "",
+      "reference_image": ""
+    },
+    {
+      "_id": "md1_c2",
+      "story_id": "md1",
+      "name": "Dona Maria",
+      "full_name": "Maria Costa",
+      "description": "Esposa de Seu Zé, 48 anos, vestido florido. Organizada e prática — ela faz as contas da família. É a primeira a perceber que o preço de venda não cobre todos os custos.",
+      "voice_profile": "shimmer",
+      "avatar_thumbnail": "",
+      "reference_image": ""
+    },
+    {
+      "_id": "md1_c3",
+      "story_id": "md1",
+      "name": "Seu Zé",
+      "full_name": "José Costa",
+      "description": "Apicultor de 55 anos, patriarca da família Costa. Rosto curtido de sol, chapéu de palha. Experiente nas abelhas, mas nunca calculou formalmente o custo de produção.",
+      "voice_profile": "onyx",
+      "avatar_thumbnail": "",
+      "reference_image": ""
+    }
+  ],
+  "scenes": [
+    {
+      "_id": "md1_s1",
+      "story_id": "md1",
+      "title": "CAPA — O Preço que o Mel Não Mostra",
+      "type": "scene",
+      "position": 1,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 10 },
+      "description": "TODO — Pedro (19 anos, chapéu) contando notas na barraca da feira, potes de mel expostos. Dona Maria (48 anos, vestido florido) segura caderno de custos com expressão de quem já sabe a resposta. Seu Zé ao fundo pensativo. Estilo cartoon Gravity Falls — paleta amarelo-dourado.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "md1_s2",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": null,
+          "text": "Vender bem não é só ter bom mel. É saber quanto ele custa fazer.",
+          "audio_url": "",
+          "voice_profile": "nova"
+        }
+      ]
+    },
+    {
+      "_id": "md1_s2",
+      "story_id": "md1",
+      "title": "C0 — A Feira da Família",
+      "type": "scene",
+      "position": 2,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 14 },
+      "description": "TODO — Pedro na barraca da feira contando notas com expressão satisfeita. Potes de mel de 300g com rótulo artesanal expostos na barraca. Seu Zé chegando pela rua com expressão curiosa. Cidade pequena do interior do Piauí ao fundo, tarde. Estilo cartoon Gravity Falls — paleta quente e urbana.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "md1_s3",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": null,
+          "text": "Dois sábados de feira e todo o mel da safra vendido. Pedro estava orgulhoso.",
+          "audio_url": "",
+          "voice_profile": "nova"
+        },
+        {
+          "position": 2,
+          "character_id": "md1_c1",
+          "text": "Pai, vendi os 40 potes! Tudo a R$12/kg. Deu R$480 no total.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 3,
+          "character_id": "md1_c3",
+          "text": "Bom. Mas quanto ficou pra gente depois de pagar tudo?",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        }
+      ]
+    },
+    {
+      "_id": "md1_s3",
+      "story_id": "md1",
+      "title": "C0.1 — A Conta que Faltou",
+      "type": "scene",
+      "position": 3,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 12 },
+      "description": "TODO — Dona Maria na mesa da cozinha com caderno de custos aberto. Pedro sentado à frente listando o que gastou. Seu Zé ao fundo ouvindo. Expressão de Dona Maria: concentrada e didática. Interior da casa da família Costa. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "md1_s4",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "md1_c2",
+          "text": "Vamos fazer a conta direitinho. O que você gastou pra produzir esse mel?",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        },
+        {
+          "position": 2,
+          "character_id": "md1_c1",
+          "text": "Cera nova, açúcar pra alimentação artificial... uns R$80 na safra toda.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 3,
+          "character_id": "md1_c2",
+          "text": "Só isso? E a embalagem, o combustível, o seu tempo, a centrífuga que a gente usa?",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        }
+      ]
+    },
+    {
+      "_id": "md1_s4",
+      "story_id": "md1",
+      "title": "C1 — O Que Entra no Custo?",
+      "type": "decision",
+      "position": 4,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 12 },
+      "description": "TODO — Pedro olhando para o caderno de custos de Dona Maria, pensando. Seu Zé ao fundo, sério. Pote de mel dourado sobre a mesa. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "decision": {
+        "prompt": "O que entra no custo de produção de 1 kg de mel?",
+        "interaction_type": "single_choice",
+        "options": [
+          {
+            "label": "Insumos (cera, alimentação), tempo do apicultor, embalagem, combustível e depreciação dos equipamentos",
+            "next_scene_id": "md1_s6",
+            "score": 10
+          },
+          {
+            "label": "Apenas as colmeias e equipamentos comprados na última safra",
+            "next_scene_id": "md1_s5",
+            "score": 1
+          },
+          {
+            "label": "Não sei ainda",
+            "next_scene_id": "md1_s5",
+            "score": 1
+          }
+        ]
+      },
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "md1_c3",
+          "text": "O que entra no custo de produzir 1 kg de mel?",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        }
+      ]
+    },
+    {
+      "_id": "md1_s5",
+      "story_id": "md1",
+      "title": "C1B — O Custo Invisível",
+      "type": "scene",
+      "position": 5,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 16 },
+      "description": "TODO — Dona Maria apontando para dois cenários desenhados no caderno: apicultor que conta só os insumos (R$2/kg, acha que lucrou muito); apicultor que conta tudo — incluindo trabalho e depreciação — e descobre o custo real (R$13/kg, margem muito menor). Expressão didática. Fundo amarelo suave. Estilo cartoon Gravity Falls — diferente de C0.1.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "md1_s4",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "md1_c2",
+          "text": "Quem não conta o próprio trabalho e a depreciação acha que lucra — mas está bancando o prejuízo sem saber.",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        },
+        {
+          "position": 2,
+          "character_id": "md1_c2",
+          "text": "A centrífuga, as colmeias, os quadros — tudo se desgasta. Esse desgaste tem custo, mesmo que você não pague nada hoje.",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        },
+        {
+          "position": 3,
+          "character_id": "md1_c2",
+          "text": "Então — o que entra no custo de produção do mel?",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        }
+      ]
+    },
+    {
+      "_id": "md1_s6",
+      "story_id": "md1",
+      "title": "C2 — A Planilha de Dona Maria",
+      "type": "scene",
+      "position": 6,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 14 },
+      "description": "TODO — Dona Maria abrindo o caderno de custos com colunas detalhadas. Pedro olhando concentrado. Seu Zé aproximando para ver. Itens listados visíveis: insumos R$80, embalagem R$40, combustível R$30, tempo do apicultor R$120, depreciação equipamentos R$25. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "md1_s7",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "md1_c2",
+          "text": "Cada item tem um valor. Insumos: R$80. Embalagem dos 40 potes: R$40. Combustível para buscar flores e ir à feira: R$30.",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        },
+        {
+          "position": 2,
+          "character_id": "md1_c1",
+          "text": "E o tempo meu?",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 3,
+          "character_id": "md1_c2",
+          "text": "Você trabalha 20 horas por semana no apiário. A um salário mínimo, isso é R$120 por safra. Mais a depreciação da centrífuga e das colmeias.",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        }
+      ]
+    },
+    {
+      "_id": "md1_s7",
+      "story_id": "md1",
+      "title": "C3 — O Número que Assusta",
+      "type": "scene",
+      "position": 7,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 12 },
+      "description": "TODO — Pedro somando no papel, expressão que vai de confiante para preocupada. Dona Maria ao lado observando. Seu Zé se levantando para ver o resultado. Cálculo no papel: custo total R$295 para 40kg = R$7,37/kg sem depreciação. Centrífuga ainda faltando. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "md1_s8",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "md1_c2",
+          "text": "Faltou a depreciação da centrífuga e das colmeias. A centrífuga custou R$800 e dura 8 anos — isso é R$100 por ano, R$25 por safra.",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        },
+        {
+          "position": 2,
+          "character_id": "md1_c1",
+          "text": "Então o custo real por kg é mais do que eu pensei...",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 3,
+          "character_id": "md1_c2",
+          "text": "Por que o apicultor pode estar tendo prejuízo mesmo achando que lucra?",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        }
+      ]
+    },
+    {
+      "_id": "md1_s8",
+      "story_id": "md1",
+      "title": "C3D — Por Que Pode Estar no Prejuízo?",
+      "type": "decision",
+      "position": 8,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 12 },
+      "description": "TODO — Pedro olhando para o total no caderno, expressão de quem está começando a entender. Seu Zé sério ao lado. Dona Maria aguardando. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "decision": {
+        "prompt": "Por que o apicultor pode estar tendo prejuízo mesmo achando que lucra?",
+        "interaction_type": "single_choice",
+        "options": [
+          {
+            "label": "Porque não incluiu o próprio trabalho e a depreciação dos equipamentos no custo — o preço real pode ser maior que o preço de venda",
+            "next_scene_id": "md1_s10",
+            "score": 10
+          },
+          {
+            "label": "Porque o preço de R$12/kg está acima do mercado e vai perder clientes para a concorrência",
+            "next_scene_id": "md1_s9",
+            "score": 3
+          }
+        ]
+      },
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "md1_c3",
+          "text": "Por que o apicultor pode estar tendo prejuízo mesmo achando que lucra?",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        }
+      ]
+    },
+    {
+      "_id": "md1_s9",
+      "story_id": "md1",
+      "title": "C3B — A Depreciação que Ninguém Vê",
+      "type": "scene",
+      "position": 9,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 14 },
+      "description": "TODO — Ilustração: centrífuga com relógio ao lado indicando desgaste ao longo do tempo. Linha do tempo: centrífuga nova (ano 1) → centrífuga desgastada (ano 8) → precisa de nova. Seta indicando: R$100/ano de reserva = sem susto na hora de trocar. Pedro entendendo. Fundo amarelo suave. Estilo cartoon Gravity Falls — diferente de C3.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "md1_s10",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "md1_c1",
+          "text": "Mas se não paguei a centrífuga esse mês, por que contar esse custo agora?",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 2,
+          "character_id": "md1_c2",
+          "text": "Porque ela se desgastou esse mês. Não anotar não cancela o desgaste — só esconde o custo.",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        },
+        {
+          "position": 3,
+          "character_id": null,
+          "text": "Depreciar é separar um pouco todo mês para quando o equipamento precisar ser trocado. Quem não faz isso quebra de surpresa.",
+          "audio_url": "",
+          "voice_profile": "nova"
+        }
+      ]
+    },
+    {
+      "_id": "md1_s10",
+      "story_id": "md1",
+      "title": "C4 — O Custo Real por Kg",
+      "type": "scene",
+      "position": 10,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 14 },
+      "description": "TODO — Pedro e Dona Maria finalizando a planilha. Total visível: R$320 de custo para 40kg = R$8/kg só insumos e trabalho; com depreciação: R$8 + depreciação equipamentos. Pedro comparando com o preço de venda de R$12/kg e entendendo a margem real. Seu Zé com expressão grave. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "md1_s11",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "md1_c1",
+          "text": "R$8,25/kg de custo real. Estou vendendo a R$12. Margem de R$3,75/kg — muito menor do que eu achava.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 2,
+          "character_id": "md1_c3",
+          "text": "E se a cera subir de preço esse ano, ou a centrífuga precisar de manutenção — essa margem some.",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        },
+        {
+          "position": 3,
+          "character_id": "md1_c2",
+          "text": "Agora que sabemos o custo real, podemos calcular o preço mínimo que garante uma margem saudável.",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        }
+      ]
+    },
+    {
+      "_id": "md1_s11",
+      "story_id": "md1",
+      "title": "C5 — O Preço Mínimo",
+      "type": "scene",
+      "position": 11,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 14 },
+      "description": "TODO — Dona Maria escrevendo fórmula no caderno: 'Preço mínimo = custo por kg × (1 + margem)'. Aplicando: R$8,25 × 1,30 = R$10,72/kg mínimo. Pedro calculando no papel. Seu Zé com expressão de quem está entendendo algo fundamental. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "md1_s12",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "md1_c2",
+          "text": "Com margem de 30%, o preço mínimo deve ser R$10,72/kg. Abaixo disso, não tem espaço para imprevistos nem reinvestimento.",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        },
+        {
+          "position": 2,
+          "character_id": "md1_c1",
+          "text": "Então R$12/kg está certo. Mas se eu subir para R$15 ou R$16, tenho margem real.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 3,
+          "character_id": "md1_c2",
+          "text": "Como o apicultor calcula o preço mínimo de venda do mel?",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        }
+      ]
+    },
+    {
+      "_id": "md1_s12",
+      "story_id": "md1",
+      "title": "C5D — Como Calcular o Preço Mínimo?",
+      "type": "decision",
+      "position": 12,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 12 },
+      "description": "TODO — Pedro olhando para a fórmula no caderno, pensando. Seu Zé e Dona Maria aguardando. Potes de mel sobre a mesa com etiqueta de preço em branco. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "decision": {
+        "prompt": "Como o apicultor calcula o preço mínimo de venda do mel?",
+        "interaction_type": "single_choice",
+        "options": [
+          {
+            "label": "Soma todos os custos anuais (insumos, tempo, embalagem, depreciação, transporte) ÷ kg produzidos e adiciona margem de 20–30%",
+            "next_scene_id": "md1_s13",
+            "score": 10
+          },
+          {
+            "label": "Pesquisa o preço do mel na concorrência e cobra igual ou um pouco abaixo",
+            "next_scene_id": "md1_s14",
+            "score": 3
+          }
+        ]
+      },
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "md1_c3",
+          "text": "Como se calcula o preço mínimo de venda do mel sem entrar no prejuízo?",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        }
+      ]
+    },
+    {
+      "_id": "md1_s13",
+      "story_id": "md1",
+      "title": "C6A — Mel com Preço Justo",
+      "type": "end",
+      "position": 13,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 16 },
+      "description": "TODO — Pedro na feira com novo preço: R$15/kg na placa. Alguns clientes pagam sem reclamar. Farmácia ao fundo — próximo destino para o mel. Seu Zé e Dona Maria ao longe com expressão de orgulho. Apiário ao fundo. Estilo cartoon Gravity Falls — épica e calorosa.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "end_label": "Mel com Preço Justo",
+      "end_score": 10,
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": null,
+          "text": "Custo calculado. Preço ajustado. Margem de 30% garantida.",
+          "audio_url": "",
+          "voice_profile": "nova"
+        },
+        {
+          "position": 2,
+          "character_id": "md1_c1",
+          "text": "Vendi menos potes, mas o que entrou é mais do que antes. Faz sentido agora.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 3,
+          "character_id": "md1_c3",
+          "text": "Trinta anos achando que lucrávamos. Agora finalmente a gente sabe o que fica de verdade.",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        }
+      ]
+    },
+    {
+      "_id": "md1_s14",
+      "story_id": "md1",
+      "title": "C6B — A Planilha Começa",
+      "type": "end",
+      "position": 14,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 16 },
+      "description": "TODO — Pedro saindo da cozinha com o caderno de custos de Dona Maria na mão. Expressão de quem entendeu o caminho mas ainda tem ajustes a fazer. Apiário ao fundo no fim da tarde. Estilo cartoon Gravity Falls, paleta suave.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "end_label": "A Planilha Começa",
+      "end_score": 5,
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": null,
+          "text": "O custo está calculado. O preço ainda precisa ser ajustado na próxima feira.",
+          "audio_url": "",
+          "voice_profile": "nova"
+        },
+        {
+          "position": 2,
+          "character_id": "md1_c1",
+          "text": "Semana que vem já vendo com o preço certo.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 3,
+          "character_id": "md1_c2",
+          "text": "Quem sabe o custo tem poder de negociação. Quem não sabe — aceita o que oferecem.",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        }
+      ]
+    }
+  ]
+}

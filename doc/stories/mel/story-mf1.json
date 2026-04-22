@@ -1,0 +1,576 @@
+{
+  "story": {
+    "_id": "mf1",
+    "title": "Sua Voz no Conselho",
+    "synopsis": "Seu Zé recebe convite para a reunião do CMDR do município — mas nunca ouviu falar nesse conselho. O Técnico da Emater-PI explica que é ali que se decide quais projetos do PRONAF serão priorizados. Pedro descobre que qualquer produtor com CAF pode sentar nessa mesa como representante.",
+    "cover_image": "",
+    "aspect_ratio": "9:16",
+    "subtitle_font_size": 22,
+    "default_scene_duration": 6,
+    "passing_score": 28,
+    "genre": "Drama",
+    "show_cover_first": true,
+    "first_scene_id": "mf1_s1",
+    "background_audio": {
+      "loop": true,
+      "volume": 0.25,
+      "url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/documents/69e7aaf8501f000cfda76559_enlivening.mp3"
+    },
+    "status": "active"
+  },
+  "characters": [
+    {
+      "_id": "mf1_c1",
+      "story_id": "mf1",
+      "name": "Pedro",
+      "full_name": "Pedro Costa",
+      "description": "Filho mais velho da família Costa, 19 anos. Chapéu de palha, camiseta. Mais conectado com informações do que Seu Zé — descobre o que é o CMDR e percebe que a família nunca ocupou a cadeira que lhes pertencia.",
+      "voice_profile": "alloy",
+      "avatar_thumbnail": "",
+      "reference_image": ""
+    },
+    {
+      "_id": "mf1_c2",
+      "story_id": "mf1",
+      "name": "Seu Zé",
+      "full_name": "José Costa",
+      "description": "Apicultor de 55 anos, patriarca da família Costa. Rosto curtido de sol, chapéu de palha. Nunca foi ao CMDR — nunca soube que existia e que tinha poder sobre o PRONAF da região.",
+      "voice_profile": "onyx",
+      "avatar_thumbnail": "",
+      "reference_image": ""
+    },
+    {
+      "_id": "mf1_c3",
+      "story_id": "mf1",
+      "name": "Técnico Emater",
+      "full_name": "Técnico da Emater-PI",
+      "description": "Extensionista rural da Emater-PI, 35 anos. Colete verde, óculos. Conhece a estrutura institucional do agro — explica o CMDR, a diferença entre associação e cooperativa e como o produtor pode influenciar o crédito rural.",
+      "voice_profile": "alloy",
+      "avatar_thumbnail": "",
+      "reference_image": ""
+    }
+  ],
+  "scenes": [
+    {
+      "_id": "mf1_s1",
+      "story_id": "mf1",
+      "title": "CAPA — Sua Voz no Conselho",
+      "type": "scene",
+      "position": 1,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 10 },
+      "description": "TODO — Seu Zé (55 anos, chapéu) sentado em mesa de reunião do CMDR com placa identificando o conselho. Pedro (19 anos) ao lado. Técnico da Emater-PI (35 anos, colete verde, óculos) apontando para pauta na parede. Sala de prefeitura simples do interior do Piauí. Estilo cartoon Gravity Falls — paleta amarelo-dourado e azul institucional.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "mf1_s2",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": null,
+          "text": "Quem não aparece na reunião, não aparece no orçamento. A voz do apicultor tem um lugar — e esse lugar precisa ser ocupado.",
+          "audio_url": "",
+          "voice_profile": "nova"
+        }
+      ]
+    },
+    {
+      "_id": "mf1_s2",
+      "story_id": "mf1",
+      "title": "C0 — O Convite da Prefeitura",
+      "type": "scene",
+      "position": 2,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 14 },
+      "description": "TODO — Seu Zé lendo papel em casa, expressão de quem nunca ouviu falar do assunto. Pedro lendo por cima do ombro. Convite impresso visível: 'Reunião Ordinária do CMDR — Pauta: Aprovação do Plano Municipal de Desenvolvimento Rural'. Tarde na cozinha da família Costa. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "mf1_s3",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": null,
+          "text": "Um papel chegou pelo correio — e abriu uma conversa que Seu Zé nunca havia tido.",
+          "audio_url": "",
+          "voice_profile": "nova"
+        },
+        {
+          "position": 2,
+          "character_id": "mf1_c2",
+          "text": "Pedro, o que é esse tal de CMDR? Estão me convidando pra uma reunião na prefeitura.",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        },
+        {
+          "position": 3,
+          "character_id": "mf1_c1",
+          "text": "Nunca ouvi falar. Vou perguntar pro técnico.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        }
+      ]
+    },
+    {
+      "_id": "mf1_s3",
+      "story_id": "mf1",
+      "title": "C0.1 — O Conselho que Decide",
+      "type": "scene",
+      "position": 3,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 12 },
+      "description": "TODO — Técnico da Emater-PI na casa da família Costa explicando com mapa simples na folha: PRONAF nacional → estado → município → CMDR decide onde vai o recurso. Seu Zé e Pedro atentos. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "mf1_s4",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "mf1_c3",
+          "text": "O CMDR é o Conselho Municipal de Desenvolvimento Rural. É ali que o município decide quais projetos do PRONAF serão priorizados.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 2,
+          "character_id": "mf1_c1",
+          "text": "Quem participa desse conselho?",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 3,
+          "character_id": "mf1_c3",
+          "text": "Metade são do poder público. A outra metade são representantes dos produtores rurais. Quem pode ser representante dos produtores no CMDR?",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        }
+      ]
+    },
+    {
+      "_id": "mf1_s4",
+      "story_id": "mf1",
+      "title": "C1 — Quem Pode Representar?",
+      "type": "decision",
+      "position": 4,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 12 },
+      "description": "TODO — Seu Zé e Pedro olhando para o mapa do PRONAF que o Técnico desenhou, pensando. Técnico aguardando. Sala da família Costa. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "decision": {
+        "prompt": "Quem pode ser representante dos produtores rurais no CMDR?",
+        "interaction_type": "single_choice",
+        "options": [
+          {
+            "label": "Qualquer agricultor familiar com CAF ativo pode se candidatar como representante dos produtores",
+            "next_scene_id": "mf1_s6",
+            "score": 10
+          },
+          {
+            "label": "Apenas vereadores e secretários municipais — é cargo reservado ao poder público",
+            "next_scene_id": "mf1_s5",
+            "score": 1
+          },
+          {
+            "label": "Não sei ainda",
+            "next_scene_id": "mf1_s5",
+            "score": 1
+          }
+        ]
+      },
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "mf1_c2",
+          "text": "Quem pode ser representante dos produtores rurais no CMDR?",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        }
+      ]
+    },
+    {
+      "_id": "mf1_s5",
+      "story_id": "mf1",
+      "title": "C1B — O Produtor na Mesa",
+      "type": "scene",
+      "position": 5,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 16 },
+      "description": "TODO — Ilustração da composição do CMDR: dois lados da mesa — esquerdo com placas de secretarias municipais, direito com apicultor, agricultor, pescador, produtor de leite. Seta mostrando: decisões do CMDR → PRONAF municipal → crédito disponível. Fundo amarelo suave. Estilo cartoon Gravity Falls — diferente de C0.1.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "mf1_s4",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "mf1_c3",
+          "text": "A lei garante que metade das cadeiras do CMDR são para os produtores. Mas se eles não se candidatarem, essas cadeiras ficam vazias — e o poder público decide sozinho.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 2,
+          "character_id": "mf1_c3",
+          "text": "O que o CMDR aprova, o banco executa. O produtor que participa dirige o crédito para o que a comunidade precisa.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 3,
+          "character_id": "mf1_c3",
+          "text": "Então — quem pode ser representante dos produtores?",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        }
+      ]
+    },
+    {
+      "_id": "mf1_s6",
+      "story_id": "mf1",
+      "title": "C2 — O Que o CMDR Decide",
+      "type": "scene",
+      "position": 6,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 14 },
+      "description": "TODO — Técnico mostrando ata de reunião de CMDR anterior para Seu Zé e Pedro: itens aprovados — linha de crédito para mecanização, prioridade para apicultura orgânica no PRONAF, plano de comercialização regional. Seu Zé com expressão de quem está entendendo o poder dessa mesa. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "mf1_s7",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "mf1_c3",
+          "text": "Nessa ata — o CMDR aprovou prioridade para apicultura orgânica no PRONAF. Os apicultores que estavam na reunião pediram. Os que não estavam — não sabem por quê conseguiram.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 2,
+          "character_id": "mf1_c2",
+          "text": "Então se eu aparecer, posso pedir prioridade para a nossa região?",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        },
+        {
+          "position": 3,
+          "character_id": "mf1_c3",
+          "text": "Você pode propor, defender, votar e aprovar. Com quórum de produtores, a decisão é de vocês.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        }
+      ]
+    },
+    {
+      "_id": "mf1_s7",
+      "story_id": "mf1",
+      "title": "C3 — Associação ou Cooperativa?",
+      "type": "scene",
+      "position": 7,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 12 },
+      "description": "TODO — Técnico desenhando dois balões na folha: 'Associação — sem fins lucrativos, mais simples, PRONAF coletivo, PNAE, PSA em grupo' e 'Cooperativa — divide sobras, SIF coletivo, mais complexa'. Seu Zé comparando as duas opções. Pedro tomando nota. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "mf1_s8",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "mf1_c1",
+          "text": "Tem outra forma de ter mais peso além do CMDR?",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 2,
+          "character_id": "mf1_c3",
+          "text": "Associação de apicultores. Qual a diferença entre associação e cooperativa para apicultores?",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        }
+      ]
+    },
+    {
+      "_id": "mf1_s8",
+      "story_id": "mf1",
+      "title": "C3D — Associação vs. Cooperativa?",
+      "type": "decision",
+      "position": 8,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 12 },
+      "description": "TODO — Seu Zé olhando para os dois balões desenhados pelo Técnico, pensando. Pedro ao lado. Técnico aguardando. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "decision": {
+        "prompt": "Qual a principal diferença entre associação e cooperativa para apicultores?",
+        "interaction_type": "single_choice",
+        "options": [
+          {
+            "label": "Associação não divide lucros e tem gestão mais simples; cooperativa distribui sobras e pode acessar SIF coletivo",
+            "next_scene_id": "mf1_s10",
+            "score": 10
+          },
+          {
+            "label": "São a mesma coisa — apenas nomes diferentes para o mesmo tipo de organização jurídica",
+            "next_scene_id": "mf1_s9",
+            "score": 3
+          }
+        ]
+      },
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "mf1_c2",
+          "text": "Qual a principal diferença entre associação e cooperativa para apicultores?",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        }
+      ]
+    },
+    {
+      "_id": "mf1_s9",
+      "story_id": "mf1",
+      "title": "C3B — Associação Sem Mistério",
+      "type": "scene",
+      "position": 9,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 16 },
+      "description": "TODO — Técnico mostrando dois documentos: estatuto social de associação (fino, 3 páginas) vs. contrato social de cooperativa (grosso, 12 páginas). Comparação de requisitos: associação (5 sócios, CNPJ gratuito, reunião anual) vs. cooperativa (20 sócios, capital integralizado, auditoria). Fundo amarelo suave. Estilo cartoon Gravity Falls — diferente de C3.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "mf1_s10",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "mf1_c3",
+          "text": "A associação é mais acessível para começar. Cinco sócios, CNPJ gratuito, estatuto simples. Acessa PRONAF coletivo, vende ao PNAE em grupo e pleiteia PSA compartilhado.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 2,
+          "character_id": "mf1_c3",
+          "text": "A cooperativa tem mais poder econômico — SIF coletivo, divisão de sobras — mas exige mais gestão e capital inicial.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 3,
+          "character_id": null,
+          "text": "Associação é o primeiro passo. Cooperativa é o próximo nível. Os dois são caminhos para sair do individual.",
+          "audio_url": "",
+          "voice_profile": "nova"
+        }
+      ]
+    },
+    {
+      "_id": "mf1_s10",
+      "story_id": "mf1",
+      "title": "C4 — O Poder da Associação",
+      "type": "scene",
+      "position": 10,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 14 },
+      "description": "TODO — Pedro e Seu Zé em reunião com outros apicultores da região — 6 pessoas ao redor da mesa. Ata de fundação de associação sobre a mesa. Expressão de quem está construindo algo coletivo. Interior simples do Piauí. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "mf1_s11",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "mf1_c1",
+          "text": "Tem mais 5 apicultores aqui que nunca acessaram o PRONAF coletivo. Juntos a gente tem mais de 200 colmeias.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 2,
+          "character_id": "mf1_c2",
+          "text": "A associação nos permite vender juntos pro PNAE também.",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        },
+        {
+          "position": 3,
+          "character_id": "mf1_c3",
+          "text": "E ter uma vaga garantida no CMDR como entidade organizada — não só como indivíduo.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        }
+      ]
+    },
+    {
+      "_id": "mf1_s11",
+      "story_id": "mf1",
+      "title": "C5 — O CMDR e o PRONAF Municipal",
+      "type": "scene",
+      "position": 11,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 12 },
+      "description": "TODO — Seu Zé na reunião do CMDR, sentado como representante dos produtores. Secretário municipal ao lado. Pauta visível: aprovação do Plano Municipal de Desenvolvimento Rural. Seu Zé com mão levantada para votar. Sala da prefeitura. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "mf1_s12",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "mf1_c2",
+          "text": "Na primeira reunião propus incluir assistência técnica para apicultura no plano municipal. Aprovado por maioria.",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        },
+        {
+          "position": 2,
+          "character_id": "mf1_c3",
+          "text": "Essa proposta agora vai para o banco. Os apicultores da região têm linha de crédito com foco específico.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 3,
+          "character_id": "mf1_c3",
+          "text": "Como a participação no CMDR protege o acesso da família ao crédito rural?",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        }
+      ]
+    },
+    {
+      "_id": "mf1_s12",
+      "story_id": "mf1",
+      "title": "C5D — CMDR e o Acesso ao Crédito",
+      "type": "decision",
+      "position": 12,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 12 },
+      "description": "TODO — Seu Zé olhando para a ata do CMDR com proposta aprovada. Pedro e Técnico aguardando. Sala da prefeitura ao fundo. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "decision": {
+        "prompt": "Como a participação no CMDR protege o acesso da família ao crédito rural?",
+        "interaction_type": "single_choice",
+        "options": [
+          {
+            "label": "O CMDR define as prioridades do PRONAF municipal — participar garante que as demandas dos apicultores sejam incluídas no plano",
+            "next_scene_id": "mf1_s13",
+            "score": 10
+          },
+          {
+            "label": "O CMDR não tem poder sobre o PRONAF — é só um espaço de debate sem consequências práticas no crédito",
+            "next_scene_id": "mf1_s14",
+            "score": 3
+          }
+        ]
+      },
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "mf1_c2",
+          "text": "Como a participação no CMDR protege o acesso da família ao crédito rural?",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        }
+      ]
+    },
+    {
+      "_id": "mf1_s13",
+      "story_id": "mf1",
+      "title": "C6A — A Voz no Conselho",
+      "type": "end",
+      "position": 13,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 16 },
+      "description": "TODO — Seu Zé saindo da prefeitura com ata aprovada em mãos. Pedro ao lado com expressão de orgulho. Outros apicultores da associação celebrando ao fundo. Sol dourado da Caatinga. Estilo cartoon Gravity Falls — épica e calorosa.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "end_label": "A Voz no Conselho",
+      "end_score": 10,
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": null,
+          "text": "CMDR. Associação fundada. Plano municipal com apicultura incluída.",
+          "audio_url": "",
+          "voice_profile": "nova"
+        },
+        {
+          "position": 2,
+          "character_id": "mf1_c1",
+          "text": "A gente nunca apareceu nessa mesa antes. Agora aparece todo mês.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 3,
+          "character_id": "mf1_c2",
+          "text": "Quem não ocupa a cadeira, alguém ocupa por ele. E decide por ele.",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        }
+      ]
+    },
+    {
+      "_id": "mf1_s14",
+      "story_id": "mf1",
+      "title": "C6B — A Candidatura",
+      "type": "end",
+      "position": 14,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 16 },
+      "description": "TODO — Seu Zé saindo da reunião com ficha de inscrição para conselheiro do CMDR na mão. Expressão de quem entendeu o caminho mas ainda está começando. Prefeitura ao fundo. Tarde suave. Estilo cartoon Gravity Falls, paleta suave.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "end_label": "A Candidatura",
+      "end_score": 5,
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": null,
+          "text": "Inscrição feita. Próxima reunião do CMDR — com Seu Zé na mesa.",
+          "audio_url": "",
+          "voice_profile": "nova"
+        },
+        {
+          "position": 2,
+          "character_id": "mf1_c1",
+          "text": "Da próxima vez — com a associação fundada e mais apicultores representados.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 3,
+          "character_id": "mf1_c2",
+          "text": "Quem aparece decide. Quem some — aceita o que decidiram.",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        }
+      ]
+    }
+  ]
+}

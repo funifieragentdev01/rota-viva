@@ -1,0 +1,649 @@
+{
+  "story": {
+    "_id": "pin2",
+    "title": "Antes do Sol Nascer",
+    "synopsis": "Lucas Lopes acorda no escuro — hoje é seu primeiro dia completo de pesca ao lado do pai. Mas Seu Raimundo não lança a rede no primeiro trecho de rio que aparece: um bom pescador lê a água antes de agir.\n\nCom Dona Graça e Júlia ainda em casa, pai e filho navegam juntos. Seu Raimundo vai ensinando Lucas a enxergar o que o rio esconde: onde os peixes estão, por que estão lá, e o que fazer quando a rede traz um peixe que ainda não cresceu o bastante.",
+    "cover_image": "",
+    "aspect_ratio": "9:16",
+    "subtitle_font_size": 22,
+    "default_scene_duration": 6,
+    "passing_score": 28,
+    "genre": "Drama",
+    "show_cover_first": true,
+    "first_scene_id": "pin2_s1",
+    "background_audio": {
+      "loop": true,
+      "volume": 0.25,
+      "url": ""
+    },
+    "status": "active"
+  },
+
+  "characters": [
+    {
+      "_id": "pin2_c1",
+      "story_id": "pin2",
+      "name": "Seu Raimundo",
+      "description": "Raimundo Lopes, pescador de 50 anos do interior do Nordeste. Pele curtida, barba rala, colete de pescador, olhar firme e tranquilo. Décadas no rio — ensina com paciência, quase nunca levanta a voz.",
+      "avatar_thumbnail": "",
+      "reference_image": "",
+      "voice_profile": "onyx"
+    },
+    {
+      "_id": "pin2_c2",
+      "story_id": "pin2",
+      "name": "Dona Graça",
+      "description": "Graça Lopes, 46 anos, esposa de Seu Raimundo. Cabelos crespos presos, avental simples, expressão de quem conhece o valor do trabalho. Sábia nos negócios da família.",
+      "avatar_thumbnail": "",
+      "reference_image": "",
+      "voice_profile": "shimmer"
+    },
+    {
+      "_id": "pin2_c3",
+      "story_id": "pin2",
+      "name": "Lucas",
+      "description": "Lucas Lopes, 18 anos, filho mais velho. Colete de pescador, olhar determinado. Está em sua primeira saída como parceiro do pai — quer provar que pode pescar como adulto.",
+      "avatar_thumbnail": "",
+      "reference_image": "",
+      "voice_profile": "alloy"
+    },
+    {
+      "_id": "pin2_c4",
+      "story_id": "pin2",
+      "name": "Júlia",
+      "description": "Júlia Lopes, 13 anos, filha caçula. Cabelos crespos soltos, olhos grandes e curiosos. Adora o rio e faz perguntas que ninguém mais se lembra de fazer.",
+      "avatar_thumbnail": "",
+      "reference_image": "",
+      "voice_profile": "nova"
+    }
+  ],
+
+  "scenes": [
+
+    {
+      "_id": "pin2_s1",
+      "story_id": "pin2",
+      "title": "Antes do Sol Nascer",
+      "type": "scene",
+      "position": 1,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": {
+        "type": "image",
+        "url": "",
+        "duration": 12
+      },
+      "description": "TODO — Margem do rio ainda escura, madrugada com céu estrelado e horizonte levemente iluminado em roxo. Lucas (18 anos, colete de pescador) carrega o equipamento em direção ao barco de madeira com expressão animada e determinada. Seu Raimundo (50 anos, colete, barba rala) já está no barco, calmo, preparando as redes com movimentos rotineiros. Água do rio refletindo as últimas estrelas. Estilo cartoon Gravity Falls — paleta azul-noite, roxo-amanhecer, traços expressivos.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "dialogues": [
+        {
+          "position": 0,
+          "text": "Antes do sol nascer, o rio já está vivo. E Lucas Lopes, pela primeira vez, sai com o pai como parceiro — não como passageiro.",
+          "audio_url": ""
+        },
+        {
+          "position": 1,
+          "character_id": "pin2_c3",
+          "text": "Pai, o barco tá pronto. Vou pegar o restante das redes.",
+          "audio_url": ""
+        },
+        {
+          "position": 2,
+          "character_id": "pin2_c1",
+          "text": "Já. Mas antes de lançar, você precisa aprender a ler o rio.",
+          "audio_url": ""
+        }
+      ],
+      "next_scene_id": "pin2_s2"
+    },
+
+    {
+      "_id": "pin2_s2",
+      "story_id": "pin2",
+      "title": "Lendo o Rio",
+      "type": "scene",
+      "position": 2,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": {
+        "type": "image",
+        "url": "",
+        "duration": 14
+      },
+      "description": "TODO — Barco no rio ao amanhecer, luz dourada começando a nascer no horizonte. Seu Raimundo aponta para diferentes trechos do rio enquanto explica — uma corredeira agitada à esquerda com água branca e pedras, um trecho de água calma e mais escura à direita (o remanso). Lucas observa com atenção, remo nas mãos, tentando entender a diferença. Rio vasto ao fundo, vegetação tropical ribeirinha nas margens. Estilo cartoon Gravity Falls — paleta azul-rio e dourado nascente.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "dialogues": [
+        {
+          "position": 0,
+          "character_id": "pin2_c1",
+          "text": "O rio tem trechos diferentes. Ali — a água agitada, rasa, cheia de pedra. Aqui — o remanso, água calma, funda, temperatura estável.",
+          "audio_url": ""
+        },
+        {
+          "position": 1,
+          "character_id": "pin2_c3",
+          "text": "E os peixes, onde estão?",
+          "audio_url": ""
+        },
+        {
+          "position": 2,
+          "character_id": "pin2_c1",
+          "text": "Essa é exatamente a pergunta que vai fazer você pescar bem ou pescar mal.",
+          "audio_url": ""
+        }
+      ],
+      "next_scene_id": "pin2_s3"
+    },
+
+    {
+      "_id": "pin2_s3",
+      "story_id": "pin2",
+      "title": "Onde Lançar as Redes?",
+      "type": "decision",
+      "position": 3,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": {
+        "type": "image",
+        "url": "",
+        "duration": 8
+      },
+      "description": "TODO — Vista do barco no rio com dois trechos visíveis claramente: à esquerda, corredeira agitada com água branca e pedras aparentes; à direita, remanso com água mais escura e calma, sombras de peixes visíveis abaixo da superfície. Lucas segura a rede dobrada pronta para lançar, olhando para os dois lados com expressão indecisa. Seu Raimundo aguarda com paciência. Estilo cartoon Gravity Falls, paleta azul-rio.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "dialogues": [
+        {
+          "position": 0,
+          "text": "Seu Raimundo para o barco no meio do rio. A decisão certa vai fazer diferença na pescaria.",
+          "audio_url": ""
+        },
+        {
+          "position": 1,
+          "character_id": "pin2_c3",
+          "text": "Onde eu lanço as redes, pai?",
+          "audio_url": ""
+        }
+      ],
+      "decision": {
+        "prompt": "Onde lançar as redes para maior chance de pesca?",
+        "interaction_type": "click",
+        "options": [
+          {
+            "label": "No remanso — água calma e profunda onde os peixes descansam",
+            "next_scene_id": "pin2_s5",
+            "score": 10
+          },
+          {
+            "label": "Na corredeira — água oxigenada e com mais movimento",
+            "next_scene_id": "pin2_s4",
+            "score": 1
+          }
+        ]
+      }
+    },
+
+    {
+      "_id": "pin2_s4",
+      "story_id": "pin2",
+      "title": "Por Que o Remanso?",
+      "type": "scene",
+      "position": 4,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": {
+        "type": "image",
+        "url": "",
+        "duration": 14
+      },
+      "description": "TODO — Ilustração comparativa em dois painéis: painel esquerdo mostra corredeira com setas de corrente forte, peixe com expressão de esforço e cansaço para nadar; painel direito mostra remanso com água parada, peixe relaxado e tranquilo, algas e alimento concentrado no fundo. Seu Raimundo aponta para cada lado como um professor paciente. Fundo azul suave. Estilo cartoon Gravity Falls — diferente de S3.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "dialogues": [
+        {
+          "position": 0,
+          "character_id": "pin2_c1",
+          "text": "Na corredeira, o peixe gasta energia só pra ficar parado. Não consegue se alimentar direito.",
+          "audio_url": ""
+        },
+        {
+          "position": 1,
+          "character_id": "pin2_c1",
+          "text": "No remanso, a água calma deixa o peixe guardar energia. O alimento se acumula no fundo. É o lugar perfeito pra ele estar.",
+          "audio_url": ""
+        },
+        {
+          "position": 2,
+          "character_id": "pin2_c1",
+          "text": "Agora que você entendeu — onde a gente lança as redes?",
+          "audio_url": ""
+        }
+      ],
+      "next_scene_id": "pin2_s3"
+    },
+
+    {
+      "_id": "pin2_s5",
+      "story_id": "pin2",
+      "title": "A Rede no Lugar Certo",
+      "type": "scene",
+      "position": 5,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": {
+        "type": "image",
+        "url": "",
+        "duration": 13
+      },
+      "description": "TODO — Barco parado no remanso, Lucas lançando a rede com técnica — movimento amplo e preciso, rede se abrindo em arco perfeito sobre a água calma. Seu Raimundo observa com aprovação, braços cruzados, sorriso leve no rosto. O remanso ao redor — água escura e tranquila, reflexos dourados do sol nascente. Cena de técnica e acerto. Estilo cartoon Gravity Falls, paleta azul-rio e dourado.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "dialogues": [
+        {
+          "position": 0,
+          "character_id": "pin2_c1",
+          "text": "Isso. O remanso é onde os peixes ficam. Menos gasto de energia, temperatura certa, comida concentrada no fundo.",
+          "audio_url": ""
+        },
+        {
+          "position": 1,
+          "text": "Lucas lança a rede com o movimento que o pai ensinou. Agora é esperar.",
+          "audio_url": ""
+        },
+        {
+          "position": 2,
+          "character_id": "pin2_c3",
+          "text": "Pai, por que exatamente os peixes preferem o remanso? Tem uma razão de verdade ou é instinto?",
+          "audio_url": ""
+        }
+      ],
+      "next_scene_id": "pin2_s6"
+    },
+
+    {
+      "_id": "pin2_s6",
+      "story_id": "pin2",
+      "title": "Por Que os Peixes Ficam no Remanso?",
+      "type": "decision",
+      "position": 6,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": {
+        "type": "image",
+        "url": "",
+        "duration": 9
+      },
+      "description": "TODO — Vista subaquática do remanso — água azul-esverdeada, peixes (tambaqui, traíra) nadando com calma em grupo perto do fundo. Algas e plantas aquáticas, alimento natural visível. Lucas observa curiosamente pela lateral do barco, se inclinando para ver. Seu Raimundo ao lado, aguardando a resposta com expressão de quem quer ouvir a explicação do filho. Estilo cartoon Gravity Falls — cores tropicais ricas, azul profundo.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "dialogues": [
+        {
+          "position": 0,
+          "character_id": "pin2_c3",
+          "text": "Mas por que os peixes preferem o remanso? Qual é a razão biológica?",
+          "audio_url": ""
+        },
+        {
+          "position": 1,
+          "character_id": "pin2_c1",
+          "text": "Boa pergunta. O que você acha?",
+          "audio_url": ""
+        }
+      ],
+      "decision": {
+        "prompt": "Por que os peixes se concentram nos remansos?",
+        "interaction_type": "click",
+        "options": [
+          {
+            "label": "Água calma gasta menos energia e o alimento se acumula no fundo",
+            "next_scene_id": "pin2_s7",
+            "score": 10
+          },
+          {
+            "label": "Eles preferem o remanso pra se esconder dos predadores",
+            "next_scene_id": "pin2_s8",
+            "score": 1
+          },
+          {
+            "label": "Não sei ainda",
+            "next_scene_id": "pin2_s8",
+            "score": 1
+          }
+        ]
+      }
+    },
+
+    {
+      "_id": "pin2_s7",
+      "story_id": "pin2",
+      "title": "A Biologia do Peixe",
+      "type": "scene",
+      "position": 7,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": {
+        "type": "image",
+        "url": "",
+        "duration": 14
+      },
+      "description": "TODO — Ilustração científica animada: peixe num remanso com setas mostrando gasto energético mínimo, temperatura da água estável, concentração de plâncton e insetos no fundo. Em moldura, Lucas com expressão iluminada de quem acabou de entender algo importante. Seu Raimundo apontando para os elementos da ilustração com orgulho. Paleta azul-esverdeada e dourada. Estilo cartoon Gravity Falls — visual educativo mas expressivo.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "dialogues": [
+        {
+          "position": 0,
+          "character_id": "pin2_c1",
+          "text": "Isso mesmo! Água calma significa menos gasto de energia. A corrente empurra o alimento pro fundo do remanso — plâncton, larvas de inseto, pequenos crustáceos.",
+          "audio_url": ""
+        },
+        {
+          "position": 1,
+          "text": "Temperatura estável, abrigo natural e alimento fácil. O remanso é o restaurante e o quarto de hotel do peixe ao mesmo tempo.",
+          "audio_url": ""
+        },
+        {
+          "position": 2,
+          "character_id": "pin2_c3",
+          "text": "Então quem lê o rio, lê o peixe. E quem lê o peixe, pesca melhor.",
+          "audio_url": ""
+        }
+      ],
+      "next_scene_id": "pin2_s9"
+    },
+
+    {
+      "_id": "pin2_s8",
+      "story_id": "pin2",
+      "title": "Entendendo o Comportamento do Peixe",
+      "type": "scene",
+      "position": 8,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": {
+        "type": "image",
+        "url": "",
+        "duration": 13
+      },
+      "description": "TODO — Diagrama do rio com duas legendas: REMANSO (água calma, profunda, alimento no fundo, temperatura estável) e CORREDEIRA (oxigenada, rasa, alta energia para nadar). Peixes com setas mostrando preferência clara pelo remanso. Seu Raimundo aponta explicando pacientemente. Fundo claro azul suave, visual didático. Estilo cartoon Gravity Falls — diferente de S6.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "dialogues": [
+        {
+          "position": 0,
+          "character_id": "pin2_c1",
+          "text": "Peixe não é teimoso — ele é eficiente. Sempre vai onde gasta menos e come mais. Esconder de predador é consequência, não a causa.",
+          "audio_url": ""
+        },
+        {
+          "position": 1,
+          "character_id": "pin2_c1",
+          "text": "Predadores também frequentam o remanso — mas aí você aprende a diferenciar o ponto pelo tipo de peixe que quer pescar.",
+          "audio_url": ""
+        },
+        {
+          "position": 2,
+          "character_id": "pin2_c1",
+          "text": "Voltando — por que os peixes ficam no remanso?",
+          "audio_url": ""
+        }
+      ],
+      "next_scene_id": "pin2_s6"
+    },
+
+    {
+      "_id": "pin2_s9",
+      "story_id": "pin2",
+      "title": "A Rede Cheia",
+      "type": "scene",
+      "position": 9,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": {
+        "type": "image",
+        "url": "",
+        "duration": 12
+      },
+      "description": "TODO — Barco no remanso, Lucas e Seu Raimundo puxando a rede juntos — expressões de esforço e satisfação simultâneos. A rede vem pesada e cheia: peixes dourados e prateados brilhando dentro da malha molhada. Cena de trabalho conjunto em sincronia, braços trabalhando no mesmo ritmo. Rio ao fundo, luz da manhã plena e dourada. Estilo cartoon Gravity Falls, energia positiva.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "dialogues": [
+        {
+          "position": 0,
+          "text": "Vinte minutos. A rede vem pesada — o remanso não decepcionou.",
+          "audio_url": ""
+        },
+        {
+          "position": 1,
+          "character_id": "pin2_c3",
+          "text": "Pai... olha o tanto de peixe!",
+          "audio_url": ""
+        },
+        {
+          "position": 2,
+          "character_id": "pin2_c1",
+          "text": "Trabalho certo, resultado certo. Mas antes de embarcar tudo — olha aqui.",
+          "audio_url": ""
+        }
+      ],
+      "next_scene_id": "pin2_s10"
+    },
+
+    {
+      "_id": "pin2_s10",
+      "story_id": "pin2",
+      "title": "O Peixe Pequeno",
+      "type": "decision",
+      "position": 10,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": {
+        "type": "image",
+        "url": "",
+        "duration": 9
+      },
+      "description": "TODO — Na rede aberta sobre o barco, vários peixes grandes mas um peixe bem menor — claramente abaixo do tamanho mínimo — visível entre os outros. Lucas segura o peixe pequeno na palma da mão, olhando para ele, depois para o pai. Expressão de quem está genuinamente em dúvida: devolver ou guardar? Seu Raimundo observa com expressão neutra, aguardando a decisão do filho. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "dialogues": [
+        {
+          "position": 0,
+          "character_id": "pin2_c1",
+          "text": "Lucas — esse aí o que você faz?",
+          "audio_url": ""
+        },
+        {
+          "position": 1,
+          "character_id": "pin2_c3",
+          "text": "É pequeno. Mas é peixe... pode ficar?",
+          "audio_url": ""
+        }
+      ],
+      "decision": {
+        "prompt": "O que fazer com o peixe abaixo do tamanho mínimo?",
+        "interaction_type": "click",
+        "options": [
+          {
+            "label": "Devolver ao rio — ele ainda não cresceu nem se reproduziu",
+            "next_scene_id": "pin2_s11",
+            "score": 10
+          },
+          {
+            "label": "Guardar — peixe é peixe, não vai fazer diferença",
+            "next_scene_id": "pin2_s12",
+            "score": 3
+          }
+        ]
+      }
+    },
+
+    {
+      "_id": "pin2_s11",
+      "story_id": "pin2",
+      "title": "O Peixe que Volta",
+      "type": "scene",
+      "position": 11,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": {
+        "type": "image",
+        "url": "",
+        "duration": 13
+      },
+      "description": "TODO — Lucas se inclinando cuidadosamente pela lateral do barco, soltando o peixe pequeno na água. O peixe mergulhando de volta no azul do rio — cena delicada e bonita. Seu Raimundo ao lado com expressão de orgulho sincero, mão no ombro do filho. Barco no remanso, peixes maiores ainda na rede ao fundo. Cena de respeito ao ciclo natural. Estilo cartoon Gravity Falls, luz quente da manhã.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "dialogues": [
+        {
+          "position": 0,
+          "character_id": "pin2_c1",
+          "text": "É isso, filho. Esse peixe ainda não viveu, não se reproduziu. Devolver agora é garantir que em dois anos ele esteja no seu anzol — três vezes maior.",
+          "audio_url": ""
+        },
+        {
+          "position": 1,
+          "text": "O tamanho mínimo não é burocracia — é o cálculo que garante que o rio continue dando peixe.",
+          "audio_url": ""
+        },
+        {
+          "position": 2,
+          "character_id": "pin2_c3",
+          "text": "Devolver hoje pra ter mais amanhã. É o mesmo raciocínio da piracema.",
+          "audio_url": ""
+        }
+      ],
+      "next_scene_id": "pin2_s13"
+    },
+
+    {
+      "_id": "pin2_s12",
+      "story_id": "pin2",
+      "title": "A Lei do Tamanho Mínimo",
+      "type": "scene",
+      "position": 12,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": {
+        "type": "image",
+        "url": "",
+        "duration": 14
+      },
+      "description": "TODO — Ilustração mostrando o ciclo do peixe: peixe pequeno devolvido ao rio → cresce → se reproduz → filhotes → peixe adulto grande na rede. Seu Raimundo aponta para cada etapa com explicação. Tabela simples ao lado com tamanhos mínimos legais de espécies comuns do Nordeste (tambaqui: 45cm, traíra: 25cm). Fundo azul suave. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "dialogues": [
+        {
+          "position": 0,
+          "character_id": "pin2_c1",
+          "text": "Guardar o peixe pequeno é crime — multa e apreensão do equipamento. Mas mais do que isso: é destruir o futuro da pesca.",
+          "audio_url": ""
+        },
+        {
+          "position": 1,
+          "text": "Cada espécie tem um tamanho mínimo estabelecido por lei. O tambaqui não pode ser pescado abaixo de 45 cm — ele precisa crescer e se reproduzir pelo menos uma vez.",
+          "audio_url": ""
+        },
+        {
+          "position": 2,
+          "character_id": "pin2_c3",
+          "text": "Então o rio tem regras tanto quanto a terra. Respeitar é o que garante que continue dando sustento.",
+          "audio_url": ""
+        }
+      ],
+      "next_scene_id": "pin2_s14"
+    },
+
+    {
+      "_id": "pin2_s13",
+      "story_id": "pin2",
+      "title": "Um Pescador Completo",
+      "type": "end",
+      "position": 13,
+      "transition": "fade",
+      "transition_duration": 300,
+      "end_label": "Um pescador que leu o rio!",
+      "end_score": 10,
+      "media_mode": "image",
+      "media": {
+        "type": "image",
+        "url": "",
+        "duration": 14
+      },
+      "description": "TODO — Lucas no barco de volta à margem, caixa de isopor com gelo cheia de peixes grandes e bem cuidados. Seu Raimundo ao lado com sorriso orgulhoso. Na margem, Dona Graça e Júlia esperando — Júlia agitando os braços animada ao ver a caixa cheia. Rio ao fundo com luz dourada da manhã plena. Cena de conquista familiar e transmissão de conhecimento entre gerações. Estilo cartoon Gravity Falls, épica e calorosa.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "dialogues": [
+        {
+          "position": 0,
+          "text": "Lucas não volta como passageiro. Volta como pescador — um que leu o rio, escolheu o ponto certo e respeitou o ciclo.",
+          "audio_url": ""
+        },
+        {
+          "position": 1,
+          "character_id": "pin2_c1",
+          "text": "Hoje você aprendeu o que leva anos pra alguns aprenderem. Lê o rio, respeita o peixe — e o rio cuida de você.",
+          "audio_url": ""
+        },
+        {
+          "position": 2,
+          "character_id": "pin2_c2",
+          "text": "E essa família vai longe. Gerações de pescadores — cada um melhor que o anterior.",
+          "audio_url": ""
+        }
+      ]
+    },
+
+    {
+      "_id": "pin2_s14",
+      "story_id": "pin2",
+      "title": "O Rio Ensina Quem Tem Paciência",
+      "type": "end",
+      "position": 14,
+      "transition": "fade",
+      "transition_duration": 300,
+      "end_label": "O rio ensina quem tem paciência",
+      "end_score": 5,
+      "media_mode": "image",
+      "media": {
+        "type": "image",
+        "url": "",
+        "duration": 12
+      },
+      "description": "TODO — Lucas e Seu Raimundo sentados no barco amarrado na margem ao fim da manhã, olhando para o rio tranquilo. Dona Graça e Júlia chegando pela margem com expressões curiosas. Sol já alto, reflexo dourado na água. Cena de conversa tranquila entre pai e filho, aprendizado em andamento. Estilo cartoon Gravity Falls, paleta suave azul e dourado.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "dialogues": [
+        {
+          "position": 0,
+          "text": "Nem tudo foi perfeito na primeira saída. Mas o rio ensinou — e Lucas ouviu.",
+          "audio_url": ""
+        },
+        {
+          "position": 1,
+          "character_id": "pin2_c1",
+          "text": "O rio não tem pressa, filho. E o bom pescador também não.",
+          "audio_url": ""
+        },
+        {
+          "position": 2,
+          "character_id": "pin2_c4",
+          "text": "Conta pra gente como foi, Lucas! Tudo de um começo ao fim!",
+          "audio_url": ""
+        }
+      ]
+    }
+
+  ]
+}

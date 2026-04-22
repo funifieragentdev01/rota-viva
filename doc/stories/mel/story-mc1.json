@@ -1,0 +1,572 @@
+{
+  "story": {
+    "_id": "mc1",
+    "title": "O Mel Que Passa da Porta",
+    "synopsis": "Pedro descobre que uma rede de farmácias quer comprar mel local com preço três vezes maior — mas exige SIE mínimo. Com a ajuda do técnico da Emater-PI, a família Costa entende que a certificação não é obstáculo: é a porta. E que existe uma escada — SIM, SIE, cooperativa para o SIF.",
+    "cover_image": "",
+    "aspect_ratio": "9:16",
+    "subtitle_font_size": 22,
+    "default_scene_duration": 6,
+    "passing_score": 28,
+    "genre": "Drama",
+    "show_cover_first": true,
+    "first_scene_id": "mc1_s1",
+    "background_audio": {
+      "loop": true,
+      "volume": 0.25,
+      "url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/documents/69e7aaf8501f000cfda76559_enlivening.mp3"
+    },
+    "status": "active"
+  },
+  "characters": [
+    {
+      "_id": "mc1_c1",
+      "story_id": "mc1",
+      "name": "Pedro",
+      "full_name": "Pedro Costa",
+      "description": "Filho mais velho da família Costa, 19 anos. Chapéu de palha, camiseta. Curioso, empreendedor. O primeiro da família a ver no mel uma carreira, não só uma tradição.",
+      "voice_profile": "alloy",
+      "avatar_thumbnail": "",
+      "reference_image": ""
+    },
+    {
+      "_id": "mc1_c2",
+      "story_id": "mc1",
+      "name": "Seu Zé",
+      "full_name": "José Costa",
+      "description": "Apicultor de 55 anos, patriarca da família Costa. Rosto curtido de sol, chapéu de palha, voz firme. Criou abelhas pela tradição; agora aprende com o filho que o mel pode ir mais longe.",
+      "voice_profile": "onyx",
+      "avatar_thumbnail": "",
+      "reference_image": ""
+    },
+    {
+      "_id": "mc1_c3",
+      "story_id": "mc1",
+      "name": "Dona Maria",
+      "full_name": "Maria Costa",
+      "description": "Esposa de Seu Zé, 48 anos, vestido florido. Organizada, prática, sempre com papel e caneta na mão. Âncora da família nos momentos de decisão.",
+      "voice_profile": "shimmer",
+      "avatar_thumbnail": "",
+      "reference_image": ""
+    },
+    {
+      "_id": "mc1_c4",
+      "story_id": "mc1",
+      "name": "Técnico Emater",
+      "full_name": "Técnico da Emater-PI",
+      "description": "Técnico de extensão rural da Emater-PI, 35 anos. Óculos, colete verde. Especialista em apicultura familiar e certificação. Paciente, didático e prático.",
+      "voice_profile": "alloy",
+      "avatar_thumbnail": "",
+      "reference_image": ""
+    }
+  ],
+  "scenes": [
+    {
+      "_id": "mc1_s1",
+      "story_id": "mc1",
+      "title": "CAPA — O Mel Que Passa da Porta",
+      "type": "scene",
+      "position": 1,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 10 },
+      "description": "TODO — Pedro (19 anos, camiseta, chapéu) segurando pote de mel na frente de vitrine de farmácia. Do lado de dentro, gerente com expressão interessada aponta para documento que falta. Seu Zé e Dona Maria aguardando ao fundo com expressão expectante. Estilo cartoon Gravity Falls — paleta amarelo-dourado e verde-caatinga.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "mc1_s2",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": null,
+          "text": "O mel está bom. O preço está ótimo. Só falta o papel certo.",
+          "audio_url": "",
+          "voice_profile": "nova"
+        }
+      ]
+    },
+    {
+      "_id": "mc1_s2",
+      "story_id": "mc1",
+      "title": "C0 — A Farmácia Quer Mel",
+      "type": "scene",
+      "position": 2,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 14 },
+      "description": "TODO — Pedro (19 anos) mostrando mensagem no celular para Seu Zé e Dona Maria em volta da mesa da cozinha. Expressões de animação e surpresa. Mensagem de texto visível na tela com oferta de farmácia para compra de mel local. Interior de casa da Caatinga, luz da tarde. Estilo cartoon Gravity Falls — paleta quente interior.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "mc1_s3",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": null,
+          "text": "Uma mensagem de uma rede de farmácias do Piauí mudou os planos da família Costa.",
+          "audio_url": "",
+          "voice_profile": "nova"
+        },
+        {
+          "position": 2,
+          "character_id": "mc1_c1",
+          "text": "Pai, uma rede de farmácias quer comprar mel artesanal local. Preço três vezes maior que o mercado informal. Mas eles pedem inspeção sanitária.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 3,
+          "character_id": "mc1_c2",
+          "text": "Inspeção. Nunca precisamos de papel pra vender até hoje.",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        }
+      ]
+    },
+    {
+      "_id": "mc1_s3",
+      "story_id": "mc1",
+      "title": "C0.1 — O Que É Inspeção?",
+      "type": "scene",
+      "position": 3,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 12 },
+      "description": "TODO — Seu Zé e Pedro sentados à mesa em casa revisando o papel que Pedro trouxe. Lista de requisitos da farmácia visível: nota fiscal e inspeção sanitária mínima SIE. Dona Maria ao lado com papel e caneta. Expressão de Seu Zé: sério, reconhecendo um obstáculo real. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "mc1_s4",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "mc1_c3",
+          "text": "A Emater-PI pode esclarecer isso hoje. O técnico atende de manhã.",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        },
+        {
+          "position": 2,
+          "character_id": "mc1_c1",
+          "text": "Mas antes de ir — pra vender mel pro estado inteiro, qual inspeção a gente precisa ter no mínimo?",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        }
+      ]
+    },
+    {
+      "_id": "mc1_s4",
+      "story_id": "mc1",
+      "title": "C1 — Qual Inspeção para o Estado?",
+      "type": "decision",
+      "position": 4,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 12 },
+      "description": "TODO — Pedro, Seu Zé e Dona Maria olhando para a lista de requisitos da farmácia sobre a mesa. Expressão de dúvida e expectativa. Pote de mel dourado ao centro da mesa. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "decision": {
+        "prompt": "Para vender mel em todo o Piauí (supermercados, farmácias, PNAE estadual), qual inspeção mínima o apicultor precisa?",
+        "interaction_type": "single_choice",
+        "options": [
+          {
+            "label": "SIE — Serviço de Inspeção Estadual emitido pela ADAPI, permite venda em todo o estado",
+            "next_scene_id": "mc1_s6",
+            "score": 10
+          },
+          {
+            "label": "Não precisa de inspeção — venda informal funciona para qualquer canal",
+            "next_scene_id": "mc1_s5",
+            "score": 1
+          },
+          {
+            "label": "Não sei ainda",
+            "next_scene_id": "mc1_s5",
+            "score": 1
+          }
+        ]
+      },
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "mc1_c2",
+          "text": "Para vender mel em todo o Piauí — qual inspeção mínima a gente precisa ter?",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        }
+      ]
+    },
+    {
+      "_id": "mc1_s5",
+      "story_id": "mc1",
+      "title": "C1B — O Produto Apreendido",
+      "type": "scene",
+      "position": 5,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 16 },
+      "description": "TODO — Ilustração comparativa: esquerda mostra mel sem inspeção em supermercado sendo apreendido pela Vigilância Sanitária — caixas vermelhas, fiscal com auto de infração, multa visível; direita mostra mel com SIE em prateleira de farmácia, etiqueta de preço 3x maior, cliente satisfeito. Seu Zé observa as duas cenas com expressão séria. Fundo amarelo suave. Estilo cartoon Gravity Falls — diferente de C0.1.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "mc1_s4",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "mc1_c2",
+          "text": "Venda sem inspeção em supermercado ou farmácia — a Vigilância Sanitária pode apreender tudo e multar. O produto some e a confiança também.",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        },
+        {
+          "position": 2,
+          "character_id": "mc1_c2",
+          "text": "Com SIE, o mel entra nas prateleiras legalmente — e com preço justo.",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        },
+        {
+          "position": 3,
+          "character_id": "mc1_c2",
+          "text": "Então — qual inspeção mínima pra vender em todo o estado?",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        }
+      ]
+    },
+    {
+      "_id": "mc1_s6",
+      "story_id": "mc1",
+      "title": "C2 — A Escada da Inspeção",
+      "type": "scene",
+      "position": 6,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 14 },
+      "description": "TODO — Técnico da Emater-PI (35 anos, óculos, colete verde) mostrando diagrama desenhado à mão para Pedro, Seu Zé e Dona Maria: escada com três degraus — 'SIM: município', 'SIE: estado inteiro', 'SIF: Brasil + exportação'. Expressões de quem está entendendo que existe um caminho claro. Escritório simples da Emater-PI. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "mc1_s7",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "mc1_c4",
+          "text": "É uma escada. SIM primeiro — vende dentro do município. SIE — abre o Piauí todo. SIF — Brasil, farmácias nacionais, exportação.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 2,
+          "character_id": "mc1_c1",
+          "text": "A farmácia pede SIE mínimo. A gente pode começar pelo SIM?",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 3,
+          "character_id": "mc1_c4",
+          "text": "Exato. E o SIM começa com a casa de mel em ordem.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        }
+      ]
+    },
+    {
+      "_id": "mc1_s7",
+      "story_id": "mc1",
+      "title": "C3 — A Casa de Mel em Foco",
+      "type": "scene",
+      "position": 7,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 12 },
+      "description": "TODO — Técnico da Emater-PI inspecionando a casa de mel da família Costa — verificando piso de cimento liso, paredes claras, janelas com tela anti-insetos. Fazendo anotações numa prancheta. Pedro e Dona Maria acompanhando. Expressão de quem está descobrindo o que precisa ajustar. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "mc1_s8",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "mc1_c4",
+          "text": "Pra emitir o SIM, a prefeitura verifica: piso lavável, paredes lisas, tela nas janelas, ralos com proteção. E a BPF — Boas Práticas de Fabricação — documentada.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 2,
+          "character_id": "mc1_c1",
+          "text": "O que é BPF documentada?",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        }
+      ]
+    },
+    {
+      "_id": "mc1_s8",
+      "story_id": "mc1",
+      "title": "C3D — O Que a Casa de Mel Precisa?",
+      "type": "decision",
+      "position": 8,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 12 },
+      "description": "TODO — Pedro olhando para a casa de mel com expressão pensativa, avaliando o que precisa mudar. Técnico ao lado com prancheta aberta, aguardando. Piso da casa de mel visível em primeiro plano. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "decision": {
+        "prompt": "O que a casa de mel precisa para obter o SIM (inspeção municipal)?",
+        "interaction_type": "single_choice",
+        "options": [
+          {
+            "label": "Piso lavável, paredes lisas, tela nas janelas e BPF documentada — avaliada pela prefeitura",
+            "next_scene_id": "mc1_s10",
+            "score": 10
+          },
+          {
+            "label": "CNPJ como microempresa e alvará federal de funcionamento",
+            "next_scene_id": "mc1_s9",
+            "score": 3
+          }
+        ]
+      },
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "mc1_c4",
+          "text": "Me diz — o que a casa de mel precisa para obter o SIM?",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        }
+      ]
+    },
+    {
+      "_id": "mc1_s9",
+      "story_id": "mc1",
+      "title": "C3B — Estrutura, Não Empresa",
+      "type": "scene",
+      "position": 9,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 14 },
+      "description": "TODO — Técnico mostrando duas listas lado a lado: 'SIM exige: piso lavável, paredes lisas, tela nas janelas, BPF documentada' com ícone verde de aprovação; 'Empresa exige: CNPJ, contador, obrigações fiscais mensais' com ícone de complexidade vermelho. Dona Maria e Pedro olhando com expressão de alívio. Estilo cartoon Gravity Falls — diferente de C3.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "mc1_s10",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "mc1_c4",
+          "text": "SIM não exige empresa. Exige estrutura física mínima e documentação de processo.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 2,
+          "character_id": "mc1_c4",
+          "text": "O produtor rural com CAF pode ter SIM — sem CNPJ, sem contador.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 3,
+          "character_id": null,
+          "text": "Uma revelação simples que muda tudo: ser formal não significa ser empresa.",
+          "audio_url": "",
+          "voice_profile": "nova"
+        }
+      ]
+    },
+    {
+      "_id": "mc1_s10",
+      "story_id": "mc1",
+      "title": "C4 — O Formulário do SIM",
+      "type": "scene",
+      "position": 10,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 14 },
+      "description": "TODO — Técnico, Pedro e Dona Maria em volta da mesa, preenchendo juntos o formulário de solicitação do SIM. Seu Zé ao fundo com expressão de quem está vendo um futuro novo se abrir. Formulário da prefeitura, CAF e documentos sobre a mesa. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "mc1_s11",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "mc1_c4",
+          "text": "Com o formulário da prefeitura, o CAF e a casa de mel adequada, o SIM sai em 30 dias. Daí partimos pro SIE.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 2,
+          "character_id": "mc1_c3",
+          "text": "E o SIE da ADAPI — quanto tempo?",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        },
+        {
+          "position": 3,
+          "character_id": "mc1_c4",
+          "text": "Mais uns 60 a 90 dias após o SIM. Mas tem mais uma coisa que eu preciso mostrar.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        }
+      ]
+    },
+    {
+      "_id": "mc1_s11",
+      "story_id": "mc1",
+      "title": "C5 — O Horizonte do SIF",
+      "type": "scene",
+      "position": 11,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 14 },
+      "description": "TODO — Técnico mostrando foto impressa de cooperativa apícola com SIF para Pedro — instalações com câmara fria, caminhão refrigerado com logo da cooperativa, etiquetas para venda nacional. Pedro com entusiasmo crescente. Seu Zé ao lado com expressão de quem está recalibrando os próprios sonhos. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "mc1_s12",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "mc1_c4",
+          "text": "O SIF individual exige uma estrutura cara. Mas existe a cooperativa com SIF — o apicultor entrega mel a granel e a cooperativa processa, embala e vende para o Brasil todo.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 2,
+          "character_id": "mc1_c1",
+          "text": "A gente entra na cooperativa e acessa o mercado nacional sem ter indústria própria?",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        }
+      ]
+    },
+    {
+      "_id": "mc1_s12",
+      "story_id": "mc1",
+      "title": "C5D — Como Acessar o SIF?",
+      "type": "decision",
+      "position": 12,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 12 },
+      "description": "TODO — Pedro e Seu Zé olhando para a foto da cooperativa, pensando. Técnico aguardando a resposta com expressão encorajadora. Interior da Emater-PI. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "decision": {
+        "prompt": "Como o apicultor familiar pode acessar o SIF sem ter infraestrutura industrial própria?",
+        "interaction_type": "single_choice",
+        "options": [
+          {
+            "label": "Através de uma cooperativa que já possui SIF — o apicultor entrega mel a granel e a cooperativa processa, embala e vende",
+            "next_scene_id": "mc1_s13",
+            "score": 10
+          },
+          {
+            "label": "Tirando o SIF individualmente — é o único caminho para venda nacional",
+            "next_scene_id": "mc1_s14",
+            "score": 3
+          }
+        ]
+      },
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "mc1_c4",
+          "text": "Como o apicultor familiar acessa o SIF?",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        }
+      ]
+    },
+    {
+      "_id": "mc1_s13",
+      "story_id": "mc1",
+      "title": "C6A — A Porta Aberta",
+      "type": "end",
+      "position": 13,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 16 },
+      "description": "TODO — Pedro entregando primeiro pote de mel com rótulo SIM aprovado à gerente da farmácia. Expressão de ambos: satisfação e parceria. Seu Zé e Dona Maria do lado de fora da farmácia sorrindo, visíveis através do vidro. Pote de mel dourado com rótulo bonito em primeiro plano. Sol da tarde. Estilo cartoon Gravity Falls — épica e calorosa.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "end_label": "A Porta Aberta",
+      "end_score": 10,
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": null,
+          "text": "SIM solicitado. SIE no planejamento. Cooperativa no radar para o SIF.",
+          "audio_url": "",
+          "voice_profile": "nova"
+        },
+        {
+          "position": 2,
+          "character_id": "mc1_c1",
+          "text": "Pai, o mel sempre foi bom. Agora vai poder entrar onde merece.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 3,
+          "character_id": "mc1_c2",
+          "text": "A qualidade abre a porta. O documento passa nela. Mas o mel que vai lá dentro — esse é nosso.",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        }
+      ]
+    },
+    {
+      "_id": "mc1_s14",
+      "story_id": "mc1",
+      "title": "C6B — O Primeiro Degrau",
+      "type": "end",
+      "position": 14,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 16 },
+      "description": "TODO — Pedro e Dona Maria saindo da Emater-PI com o formulário do SIM nas mãos. Rua tranquila do interior, tarde. Expressão de quem tem o caminho claro mas ainda tem muito a percorrer. Vegetação da Caatinga ao fundo. Estilo cartoon Gravity Falls — paleta suave.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "end_label": "O Primeiro Degrau",
+      "end_score": 5,
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": null,
+          "text": "O SIM ainda vai levar 30 dias. Mas hoje a família Costa sabe exatamente o que precisa.",
+          "audio_url": "",
+          "voice_profile": "nova"
+        },
+        {
+          "position": 2,
+          "character_id": "mc1_c1",
+          "text": "Um degrau de cada vez. SIM primeiro, SIE depois.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 3,
+          "character_id": "mc1_c3",
+          "text": "A farmácia pode esperar. E quando a gente chegar lá, é pra ficar.",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        }
+      ]
+    }
+  ]
+}

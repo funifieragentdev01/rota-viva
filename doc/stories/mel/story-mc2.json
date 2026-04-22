@@ -1,0 +1,586 @@
+{
+  "story": {
+    "_id": "mc2",
+    "title": "O Rótulo de Dona Maria",
+    "synopsis": "O PNAE pediu rótulo completo na próxima entrega. Dona Maria tem mel de qualidade — mas nunca criou um rótulo formal. O técnico da Emater-PI chega para ajudar, e o que começa como tarefa burocrática vira descoberta: a Caatinga da família fica a 7km da lavoura mais próxima — e isso vale ouro no mercado orgânico.",
+    "cover_image": "",
+    "aspect_ratio": "9:16",
+    "subtitle_font_size": 22,
+    "default_scene_duration": 6,
+    "passing_score": 28,
+    "genre": "Drama",
+    "show_cover_first": true,
+    "first_scene_id": "mc2_s1",
+    "background_audio": {
+      "loop": true,
+      "volume": 0.25,
+      "url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/documents/69e7aaf8501f000cfda76559_enlivening.mp3"
+    },
+    "status": "active"
+  },
+  "characters": [
+    {
+      "_id": "mc2_c1",
+      "story_id": "mc2",
+      "name": "Dona Maria",
+      "full_name": "Maria Costa",
+      "description": "Apicultora de 48 anos, matriarca da família Costa. Vestido florido, cabelos presos. Dedicada, caprichosa. Cuida da casa de mel como quem cuida da casa — com orgulho.",
+      "voice_profile": "shimmer",
+      "avatar_thumbnail": "",
+      "reference_image": ""
+    },
+    {
+      "_id": "mc2_c2",
+      "story_id": "mc2",
+      "name": "Ana",
+      "full_name": "Ana Costa",
+      "description": "Filha mais nova da família Costa, 14 anos. Tranças, tablet sempre na mão. Criativa e tecnológica. É quem transforma as instruções do técnico em arte no rótulo.",
+      "voice_profile": "nova",
+      "avatar_thumbnail": "",
+      "reference_image": ""
+    },
+    {
+      "_id": "mc2_c3",
+      "story_id": "mc2",
+      "name": "Técnico Emater",
+      "full_name": "Técnico da Emater-PI",
+      "description": "Técnico de extensão rural da Emater-PI, 35 anos. Óculos, colete verde. Especialista em apicultura e certificação orgânica. Paciente, didático e entusiasmado com o potencial da Caatinga.",
+      "voice_profile": "alloy",
+      "avatar_thumbnail": "",
+      "reference_image": ""
+    },
+    {
+      "_id": "mc2_c4",
+      "story_id": "mc2",
+      "name": "Pedro",
+      "full_name": "Pedro Costa",
+      "description": "Filho mais velho da família Costa, 19 anos. Chapéu de palha, camiseta. Quem chamou o técnico para ajudar com o rótulo.",
+      "voice_profile": "alloy",
+      "avatar_thumbnail": "",
+      "reference_image": ""
+    }
+  ],
+  "scenes": [
+    {
+      "_id": "mc2_s1",
+      "story_id": "mc2",
+      "title": "CAPA — O Rótulo de Dona Maria",
+      "type": "scene",
+      "position": 1,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 10 },
+      "description": "TODO — Casa de mel. Dona Maria (48 anos, vestido florido) segura pote de mel com rótulo inacabado sendo criado na mesa. Técnico da Emater-PI (35 anos, colete verde, óculos) mostra lista de informações obrigatórias. Ana (14 anos, tranças) ao lado com tablet desenhando o rótulo. Apiário visível pela janela. Estilo cartoon Gravity Falls — paleta quente amarelo-dourado e verde-caatinga.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "mc2_s2",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": null,
+          "text": "O mel tem qualidade. Falta o rótulo que comprove isso.",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        }
+      ]
+    },
+    {
+      "_id": "mc2_s2",
+      "story_id": "mc2",
+      "title": "C0 — O Pedido da Escola",
+      "type": "scene",
+      "position": 2,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 14 },
+      "description": "TODO — Dona Maria lendo e-mail da secretaria de educação no tablet. Mensagem visível: 'Próxima entrega PNAE precisa de rótulo completo conforme legislação MAPA.' Expressão de quem entende o que precisa fazer mas não sabe exatamente como. Pedro ao lado lendo também. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "mc2_s3",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": null,
+          "text": "O PNAE foi claro: próxima entrega precisa de rótulo completo conforme a legislação.",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        },
+        {
+          "position": 2,
+          "character_id": "mc2_c1",
+          "text": "O mel está pronto. Mas nunca criei um rótulo formal. Só escrevia o nome e o peso à mão.",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        },
+        {
+          "position": 3,
+          "character_id": "mc2_c4",
+          "text": "Mãe, chamei o técnico da Emater-PI. Ele vem hoje de tarde.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        }
+      ]
+    },
+    {
+      "_id": "mc2_s3",
+      "story_id": "mc2",
+      "title": "C0.1 — O Técnico e a Lista",
+      "type": "scene",
+      "position": 3,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 12 },
+      "description": "TODO — Técnico da Emater-PI chegando à cozinha da família Costa no fim da tarde. Senta à mesa com Dona Maria e Ana. Abre uma pasta e mostra uma folha com os requisitos obrigatórios do rótulo. Dona Maria olhando com atenção, Ana com tablet pronto para anotar. Luz da tarde pela janela. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "mc2_s4",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "mc2_c3",
+          "text": "Dona Maria, o rótulo do mel tem requisitos obrigatórios pela Instrução Normativa do MAPA.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 2,
+          "character_id": "mc2_c3",
+          "text": "Me diz — o que deve constar obrigatoriamente no rótulo?",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        }
+      ]
+    },
+    {
+      "_id": "mc2_s4",
+      "story_id": "mc2",
+      "title": "C1 — O Que Deve Constar no Rótulo?",
+      "type": "decision",
+      "position": 4,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 12 },
+      "description": "TODO — Dona Maria e Ana olhando para a folha com os requisitos, pensando. Pote de mel com rótulo em branco ao centro da mesa. Técnico aguardando. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "decision": {
+        "prompt": "O que deve constar obrigatoriamente no rótulo do mel (IN MAPA nº 11)?",
+        "interaction_type": "single_choice",
+        "options": [
+          {
+            "label": "Nome do produto, peso líquido, número de registro (SIM/SIE/SIF), número do lote e data de fabricação",
+            "next_scene_id": "mc2_s6",
+            "score": 10
+          },
+          {
+            "label": "Apenas o nome do produto e a data de validade — o resto é opcional",
+            "next_scene_id": "mc2_s5",
+            "score": 1
+          },
+          {
+            "label": "Não sei ainda",
+            "next_scene_id": "mc2_s5",
+            "score": 1
+          }
+        ]
+      },
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "mc2_c1",
+          "text": "O que precisa ter no rótulo além do nome e do peso?",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        }
+      ]
+    },
+    {
+      "_id": "mc2_s5",
+      "story_id": "mc2",
+      "title": "C1B — Sem Rótulo Completo, Sem Prateleira",
+      "type": "scene",
+      "position": 5,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 16 },
+      "description": "TODO — Técnico mostrando dois potes lado a lado: um com rótulo incompleto — apenas nome e peso — com carimbo 'REPROVADO pela Vigilância Sanitária'; outro com rótulo completo — nome, peso, registro, lote, data — com carimbo 'APROVADO — pode vender'. Expressão didática. Fundo amarelo suave. Estilo cartoon Gravity Falls — diferente de C0.1.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "mc2_s4",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "mc2_c3",
+          "text": "Pote sem número de registro e sem lote pode ser reprovado na vistoria. A escola pode devolver a entrega toda.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 2,
+          "character_id": "mc2_c3",
+          "text": "Rótulo completo é respeito com o comprador — e proteção legal para o produtor.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 3,
+          "character_id": "mc2_c3",
+          "text": "Então — o que deve constar no rótulo?",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        }
+      ]
+    },
+    {
+      "_id": "mc2_s6",
+      "story_id": "mc2",
+      "title": "C2 — Construindo o Rótulo",
+      "type": "scene",
+      "position": 6,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 14 },
+      "description": "TODO — Ana no tablet desenhando o rótulo com orientação do técnico. Dona Maria ditando as informações: nome, peso, número do SIM, número do lote, data. Expressão de criatividade e comprometimento. Rótulo tomando forma colorida na tela do tablet. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "mc2_s7",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "mc2_c2",
+          "text": "Mãe, ficou lindo. Mel Silvestre da Costa, 300g, SIM-042, Lote 2024-11, fabricado em novembro de 2024.",
+          "audio_url": "",
+          "voice_profile": "nova"
+        },
+        {
+          "position": 2,
+          "character_id": "mc2_c1",
+          "text": "E o número do lote — como eu controlo isso?",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        },
+        {
+          "position": 3,
+          "character_id": "mc2_c3",
+          "text": "Simples: um caderninho. Data de colheita, colmeia de origem, quantidade. Isso é rastreabilidade.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        }
+      ]
+    },
+    {
+      "_id": "mc2_s7",
+      "story_id": "mc2",
+      "title": "C3 — A Pergunta do Orgânico",
+      "type": "scene",
+      "position": 7,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 12 },
+      "description": "TODO — Técnico olhando pela janela da casa de mel para o apiário e a vegetação nativa da Caatinga ao redor. Expressão de quem está vendo algo valioso que os donos ainda não perceberam. Dona Maria ao lado curiosa. Mapa simples da propriedade sobre a mesa. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "mc2_s8",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "mc2_c3",
+          "text": "Dona Maria, onde fica a lavoura mais próxima daqui?",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 2,
+          "character_id": "mc2_c1",
+          "text": "Tem um sítio de milho a uns 8km. Por quê?",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        },
+        {
+          "position": 3,
+          "character_id": "mc2_c3",
+          "text": "Para certificação orgânica do mel, precisa de quanto de raio livre de agrotóxicos ao redor das colmeias?",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        }
+      ]
+    },
+    {
+      "_id": "mc2_s8",
+      "story_id": "mc2",
+      "title": "C3D — Raio Mínimo Orgânico?",
+      "type": "decision",
+      "position": 8,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 12 },
+      "description": "TODO — Dona Maria e Ana olhando para o mapa da propriedade, pensando na distância da lavoura mais próxima. Técnico aguardando. Apiário visível ao fundo pela janela. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "decision": {
+        "prompt": "Para certificação orgânica do mel, qual é o raio mínimo ao redor das colmeias que deve ser livre de agrotóxicos?",
+        "interaction_type": "single_choice",
+        "options": [
+          {
+            "label": "3 quilômetros — área de coleta habitual das abelhas ao redor das colmeias",
+            "next_scene_id": "mc2_s10",
+            "score": 10
+          },
+          {
+            "label": "500 metros — distância das colmeias à lavoura mais próxima",
+            "next_scene_id": "mc2_s9",
+            "score": 3
+          }
+        ]
+      },
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "mc2_c1",
+          "text": "Qual é o raio livre de agrotóxicos que precisa ter para o mel ser orgânico?",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        }
+      ]
+    },
+    {
+      "_id": "mc2_s9",
+      "story_id": "mc2",
+      "title": "C3B — Por Que 3 Quilômetros",
+      "type": "scene",
+      "position": 9,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 14 },
+      "description": "TODO — Ilustração: abelha voando e raio de 3km ao redor das colmeias marcado no mapa. Dentro do raio, apenas vegetação nativa da Caatinga sem lavouras. Fora do raio, uma lavoura distante e pequena. Técnico explica com entusiasmo. Estilo cartoon Gravity Falls — diferente de C3.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "mc2_s10",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "mc2_c3",
+          "text": "As abelhas coletam néctar num raio de 3km. Se houver agrotóxico nessa área, contamina o mel — e ele perde a certificação orgânica.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 2,
+          "character_id": "mc2_c3",
+          "text": "Com 8km até a lavoura mais próxima, o apiário de Dona Maria está numa zona orgânica natural.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 3,
+          "character_id": null,
+          "text": "A Caatinga da família Costa, por décadas preservada, vale mais do que eles imaginavam.",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        }
+      ]
+    },
+    {
+      "_id": "mc2_s10",
+      "story_id": "mc2",
+      "title": "C4 — A Caatinga Livre",
+      "type": "scene",
+      "position": 10,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 14 },
+      "description": "TODO — Dona Maria e o Técnico fora de casa, olhando para o apiário e a vegetação nativa da Caatinga ao redor. Expressão de Dona Maria: revelação e orgulho crescente. Técnico apontando para a paisagem. Vegetação exuberante ao fundo. Cena de descoberta e emoção. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "mc2_s11",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "mc2_c3",
+          "text": "O apiário de vocês está a mais de 7km de qualquer lavoura tratada. Manejo sem antibióticos, vegetação nativa. Esse mel pode se tornar orgânico certificado.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 2,
+          "character_id": "mc2_c1",
+          "text": "E quanto custa uma certificação dessas?",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        },
+        {
+          "position": 3,
+          "character_id": "mc2_c3",
+          "text": "Depende de como você faz. Individualmente, caro. Coletivamente, viável.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        }
+      ]
+    },
+    {
+      "_id": "mc2_s11",
+      "story_id": "mc2",
+      "title": "C5 — O Custo da Certificação",
+      "type": "scene",
+      "position": 11,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 14 },
+      "description": "TODO — Técnico mostrando planilha simples para Dona Maria e Ana: 'Certificação individual IBD: R$8.000/ano' vs 'Certificação coletiva via associação: R$800/apicultor/ano (10 produtores)'. Dona Maria e Ana olhando os números com expressão de quem está calculando possibilidades. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "mc2_s12",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "mc2_c3",
+          "text": "Individualmente, uma certificadora como a IBD custa R$8.000 por ano. Em grupo de 10 apicultores via associação, divide para R$800 cada.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 2,
+          "character_id": "mc2_c1",
+          "text": "Existe associação de apicultores aqui na região?",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        },
+        {
+          "position": 3,
+          "character_id": "mc2_c3",
+          "text": "Existe. E é por onde o mel orgânico do Piauí chega ao mercado premium. Como a família pode obter a certificação com custo viável?",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        }
+      ]
+    },
+    {
+      "_id": "mc2_s12",
+      "story_id": "mc2",
+      "title": "C5D — Como Obter a Certificação Orgânica?",
+      "type": "decision",
+      "position": 12,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 12 },
+      "description": "TODO — Dona Maria e Ana olhando para a planilha de custos, pensando. Técnico aguardando com expressão encorajadora. Apiário ao fundo pela janela. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "decision": {
+        "prompt": "Como a família pode obter certificação orgânica do mel com custo viável?",
+        "interaction_type": "single_choice",
+        "options": [
+          {
+            "label": "Coletivamente via associação ou cooperativa — o custo da certificação é dividido entre vários produtores",
+            "next_scene_id": "mc2_s13",
+            "score": 10
+          },
+          {
+            "label": "Individualmente, contratando a certificadora diretamente — é a única forma reconhecida pelo MAPA",
+            "next_scene_id": "mc2_s14",
+            "score": 3
+          }
+        ]
+      },
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "mc2_c2",
+          "text": "Mãe, qual é o jeito mais viável de conseguir a certificação orgânica?",
+          "audio_url": "",
+          "voice_profile": "nova"
+        }
+      ]
+    },
+    {
+      "_id": "mc2_s13",
+      "story_id": "mc2",
+      "title": "C6A — O Mel da Caatinga Certificado",
+      "type": "end",
+      "position": 13,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 16 },
+      "description": "TODO — Dona Maria segurando pote de mel com rótulo completo e belo — selo 'Produto Orgânico' e logo IBD visíveis. Seu Zé ao lado com expressão de orgulho profundo. Ana fotografando o pote para as redes. Apiário ao fundo com vegetação da Caatinga. Cena épica e emocionante. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "end_label": "O Mel da Caatinga Certificado",
+      "end_score": 10,
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": null,
+          "text": "Rótulo correto. Lote rastreável. Certificação orgânica via associação no horizonte.",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        },
+        {
+          "position": 2,
+          "character_id": "mc2_c1",
+          "text": "Esse mel veio da Caatinga que meu marido cuida há trinta anos. Agora o mundo vai saber.",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        },
+        {
+          "position": 3,
+          "character_id": null,
+          "text": "A terra sempre foi boa. Faltava o papel que dissesse isso.",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        }
+      ]
+    },
+    {
+      "_id": "mc2_s14",
+      "story_id": "mc2",
+      "title": "C6B — O Rótulo Está Pronto",
+      "type": "end",
+      "position": 14,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 16 },
+      "description": "TODO — Dona Maria segurando o primeiro pote com rótulo completo, mas ainda sem o selo orgânico. Técnico ao lado com expressão encorajadora. Expressão de conquista parcial mas honesta. Apiário ao fundo. Estilo cartoon Gravity Falls, paleta suave.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "end_label": "O Rótulo Está Pronto",
+      "end_score": 5,
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": null,
+          "text": "O rótulo completo está pronto. A certificação orgânica é o próximo passo.",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        },
+        {
+          "position": 2,
+          "character_id": "mc2_c1",
+          "text": "Um passo de cada vez. Hoje o rótulo. Amanhã o orgânico.",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        },
+        {
+          "position": 3,
+          "character_id": "mc2_c3",
+          "text": "Com a Caatinga que vocês têm, é questão de quando — não de se.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        }
+      ]
+    }
+  ]
+}

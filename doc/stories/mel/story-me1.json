@@ -1,0 +1,583 @@
+{
+  "story": {
+    "_id": "me1",
+    "title": "O Inimigo da Colmeia",
+    "synopsis": "Pedro faz a revisão do apiário com Seu Zé e encontra uma colmeia com abelhas deformadas. O Técnico da Emater-PI chega para diagnosticar Varroa destructor. Quando uma segunda colmeia apresenta odor de loque americana, a decisão é urgente: notificar o MAPA e queimar a caixa antes que a doença destrua todo o apiário.",
+    "cover_image": "",
+    "aspect_ratio": "9:16",
+    "subtitle_font_size": 22,
+    "default_scene_duration": 6,
+    "passing_score": 28,
+    "genre": "Drama",
+    "show_cover_first": true,
+    "first_scene_id": "me1_s1",
+    "background_audio": {
+      "loop": true,
+      "volume": 0.25,
+      "url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/documents/69e7aaf8501f000cfda76559_enlivening.mp3"
+    },
+    "status": "active"
+  },
+  "characters": [
+    {
+      "_id": "me1_c1",
+      "story_id": "me1",
+      "name": "Pedro",
+      "full_name": "Pedro Costa",
+      "description": "Filho mais velho da família Costa, 19 anos. Chapéu de palha, camiseta. Faz a revisão rotineira do apiário com Seu Zé — é a primeira vez que encontra sinais sérios de doença nas colmeias.",
+      "voice_profile": "alloy",
+      "avatar_thumbnail": "",
+      "reference_image": ""
+    },
+    {
+      "_id": "me1_c2",
+      "story_id": "me1",
+      "name": "Seu Zé",
+      "full_name": "José Costa",
+      "description": "Apicultor de 55 anos, patriarca da família Costa. Rosto curtido de sol, chapéu de palha. Experiente nas abelhas, mas nunca passou por um caso de loque americana — sabe que é grave.",
+      "voice_profile": "onyx",
+      "avatar_thumbnail": "",
+      "reference_image": ""
+    },
+    {
+      "_id": "me1_c3",
+      "story_id": "me1",
+      "name": "Técnico Emater",
+      "full_name": "Técnico da Emater-PI",
+      "description": "Extensionista rural da Emater-PI, 35 anos. Colete verde, óculos. Especialista em sanidade apícola — diagnóstica Varroa e loque americana com segurança, explica o protocolo correto de cada situação.",
+      "voice_profile": "alloy",
+      "avatar_thumbnail": "",
+      "reference_image": ""
+    }
+  ],
+  "scenes": [
+    {
+      "_id": "me1_s1",
+      "story_id": "me1",
+      "title": "CAPA — O Inimigo da Colmeia",
+      "type": "scene",
+      "position": 1,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 10 },
+      "description": "TODO — Pedro (19 anos, chapéu) segurando quadro de colmeia com expressão preocupada. Seu Zé examinando abelha com lupa. Técnico da Emater-PI (35 anos, colete verde, óculos) apontando para diagrama de ácaro Varroa. Apiário ao fundo, tarde de Caatinga. Estilo cartoon Gravity Falls — paleta amarelo-dourado e verde-caatinga.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "me1_s2",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": null,
+          "text": "Nem toda ameaça ao apiário vem de fora. Às vezes ela está dentro de cada caixilho.",
+          "audio_url": "",
+          "voice_profile": "nova"
+        }
+      ]
+    },
+    {
+      "_id": "me1_s2",
+      "story_id": "me1",
+      "title": "C0 — A Revisão de Rotina",
+      "type": "scene",
+      "position": 2,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 14 },
+      "description": "TODO — Pedro e Seu Zé no apiário com macacão e máscara de apicultura. Pedro segurando quadro com abelhas, expressão de quem notou algo errado. Abelhas com asas deformadas visíveis no quadro. Tarde de sol forte no interior do Piauí. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "me1_s3",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": null,
+          "text": "A revisão de rotina de Seu Zé revelou o que o olho desatento nunca teria visto.",
+          "audio_url": "",
+          "voice_profile": "nova"
+        },
+        {
+          "position": 2,
+          "character_id": "me1_c1",
+          "text": "Pai, essas abelhas estão estranhas. Umas com asas dobradas, outras nem voam.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 3,
+          "character_id": "me1_c2",
+          "text": "Essa colmeia perdeu força rápido demais. Vou ligar pro técnico.",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        }
+      ]
+    },
+    {
+      "_id": "me1_s3",
+      "story_id": "me1",
+      "title": "C0.1 — O Diagnóstico",
+      "type": "scene",
+      "position": 3,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 12 },
+      "description": "TODO — Técnico da Emater-PI chegando ao apiário com caixa de ferramentas. Pedro e Seu Zé ao redor de colmeia aberta. Técnico examinando abelha com lupa. Expressão de diagnóstico concentrado. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "me1_s4",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "me1_c3",
+          "text": "Abelhas com asas atrofiadas e deformadas, queda de população sem razão climática — vejo ácaros entre os segmentos abdominais.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 2,
+          "character_id": "me1_c1",
+          "text": "O que é isso?",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 3,
+          "character_id": "me1_c3",
+          "text": "Varroa destructor. O principal inimigo das colmeias no Brasil. Qual a maior ameaça parasitária para as colmeias no nosso país?",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        }
+      ]
+    },
+    {
+      "_id": "me1_s4",
+      "story_id": "me1",
+      "title": "C1 — Qual a Maior Ameaça Parasitária?",
+      "type": "decision",
+      "position": 4,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 12 },
+      "description": "TODO — Pedro e Seu Zé olhando para o quadro de colmeia com abelhas deformadas, pensativos. Técnico aguardando com lupa na mão. Apiário ao fundo. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "decision": {
+        "prompt": "Qual a maior ameaça parasitária às colmeias no Brasil?",
+        "interaction_type": "single_choice",
+        "options": [
+          {
+            "label": "Varroa destructor — ácaro que parasita abelhas adultas e pupas, causando deformações e colapso da colmeia",
+            "next_scene_id": "me1_s6",
+            "score": 10
+          },
+          {
+            "label": "Nosema apis — fungo que afeta o intestino das abelhas, mas raramente compromete toda a colmeia",
+            "next_scene_id": "me1_s5",
+            "score": 1
+          },
+          {
+            "label": "Não sei ainda",
+            "next_scene_id": "me1_s5",
+            "score": 1
+          }
+        ]
+      },
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "me1_c2",
+          "text": "Qual a maior ameaça parasitária às colmeias no Brasil?",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        }
+      ]
+    },
+    {
+      "_id": "me1_s5",
+      "story_id": "me1",
+      "title": "C1B — Varroa: O Ácaro Invisível",
+      "type": "scene",
+      "position": 5,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 16 },
+      "description": "TODO — Ilustração ampliada do ácaro Varroa destructor sobre abelha. Seta mostrando ciclo: abelha adulta → célula de cria → ácaro se reproduz dentro → abelha deformada emerge. Painel comparando colmeia saudável vs. infestada por Varroa. Fundo amarelo suave. Estilo cartoon Gravity Falls — diferente de C0.1.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "me1_s4",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "me1_c3",
+          "text": "A Varroa entra na célula de cria antes de ser operculada e se reproduz dentro — a abelha que emerge já nasce deformada e debilitada.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 2,
+          "character_id": "me1_c3",
+          "text": "Sem controle, a infestação cresce e colapsa a colmeia em meses. É o problema número um da apicultura mundial.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 3,
+          "character_id": "me1_c3",
+          "text": "Então — qual a maior ameaça parasitária às colmeias?",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        }
+      ]
+    },
+    {
+      "_id": "me1_s6",
+      "story_id": "me1",
+      "title": "C2 — Controle Integrado da Varroa",
+      "type": "scene",
+      "position": 6,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 14 },
+      "description": "TODO — Técnico mostrando para Pedro e Seu Zé três opções de controle sobre uma mesa: frasco de ácido oxálico, placa de timol, calendário de tratamento no caderno. Expressão didática e segura. Apiário ao fundo. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "me1_s7",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "me1_c3",
+          "text": "Ácido oxálico no inverno — quando não há cria operculada — é o mais eficaz e mais barato. Timol no outono regula a infestação durante a safra.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 2,
+          "character_id": "me1_c2",
+          "text": "E a frequência de monitoramento?",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        },
+        {
+          "position": 3,
+          "character_id": "me1_c3",
+          "text": "Monitorar a cada revisão. Acima de 3% de ácaros nas abelhas adultas — tratar imediatamente.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        }
+      ]
+    },
+    {
+      "_id": "me1_s7",
+      "story_id": "me1",
+      "title": "C3 — A Segunda Colmeia",
+      "type": "scene",
+      "position": 7,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 12 },
+      "description": "TODO — Pedro e Técnico abrindo segunda colmeia ao fundo do apiário. Pedro recuando com expressão de nojo — odor forte. Técnico tocando a cria com palito e levantando fio elástico viscoso (massa filar). Expressão grave do Técnico. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "me1_s8",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "me1_c1",
+          "text": "Essa tem um cheiro horrível. Como cola podre.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 2,
+          "character_id": "me1_c3",
+          "text": "Veja essa cria — quando toco com o palito e puxo, forma um fio. Isso é massa filar. Sinal diagnóstico da Loque americana.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 3,
+          "character_id": "me1_c2",
+          "text": "Loque americana. Já ouvi falar. O que faço com essa colmeia?",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        }
+      ]
+    },
+    {
+      "_id": "me1_s8",
+      "story_id": "me1",
+      "title": "C3D — O Que Fazer com Loque Americana?",
+      "type": "decision",
+      "position": 8,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 12 },
+      "description": "TODO — Seu Zé olhando para a colmeia suspeita com expressão grave. Pedro ao lado. Técnico aguardando com expressão séria. Apiário ao fundo. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "decision": {
+        "prompt": "O que deve ser feito com colmeia com suspeita confirmada de Loque americana?",
+        "interaction_type": "single_choice",
+        "options": [
+          {
+            "label": "Incinerar a colmeia e equipamentos contaminados e notificar o MAPA — não existe tratamento eficaz para loque americana",
+            "next_scene_id": "me1_s10",
+            "score": 10
+          },
+          {
+            "label": "Tratar com antibiótico tetraciclina por 30 dias e monitorar a recuperação da colmeia",
+            "next_scene_id": "me1_s9",
+            "score": 3
+          }
+        ]
+      },
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "me1_c2",
+          "text": "O que deve ser feito com colmeia com suspeita confirmada de Loque americana?",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        }
+      ]
+    },
+    {
+      "_id": "me1_s9",
+      "story_id": "me1",
+      "title": "C3B — Por que Não Existe Cura",
+      "type": "scene",
+      "position": 9,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 16 },
+      "description": "TODO — Ilustração: esporo bacteriano de Paenibacillus larvae com seta 'sobrevive até 70 anos no solo e nos equipamentos'. Dois cenários: apicultor que incinera (apiário salvo, ✓); apicultor que tenta antibiótico (esporulação continua, contamina colmeias vizinhas, ✗). Fundo azul suave. Estilo cartoon Gravity Falls — diferente de C3.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "me1_s10",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "me1_c3",
+          "text": "A Paenibacillus larvae esporula — o antibiótico inibe a bactéria mas não destrói o esporo. Quando acaba o tratamento, a doença retorna.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 2,
+          "character_id": "me1_c3",
+          "text": "Pior: os esporos contaminam ferramentas, mel, cera, o próprio solo. Uma colmeia doente pode destruir todo o apiário.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 3,
+          "character_id": null,
+          "text": "Notificar o MAPA não é burocracia — é proteger o vizinho que também cria abelhas.",
+          "audio_url": "",
+          "voice_profile": "nova"
+        }
+      ]
+    },
+    {
+      "_id": "me1_s10",
+      "story_id": "me1",
+      "title": "C4 — O Protocolo Sanitário",
+      "type": "scene",
+      "position": 10,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 14 },
+      "description": "TODO — Seu Zé fazendo ligação ao MAPA com formulário na tela ao fundo. Pedro e Técnico incinerando a colmeia em fogueira controlada fora do apiário. Macacão, luvas e máscara completos. Expressão séria mas de alívio por agir corretamente. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "me1_s11",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "me1_c3",
+          "text": "Notificação ao MAPA pelo portal e-SISDEV. Incineração completa: caixilhos, cera, abelhas. Equipamentos metálicos podem ser flambeados.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 2,
+          "character_id": "me1_c2",
+          "text": "As outras colmeias precisam de tratamento preventivo?",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        },
+        {
+          "position": 3,
+          "character_id": "me1_c3",
+          "text": "Revisão imediata e amostragem de mel das vizinhas. Qualquer sinal de massa filar — mesmo leve — repete o protocolo.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        }
+      ]
+    },
+    {
+      "_id": "me1_s11",
+      "story_id": "me1",
+      "title": "C5 — BPC e o Livro de Registro",
+      "type": "scene",
+      "position": 11,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 12 },
+      "description": "TODO — Pedro e Seu Zé em frente ao apiário recuperado. Pedro anotando no livro de registro sanitário: data, colmeia, diagnóstico, tratamento aplicado. Calendário na parede com marcações a cada 21 dias. Expressão de quem entendeu que prevenção é a chave. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "me1_s12",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "me1_c1",
+          "text": "Se eu tivesse revisado essa colmeia 21 dias atrás, teria visto a Varroa antes de virar loque.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 2,
+          "character_id": "me1_c2",
+          "text": "A revisão regular é onde começa a prevenção.",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        },
+        {
+          "position": 3,
+          "character_id": "me1_c3",
+          "text": "Como o apicultor previne doenças no apiário?",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        }
+      ]
+    },
+    {
+      "_id": "me1_s12",
+      "story_id": "me1",
+      "title": "C5D — Como Prevenir Doenças?",
+      "type": "decision",
+      "position": 12,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 12 },
+      "description": "TODO — Pedro olhando para o livro de registro sanitário com caneta na mão. Seu Zé e Técnico aguardando. Apiário ao fundo, colmeias enfileiradas. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "decision": {
+        "prompt": "Como o apicultor previne doenças no apiário?",
+        "interaction_type": "single_choice",
+        "options": [
+          {
+            "label": "Revisões a cada 15–21 dias, livro de registro sanitário, troca de caixilhos velhos e controle integrado da Varroa",
+            "next_scene_id": "me1_s13",
+            "score": 10
+          },
+          {
+            "label": "Tratar as colmeias com antibiótico preventivo toda safra para evitar problemas futuros",
+            "next_scene_id": "me1_s14",
+            "score": 3
+          }
+        ]
+      },
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "me1_c2",
+          "text": "Como o apicultor previne doenças no apiário?",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        }
+      ]
+    },
+    {
+      "_id": "me1_s13",
+      "story_id": "me1",
+      "title": "C6A — Apiário Saudável",
+      "type": "end",
+      "position": 13,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 16 },
+      "description": "TODO — Pedro e Seu Zé no apiário revigorado — colmeias alinhadas, abelhas voando ativamente. Livro de registro sanitário aberto com todas as colmeias monitoradas. Técnico ao longe, satisfeito. Sol dourado da Caatinga ao fundo. Estilo cartoon Gravity Falls — épica e calorosa.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "end_label": "Apiário Saudável",
+      "end_score": 10,
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": null,
+          "text": "Diagnóstico correto. Protocolo seguido. Apiário protegido.",
+          "audio_url": "",
+          "voice_profile": "nova"
+        },
+        {
+          "position": 2,
+          "character_id": "me1_c1",
+          "text": "Varroa controlada, loque eliminada. Agora cada revisão tem data marcada e tudo anotado.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 3,
+          "character_id": "me1_c2",
+          "text": "O inimigo existe. Mas quem conhece ele — vence.",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        }
+      ]
+    },
+    {
+      "_id": "me1_s14",
+      "story_id": "me1",
+      "title": "C6B — O Livro de Registro",
+      "type": "end",
+      "position": 14,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 16 },
+      "description": "TODO — Pedro saindo do apiário com livro de registro novo em mãos. Colmeias ao fundo, calmas. Expressão de quem aprendeu mas ainda tem muito a implementar. Tarde dourada da Caatinga. Estilo cartoon Gravity Falls, paleta suave.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "end_label": "O Livro de Registro",
+      "end_score": 5,
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": null,
+          "text": "A loque foi eliminada. O livro de registro começa hoje.",
+          "audio_url": "",
+          "voice_profile": "nova"
+        },
+        {
+          "position": 2,
+          "character_id": "me1_c1",
+          "text": "Próxima revisão daqui a 21 dias. E o ácido oxálico no inverno.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 3,
+          "character_id": "me1_c2",
+          "text": "Quem não registra, não controla. Quem não controla, perde.",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        }
+      ]
+    }
+  ]
+}

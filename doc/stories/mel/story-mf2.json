@@ -1,0 +1,576 @@
+{
+  "story": {
+    "_id": "mf2",
+    "title": "A Voz na Audiência",
+    "synopsis": "Dona Maria lê sobre audiência pública da LOA municipal. O Técnico da Emater-PI explica que esse é o momento certo para pedir a câmara fria para o mel da comunidade — mas que chegar sem preparação é o mesmo que não chegar. Com os dados da associação em mãos, Dona Maria vai mostrar à família que política pública começa antes da assinatura — começa na audiência.",
+    "cover_image": "",
+    "aspect_ratio": "9:16",
+    "subtitle_font_size": 22,
+    "default_scene_duration": 6,
+    "passing_score": 28,
+    "genre": "Drama",
+    "show_cover_first": true,
+    "first_scene_id": "mf2_s1",
+    "background_audio": {
+      "loop": true,
+      "volume": 0.25,
+      "url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/documents/69e7aaf8501f000cfda76559_enlivening.mp3"
+    },
+    "status": "active"
+  },
+  "characters": [
+    {
+      "_id": "mf2_c1",
+      "story_id": "mf2",
+      "name": "Dona Maria",
+      "full_name": "Maria Costa",
+      "description": "Esposa de Seu Zé, 48 anos, vestido florido. Organizada e prática — ela faz as contas e agora lidera a família na participação política. É ela quem identifica a audiência pública como oportunidade e prepara a fala com dados.",
+      "voice_profile": "shimmer",
+      "avatar_thumbnail": "",
+      "reference_image": ""
+    },
+    {
+      "_id": "mf2_c2",
+      "story_id": "mf2",
+      "name": "Pedro",
+      "full_name": "Pedro Costa",
+      "description": "Filho mais velho da família Costa, 19 anos. Chapéu de palha, camiseta. Ajuda Dona Maria a preparar os dados da associação e entende que política pública não começa na urna — começa na audiência.",
+      "voice_profile": "alloy",
+      "avatar_thumbnail": "",
+      "reference_image": ""
+    },
+    {
+      "_id": "mf2_c3",
+      "story_id": "mf2",
+      "name": "Técnico Emater",
+      "full_name": "Técnico da Emater-PI",
+      "description": "Extensionista rural da Emater-PI, 35 anos. Colete verde, óculos. Explica o ciclo orçamentário (PPA, LDO, LOA), o direito de participação nas audiências públicas e como preparar uma demanda efetiva.",
+      "voice_profile": "alloy",
+      "avatar_thumbnail": "",
+      "reference_image": ""
+    }
+  ],
+  "scenes": [
+    {
+      "_id": "mf2_s1",
+      "story_id": "mf2",
+      "title": "CAPA — A Voz na Audiência",
+      "type": "scene",
+      "position": 1,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 10 },
+      "description": "TODO — Dona Maria (48 anos, vestido florido) de pé no microfone de audiência pública municipal, caderno de dados na mão, expressão determinada. Pedro (19 anos) na plateia com outros produtores. Técnico da Emater-PI ao fundo. Câmara municipal simples do interior do Piauí. Estilo cartoon Gravity Falls — paleta amarelo-dourado e azul institucional.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "mf2_s2",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": null,
+          "text": "O orçamento não cai do céu. É construído audiência por audiência — por quem aparece e fala com dados.",
+          "audio_url": "",
+          "voice_profile": "nova"
+        }
+      ]
+    },
+    {
+      "_id": "mf2_s2",
+      "story_id": "mf2",
+      "title": "C0 — A Mensagem no Grupo",
+      "type": "scene",
+      "position": 2,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 14 },
+      "description": "TODO — Dona Maria olhando para celular na cozinha, expressão de interesse. Mensagem no grupo da prefeitura visível: 'Audiência Pública — Elaboração da LOA 2025. Data: próxima terça. Local: Câmara Municipal.' Pedro ao fundo. Tarde. Estilo cartoon Gravity Falls — paleta quente interior.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "mf2_s3",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": null,
+          "text": "Uma mensagem no grupo da prefeitura — e Dona Maria reconheceu a oportunidade antes de qualquer um.",
+          "audio_url": "",
+          "voice_profile": "nova"
+        },
+        {
+          "position": 2,
+          "character_id": "mf2_c1",
+          "text": "Pedro, tem audiência pública da prefeitura terça-feira. É sobre o orçamento do ano que vem.",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        },
+        {
+          "position": 3,
+          "character_id": "mf2_c2",
+          "text": "O que a gente pode fazer numa audiência pública?",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        }
+      ]
+    },
+    {
+      "_id": "mf2_s3",
+      "story_id": "mf2",
+      "title": "C0.1 — O Que É uma Audiência Pública",
+      "type": "scene",
+      "position": 3,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 12 },
+      "description": "TODO — Técnico da Emater-PI sentado com Dona Maria e Pedro na cozinha da família Costa. Folha com explicação simples na mesa: 'Audiência pública = direito do cidadão de falar e influenciar as decisões do governo'. Expressão didática. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "mf2_s4",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "mf2_c3",
+          "text": "Audiência pública não é reunião de fachada. O cidadão tem direito garantido em lei de falar, questionar e pedir.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 2,
+          "character_id": "mf2_c1",
+          "text": "E o governo é obrigado a ouvir?",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        },
+        {
+          "position": 3,
+          "character_id": "mf2_c3",
+          "text": "A fala é registrada em ata. Uma demanda documentada na ata é muito mais difícil de ignorar. O que o cidadão pode fazer em uma audiência pública?",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        }
+      ]
+    },
+    {
+      "_id": "mf2_s4",
+      "story_id": "mf2",
+      "title": "C1 — O Que o Cidadão Pode Fazer?",
+      "type": "decision",
+      "position": 4,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 12 },
+      "description": "TODO — Dona Maria e Pedro pensando. Folha com explicação da audiência sobre a mesa. Técnico aguardando. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "decision": {
+        "prompt": "O que o cidadão tem direito de fazer em uma audiência pública?",
+        "interaction_type": "single_choice",
+        "options": [
+          {
+            "label": "Falar, questionar, apresentar demandas e influenciar formalmente as decisões do governo",
+            "next_scene_id": "mf2_s6",
+            "score": 10
+          },
+          {
+            "label": "Apenas assistir — a fala é reservada para vereadores e representantes eleitos",
+            "next_scene_id": "mf2_s5",
+            "score": 1
+          },
+          {
+            "label": "Não sei ainda",
+            "next_scene_id": "mf2_s5",
+            "score": 1
+          }
+        ]
+      },
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "mf2_c1",
+          "text": "O que o cidadão tem direito de fazer em uma audiência pública?",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        }
+      ]
+    },
+    {
+      "_id": "mf2_s5",
+      "story_id": "mf2",
+      "title": "C1B — O Direito de Falar",
+      "type": "scene",
+      "position": 5,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 16 },
+      "description": "TODO — Ilustração: cidadão no microfone → fala registrada em ata → demanda incluída no orçamento → projeto executado (ciclo positivo). Versus: cidadão que não aparece → necessidade ignorada → orçamento vai para outras prioridades (ciclo negativo). Fundo amarelo suave. Estilo cartoon Gravity Falls — diferente de C0.1.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "mf2_s4",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "mf2_c3",
+          "text": "A audiência pública é uma obrigação legal do governo — não um favor. A Constituição e a Lei de Responsabilidade Fiscal exigem participação popular na construção do orçamento.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 2,
+          "character_id": "mf2_c3",
+          "text": "Quem não aparece, não está na ata. Quem não está na ata, não está no orçamento.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 3,
+          "character_id": "mf2_c3",
+          "text": "Então — o que o cidadão pode fazer na audiência?",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        }
+      ]
+    },
+    {
+      "_id": "mf2_s6",
+      "story_id": "mf2",
+      "title": "C2 — PPA, LOA e o Orçamento do Mel",
+      "type": "scene",
+      "position": 6,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 14 },
+      "description": "TODO — Técnico mostrando diagrama simples: PPA (4 anos, metas grandes) → LDO (1 ano, diretrizes) → LOA (1 ano, onde cada real vai). Seta indicando: audiências de LOA = momento estratégico para pedir câmara fria, estrada, assistência técnica. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "mf2_s7",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "mf2_c3",
+          "text": "O PPA define o que o município quer fazer nos próximos 4 anos. A LOA define onde cada real vai no próximo ano. É na audiência da LOA que você pede.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 2,
+          "character_id": "mf2_c1",
+          "text": "E o que a gente pode pedir para a apicultura?",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        },
+        {
+          "position": 3,
+          "character_id": "mf2_c3",
+          "text": "Câmara frigorífica para o mel, estrada para o apiário, assistência técnica municipal — tudo que é infraestrutura pública.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        }
+      ]
+    },
+    {
+      "_id": "mf2_s7",
+      "story_id": "mf2",
+      "title": "C3 — Como Preparar a Fala",
+      "type": "scene",
+      "position": 7,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 12 },
+      "description": "TODO — Dona Maria na mesa com caderno, Pedro ao lado. Técnico orientando: '1. Dado — quantos apicultores, quantas colmeias, quanto mel. 2. Problema específico — câmara fria inexistente, perda de qualidade. 3. Demanda viável — câmara fria de 5 toneladas, custo estimado R$80k.' Expressão de concentração. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "mf2_s8",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "mf2_c3",
+          "text": "Três elementos: dado concreto, problema específico e demanda viável com custo estimado. Sem isso — vira reclamação. Com isso — vira projeto.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 2,
+          "character_id": "mf2_c1",
+          "text": "Tenho os dados da associação — 12 apicultores, 340 colmeias, 2 toneladas de mel por safra perdendo 15% de valor por falta de refrigeração.",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        },
+        {
+          "position": 3,
+          "character_id": "mf2_c3",
+          "text": "Quando é o momento estratégico para fazer essa demanda?",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        }
+      ]
+    },
+    {
+      "_id": "mf2_s8",
+      "story_id": "mf2",
+      "title": "C3D — Quando É o Momento Certo?",
+      "type": "decision",
+      "position": 8,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 12 },
+      "description": "TODO — Dona Maria e Pedro olhando para o caderno de dados, pensando. Técnico aguardando. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "decision": {
+        "prompt": "Quando é o momento mais estratégico para fazer demandas de infraestrutura rural ao governo municipal?",
+        "interaction_type": "single_choice",
+        "options": [
+          {
+            "label": "Na audiência pública de elaboração da LOA — quando o orçamento do próximo ano ainda está sendo construído",
+            "next_scene_id": "mf2_s10",
+            "score": 10
+          },
+          {
+            "label": "Em qualquer reunião da prefeitura ao longo do ano — o orçamento pode ser ajustado a qualquer momento",
+            "next_scene_id": "mf2_s9",
+            "score": 3
+          }
+        ]
+      },
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "mf2_c1",
+          "text": "Quando é o momento mais estratégico para fazer demandas de infraestrutura rural ao governo municipal?",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        }
+      ]
+    },
+    {
+      "_id": "mf2_s9",
+      "story_id": "mf2",
+      "title": "C3B — O Ciclo Orçamentário",
+      "type": "scene",
+      "position": 9,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 16 },
+      "description": "TODO — Diagrama circular do ciclo orçamentário: Janeiro (execução LOA vigente) → Abril (avaliação PPA) → Julho (elaboração LOA — audiência pública aqui, seta grande) → Setembro (envio ao legislativo) → Dezembro (aprovação). Janela julho-agosto destacada em amarelo. Fundo amarelo suave. Estilo cartoon Gravity Falls — diferente de C3.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "mf2_s10",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "mf2_c3",
+          "text": "A janela estratégica é julho-agosto — quando a prefeitura elabora a LOA do ano seguinte. Nesse momento, uma proposta bem documentada ainda pode entrar no projeto de lei.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 2,
+          "character_id": "mf2_c3",
+          "text": "Depois de setembro, o orçamento foi para a câmara. Mudança ainda é possível, mas muito mais difícil.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 3,
+          "character_id": null,
+          "text": "Aparecer na hora certa com a proposta certa — essa é a diferença entre cidadão e espectador.",
+          "audio_url": "",
+          "voice_profile": "nova"
+        }
+      ]
+    },
+    {
+      "_id": "mf2_s10",
+      "story_id": "mf2",
+      "title": "C4 — O Vereador Aliado",
+      "type": "scene",
+      "position": 10,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 14 },
+      "description": "TODO — Dona Maria conversando com vereador rural após a audiência no corredor da câmara. Pedro ao lado. Vereador folheando ata da associação que Dona Maria entregou. Expressão do vereador: interessado na pauta. Câmara municipal ao fundo. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "mf2_s11",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "mf2_c1",
+          "text": "Trouxe a ata da associação aprovando essa demanda e o orçamento estimado pela Emater. Você pode apresentar uma emenda?",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        },
+        {
+          "position": 2,
+          "character_id": null,
+          "text": "Com documentação da associação e laudo técnico — posso incluir na LOA por emenda parlamentar.",
+          "audio_url": "",
+          "voice_profile": "nova"
+        },
+        {
+          "position": 3,
+          "character_id": "mf2_c2",
+          "text": "Uma associação com ata tem mais peso do que um produtor sozinho.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        }
+      ]
+    },
+    {
+      "_id": "mf2_s11",
+      "story_id": "mf2",
+      "title": "C5 — Representação Coletiva",
+      "type": "scene",
+      "position": 11,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 12 },
+      "description": "TODO — Dona Maria de pé no microfone da audiência pública. Plateia com outros produtores da associação. Câmara municipal com vereadores ao fundo. Dona Maria segurando caderno de dados. Expressão firme e preparada. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "mf2_s12",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "mf2_c1",
+          "text": "Falo em nome da Associação de Apicultores da região — 12 apicultores, 340 colmeias, R$48 mil de mel por safra. Pedimos a inclusão de câmara frigorífica no orçamento de 2025.",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        },
+        {
+          "position": 2,
+          "character_id": "mf2_c3",
+          "text": "Por que a representação coletiva tem mais peso numa audiência pública do que a fala individual?",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        }
+      ]
+    },
+    {
+      "_id": "mf2_s12",
+      "story_id": "mf2",
+      "title": "C5D — Por que Coletivo tem Mais Peso?",
+      "type": "decision",
+      "position": 12,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 12 },
+      "description": "TODO — Pedro olhando para Dona Maria no microfone, pensando. Outros produtores da associação ao redor. Câmara municipal ao fundo. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "decision": {
+        "prompt": "Por que a representação coletiva tem mais peso em uma audiência pública?",
+        "interaction_type": "single_choice",
+        "options": [
+          {
+            "label": "Porque representa um número maior de pessoas e tem documentação formal — ata, CNPJ, dados — difícil de ignorar",
+            "next_scene_id": "mf2_s13",
+            "score": 10
+          },
+          {
+            "label": "Não tem diferença — uma fala individual bem argumentada tem o mesmo peso que uma associação",
+            "next_scene_id": "mf2_s14",
+            "score": 3
+          }
+        ]
+      },
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "mf2_c2",
+          "text": "Por que a representação coletiva tem mais peso em uma audiência pública?",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        }
+      ]
+    },
+    {
+      "_id": "mf2_s13",
+      "story_id": "mf2",
+      "title": "C6A — A Voz que Mudou o Orçamento",
+      "type": "end",
+      "position": 13,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 16 },
+      "description": "TODO — Dona Maria e Pedro lendo comunicado: 'LOA aprovada com R$80 mil para câmara frigorífica da Associação de Apicultores'. Outros apicultores da associação ao redor, celebrando. Sol da tarde na Caatinga. Estilo cartoon Gravity Falls — épica e calorosa.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "end_label": "A Voz que Mudou o Orçamento",
+      "end_score": 10,
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": null,
+          "text": "Audiência. Ata. Emenda. Aprovação. O mel da Caatinga vai ter onde ficar.",
+          "audio_url": "",
+          "voice_profile": "nova"
+        },
+        {
+          "position": 2,
+          "character_id": "mf2_c1",
+          "text": "Ninguém deu nada. A gente pediu com dados, em nome de 12 apicultores, na hora certa.",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        },
+        {
+          "position": 3,
+          "character_id": "mf2_c2",
+          "text": "Política pública começa na audiência. Não só nas eleições.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        }
+      ]
+    },
+    {
+      "_id": "mf2_s14",
+      "story_id": "mf2",
+      "title": "C6B — A Fala Preparada",
+      "type": "end",
+      "position": 14,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 16 },
+      "description": "TODO — Dona Maria saindo da câmara municipal com cópia da ata na mão. Pedro ao lado. Expressão de quem fez o que devia e sabe que é o começo. Tarde azul. Estilo cartoon Gravity Falls, paleta suave.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "end_label": "A Fala Preparada",
+      "end_score": 5,
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": null,
+          "text": "Fala feita. Ata registrada. Próximo passo: acompanhar a votação da LOA.",
+          "audio_url": "",
+          "voice_profile": "nova"
+        },
+        {
+          "position": 2,
+          "character_id": "mf2_c2",
+          "text": "A gente marcou presença. Agora acompanha a votação na câmara.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 3,
+          "character_id": "mf2_c1",
+          "text": "Quem aparece e fala com dados — é ouvido. Quem não aparece — é esquecido.",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        }
+      ]
+    }
+  ]
+}

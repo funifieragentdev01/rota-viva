@@ -1,0 +1,588 @@
+{
+  "story": {
+    "_id": "pb2",
+    "title": "Do Barco ao Mercado",
+    "synopsis": "Um comprador de restaurante quer comprar direto de Seu Raimundo — mas precisa de documentação. Dona Graça empurra o marido para o RURAP, onde Carlos ensina gelo na proporção certa, caderneta de bordo e o caminho para o SIF via cooperativa. O peixe sempre foi bom. O mercado só precisava saber disso por escrito.",
+    "cover_image": "",
+    "aspect_ratio": "9:16",
+    "subtitle_font_size": 22,
+    "default_scene_duration": 6,
+    "passing_score": 28,
+    "genre": "Drama",
+    "show_cover_first": true,
+    "first_scene_id": "pb2_s1",
+    "background_audio": {
+      "loop": true,
+      "volume": 0.25,
+      "url": ""
+    },
+    "status": "active"
+  },
+  "characters": [
+    {
+      "_id": "pb2_c1",
+      "story_id": "pb2",
+      "name": "Seu Raimundo",
+      "full_name": "Raimundo Lopes",
+      "description": "Pescador de 50 anos. Pele queimada de sol e rio, mãos calejadas, colete de pescador, barba rala. Sério e digno. Trinta anos pescando sem precisar de papel — agora vai aprender por que precisa.",
+      "voice_profile": "onyx",
+      "avatar_thumbnail": "",
+      "reference_image": ""
+    },
+    {
+      "_id": "pb2_c2",
+      "story_id": "pb2",
+      "name": "Dona Graça",
+      "full_name": "Graça Lopes",
+      "description": "Esposa de 46 anos de Seu Raimundo. Extrovertida e forte. Gerencia a parte comercial da família. Boa de conselho e de iniciativa.",
+      "voice_profile": "shimmer",
+      "avatar_thumbnail": "",
+      "reference_image": ""
+    },
+    {
+      "_id": "pb2_c3",
+      "story_id": "pb2",
+      "name": "Carlos",
+      "full_name": "Carlos — Agente do RURAP",
+      "description": "Agente do RURAP de 35 anos. Óculos, camiseta com logo RURAP. Técnico de extensão rural especializado em pesca artesanal. Direto e didático.",
+      "voice_profile": "alloy",
+      "avatar_thumbnail": "",
+      "reference_image": ""
+    }
+  ],
+  "scenes": [
+    {
+      "_id": "pb2_s1",
+      "story_id": "pb2",
+      "title": "CAPA — Do Barco ao Mercado",
+      "type": "scene",
+      "position": 1,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 10 },
+      "description": "TODO — Escritório do RURAP, sala simples com cartazes do MAPA e MDA. Seu Raimundo (50 anos, colete de pescador, barba rala) e Dona Graça (46 anos, expressão determinada) sentados à mesa com Carlos — Agente do RURAP (35 anos, camiseta RURAP, óculos). Caderneta de bordo aberta sobre a mesa. Caixa de isopor com peixe e gelo ao lado. Estilo cartoon Gravity Falls — paleta azul-rio, verde-ribeirinha, dourado.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "pb2_s2",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": null,
+          "text": "O peixe bom não basta. O mercado quer saber de onde ele vem.",
+          "audio_url": "",
+          "voice_profile": "nova"
+        }
+      ]
+    },
+    {
+      "_id": "pb2_s2",
+      "story_id": "pb2",
+      "title": "C0 — O Comprador no Porto",
+      "type": "scene",
+      "position": 2,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 14 },
+      "description": "TODO — Porto fluvial, manhã. Seu Raimundo descarregando caixas de isopor com pescado do barco de madeira. Um comprador bem apresentado (30 anos, roupa social, bloco de notas) se aproxima com interesse. Caixas com peixe fresco no cais. Expressão de Seu Raimundo: confiante inicialmente, depois surpreso. Estilo cartoon Gravity Falls — paleta azul e dourado, luz da manhã.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "pb2_s3",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": null,
+          "text": "Sexta-feira no porto. Seu Raimundo voltou com boa captura.",
+          "audio_url": "",
+          "voice_profile": "nova"
+        },
+        {
+          "position": 2,
+          "character_id": null,
+          "text": "Esse pescado tem ótima aparência. Tenho um restaurante na cidade — quero comprar direto do senhor. Tem nota fiscal? Caderneta de bordo? Sabe de onde veio cada caixa?",
+          "audio_url": "",
+          "voice_profile": "nova"
+        },
+        {
+          "position": 3,
+          "character_id": "pb2_c1",
+          "text": "Eu... não tenho isso em papel, não.",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        }
+      ]
+    },
+    {
+      "_id": "pb2_s3",
+      "story_id": "pb2",
+      "title": "C0.1 — Em Casa, Com Dona Graça",
+      "type": "scene",
+      "position": 3,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 12 },
+      "description": "TODO — Casa da família Lopes, sala simples. Seu Raimundo sentado à mesa com expressão frustrada, recontando o episódio do porto para Dona Graça. Dona Graça de pé, ouvindo com atenção e expressão resolutiva de quem já sabe o que fazer. Tarde, luz suave interior. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "pb2_s4",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "pb2_c1",
+          "text": "O homem foi embora. Disse que precisa de documentação. Trinta anos pescando e nunca precisei de papel pra vender.",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        },
+        {
+          "position": 2,
+          "character_id": "pb2_c2",
+          "text": "Mas agora precisa. Amanhã a gente vai ao RURAP. Mas primeiro — me diz: você tá usando gelo certo no barco?",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        }
+      ]
+    },
+    {
+      "_id": "pb2_s4",
+      "story_id": "pb2",
+      "title": "C1 — Quanto Gelo?",
+      "type": "decision",
+      "position": 4,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 12 },
+      "description": "TODO — Caixa de isopor aberta com peixe e gelo dentro, Seu Raimundo olhando para ela pensativo. Dona Graça ao lado com expressão de quem já quer saber a resposta correta. Cena simples e direta. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "decision": {
+        "prompt": "Para conservar o pescado a bordo, qual é a proporção correta de gelo para peixe?",
+        "interaction_type": "single_choice",
+        "options": [
+          {
+            "label": "1 parte de gelo para 1 parte de peixe (1:1) — garante temperatura entre 0°C e 4°C",
+            "next_scene_id": "pb2_s6",
+            "score": 10
+          },
+          {
+            "label": "1 parte de gelo para 3 partes de peixe — o gelo é caro e deve ser economizado",
+            "next_scene_id": "pb2_s5",
+            "score": 1
+          },
+          {
+            "label": "Não sei ainda",
+            "next_scene_id": "pb2_s5",
+            "score": 1
+          }
+        ]
+      },
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "pb2_c2",
+          "text": "Para conservar o pescado a bordo — qual a proporção certa de gelo pra peixe?",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        }
+      ]
+    },
+    {
+      "_id": "pb2_s5",
+      "story_id": "pb2",
+      "title": "C1B — O Custo do Peixe Estragado",
+      "type": "scene",
+      "position": 5,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 16 },
+      "description": "TODO — Ilustração comparativa: esquerda mostra caixa com proporção 1:1 (peixe fresco, brilhante, temperatura 0-4°C, comprador satisfeito); direita mostra caixa com pouco gelo (peixe deteriorado, opaco, temperatura alta, comprador recusando com expressão negativa). Dona Graça aponta para as diferenças. Fundo azul suave. Estilo cartoon Gravity Falls — diferente de C0.1.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "pb2_s4",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "pb2_c2",
+          "text": "Com pouco gelo, o peixe fica acima de 4°C. As bactérias se multiplicam rápido — em horas o peixe já não presta.",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        },
+        {
+          "position": 2,
+          "character_id": "pb2_c2",
+          "text": "O custo do gelo extra é R$10. O custo de perder uma caixa de peixe é R$200.",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        },
+        {
+          "position": 3,
+          "character_id": "pb2_c2",
+          "text": "Então — qual a proporção certa de gelo para peixe?",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        }
+      ]
+    },
+    {
+      "_id": "pb2_s6",
+      "story_id": "pb2",
+      "title": "C2 — O Peixe Chega Fresco",
+      "type": "scene",
+      "position": 6,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 12 },
+      "description": "TODO — Porto fluvial, Seu Raimundo descarregando caixas com gelo na proporção correta — peixe brilhante, escamas limpas, olhos transparentes, gelo ainda presente. Comprador verifica a qualidade com expressão satisfeita. Cena de qualidade entregue. Estilo cartoon Gravity Falls — paleta azul e dourado, luz clara do porto.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "pb2_s7",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": null,
+          "text": "Com gelo na proporção certa, o pescado chega ao mercado em condição de qualidade.",
+          "audio_url": "",
+          "voice_profile": "nova"
+        },
+        {
+          "position": 2,
+          "character_id": "pb2_c1",
+          "text": "Cuido do gelo desde sempre. O que falta é o papel que comprova de onde vem.",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        },
+        {
+          "position": 3,
+          "character_id": "pb2_c2",
+          "text": "Esse papel a gente vai buscar agora.",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        }
+      ]
+    },
+    {
+      "_id": "pb2_s7",
+      "story_id": "pb2",
+      "title": "C3 — No RURAP com Carlos",
+      "type": "scene",
+      "position": 7,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 12 },
+      "description": "TODO — Escritório do RURAP: sala simples com cartazes do MAPA, mapas da região pesqueira, mesa de trabalho com materiais. Carlos (35 anos, óculos, camiseta RURAP) recebe Seu Raimundo e Dona Graça com aperto de mão. Expressão receptiva e profissional. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "pb2_s8",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "pb2_c3",
+          "text": "Seu Raimundo, Dona Graça — bem-vindos. Ouvi que um restaurante pediu documentação e a venda não aconteceu.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 2,
+          "character_id": "pb2_c1",
+          "text": "Pescando há trinta anos sem precisar de papel. Agora parece que preciso.",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        },
+        {
+          "position": 3,
+          "character_id": "pb2_c3",
+          "text": "Não é burocracia — é rastreabilidade. E começa mais simples do que o senhor imagina.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        }
+      ]
+    },
+    {
+      "_id": "pb2_s8",
+      "story_id": "pb2",
+      "title": "C4 — A Caderneta de Bordo",
+      "type": "decision",
+      "position": 8,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 14 },
+      "description": "TODO — Carlos mostrando uma caderneta simples de capa resistente para Seu Raimundo e Dona Graça. Abre em uma página com colunas: data, área de pesca, espécies, quantidades. Seu Raimundo olhando com atenção crescente. Dona Graça ao lado já entendendo a importância. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "decision": {
+        "prompt": "O que é a caderneta de bordo e para que ela serve?",
+        "interaction_type": "single_choice",
+        "options": [
+          {
+            "label": "Registro de saídas, áreas de pesca, espécies e quantidades — base de rastreabilidade e prova para o Seguro-Defeso",
+            "next_scene_id": "pb2_s10",
+            "score": 10
+          },
+          {
+            "label": "Documento emitido pelo IBAMA que autoriza a pesca em áreas específicas",
+            "next_scene_id": "pb2_s9",
+            "score": 1
+          },
+          {
+            "label": "Não sei ainda",
+            "next_scene_id": "pb2_s9",
+            "score": 1
+          }
+        ]
+      },
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "pb2_c3",
+          "text": "A caderneta de bordo. Data da saída, onde pescou, que espécies capturou, quanto. Me diz — o que é e pra que serve?",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 2,
+          "character_id": "pb2_c1",
+          "text": "E pra que isso serve, além de burocracia?",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        }
+      ]
+    },
+    {
+      "_id": "pb2_s9",
+      "story_id": "pb2",
+      "title": "C4B — A Caderneta que Abre Portas",
+      "type": "scene",
+      "position": 9,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 16 },
+      "description": "TODO — Carlos mostrando ilustração com a caderneta de bordo ao centro e três setas saindo dela: (1) 'Seguro-Defeso — comprova atividade pesqueira durante o ano'; (2) 'Rastreabilidade — restaurante e supermercado querem saber a origem'; (3) 'PRONAF — base de renda para projeto de crédito'. Carlos aponta para cada uso. Fundo azul suave. Estilo cartoon Gravity Falls — diferente de C4.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "pb2_s8",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "pb2_c3",
+          "text": "A caderneta prova que você pescou durante o ano — isso é o que o governo pede pro Seguro-Defeso.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 2,
+          "character_id": "pb2_c3",
+          "text": "É também o primeiro documento de rastreabilidade: restaurante pergunta de onde vem o peixe, você abre a caderneta e mostra. E o banco usa como prova de renda no projeto do PRONAF.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 3,
+          "character_id": "pb2_c3",
+          "text": "Então — o que é e pra que serve a caderneta de bordo?",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        }
+      ]
+    },
+    {
+      "_id": "pb2_s10",
+      "story_id": "pb2",
+      "title": "C5 — Começando a Caderneta",
+      "type": "scene",
+      "position": 10,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 12 },
+      "description": "TODO — Carlos e Seu Raimundo lado a lado preenchendo a primeira página da caderneta. Dona Graça ao lado anotando num caderno próprio. Seu Raimundo com expressão de comprometimento — escrevendo com cuidado. A caderneta começa a ter história escrita. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "pb2_s11",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "pb2_c3",
+          "text": "Começa hoje. Preenche a saída de ontem retroativamente — data, área, espécies e quantidades.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 2,
+          "character_id": "pb2_c1",
+          "text": "Trinta anos de saídas que não foram registradas.",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        },
+        {
+          "position": 3,
+          "character_id": "pb2_c2",
+          "text": "O passado não volta, Raimundo. Mas o próximo de hoje em diante fica aqui.",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        }
+      ]
+    },
+    {
+      "_id": "pb2_s11",
+      "story_id": "pb2",
+      "title": "C6 — O Caminho para o Mercado",
+      "type": "scene",
+      "position": 11,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 14 },
+      "description": "TODO — Carlos mostrando um diagrama simples no quadro branco: escada com três degraus — 'SIM (município)', 'SIE (Amapá)' e 'SIF (outros estados)' com seta apontando para 'Via Cooperativa'. Seu Raimundo e Dona Graça olhando com atenção crescente. Expressão de quem está entendendo que o caminho é mais claro do que parecia. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "pb2_s12",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "pb2_c3",
+          "text": "O SIM — inspeção municipal — é emitido pela prefeitura. Permite vender dentro da cidade. O SIE abre o Amapá todo. E o SIF permite vender em outros estados.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 2,
+          "character_id": "pb2_c2",
+          "text": "Mas o SIF individualmente fica caro demais, né?",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        },
+        {
+          "position": 3,
+          "character_id": "pb2_c3",
+          "text": "Aí está a pergunta certa. Como o pescador artesanal acessa o SIF?",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        }
+      ]
+    },
+    {
+      "_id": "pb2_s12",
+      "story_id": "pb2",
+      "title": "C7 — Como Acessar o SIF?",
+      "type": "decision",
+      "position": 12,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 14 },
+      "description": "TODO — Seu Raimundo olhando para o diagrama do quadro branco, pensando. Dona Graça ao lado com expressão de quem está quase chegando à resposta. Carlos aguardando. Diagrama com SIM→SIE→SIF visível ao fundo. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "decision": {
+        "prompt": "Como o pescador artesanal individual pode acessar o SIF e vender em outros estados?",
+        "interaction_type": "single_choice",
+        "options": [
+          {
+            "label": "Através de uma cooperativa de pescadores com SIF — ela processa com padrão sanitário e repassa o valor ao associado",
+            "next_scene_id": "pb2_s13",
+            "score": 10
+          },
+          {
+            "label": "Tirando o SIF individualmente — é obrigatório para qualquer venda fora do município",
+            "next_scene_id": "pb2_s14",
+            "score": 3
+          }
+        ]
+      },
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "pb2_c1",
+          "text": "A cooperativa. O pescador artesanal acessa o SIF pela cooperativa.",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        }
+      ]
+    },
+    {
+      "_id": "pb2_s13",
+      "story_id": "pb2",
+      "title": "C8A — O Peixe com Nome e Origem",
+      "type": "end",
+      "position": 13,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 16 },
+      "description": "TODO — Porto fluvial, manhã. Seu Raimundo com caderneta de bordo na mão, peixe fresco em caixas com gelo correto. O comprador do restaurante volta, vê a caderneta aberta, sorri e estende a mão para fechar negócio. Dona Graça ao longe, acenando com sorriso satisfeito. Rio dourado ao fundo. Estilo cartoon Gravity Falls — épica e calorosa.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "end_label": "Peixe com Origem",
+      "end_score": 10,
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": null,
+          "text": "Caderneta de bordo. Gelo na proporção certa. Cooperativa no radar para o SIF.",
+          "audio_url": "",
+          "voice_profile": "nova"
+        },
+        {
+          "position": 2,
+          "character_id": null,
+          "text": "Agora sim. Esse peixe tem origem documentada. Pode me fornecer toda semana?",
+          "audio_url": "",
+          "voice_profile": "nova"
+        },
+        {
+          "position": 3,
+          "character_id": "pb2_c1",
+          "text": "Toda semana. O peixe sempre teve qualidade. Agora tem papel também.",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        }
+      ]
+    },
+    {
+      "_id": "pb2_s14",
+      "story_id": "pb2",
+      "title": "C8B — O Primeiro Passo Dado",
+      "type": "end",
+      "position": 14,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 16 },
+      "description": "TODO — Seu Raimundo saindo do RURAP com a caderneta nova nas mãos. Dona Graça ao lado. Expressão de quem tem caminho claro mas ainda tem muito a percorrer. Rio visível ao fundo no fim da tarde. Estilo cartoon Gravity Falls — paleta suave, fim de tarde.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "end_label": "Caminho Aberto",
+      "end_score": 5,
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": null,
+          "text": "A caderneta está nas mãos. O SIM ainda vai levar tempo. Mas o passo foi dado.",
+          "audio_url": "",
+          "voice_profile": "nova"
+        },
+        {
+          "position": 2,
+          "character_id": "pb2_c2",
+          "text": "Pelo menos agora a gente sabe o que precisa. Antes nem isso.",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        },
+        {
+          "position": 3,
+          "character_id": "pb2_c1",
+          "text": "O peixe sempre foi bom. O mercado só precisava saber disso por escrito.",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,576 @@
+{
+  "story": {
+    "_id": "me2",
+    "title": "As Abelhas da Caatinga",
+    "synopsis": "Ana encontra abelhas mortas na entrada do apiário — o vizinho pulverizou inseticida sem avisar. Enquanto Seu Zé vai conversar com o vizinho, o Técnico da Emater-PI explica para Ana e Pedro por que as abelhas são muito mais que produtoras de mel: são guardiãs da Caatinga. A família descobre a lei de 48h e o potencial do PSA e da meliponicultura.",
+    "cover_image": "",
+    "aspect_ratio": "9:16",
+    "subtitle_font_size": 22,
+    "default_scene_duration": 6,
+    "passing_score": 28,
+    "genre": "Drama",
+    "show_cover_first": true,
+    "first_scene_id": "me2_s1",
+    "background_audio": {
+      "loop": true,
+      "volume": 0.25,
+      "url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/documents/69e7aaf8501f000cfda76559_enlivening.mp3"
+    },
+    "status": "active"
+  },
+  "characters": [
+    {
+      "_id": "me2_c1",
+      "story_id": "me2",
+      "name": "Seu Zé",
+      "full_name": "José Costa",
+      "description": "Apicultor de 55 anos, patriarca da família Costa. Rosto curtido de sol, chapéu de palha. Cuida do apiário há trinta anos — sente o peso da perda quando encontra abelhas mortas por agrotóxico do vizinho.",
+      "voice_profile": "onyx",
+      "avatar_thumbnail": "",
+      "reference_image": ""
+    },
+    {
+      "_id": "me2_c2",
+      "story_id": "me2",
+      "name": "Ana",
+      "full_name": "Ana Costa",
+      "description": "Filha mais nova da família Costa, 14 anos. Tranças, vestidinho simples, olhos grandes. Encantada com as abelhas — é ela quem encontra as abelhas mortas e faz as perguntas que ninguém havia feito sobre o papel das abelhas na natureza.",
+      "voice_profile": "nova",
+      "avatar_thumbnail": "",
+      "reference_image": ""
+    },
+    {
+      "_id": "me2_c3",
+      "story_id": "me2",
+      "name": "Técnico Emater",
+      "full_name": "Técnico da Emater-PI",
+      "description": "Extensionista rural da Emater-PI, 35 anos. Colete verde, óculos. Conhecedor da fauna nativa e do bioma Caatinga — explica polinização, meliponicultura, a lei do agrotóxico e o PSA.",
+      "voice_profile": "alloy",
+      "avatar_thumbnail": "",
+      "reference_image": ""
+    }
+  ],
+  "scenes": [
+    {
+      "_id": "me2_s1",
+      "story_id": "me2",
+      "title": "CAPA — As Abelhas da Caatinga",
+      "type": "scene",
+      "position": 1,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 10 },
+      "description": "TODO — Ana (14 anos, tranças) segurando abelha nativa na palma da mão com expressão maravilhada. Seu Zé (55 anos, chapéu) ao lado com expressão séria. Técnico da Emater-PI mostrando mapa da Caatinga. Flora endêmica ao fundo — mandacaru, umbu, jurema. Estilo cartoon Gravity Falls — paleta verde-caatinga, dourado e azul-céu.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "me2_s2",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": null,
+          "text": "O mel é só o começo. O que as abelhas fazem pela Caatinga — nenhum humano consegue substituir.",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        }
+      ]
+    },
+    {
+      "_id": "me2_s2",
+      "story_id": "me2",
+      "title": "C0 — Abelhas no Chão",
+      "type": "scene",
+      "position": 2,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 14 },
+      "description": "TODO — Ana no caminho do apiário, olhando para o chão com expressão de choque. Dezenas de abelhas mortas espalhadas na entrada das colmeias. Ela chama Seu Zé com urgência. Manhã clara na Caatinga. Estilo cartoon Gravity Falls — paleta verde e dourado.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "me2_s3",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": null,
+          "text": "Ana chegou ao apiário antes de todos naquela manhã — e encontrou o que ninguém queria ver.",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        },
+        {
+          "position": 2,
+          "character_id": "me2_c2",
+          "text": "Pai! Abelhas mortas em frente à colmeia! Muitas!",
+          "audio_url": "",
+          "voice_profile": "nova"
+        },
+        {
+          "position": 3,
+          "character_id": "me2_c1",
+          "text": "O vizinho... ontem à tarde eu vi o trator com tanque de pulverizador. Sem avisar ninguém.",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        }
+      ]
+    },
+    {
+      "_id": "me2_s3",
+      "story_id": "me2",
+      "title": "C0.1 — O Que Aconteceu?",
+      "type": "scene",
+      "position": 3,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 12 },
+      "description": "TODO — Técnico da Emater-PI chegando ao apiário para avaliar o dano. Ana e Pedro ao redor. Técnico coletando abelhas mortas em saco plástico para análise. Seu Zé ao telefone com o vizinho ao fundo. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "me2_s4",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "me2_c3",
+          "text": "Perda visível de mais de 30% de uma colmeia em poucas horas — sinal claro de intoxicação aguda por inseticida.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 2,
+          "character_id": "me2_c2",
+          "text": "Mas por que as abelhas morreram? Elas não são só para fazer mel?",
+          "audio_url": "",
+          "voice_profile": "nova"
+        },
+        {
+          "position": 3,
+          "character_id": "me2_c3",
+          "text": "Muito mais do que mel. O que as abelhas fazem pelo ecossistema além de produzir mel?",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        }
+      ]
+    },
+    {
+      "_id": "me2_s4",
+      "story_id": "me2",
+      "title": "C1 — Qual Serviço Ambiental as Abelhas Prestam?",
+      "type": "decision",
+      "position": 4,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 12 },
+      "description": "TODO — Ana e Pedro pensando, olhando para as abelhas mortas no chão e para as flores da Caatinga ao redor. Técnico aguardando. Seu Zé ao fundo. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "decision": {
+        "prompt": "Qual serviço ambiental as abelhas prestam além da produção de mel?",
+        "interaction_type": "single_choice",
+        "options": [
+          {
+            "label": "Polinização — 73% da produção de alimentos depende de abelhas e outros polinizadores",
+            "next_scene_id": "me2_s6",
+            "score": 10
+          },
+          {
+            "label": "Apenas produção de cera e própolis — não afetam diretamente a produção de alimentos",
+            "next_scene_id": "me2_s5",
+            "score": 1
+          },
+          {
+            "label": "Não sei ainda",
+            "next_scene_id": "me2_s5",
+            "score": 1
+          }
+        ]
+      },
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "me2_c1",
+          "text": "Qual serviço ambiental as abelhas prestam além de produzir mel?",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        }
+      ]
+    },
+    {
+      "_id": "me2_s5",
+      "story_id": "me2",
+      "title": "C1B — A Importância da Polinização",
+      "type": "scene",
+      "position": 5,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 16 },
+      "description": "TODO — Ilustração dividida: lado esquerdo — planta sem polinizador (flor seca, fruto murcho, campo vazio); lado direito — abelha polinizando flor (fruto abundante, campo cheio). Números visíveis: '73% dos alimentos' e 'R$43 bilhões/ano no Brasil'. Fundo verde suave. Estilo cartoon Gravity Falls — diferente de C0.1.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "me2_s4",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "me2_c3",
+          "text": "No Brasil, 73% das espécies vegetais cultivadas dependem de polinizadores. Manga, melancia, caju — tudo passa pela abelha.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 2,
+          "character_id": "me2_c3",
+          "text": "O valor econômico da polinização no Brasil supera R$43 bilhões por ano. O mel é só uma fração disso.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 3,
+          "character_id": "me2_c3",
+          "text": "Então — qual serviço ambiental as abelhas prestam além do mel?",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        }
+      ]
+    },
+    {
+      "_id": "me2_s6",
+      "story_id": "me2",
+      "title": "C2 — A Caatinga e as Abelhas Nativas",
+      "type": "scene",
+      "position": 6,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 14 },
+      "description": "TODO — Técnico mostrando mapa da Caatinga para Ana e Pedro. Fotos de abelhas nativas: jandaíra (pequena, sem ferrão) e uruçu-nordestina. Pote de mel de jandaíra ao lado — coloração mais escura, mais líquido. Expressões de curiosidade. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "me2_s7",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "me2_c3",
+          "text": "A Caatinga é o único bioma 100% brasileiro. Tem mais de 200 espécies de abelhas nativas — e muitas existem só aqui.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 2,
+          "character_id": "me2_c2",
+          "text": "Essas abelhas pequenas não picam?",
+          "audio_url": "",
+          "voice_profile": "nova"
+        },
+        {
+          "position": 3,
+          "character_id": "me2_c3",
+          "text": "A jandaíra e a uruçu não têm ferrão. O mel delas tem acidez maior, propriedades medicinais reconhecidas — e vale até 5x mais que o mel comum.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        }
+      ]
+    },
+    {
+      "_id": "me2_s7",
+      "story_id": "me2",
+      "title": "C3 — O Agrotóxico e a Lei",
+      "type": "scene",
+      "position": 7,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 12 },
+      "description": "TODO — Técnico mostrando documento impresso da Lei 7.802/1989 para Seu Zé que voltou da conversa com o vizinho. Vizinho ao fundo com expressão envergonhada. Seu Zé lendo o documento com atenção. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "me2_s8",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "me2_c1",
+          "text": "Ele disse que não sabia que tinha obrigação de avisar.",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        },
+        {
+          "position": 2,
+          "character_id": "me2_c3",
+          "text": "A Lei 7.802 e as normas do MAPA são claras. O que a lei obriga o produtor a fazer antes de aplicar agrotóxico perto de colmeias?",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        }
+      ]
+    },
+    {
+      "_id": "me2_s8",
+      "story_id": "me2",
+      "title": "C3D — O Que a Lei Obriga?",
+      "type": "decision",
+      "position": 8,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 12 },
+      "description": "TODO — Seu Zé e Ana olhando para o documento da lei. Vizinho ao fundo ainda presente. Técnico aguardando. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "decision": {
+        "prompt": "O que a lei obriga o produtor rural a fazer antes de aplicar agrotóxico próximo a apiários?",
+        "interaction_type": "single_choice",
+        "options": [
+          {
+            "label": "Comunicar os apicultores vizinhos com pelo menos 48 horas de antecedência e aplicar no horário de menor atividade das abelhas",
+            "next_scene_id": "me2_s10",
+            "score": 10
+          },
+          {
+            "label": "Não existe obrigação legal — comunicar é apenas boa prática voluntária, não lei",
+            "next_scene_id": "me2_s9",
+            "score": 3
+          }
+        ]
+      },
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "me2_c1",
+          "text": "O que a lei obriga o produtor rural a fazer antes de aplicar agrotóxico perto de colmeias?",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        }
+      ]
+    },
+    {
+      "_id": "me2_s9",
+      "story_id": "me2",
+      "title": "C3B — A Lei do Agrotóxico",
+      "type": "scene",
+      "position": 9,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 16 },
+      "description": "TODO — Técnico mostrando resumo da lei em cartilha plastificada: '48h de comunicação prévia ao apicultor vizinho. Horário de menor atividade das abelhas (noite ou crepúsculo). Produto menos tóxico disponível.' Vizinho ao fundo ouvindo também. Fundo amarelo suave. Estilo cartoon Gravity Falls — diferente de C3.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "me2_s10",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "me2_c3",
+          "text": "A lei exige comunicação prévia de 48h, aplicação no horário de menor atividade das abelhas — ao entardecer ou à noite — e uso do produto menos tóxico disponível.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 2,
+          "character_id": "me2_c3",
+          "text": "O descumprimento gera responsabilidade civil e penal. O apicultor pode ser indenizado pelo dano causado.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 3,
+          "character_id": null,
+          "text": "Conhecer a lei é a primeira linha de defesa do apiário.",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        }
+      ]
+    },
+    {
+      "_id": "me2_s10",
+      "story_id": "me2",
+      "title": "C4 — O Acordo com o Vizinho",
+      "type": "scene",
+      "position": 10,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 14 },
+      "description": "TODO — Seu Zé e vizinho apertando as mãos ao fundo do campo. Ana e Pedro observando com alívio. Técnico ao lado com satisfação. Tarde dourada da Caatinga. Expressão de resolução e recomeço. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "me2_s11",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "me2_c1",
+          "text": "Fechamos o acordo: ele avisa com 2 dias de antecedência, aplica à noite e vai usar produto menos tóxico para abelha.",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        },
+        {
+          "position": 2,
+          "character_id": "me2_c2",
+          "text": "E as colmeias afetadas se recuperam?",
+          "audio_url": "",
+          "voice_profile": "nova"
+        },
+        {
+          "position": 3,
+          "character_id": "me2_c3",
+          "text": "Em 3 a 4 semanas se a rainha sobreviveu. As abelhas novas substituem as perdidas.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        }
+      ]
+    },
+    {
+      "_id": "me2_s11",
+      "story_id": "me2",
+      "title": "C5 — PSA e Meliponicultura",
+      "type": "scene",
+      "position": 11,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 12 },
+      "description": "TODO — Pedro e Ana ouvindo o Técnico explicar PSA com diagrama: floresta nativa ao redor do apiário → polinização garantida → pagamento por serviço ambiental. Ao lado, caixinha de meliponário com jandaíras. Expressão de quem está vendo uma oportunidade nova. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "me2_s12",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "me2_c3",
+          "text": "Quem preserva a mata nativa ao redor do apiário pode receber pelo Pagamento por Serviços Ambientais — o PSA. O apicultor vira produtor e guardião ao mesmo tempo.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 2,
+          "character_id": "me2_c2",
+          "text": "E a jandaíra? A gente pode criar as duas — Apis e jandaíra?",
+          "audio_url": "",
+          "voice_profile": "nova"
+        },
+        {
+          "position": 3,
+          "character_id": "me2_c3",
+          "text": "Exato. Como o apicultor se torna guardião da Caatinga?",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        }
+      ]
+    },
+    {
+      "_id": "me2_s12",
+      "story_id": "me2",
+      "title": "C5D — Como Ser Guardião da Caatinga?",
+      "type": "decision",
+      "position": 12,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 12 },
+      "description": "TODO — Seu Zé e Ana olhando para o apiário com a Caatinga ao fundo, pensando. Pedro e Técnico aguardando. Flores nativas da Caatinga ao redor. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "decision": {
+        "prompt": "Como o apicultor se torna guardião da Caatinga?",
+        "interaction_type": "single_choice",
+        "options": [
+          {
+            "label": "Preservando vegetação nativa, criando abelhas nativas sem ferrão (meliponicultura) e acessando o PSA por serviços ambientais",
+            "next_scene_id": "me2_s13",
+            "score": 10
+          },
+          {
+            "label": "Focando exclusivamente na produção de mel para aumentar a rentabilidade do apiário",
+            "next_scene_id": "me2_s14",
+            "score": 3
+          }
+        ]
+      },
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "me2_c1",
+          "text": "Como o apicultor se torna guardião da Caatinga?",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        }
+      ]
+    },
+    {
+      "_id": "me2_s13",
+      "story_id": "me2",
+      "title": "C6A — O Apiário e a Caatinga",
+      "type": "end",
+      "position": 13,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 16 },
+      "description": "TODO — Apiário da família Costa com meliponário novo ao lado — caixinhas de jandaíra. Mata nativa preservada ao redor. Ana com pote de mel de jandaíra. Pedro e Seu Zé plantando mudas nativas próximas ao apiário. Sol dourado da tarde na Caatinga. Estilo cartoon Gravity Falls — épica e calorosa.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "end_label": "O Apiário e a Caatinga",
+      "end_score": 10,
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": null,
+          "text": "Acordo com o vizinho. Meliponário iniciado. Vegetação nativa preservada.",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        },
+        {
+          "position": 2,
+          "character_id": "me2_c2",
+          "text": "As jandaíras já estão explorando as flores. E o mel delas vai valer bem mais.",
+          "audio_url": "",
+          "voice_profile": "nova"
+        },
+        {
+          "position": 3,
+          "character_id": "me2_c1",
+          "text": "Trinta anos cuidando do mel. Agora também cuidamos da Caatinga.",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        }
+      ]
+    },
+    {
+      "_id": "me2_s14",
+      "story_id": "me2",
+      "title": "C6B — O Vizinho e o Acordo",
+      "type": "end",
+      "position": 14,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 16 },
+      "description": "TODO — Seu Zé saindo da conversa com o vizinho com expressão de quem fez o que tinha que ser feito. Ana e Pedro ao lado. Apiário ao fundo calmo. Tarde suave da Caatinga. Estilo cartoon Gravity Falls, paleta suave.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "end_label": "O Vizinho e o Acordo",
+      "end_score": 5,
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": null,
+          "text": "Acordo firmado. As colmeias vão se recuperar.",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        },
+        {
+          "position": 2,
+          "character_id": "me2_c2",
+          "text": "Próxima safra — instalar as primeiras caixinhas de jandaíra.",
+          "audio_url": "",
+          "voice_profile": "nova"
+        },
+        {
+          "position": 3,
+          "character_id": "me2_c1",
+          "text": "Quem cuida das abelhas cuida da terra. Quem cuida da terra — tem futuro.",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        }
+      ]
+    }
+  ]
+}

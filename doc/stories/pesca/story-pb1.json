@@ -1,0 +1,588 @@
+{
+  "story": {
+    "_id": "pb1",
+    "title": "O Peixe Que Volta",
+    "synopsis": "Lucas prepara a primeira saída quase solo e aprende com Seu Raimundo sobre malha de rede certa, tamanho mínimo de captura e pesca seletiva. No rio, duas escolhas reais: um mapará pequeno e uma dourada linda abaixo do mínimo. O rio é fiel com quem é fiel com ele.",
+    "cover_image": "",
+    "aspect_ratio": "9:16",
+    "subtitle_font_size": 22,
+    "default_scene_duration": 6,
+    "passing_score": 28,
+    "genre": "Drama",
+    "show_cover_first": true,
+    "first_scene_id": "pb1_s1",
+    "background_audio": {
+      "loop": true,
+      "volume": 0.25,
+      "url": ""
+    },
+    "status": "active"
+  },
+  "characters": [
+    {
+      "_id": "pb1_c1",
+      "story_id": "pb1",
+      "name": "Lucas",
+      "full_name": "Lucas Lopes",
+      "description": "Filho de 18 anos da família Lopes. Colete de pescador, cabelos curtos. Aprendiz de pescador, sonha em profissionalizar o negócio. Questionador e com vontade de crescer.",
+      "voice_profile": "alloy",
+      "avatar_thumbnail": "",
+      "reference_image": ""
+    },
+    {
+      "_id": "pb1_c2",
+      "story_id": "pb1",
+      "name": "Seu Raimundo",
+      "full_name": "Raimundo Lopes",
+      "description": "Pescador de 50 anos. Pele queimada de sol e rio, mãos calejadas, colete de pescador, barba rala. Conhece as águas como ninguém. Sério e digno.",
+      "voice_profile": "onyx",
+      "avatar_thumbnail": "",
+      "reference_image": ""
+    },
+    {
+      "_id": "pb1_c3",
+      "story_id": "pb1",
+      "name": "Júlia",
+      "full_name": "Júlia Lopes",
+      "description": "Filha de 13 anos da família Lopes. Cabelos presos, expressão curiosa e animada. Adora o rio e os peixes. Aprende rápido.",
+      "voice_profile": "nova",
+      "avatar_thumbnail": "",
+      "reference_image": ""
+    }
+  ],
+  "scenes": [
+    {
+      "_id": "pb1_s1",
+      "story_id": "pb1",
+      "title": "CAPA — O Peixe Que Volta",
+      "type": "scene",
+      "position": 1,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 10 },
+      "description": "TODO — Barco de madeira no meio do rio amplo. Lucas (18 anos, colete de pescador) segura um mapará pequeno sobre a água com expressão de decisão séria e reflexiva — devolver ou guardar? Seu Raimundo (50 anos, colete, barba rala) ao lado com braços cruzados, expressão de espera paciente. Rio largo e calmo ao fundo, mata ciliar verde e densa. Luz da manhã. Estilo cartoon Gravity Falls — paleta azul-rio, verde-ribeirinha, luz dourada.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "pb1_s2",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": null,
+          "text": "O peixe pequeno tem um nome: futuro. Lucas ainda vai aprender isso.",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        }
+      ]
+    },
+    {
+      "_id": "pb1_s2",
+      "story_id": "pb1",
+      "title": "C0 — Na Margem, Antes do Rio",
+      "type": "scene",
+      "position": 2,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 14 },
+      "description": "TODO — Beira do rio, tarde. Lucas (18 anos, colete de pescador) estendendo e verificando malhadeiras sobre uma bancada de madeira. Júlia (13 anos, cabelos presos) ao lado com caderninho aberto, observando com curiosidade. Barco de madeira amarrado no fundo. Luz dourada da tarde no rio. Estilo cartoon Gravity Falls — paleta azul-rio e dourado.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "pb1_s3",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": null,
+          "text": "Véspera da primeira saída de Lucas quase solo. Seu Raimundo vai no barco — mas quem toma as decisões é Lucas.",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        },
+        {
+          "position": 2,
+          "character_id": "pb1_c1",
+          "text": "Júlia, me ajuda a separar as redes. Amanhã cedo a gente sai.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 3,
+          "character_id": "pb1_c3",
+          "text": "Lucas, você sabe qual rede usar pra cada peixe?",
+          "audio_url": "",
+          "voice_profile": "nova"
+        }
+      ]
+    },
+    {
+      "_id": "pb1_s3",
+      "story_id": "pb1",
+      "title": "C0.1 — A Malha Que Decide",
+      "type": "scene",
+      "position": 3,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 12 },
+      "description": "TODO — Seu Raimundo (50 anos, colete) segurando duas redes abertas lado a lado para comparação. Rede da esquerda com malha visivelmente pequena (1,5cm); rede da direita com malha maior (5cm entre nós). Lucas ao lado comparando as duas com expressão analítica. Estilo cartoon Gravity Falls — detalhe claro da diferença entre as malhas.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "pb1_s4",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "pb1_c2",
+          "text": "Lucas, essas duas redes. Qual você usa pra mapará?",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        },
+        {
+          "position": 2,
+          "character_id": "pb1_c1",
+          "text": "A menor captura mais, né? Mais peixes, mais dinheiro.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 3,
+          "character_id": "pb1_c2",
+          "text": "É o que parece na superfície. Mas qual é a malha certa pra pesca de mapará?",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        }
+      ]
+    },
+    {
+      "_id": "pb1_s4",
+      "story_id": "pb1",
+      "title": "C1 — Qual Malha?",
+      "type": "decision",
+      "position": 4,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 12 },
+      "description": "TODO — Lucas com as duas redes nas mãos, olhando de uma para a outra com expressão de quem está pesando a decisão. Seu Raimundo ao fundo aguardando. Beira do rio ao entardecer. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "decision": {
+        "prompt": "Qual é o tamanho de malha correto para pesca de mapará?",
+        "interaction_type": "single_choice",
+        "options": [
+          {
+            "label": "5cm entre nós — permite que maparás jovens escapem e cresçam",
+            "next_scene_id": "pb1_s6",
+            "score": 10
+          },
+          {
+            "label": "1,5cm entre nós — captura mais peixes de qualquer tamanho",
+            "next_scene_id": "pb1_s5",
+            "score": 1
+          },
+          {
+            "label": "Não sei ainda",
+            "next_scene_id": "pb1_s5",
+            "score": 1
+          }
+        ]
+      },
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "pb1_c2",
+          "text": "Qual a malha certa?",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        }
+      ]
+    },
+    {
+      "_id": "pb1_s5",
+      "story_id": "pb1",
+      "title": "C1B — A Rede Predatória",
+      "type": "scene",
+      "position": 5,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 16 },
+      "description": "TODO — Ilustração comparativa em dois quadros: esquerda mostra rede de malha 1,5cm repleta de peixes de todos os tamanhos, incluindo maparás jovens, com seta indicando estoque em declínio ano a ano. Direita mostra rede de 5cm com mapará adulto capturado e peixes jovens escapando pelos espaços — estoque renovável. Seu Raimundo aponta para cada lado. Fundo azul suave. Estilo cartoon Gravity Falls — diferente de C0.1.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "pb1_s4",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "pb1_c2",
+          "text": "Com malha pequena, você captura tudo — inclusive os maparás jovens que ainda não se reproduziram. Em três anos, o estoque some.",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        },
+        {
+          "position": 2,
+          "character_id": "pb1_c2",
+          "text": "Com malha de 5cm, o peixe jovem escapa, cresce, bota ovos. O rio continua dando.",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        },
+        {
+          "position": 3,
+          "character_id": "pb1_c2",
+          "text": "Então — qual a malha certa para mapará?",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        }
+      ]
+    },
+    {
+      "_id": "pb1_s6",
+      "story_id": "pb1",
+      "title": "C2 — Com as Redes Certas no Rio",
+      "type": "scene",
+      "position": 6,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 12 },
+      "description": "TODO — Lucas e Seu Raimundo no barco de madeira lançando a malhadeira de 5cm no remanso do rio. Amanhecer com luz dourada sobre a água escura. Lucas com expressão concentrada e confiante, jogando a rede com gesto certo. Rio calmo, mata ciliar densa ao fundo. Estilo cartoon Gravity Falls — paleta azul-rio e dourado do amanhecer.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "pb1_s7",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": null,
+          "text": "Amanhecer. As redes certas no lugar certo. Lucas entende que pesca bem feita começa antes de entrar no barco.",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        },
+        {
+          "position": 2,
+          "character_id": "pb1_c1",
+          "text": "Pai, as redes estão no remanso como você ensinou. Agora é esperar.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 3,
+          "character_id": "pb1_c2",
+          "text": "Agora é respeitar o que a rede encontrar.",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        }
+      ]
+    },
+    {
+      "_id": "pb1_s7",
+      "story_id": "pb1",
+      "title": "C3 — O Mapará Pequeno",
+      "type": "scene",
+      "position": 7,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 12 },
+      "description": "TODO — Lucas recolhendo a rede no barco, puxando com as mãos. Seu Raimundo ao lado com fita métrica pronta. Um mapará jovem preso na malha. Lucas o retira com cuidado e observa na mão — peixe visivelmente pequeno. Expressão hesitante de Lucas — olha para o peixe, depois para o pai. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "pb1_s8",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "pb1_c1",
+          "text": "Pai, tem um mapará aqui. Mas é pequeno — uns 15cm.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 2,
+          "character_id": "pb1_c2",
+          "text": "Quanto é o mínimo pra mapará?",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        },
+        {
+          "position": 3,
+          "character_id": "pb1_c1",
+          "text": "20cm... Mas tá na rede já. O esforço foi feito.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        }
+      ]
+    },
+    {
+      "_id": "pb1_s8",
+      "story_id": "pb1",
+      "title": "C4 — A Escolha no Barco",
+      "type": "decision",
+      "position": 8,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 14 },
+      "description": "TODO — Lucas segurando o mapará de 15cm sobre a superfície do rio, braço estendido sobre a água. Seu Raimundo com braços cruzados, expressão serena mas firme, aguardando. Rio calmo ao redor, cena silenciosa e de peso emocional. Estilo cartoon Gravity Falls — paleta azul-profundo, momento de tensão.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "decision": {
+        "prompt": "O mapará mede 15cm — abaixo do mínimo de 20cm. O que Lucas deve fazer?",
+        "interaction_type": "single_choice",
+        "options": [
+          {
+            "label": "Devolver ao rio imediatamente — peixe abaixo do tamanho mínimo não pode ser retido",
+            "next_scene_id": "pb1_s10",
+            "score": 10
+          },
+          {
+            "label": "Guardar na caixa — o esforço já foi feito e o peixe já foi capturado",
+            "next_scene_id": "pb1_s9",
+            "score": 1
+          },
+          {
+            "label": "Não sei ainda",
+            "next_scene_id": "pb1_s9",
+            "score": 1
+          }
+        ]
+      },
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "pb1_c2",
+          "text": "O rio não quer saber do seu esforço. Quer saber da sua escolha. O que você faz com esse peixe?",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        }
+      ]
+    },
+    {
+      "_id": "pb1_s9",
+      "story_id": "pb1",
+      "title": "C4B — O Estoque do Rio",
+      "type": "scene",
+      "position": 9,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 16 },
+      "description": "TODO — Ilustração com linha do tempo: mapará de 15cm que foi devolvido — seta mostra crescimento para 25cm — seta mostra reprodução — seta mostra dezenas de maparás novos no rio. Vs o mesmo mapará capturado: linha termina ali. Seu Raimundo explica com calma. Fundo azul suave. Estilo cartoon Gravity Falls — diferente de C4.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "pb1_s8",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "pb1_c2",
+          "text": "Esse mapará de 15cm tem mais 2, 3 anos de vida pela frente. Vai crescer pra 25, 30cm. Vai se reproduzir.",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        },
+        {
+          "position": 2,
+          "character_id": "pb1_c2",
+          "text": "Se você guarda hoje, ganha R$2. Se você devolve, ele vai gerar dezenas de maparás nos próximos anos.",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        },
+        {
+          "position": 3,
+          "character_id": "pb1_c2",
+          "text": "Então — o que você faz com esse peixe?",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        }
+      ]
+    },
+    {
+      "_id": "pb1_s10",
+      "story_id": "pb1",
+      "title": "C5 — O Peixe Volta",
+      "type": "scene",
+      "position": 10,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 14 },
+      "description": "TODO — Lucas abaixado na beira do barco, devolvendo cuidadosamente o mapará pequeno ao rio. O peixe escapa para as águas escuras. Expressão de Lucas: sorriso contido e satisfeito — a decisão certa tem um peso bom. Seu Raimundo ao fundo, assentindo com a cabeça. Rio calmo e dourado ao redor. Estilo cartoon Gravity Falls — cena emotiva e serena.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "pb1_s11",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "pb1_c1",
+          "text": "Vai crescer, peixe. A gente se encontra de novo daqui três anos.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 2,
+          "character_id": "pb1_c2",
+          "text": "Sabe quando eu percebi que ia ser pescador de verdade? Na primeira vez que devolvi um peixe sem sentir que perdi.",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        },
+        {
+          "position": 3,
+          "character_id": null,
+          "text": "O mapará sumiu nas águas. E Lucas ficou um pouco mais pescador do que era antes.",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        }
+      ]
+    },
+    {
+      "_id": "pb1_s11",
+      "story_id": "pb1",
+      "title": "C6 — A Dourada",
+      "type": "scene",
+      "position": 11,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 14 },
+      "description": "TODO — Seu Raimundo e Lucas recolhendo outra rede. Uma dourada reluzente aparece na malha — peixe grande, escamas douradas brilhando. Seu Raimundo já com fita métrica na mão antes de qualquer coisa. Mede: 45cm visível na fita. Expressão de Seu Raimundo: sério, olha direto para Lucas. Estilo cartoon Gravity Falls — luz dourada intensa no rio.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "pb1_s12",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "pb1_c1",
+          "text": "Pai! Uma dourada! Olha o tamanho disso.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 2,
+          "character_id": "pb1_c2",
+          "text": "45cm.",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        },
+        {
+          "position": 3,
+          "character_id": "pb1_c1",
+          "text": "Quanto é o mínimo pra dourada? É 60, né?",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        }
+      ]
+    },
+    {
+      "_id": "pb1_s12",
+      "story_id": "pb1",
+      "title": "C7 — A Dourada de 45cm",
+      "type": "decision",
+      "position": 12,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 14 },
+      "description": "TODO — Lucas segurando a dourada de 45cm, olhando para o peixe lindo e para o pai. Expressão de quem está sentindo o peso da escolha — dourada tem valor alto no mercado mas está abaixo do mínimo. Seu Raimundo com braços cruzados, expressão firme mas serena. Rio ao fundo. Estilo cartoon Gravity Falls — cena de máxima tensão emocional.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "decision": {
+        "prompt": "A dourada mede 45cm — abaixo do mínimo de 60cm. O que Lucas deve fazer?",
+        "interaction_type": "single_choice",
+        "options": [
+          {
+            "label": "Devolver ao rio — a dourada ainda não atingiu o tamanho mínimo de 60cm",
+            "next_scene_id": "pb1_s13",
+            "score": 10
+          },
+          {
+            "label": "Guardar — dourada é peixe de alto valor e valeu o esforço da saída",
+            "next_scene_id": "pb1_s14",
+            "score": 3
+          }
+        ]
+      },
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "pb1_c2",
+          "text": "60cm. Me olha e me diz — o que você faz?",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        }
+      ]
+    },
+    {
+      "_id": "pb1_s13",
+      "story_id": "pb1",
+      "title": "C8A — O Rio Fiel",
+      "type": "end",
+      "position": 13,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 16 },
+      "description": "TODO — Lucas abaixando a dourada com cuidado na água, o peixe mergulhando fundo no rio. Seu Raimundo ao lado com expressão de orgulho genuíno. Tarde dourada no rio tranquilo. Caixa com boa captura — maparás e surubins no tamanho certo. Cena de paz, dignidade e equilíbrio com a natureza. Estilo cartoon Gravity Falls — épica e calorosa.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "end_label": "Pescador de Verdade",
+      "end_score": 10,
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": null,
+          "text": "A dourada voltou ao rio. A saída foi boa — três maparás grandes no tamanho certo, dois surubins.",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        },
+        {
+          "position": 2,
+          "character_id": "pb1_c1",
+          "text": "Pai, fiz a conta. A gente ganhou mais hoje do que se tivesse ficado com a dourada pequena.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 3,
+          "character_id": "pb1_c2",
+          "text": "O rio é fiel com quem é fiel com ele. Sempre foi assim.",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        }
+      ]
+    },
+    {
+      "_id": "pb1_s14",
+      "story_id": "pb1",
+      "title": "C8B — O Preço do Atalho",
+      "type": "end",
+      "position": 14,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 16 },
+      "description": "TODO — Lucas olhando para a dourada na caixa de isopor, Seu Raimundo com expressão séria e quieta ao lado. Barco voltando para o porto ao fim da tarde. Lucas com expressão de quem sabe que tomou a decisão errada mas ainda não perdeu a chance de mudar. Cena introspectiva, não punitiva. Estilo cartoon Gravity Falls — paleta suave, tom mais frio.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "end_label": "Uma Lição no Rio",
+      "end_score": 5,
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": null,
+          "text": "Lucas guardou a dourada. Vendeu por R$35. Mas Seu Raimundo ficou quieto a viagem toda.",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        },
+        {
+          "position": 2,
+          "character_id": "pb1_c2",
+          "text": "Você sabe que fez errado.",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        },
+        {
+          "position": 3,
+          "character_id": "pb1_c1",
+          "text": "Sei. Na próxima saída, a dourada volta ao rio. Independente do preço.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        }
+      ]
+    }
+  ]
+}

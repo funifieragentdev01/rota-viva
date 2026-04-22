@@ -1,0 +1,569 @@
+{
+  "story": {
+    "_id": "md2",
+    "title": "A Porta do Mercado",
+    "synopsis": "Um supermercado regional manda mensagem para Pedro: quer comprar mel todo mês, com nota fiscal. Pedro está animado, mas Seu Zé nunca emitiu nota fiscal na vida. O Técnico da Emater-PI aparece para mostrar que formalizar não é complicado — e que existem canais que pagam muito mais do que o atravessador.",
+    "cover_image": "",
+    "aspect_ratio": "9:16",
+    "subtitle_font_size": 22,
+    "default_scene_duration": 6,
+    "passing_score": 28,
+    "genre": "Drama",
+    "show_cover_first": true,
+    "first_scene_id": "md2_s1",
+    "background_audio": {
+      "loop": true,
+      "volume": 0.25,
+      "url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/documents/69e7aaf8501f000cfda76559_enlivening.mp3"
+    },
+    "status": "active"
+  },
+  "characters": [
+    {
+      "_id": "md2_c1",
+      "story_id": "md2",
+      "name": "Pedro",
+      "full_name": "Pedro Costa",
+      "description": "Filho mais velho da família Costa, 19 anos. Chapéu de palha, camiseta. Empreendedor e animado — foi ele quem passou a vender na feira. Descobre que o mel pode entrar em três mercados ao mesmo tempo.",
+      "voice_profile": "alloy",
+      "avatar_thumbnail": "",
+      "reference_image": ""
+    },
+    {
+      "_id": "md2_c2",
+      "story_id": "md2",
+      "name": "Seu Zé",
+      "full_name": "José Costa",
+      "description": "Apicultor de 55 anos, patriarca da família Costa. Rosto curtido de sol, chapéu de palha. Nunca emitiu nota fiscal em trinta anos de atividade — o atravessador sempre comprava sem documento.",
+      "voice_profile": "onyx",
+      "avatar_thumbnail": "",
+      "reference_image": ""
+    },
+    {
+      "_id": "md2_c3",
+      "story_id": "md2",
+      "name": "Técnico Emater",
+      "full_name": "Técnico da Emater-PI",
+      "description": "Extensionista rural da Emater-PI, 35 anos. Colete verde, óculos. Paciente e didático — explica a hierarquia de canais de venda e como emitir a Nota Fiscal de Produtor Rural sem precisar abrir empresa.",
+      "voice_profile": "alloy",
+      "avatar_thumbnail": "",
+      "reference_image": ""
+    }
+  ],
+  "scenes": [
+    {
+      "_id": "md2_s1",
+      "story_id": "md2",
+      "title": "CAPA — A Porta do Mercado",
+      "type": "scene",
+      "position": 1,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 10 },
+      "description": "TODO — Pedro (19 anos, chapéu) de frente para três portas abertas: feira livre com barraca de mel, supermercado, farmácia — pote de mel em primeiro plano de cada porta. Seu Zé (55 anos) ao lado animado. Técnico da Emater-PI (35 anos, colete verde, óculos) apontando para as portas. Estilo cartoon Gravity Falls — paleta amarelo-dourado e verde-caatinga.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "md2_s2",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": null,
+          "text": "Onde o mel vai define quanto o apicultor recebe. Conhecer os canais é poder de negociação.",
+          "audio_url": "",
+          "voice_profile": "nova"
+        }
+      ]
+    },
+    {
+      "_id": "md2_s2",
+      "story_id": "md2",
+      "title": "C0 — A Proposta do Supermercado",
+      "type": "scene",
+      "position": 2,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 14 },
+      "description": "TODO — Pedro lendo mensagem no celular na cozinha, expressão animada. Seu Zé ao lado. Mensagem visível no celular: 'Olá, temos interesse em comprar mel artesanal local todo mês. Precisamos de nota fiscal e rótulo completo.' Cozinha da família Costa. Estilo cartoon Gravity Falls — paleta quente interior.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "md2_s3",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": null,
+          "text": "Um supermercado regional viu o mel de Pedro na feira e quis mais.",
+          "audio_url": "",
+          "voice_profile": "nova"
+        },
+        {
+          "position": 2,
+          "character_id": "md2_c1",
+          "text": "Pai, o supermercado quer comprar todo mês! Mas pede nota fiscal. A gente nunca emitiu nota.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 3,
+          "character_id": "md2_c2",
+          "text": "Nota fiscal. Coisa que nunca precisamos enquanto vendia na feira e pro atravessador.",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        }
+      ]
+    },
+    {
+      "_id": "md2_s3",
+      "story_id": "md2",
+      "title": "C0.1 — O Que o Mercado Pede",
+      "type": "scene",
+      "position": 3,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 12 },
+      "description": "TODO — Pedro e Seu Zé olhando para lista de requisitos do supermercado no celular: nota fiscal, SIM ou SIE, rótulo com número de registro. Seu Zé com expressão de quem está avaliando o obstáculo. Técnico da Emater-PI ao fundo chegando. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "md2_s4",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "md2_c1",
+          "text": "O atravessador nunca pediu nada disso. Mas o supermercado paga 40% mais.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 2,
+          "character_id": "md2_c2",
+          "text": "Antes de correr atrás do papel, me diz: qual canal de venda paga mais por kg de mel?",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        }
+      ]
+    },
+    {
+      "_id": "md2_s4",
+      "story_id": "md2",
+      "title": "C1 — Qual Canal Paga Mais?",
+      "type": "decision",
+      "position": 4,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 12 },
+      "description": "TODO — Pedro e Seu Zé sentados à mesa, pensando. Potes de mel sobre a mesa. Técnico da Emater-PI chegando ao fundo. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "decision": {
+        "prompt": "Qual canal de venda geralmente paga o maior preço ao apicultor por kg de mel?",
+        "interaction_type": "single_choice",
+        "options": [
+          {
+            "label": "Venda direta ao consumidor final (feira, loja própria, WhatsApp) — sem intermediários",
+            "next_scene_id": "md2_s6",
+            "score": 10
+          },
+          {
+            "label": "Atacadista ou agroindústria — compra em volume mas define o preço",
+            "next_scene_id": "md2_s5",
+            "score": 1
+          },
+          {
+            "label": "Não sei ainda",
+            "next_scene_id": "md2_s5",
+            "score": 1
+          }
+        ]
+      },
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "md2_c2",
+          "text": "Qual canal de venda geralmente paga o maior preço ao apicultor por kg de mel?",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        }
+      ]
+    },
+    {
+      "_id": "md2_s5",
+      "story_id": "md2",
+      "title": "C1B — O Preço de Cada Canal",
+      "type": "scene",
+      "position": 5,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 16 },
+      "description": "TODO — Técnico da Emater-PI mostrando gráfico de barras comparando preço recebido pelo apicultor: atravessador (menor), atacadista, cooperativa, feira, farmácia/empório (maior). Seu Zé e Pedro olhando com atenção. Fundo amarelo suave. Estilo cartoon Gravity Falls — diferente de C0.1.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "md2_s4",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "md2_c3",
+          "text": "Atravessador paga o menor preço — ele fica com a margem. Quem vende direto ao consumidor fica com tudo.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 2,
+          "character_id": "md2_c3",
+          "text": "Farmácia e empório gourmet pagam até 3x mais que o atravessador — porque o cliente deles paga por qualidade e origem.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 3,
+          "character_id": "md2_c3",
+          "text": "Então — qual canal paga mais por kg?",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        }
+      ]
+    },
+    {
+      "_id": "md2_s6",
+      "story_id": "md2",
+      "title": "C2 — A Escada dos Canais",
+      "type": "scene",
+      "position": 6,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 14 },
+      "description": "TODO — Técnico da Emater-PI desenhando diagrama numa folha para Pedro e Seu Zé: escada com 5 degraus — 'Atravessador (menor)', 'Atacadista', 'Cooperativa + supermercado', 'Feira direta', 'Farmácia/empório (maior)'. Requisitos de cada degrau ao lado. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "md2_s7",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "md2_c3",
+          "text": "Atravessador: sem documento, preço baixo. Feira: SIM e rótulo básico. Supermercado: SIE ou SIF e nota fiscal. Farmácia: premium — história, origem, orgânico.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 2,
+          "character_id": "md2_c1",
+          "text": "A gente pode ter mais de um canal ao mesmo tempo?",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 3,
+          "character_id": "md2_c3",
+          "text": "Exatamente. Parte na feira, parte pro PNAE, parte pra farmácia — renda mais estável e preço melhor na média.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        }
+      ]
+    },
+    {
+      "_id": "md2_s7",
+      "story_id": "md2",
+      "title": "C3 — Nota Fiscal: Como Funciona?",
+      "type": "scene",
+      "position": 7,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 12 },
+      "description": "TODO — Seu Zé e Técnico sentados à mesa. Seu Zé com expressão de quem tem uma pergunta antiga guardada. Técnico abre pasta com formulário da SEFAZ-PI. Pedro anotando ao lado. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "md2_s8",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "md2_c2",
+          "text": "Nunca emiti nota fiscal na vida. Como funciona? Precisa de contador, CNPJ?",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        },
+        {
+          "position": 2,
+          "character_id": "md2_c3",
+          "text": "Muito mais simples do que parece. Como o apicultor familiar emite nota fiscal de forma correta?",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        }
+      ]
+    },
+    {
+      "_id": "md2_s8",
+      "story_id": "md2",
+      "title": "C3D — Como Emitir Nota Fiscal?",
+      "type": "decision",
+      "position": 8,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 12 },
+      "description": "TODO — Seu Zé olhando para o formulário que o Técnico abriu, expressão de quem está avaliando. Pedro com caneta pronta para anotar. Mesa com documentos e potes de mel. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "decision": {
+        "prompt": "Como o apicultor familiar emite nota fiscal para formalizar a venda do mel?",
+        "interaction_type": "single_choice",
+        "options": [
+          {
+            "label": "Nota Fiscal de Produtor Rural pela SEFAZ-PI — gratuita, com CAF e inscrição estadual, sem precisar abrir empresa",
+            "next_scene_id": "md2_s10",
+            "score": 10
+          },
+          {
+            "label": "Abrindo MEI ou empresa — a nota fiscal de produtor rural não existe para apicultor individual",
+            "next_scene_id": "md2_s9",
+            "score": 3
+          }
+        ]
+      },
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "md2_c2",
+          "text": "Como o apicultor familiar emite nota fiscal para formalizar a venda do mel?",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        }
+      ]
+    },
+    {
+      "_id": "md2_s9",
+      "story_id": "md2",
+      "title": "C3B — Nota Fiscal Não É Empresa",
+      "type": "scene",
+      "position": 9,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 16 },
+      "description": "TODO — Técnico mostrando dois blocos lado a lado: 'Nota Fiscal de Produtor Rural: CAF + inscrição estadual gratuita + talonário ou portal digital SEFAZ-PI'; 'Empresa (MEI): CNPJ + contribuição mensal + obrigações fiscais extras'. São opções diferentes, não obrigatórias. Seu Zé com expressão de alívio. Estilo cartoon Gravity Falls — diferente de C3.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "md2_s10",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "md2_c3",
+          "text": "Nota Fiscal de Produtor Rural é gratuita na SEFAZ-PI — basta o CAF e a inscrição estadual de produtor.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 2,
+          "character_id": "md2_c3",
+          "text": "O MEI é outra opção — CNPJ, até R$81.000/ano de faturamento, R$70/mês de contribuição. Mas o MEI e o CAF coexistem — não é um ou outro.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 3,
+          "character_id": null,
+          "text": "Ser formal não significa abrir empresa. Significa ter o documento certo para cada venda.",
+          "audio_url": "",
+          "voice_profile": "nova"
+        }
+      ]
+    },
+    {
+      "_id": "md2_s10",
+      "story_id": "md2",
+      "title": "C4 — A Nota Fiscal na Prática",
+      "type": "scene",
+      "position": 10,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 14 },
+      "description": "TODO — Técnico, Pedro e Seu Zé no computador acessando o portal da SEFAZ-PI. Tela visível com formulário simples de inscrição estadual de produtor rural. Pedro digitando dados. Seu Zé acompanhando com expressão de surpresa positiva — é mais fácil do que esperava. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "md2_s11",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "md2_c3",
+          "text": "Com o CAF e o CPF de Seu Zé, a inscrição estadual sai em menos de uma semana. Daí é só emitir a nota a cada venda — no talonário ou pelo portal digital.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 2,
+          "character_id": "md2_c2",
+          "text": "E o supermercado pode comprar com essa nota?",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        },
+        {
+          "position": 3,
+          "character_id": "md2_c3",
+          "text": "Pode. Todos os compradores formais aceitam nota de produtor rural.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        }
+      ]
+    },
+    {
+      "_id": "md2_s11",
+      "story_id": "md2",
+      "title": "C5 — Diversificar Canais",
+      "type": "scene",
+      "position": 11,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 12 },
+      "description": "TODO — Pedro desenhando no papel três caixinhas: 'Feira (sábado)', 'PNAE — escola', 'Farmácia (mensal)'. Setas de valor para cada canal com preços diferentes. Seu Zé olhando com expressão de quem está vendo o futuro. Técnico ao lado validando. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "md2_s12",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "md2_c1",
+          "text": "E se eu vender parte na feira, parte pro PNAE e parte pra farmácia — não fico dependente de ninguém.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 2,
+          "character_id": "md2_c2",
+          "text": "Se o atravessador sumir, a gente não quebra.",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        },
+        {
+          "position": 3,
+          "character_id": "md2_c3",
+          "text": "Exato. Como o apicultor se protege de depender de um único comprador?",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        }
+      ]
+    },
+    {
+      "_id": "md2_s12",
+      "story_id": "md2",
+      "title": "C5D — Como Se Proteger da Dependência?",
+      "type": "decision",
+      "position": 12,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 12 },
+      "description": "TODO — Pedro olhando para os três canais desenhados no papel, pensando. Seu Zé e Técnico aguardando. Potes de mel ao fundo. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "decision": {
+        "prompt": "Como o apicultor se protege de depender de um único comprador?",
+        "interaction_type": "single_choice",
+        "options": [
+          {
+            "label": "Diversificando canais — parte na feira, parte no PNAE, parte na farmácia — para não ficar refém de nenhum preço",
+            "next_scene_id": "md2_s13",
+            "score": 10
+          },
+          {
+            "label": "Vendendo tudo para o atravessador que oferece o maior volume de compra garantido",
+            "next_scene_id": "md2_s14",
+            "score": 3
+          }
+        ]
+      },
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "md2_c2",
+          "text": "Como o apicultor se protege de depender de um único comprador?",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        }
+      ]
+    },
+    {
+      "_id": "md2_s13",
+      "story_id": "md2",
+      "title": "C6A — Três Portas Abertas",
+      "type": "end",
+      "position": 13,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 16 },
+      "description": "TODO — Pedro entregando mel para três destinos diferentes: barraca na feira no sábado, coordenadora de escola (PNAE), gerente de farmácia. Cada destino com preço diferente visível. Seu Zé ao fundo com expressão de orgulho. Apiário ao fundo ensolarado. Estilo cartoon Gravity Falls — épica e calorosa.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "end_label": "Três Portas Abertas",
+      "end_score": 10,
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": null,
+          "text": "Nota Fiscal emitida. Três canais ativos. Renda mais estável a cada safra.",
+          "audio_url": "",
+          "voice_profile": "nova"
+        },
+        {
+          "position": 2,
+          "character_id": "md2_c1",
+          "text": "Feira, PNAE e farmácia — se um cair, os outros seguram. E o preço médio subiu 35%.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 3,
+          "character_id": "md2_c2",
+          "text": "A qualidade sempre esteve aqui. Faltava saber onde levar.",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        }
+      ]
+    },
+    {
+      "_id": "md2_s14",
+      "story_id": "md2",
+      "title": "C6B — O Primeiro Canal Novo",
+      "type": "end",
+      "position": 14,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 16 },
+      "description": "TODO — Pedro e Seu Zé saindo da Emater com a inscrição estadual impressa em mãos. Rua tranquila do interior do Piauí. Expressão de quem tem o caminho claro mas ainda está no começo. Apiário ao fundo no fim da tarde. Estilo cartoon Gravity Falls, paleta suave.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "end_label": "O Primeiro Canal Novo",
+      "end_score": 5,
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": null,
+          "text": "Inscrição estadual em mãos. O supermercado pode esperar mais uma semana.",
+          "audio_url": "",
+          "voice_profile": "nova"
+        },
+        {
+          "position": 2,
+          "character_id": "md2_c1",
+          "text": "Nota fiscal resolvida. Semana que vem o supermercado confirma o pedido.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 3,
+          "character_id": "md2_c2",
+          "text": "Primeiro canal novo em trinta anos. Só o começo.",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        }
+      ]
+    }
+  ]
+}

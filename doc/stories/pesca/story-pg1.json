@@ -1,0 +1,513 @@
+{
+  "story": {
+    "_id": "pg1",
+    "title": "Seus Direitos no Rota Viva",
+    "synopsis": "Júlia percebe que o app pede permissão para câmera e localização e pergunta se é seguro. Dona Graça explica a LGPD — ela tem direito de ver, corrigir e apagar seus dados. Lucas mostra que a trilha é de graça, do módulo A ao G, com certificado. Júlia aprende que participar do Rota Viva é uma relação com direitos reais: controle dos dados, acesso completo e um canal oficial para acionar quando algo não funciona.",
+    "cover_image": "",
+    "aspect_ratio": "9:16",
+    "subtitle_font_size": 22,
+    "default_scene_duration": 6,
+    "passing_score": 28,
+    "genre": "Drama",
+    "show_cover_first": true,
+    "first_scene_id": "pg1_s1",
+    "background_audio": {
+      "loop": true,
+      "volume": 0.25,
+      "url": ""
+    },
+    "status": "active"
+  },
+  "characters": [
+    {
+      "_id": "pg1_c1",
+      "story_id": "pg1",
+      "name": "Júlia",
+      "description": "Júlia Lopes, 13 anos. Adora o rio e os peixes. Curiosa e animada, observadora. Aprende rápido.",
+      "voice_profile": "nova",
+      "avatar_thumbnail": "",
+      "reference_image": ""
+    },
+    {
+      "_id": "pg1_c2",
+      "story_id": "pg1",
+      "name": "Dona Graça",
+      "description": "Graça Lopes, 46 anos. Extrovertida, forte. Gerencia a parte comercial da pesca e a vida da família. Boa de conselho.",
+      "voice_profile": "shimmer",
+      "avatar_thumbnail": "",
+      "reference_image": ""
+    },
+    {
+      "_id": "pg1_c3",
+      "story_id": "pg1",
+      "name": "Lucas",
+      "description": "Lucas Lopes, 18 anos. Aprendiz de pescador, sonha em profissionalizar o negócio. Questionador e com vontade de crescer.",
+      "voice_profile": "alloy",
+      "avatar_thumbnail": "",
+      "reference_image": ""
+    }
+  ],
+  "scenes": [
+    {
+      "_id": "pg1_s1",
+      "story_id": "pg1",
+      "title": "CAPA — Seus Direitos no Rota Viva",
+      "type": "scene",
+      "position": 1,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 12 },
+      "description": "TODO — Júlia (13 anos, curiosa e animada) segurando celular com o app Rota Viva no trapiche. Dona Graça (46 anos, forte) ao lado sorrindo. Lucas (18 anos) ao fundo com polegar para cima. Rio ao fundo. Estilo cartoon Gravity Falls — paleta azul-rio e verde-ribeirinha.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "pg1_s2",
+      "dialogues": [
+        {
+          "character_id": null,
+          "voice_profile": "onyx",
+          "text": "O Rota Viva é mais do que uma trilha. É uma relação. E toda relação tem direitos.",
+          "audio_url": ""
+        }
+      ]
+    },
+    {
+      "_id": "pg1_s2",
+      "story_id": "pg1",
+      "title": "C0 — A Dúvida de Júlia",
+      "type": "scene",
+      "position": 2,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 14 },
+      "description": "TODO — Júlia na sede da colônia mexendo no celular. Tela de permissões do app visível. Dona Graça ao lado. Lucas ao fundo. Sede simples da colônia de pescadores. Estilo cartoon Gravity Falls — interior simples.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "pg1_s3",
+      "dialogues": [
+        {
+          "character_id": null,
+          "voice_profile": "onyx",
+          "text": "Júlia baixou o app e parou na tela de permissões.",
+          "audio_url": ""
+        },
+        {
+          "character_id": "pg1_c1",
+          "voice_profile": "nova",
+          "text": "Mãe, o app pede câmera e localização. Os dados ficam com o governo para sempre? É seguro?",
+          "audio_url": ""
+        }
+      ]
+    },
+    {
+      "_id": "pg1_s3",
+      "story_id": "pg1",
+      "title": "C0.1 — A LGPD Explicada",
+      "type": "scene",
+      "position": 3,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 16 },
+      "description": "TODO — Dona Graça mostrando política de privacidade no celular para Júlia. Lucas ao fundo prestando atenção. Sede da colônia ao fundo. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "pg1_s4",
+      "dialogues": [
+        {
+          "character_id": "pg1_c2",
+          "voice_profile": "shimmer",
+          "text": "É um programa federal — segue a LGPD, a Lei Geral de Proteção de Dados.",
+          "audio_url": ""
+        },
+        {
+          "character_id": "pg1_c2",
+          "voice_profile": "shimmer",
+          "text": "Você tem direito de ver seus dados, corrigir se estiver errado — e pedir para apagar quando quiser sair.",
+          "audio_url": ""
+        },
+        {
+          "character_id": "pg1_c1",
+          "voice_profile": "nova",
+          "text": "E o que a LGPD garante para mim no Rota Viva?",
+          "audio_url": ""
+        }
+      ]
+    },
+    {
+      "_id": "pg1_s4",
+      "story_id": "pg1",
+      "title": "D1 — O Que a LGPD Garante",
+      "type": "decision",
+      "position": 4,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 10 },
+      "description": "TODO — Júlia com expressão de dúvida segurando o celular. Dona Graça ao lado esperando a resposta. Sede da colônia ao fundo. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "decision": {
+        "prompt": "O que a LGPD garante ao participante do Rota Viva?",
+        "interaction_type": "single_choice",
+        "options": [
+          {
+            "label": "A lei garante controle sobre seus dados: direito de acessar, corrigir e excluir a qualquer momento",
+            "next_scene_id": "pg1_s6",
+            "score": 10
+          },
+          {
+            "label": "A LGPD proíbe o governo de coletar qualquer dado do participante, mesmo com autorização",
+            "next_scene_id": "pg1_s5",
+            "score": 1
+          },
+          {
+            "label": "Não sei ainda",
+            "next_scene_id": "pg1_s5",
+            "score": 1
+          }
+        ]
+      },
+      "dialogues": []
+    },
+    {
+      "_id": "pg1_s5",
+      "story_id": "pg1",
+      "title": "C1B — LGPD na Prática",
+      "type": "scene",
+      "position": 5,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 18 },
+      "description": "TODO — Painel educativo com os quatro direitos LGPD: ícone de olho (acessar), lápis (corrigir), lixeira (excluir), porta (sair). Fundo azul suave. Estilo cartoon Gravity Falls — visual diferente de C0.1.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "pg1_s4",
+      "dialogues": [
+        {
+          "character_id": "pg1_c2",
+          "voice_profile": "shimmer",
+          "text": "Câmera é para o Diário do Produtor — fotos do seu trabalho de pesca. Localização identifica sua região de pesca.",
+          "audio_url": ""
+        },
+        {
+          "character_id": "pg1_c2",
+          "voice_profile": "shimmer",
+          "text": "Você autoriza, pode rever a autorização, e pode pedir exclusão quando quiser. Seus dados não ficam para sempre.",
+          "audio_url": ""
+        },
+        {
+          "character_id": "pg1_c2",
+          "voice_profile": "shimmer",
+          "text": "Então — o que a LGPD garante a você?",
+          "audio_url": ""
+        }
+      ]
+    },
+    {
+      "_id": "pg1_s6",
+      "story_id": "pg1",
+      "title": "C2 — O Que a Trilha Oferece",
+      "type": "scene",
+      "position": 6,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 14 },
+      "description": "TODO — Lucas mostrando para Júlia a tela da trilha completa no celular: módulos A a G desbloqueados, ícone de certificado ao final. Expressão animada de Lucas. Dona Graça sorrindo ao fundo. Sede da colônia. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "pg1_s7",
+      "dialogues": [
+        {
+          "character_id": "pg1_c3",
+          "voice_profile": "alloy",
+          "text": "E ainda — tudo de graça. Trilha completa do módulo A ao G. Certificado de conclusão emitido pelo programa ao final.",
+          "audio_url": ""
+        },
+        {
+          "character_id": "pg1_c1",
+          "voice_profile": "nova",
+          "text": "E se o app tiver bug ou eu não conseguir acessar alguma coisa?",
+          "audio_url": ""
+        },
+        {
+          "character_id": "pg1_c3",
+          "voice_profile": "alloy",
+          "text": "Tem canal oficial para isso — direto com o ministério.",
+          "audio_url": ""
+        }
+      ]
+    },
+    {
+      "_id": "pg1_s7",
+      "story_id": "pg1",
+      "title": "C3 — A Ouvidoria do MIDR",
+      "type": "scene",
+      "position": 7,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 14 },
+      "description": "TODO — Dona Graça mostrando contato da ouvidoria no celular: 0800-729-6478. Lucas ao lado com expressão de quem tomou nota. Sede da colônia ao fundo. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "pg1_s8",
+      "dialogues": [
+        {
+          "character_id": "pg1_c2",
+          "voice_profile": "shimmer",
+          "text": "Se tiver qualquer problema — acesso bloqueado, dado errado, conteúdo não abrindo — você aciona a ouvidoria do MIDR.",
+          "audio_url": ""
+        },
+        {
+          "character_id": "pg1_c3",
+          "voice_profile": "alloy",
+          "text": "0800-729-6478. Ligação gratuita de qualquer telefone.",
+          "audio_url": ""
+        },
+        {
+          "character_id": "pg1_c1",
+          "voice_profile": "nova",
+          "text": "Como o participante aciona o suporte oficial do Rota Viva?",
+          "audio_url": ""
+        }
+      ]
+    },
+    {
+      "_id": "pg1_s8",
+      "story_id": "pg1",
+      "title": "D2 — Como Acionar o Suporte",
+      "type": "decision",
+      "position": 8,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 10 },
+      "description": "TODO — Júlia com o celular na mão, expressão de quem está pensando na resposta. Dona Graça e Lucas ao lado. Sede da colônia ao fundo. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "decision": {
+        "prompt": "Como o participante aciona o suporte oficial do Rota Viva?",
+        "interaction_type": "single_choice",
+        "options": [
+          {
+            "label": "Ouvidoria do MIDR — 0800-729-6478, ligação gratuita, ou pelo portal ouvidoria.midr.gov.br",
+            "next_scene_id": "pg1_s10",
+            "score": 10
+          },
+          {
+            "label": "Só pelo técnico da colônia local — não existe canal direto com o MIDR",
+            "next_scene_id": "pg1_s9",
+            "score": 3
+          }
+        ]
+      },
+      "dialogues": []
+    },
+    {
+      "_id": "pg1_s9",
+      "story_id": "pg1",
+      "title": "C3B — Canais de Suporte",
+      "type": "scene",
+      "position": 9,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 14 },
+      "description": "TODO — Painel com canais de suporte: Ouvidoria 0800-729-6478 e Portal ouvidoria.midr.gov.br. Ícones de telefone e computador. Fundo azul suave. Estilo cartoon Gravity Falls — visual diferente de C3.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "pg1_s10",
+      "dialogues": [
+        {
+          "character_id": "pg1_c2",
+          "voice_profile": "shimmer",
+          "text": "A ouvidoria atende reclamações, sugestões e pedidos de informação. Ligação gratuita de qualquer telefone, em qualquer horário.",
+          "audio_url": ""
+        },
+        {
+          "character_id": null,
+          "voice_profile": "onyx",
+          "text": "Participante informado usa o canal certo. Canal errado atrasa a solução.",
+          "audio_url": ""
+        }
+      ]
+    },
+    {
+      "_id": "pg1_s10",
+      "story_id": "pg1",
+      "title": "C4 — O Direito de Sair",
+      "type": "scene",
+      "position": 10,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 14 },
+      "description": "TODO — Júlia, Dona Graça e Lucas no barco no igarapé. Júlia com expressão pensativa, celular na mão. Rio e floresta ao fundo.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "pg1_s11",
+      "dialogues": [
+        {
+          "character_id": "pg1_c3",
+          "voice_profile": "alloy",
+          "text": "E se eu quiser sair do programa — posso simplesmente parar?",
+          "audio_url": ""
+        },
+        {
+          "character_id": "pg1_c2",
+          "voice_profile": "shimmer",
+          "text": "Descadastramento é um direito. Você pede a exclusão — o sistema mantém por prazo legal mínimo e depois apaga.",
+          "audio_url": ""
+        },
+        {
+          "character_id": "pg1_c1",
+          "voice_profile": "nova",
+          "text": "Então participar não é uma obrigação. É uma escolha.",
+          "audio_url": ""
+        }
+      ]
+    },
+    {
+      "_id": "pg1_s11",
+      "story_id": "pg1",
+      "title": "C5 — Uma Relação com Direitos",
+      "type": "scene",
+      "position": 11,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 14 },
+      "description": "TODO — Júlia com celular na mão, sorrindo com confiança. Tela do app aberta no perfil. Trapiche e rio ao fundo. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "pg1_s12",
+      "dialogues": [
+        {
+          "character_id": null,
+          "voice_profile": "onyx",
+          "text": "Participar do Rota Viva é uma relação — com trilha, galeria, perfil — e com direitos reais.",
+          "audio_url": ""
+        },
+        {
+          "character_id": "pg1_c1",
+          "voice_profile": "nova",
+          "text": "Qual é o principal conjunto de direitos do participante no Rota Viva?",
+          "audio_url": ""
+        },
+        {
+          "character_id": "pg1_c2",
+          "voice_profile": "shimmer",
+          "text": "Acesso gratuito ao conteúdo completo, controle sobre os dados — e o direito de sair quando quiser.",
+          "audio_url": ""
+        }
+      ]
+    },
+    {
+      "_id": "pg1_s12",
+      "story_id": "pg1",
+      "title": "D3 — Principais Direitos do Participante",
+      "type": "decision",
+      "position": 12,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 10 },
+      "description": "TODO — Júlia com expressão confiante segurando o celular. Dona Graça e Lucas ao lado. Rio ao fundo. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "decision": {
+        "prompt": "Qual é o principal conjunto de direitos do participante no Rota Viva?",
+        "interaction_type": "single_choice",
+        "options": [
+          {
+            "label": "Acesso gratuito à trilha completa, controle sobre os dados pessoais e direito ao descadastramento a qualquer momento",
+            "next_scene_id": "pg1_s13",
+            "score": 10
+          },
+          {
+            "label": "Receber pagamento mensal por completar as lições e módulos da trilha",
+            "next_scene_id": "pg1_s14",
+            "score": 3
+          }
+        ]
+      },
+      "dialogues": []
+    },
+    {
+      "_id": "pg1_s13",
+      "story_id": "pg1",
+      "title": "C6A — Certificada",
+      "type": "end",
+      "position": 13,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 18 },
+      "description": "TODO — Júlia segurando o celular com notificação de certificado de conclusão do Módulo G na tela. Família Lopes reunida, comemorando no trapiche. Rio ao fundo. Estilo cartoon Gravity Falls — épica e calorosa.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "end_label": "Participante Certificada",
+      "end_score": 10,
+      "dialogues": [
+        {
+          "character_id": null,
+          "voice_profile": "onyx",
+          "text": "Trilha completa. Certificado emitido. Direitos conhecidos.",
+          "audio_url": ""
+        },
+        {
+          "character_id": "pg1_c1",
+          "voice_profile": "nova",
+          "text": "Sei o que o programa oferece — e sei o que tenho direito de exigir.",
+          "audio_url": ""
+        },
+        {
+          "character_id": "pg1_c2",
+          "voice_profile": "shimmer",
+          "text": "Isso é o que faz uma participante. Não só uma usuária.",
+          "audio_url": ""
+        }
+      ]
+    },
+    {
+      "_id": "pg1_s14",
+      "story_id": "pg1",
+      "title": "C6B — A Leitura",
+      "type": "end",
+      "position": 14,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 16 },
+      "description": "TODO — Júlia sentada no trapiche, lendo com atenção a política de privacidade do app no celular. Expressão concentrada. Rio ao fundo. Estilo cartoon Gravity Falls, paleta suave.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "end_label": "A Participante Informada",
+      "end_score": 5,
+      "dialogues": [
+        {
+          "character_id": null,
+          "voice_profile": "onyx",
+          "text": "Antes de avançar — ler o que foi autorizado.",
+          "audio_url": ""
+        },
+        {
+          "character_id": "pg1_c1",
+          "voice_profile": "nova",
+          "text": "Vou ler completo. Quero saber exatamente o que autorizei.",
+          "audio_url": ""
+        },
+        {
+          "character_id": "pg1_c2",
+          "voice_profile": "shimmer",
+          "text": "Participante informada é participante protegida.",
+          "audio_url": ""
+        }
+      ]
+    }
+  ]
+}

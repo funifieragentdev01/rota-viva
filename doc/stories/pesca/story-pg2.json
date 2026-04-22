@@ -1,0 +1,513 @@
+{
+  "story": {
+    "_id": "pg2",
+    "title": "O Peixe e o Recurso Público",
+    "synopsis": "Lucas ouve que um pescador foi preso por fraude no Seguro-Defeso. A Presidente da Colônia explica: é um direito legítimo — mas exige RGP ativo, parada total e documentação em dia. Seu Raimundo reforça com o próprio exemplo. Lucas aprende que denunciar fraude não é delação — é proteger o direito de todos os pescadores que trabalham com integridade.",
+    "cover_image": "",
+    "aspect_ratio": "9:16",
+    "subtitle_font_size": 22,
+    "default_scene_duration": 6,
+    "passing_score": 28,
+    "genre": "Drama",
+    "show_cover_first": true,
+    "first_scene_id": "pg2_s1",
+    "background_audio": {
+      "loop": true,
+      "volume": 0.25,
+      "url": ""
+    },
+    "status": "active"
+  },
+  "characters": [
+    {
+      "_id": "pg2_c1",
+      "story_id": "pg2",
+      "name": "Seu Raimundo",
+      "description": "Raimundo Lopes, 50 anos. Pescador experiente, pele queimada de sol e rio, mãos calejadas. Conhece as águas como ninguém. Sério e digno.",
+      "voice_profile": "onyx",
+      "avatar_thumbnail": "",
+      "reference_image": ""
+    },
+    {
+      "_id": "pg2_c2",
+      "story_id": "pg2",
+      "name": "Lucas",
+      "description": "Lucas Lopes, 18 anos. Aprendiz de pescador, sonha em profissionalizar o negócio. Questionador e com vontade de crescer.",
+      "voice_profile": "alloy",
+      "avatar_thumbnail": "",
+      "reference_image": ""
+    },
+    {
+      "_id": "pg2_c3",
+      "story_id": "pg2",
+      "name": "Presidente da Colônia",
+      "description": "Presidente da Colônia de Pescadores, mulher, 45 anos. Expressão firme e determinada. Conhece todos os direitos e deveres dos pescadores artesanais.",
+      "voice_profile": "shimmer",
+      "avatar_thumbnail": "",
+      "reference_image": ""
+    }
+  ],
+  "scenes": [
+    {
+      "_id": "pg2_s1",
+      "story_id": "pg2",
+      "title": "CAPA — O Peixe e o Recurso Público",
+      "type": "scene",
+      "position": 1,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 12 },
+      "description": "TODO — Seu Raimundo (50 anos, pescador experiente, colete) no trapiche segurando RGP e documento do Seguro-Defeso. Lucas (18 anos) ao lado. Presidente da Colônia (mulher, 45 anos, expressão firme) ao fundo com pasta. Rio ao fundo. Estilo cartoon Gravity Falls — paleta azul-rio e verde-ribeirinha.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "pg2_s2",
+      "dialogues": [
+        {
+          "character_id": null,
+          "voice_profile": "nova",
+          "text": "Recurso público usado com honestidade protege quem trabalha de verdade.",
+          "audio_url": ""
+        }
+      ]
+    },
+    {
+      "_id": "pg2_s2",
+      "story_id": "pg2",
+      "title": "C0 — A Notícia na Colônia",
+      "type": "scene",
+      "position": 2,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 14 },
+      "description": "TODO — Lucas e Seu Raimundo na sede da colônia. Outros pescadores comentando ao fundo com expressão preocupada. Sede simples da colônia de pescadores. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "pg2_s3",
+      "dialogues": [
+        {
+          "character_id": null,
+          "voice_profile": "nova",
+          "text": "A notícia chegou à colônia: pescador preso por fraude no Seguro-Defeso.",
+          "audio_url": ""
+        },
+        {
+          "character_id": "pg2_c2",
+          "voice_profile": "alloy",
+          "text": "Pai, ouço falar em Seguro-Defeso desde criança. Mas como funciona direito — quem tem direito mesmo?",
+          "audio_url": ""
+        }
+      ]
+    },
+    {
+      "_id": "pg2_s3",
+      "story_id": "pg2",
+      "title": "C0.1 — O Seguro-Defeso Explicado",
+      "type": "scene",
+      "position": 3,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 16 },
+      "description": "TODO — Presidente da Colônia com documento do Seguro-Defeso na mão. Seu Raimundo e Lucas sentados, atentos. Sede da colônia ao fundo. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "pg2_s4",
+      "dialogues": [
+        {
+          "character_id": "pg2_c3",
+          "voice_profile": "shimmer",
+          "text": "Pescador com RGP ativo, que para completamente de pescar durante o defeso — esse tem direito. É um benefício legítimo para proteger os estoques e a renda do pescador.",
+          "audio_url": ""
+        },
+        {
+          "character_id": "pg2_c2",
+          "voice_profile": "alloy",
+          "text": "E quem não tem direito mas recebe?",
+          "audio_url": ""
+        },
+        {
+          "character_id": "pg2_c3",
+          "voice_profile": "shimmer",
+          "text": "Isso é fraude. Quem tem direito ao Seguro-Defeso?",
+          "audio_url": ""
+        }
+      ]
+    },
+    {
+      "_id": "pg2_s4",
+      "story_id": "pg2",
+      "title": "D1 — Quem Tem Direito ao Seguro-Defeso",
+      "type": "decision",
+      "position": 4,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 10 },
+      "description": "TODO — Lucas com expressão de quem está pensando. Seu Raimundo e Presidente da Colônia aguardando a resposta. Sede da colônia ao fundo. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "decision": {
+        "prompt": "Quem tem direito ao Seguro-Defeso?",
+        "interaction_type": "single_choice",
+        "options": [
+          {
+            "label": "O pescador artesanal com RGP ativo que para completamente de pescar durante o período oficial de defeso",
+            "next_scene_id": "pg2_s6",
+            "score": 10
+          },
+          {
+            "label": "Qualquer morador de área ribeirinha que registre residência próxima a rio ou lago",
+            "next_scene_id": "pg2_s5",
+            "score": 1
+          },
+          {
+            "label": "Não sei ainda",
+            "next_scene_id": "pg2_s5",
+            "score": 1
+          }
+        ]
+      },
+      "dialogues": []
+    },
+    {
+      "_id": "pg2_s5",
+      "story_id": "pg2",
+      "title": "C1B — O Defeso Explicado",
+      "type": "scene",
+      "position": 5,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 18 },
+      "description": "TODO — Painel educativo com requisitos do Seguro-Defeso: RGP ativo, parada total da pesca, período oficial de defeso, comprovante de renda como pescador. Fundo azul suave. Estilo cartoon Gravity Falls — visual diferente de C0.1.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "pg2_s4",
+      "dialogues": [
+        {
+          "character_id": "pg2_c3",
+          "voice_profile": "shimmer",
+          "text": "RGP — Registro Geral da Atividade Pesqueira — é o documento que prova que você é pescador. Sem RGP ativo, sem direito ao benefício.",
+          "audio_url": ""
+        },
+        {
+          "character_id": "pg2_c3",
+          "voice_profile": "shimmer",
+          "text": "E parada total significa total. Pode vender peixe estocado de antes? Pode. Mas não pode pescar durante o defeso.",
+          "audio_url": ""
+        },
+        {
+          "character_id": "pg2_c3",
+          "voice_profile": "shimmer",
+          "text": "Então — quem tem direito ao Seguro-Defeso?",
+          "audio_url": ""
+        }
+      ]
+    },
+    {
+      "_id": "pg2_s6",
+      "story_id": "pg2",
+      "title": "C2 — O Exemplo de Seu Raimundo",
+      "type": "scene",
+      "position": 6,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 14 },
+      "description": "TODO — Seu Raimundo mostrando seu RGP e comprovantes do Seguro-Defeso de anos anteriores. Lucas olhando com atenção. Barco no cais ao fundo. Rio ao fundo. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "pg2_s7",
+      "dialogues": [
+        {
+          "character_id": "pg2_c1",
+          "voice_profile": "onyx",
+          "text": "Todo defeso eu paro. Completamente. Não só por obrigação — porque o defeso protege o peixe. E o peixe protege a minha renda.",
+          "audio_url": ""
+        },
+        {
+          "character_id": "pg2_c2",
+          "voice_profile": "alloy",
+          "text": "E quem continua pescando durante o defeso?",
+          "audio_url": ""
+        },
+        {
+          "character_id": "pg2_c1",
+          "voice_profile": "onyx",
+          "text": "Além de ilegal — está roubando dos que fizeram certo.",
+          "audio_url": ""
+        }
+      ]
+    },
+    {
+      "_id": "pg2_s7",
+      "story_id": "pg2",
+      "title": "C3 — O Que É Fraude",
+      "type": "scene",
+      "position": 7,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 16 },
+      "description": "TODO — Presidente da Colônia com expressão séria mostrando documento. Lucas e Seu Raimundo ouvindo. Sede da colônia ao fundo. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "pg2_s8",
+      "dialogues": [
+        {
+          "character_id": "pg2_c3",
+          "voice_profile": "shimmer",
+          "text": "Fraude no Seguro-Defeso tem duas formas: receber sem ser pescador cadastrado — e receber enquanto continua pescando durante o defeso.",
+          "audio_url": ""
+        },
+        {
+          "character_id": "pg2_c2",
+          "voice_profile": "alloy",
+          "text": "E as consequências?",
+          "audio_url": ""
+        },
+        {
+          "character_id": "pg2_c3",
+          "voice_profile": "shimmer",
+          "text": "Devolução integral, processo criminal — artigo 171 do Código Penal — e perda do RGP. O que caracteriza fraude no Seguro-Defeso?",
+          "audio_url": ""
+        }
+      ]
+    },
+    {
+      "_id": "pg2_s8",
+      "story_id": "pg2",
+      "title": "D2 — O Que É Fraude no Seguro-Defeso",
+      "type": "decision",
+      "position": 8,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 10 },
+      "description": "TODO — Lucas com expressão séria. Seu Raimundo e Presidente da Colônia aguardando. Sede da colônia ao fundo. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "decision": {
+        "prompt": "O que caracteriza fraude no Seguro-Defeso?",
+        "interaction_type": "single_choice",
+        "options": [
+          {
+            "label": "Receber o benefício sem ter RGP ativo, ou continuar pescando durante o período de defeso enquanto recebe",
+            "next_scene_id": "pg2_s10",
+            "score": 10
+          },
+          {
+            "label": "Vender o pescado capturado antes do defeso começar, durante o período de parada",
+            "next_scene_id": "pg2_s9",
+            "score": 3
+          }
+        ]
+      },
+      "dialogues": []
+    },
+    {
+      "_id": "pg2_s9",
+      "story_id": "pg2",
+      "title": "C3B — Denúncia Protege os Legítimos",
+      "type": "scene",
+      "position": 9,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 14 },
+      "description": "TODO — Painel com consequências da fraude no Seguro-Defeso: processo criminal Art. 171 CP, devolução com juros, perda do RGP, suspensão do benefício. Fundo azul suave. Estilo cartoon Gravity Falls — visual diferente de C3.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "pg2_s10",
+      "dialogues": [
+        {
+          "character_id": "pg2_c3",
+          "voice_profile": "shimmer",
+          "text": "Cada fraude que não é denunciada tira recurso do programa. Menos dinheiro para os que têm direito real.",
+          "audio_url": ""
+        },
+        {
+          "character_id": null,
+          "voice_profile": "nova",
+          "text": "Denunciar fraude não é delação. É proteger o benefício de quem trabalha com integridade.",
+          "audio_url": ""
+        }
+      ]
+    },
+    {
+      "_id": "pg2_s10",
+      "story_id": "pg2",
+      "title": "C4 — O Canal de Denúncia",
+      "type": "scene",
+      "position": 10,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 14 },
+      "description": "TODO — Seu Raimundo mostrando o número da CGU no celular: 0800-910-0148. Lucas anotando. Trapiche ao fundo. Rio ao fundo. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "pg2_s11",
+      "dialogues": [
+        {
+          "character_id": "pg2_c1",
+          "voice_profile": "onyx",
+          "text": "Suspeita de fraude no Seguro-Defeso — CGU. 0800-910-0148. Pode ser anônima.",
+          "audio_url": ""
+        },
+        {
+          "character_id": "pg2_c2",
+          "voice_profile": "alloy",
+          "text": "A colônia também pode denunciar?",
+          "audio_url": ""
+        },
+        {
+          "character_id": "pg2_c1",
+          "voice_profile": "onyx",
+          "text": "A colônia, qualquer cidadão — o canal é aberto para todos.",
+          "audio_url": ""
+        }
+      ]
+    },
+    {
+      "_id": "pg2_s11",
+      "story_id": "pg2",
+      "title": "C5 — A Integridade que Protege",
+      "type": "scene",
+      "position": 11,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 14 },
+      "description": "TODO — Seu Raimundo e Lucas no barco, no igarapé ao entardecer. Expressão de quem sabe o que defende. Rio e floresta ribeirinha ao fundo. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "pg2_s12",
+      "dialogues": [
+        {
+          "character_id": null,
+          "voice_profile": "nova",
+          "text": "RGP limpo. Seguro-Defeso legítimo. Crédito futuro garantido.",
+          "audio_url": ""
+        },
+        {
+          "character_id": "pg2_c2",
+          "voice_profile": "alloy",
+          "text": "Por que denunciar fraude no Seguro-Defeso protege os pescadores?",
+          "audio_url": ""
+        },
+        {
+          "character_id": "pg2_c1",
+          "voice_profile": "onyx",
+          "text": "Porque fraude esgota o programa. E quem perde é quem trabalha direito.",
+          "audio_url": ""
+        }
+      ]
+    },
+    {
+      "_id": "pg2_s12",
+      "story_id": "pg2",
+      "title": "D3 — Por Que Denunciar Protege",
+      "type": "decision",
+      "position": 12,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 10 },
+      "description": "TODO — Lucas com expressão de quem entendeu a gravidade. Seu Raimundo ao lado aguardando. Igarapé ao fundo ao entardecer. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "decision": {
+        "prompt": "Por que denunciar fraude no Seguro-Defeso protege os pescadores artesanais?",
+        "interaction_type": "single_choice",
+        "options": [
+          {
+            "label": "Fraudes esgotam os recursos do programa e colocam em risco o benefício dos pescadores que cumprem todas as regras",
+            "next_scene_id": "pg2_s13",
+            "score": 10
+          },
+          {
+            "label": "Denunciar cria conflito na comunidade — é melhor cada um cuidar do próprio interesse",
+            "next_scene_id": "pg2_s14",
+            "score": 3
+          }
+        ]
+      },
+      "dialogues": []
+    },
+    {
+      "_id": "pg2_s13",
+      "story_id": "pg2",
+      "title": "C6A — RGP Limpo",
+      "type": "end",
+      "position": 13,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 18 },
+      "description": "TODO — Seu Raimundo recebendo comprovante do Seguro-Defeso. Lucas ao lado. Colônia ao fundo com outros pescadores comemorando. Rio ao fundo com luz dourada. Estilo cartoon Gravity Falls — épica e calorosa.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "end_label": "O Pescador de RGP Limpo",
+      "end_score": 10,
+      "dialogues": [
+        {
+          "character_id": null,
+          "voice_profile": "nova",
+          "text": "RGP ativo. Defeso respeitado. Benefício garantido.",
+          "audio_url": ""
+        },
+        {
+          "character_id": "pg2_c2",
+          "voice_profile": "alloy",
+          "text": "O pescador que foi preso perdeu tudo. Você recebe porque fez certo.",
+          "audio_url": ""
+        },
+        {
+          "character_id": "pg2_c1",
+          "voice_profile": "onyx",
+          "text": "É o que eu devo ao rio — e ao pescador que vem depois de mim.",
+          "audio_url": ""
+        }
+      ]
+    },
+    {
+      "_id": "pg2_s14",
+      "story_id": "pg2",
+      "title": "C6B — A Verificação",
+      "type": "end",
+      "position": 14,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 16 },
+      "description": "TODO — Lucas verificando o RGP de Seu Raimundo no sistema pelo celular. Presidente da Colônia ao lado orientando. Sede da colônia ao fundo. Estilo cartoon Gravity Falls, paleta suave.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "end_label": "A Documentação em Dia",
+      "end_score": 5,
+      "dialogues": [
+        {
+          "character_id": null,
+          "voice_profile": "nova",
+          "text": "Primeiro passo: verificar se a documentação está em dia.",
+          "audio_url": ""
+        },
+        {
+          "character_id": "pg2_c2",
+          "voice_profile": "alloy",
+          "text": "RGP vencido é direito perdido. Vamos conferir tudo antes do próximo defeso.",
+          "audio_url": ""
+        },
+        {
+          "character_id": "pg2_c1",
+          "voice_profile": "onyx",
+          "text": "Quem tem RGP regular — tem direito. Simples assim.",
+          "audio_url": ""
+        }
+      ]
+    }
+  ]
+}

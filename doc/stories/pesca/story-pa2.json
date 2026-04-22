@@ -1,0 +1,584 @@
+{
+  "story": {
+    "_id": "pa2",
+    "title": "O Motor e o Mercado",
+    "synopsis": "Semana depois da visita à Colônia, Seu Raimundo e Lucas chegam cedo ao RURAP — o técnico Marcos prometeu ajudar a tirar o CAF e montar o projeto para o PRONAF.\n\nO motor do barco quebra há dois anos. Peças, conserto, mais peças. Lucas calculou: o custo de manutenção dos últimos anos pagaria um motor novo com sobra. Hoje é o dia de mudar isso.\n\nMas enquanto o CAF sai do sistema, Marcos abre mais uma porta que Seu Raimundo não esperava: o governo também compra o peixe diretamente, sem licitação, com preço justo.",
+    "cover_image": "",
+    "aspect_ratio": "9:16",
+    "subtitle_font_size": 22,
+    "default_scene_duration": 6,
+    "passing_score": 28,
+    "genre": "Drama",
+    "show_cover_first": true,
+    "first_scene_id": "pa2_s1",
+    "background_audio": {
+      "loop": true,
+      "volume": 0.25,
+      "url": ""
+    },
+    "status": "active"
+  },
+
+  "characters": [
+    {
+      "_id": "pa2_c1",
+      "story_id": "pa2",
+      "name": "Seu Raimundo",
+      "description": "Raimundo Lopes, pescador artesanal de 50 anos. Pele curtida, barba rala, colete de pescador. Trinta anos no rio — agora, com o CAF em mãos, descobrindo o que sempre esteve disponível.",
+      "avatar_thumbnail": "",
+      "reference_image": "",
+      "voice_profile": "onyx"
+    },
+    {
+      "_id": "pa2_c2",
+      "story_id": "pa2",
+      "name": "Lucas",
+      "description": "Lucas Lopes, 18 anos, filho mais velho. Colete de pescador, olhar determinado. Calculou que o custo de manutenção do motor atual pagaria um novo em dois anos. É ele quem empurra o plano para frente.",
+      "avatar_thumbnail": "",
+      "reference_image": "",
+      "voice_profile": "alloy"
+    },
+    {
+      "_id": "pa2_c3",
+      "story_id": "pa2",
+      "name": "Marcos — Técnico do RURAP",
+      "description": "Marcos, técnico do RURAP, 30 anos. Óculos, camiseta do RURAP, prancheta. Conhece cada detalhe do PRONAF Pesca e do PAA — é o elo entre o pescador e os programas do governo.",
+      "avatar_thumbnail": "",
+      "reference_image": "",
+      "voice_profile": "alloy"
+    }
+  ],
+
+  "scenes": [
+
+    {
+      "_id": "pa2_s1",
+      "story_id": "pa2",
+      "title": "Semana Depois",
+      "type": "scene",
+      "position": 1,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 12 },
+      "description": "TODO — Rua de pequena cidade nordestina, manhã. Seu Raimundo (50 anos, colete de pescador, barba rala) e Lucas (18 anos, colete de pescador) chegando a pé ao escritório do RURAP. Lucas carrega uma pasta com documentos. Expressões animadas e um pouco nervosas. Estilo cartoon Gravity Falls — paleta azul-rio e luz da manhã.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "dialogues": [
+        {
+          "position": 0,
+          "text": "Uma semana depois da visita à Colônia. Seu Raimundo e Lucas chegam ao RURAP antes das oito.",
+          "audio_url": ""
+        },
+        {
+          "position": 1,
+          "character_id": "pa2_c2",
+          "text": "Pai, trouxe tudo que o Marcos pediu: RG, CPF, comprovante de atividade de pesca, declaração da colônia.",
+          "audio_url": ""
+        },
+        {
+          "position": 2,
+          "character_id": "pa2_c1",
+          "text": "Você foi mais preparado pra isso do que eu pra qualquer safra.",
+          "audio_url": ""
+        }
+      ],
+      "next_scene_id": "pa2_s2"
+    },
+
+    {
+      "_id": "pa2_s2",
+      "story_id": "pa2",
+      "title": "O Técnico Recebe",
+      "type": "scene",
+      "position": 2,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 13 },
+      "description": "TODO — Interior do RURAP, sala simples com cartazes de programas rurais e pôsteres de espécies de peixe. Marcos (30 anos, óculos, camiseta do RURAP) recebe Seu Raimundo e Lucas com aperto de mão caloroso. Computador na mesa, café na bancada. Clima de equipe que trabalha junto. Estilo cartoon Gravity Falls, paleta azul-verde ribeirinha.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "dialogues": [
+        {
+          "position": 0,
+          "character_id": "pa2_c3",
+          "text": "Seu Raimundo, Lucas — sejam bem-vindos. Hoje a gente tira o CAF, monta a simulação do PRONAF para o motor, e ainda tem uma novidade sobre o PAA.",
+          "audio_url": ""
+        },
+        {
+          "position": 1,
+          "character_id": "pa2_c1",
+          "text": "Vamos com calma — o CAF primeiro. Quero entender direito o que é antes de assinar qualquer coisa.",
+          "audio_url": ""
+        },
+        {
+          "position": 2,
+          "character_id": "pa2_c3",
+          "text": "Justo. Me diz o que você já sabe sobre o CAF.",
+          "audio_url": ""
+        }
+      ],
+      "next_scene_id": "pa2_s3"
+    },
+
+    {
+      "_id": "pa2_s3",
+      "story_id": "pa2",
+      "title": "O Que é o CAF?",
+      "type": "decision",
+      "position": 3,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 9 },
+      "description": "TODO — Marcos com tablet na mão mostrando a tela do sistema do MDA para emissão do CAF. Seu Raimundo e Lucas olhando com atenção. Marcos aguarda a resposta de Seu Raimundo com paciência. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "dialogues": [
+        {
+          "position": 0,
+          "character_id": "pa2_c2",
+          "text": "Pai, o CAF é tipo um CNPJ de pescador, né?",
+          "audio_url": ""
+        },
+        {
+          "position": 1,
+          "character_id": "pa2_c1",
+          "text": "É isso, Marcos? É um cadastro de empresa?",
+          "audio_url": ""
+        }
+      ],
+      "decision": {
+        "prompt": "O que é o CAF (Cadastro de Agricultor Familiar)?",
+        "interaction_type": "click",
+        "options": [
+          {
+            "label": "O documento que comprova a condição de produtor familiar — abre o PRONAF, o PAA e a ATER gratuita",
+            "next_scene_id": "pa2_s5",
+            "score": 10
+          },
+          {
+            "label": "O cadastro de empresa rural — equivalente ao CNPJ para pescadores artesanais",
+            "next_scene_id": "pa2_s4",
+            "score": 1
+          },
+          {
+            "label": "Não sei ainda",
+            "next_scene_id": "pa2_s4",
+            "score": 1
+          }
+        ]
+      }
+    },
+
+    {
+      "_id": "pa2_s4",
+      "story_id": "pa2",
+      "title": "CAF Não é CNPJ",
+      "type": "scene",
+      "position": 4,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 14 },
+      "description": "TODO — Marcos com ilustração comparativa na prancheta: coluna esquerda 'CNPJ = Empresa (contador, custo, obrigações fiscais)'; coluna direita 'CAF = Produtor Familiar (CPF + atividade + renda familiar — gratuito, sem empresa)'. Marcos aponta para cada coluna com expressão didática. Fundo azul suave. Estilo cartoon Gravity Falls — diferente da cena anterior.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "dialogues": [
+        {
+          "position": 0,
+          "character_id": "pa2_c3",
+          "text": "O CNPJ é para empresas — precisa de contador, declaração de imposto, tem custo. O pescador artesanal não precisa disso.",
+          "audio_url": ""
+        },
+        {
+          "position": 1,
+          "character_id": "pa2_c3",
+          "text": "O CAF é um cadastro que comprova: esse aqui é pescador familiar, com renda até R$500 mil por ano da atividade. Isso abre o PRONAF, o PAA e toda a ATER gratuita do RURAP.",
+          "audio_url": ""
+        },
+        {
+          "position": 2,
+          "character_id": "pa2_c3",
+          "text": "Então — o que é o CAF?",
+          "audio_url": ""
+        }
+      ],
+      "next_scene_id": "pa2_s3"
+    },
+
+    {
+      "_id": "pa2_s5",
+      "story_id": "pa2",
+      "title": "CAF Emitido",
+      "type": "scene",
+      "position": 5,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 12 },
+      "description": "TODO — Marcos mostrando a tela do computador com o CAF de Seu Raimundo aprovado — número de registro visível na tela. Seu Raimundo e Lucas olhando com expressão de satisfação e alívio. Impressora ao lado imprimindo o documento. Clima de conquista simples mas importante. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "dialogues": [
+        {
+          "position": 0,
+          "character_id": "pa2_c3",
+          "text": "Pronto. CAF emitido. Seu Raimundo Lopes, pescador familiar, cadastrado no sistema do MDA.",
+          "audio_url": ""
+        },
+        {
+          "position": 1,
+          "character_id": "pa2_c1",
+          "text": "Trinta anos pescando sem esse papel. O que muda agora?",
+          "audio_url": ""
+        },
+        {
+          "position": 2,
+          "character_id": "pa2_c3",
+          "text": "Agora o banco abre o processo do PRONAF. Vamos à simulação do motor.",
+          "audio_url": ""
+        }
+      ],
+      "next_scene_id": "pa2_s6"
+    },
+
+    {
+      "_id": "pa2_s6",
+      "story_id": "pa2",
+      "title": "A Simulação do Motor",
+      "type": "scene",
+      "position": 6,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 13 },
+      "description": "TODO — Marcos abrindo planilha de simulação no computador: 'Motor de popa 15HP: R$8.500 — PRONAF Investimento, 4,5% ao ano, 5 anos = R$160/mês'. Seu Raimundo olhando para os números com atenção crescente. Lucas ao lado fazendo cálculo no celular com expressão animada. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "dialogues": [
+        {
+          "position": 0,
+          "character_id": "pa2_c3",
+          "text": "O motor que o senhor precisa custa R$8.500. Pelo PRONAF Investimento, com juros de 4,5% ao ano e 5 anos para pagar, fica R$160 por mês.",
+          "audio_url": ""
+        },
+        {
+          "position": 1,
+          "character_id": "pa2_c2",
+          "text": "Pai, eu calculei — a gente gasta mais do que isso todo mês só em peças do motor atual.",
+          "audio_url": ""
+        },
+        {
+          "position": 2,
+          "character_id": "pa2_c1",
+          "text": "Antes de fechar, quero entender uma coisa: PRONAF Investimento financia o quê exatamente?",
+          "audio_url": ""
+        }
+      ],
+      "next_scene_id": "pa2_s7"
+    },
+
+    {
+      "_id": "pa2_s7",
+      "story_id": "pa2",
+      "title": "PRONAF Investimento — O Que Financia?",
+      "type": "decision",
+      "position": 7,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 9 },
+      "description": "TODO — Marcos com dois cartões na mão: 'PRONAF INVESTIMENTO' (motor de barco, malhadeira, GPS ilustrados) e 'PRONAF CUSTEIO' (galão de combustível, caixa de gelo, iscas ilustradas). Seu Raimundo olhando para os dois cartões pensativo. Lucas ao lado interessado. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "dialogues": [
+        {
+          "position": 0,
+          "character_id": "pa2_c3",
+          "text": "Boa pergunta. PRONAF Investimento e PRONAF Custeio — são linhas diferentes. Qual você acha que financia o motor?",
+          "audio_url": ""
+        }
+      ],
+      "decision": {
+        "prompt": "O PRONAF Investimento financia o quê para o pescador artesanal?",
+        "interaction_type": "click",
+        "options": [
+          {
+            "label": "Bens duráveis — barco, motor, malhadeiras, GPS, caixa de isopor e equipamentos",
+            "next_scene_id": "pa2_s9",
+            "score": 10
+          },
+          {
+            "label": "Despesas correntes da safra — combustível, gelo, alimentação e manutenção no dia a dia",
+            "next_scene_id": "pa2_s8",
+            "score": 3
+          }
+        ]
+      }
+    },
+
+    {
+      "_id": "pa2_s8",
+      "story_id": "pa2",
+      "title": "Investimento vs Custeio",
+      "type": "scene",
+      "position": 8,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 13 },
+      "description": "TODO — Marcos mostrando dois quadros lado a lado: 'PRONAF INVESTIMENTO = Motor, barco, rede, GPS — dura anos, paga em 5-10 anos' e 'PRONAF CUSTEIO = Combustível, gelo, isca — gasta na safra, paga em meses'. Seu Raimundo e Lucas entendendo a distinção. Estilo cartoon Gravity Falls, visual didático.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "dialogues": [
+        {
+          "position": 0,
+          "character_id": "pa2_c3",
+          "text": "O PRONAF Custeio é para o que você consome na safra — combustível, gelo, isca. É pago com a renda da própria safra, em poucos meses.",
+          "audio_url": ""
+        },
+        {
+          "position": 1,
+          "character_id": "pa2_c3",
+          "text": "O PRONAF Investimento é para o que dura anos — motor, barco, rede, GPS. Você paga em 5 a 10 anos. São linhas separadas e podem ser usadas juntas.",
+          "audio_url": ""
+        },
+        {
+          "position": 2,
+          "character_id": "pa2_c2",
+          "text": "Então o motor novo vem pelo Investimento. Faz sentido — é um bem que vai durar anos.",
+          "audio_url": ""
+        }
+      ],
+      "next_scene_id": "pa2_s9"
+    },
+
+    {
+      "_id": "pa2_s9",
+      "story_id": "pa2",
+      "title": "O Contrato do Motor",
+      "type": "scene",
+      "position": 9,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 13 },
+      "description": "TODO — Marcos e Seu Raimundo com papéis de projeto técnico na mesa. Lucas ao lado anotando. Marcos explica os próximos passos para o banco com clareza. Expressão de Seu Raimundo: determinado, já visualizando o motor novo no barco. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "dialogues": [
+        {
+          "position": 0,
+          "character_id": "pa2_c3",
+          "text": "Com o CAF e o projeto técnico que a gente monta aqui, você vai ao BNB ou ao Banco do Brasil. O projeto explica o uso do dinheiro e comprova capacidade de pagamento.",
+          "audio_url": ""
+        },
+        {
+          "position": 1,
+          "character_id": "pa2_c1",
+          "text": "E o banco leva quanto tempo pra aprovar?",
+          "audio_url": ""
+        },
+        {
+          "position": 2,
+          "character_id": "pa2_c3",
+          "text": "Duas a quatro semanas com documentação completa. Mas antes de você ir — tem mais uma coisa que vai mudar o seu plano de negócio.",
+          "audio_url": ""
+        }
+      ],
+      "next_scene_id": "pa2_s10"
+    },
+
+    {
+      "_id": "pa2_s10",
+      "story_id": "pa2",
+      "title": "Como Funciona o PAA para Peixe?",
+      "type": "decision",
+      "position": 10,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 9 },
+      "description": "TODO — Marcos abrindo folder do PAA sobre a mesa: 'Programa de Aquisição de Alimentos — pescado, frutas para bancos de alimentos e hospitais'. Seu Raimundo e Lucas olhando com curiosidade. Marcos aponta para o preço de referência da CONAB para tambaqui. Estilo cartoon Gravity Falls, cores azuis e douradas.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "dialogues": [
+        {
+          "position": 0,
+          "character_id": "pa2_c3",
+          "text": "O PAA — Programa de Aquisição de Alimentos. O governo compra pescado de pescadores familiares e distribui para hospitais e bancos de alimentos.",
+          "audio_url": ""
+        },
+        {
+          "position": 1,
+          "character_id": "pa2_c2",
+          "text": "Vende como? Tem que participar de algum leilão?",
+          "audio_url": ""
+        }
+      ],
+      "decision": {
+        "prompt": "Como funciona o PAA para a venda de pescado?",
+        "interaction_type": "click",
+        "options": [
+          {
+            "label": "O governo compra diretamente, sem licitação, com preço justo estabelecido pela CONAB",
+            "next_scene_id": "pa2_s11",
+            "score": 10
+          },
+          {
+            "label": "É um leilão — os pescadores competem entre si pelo contrato com o menor preço",
+            "next_scene_id": "pa2_s12",
+            "score": 3
+          }
+        ]
+      }
+    },
+
+    {
+      "_id": "pa2_s11",
+      "story_id": "pa2",
+      "title": "O Rio Dá Mais",
+      "type": "scene",
+      "position": 11,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 14 },
+      "description": "TODO — Marcos mostrando planilha de planejamento: 'PRONAF: motor novo → mais produção → + renda / PAA: R$9.000/ano garantidos'. Seu Raimundo e Lucas olhando para a planilha com expressão de quem está vendo o futuro pela primeira vez. Rio dourado ao fundo pela janela. Estilo cartoon Gravity Falls, cores quentes e azuis.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "dialogues": [
+        {
+          "position": 0,
+          "character_id": "pa2_c3",
+          "text": "Isso mesmo — sem licitação. O governo tem lista de produtores familiares com CAF e compra pelo preço de referência da CONAB. Até R$9.000 por família por ano.",
+          "audio_url": ""
+        },
+        {
+          "position": 1,
+          "character_id": "pa2_c2",
+          "text": "Pai, fiz a conta. PRONAF para o motor novo, PAA para garantir venda mínima — a renda do barco pode dobrar em dois anos.",
+          "audio_url": ""
+        },
+        {
+          "position": 2,
+          "character_id": "pa2_c1",
+          "text": "O rio sempre deu peixe. Agora vai dar mais. Porque a gente finalmente sabe o que tem direito.",
+          "audio_url": ""
+        }
+      ],
+      "next_scene_id": "pa2_s13"
+    },
+
+    {
+      "_id": "pa2_s12",
+      "story_id": "pa2",
+      "title": "Sem Licitação no PAA",
+      "type": "scene",
+      "position": 12,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 13 },
+      "description": "TODO — Marcos mostrando comparação clara: 'LICITAÇÃO = Pescador individual concorre com empresa grande pelo menor preço — perde' vs 'PAA = Compra direta, preço CONAB, exclusivo para produtor familiar com CAF'. Seu Raimundo e Lucas processando. Estilo cartoon Gravity Falls, visual didático.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "dialogues": [
+        {
+          "position": 0,
+          "character_id": "pa2_c3",
+          "text": "No leilão normal, o pescador individual perde sempre para a empresa grande que vende mais barato e tem logística.",
+          "audio_url": ""
+        },
+        {
+          "position": 1,
+          "character_id": "pa2_c3",
+          "text": "No PAA, não tem concorrência. O governo compra diretamente pelo preço de referência da CONAB — que é justo. Mas tem limite: R$9.000 por família por ano.",
+          "audio_url": ""
+        },
+        {
+          "position": 2,
+          "character_id": "pa2_c1",
+          "text": "Então o PAA é a porta de venda garantida. Com o motor novo e o PAA, a gente planeja o negócio de verdade.",
+          "audio_url": ""
+        }
+      ],
+      "next_scene_id": "pa2_s14"
+    },
+
+    {
+      "_id": "pa2_s13",
+      "story_id": "pa2",
+      "title": "Um Pescador Completo",
+      "type": "end",
+      "position": 13,
+      "transition": "fade",
+      "transition_duration": 300,
+      "end_label": "O pescador que conhece o negócio!",
+      "end_score": 10,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 14 },
+      "description": "TODO — Seu Raimundo e Lucas saindo do RURAP com pasta de documentos, expressões de realização e entusiasmo. Lucas mostrando o celular com a simulação do motor. Rio dourado ao fundo no fim da manhã. Dona Graça e Júlia aparecem ao longe acenando. Cena de conquista familiar e transmissão de conhecimento. Estilo cartoon Gravity Falls, épica e calorosa.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "dialogues": [
+        {
+          "position": 0,
+          "text": "CAF emitido. Projeto técnico montado. Processo do PRONAF a caminho. E o PAA no radar para a próxima safra.",
+          "audio_url": ""
+        },
+        {
+          "position": 1,
+          "character_id": "pa2_c2",
+          "text": "Pai, o rio sempre foi o mesmo. O que mudou foi o que a gente sabe sobre ele.",
+          "audio_url": ""
+        },
+        {
+          "position": 2,
+          "character_id": "pa2_c1",
+          "text": "Você tem razão, filho. A informação também é equipamento. E hoje a gente ficou mais rico.",
+          "audio_url": ""
+        }
+      ]
+    },
+
+    {
+      "_id": "pa2_s14",
+      "story_id": "pa2",
+      "title": "Passo a Passo",
+      "type": "end",
+      "position": 14,
+      "transition": "fade",
+      "transition_duration": 300,
+      "end_label": "Cada passo no lugar certo",
+      "end_score": 5,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 12 },
+      "description": "TODO — Seu Raimundo e Lucas saindo do RURAP, documentos na mão, conversando sobre os próximos passos na rua tranquila. Expressões de quem tem muito a processar mas está no caminho certo. Estilo cartoon Gravity Falls, paleta suave azul e dourado.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "dialogues": [
+        {
+          "position": 0,
+          "text": "Muita informação para um dia só. Mas cada etapa ficou registrada — e o Rota Viva ensina o restante.",
+          "audio_url": ""
+        },
+        {
+          "position": 1,
+          "character_id": "pa2_c1",
+          "text": "Leva tempo entender tudo isso. Mas o CAF a gente tem. O primeiro passo foi dado.",
+          "audio_url": ""
+        },
+        {
+          "position": 2,
+          "character_id": "pa2_c2",
+          "text": "Agora é um passo de cada vez, pai. É assim que se chega lá.",
+          "audio_url": ""
+        }
+      ]
+    }
+
+  ]
+}

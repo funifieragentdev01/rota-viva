@@ -1,0 +1,576 @@
+{
+  "story": {
+    "_id": "pf2",
+    "title": "O Pescador na Câmara",
+    "synopsis": "Lucas lê sobre audiência pública da LOA. Seu Raimundo nunca foi — acha que não adianta. Uma vereadora aliada visita a colônia e mostra o contrário: a câmara frigorífica que pescadores de outro município conseguiram começou com uma fala de 3 minutos na audiência, documentada pela colônia. Seu Raimundo prepara a demanda.",
+    "cover_image": "",
+    "aspect_ratio": "9:16",
+    "subtitle_font_size": 22,
+    "default_scene_duration": 6,
+    "passing_score": 28,
+    "genre": "Drama",
+    "show_cover_first": true,
+    "first_scene_id": "pf2_s1",
+    "background_audio": {
+      "loop": true,
+      "volume": 0.25,
+      "url": ""
+    },
+    "status": "active"
+  },
+  "characters": [
+    {
+      "_id": "pf2_c1",
+      "story_id": "pf2",
+      "name": "Seu Raimundo",
+      "full_name": "Raimundo Lopes",
+      "description": "Pescador de 50 anos, patriarca da família Lopes. Cético com a política — foi à audiência uma vez e não foi ouvido. Aprende que a diferença é aparecer com dados e representação coletiva.",
+      "voice_profile": "onyx",
+      "avatar_thumbnail": "",
+      "reference_image": ""
+    },
+    {
+      "_id": "pf2_c2",
+      "story_id": "pf2",
+      "name": "Lucas",
+      "full_name": "Lucas Lopes",
+      "description": "Filho mais velho da família Lopes, 18 anos. Colete de pescador. Mais conectado com oportunidades — foi ele quem viu a mensagem da audiência e convenceu o pai a tentar de novo, dessa vez preparado.",
+      "voice_profile": "alloy",
+      "avatar_thumbnail": "",
+      "reference_image": ""
+    },
+    {
+      "_id": "pf2_c3",
+      "story_id": "pf2",
+      "name": "Vereadora",
+      "full_name": "Vereadora — aliada da pesca",
+      "description": "Vereadora municipal, 40 anos, feminina. Terno simples. Aliada da causa pesqueira — explica o processo de emenda parlamentar, o ciclo da LOA e como a demanda coletiva documentada se transforma em projeto de lei.",
+      "voice_profile": "shimmer",
+      "avatar_thumbnail": "",
+      "reference_image": ""
+    }
+  ],
+  "scenes": [
+    {
+      "_id": "pf2_s1",
+      "story_id": "pf2",
+      "title": "CAPA — O Pescador na Câmara",
+      "type": "scene",
+      "position": 1,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 10 },
+      "description": "TODO — Seu Raimundo (50 anos, colete) de pé no microfone de audiência pública na câmara municipal, segurando caderno com dados. Lucas (18 anos) na plateia. Vereadora (40 anos, feminina, terno simples) ao fundo ouvindo. Câmara municipal simples do Amapá. Estilo cartoon Gravity Falls — paleta azul-rio e azul institucional.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "pf2_s2",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": null,
+          "text": "O pescador sabe tudo sobre o rio. O governo precisa ouvir isso. A audiência pública é o momento.",
+          "audio_url": "",
+          "voice_profile": "nova"
+        }
+      ]
+    },
+    {
+      "_id": "pf2_s2",
+      "story_id": "pf2",
+      "title": "C0 — A Mensagem na Colônia",
+      "type": "scene",
+      "position": 2,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 14 },
+      "description": "TODO — Lucas na sede da colônia lendo mensagem no celular. Mensagem visível: 'Audiência pública LOA 2025 — terça-feira, 19h, Câmara Municipal. Pauta: obras e infraestrutura.' Seu Raimundo ao lado com expressão cética. Estilo cartoon Gravity Falls — paleta interior.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "pf2_s3",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": null,
+          "text": "A mensagem chegou no grupo da colônia. Lucas achou que valia ir. Seu Raimundo — ainda não sabia.",
+          "audio_url": "",
+          "voice_profile": "nova"
+        },
+        {
+          "position": 2,
+          "character_id": "pf2_c2",
+          "text": "Pai, tem audiência pública sobre o orçamento. A gente pode pedir a câmara frigorífica para o pescado.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 3,
+          "character_id": "pf2_c1",
+          "text": "Já fui uma vez. Ninguém ouviu. Não adianta.",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        }
+      ]
+    },
+    {
+      "_id": "pf2_s3",
+      "story_id": "pf2",
+      "title": "C0.1 — A Vereadora na Colônia",
+      "type": "scene",
+      "position": 3,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 12 },
+      "description": "TODO — Vereadora chegando à sede da colônia com pasta de documentos. Fotografias de câmara frigorífica em outro município na pasta. Seu Raimundo e Lucas sentados. Expressão da vereadora: direta e motivadora. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "pf2_s4",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "pf2_c3",
+          "text": "A câmara fria que os pescadores de Santana conseguiram começou com uma fala de 3 minutos na audiência pública. Com dados da colônia e um projeto de custo.",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        },
+        {
+          "position": 2,
+          "character_id": "pf2_c1",
+          "text": "Mas o que o pescador pode pedir numa audiência de orçamento?",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        },
+        {
+          "position": 3,
+          "character_id": "pf2_c3",
+          "text": "O que a pesca precisa de infraestrutura pública para crescer?",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        }
+      ]
+    },
+    {
+      "_id": "pf2_s4",
+      "story_id": "pf2",
+      "title": "C1 — O Que Pode Ser Pedido?",
+      "type": "decision",
+      "position": 4,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 12 },
+      "description": "TODO — Seu Raimundo e Lucas olhando para a pasta de documentos da vereadora, pensando. Vereadora aguardando. Sede da colônia ao fundo. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "decision": {
+        "prompt": "O que o pescador pode pedir em uma audiência pública da LOA municipal?",
+        "interaction_type": "single_choice",
+        "options": [
+          {
+            "label": "Câmara frigorífica, trapiche, mercado do peixe, estrada vicinal — infraestrutura pública que beneficia a atividade pesqueira",
+            "next_scene_id": "pf2_s6",
+            "score": 10
+          },
+          {
+            "label": "Nada — o orçamento municipal é definido exclusivamente pela secretaria de finanças, sem participação popular",
+            "next_scene_id": "pf2_s5",
+            "score": 1
+          },
+          {
+            "label": "Não sei ainda",
+            "next_scene_id": "pf2_s5",
+            "score": 1
+          }
+        ]
+      },
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "pf2_c1",
+          "text": "O que o pescador pode pedir em uma audiência pública da LOA municipal?",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        }
+      ]
+    },
+    {
+      "_id": "pf2_s5",
+      "story_id": "pf2",
+      "title": "C1B — O Que a LOA Pode Financiar",
+      "type": "scene",
+      "position": 5,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 16 },
+      "description": "TODO — Painel com exemplos de infraestrutura pesqueira financiada por LOA municipal: câmara frigorífica (R$80–120k), trapiche de desembarque (R$40–60k), mercado do peixe coberto (R$150k), resfriador de igarapé. Cada item com valor estimado e número de beneficiários. Fundo azul suave. Estilo cartoon Gravity Falls — diferente de C0.1.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "pf2_s4",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "pf2_c3",
+          "text": "Câmara fria, trapiche, mercado coberto — são obras de infraestrutura pública que servem ao coletivo. Tudo pode entrar na LOA.",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        },
+        {
+          "position": 2,
+          "character_id": "pf2_c3",
+          "text": "Um pescador individual pedindo — difícil. Uma colônia com ata, dados e projeto — muito mais provável de entrar no orçamento.",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        },
+        {
+          "position": 3,
+          "character_id": "pf2_c3",
+          "text": "Então — o que o pescador pode pedir na audiência?",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        }
+      ]
+    },
+    {
+      "_id": "pf2_s6",
+      "story_id": "pf2",
+      "title": "C2 — Como Preparar a Demanda",
+      "type": "scene",
+      "position": 6,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 14 },
+      "description": "TODO — Seu Raimundo e Lucas com vereadora ao redor de mesa da colônia. Caderno com dados: '47 pescadores ativos, 8 toneladas de pescado/mês, perda de 20% por falta de refrigeração = R$18.400/mês de prejuízo coletivo.' Vereadora orientando. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "pf2_s7",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "pf2_c3",
+          "text": "Três elementos para uma demanda que funciona: dado concreto, problema documentado e solução viável com custo.",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        },
+        {
+          "position": 2,
+          "character_id": "pf2_c1",
+          "text": "47 pescadores, 8 toneladas por mês, 20% de perda por falta de câmara fria — isso é R$18 mil por mês que a gente joga fora.",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        },
+        {
+          "position": 3,
+          "character_id": "pf2_c3",
+          "text": "Isso é a fala de 3 minutos. Com ata da colônia aprovando a demanda — vira projeto.",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        }
+      ]
+    },
+    {
+      "_id": "pf2_s7",
+      "story_id": "pf2",
+      "title": "C3 — A Emenda Parlamentar",
+      "type": "scene",
+      "position": 7,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 12 },
+      "description": "TODO — Vereadora abrindo pasta com documento de emenda parlamentar. Fluxo visual: colônia entrega demanda documentada → vereador apresenta emenda → emenda entra na LOA → obra é licitada. Seu Raimundo e Lucas entendendo o processo. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "pf2_s8",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "pf2_c3",
+          "text": "Como vereadora, posso apresentar emenda destinando recursos para a câmara fria. Mas preciso da demanda formal da colônia — ata, dados técnicos, custo estimado.",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        },
+        {
+          "position": 2,
+          "character_id": "pf2_c2",
+          "text": "Então a colônia documenta e a senhora coloca na lei?",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 3,
+          "character_id": "pf2_c3",
+          "text": "Exato. O que torna uma demanda em audiência pública mais efetiva?",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        }
+      ]
+    },
+    {
+      "_id": "pf2_s8",
+      "story_id": "pf2",
+      "title": "C3D — O Que Torna a Demanda Efetiva?",
+      "type": "decision",
+      "position": 8,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 12 },
+      "description": "TODO — Seu Raimundo olhando para o caderno de dados, pensando. Lucas e Vereadora aguardando. Sede da colônia ao fundo. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "decision": {
+        "prompt": "O que torna uma demanda em audiência pública mais efetiva?",
+        "interaction_type": "single_choice",
+        "options": [
+          {
+            "label": "Dados concretos + representação coletiva (colônia com ata) + projeto específico com custo estimado",
+            "next_scene_id": "pf2_s10",
+            "score": 10
+          },
+          {
+            "label": "Aparecer na audiência com o maior número de pessoas possível, mesmo sem dados ou projeto definido",
+            "next_scene_id": "pf2_s9",
+            "score": 3
+          }
+        ]
+      },
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "pf2_c1",
+          "text": "O que torna uma demanda em audiência pública mais efetiva?",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        }
+      ]
+    },
+    {
+      "_id": "pf2_s9",
+      "story_id": "pf2",
+      "title": "C3B — A Demanda que Convence",
+      "type": "scene",
+      "position": 9,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 16 },
+      "description": "TODO — Dois cenários lado a lado: pescador individual falando 'a gente precisa de câmara fria' sem dados (vereadores indiferentes); vs. presidente da colônia falando com dados, ata e planilha de custo (vereadores anotando). Fundo azul suave. Estilo cartoon Gravity Falls — diferente de C3.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "pf2_s10",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "pf2_c3",
+          "text": "Reclamação sem dado é fácil de ignorar. Demanda documentada com custo e representação coletiva — entra na ata e no orçamento.",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        },
+        {
+          "position": 2,
+          "character_id": "pf2_c3",
+          "text": "Um vereador que recebe demanda com ata de 47 pescadores, laudo técnico e orçamento — tem argumento para defender a emenda.",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        },
+        {
+          "position": 3,
+          "character_id": null,
+          "text": "Política pública começa no microfone. Com dado. Com coletivo. Com proposta.",
+          "audio_url": "",
+          "voice_profile": "nova"
+        }
+      ]
+    },
+    {
+      "_id": "pf2_s10",
+      "story_id": "pf2",
+      "title": "C4 — CTPESCA: A Voz Nacional",
+      "type": "scene",
+      "position": 10,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 14 },
+      "description": "TODO — Vereadora mostrando folheto do CONAPE e da Câmara Temática da Pesca. Fluxo: colônia local → FEPA-AP → CONFEP → CTPESCA → MPA. Seu Raimundo e Lucas entendendo que a voz local pode chegar ao federal. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "pf2_s11",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "pf2_c2",
+          "text": "E a nível federal — como o pescador influencia a política de pesca?",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 2,
+          "character_id": "pf2_c3",
+          "text": "A CONFEP participa do CONAPE — Conselho Nacional. A câmara temática da pesca é onde colônias fortes colocam suas pautas em política nacional.",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        },
+        {
+          "position": 3,
+          "character_id": "pf2_c1",
+          "text": "Começa aqui e chega lá.",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        }
+      ]
+    },
+    {
+      "_id": "pf2_s11",
+      "story_id": "pf2",
+      "title": "C5 — O Pescador como Ator Político",
+      "type": "scene",
+      "position": 11,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 12 },
+      "description": "TODO — Seu Raimundo de pé no microfone da câmara municipal, caderno de dados na mão. Plateia com pescadores da colônia. Vereadores prestando atenção. Lucas na plateia com expressão de orgulho. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "pf2_s12",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "pf2_c1",
+          "text": "Falo pela Colônia de Pescadores — 47 sócios ativos, 8 toneladas de pescado por mês. Perdemos R$18.400 mensais por falta de câmara frigorífica. O custo da solução é R$95.000.",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        },
+        {
+          "position": 2,
+          "character_id": "pf2_c2",
+          "text": "Como o pescador se torna um ator político que influencia as políticas de pesca?",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        }
+      ]
+    },
+    {
+      "_id": "pf2_s12",
+      "story_id": "pf2",
+      "title": "C5D — Como o Pescador Vira Ator Político?",
+      "type": "decision",
+      "position": 12,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 12 },
+      "description": "TODO — Seu Raimundo no microfone olhando para a plateia, determinado. Lucas e Vereadora aguardando a resposta. Câmara municipal ao fundo. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "decision": {
+        "prompt": "Como o pescador se torna um ator político que influencia as políticas de pesca?",
+        "interaction_type": "single_choice",
+        "options": [
+          {
+            "label": "Documentando demandas coletivas, participando das audiências públicas e votando de forma organizada na colônia e nas eleições",
+            "next_scene_id": "pf2_s13",
+            "score": 10
+          },
+          {
+            "label": "Evitando envolvimento com política — o pescador deve focar apenas na atividade pesqueira",
+            "next_scene_id": "pf2_s14",
+            "score": 3
+          }
+        ]
+      },
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "pf2_c1",
+          "text": "Como o pescador se torna um ator político que influencia as políticas de pesca?",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        }
+      ]
+    },
+    {
+      "_id": "pf2_s13",
+      "story_id": "pf2",
+      "title": "C6A — O Pescador na Câmara",
+      "type": "end",
+      "position": 13,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 16 },
+      "description": "TODO — Seu Raimundo e Lucas lendo comunicado da prefeitura: 'LOA 2025 aprovada com emenda de R$95.000 para câmara frigorífica da Colônia de Pescadores.' Outros pescadores celebrando ao fundo. Cais com barcos ao fundo. Estilo cartoon Gravity Falls — épica e calorosa.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "end_label": "O Pescador na Câmara",
+      "end_score": 10,
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": null,
+          "text": "Audiência. Ata. Emenda. Aprovação. A câmara fria vai ao cais.",
+          "audio_url": "",
+          "voice_profile": "nova"
+        },
+        {
+          "position": 2,
+          "character_id": "pf2_c2",
+          "text": "Você disse que não adiantava. Mas foi você que falou no microfone.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 3,
+          "character_id": "pf2_c1",
+          "text": "Fui com dado. Fui com a colônia. Dessa vez — adiantou.",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        }
+      ]
+    },
+    {
+      "_id": "pf2_s14",
+      "story_id": "pf2",
+      "title": "C6B — A Demanda Entregue",
+      "type": "end",
+      "position": 14,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 16 },
+      "description": "TODO — Seu Raimundo entregando ata da colônia e planilha de custo para a vereadora no corredor da câmara. Lucas ao lado. Expressão de quem fez o que devia e aguarda o resultado. Câmara ao fundo. Estilo cartoon Gravity Falls, paleta suave.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "end_label": "A Demanda Entregue",
+      "end_score": 5,
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": null,
+          "text": "Demanda entregue. Emenda em elaboração.",
+          "audio_url": "",
+          "voice_profile": "nova"
+        },
+        {
+          "position": 2,
+          "character_id": "pf2_c2",
+          "text": "Acompanhamos a votação da LOA na câmara?",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 3,
+          "character_id": "pf2_c1",
+          "text": "Sim. Quem entregou a demanda, acompanha a votação. Do começo ao fim.",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        }
+      ]
+    }
+  ]
+}

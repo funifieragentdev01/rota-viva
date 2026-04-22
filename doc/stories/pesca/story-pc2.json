@@ -1,0 +1,583 @@
+{
+  "story": {
+    "_id": "pc2",
+    "title": "O Lote 2024-11",
+    "synopsis": "Um supermercado parceiro reclamou de um lote de peixe. Sem rastreabilidade, a cooperativa não consegue identificar a origem. Seu Raimundo percebe que a caderneta de bordo que mantém há meses é mais valiosa do que parecia. Carlos, do RURAP, usa o episódio para mostrar rastreabilidade completa, rotulagem correta e o que é o MSC — a certificação que abre os maiores mercados do mundo.",
+    "cover_image": "",
+    "aspect_ratio": "9:16",
+    "subtitle_font_size": 22,
+    "default_scene_duration": 6,
+    "passing_score": 28,
+    "genre": "Drama",
+    "show_cover_first": true,
+    "first_scene_id": "pc2_s1",
+    "background_audio": {
+      "loop": true,
+      "volume": 0.25,
+      "url": ""
+    },
+    "status": "active"
+  },
+  "characters": [
+    {
+      "_id": "pc2_c1",
+      "story_id": "pc2",
+      "name": "Seu Raimundo",
+      "full_name": "Raimundo Lopes",
+      "description": "Pescador de 50 anos. Pele queimada de sol e rio, mãos calejadas, colete de pescador, barba rala. Sério e digno. Mantém caderneta de bordo há meses sem saber o quanto ela valeria.",
+      "voice_profile": "onyx",
+      "avatar_thumbnail": "",
+      "reference_image": ""
+    },
+    {
+      "_id": "pc2_c2",
+      "story_id": "pc2",
+      "name": "Dona Graça",
+      "full_name": "Graça Lopes",
+      "description": "Esposa de 46 anos de Seu Raimundo. Extrovertida e forte. Gerencia a parte comercial da família. Na reunião da cooperativa, é a primeira a entender o problema.",
+      "voice_profile": "shimmer",
+      "avatar_thumbnail": "",
+      "reference_image": ""
+    },
+    {
+      "_id": "pc2_c3",
+      "story_id": "pc2",
+      "name": "Carlos",
+      "full_name": "Carlos — Agente do RURAP",
+      "description": "Agente do RURAP de 35 anos. Óculos, camiseta com logo RURAP. Técnico de extensão rural especializado em pesca artesanal. Usa o episódio da reclamação para ensinar rastreabilidade e MSC.",
+      "voice_profile": "alloy",
+      "avatar_thumbnail": "",
+      "reference_image": ""
+    }
+  ],
+  "scenes": [
+    {
+      "_id": "pc2_s1",
+      "story_id": "pc2",
+      "title": "CAPA — O Lote 2024-11",
+      "type": "scene",
+      "position": 1,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 10 },
+      "description": "TODO — Seu Raimundo (50 anos, colete) e Carlos — Agente do RURAP (35 anos, óculos, camiseta RURAP) com embalagem de peixe mostrando rótulo completo e logo azul MSC. Caderneta de bordo aberta sobre a mesa. Dona Graça ao fundo com expressão de atenção. Estilo cartoon Gravity Falls — paleta azul-rio, dourado.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "pc2_s2",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": null,
+          "text": "Saber de onde vem o peixe. Saber quando foi capturado. Isso vale dinheiro.",
+          "audio_url": "",
+          "voice_profile": "nova"
+        }
+      ]
+    },
+    {
+      "_id": "pc2_s2",
+      "story_id": "pc2",
+      "title": "C0 — A Reclamação",
+      "type": "scene",
+      "position": 2,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 14 },
+      "description": "TODO — Reunião na sede da cooperativa. Representante com expressão preocupada mostrando e-mail de reclamação do supermercado parceiro num tablet. Seu Raimundo, Dona Graça e outros pescadores ouvindo com expressão tensa. Luz fluorescente de escritório, paleta fria. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "pc2_s3",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": null,
+          "text": "O supermercado parceiro reclamou: um lote de peixe chegou fora do padrão. Precisavam saber de qual pescador veio.",
+          "audio_url": "",
+          "voice_profile": "nova"
+        },
+        {
+          "position": 2,
+          "character_id": null,
+          "text": "Sem rastreabilidade de lote, não conseguimos identificar a origem. Vai custar a parceria se não resolvermos.",
+          "audio_url": "",
+          "voice_profile": "nova"
+        },
+        {
+          "position": 3,
+          "character_id": "pc2_c1",
+          "text": "Eu tenho caderneta de bordo com tudo registrado. Mas o lote, nunca numeramos.",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        }
+      ]
+    },
+    {
+      "_id": "pc2_s3",
+      "story_id": "pc2",
+      "title": "C0.1 — O Que Falta na Caderneta",
+      "type": "scene",
+      "position": 3,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 12 },
+      "description": "TODO — Carlos (35 anos, RURAP) chegando à cooperativa a convite. Seu Raimundo mostrando a caderneta de bordo aberta para Carlos. Carlos examina com atenção — vê data, área, espécies, quantidades. Dona Graça ao lado tomando nota. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "pc2_s4",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "pc2_c3",
+          "text": "Seu Raimundo, essa caderneta é excelente. Tem data, área, espécies, quantidade.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 2,
+          "character_id": "pc2_c1",
+          "text": "Falta o número do lote, né?",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        },
+        {
+          "position": 3,
+          "character_id": "pc2_c3",
+          "text": "Isso — mas me diz: pra ser rastreável de verdade, o que o lote de pescado precisa ter?",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        }
+      ]
+    },
+    {
+      "_id": "pc2_s4",
+      "story_id": "pc2",
+      "title": "C1 — O Que o Lote Precisa Ter?",
+      "type": "decision",
+      "position": 4,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 12 },
+      "description": "TODO — Seu Raimundo olhando para a caderneta de bordo aberta, pensando no que falta. Dona Graça ao lado com expressão de quem quer saber a resposta. Carlos aguardando. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "decision": {
+        "prompt": "Para ser rastreável, o que o registro de cada lote de pescado deve incluir?",
+        "interaction_type": "single_choice",
+        "options": [
+          {
+            "label": "Nome e RGP do pescador, área de captura, data, espécie, quantidade e número do lote",
+            "next_scene_id": "pc2_s6",
+            "score": 10
+          },
+          {
+            "label": "Apenas o nome do pescador e a data de captura",
+            "next_scene_id": "pc2_s5",
+            "score": 1
+          },
+          {
+            "label": "Não sei ainda",
+            "next_scene_id": "pc2_s5",
+            "score": 1
+          }
+        ]
+      },
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "pc2_c2",
+          "text": "O que o registro de cada lote precisa ter pra ser rastreável?",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        }
+      ]
+    },
+    {
+      "_id": "pc2_s5",
+      "story_id": "pc2",
+      "title": "C1B — O Lote que Não Tem Nome",
+      "type": "scene",
+      "position": 5,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 16 },
+      "description": "TODO — Ilustração comparativa: esquerda mostra lote de peixe sem rastreabilidade completa — problema aparece, cooperativa não sabe de onde vem, supermercado suspende parceria; direita mostra lote com rastreabilidade completa — problema aparece, cooperativa identifica em 5 minutos, resposta rápida, parceria mantida. Carlos explica. Fundo azul suave. Estilo cartoon Gravity Falls — diferente de C0.1.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "pc2_s4",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "pc2_c3",
+          "text": "Sem o número do lote, é impossível identificar qual saída, qual pescador, qual dia. A reclamação contamina todo o grupo.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 2,
+          "character_id": "pc2_c3",
+          "text": "Com lote numerado e caderneta completa, você responde ao supermercado em 5 minutos — e a parceria fica.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 3,
+          "character_id": "pc2_c3",
+          "text": "Então — o que o lote precisa ter pra ser rastreável?",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        }
+      ]
+    },
+    {
+      "_id": "pc2_s6",
+      "story_id": "pc2",
+      "title": "C2 — O Sistema do Lote",
+      "type": "scene",
+      "position": 6,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 14 },
+      "description": "TODO — Carlos e Seu Raimundo criando um sistema simples: 'Lote = Mês + Número sequencial'. Caderneta com nova coluna de lote preenchida. Dona Graça criando etiquetas de lote adesivas para as embalagens em uma mesa de trabalho organizada. Ambiente colaborativo e eficiente. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "pc2_s7",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "pc2_c3",
+          "text": "Lote 2024-11: captura de novembro de 2024, saída número 1. Simples assim.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 2,
+          "character_id": "pc2_c1",
+          "text": "E esse número vai na caderneta e na embalagem?",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        },
+        {
+          "position": 3,
+          "character_id": "pc2_c3",
+          "text": "Exato. Quando o supermercado reclamar do Lote 2024-11, você abre a caderneta na página de novembro e tem tudo ali.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        }
+      ]
+    },
+    {
+      "_id": "pc2_s7",
+      "story_id": "pc2",
+      "title": "C3 — O Logo Azul",
+      "type": "scene",
+      "position": 7,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 12 },
+      "description": "TODO — Carlos tirando de uma pasta uma embalagem de peixe importado com logo azul do MSC bem visível. Seu Raimundo e Dona Graça olhando com curiosidade. Logo azul do MSC em destaque na embalagem sobre a mesa. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "pc2_s8",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "pc2_c3",
+          "text": "Vocês já viram esse logo azul em embalagem de peixe?",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 2,
+          "character_id": "pc2_c1",
+          "text": "Não.",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        },
+        {
+          "position": 3,
+          "character_id": "pc2_c3",
+          "text": "É o MSC — Marine Stewardship Council. A maior certificação de pesca sustentável do mundo. O que esse logo significa pro consumidor?",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        }
+      ]
+    },
+    {
+      "_id": "pc2_s8",
+      "story_id": "pc2",
+      "title": "C3D — O Que o Logo MSC Significa?",
+      "type": "decision",
+      "position": 8,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 12 },
+      "description": "TODO — Seu Raimundo e Dona Graça olhando para a embalagem com o logo azul MSC, pensando. Carlos aguardando com expressão de quem sabe que a resposta vai surpreender. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "decision": {
+        "prompt": "O que o logo azul do MSC na embalagem de pescado indica ao consumidor?",
+        "interaction_type": "single_choice",
+        "options": [
+          {
+            "label": "Que o pescado vem de uma pescaria que não esgota estoques, respeita o ecossistema e tem rastreabilidade comprovada",
+            "next_scene_id": "pc2_s10",
+            "score": 10
+          },
+          {
+            "label": "Que o produto tem SIF federal e pode ser vendido em qualquer estado do Brasil",
+            "next_scene_id": "pc2_s9",
+            "score": 3
+          }
+        ]
+      },
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "pc2_c2",
+          "text": "O que esse logo azul significa pra quem compra?",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        }
+      ]
+    },
+    {
+      "_id": "pc2_s9",
+      "story_id": "pc2",
+      "title": "C3B — Sustentável Não É SIF",
+      "type": "scene",
+      "position": 9,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 14 },
+      "description": "TODO — Carlos mostrando diferença em dois blocos: 'SIF certifica segurança alimentar — processamento limpo, temperatura, embalagem correta' vs 'MSC certifica a pescaria — método de captura, conservação do estoque, respeito ao ecossistema'. São complementares, não iguais. Estilo cartoon Gravity Falls — diferente de C3.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "pc2_s10",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "pc2_c3",
+          "text": "SIF é sobre segurança alimentar — processamento limpo, temperatura, embalagem correta. MSC é sobre a pescaria em si — método de captura, conservação do estoque, respeito ao ecossistema.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 2,
+          "character_id": "pc2_c3",
+          "text": "Redes que exigem MSC querem saber que o peixe não foi capturado de forma predatória.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 3,
+          "character_id": null,
+          "text": "Dois logos, dois compromissos diferentes. O peixe que tem os dois abre qualquer porta.",
+          "audio_url": "",
+          "voice_profile": "nova"
+        }
+      ]
+    },
+    {
+      "_id": "pc2_s10",
+      "story_id": "pc2",
+      "title": "C4 — O Mercado que o MSC Abre",
+      "type": "scene",
+      "position": 10,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 14 },
+      "description": "TODO — Carlos mostrando lista de supermercados e importadores que já exigem MSC: Carrefour, Pão de Açúcar, importadores europeus. Seu Raimundo e Dona Graça com expressão de quem está entendendo o tamanho da oportunidade. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "pc2_s11",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "pc2_c3",
+          "text": "Carrefour, Pão de Açúcar, exportação para Europa — estão exigindo MSC progressivamente. O pescador artesanal que pesca com responsabilidade está na frente.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 2,
+          "character_id": "pc2_c2",
+          "text": "E quanto custa essa certificação?",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        },
+        {
+          "position": 3,
+          "character_id": "pc2_c3",
+          "text": "Individualmente, caro demais. Por isso a pergunta certa é outra.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        }
+      ]
+    },
+    {
+      "_id": "pc2_s11",
+      "story_id": "pc2",
+      "title": "C5 — Como Acessar o MSC",
+      "type": "scene",
+      "position": 11,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 14 },
+      "description": "TODO — Carlos mostrando modelo em diagrama: 'Cooperativa certificada pelo MSC → audita a pescaria de todos os associados → divide o custo entre os membros'. Seu Raimundo calculando no papel: custo total dividido por 20 pescadores. Expressão de quem está vendo que é viável. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "pc2_s12",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "pc2_c1",
+          "text": "Se a cooperativa tiver MSC, eu me beneficio como associado?",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        },
+        {
+          "position": 2,
+          "character_id": "pc2_c3",
+          "text": "Exato. A cooperativa audita a pescaria coletiva — seu método de captura, as espécies, os tamanhos respeitados — e divide o custo.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 3,
+          "character_id": "pc2_c3",
+          "text": "Como o pescador artesanal pode acessar o MSC de forma viável?",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        }
+      ]
+    },
+    {
+      "_id": "pc2_s12",
+      "story_id": "pc2",
+      "title": "C5D — Como Acessar o MSC de Forma Viável?",
+      "type": "decision",
+      "position": 12,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 12 },
+      "description": "TODO — Seu Raimundo e Dona Graça olhando para o diagrama do MSC coletivo, pensando. Carlos aguardando. Caderneta de bordo aberta sobre a mesa. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "decision": {
+        "prompt": "Como o pescador artesanal pode acessar a certificação MSC de forma viável?",
+        "interaction_type": "single_choice",
+        "options": [
+          {
+            "label": "Via cooperativa certificada pelo MSC — ela audita a pescaria coletiva e divide o custo entre os associados",
+            "next_scene_id": "pc2_s13",
+            "score": 10
+          },
+          {
+            "label": "Individualmente — o custo é acessível para qualquer pescador com RGP e caderneta de bordo",
+            "next_scene_id": "pc2_s14",
+            "score": 3
+          }
+        ]
+      },
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "pc2_c2",
+          "text": "Como a gente acessa o MSC sem pagar sozinho?",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        }
+      ]
+    },
+    {
+      "_id": "pc2_s13",
+      "story_id": "pc2",
+      "title": "C6A — O Lote com Nome",
+      "type": "end",
+      "position": 13,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 16 },
+      "description": "TODO — Seu Raimundo na cooperativa entregando peixe com etiquetas de lote. Dona Graça ao computador registrando na caderneta digital. Embalagem com rótulo completo saindo da cooperativa. Representante ligando com expressão positiva — supermercado confirmou parceria restaurada. Rio dourado ao fundo. Estilo cartoon Gravity Falls — épica e calorosa.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "end_label": "O Lote com Nome",
+      "end_score": 10,
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": null,
+          "text": "Lote numerado. Caderneta completa. Rastreabilidade do rio até a prateleira.",
+          "audio_url": "",
+          "voice_profile": "nova"
+        },
+        {
+          "position": 2,
+          "character_id": "pc2_c2",
+          "text": "O supermercado voltou. Disseram que a resposta com o lote em 5 minutos foi o que convenceu.",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        },
+        {
+          "position": 3,
+          "character_id": "pc2_c1",
+          "text": "Trinta anos pescando certo. Agora finalmente tenho os papéis que provam isso.",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        }
+      ]
+    },
+    {
+      "_id": "pc2_s14",
+      "story_id": "pc2",
+      "title": "C6B — O Sistema Começa",
+      "type": "end",
+      "position": 14,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 16 },
+      "description": "TODO — Seu Raimundo saindo do RURAP com caderneta atualizada e etiquetas de lote na mão. Carlos na porta despedindo. Cais ao fundo, barco ancorado. Expressão de quem tem caminho claro. Estilo cartoon Gravity Falls, paleta suave.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "end_label": "O Sistema Começa",
+      "end_score": 5,
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": null,
+          "text": "A parceria com o supermercado está sob análise. Mas a rastreabilidade começa hoje.",
+          "audio_url": "",
+          "voice_profile": "nova"
+        },
+        {
+          "position": 2,
+          "character_id": "pc2_c1",
+          "text": "Da próxima saída em diante — todo peixe tem lote.",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        },
+        {
+          "position": 3,
+          "character_id": "pc2_c3",
+          "text": "Isso é tudo que o mercado pede. O resto você já sabe fazer há trinta anos.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        }
+      ]
+    }
+  ]
+}

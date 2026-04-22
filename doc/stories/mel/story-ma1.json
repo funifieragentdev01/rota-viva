@@ -1,0 +1,763 @@
+{
+  "story": {
+    "_id": "ma1",
+    "title": "O Dia do Mutirão",
+    "synopsis": "Em uma pequena cidade do interior do Piauí, Seu Zé, um apicultor experiente mas sem acesso a crédito, decide dar um passo que pode transformar sua vida: participar de um mutirão do PRONAF.\n\nEntre filas, dúvidas e decisões difíceis, ele descobre que crescer na apicultura exige mais do que trabalho duro — exige informação, planejamento e coragem para buscar ajuda.\n\nNesta jornada interativa, você assume o papel de guia de Seu Zé, tomando decisões que podem levá-lo ao sucesso, ao aprendizado ou à desistência.",
+    "cover_image": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69e7b476501f000cfda77e5c_original_capa-mod-a1.jpeg",
+    "aspect_ratio": "9:16",
+    "subtitle_font_size": 22,
+    "default_scene_duration": 6,
+    "passing_score": 28,
+    "genre": "Drama",
+    "show_cover_first": true,
+    "first_scene_id": "ma1_s1",
+    "background_audio": {
+      "loop": true,
+      "volume": 0.25,
+      "url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/documents/69e7aaf8501f000cfda76559_enlivening.mp3"
+    },
+    "status": "active"
+  },
+
+  "characters": [
+    {
+      "_id": "ma1_c1",
+      "story_id": "ma1",
+      "name": "Seu Zé",
+      "description": "Apicultor de 52 anos, do Piauí. Tem 40 colmeias, trabalha sozinho. Nunca pediu crédito mas quer expandir.",
+      "avatar_thumbnail": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69e7b4cb501f000cfda77e6d_original_1.png",
+      "reference_image": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69e7b4cf501f000cfda77e6f_original_5.png",
+      "voice_profile": "onyx"
+    },
+    {
+      "_id": "ma1_c2",
+      "story_id": "ma1",
+      "name": "Atendente do Banco",
+      "description": "Funcionária do Banco do Nordeste, jovem, profissional e receptiva.",
+      "avatar_thumbnail": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69e7b4f0501f000cfda77e74_original_2.png",
+      "reference_image": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69e7b4f7501f000cfda77e76_original_6.png",
+      "voice_profile": "shimmer"
+    },
+    {
+      "_id": "ma1_c3",
+      "story_id": "ma1",
+      "name": "Técnico da ATER",
+      "description": "Técnico de extensão rural da EMATER do Piauí. Conhece bem os programas do MIDR. É o elo entre o produtor e o banco.",
+      "avatar_thumbnail": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69e7b511501f000cfda77e7f_original_3.png",
+      "reference_image": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69e7b517501f000cfda77e81_original_7.png",
+      "voice_profile": "alloy"
+    }
+  ],
+
+  "scenes": [
+
+    {
+      "_id": "ma1_s1",
+      "story_id": "ma1",
+      "title": "Amanhecer no Apiário",
+      "type": "scene",
+      "position": 1,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": {
+        "type": "image",
+        "url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69e7b57c501f000cfda77e88_original_1.jpg",
+        "duration": 14
+      },
+      "description": "O sol ainda nem nasceu completamente. Luz suave ilumina o quintal rural. Seu Zé já está de pé, cercado por suas 40 colmeias de madeira, organizadas com cuidado. O som das abelhas domina o ambiente. Ele observa o trabalho delas com expressão pensativa. Cena transmite rotina, esforço e um sonho silencioso de crescimento.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "dialogues": [
+        {
+          "position": 0,
+          "text": "O sol ainda nem nasceu completamente. Seu Zé já está de pé, cercado por suas 40 colmeias de madeira, organizadas com cuidado. Ele observa o trabalho delas pensativo.",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69e7e56ab5fee93883be8f2c_story-tts-69e7e56ab5fee93883be8f2b.mp3",
+          "_audioDuration": 10.752
+        },
+        {
+          "position": 1,
+          "character_id": "ma1_c1",
+          "text": "Quarenta colmeias. Trinta anos de trabalho. Mas se eu não buscar ajuda, vou continuar igual.",
+          "audio_url": ""
+        }
+      ],
+      "next_scene_id": "ma1_s2"
+    },
+
+    {
+      "_id": "ma1_s2",
+      "story_id": "ma1",
+      "title": "Preparação para o Mutirão",
+      "type": "scene",
+      "position": 2,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": {
+        "type": "image",
+        "url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69e7b5d5501f000cfda77e8e_original_2.jpg",
+        "duration": 15
+      },
+      "description": "Dentro de uma casa simples de interior. Mesa de madeira com documentos espalhados: RG, CPF, contas antigas. Seu Zé separa tudo em uma sacola plástica. Ele para por um momento, olha para os papéis com dúvida e esperança. Luz entrando pela janela. Cena íntima e emocional.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "dialogues": [
+        {
+          "position": 0,
+          "text": "Dentro de sua casa, na mesa de madeira com documentos espalhados: RG, CPF, contas antigas. Seu Zé separa tudo em uma sacola plástica. Ele olha para os papéis com dúvida e esperança.",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69e7e576b5fee93883be8f2e_story-tts-69e7e576b5fee93883be8f2d.mp3",
+          "_audioDuration": 11.304
+        },
+        {
+          "position": 1,
+          "character_id": "ma1_c1",
+          "text": "Nunca pedi dinheiro emprestado na vida. Mas não é pra mim — é pra deixar alguma coisa maior.",
+          "audio_url": ""
+        }
+      ],
+      "next_scene_id": "ma1_s3"
+    },
+
+    {
+      "_id": "ma1_s3",
+      "story_id": "ma1",
+      "title": "Chegada ao Banco",
+      "type": "decision",
+      "position": 3,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": {
+        "type": "image",
+        "url": "https://s3.amazonaws.com/funifier/games/69e40d77c7ea8706a3ff4968/story_scenes/69e677bbbb4b2f516678b5af_story-scene-69e677bbbb4b2f516678b5ae.png",
+        "duration": 9
+      },
+      "description": "Fachada de uma agência do Banco do Nordeste em cidade pequena. Manhã cedo, luz dourada. Uma fila de produtores rurais com chapéus, botas e sacolas de documentos já se formou. Seu Zé entra na fila, observa os outros, mistura de ansiedade e expectativa.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "dialogues": [
+        {
+          "position": 0,
+          "text": "Seu Zé chega cedo. Mas não está sozinho. Já tem outras pessoas aguardando na fila para entrar no Banco do Nordeste.",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69e7e580b5fee93883be8f30_story-tts-69e7e580b5fee93883be8f2f.mp3",
+          "_audioDuration": 7.248
+        },
+        {
+          "position": 1,
+          "character_id": "ma1_c2",
+          "text": "Bom dia! O senhor tem o CAF?",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69e7e586b5fee93883be8f32_story-tts-69e7e586b5fee93883be8f31.mp3",
+          "_audioDuration": 1.68
+        }
+      ],
+      "decision": {
+        "prompt": "Você trouxe o CAF?",
+        "interaction_type": "click",
+        "options": [
+          {
+            "label": "Sim, trouxe",
+            "next_scene_id": "ma1_s4",
+            "score": 10
+          },
+          {
+            "label": "Não sei o que é CAF",
+            "next_scene_id": "ma1_s6",
+            "score": 1
+          }
+        ]
+      }
+    },
+
+    {
+      "_id": "ma1_s4",
+      "story_id": "ma1",
+      "title": "CAF OK — Você Chegou Preparado",
+      "type": "scene",
+      "position": 4,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": {
+        "type": "image",
+        "url": "https://s3.amazonaws.com/funifier/games/69e40d77c7ea8706a3ff4968/story/69e6e559c464c803cd51f41e_original_4.jpg",
+        "duration": 12
+      },
+      "description": "Interior da agência bancária. Ambiente simples, balcão de atendimento. A atendente confere o CAF de Seu Zé e sorri. Ela abre uma pasta com folhetos do PRONAF e começa a explicar as modalidades disponíveis. Seu Zé escuta com atenção, segurando seus documentos. Cena transmite oportunidade, clareza e esperança.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "dialogues": [
+        {
+          "position": 0,
+          "character_id": "ma1_c2",
+          "text": "Com o seu CAF, o senhor pode acessar o PRONAF. Muito bem!",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69e7e593b5fee93883be8f34_story-tts-69e7e593b5fee93883be8f33.mp3",
+          "_audioDuration": 2.736
+        },
+        {
+          "position": 1,
+          "character_id": "ma1_c2",
+          "text": "Temos duas modalidades: o custeio, para cobrir os gastos do apiário no ano, e o investimento, para comprar equipamentos e expandir.",
+          "audio_url": ""
+        },
+        {
+          "position": 2,
+          "text": "Seu Zé respira fundo. Essa é a hora que ele esperava.",
+          "audio_url": ""
+        }
+      ],
+      "next_scene_id": "ma1_s5"
+    },
+
+    {
+      "_id": "ma1_s5",
+      "story_id": "ma1",
+      "title": "Qual o Objetivo?",
+      "type": "decision",
+      "position": 5,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": {
+        "type": "image",
+        "url": "",
+        "duration": 8
+      },
+      "description": "TODO — Ilustração didática mostrando dois caminhos lado a lado: de um lado caixas de insumos, cera e alimentação (custeio, curto prazo); do outro novas colmeias alinhadas e uma centrifugadora nova (investimento, crescimento). A atendente aponta para os dois lados com um sorriso explicativo.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "dialogues": [
+        {
+          "position": 0,
+          "character_id": "ma1_c2",
+          "text": "Custeio cobre os gastos do dia a dia: insumos, alimentação das abelhas, embalagens. Prazo de até um ano.",
+          "audio_url": ""
+        },
+        {
+          "position": 1,
+          "character_id": "ma1_c2",
+          "text": "Já o investimento é para crescer: novas colmeias, centrifuga, casa de mel. Prazo mais longo, mas precisa de projeto técnico.",
+          "audio_url": ""
+        }
+      ],
+      "decision": {
+        "prompt": "Qual o objetivo do senhor com o PRONAF?",
+        "interaction_type": "click",
+        "options": [
+          {
+            "label": "Custeio — quero cobrir os gastos deste ano",
+            "next_scene_id": "ma1_s8",
+            "score": 10
+          },
+          {
+            "label": "Investimento — quero expandir o apiário",
+            "next_scene_id": "ma1_s10",
+            "score": 10
+          },
+          {
+            "label": "Não sei a diferença ainda",
+            "next_scene_id": "ma1_s12",
+            "score": 2
+          }
+        ]
+      }
+    },
+
+    {
+      "_id": "ma1_s6",
+      "story_id": "ma1",
+      "title": "Sem CAF — Uma Surpresa Difícil",
+      "type": "scene",
+      "position": 6,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": {
+        "type": "image",
+        "url": "https://s3.amazonaws.com/funifier/games/69e40d77c7ea8706a3ff4968/story_scenes/69e6803fbb4b2f516678b5bd_story-scene-69e6803fbb4b2f516678b5bc.png",
+        "duration": 10
+      },
+      "description": "Mesmo ambiente do banco, mas agora com tensão. Seu Zé parece confuso. A atendente aponta com gentileza para uma sala lateral com placa 'ATER'. Ao fundo, outras pessoas sendo atendidas normalmente. Sensação de atraso e preocupação — mas não de derrota.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "dialogues": [
+        {
+          "position": 0,
+          "character_id": "ma1_c2",
+          "text": "Sem o Cadastro da Agricultura Familiar, o senhor não consegue o PRONAF. É um documento obrigatório.",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69e7e5afb5fee93883be99d8_story-tts-69e7e5afb5fee93883be99d7.mp3",
+          "_audioDuration": 3.24
+        },
+        {
+          "position": 1,
+          "character_id": "ma1_c2",
+          "text": "Mas não perde o dia! Ali do lado tem o escritório da ATER — eles fazem o CAF gratuitamente e hoje mesmo.",
+          "audio_url": ""
+        },
+        {
+          "position": 2,
+          "text": "Seu Zé olha para a placa da ATER. A manhã ainda não acabou.",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69e7e5b3b5fee93883be99dc_story-tts-69e7e5b3b5fee93883be99db.mp3",
+          "_audioDuration": 2.448
+        }
+      ],
+      "next_scene_id": "ma1_s7"
+    },
+
+    {
+      "_id": "ma1_s7",
+      "story_id": "ma1",
+      "title": "O que Você Faz?",
+      "type": "decision",
+      "position": 7,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": {
+        "type": "image",
+        "url": "",
+        "duration": 7
+      },
+      "description": "TODO — Vista da rua da cidade pequena ao meio-dia, sol forte. A fachada do banco visível de um lado. Do outro, a duas casas de distância, a placa da ATER. Seu Zé está parado na calçada, sacola na mão, olhando para os dois lados. Expressão de dúvida. Cena transmite a encruzilhada — ainda há tempo para agir.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "dialogues": [
+        {
+          "position": 0,
+          "text": "Ainda é manhã. O escritório da ATER fica a dois quarteirões. O CAF é gratuito e pode ser feito hoje.",
+          "audio_url": ""
+        },
+        {
+          "position": 1,
+          "character_id": "ma1_c1",
+          "text": "Levantei de madrugada, vim de longe, fiquei na fila... Será que ainda vale tentar?",
+          "audio_url": ""
+        }
+      ],
+      "decision": {
+        "prompt": "O que Seu Zé decide?",
+        "interaction_type": "click",
+        "options": [
+          {
+            "label": "Ir para a ATER tirar o CAF agora",
+            "next_scene_id": "ma1_s13",
+            "score": 5
+          },
+          {
+            "label": "Está cansado — vai tentar outra vez",
+            "next_scene_id": "ma1_s14",
+            "score": 0
+          }
+        ]
+      }
+    },
+
+    {
+      "_id": "ma1_s8",
+      "story_id": "ma1",
+      "title": "Custeio — Hora da Verdade",
+      "type": "scene",
+      "position": 8,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": {
+        "type": "image",
+        "url": "",
+        "duration": 11
+      },
+      "description": "TODO — Close em um caderno simples, páginas amareladas, com anotações à mão: número de colmeias, produção estimada, custos de insumos. Pequenos desenhos de abelhas nas margens. O caderno está sobre o balcão do banco. A mão de Seu Zé segura firme o lápis. A atendente olha atenta com um formulário na mão.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "dialogues": [
+        {
+          "position": 0,
+          "text": "Para o custeio, Seu Zé precisa informar quanto gasta por ano no apiário. Insumos, alimentação das abelhas, mão de obra, embalagens.",
+          "audio_url": ""
+        },
+        {
+          "position": 1,
+          "character_id": "ma1_c2",
+          "text": "Preciso dos seus números para montar a proposta. Quantas colmeias o senhor tem? Quanto produz por safra?",
+          "audio_url": ""
+        },
+        {
+          "position": 2,
+          "text": "Seu Zé pensa. Essas respostas — ele tem elas?",
+          "audio_url": ""
+        }
+      ],
+      "next_scene_id": "ma1_s9"
+    },
+
+    {
+      "_id": "ma1_s9",
+      "story_id": "ma1",
+      "title": "Você Tem as Anotações?",
+      "type": "decision",
+      "position": 9,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": {
+        "type": "image",
+        "url": "",
+        "duration": 6
+      },
+      "description": "TODO — Detalhe da sacola que Seu Zé trouxe. Em um cenário bom, o caderno de anotações aparece — com números, datas, quantidades. No cenário incerto, a sacola contém apenas RG e CPF. Expressão de Seu Zé no fundo, fora de foco, pensativa.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "dialogues": [
+        {
+          "position": 0,
+          "character_id": "ma1_c2",
+          "text": "O senhor tem alguma anotação da produção? Qualquer registro ajuda.",
+          "audio_url": ""
+        }
+      ],
+      "decision": {
+        "prompt": "Seu Zé tem os dados anotados?",
+        "interaction_type": "click",
+        "options": [
+          {
+            "label": "Tenho um caderno com tudo anotado",
+            "next_scene_id": "ma1_s15",
+            "score": 10
+          },
+          {
+            "label": "Sei tudo de cabeça, não anotei",
+            "next_scene_id": "ma1_s16",
+            "score": 5
+          }
+        ]
+      }
+    },
+
+    {
+      "_id": "ma1_s10",
+      "story_id": "ma1",
+      "title": "Investimento — Próximo Nível",
+      "type": "scene",
+      "position": 10,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": {
+        "type": "image",
+        "url": "",
+        "duration": 12
+      },
+      "description": "TODO — Ilustração inspiradora: novas fileiras de colmeias organizadas num campo verde, uma centrifugadora nova brilhando numa pequena casa de mel, e Seu Zé com expressão de sonho. Em segundo plano, a atendente aponta para um folheto com a palavra 'PRONAF Investimento'.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "dialogues": [
+        {
+          "position": 0,
+          "text": "O PRONAF Investimento pode financiar novas colmeias, uma centrífuga e até a construção da casa de mel.",
+          "audio_url": ""
+        },
+        {
+          "position": 1,
+          "character_id": "ma1_c2",
+          "text": "Para investimento, o senhor precisa de um projeto técnico aprovado. Mas não precisa pagar — a ATER faz gratuitamente.",
+          "audio_url": ""
+        },
+        {
+          "position": 2,
+          "text": "Seu Zé ouve. Um projeto técnico. Mais um passo — mas o caminho está aberto.",
+          "audio_url": ""
+        }
+      ],
+      "next_scene_id": "ma1_s11"
+    },
+
+    {
+      "_id": "ma1_s11",
+      "story_id": "ma1",
+      "title": "Como Prosseguir?",
+      "type": "decision",
+      "position": 11,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": {
+        "type": "image",
+        "url": "",
+        "duration": 7
+      },
+      "description": "TODO — Vista aérea simples ou mapa ilustrado da cidade. Um trajeto desenhado liga o banco até a ATER. Elementos visuais indicam deslocamento e decisão. Relógio sugerindo que ainda há tempo. A atendente aponta o caminho.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "dialogues": [
+        {
+          "position": 0,
+          "character_id": "ma1_c2",
+          "text": "A ATER fica aqui pertinho. Com o projeto deles, o senhor volta e eu protocolo tudo hoje.",
+          "audio_url": ""
+        },
+        {
+          "position": 1,
+          "text": "Ainda é manhã. Ainda há tempo.",
+          "audio_url": ""
+        }
+      ],
+      "decision": {
+        "prompt": "O que Seu Zé decide?",
+        "interaction_type": "click",
+        "options": [
+          {
+            "label": "Ir para ATER fazer o projeto técnico",
+            "next_scene_id": "ma1_s13",
+            "score": 8
+          },
+          {
+            "label": "Preferir custeio por enquanto, sem projeto",
+            "next_scene_id": "ma1_s8",
+            "score": 6
+          }
+        ]
+      }
+    },
+
+    {
+      "_id": "ma1_s12",
+      "story_id": "ma1",
+      "title": "Entendendo as Modalidades",
+      "type": "scene",
+      "position": 12,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": {
+        "type": "image",
+        "url": "",
+        "duration": 14
+      },
+      "description": "TODO — Ilustração dividida didaticamente em dois painéis. Esquerda (CUSTEIO): calendário com os meses do ano, caixas de insumos, potes de mel. Direita (INVESTIMENTO): colmeias novas enfileiradas, centrífuga, planta de uma casa de mel. A atendente está no centro com expressão gentil e explicativa.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "dialogues": [
+        {
+          "position": 0,
+          "character_id": "ma1_c2",
+          "text": "Sem problema, explico! Custeio é para o dia a dia — cobre o que você gasta na produção durante o ano.",
+          "audio_url": ""
+        },
+        {
+          "position": 1,
+          "character_id": "ma1_c2",
+          "text": "Investimento é para crescer — comprar equipamentos, construir estrutura, aumentar o número de colmeias.",
+          "audio_url": ""
+        },
+        {
+          "position": 2,
+          "character_id": "ma1_c2",
+          "text": "Os dois são PRONAF, mas com prazos e objetivos diferentes. Agora que o senhor entende — qual é o seu caso?",
+          "audio_url": ""
+        }
+      ],
+      "next_scene_id": "ma1_s5"
+    },
+
+    {
+      "_id": "ma1_s13",
+      "story_id": "ma1",
+      "title": "Na ATER — Uma Porta que se Abre",
+      "type": "scene",
+      "position": 13,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": {
+        "type": "image",
+        "url": "",
+        "duration": 14
+      },
+      "description": "TODO — Sala simples de atendimento rural. Paredes com mapas do Piauí e cartazes sobre programas do MIDR. Técnico com colete verde e prancheta recebe Seu Zé com um aperto de mão. Expressão acolhedora. Mesa com computador e formulários. Luz natural entrando pela janela.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "dialogues": [
+        {
+          "position": 0,
+          "text": "Seu Zé entra no escritório da ATER. Um mundo diferente do banco — aqui, todo mundo faz parte do campo.",
+          "audio_url": ""
+        },
+        {
+          "position": 1,
+          "character_id": "ma1_c3",
+          "text": "Pode entrar, seu Zé! Aqui a gente resolve. Vou te ajudar com o CAF e já aproveitamos para organizar seu projeto pro PRONAF.",
+          "audio_url": ""
+        },
+        {
+          "position": 2,
+          "character_id": "ma1_c3",
+          "text": "O CAF é gratuito, leva uns 30 minutos. Depois que ficar pronto, você volta ao banco e é atendido direto.",
+          "audio_url": ""
+        },
+        {
+          "position": 3,
+          "text": "Seu Zé senta. Hoje não fechou o crédito — mas abriu o caminho.",
+          "audio_url": ""
+        }
+      ],
+      "next_scene_id": "ma1_s17"
+    },
+
+    {
+      "_id": "ma1_s14",
+      "story_id": "ma1",
+      "title": "O Caminho Não Percorrido",
+      "type": "end",
+      "position": 14,
+      "transition": "fade",
+      "transition_duration": 300,
+      "end_label": "Uma lição para a próxima vez",
+      "end_score": 0,
+      "media_mode": "image",
+      "media": {
+        "type": "image",
+        "url": "",
+        "duration": 10
+      },
+      "description": "TODO — Rua de cidade pequena ao meio-dia, sol forte. Seu Zé caminha de costas para a câmera, ombros ligeiramente caídos, segurando a sacola. A poucos metros atrás dele, a placa da ATER é visível mas ele não entra. Clima de oportunidade perdida, mas não punitivo — é um ensinamento.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "dialogues": [
+        {
+          "position": 0,
+          "text": "Seu Zé decide não tentar mais hoje.",
+          "audio_url": ""
+        },
+        {
+          "position": 1,
+          "text": "A ATER estava a dois quarteirões. O CAF é gratuito. O mutirão volta em seis meses.",
+          "audio_url": ""
+        },
+        {
+          "position": 2,
+          "text": "Não foi falta de chance — foi parar cedo demais. Na próxima vez, você já sabe o que trazer.",
+          "audio_url": ""
+        }
+      ]
+    },
+
+    {
+      "_id": "ma1_s15",
+      "story_id": "ma1",
+      "title": "Missão Cumprida",
+      "type": "end",
+      "position": 15,
+      "transition": "fade",
+      "transition_duration": 300,
+      "end_label": "Crédito aprovado!",
+      "end_score": 10,
+      "media_mode": "image",
+      "media": {
+        "type": "image",
+        "url": "",
+        "duration": 12
+      },
+      "description": "TODO — Seu Zé saindo do banco com um papel de protocolo na mão. Sorriso leve, postura confiante, olhar no horizonte. Luz quente do sol da tarde ilumina a cena. Abelhas aparecem sutilmente no fundo, como símbolo de trabalho que continua.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "dialogues": [
+        {
+          "position": 0,
+          "character_id": "ma1_c2",
+          "text": "Tá ótimo, seu Zé! Com essas informações dá pra aprovar o custeio. Em até 5 dias úteis o valor estará na sua conta.",
+          "audio_url": ""
+        },
+        {
+          "position": 1,
+          "text": "Seu Zé sai com o protocolo na mão.",
+          "audio_url": ""
+        },
+        {
+          "position": 2,
+          "text": "Agora ele não só trabalha — ele cresce. E sabia exatamente o que precisava trazer.",
+          "audio_url": ""
+        }
+      ]
+    },
+
+    {
+      "_id": "ma1_s16",
+      "story_id": "ma1",
+      "title": "Quase Lá",
+      "type": "end",
+      "position": 16,
+      "transition": "fade",
+      "transition_duration": 300,
+      "end_label": "Quase lá — próximo passo claro",
+      "end_score": 5,
+      "media_mode": "image",
+      "media": {
+        "type": "image",
+        "url": "",
+        "duration": 11
+      },
+      "description": "TODO — Sala da ATER. Seu Zé e o técnico sentados lado a lado preenchendo formulários juntos. Caderno aberto sobre a mesa, caneta na mão de Seu Zé, expressão de concentração e aprendizado. Luz suave, ambiente acolhedor.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "dialogues": [
+        {
+          "position": 0,
+          "character_id": "ma1_c2",
+          "text": "Não tem problema. A ATER ajuda o senhor a montar um registro simples de produção. Leva uns 2 dias.",
+          "audio_url": ""
+        },
+        {
+          "position": 1,
+          "text": "Hoje não fechou. Mas agora Seu Zé sabe exatamente o que falta. E o próximo mutirão está marcado.",
+          "audio_url": ""
+        },
+        {
+          "position": 2,
+          "text": "Anotar a produção não é burocracia — é o que separa quem consegue crédito de quem não consegue.",
+          "audio_url": ""
+        }
+      ]
+    },
+
+    {
+      "_id": "ma1_s17",
+      "story_id": "ma1",
+      "title": "Preparado para o Próximo Mutirão",
+      "type": "end",
+      "position": 17,
+      "transition": "fade",
+      "transition_duration": 300,
+      "end_label": "Em progresso — o caminho está aberto",
+      "end_score": 5,
+      "media_mode": "image",
+      "media": {
+        "type": "image",
+        "url": "",
+        "duration": 12
+      },
+      "description": "TODO — Exterior da ATER ao fim da tarde. Céu alaranjado, luz quente. Seu Zé sai segurando uma pasta com documentos — o protocolo do CAF em processo. Caminha com postura mais firme do que quando entrou. Expressão determinada, de quem tomou uma decisão importante.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "dialogues": [
+        {
+          "position": 0,
+          "character_id": "ma1_c3",
+          "text": "Com o CAF em mãos, no próximo mutirão o senhor entra direto. Eu já deixo o projeto técnico pronto também.",
+          "audio_url": ""
+        },
+        {
+          "position": 1,
+          "character_id": "ma1_c3",
+          "text": "Pode levar uns 30 dias para o CAF ficar pronto. Mas quando ficar, o caminho está aberto.",
+          "audio_url": ""
+        },
+        {
+          "position": 2,
+          "text": "Saber o que falta já é metade da vitória.",
+          "audio_url": ""
+        }
+      ]
+    }
+
+  ]
+}

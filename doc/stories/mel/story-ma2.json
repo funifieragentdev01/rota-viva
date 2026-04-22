@@ -1,0 +1,581 @@
+{
+  "story": {
+    "_id": "ma2",
+    "title": "O Mel na Merenda",
+    "synopsis": "Dona Maria chega em casa com um aviso da prefeitura: a chamada pública do PNAE está aberta — a escola municipal quer comprar mel de apicultores locais. É a primeira vez que a família Costa tem a chance de vender com preço justo e garantido, sem atravessador.\n\nMas Pedro lembra: para participar, precisam de coisas que nunca tiraram. Dona Maria vai até a Emater-PI com Seu Zé descobrir o que falta — e o que está mais perto do que imaginavam.",
+    "cover_image": "",
+    "aspect_ratio": "9:16",
+    "subtitle_font_size": 22,
+    "default_scene_duration": 6,
+    "passing_score": 28,
+    "genre": "Drama",
+    "show_cover_first": true,
+    "first_scene_id": "ma2_s1",
+    "background_audio": {
+      "loop": true,
+      "volume": 0.25,
+      "url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/documents/69e7aaf8501f000cfda76559_enlivening.mp3"
+    },
+    "status": "active"
+  },
+
+  "characters": [
+    {
+      "_id": "ma2_c1",
+      "story_id": "ma2",
+      "name": "Dona Maria",
+      "description": "Maria Costa, 48 anos, esposa de Seu Zé. Vestido florido, cabelos presos, expressão determinada. É ela quem cuida das contas e das vendas da família — agora quer abrir o mercado institucional.",
+      "avatar_thumbnail": "",
+      "reference_image": "",
+      "voice_profile": "shimmer"
+    },
+    {
+      "_id": "ma2_c2",
+      "story_id": "ma2",
+      "name": "Seu Zé",
+      "description": "José Costa, apicultor de 52 anos, do Piauí. Chapéu de palha, pele curtida, roupa de campo. Trinta anos de apiário — agora aprende com a esposa que vender bem exige documentação.",
+      "avatar_thumbnail": "",
+      "reference_image": "",
+      "voice_profile": "onyx"
+    },
+    {
+      "_id": "ma2_c3",
+      "story_id": "ma2",
+      "name": "Técnico da Emater-PI",
+      "description": "Técnico de extensão rural da Emater-PI, 35 anos. Colete verde, óculos, prancheta. Conhece cada detalhe do PNAE, PAA e Nota Fiscal de Produtor Rural. Vai até o apiário e ao banco quando precisa.",
+      "avatar_thumbnail": "",
+      "reference_image": "",
+      "voice_profile": "alloy"
+    }
+  ],
+
+  "scenes": [
+
+    {
+      "_id": "ma2_s1",
+      "story_id": "ma2",
+      "title": "A Chamada Chegou",
+      "type": "scene",
+      "position": 1,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 13 },
+      "description": "TODO — Varanda da casa da família Costa, tarde dourada. Dona Maria (48 anos, vestido florido) chega com papel na mão e expressão animada. Pedro (19 anos, camiseta) e Seu Zé (52 anos, chapéu de palha) sentados. Ana (14 anos, tranças) ao fundo. Caatinga ao longe. Estilo cartoon Gravity Falls — paleta quente amarelo-dourado.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "dialogues": [
+        {
+          "position": 0,
+          "text": "Dona Maria voltou da prefeitura com um aviso que mudaria os planos da semana.",
+          "audio_url": ""
+        },
+        {
+          "position": 1,
+          "character_id": "ma2_c1",
+          "text": "Aviso da secretaria de educação. Chamada pública do PNAE — a escola quer comprar mel de apicultor local. Trinta por cento da merenda tem que vir da agricultura familiar.",
+          "audio_url": ""
+        },
+        {
+          "position": 2,
+          "character_id": "ma2_c3",
+          "text": "Mãe, pra participar precisa de documento que a gente não tem ainda, né?",
+          "audio_url": ""
+        }
+      ],
+      "next_scene_id": "ma2_s2"
+    },
+
+    {
+      "_id": "ma2_s2",
+      "story_id": "ma2",
+      "title": "O Que Falta",
+      "type": "scene",
+      "position": 2,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 12 },
+      "description": "TODO — Sala simples da casa Costa, mesa com papéis. Seu Zé e Dona Maria analisando o aviso de chamada pública. Pedro ao lado apontando para os requisitos listados no papel. Expressões de quem quer muito mas está inseguro sobre o processo. Estilo cartoon Gravity Falls, luz doméstica quente.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "dialogues": [
+        {
+          "position": 0,
+          "character_id": "ma2_c2",
+          "text": "CAF a gente tem. Mas Nota Fiscal de Produtor Rural — nunca tirei em trinta anos. E inspeção sanitária do mel?",
+          "audio_url": ""
+        },
+        {
+          "position": 1,
+          "character_id": "ma2_c1",
+          "text": "Amanhã a gente vai na Emater-PI. É de graça a orientação, e o técnico sabe de tudo isso.",
+          "audio_url": ""
+        },
+        {
+          "position": 2,
+          "character_id": "ma2_c2",
+          "text": "Você manda, Maria.",
+          "audio_url": ""
+        }
+      ],
+      "next_scene_id": "ma2_s3"
+    },
+
+    {
+      "_id": "ma2_s3",
+      "story_id": "ma2",
+      "title": "Na Emater-PI — Como o PNAE Funciona?",
+      "type": "decision",
+      "position": 3,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 9 },
+      "description": "TODO — Escritório simples da Emater-PI — cartazes de programas do governo nas paredes, colete verde do técnico, mapas rurais. O Técnico da Emater-PI (35 anos, óculos, colete verde) recebe Seu Zé e Dona Maria com cordialidade. Mesa com o aviso da chamada pública. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "dialogues": [
+        {
+          "position": 0,
+          "character_id": "ma2_c3",
+          "text": "Chamada pública do PNAE — ótimo. Vocês têm o CAF. O passo certo é esse.",
+          "audio_url": ""
+        },
+        {
+          "position": 1,
+          "character_id": "ma2_c1",
+          "text": "Mas como funciona exatamente? A prefeitura compra como?",
+          "audio_url": ""
+        }
+      ],
+      "decision": {
+        "prompt": "Como a prefeitura compra mel de apicultores familiares pelo PNAE?",
+        "interaction_type": "click",
+        "options": [
+          {
+            "label": "Por chamada pública — processo simplificado exclusivo para agricultores familiares com CAF",
+            "next_scene_id": "ma2_s5",
+            "score": 10
+          },
+          {
+            "label": "Por licitação normal — compite com qualquer fornecedor pelo menor preço",
+            "next_scene_id": "ma2_s4",
+            "score": 1
+          },
+          {
+            "label": "Não sei ainda",
+            "next_scene_id": "ma2_s4",
+            "score": 1
+          }
+        ]
+      }
+    },
+
+    {
+      "_id": "ma2_s4",
+      "story_id": "ma2",
+      "title": "Licitação vs Chamada Pública",
+      "type": "scene",
+      "position": 4,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 14 },
+      "description": "TODO — Ilustração comparativa em dois painéis: esquerda mostra 'LICITAÇÃO NORMAL' com várias empresas competindo, seta apontando para 'menor preço ganha'; direita mostra 'CHAMADA PÚBLICA (PNAE)' com seta exclusiva para 'Agricultores Familiares com CAF — preço justo'. Técnico aponta para cada lado explicando. Fundo bege suave. Estilo cartoon Gravity Falls — diferente da cena anterior.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "dialogues": [
+        {
+          "position": 0,
+          "character_id": "ma2_c3",
+          "text": "Na licitação, qualquer empresa concorre e geralmente ganha quem oferece o menor preço. O agricultor familiar perde sempre.",
+          "audio_url": ""
+        },
+        {
+          "position": 1,
+          "character_id": "ma2_c3",
+          "text": "Na chamada pública do PNAE, só agricultores familiares com CAF participam. O preço é referenciado pela tabela do governo — justo para quem produz.",
+          "audio_url": ""
+        },
+        {
+          "position": 2,
+          "character_id": "ma2_c3",
+          "text": "Então — como a prefeitura compra pelo PNAE?",
+          "audio_url": ""
+        }
+      ],
+      "next_scene_id": "ma2_s3"
+    },
+
+    {
+      "_id": "ma2_s5",
+      "story_id": "ma2",
+      "title": "CAF Confirmado — O Que Mais Falta",
+      "type": "scene",
+      "position": 5,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 12 },
+      "description": "TODO — Técnico da Emater mostrando lista de verificação impressa para Seu Zé e Dona Maria: 'CAF ✓, Nota Fiscal de Produtor Rural ✗, Inspeção Sanitária do Mel ✗'. Os dois olham para os itens pendentes com atenção. Pote de mel dourado sobre a mesa. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "dialogues": [
+        {
+          "position": 0,
+          "character_id": "ma2_c3",
+          "text": "Exato — chamada pública exclusiva. E vocês já têm o CAF. Agora faltam dois documentos: a Nota Fiscal de Produtor Rural e a inspeção sanitária do mel.",
+          "audio_url": ""
+        },
+        {
+          "position": 1,
+          "character_id": "ma2_c2",
+          "text": "Nota Fiscal de Produtor — nunca tirei em trinta anos. Quanto custa?",
+          "audio_url": ""
+        },
+        {
+          "position": 2,
+          "character_id": "ma2_c3",
+          "text": "Zero. Gratuita. Mas primeiro me diz — qual nota fiscal o produtor rural precisa emitir?",
+          "audio_url": ""
+        }
+      ],
+      "next_scene_id": "ma2_s6"
+    },
+
+    {
+      "_id": "ma2_s6",
+      "story_id": "ma2",
+      "title": "Qual Nota Fiscal Para Vender Mel?",
+      "type": "decision",
+      "position": 6,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 8 },
+      "description": "TODO — Técnico da Emater com caderno aberto na mesa, caneta na mão, olhando para Dona Maria com expressão de quem aguarda a resposta. Dona Maria com expressão reflexiva. Seu Zé ao lado também pensando. Cartaz ao fundo: 'Nota Fiscal de Produtor Rural — gratuita, Sefaz-PI'. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "dialogues": [
+        {
+          "position": 0,
+          "character_id": "ma2_c1",
+          "text": "Nunca precisei de nota em trinta anos. Sempre vendi na palavra ou com recibo.",
+          "audio_url": ""
+        }
+      ],
+      "decision": {
+        "prompt": "Qual documento Dona Maria precisa para vender mel formalmente ao governo?",
+        "interaction_type": "click",
+        "options": [
+          {
+            "label": "Nota Fiscal de Produtor Rural — gratuita na Sefaz-PI com CPF e CAF",
+            "next_scene_id": "ma2_s8",
+            "score": 10
+          },
+          {
+            "label": "Nota Fiscal Eletrônica (NF-e) — precisa de CNPJ como pessoa jurídica",
+            "next_scene_id": "ma2_s7",
+            "score": 3
+          }
+        ]
+      }
+    },
+
+    {
+      "_id": "ma2_s7",
+      "story_id": "ma2",
+      "title": "NF de Produtor, Não de Empresa",
+      "type": "scene",
+      "position": 7,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 13 },
+      "description": "TODO — Técnico mostrando comparação: dois modelos de nota fiscal lado a lado — 'NF-e de Empresa (CNPJ obrigatório, contador, custo mensal)' e 'Nota Fiscal de Produtor Rural (CPF + CAF, gratuita, SefazPI)'. Dona Maria e Seu Zé olhando com expressão de alívio ao entender a diferença. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "dialogues": [
+        {
+          "position": 0,
+          "character_id": "ma2_c3",
+          "text": "A NF-e de empresa é para quem tem CNPJ — MEI, empresa, agroindústria. Tem custo mensal e precisaria de contador.",
+          "audio_url": ""
+        },
+        {
+          "position": 1,
+          "character_id": "ma2_c3",
+          "text": "O produtor rural tem a Nota Fiscal de Produtor Rural — gratuita, emitida pela Sefaz-PI com CPF e CAF. Sem abrir empresa, sem contador, sem custo.",
+          "audio_url": ""
+        },
+        {
+          "position": 2,
+          "character_id": "ma2_c1",
+          "text": "Então não precisa virar empresa para vender formalmente.",
+          "audio_url": ""
+        }
+      ],
+      "next_scene_id": "ma2_s8"
+    },
+
+    {
+      "_id": "ma2_s8",
+      "story_id": "ma2",
+      "title": "A Nota Fiscal de Graça",
+      "type": "scene",
+      "position": 8,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 14 },
+      "description": "TODO — Técnico acompanhando Dona Maria num computador, mostrando o sistema da Sefaz-PI para emissão da Nota Fiscal de Produtor Rural. Dona Maria com expressão de curiosidade e alívio. Seu Zé ao lado, atento. Tela visível com formulário simples. Impressora ao fundo. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "dialogues": [
+        {
+          "position": 0,
+          "character_id": "ma2_c3",
+          "text": "Nota Fiscal de Produtor Rural, gratuita — emitida pela Sefaz-PI com o CPF e o CAF de vocês. Eu ajudo a tirar ainda hoje.",
+          "audio_url": ""
+        },
+        {
+          "position": 1,
+          "text": "Trinta anos vendendo mel na palavra. Agora, com um documento, o negócio vira formal — e os compradores grandes abrem a porta.",
+          "audio_url": ""
+        },
+        {
+          "position": 2,
+          "character_id": "ma2_c1",
+          "text": "E a inspeção do mel? O SIM?",
+          "audio_url": ""
+        },
+        {
+          "position": 3,
+          "character_id": "ma2_c3",
+          "text": "Esse a prefeitura ajuda. Mas antes — tem mais um programa que vocês precisam conhecer.",
+          "audio_url": ""
+        }
+      ],
+      "next_scene_id": "ma2_s9"
+    },
+
+    {
+      "_id": "ma2_s9",
+      "story_id": "ma2",
+      "title": "O Programa de Aquisição de Alimentos",
+      "type": "scene",
+      "position": 9,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 13 },
+      "description": "TODO — Técnico abrindo folder colorido sobre o PAA na mesa: 'Programa de Aquisição de Alimentos — mel, frutas, queijo para creches e bancos de alimentos'. Dona Maria lendo com atenção e interesse crescente. Seu Zé com expressão de quem está começando a entender o tamanho da oportunidade. Estilo cartoon Gravity Falls, cores quentes douradas.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "dialogues": [
+        {
+          "position": 0,
+          "character_id": "ma2_c3",
+          "text": "Além do PNAE, há outro programa: o PAA. O governo compra o mel diretamente — sem licitação — e distribui para creches, bancos de alimentos e hospitais.",
+          "audio_url": ""
+        },
+        {
+          "position": 1,
+          "character_id": "ma2_c2",
+          "text": "Sem licitação? Preço justo garantido?",
+          "audio_url": ""
+        },
+        {
+          "position": 2,
+          "character_id": "ma2_c3",
+          "text": "Preço estabelecido pela CONAB. Mas tem um limite por família por ano — você sabe qual é?",
+          "audio_url": ""
+        }
+      ],
+      "next_scene_id": "ma2_s10"
+    },
+
+    {
+      "_id": "ma2_s10",
+      "story_id": "ma2",
+      "title": "Qual o Limite do PAA?",
+      "type": "decision",
+      "position": 10,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 8 },
+      "description": "TODO — Técnico com prancheta mostrando tabela do PAA — limite anual por família em destaque. Dona Maria com caderno de anotações aberto, lápis na mão. Seu Zé com expressão de quem está calculando. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "dialogues": [
+        {
+          "position": 0,
+          "character_id": "ma2_c1",
+          "text": "Quanto a gente pode vender pelo PAA por ano?",
+          "audio_url": ""
+        }
+      ],
+      "decision": {
+        "prompt": "Qual é o limite anual que uma família apicultora pode vender pelo PAA?",
+        "interaction_type": "click",
+        "options": [
+          {
+            "label": "R$ 9.000 por família por ano — modalidade doação simultânea",
+            "next_scene_id": "ma2_s11",
+            "score": 10
+          },
+          {
+            "label": "Não há limite — o governo compra tudo que a família produzir",
+            "next_scene_id": "ma2_s12",
+            "score": 3
+          }
+        ]
+      }
+    },
+
+    {
+      "_id": "ma2_s11",
+      "story_id": "ma2",
+      "title": "O Planejamento da Safra",
+      "type": "scene",
+      "position": 11,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 14 },
+      "description": "TODO — Dona Maria, Seu Zé e o Técnico da Emater em volta da mesa, montando plano simples numa folha: '1. Nota Fiscal de Produtor — Sefaz-PI (hoje). 2. SIM — prefeitura (semana que vem). 3. Chamada pública — proposta até sexta.' Expressões de comprometimento e esperança. Estilo cartoon Gravity Falls, cores douradas e quentes.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "dialogues": [
+        {
+          "position": 0,
+          "character_id": "ma2_c3",
+          "text": "R$9.000 no PAA mais o contrato do PNAE — com planejamento, uma família apicultora pode garantir uma renda institucional importante todo ano.",
+          "audio_url": ""
+        },
+        {
+          "position": 1,
+          "character_id": "ma2_c1",
+          "text": "O plano é direto: nota fiscal hoje, SIM semana que vem na prefeitura, proposta da chamada pública até sexta-feira.",
+          "audio_url": ""
+        },
+        {
+          "position": 2,
+          "text": "Três documentos. Três passos. Dona Maria anota cada um com letra firme no caderno.",
+          "audio_url": ""
+        }
+      ],
+      "next_scene_id": "ma2_s13"
+    },
+
+    {
+      "_id": "ma2_s12",
+      "story_id": "ma2",
+      "title": "O Limite do PAA",
+      "type": "scene",
+      "position": 12,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 12 },
+      "description": "TODO — Técnico mostrando tabela simples: 'PAA — Limite por família: R$9.000/ano (modalidade doação simultânea)'. Dona Maria fazendo cálculo no caderno: '50kg × R$40/kg = R$2.000 — não chega ao limite'. Expressão de quem está planejando com realismo. Seu Zé animado. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "dialogues": [
+        {
+          "position": 0,
+          "character_id": "ma2_c3",
+          "text": "O limite existe — R$9.000 por família por ano na modalidade mais acessível. É importante saber pra não depender só disso.",
+          "audio_url": ""
+        },
+        {
+          "position": 1,
+          "text": "PAA mais PNAE, juntos, podem garantir uma renda institucional sólida para a família. Mas é preciso planejar os volumes certos.",
+          "audio_url": ""
+        },
+        {
+          "position": 2,
+          "character_id": "ma2_c1",
+          "text": "Entendido. Limite de R$9.000 no PAA. Agora sei planejar a safra com número real na mão.",
+          "audio_url": ""
+        }
+      ],
+      "next_scene_id": "ma2_s14"
+    },
+
+    {
+      "_id": "ma2_s13",
+      "story_id": "ma2",
+      "title": "O Mel da Escola",
+      "type": "end",
+      "position": 13,
+      "transition": "fade",
+      "transition_duration": 300,
+      "end_label": "O mel vai para a merenda!",
+      "end_score": 10,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 14 },
+      "description": "TODO — Varanda da família Costa, potes de mel etiquetados prontos para a entrega à escola. Dona Maria com a proposta da chamada pública nas mãos, expressão de conquista. Seu Zé e Pedro empilhando potes com cuidado. Ana com caderno de pedidos. Luz dourada da tarde, apiário ao fundo. Cena de conquista familiar. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "dialogues": [
+        {
+          "position": 0,
+          "text": "Proposta entregue. Documentação completa. O mel da família Costa vai para a merenda de duzentas crianças.",
+          "audio_url": ""
+        },
+        {
+          "position": 1,
+          "character_id": "ma2_c1",
+          "text": "Trinta anos na roça e agora a gente vende pro governo com preço justo. Sem atravessador, sem barganha.",
+          "audio_url": ""
+        },
+        {
+          "position": 2,
+          "character_id": "ma2_c2",
+          "text": "Você fez acontecer, Maria. Esse negócio é seu tanto quanto é meu.",
+          "audio_url": ""
+        }
+      ]
+    },
+
+    {
+      "_id": "ma2_s14",
+      "story_id": "ma2",
+      "title": "Quase Lá",
+      "type": "end",
+      "position": 14,
+      "transition": "fade",
+      "transition_duration": 300,
+      "end_label": "O caminho ficou claro",
+      "end_score": 5,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 12 },
+      "description": "TODO — Dona Maria e Seu Zé saindo da Emater-PI, documentos na mão. Pedro os encontra do lado de fora com expressão curiosa. Tarde dourada, caatinga ao fundo. Expressão de quem tem caminho mas ainda precisa percorrê-lo. Estilo cartoon Gravity Falls, paleta suave.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "dialogues": [
+        {
+          "position": 0,
+          "text": "O SIM ainda falta. Mas a Nota Fiscal está em mãos — e o caminho, pela primeira vez, está claro.",
+          "audio_url": ""
+        },
+        {
+          "position": 1,
+          "character_id": "ma2_c1",
+          "text": "Não entra na chamada essa semana. Mas na próxima, sim.",
+          "audio_url": ""
+        },
+        {
+          "position": 2,
+          "character_id": "ma2_c3",
+          "text": "Pelo menos a gente sabe o que fazer agora. Antes nem isso a gente sabia.",
+          "audio_url": ""
+        }
+      ]
+    }
+
+  ]
+}

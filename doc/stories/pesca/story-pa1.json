@@ -1,0 +1,647 @@
+{
+  "story": {
+    "_id": "pa1",
+    "title": "Antes do Defeso",
+    "synopsis": "O defeso começa em três semanas — e Seu Raimundo acabou de descobrir que seu RGP está vencido há dois anos.\n\nSem o registro atualizado, ele perde o direito ao seguro-defeso: um salário mínimo por mês enquanto a pesca está proibida. Lucas convence o pai a ir à Colônia de Pescadores antes que seja tarde.\n\nNa sede da colônia, Seu Raimundo descobre que o documento vencido é a menor parte do problema. E que, com o RGP em dia, há muito mais à sua disposição do que imaginava.",
+    "cover_image": "",
+    "aspect_ratio": "9:16",
+    "subtitle_font_size": 22,
+    "default_scene_duration": 6,
+    "passing_score": 28,
+    "genre": "Drama",
+    "show_cover_first": true,
+    "first_scene_id": "pa1_s1",
+    "background_audio": {
+      "loop": true,
+      "volume": 0.25,
+      "url": ""
+    },
+    "status": "active"
+  },
+
+  "characters": [
+    {
+      "_id": "pa1_c1",
+      "story_id": "pa1",
+      "name": "Seu Raimundo",
+      "description": "Raimundo Lopes, pescador artesanal de 50 anos do interior do Nordeste. Pele curtida, barba rala, colete de pescador. Trinta anos de rio — orgulhoso, trabalhador e avesso a burocracia. Nunca precisou pedir ajuda ao governo.",
+      "avatar_thumbnail": "",
+      "reference_image": "",
+      "voice_profile": "onyx"
+    },
+    {
+      "_id": "pa1_c2",
+      "story_id": "pa1",
+      "name": "Agente da Colônia",
+      "description": "Funcionária da Colônia de Pescadores, 35 anos. Uniforme simples, cabelos presos, expressão acolhedora e profissional. Conhece cada detalhe do Seguro-Defeso e do RGP — e tem paciência para explicar a quem nunca entendeu.",
+      "avatar_thumbnail": "",
+      "reference_image": "",
+      "voice_profile": "shimmer"
+    },
+    {
+      "_id": "pa1_c3",
+      "story_id": "pa1",
+      "name": "Técnico do RURAP",
+      "description": "Marcos, técnico do RURAP (Instituto de Desenvolvimento Rural do Amapá), 30 anos. Óculos, camiseta do RURAP, prancheta. Vai toda semana à Colônia orientar pescadores. Entusiasta do PRONAF Pesca.",
+      "avatar_thumbnail": "",
+      "reference_image": "",
+      "voice_profile": "alloy"
+    }
+  ],
+
+  "scenes": [
+
+    {
+      "_id": "pa1_s1",
+      "story_id": "pa1",
+      "title": "O Defeso Se Aproxima",
+      "type": "scene",
+      "position": 1,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": {
+        "type": "image",
+        "url": "",
+        "duration": 14
+      },
+      "description": "TODO — Casa ribeirinha simples ao entardecer, luz quente. Seu Raimundo (50 anos, colete de pescador, barba rala) sentado na varanda com expressão cansada, olhando para o rio ao longe. Lucas (18 anos, colete de pescador) chega com o celular na mão, mostrando a tela com urgência. Dona Graça visível ao fundo na cozinha. Rio dourado pelo sol poente visível ao longe. Estilo cartoon Gravity Falls — paleta azul-noite nascendo e tons de luz doméstica quente.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "dialogues": [
+        {
+          "position": 0,
+          "text": "Três semanas antes do defeso, Lucas chega com uma mensagem da colônia no celular.",
+          "audio_url": ""
+        },
+        {
+          "position": 1,
+          "character_id": "pa1_c1",
+          "text": "Quanto tempo faz que não renovo esse negócio?",
+          "audio_url": ""
+        },
+        {
+          "position": 2,
+          "character_id": "pa1_c3",
+          "text": "Dois anos, pai. A mensagem diz: pescadores com RGP vencido não recebem o seguro-defeso este ano. Prazo de renovação: dez dias.",
+          "audio_url": ""
+        }
+      ],
+      "next_scene_id": "pa1_s2"
+    },
+
+    {
+      "_id": "pa1_s2",
+      "story_id": "pa1",
+      "title": "Na Porta da Colônia",
+      "type": "scene",
+      "position": 2,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": {
+        "type": "image",
+        "url": "",
+        "duration": 13
+      },
+      "description": "TODO — Fachada simples da Colônia de Pescadores numa pequena cidade nordestina. Placa na parede, porta aberta, alguns cartazes visíveis pela janela. Seu Raimundo parado na calçada, RGP velho na mão, expressão hesitante — de quem nunca entrou numa instituição pedir ajuda. Lucas ao lado com expressão encorajadora. Luz de tarde quente. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "dialogues": [
+        {
+          "position": 0,
+          "text": "Seu Raimundo parou. Trinta anos de pesca. Nunca havia precisado de ninguém pra garantir o que era seu por direito.",
+          "audio_url": ""
+        },
+        {
+          "position": 1,
+          "character_id": "pa1_c1",
+          "text": "Tô entrando aqui porque se não entrar, perco o seguro. E a família fica sem renda no defeso.",
+          "audio_url": ""
+        },
+        {
+          "position": 2,
+          "character_id": "pa1_c3",
+          "text": "Vai, pai. Eu fico aqui fora esperando.",
+          "audio_url": ""
+        }
+      ],
+      "next_scene_id": "pa1_s3"
+    },
+
+    {
+      "_id": "pa1_s3",
+      "story_id": "pa1",
+      "title": "O RGP Está Desatualizado",
+      "type": "decision",
+      "position": 3,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": {
+        "type": "image",
+        "url": "",
+        "duration": 9
+      },
+      "description": "TODO — Interior da Colônia de Pescadores — ambiente simples mas organizado. A Agente da Colônia (35 anos, uniforme, cabelos presos) examina o RGP de Seu Raimundo com expressão profissional no balcão de atendimento. Computador na mesa, cartazes informativos nas paredes. Seu Raimundo de pé, aguardando o veredicto. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "dialogues": [
+        {
+          "position": 0,
+          "character_id": "pa1_c2",
+          "text": "Seu Raimundo, esse RGP venceu há dois anos. Sem renovação, o INSS vai negar o seguro-defeso automaticamente.",
+          "audio_url": ""
+        },
+        {
+          "position": 1,
+          "character_id": "pa1_c2",
+          "text": "O prazo está acabando. O que o senhor quer fazer?",
+          "audio_url": ""
+        }
+      ],
+      "decision": {
+        "prompt": "O que Seu Raimundo deve fazer?",
+        "interaction_type": "click",
+        "options": [
+          {
+            "label": "Renovar agora — o defeso começa em três semanas e não dá pra perder o seguro",
+            "next_scene_id": "pa1_s5",
+            "score": 10
+          },
+          {
+            "label": "Deixar pra outra vez — três semanas ainda é tempo suficiente",
+            "next_scene_id": "pa1_s4",
+            "score": 1
+          }
+        ]
+      }
+    },
+
+    {
+      "_id": "pa1_s4",
+      "story_id": "pa1",
+      "title": "O Custo do Adiamento",
+      "type": "scene",
+      "position": 4,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": {
+        "type": "image",
+        "url": "",
+        "duration": 13
+      },
+      "description": "TODO — Agente da Colônia mostrando uma folha impressa para Seu Raimundo, com cálculo destacado: 'Seguro-Defeso: 1 salário mínimo/mês × 3 meses = R$4.236 de perda'. Seu Raimundo olha para o número com expressão de quem está processando a gravidade do que vai perder. Balcão de atendimento ao fundo. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "dialogues": [
+        {
+          "position": 0,
+          "character_id": "pa1_c2",
+          "text": "Deixa eu mostrar o que está em jogo. O defeso dura três meses. O seguro paga um salário mínimo por mês.",
+          "audio_url": ""
+        },
+        {
+          "position": 1,
+          "character_id": "pa1_c2",
+          "text": "Três semanas podem parecer muito — mas a documentação leva dias, e o INSS tem prazo de análise. Chegar atrasado significa perda garantida.",
+          "audio_url": ""
+        },
+        {
+          "position": 2,
+          "character_id": "pa1_c1",
+          "text": "R$ 4.236. É o que a família perde se eu não resolver agora.",
+          "audio_url": ""
+        }
+      ],
+      "next_scene_id": "pa1_s5"
+    },
+
+    {
+      "_id": "pa1_s5",
+      "story_id": "pa1",
+      "title": "Abrindo o Processo",
+      "type": "scene",
+      "position": 5,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": {
+        "type": "image",
+        "url": "",
+        "duration": 12
+      },
+      "description": "TODO — Seu Raimundo sentado na mesa de atendimento da Colônia, preenchendo formulários com atenção. A Agente ao lado orientando com paciência, apontando para cada campo. Documentos organizados na mesa: RGP, CPF, comprovante de filiação. Cartaz na parede: 'Seus Direitos Como Pescador Artesanal'. Estilo cartoon Gravity Falls, ambiente de trabalho acolhedor.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "dialogues": [
+        {
+          "position": 0,
+          "character_id": "pa1_c2",
+          "text": "Certo. Vamos renovar o RGP e já iniciar o processo do seguro-defeso. Para o seguro, precisamos do RGP renovado, comprovante de filiação e declaração de que o senhor não exerce outra atividade remunerada.",
+          "audio_url": ""
+        },
+        {
+          "position": 1,
+          "character_id": "pa1_c1",
+          "text": "Nunca exerço outra atividade. Sou pescador há trinta anos.",
+          "audio_url": ""
+        },
+        {
+          "position": 2,
+          "text": "Uma a uma, as documentações são organizadas. Mas há algo que Seu Raimundo ainda não entende bem.",
+          "audio_url": ""
+        }
+      ],
+      "next_scene_id": "pa1_s6"
+    },
+
+    {
+      "_id": "pa1_s6",
+      "story_id": "pa1",
+      "title": "O Que é o Seguro-Defeso?",
+      "type": "decision",
+      "position": 6,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": {
+        "type": "image",
+        "url": "",
+        "duration": 9
+      },
+      "description": "TODO — Cartaz colorido na parede da Colônia em destaque: 'SEGURO-DEFESO — Seu direito garantido pelo governo federal'. A Agente aponta para o cartaz enquanto Seu Raimundo lê com atenção e expressão de quem está processando algo importante que nunca entendeu direito. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "dialogues": [
+        {
+          "position": 0,
+          "character_id": "pa1_c1",
+          "text": "Esse seguro-defeso... quantas vezes ouvi falar. Mas nunca entendi direito o que é.",
+          "audio_url": ""
+        },
+        {
+          "position": 1,
+          "character_id": "pa1_c2",
+          "text": "É exatamente o que está nesse cartaz. Me diz o que você entende.",
+          "audio_url": ""
+        }
+      ],
+      "decision": {
+        "prompt": "O que é o Seguro-Defeso?",
+        "interaction_type": "click",
+        "options": [
+          {
+            "label": "Um salário mínimo por mês enquanto a pesca da espécie está proibida por lei",
+            "next_scene_id": "pa1_s7",
+            "score": 10
+          },
+          {
+            "label": "Uma ajuda emergencial para doença, acidente ou morte do pescador",
+            "next_scene_id": "pa1_s8",
+            "score": 1
+          },
+          {
+            "label": "Não sei ainda",
+            "next_scene_id": "pa1_s8",
+            "score": 1
+          }
+        ]
+      }
+    },
+
+    {
+      "_id": "pa1_s7",
+      "story_id": "pa1",
+      "title": "Os Requisitos do Seguro",
+      "type": "scene",
+      "position": 7,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": {
+        "type": "image",
+        "url": "",
+        "duration": 14
+      },
+      "description": "TODO — Agente da Colônia com lista impressa na mão, explicando os três requisitos para Seu Raimundo. Ele anota num caderno simples. Lista visível: '1. RGP válido ✓ 2. Filiação ativa à Colônia ✓ 3. Declaração de não exercer outra atividade ✓'. Expressão de Seu Raimundo: quem está finalmente entendendo um direito que sempre foi seu. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "dialogues": [
+        {
+          "position": 0,
+          "character_id": "pa1_c2",
+          "text": "Exato! Um salário mínimo por mês durante todo o período de defeso — é pago pelo INSS. Não é favor, é direito garantido em lei.",
+          "audio_url": ""
+        },
+        {
+          "position": 1,
+          "text": "Para receber, Seu Raimundo precisa de três coisas: RGP válido, filiação ativa à colônia, e declaração de que não exerce outra atividade remunerada.",
+          "audio_url": ""
+        },
+        {
+          "position": 2,
+          "character_id": "pa1_c1",
+          "text": "Trinta anos pescando, e nunca soube que tinha esse direito. Quantos defesos eu perdi por não saber?",
+          "audio_url": ""
+        }
+      ],
+      "next_scene_id": "pa1_s9"
+    },
+
+    {
+      "_id": "pa1_s8",
+      "story_id": "pa1",
+      "title": "Entendendo o Seguro-Defeso",
+      "type": "scene",
+      "position": 8,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": {
+        "type": "image",
+        "url": "",
+        "duration": 14
+      },
+      "description": "TODO — Ilustração educativa dividida em dois painéis: painel esquerdo mostra 'DEFESO' com símbolo de proibição de pesca e peixe com ovos; painel direito mostra 'SEGURO-DEFESO' com símbolo de proteção e valor 'R$1 salário mínimo/mês'. Agente aponta para cada painel explicando com paciência. Fundo azul suave, visual didático. Estilo cartoon Gravity Falls — diferente de S6.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "dialogues": [
+        {
+          "position": 0,
+          "character_id": "pa1_c2",
+          "text": "O seguro de vida é outra coisa — esse é o seguro-desemprego do pescador. Quando a lei proíbe a pesca pra proteger a reprodução, você fica sem renda.",
+          "audio_url": ""
+        },
+        {
+          "position": 1,
+          "character_id": "pa1_c2",
+          "text": "O Seguro-Defeso existe pra compensar isso. O governo reconhece que você está cumprindo a lei — e paga um salário mínimo por mês como compensação.",
+          "audio_url": ""
+        },
+        {
+          "position": 2,
+          "character_id": "pa1_c2",
+          "text": "Então, o que é o Seguro-Defeso?",
+          "audio_url": ""
+        }
+      ],
+      "next_scene_id": "pa1_s6"
+    },
+
+    {
+      "_id": "pa1_s9",
+      "story_id": "pa1",
+      "title": "O Técnico do RURAP Aparece",
+      "type": "scene",
+      "position": 9,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": {
+        "type": "image",
+        "url": "",
+        "duration": 14
+      },
+      "description": "TODO — Técnico do RURAP (jovem de 30 anos, óculos, camiseta com logo do RURAP, prancheta na mão) entra pela porta da Colônia com cumprimento familiar à Agente. A Agente o apresenta a Seu Raimundo com sorriso. Os três estão no espaço de atendimento, clima de equipe que trabalha junto. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "dialogues": [
+        {
+          "position": 0,
+          "character_id": "pa1_c2",
+          "text": "Seu Raimundo, esse aqui é o Marcos, técnico do RURAP. Ele vem toda semana pra orientar os pescadores.",
+          "audio_url": ""
+        },
+        {
+          "position": 1,
+          "character_id": "pa1_c3",
+          "text": "Boa tarde, seu Raimundo. Eu ouvi o início da conversa — o senhor tem RGP e é filiado à colônia. Sabia que com esses dois documentos mais um terceiro, o senhor pode financiar motor e equipamentos novos pelo PRONAF Pesca?",
+          "audio_url": ""
+        },
+        {
+          "position": 2,
+          "character_id": "pa1_c1",
+          "text": "PRONAF Pesca? Isso é pra agricultor, não pra pescador.",
+          "audio_url": ""
+        },
+        {
+          "position": 3,
+          "character_id": "pa1_c3",
+          "text": "Era o que todo mundo pensava. Desde 2008, pescador artesanal é produtor familiar. Só falta um documento — e não é difícil de tirar.",
+          "audio_url": ""
+        }
+      ],
+      "next_scene_id": "pa1_s10"
+    },
+
+    {
+      "_id": "pa1_s10",
+      "story_id": "pa1",
+      "title": "Qual Documento Para o PRONAF?",
+      "type": "decision",
+      "position": 10,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": {
+        "type": "image",
+        "url": "",
+        "duration": 9
+      },
+      "description": "TODO — Técnico do RURAP com lista de documentos na prancheta: '1. RGP ✓, 2. Filiação à Colônia ✓, 3. _________ ?'. Terceiro item em destaque com ponto de interrogação. Seu Raimundo olha para a lista com curiosidade e concentração. Agente da Colônia ao fundo ouvindo. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "dialogues": [
+        {
+          "position": 0,
+          "character_id": "pa1_c3",
+          "text": "Para o PRONAF Pesca, o senhor precisa do RGP mais um segundo cadastro que comprova que é produtor familiar. Sem ele, o banco nem abre o processo.",
+          "audio_url": ""
+        },
+        {
+          "position": 1,
+          "character_id": "pa1_c1",
+          "text": "Que cadastro é esse?",
+          "audio_url": ""
+        }
+      ],
+      "decision": {
+        "prompt": "Além do RGP, qual documento é necessário para acessar o PRONAF Pesca?",
+        "interaction_type": "click",
+        "options": [
+          {
+            "label": "CAF — Cadastro de Agricultor Familiar, emitido pelo MDA",
+            "next_scene_id": "pa1_s11",
+            "score": 10
+          },
+          {
+            "label": "CNPJ — Cadastro Nacional de Pessoa Jurídica no governo federal",
+            "next_scene_id": "pa1_s12",
+            "score": 3
+          }
+        ]
+      }
+    },
+
+    {
+      "_id": "pa1_s11",
+      "story_id": "pa1",
+      "title": "O Plano de Crescimento",
+      "type": "scene",
+      "position": 11,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": {
+        "type": "image",
+        "url": "",
+        "duration": 14
+      },
+      "description": "TODO — Técnico do RURAP e Seu Raimundo lado a lado olhando para uma tabela impressa de financiamento: 'Motor de popa 15HP: R$8.500 pelo PRONAF a 4,5% ao ano / 5 anos'. Seu Raimundo com expressão de quem vê uma possibilidade real pela primeira vez. Agente ao fundo fazendo anotações. Tons dourados e azuis, atmosfera de esperança. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "dialogues": [
+        {
+          "position": 0,
+          "character_id": "pa1_c3",
+          "text": "Isso mesmo — o CAF. A gente do RURAP ajuda o senhor a tirar sem custo nenhum. Com o CAF, o PRONAF financia motor, malhadeiras, caixa de gelo, GPS. Juros de 4% a 6% ao ano.",
+          "audio_url": ""
+        },
+        {
+          "position": 1,
+          "text": "O mesmo motor que Seu Raimundo tenta consertar há dois anos poderia ser comprado novo, com parcelas menores do que o custo atual das peças.",
+          "audio_url": ""
+        },
+        {
+          "position": 2,
+          "character_id": "pa1_c1",
+          "text": "Trinta anos pescando sem saber que podia ter ajuda. Isso muda tudo.",
+          "audio_url": ""
+        }
+      ],
+      "next_scene_id": "pa1_s13"
+    },
+
+    {
+      "_id": "pa1_s12",
+      "story_id": "pa1",
+      "title": "Não É CNPJ",
+      "type": "scene",
+      "position": 12,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": {
+        "type": "image",
+        "url": "",
+        "duration": 12
+      },
+      "description": "TODO — Técnico do RURAP com expressão didática, mostrando comparação na prancheta: dois quadros lado a lado — 'CNPJ = Empresa (MEI, LTDA...)' e 'CAF = Produtor Familiar (pescador, agricultor...)'. Seu Raimundo processando a diferença com expressão de quem está aprendendo algo novo. Agente da Colônia ao lado com sorriso acolhedor. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "dialogues": [
+        {
+          "position": 0,
+          "character_id": "pa1_c3",
+          "text": "O CNPJ é para empresa. O pescador artesanal é produtor familiar — ele usa o CAF. São documentos completamente diferentes.",
+          "audio_url": ""
+        },
+        {
+          "position": 1,
+          "text": "Com o CAF, o pescador artesanal acessa o PRONAF, o PAA e outros programas do MDA — sem precisar abrir empresa, sem contador, sem custo.",
+          "audio_url": ""
+        },
+        {
+          "position": 2,
+          "character_id": "pa1_c3",
+          "text": "Boa notícia: a gente do RURAP ajuda o senhor a tirar o CAF. Semana que vem, venha aqui de manhã que a gente resolve.",
+          "audio_url": ""
+        }
+      ],
+      "next_scene_id": "pa1_s14"
+    },
+
+    {
+      "_id": "pa1_s13",
+      "story_id": "pa1",
+      "title": "A Carteira Renovada",
+      "type": "end",
+      "position": 13,
+      "transition": "fade",
+      "transition_duration": 300,
+      "end_label": "O pescador que conhece seus direitos!",
+      "end_score": 10,
+      "media_mode": "image",
+      "media": {
+        "type": "image",
+        "url": "",
+        "duration": 14
+      },
+      "description": "TODO — Seu Raimundo na saída da Colônia de Pescadores, RGP renovado na mão, expressão de alívio e satisfação genuína. Lucas do lado de fora, sorrindo ao ver o pai. Rio dourado ao fundo no fim da tarde. Através da janela, a Agente e o Técnico ainda trabalhando — equipe que ajudou. Cena de realização e passagem de conhecimento entre gerações. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "dialogues": [
+        {
+          "position": 0,
+          "text": "Seu Raimundo sai com o RGP renovado, o processo do seguro-defeso aberto e uma agenda com o RURAP para a semana seguinte.",
+          "audio_url": ""
+        },
+        {
+          "position": 1,
+          "character_id": "pa1_c3",
+          "text": "E aí, pai? Deu certo?",
+          "audio_url": ""
+        },
+        {
+          "position": 2,
+          "character_id": "pa1_c1",
+          "text": "Deu. E aprendi mais em duas horas aqui do que em trinta anos pescando sozinho. A informação também é um equipamento, filho — e eu não tinha nenhum.",
+          "audio_url": ""
+        }
+      ]
+    },
+
+    {
+      "_id": "pa1_s14",
+      "story_id": "pa1",
+      "title": "O Primeiro Passo",
+      "type": "end",
+      "position": 14,
+      "transition": "fade",
+      "transition_duration": 300,
+      "end_label": "O primeiro passo está dado",
+      "end_score": 5,
+      "media_mode": "image",
+      "media": {
+        "type": "image",
+        "url": "",
+        "duration": 12
+      },
+      "description": "TODO — Seu Raimundo saindo pensativo pela porta da Colônia, documentos na mão. Lucas o encontra na calçada com expressão curiosa. Rio ao fundo com luz suave de fim de tarde. Clima de reflexão — algo foi feito, mas ainda há caminho. Estilo cartoon Gravity Falls, tons suaves.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "dialogues": [
+        {
+          "position": 0,
+          "text": "O RGP está no processo de renovação. Ainda há passos para completar — mas o pior já passou: começar.",
+          "audio_url": ""
+        },
+        {
+          "position": 1,
+          "character_id": "pa1_c1",
+          "text": "Não resolve tudo hoje não. Mas pelo menos sei o que precisa ser feito.",
+          "audio_url": ""
+        },
+        {
+          "position": 2,
+          "character_id": "pa1_c3",
+          "text": "Agora a gente sabe, pai. E sabendo, a gente resolve.",
+          "audio_url": ""
+        }
+      ]
+    }
+
+  ]
+}

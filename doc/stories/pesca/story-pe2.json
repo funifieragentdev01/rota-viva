@@ -1,0 +1,583 @@
+{
+  "story": {
+    "_id": "pe2",
+    "title": "O Guardião das Águas",
+    "synopsis": "Seu Raimundo chega à reunião da colônia com uma notícia: barco de fora entrou na RESEX à noite com rede proibida. O Agente do ICMBio explica os direitos dos pescadores na RESEX, como funciona o Plano de Manejo e os canais de denúncia. Lucas aprende que proteger as águas não é só obrigação do governo — é dever e direito de quem vive delas.",
+    "cover_image": "",
+    "aspect_ratio": "9:16",
+    "subtitle_font_size": 22,
+    "default_scene_duration": 6,
+    "passing_score": 28,
+    "genre": "Drama",
+    "show_cover_first": true,
+    "first_scene_id": "pe2_s1",
+    "background_audio": {
+      "loop": true,
+      "volume": 0.25,
+      "url": ""
+    },
+    "status": "active"
+  },
+  "characters": [
+    {
+      "_id": "pe2_c1",
+      "story_id": "pe2",
+      "name": "Seu Raimundo",
+      "full_name": "Raimundo Lopes",
+      "description": "Pescador de 50 anos, patriarca da família Lopes. Colete surrado, rosto marcado pelo rio. Vive na RESEX há décadas — sente que as águas que sustentam sua família estão ameaçadas e que ele precisa agir.",
+      "voice_profile": "onyx",
+      "avatar_thumbnail": "",
+      "reference_image": ""
+    },
+    {
+      "_id": "pe2_c2",
+      "story_id": "pe2",
+      "name": "Lucas",
+      "full_name": "Lucas Lopes",
+      "description": "Filho mais velho da família Lopes, 18 anos. Colete de pescador, cabelo curto. Vai com o pai à reunião da colônia — aprende que o rio tem dono coletivo e que protegê-lo é responsabilidade de cada pescador.",
+      "voice_profile": "alloy",
+      "avatar_thumbnail": "",
+      "reference_image": ""
+    },
+    {
+      "_id": "pe2_c3",
+      "story_id": "pe2",
+      "name": "Agente ICMBio",
+      "full_name": "Agente do ICMBio",
+      "description": "Agente do Instituto Chico Mendes de Conservação da Biodiversidade, 35 anos. Uniforme verde, prancheta. Acompanha a colônia regularmente — explica os direitos da RESEX, o Plano de Manejo e os canais de denúncia de forma didática.",
+      "voice_profile": "shimmer",
+      "avatar_thumbnail": "",
+      "reference_image": ""
+    }
+  ],
+  "scenes": [
+    {
+      "_id": "pe2_s1",
+      "story_id": "pe2",
+      "title": "CAPA — O Guardião das Águas",
+      "type": "scene",
+      "position": 1,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 10 },
+      "description": "TODO — Seu Raimundo (50 anos, colete) de pé em barco no rio, segurando celular com foto de barco suspeito ao fundo. Lucas (18 anos) ao lado. Agente do ICMBio (35 anos, uniforme verde, feminina) na margem com prancheta. Rio e floresta ribeirinha amazônica ao fundo. Estilo cartoon Gravity Falls — paleta azul-rio e verde-amazônico.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "pe2_s2",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": null,
+          "text": "Proteger as águas não é obrigação só do governo. É dever de quem vive delas — e direito de quem delas depende.",
+          "audio_url": "",
+          "voice_profile": "nova"
+        }
+      ]
+    },
+    {
+      "_id": "pe2_s2",
+      "story_id": "pe2",
+      "title": "C0 — A Reunião da Colônia",
+      "type": "scene",
+      "position": 2,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 14 },
+      "description": "TODO — Interior da sede da colônia de pescadores do Amapá. Seu Raimundo entrando com expressão de urgência. Outros pescadores sentados, Agente ICMBio ao fundo. Lucas ao lado de Seu Raimundo. Mapa da RESEX na parede. Estilo cartoon Gravity Falls — paleta interior quente.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "pe2_s3",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": null,
+          "text": "Aquela noite no rio tinha sido diferente. Seu Raimundo precisava contar.",
+          "audio_url": "",
+          "voice_profile": "nova"
+        },
+        {
+          "position": 2,
+          "character_id": "pe2_c1",
+          "text": "Barco de fora. Entrou na RESEX pelas duas da manhã com rede de arrasto. Saiu carregado.",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        },
+        {
+          "position": 3,
+          "character_id": "pe2_c2",
+          "text": "A gente tem o direito de fazer alguma coisa?",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        }
+      ]
+    },
+    {
+      "_id": "pe2_s3",
+      "story_id": "pe2",
+      "title": "C0.1 — O Que É a RESEX",
+      "type": "scene",
+      "position": 3,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 12 },
+      "description": "TODO — Agente ICMBio em frente ao mapa da RESEX na parede da colônia. Seu Raimundo e Lucas sentados. Área da RESEX destacada no mapa com limite e rios internos. Expressão da agente: didática e firme. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "pe2_s4",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "pe2_c3",
+          "text": "A RESEX existe exatamente para proteger quem vive aqui. Mas primeiro precisamos entender o que ela garante.",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        },
+        {
+          "position": 2,
+          "character_id": "pe2_c2",
+          "text": "A gente é dono da terra da RESEX?",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 3,
+          "character_id": "pe2_c3",
+          "text": "Não é propriedade. Algo diferente e mais forte. O que a RESEX garante ao pescador residente?",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        }
+      ]
+    },
+    {
+      "_id": "pe2_s4",
+      "story_id": "pe2",
+      "title": "C1 — O Que a RESEX Garante?",
+      "type": "decision",
+      "position": 4,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 12 },
+      "description": "TODO — Lucas e Seu Raimundo olhando para o mapa da RESEX na parede, pensando. Agente ICMBio aguardando. Outros pescadores ao fundo ouvindo. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "decision": {
+        "prompt": "O que a RESEX garante ao pescador que vive e trabalha nela?",
+        "interaction_type": "single_choice",
+        "options": [
+          {
+            "label": "Direito de uso sustentável exclusivo do território — protegido por lei federal, mas sem propriedade individual da terra",
+            "next_scene_id": "pe2_s6",
+            "score": 10
+          },
+          {
+            "label": "Propriedade individual da terra — cada pescador é dono do lote onde mora e pesca",
+            "next_scene_id": "pe2_s5",
+            "score": 1
+          },
+          {
+            "label": "Não sei ainda",
+            "next_scene_id": "pe2_s5",
+            "score": 1
+          }
+        ]
+      },
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "pe2_c1",
+          "text": "O que a RESEX garante ao pescador que vive e trabalha nela?",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        }
+      ]
+    },
+    {
+      "_id": "pe2_s5",
+      "story_id": "pe2",
+      "title": "C1B — RESEX Não É Propriedade",
+      "type": "scene",
+      "position": 5,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 16 },
+      "description": "TODO — Diagrama comparativo: propriedade privada (cercas, dono individual, pode vender) vs. RESEX (território coletivo, uso exclusivo dos moradores cadastrados, não pode ser vendido nem desmatado). Agente explicando. Fundo azul suave. Estilo cartoon Gravity Falls — diferente de C0.1.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "pe2_s4",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "pe2_c3",
+          "text": "A terra é da União. O direito é de vocês — uso exclusivo e sustentável, garantido enquanto morarem e pescarem aqui.",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        },
+        {
+          "position": 2,
+          "character_id": "pe2_c3",
+          "text": "Nenhum fazendeiro pode construir, nenhuma empresa pode desmatar. É o maior documento de posse que um pescador pode ter.",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        },
+        {
+          "position": 3,
+          "character_id": "pe2_c3",
+          "text": "Então — o que a RESEX garante ao pescador residente?",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        }
+      ]
+    },
+    {
+      "_id": "pe2_s6",
+      "story_id": "pe2",
+      "title": "C2 — Plano de Manejo e ICMBio",
+      "type": "scene",
+      "position": 6,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 14 },
+      "description": "TODO — Agente abrindo documento do Plano de Manejo da RESEX na mesa. Pescadores ao redor. Destaque para seções: zonas de pesca, petrechos permitidos, períodos de defeso local. Frase sublinhada visível: 'construído com participação dos pescadores'. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "pe2_s7",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "pe2_c3",
+          "text": "O Plano de Manejo define tudo: onde pescar, com qual petrecho, em qual época. Nenhuma regra foi imposta — foi construída com vocês.",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        },
+        {
+          "position": 2,
+          "character_id": "pe2_c1",
+          "text": "Mas muitos pescadores nunca participaram das reuniões.",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        },
+        {
+          "position": 3,
+          "character_id": "pe2_c3",
+          "text": "Por isso o plano precisa ser revisado. Participar é direito — e obrigação dos moradores da RESEX.",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        }
+      ]
+    },
+    {
+      "_id": "pe2_s7",
+      "story_id": "pe2",
+      "title": "C3 — A Pesca Ilegal na RESEX",
+      "type": "scene",
+      "position": 7,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 12 },
+      "description": "TODO — Seu Raimundo mostrando foto no celular: barco de fora sem identificação visível, com rede de arrasto proibida na RESEX. Lucas olhando com indignação. Agente ICMBio tomando nota. Noite reconstruída no fundo da imagem. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "pe2_s8",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "pe2_c1",
+          "text": "Tirei foto do barco e da rede. A embarcação não tinha número de identificação visível.",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        },
+        {
+          "position": 2,
+          "character_id": "pe2_c3",
+          "text": "Prova fotográfica com horário e localização é fundamental para uma denúncia válida.",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        },
+        {
+          "position": 3,
+          "character_id": "pe2_c3",
+          "text": "Como denunciar pesca ilegal dentro da RESEX?",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        }
+      ]
+    },
+    {
+      "_id": "pe2_s8",
+      "story_id": "pe2",
+      "title": "C3D — Como Denunciar Pesca Ilegal?",
+      "type": "decision",
+      "position": 8,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 12 },
+      "description": "TODO — Seu Raimundo com celular na mão, olhando para a foto que tirou. Lucas e Agente ICMBio aguardando. Mapa da RESEX ao fundo. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "decision": {
+        "prompt": "Como o pescador denuncia pesca ilegal dentro da RESEX?",
+        "interaction_type": "single_choice",
+        "options": [
+          {
+            "label": "Ligando para o IBAMA (0800-618080) ou ICMBio, com foto e geolocalização — qualquer cidadão pode denunciar",
+            "next_scene_id": "pe2_s10",
+            "score": 10
+          },
+          {
+            "label": "Somente a liderança da colônia pode registrar denúncia oficial — o pescador individual não tem esse direito",
+            "next_scene_id": "pe2_s9",
+            "score": 3
+          }
+        ]
+      },
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "pe2_c1",
+          "text": "Como denunciar pesca ilegal dentro da RESEX?",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        }
+      ]
+    },
+    {
+      "_id": "pe2_s9",
+      "story_id": "pe2",
+      "title": "C3B — Canais de Denúncia",
+      "type": "scene",
+      "position": 9,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 16 },
+      "description": "TODO — Painel com canais de denúncia visíveis: IBAMA 0800-618080 (gratuito, 24h), ICMBio pelo portal, Polícia Ambiental, Disque-Denúncia 181. Orientação: foto com geolocalização, horário, descrição do petrecho e embarcação. Fundo verde suave. Estilo cartoon Gravity Falls — diferente de C3.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "pe2_s10",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "pe2_c3",
+          "text": "O IBAMA tem o 0800-618080 — gratuito, 24 horas. A denúncia pode ser anônima.",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        },
+        {
+          "position": 2,
+          "character_id": "pe2_c3",
+          "text": "Foto com geolocalização ativada é prova oficial. Se conseguir o número da embarcação, melhor ainda.",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        },
+        {
+          "position": 3,
+          "character_id": null,
+          "text": "Denunciar pesca ilegal não é captura do pescador. É proteção do rio que sustenta todos.",
+          "audio_url": "",
+          "voice_profile": "nova"
+        }
+      ]
+    },
+    {
+      "_id": "pe2_s10",
+      "story_id": "pe2",
+      "title": "C4 — A Denúncia Feita",
+      "type": "scene",
+      "position": 10,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 14 },
+      "description": "TODO — Seu Raimundo fazendo ligação para o IBAMA, sério e firme. Lucas ao lado anotando o número de protocolo. Agente ICMBio validando a foto enviada. Mapa da RESEX ao fundo com ponto marcado no local da ocorrência. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "pe2_s11",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "pe2_c3",
+          "text": "Protocolo registrado. Patrulha fluvial vai verificar a área nos próximos dois dias.",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        },
+        {
+          "position": 2,
+          "character_id": "pe2_c2",
+          "text": "E se vierem de novo?",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 3,
+          "character_id": "pe2_c1",
+          "text": "A gente denuncia de novo. Cada denúncia cria um histórico — e o histórico vira ação.",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        }
+      ]
+    },
+    {
+      "_id": "pe2_s11",
+      "story_id": "pe2",
+      "title": "C5 — Poluição e Responsabilidade",
+      "type": "scene",
+      "position": 11,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 12 },
+      "description": "TODO — Seu Raimundo e Lucas em igarapé com espuma suspeita na água. Lucas fotografando com celular — geolocalização visível na tela. Placa ao fundo indicando RESEX. Expressão de determinação dos dois. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "pe2_s12",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "pe2_c2",
+          "text": "E se for poluição de igarapé — como a que aconteceu perto da comunidade?",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 2,
+          "character_id": "pe2_c3",
+          "text": "Denúncia à SEMA-AP e ao IBAMA. Foto com localização, descrição do que está vendo, horário. Quanto mais detalhe, mais rápida a resposta.",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        },
+        {
+          "position": 3,
+          "character_id": "pe2_c3",
+          "text": "Como o pescador se torna guardião das águas da RESEX?",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        }
+      ]
+    },
+    {
+      "_id": "pe2_s12",
+      "story_id": "pe2",
+      "title": "C5D — Como Ser Guardião das Águas?",
+      "type": "decision",
+      "position": 12,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 12 },
+      "description": "TODO — Seu Raimundo e Lucas olhando para o rio, pensando. Agente ICMBio aguardando. Floresta e rio ao fundo. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "decision": {
+        "prompt": "Como o pescador se torna guardião das águas da RESEX?",
+        "interaction_type": "single_choice",
+        "options": [
+          {
+            "label": "Monitorando o território, denunciando irregularidades e participando das reuniões do Plano de Manejo",
+            "next_scene_id": "pe2_s13",
+            "score": 10
+          },
+          {
+            "label": "Deixando a fiscalização para o governo — é papel do IBAMA e do ICMBio, não do pescador",
+            "next_scene_id": "pe2_s14",
+            "score": 3
+          }
+        ]
+      },
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "pe2_c1",
+          "text": "Como o pescador se torna guardião das águas da RESEX?",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        }
+      ]
+    },
+    {
+      "_id": "pe2_s13",
+      "story_id": "pe2",
+      "title": "C6A — Águas Protegidas",
+      "type": "end",
+      "position": 13,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 16 },
+      "description": "TODO — Seu Raimundo e Lucas no rio ao amanhecer, barco deslizando suave nas águas. Comunidade da RESEX ao fundo com luz acendendo. Celular no bolso com protocolo de denúncia. Rio limpo e calmo, floresta preservada. Estilo cartoon Gravity Falls — épica e calorosa.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "end_label": "Águas Protegidas",
+      "end_score": 10,
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": null,
+          "text": "Denúncia feita. Protocolo registrado. Plano de Manejo discutido na reunião.",
+          "audio_url": "",
+          "voice_profile": "nova"
+        },
+        {
+          "position": 2,
+          "character_id": "pe2_c2",
+          "text": "Nunca pensei que tirar uma foto e fazer uma ligação pudesse proteger o rio.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 3,
+          "character_id": "pe2_c1",
+          "text": "A RESEX é nossa. Guardar ela também é nossa responsabilidade.",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        }
+      ]
+    },
+    {
+      "_id": "pe2_s14",
+      "story_id": "pe2",
+      "title": "C6B — A Denúncia Feita",
+      "type": "end",
+      "position": 14,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 16 },
+      "description": "TODO — Seu Raimundo saindo da reunião da colônia com número do IBAMA anotado no caderno. Lucas ao lado. Cais ao fundo, rio calmo. Expressão de quem fez o necessário mas sabe que tem mais pela frente. Estilo cartoon Gravity Falls, paleta suave.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "end_label": "A Denúncia Feita",
+      "end_score": 5,
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": null,
+          "text": "Denúncia registrada. A patrulha vai verificar.",
+          "audio_url": "",
+          "voice_profile": "nova"
+        },
+        {
+          "position": 2,
+          "character_id": "pe2_c1",
+          "text": "Próxima reunião do Plano de Manejo — a gente vai.",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        },
+        {
+          "position": 3,
+          "character_id": "pe2_c2",
+          "text": "Quem conhece os direitos, usa. Quem usa — protege o que tem.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,513 @@
+{
+  "story": {
+    "_id": "mg2",
+    "title": "O Mel e o Recurso Público",
+    "synopsis": "Pedro conta para Seu Zé que o vizinho quer usar o PRONAF para comprar uma moto — 'não é só assinar?' O Técnico da Emater explica as consequências do desvio: CADIN, devolução com juros, suspensão. Seu Zé mostra o próprio exemplo: nota fiscal de tudo, histórico limpo. Pedro aprende que honestidade com recurso público é a estratégia mais inteligente de longo prazo.",
+    "cover_image": "",
+    "aspect_ratio": "9:16",
+    "subtitle_font_size": 22,
+    "default_scene_duration": 6,
+    "passing_score": 28,
+    "genre": "Drama",
+    "show_cover_first": true,
+    "first_scene_id": "mg2_s1",
+    "background_audio": {
+      "loop": true,
+      "volume": 0.25,
+      "url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/documents/69e7aaf8501f000cfda76559_enlivening.mp3"
+    },
+    "status": "active"
+  },
+  "characters": [
+    {
+      "_id": "mg2_c1",
+      "story_id": "mg2",
+      "name": "Seu Zé",
+      "description": "José Costa, 52 anos. Pele curtida de sol, chapéu de palha, roupa simples de campo. Sério, experiente, acolhedor. Aprendeu sozinho e quer deixar algo maior para os filhos.",
+      "voice_profile": "onyx",
+      "avatar_thumbnail": "",
+      "reference_image": ""
+    },
+    {
+      "_id": "mg2_c2",
+      "story_id": "mg2",
+      "name": "Pedro",
+      "description": "Pedro Costa, 19 anos. Cabelos curtos, camiseta e chapéu. Curioso e um pouco impaciente, quer modernizar o apiário e aprender rápido.",
+      "voice_profile": "alloy",
+      "avatar_thumbnail": "",
+      "reference_image": ""
+    },
+    {
+      "_id": "mg2_c3",
+      "story_id": "mg2",
+      "name": "Técnico Emater",
+      "description": "Técnico da Emater-PI, homem, 38 anos. Camisa polo da Emater, pasta com documentos. Tom direto e didático, conhece todos os programas de crédito rural.",
+      "voice_profile": "alloy",
+      "avatar_thumbnail": "",
+      "reference_image": ""
+    }
+  ],
+  "scenes": [
+    {
+      "_id": "mg2_s1",
+      "story_id": "mg2",
+      "title": "CAPA — O Mel e o Recurso Público",
+      "type": "scene",
+      "position": 1,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 12 },
+      "description": "TODO — Seu Zé (52 anos, chapéu de palha) em frente ao apiário segurando nota fiscal e documento do PRONAF. Pedro (19 anos, chapéu) ao lado. Técnico Emater ao fundo com pasta. Luz de tarde na Caatinga. Estilo cartoon Gravity Falls — paleta quente amarelo-dourado e verde-caatinga.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "mg2_s2",
+      "dialogues": [
+        {
+          "character_id": null,
+          "voice_profile": "nova",
+          "text": "Recurso público bem usado abre portas. Recurso desviado fecha todas.",
+          "audio_url": ""
+        }
+      ]
+    },
+    {
+      "_id": "mg2_s2",
+      "story_id": "mg2",
+      "title": "C0 — A Conversa no Apiário",
+      "type": "scene",
+      "position": 2,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 14 },
+      "description": "TODO — Pedro e Seu Zé trabalhando no apiário. Pedro com expressão de dúvida, parando o trabalho para falar. Colmeias ao fundo na Caatinga. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "mg2_s3",
+      "dialogues": [
+        {
+          "character_id": null,
+          "voice_profile": "nova",
+          "text": "Pedro ouviu algo na feira que deixou ele pensativo.",
+          "audio_url": ""
+        },
+        {
+          "character_id": "mg2_c2",
+          "voice_profile": "alloy",
+          "text": "Pai, o vizinho falou que vai usar o PRONAF para comprar uma moto. Disse que não fiscaliza, que não é só assinar o contrato?",
+          "audio_url": ""
+        }
+      ]
+    },
+    {
+      "_id": "mg2_s3",
+      "story_id": "mg2",
+      "title": "C0.1 — A Finalidade do PRONAF",
+      "type": "scene",
+      "position": 3,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 16 },
+      "description": "TODO — Técnico Emater chegando ao apiário com pasta de documentos. Expressão séria e direta. Seu Zé e Pedro ouvindo com atenção. Caatinga ao fundo. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "mg2_s4",
+      "dialogues": [
+        {
+          "character_id": "mg2_c3",
+          "voice_profile": "alloy",
+          "text": "PRONAF tem finalidade declarada no contrato — equipamentos, insumos, infraestrutura para a produção. Usar para outra coisa é desvio de finalidade.",
+          "audio_url": ""
+        },
+        {
+          "character_id": "mg2_c1",
+          "voice_profile": "onyx",
+          "text": "E o que acontece com quem desvia?",
+          "audio_url": ""
+        },
+        {
+          "character_id": "mg2_c3",
+          "voice_profile": "alloy",
+          "text": "Tem consequências sérias. O que acontece com quem usa o PRONAF para fins diferentes do declarado?",
+          "audio_url": ""
+        }
+      ]
+    },
+    {
+      "_id": "mg2_s4",
+      "story_id": "mg2",
+      "title": "D1 — Consequências do Desvio",
+      "type": "decision",
+      "position": 4,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 10 },
+      "description": "TODO — Pedro com expressão de dúvida. Seu Zé e Técnico Emater aguardando a resposta. Apiário ao fundo. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "decision": {
+        "prompt": "O que acontece com quem usa o PRONAF para fins diferentes do declarado no contrato?",
+        "interaction_type": "single_choice",
+        "options": [
+          {
+            "label": "Devolução do valor com correção monetária e juros, inscrição no CADIN e suspensão do programa",
+            "next_scene_id": "mg2_s6",
+            "score": 10
+          },
+          {
+            "label": "Apenas uma notificação — o produtor pode regularizar sem multa se devolver voluntariamente",
+            "next_scene_id": "mg2_s5",
+            "score": 1
+          },
+          {
+            "label": "Não sei ainda",
+            "next_scene_id": "mg2_s5",
+            "score": 1
+          }
+        ]
+      },
+      "dialogues": []
+    },
+    {
+      "_id": "mg2_s5",
+      "story_id": "mg2",
+      "title": "C1B — As Consequências",
+      "type": "scene",
+      "position": 5,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 18 },
+      "description": "TODO — Painel educativo com consequências do desvio: CADIN (nome sujo no sistema federal), devolução com juros, suspensão do PRONAF, processo administrativo. Ícones visuais para cada item. Fundo suave. Estilo cartoon Gravity Falls — visual diferente de C0.1.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "mg2_s4",
+      "dialogues": [
+        {
+          "character_id": "mg2_c3",
+          "voice_profile": "alloy",
+          "text": "CADIN é o Cadastro de Inadimplentes do governo federal. Com o nome lá — sem crédito, sem PRONAF, sem acesso a nenhum programa federal.",
+          "audio_url": ""
+        },
+        {
+          "character_id": "mg2_c3",
+          "voice_profile": "alloy",
+          "text": "A CGU e o TCU monitoram o uso dos recursos. Quem acha que 'não fiscaliza' não conhece o sistema.",
+          "audio_url": ""
+        },
+        {
+          "character_id": "mg2_c3",
+          "voice_profile": "alloy",
+          "text": "Então — o que acontece com quem desvia o PRONAF?",
+          "audio_url": ""
+        }
+      ]
+    },
+    {
+      "_id": "mg2_s6",
+      "story_id": "mg2",
+      "title": "C2 — O Exemplo de Seu Zé",
+      "type": "scene",
+      "position": 6,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 14 },
+      "description": "TODO — Seu Zé abrindo pasta com notas fiscais organizadas por ano: colmeias, centrífuga, embalagens, insumos. Pedro olhando com atenção. Expressão de orgulho de Seu Zé. Apiário ao fundo. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "mg2_s7",
+      "dialogues": [
+        {
+          "character_id": "mg2_c1",
+          "voice_profile": "onyx",
+          "text": "Quando peguei o PRONAF, comprei o que estava no projeto: colmeias, centrífuga, embalagens. Guardo nota fiscal de tudo que comprei.",
+          "audio_url": ""
+        },
+        {
+          "character_id": "mg2_c2",
+          "voice_profile": "alloy",
+          "text": "Por que guardar nota fiscal se já foi aprovado?",
+          "audio_url": ""
+        },
+        {
+          "character_id": "mg2_c1",
+          "voice_profile": "onyx",
+          "text": "Porque nota fiscal prova que usei certo. E prova que sou um produtor sério para qualquer banco.",
+          "audio_url": ""
+        }
+      ]
+    },
+    {
+      "_id": "mg2_s7",
+      "story_id": "mg2",
+      "title": "C3 — O Canal de Denúncia",
+      "type": "scene",
+      "position": 7,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 14 },
+      "description": "TODO — Técnico Emater mostrando o número da CGU no celular: 0800-910-0148. Pedro anotando. Seu Zé ao lado. Apiário ao fundo. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "mg2_s8",
+      "dialogues": [
+        {
+          "character_id": "mg2_c3",
+          "voice_profile": "alloy",
+          "text": "Se você souber de desvio de recurso público — PRONAF, PAA, qualquer programa — pode e deve denunciar.",
+          "audio_url": ""
+        },
+        {
+          "character_id": "mg2_c2",
+          "voice_profile": "alloy",
+          "text": "Precisa se identificar?",
+          "audio_url": ""
+        },
+        {
+          "character_id": "mg2_c3",
+          "voice_profile": "alloy",
+          "text": "Pode ser anônima. Fala.BR — 0800-910-0148 — é o canal oficial da CGU. Como o cidadão denuncia irregularidades no uso do PRONAF?",
+          "audio_url": ""
+        }
+      ]
+    },
+    {
+      "_id": "mg2_s8",
+      "story_id": "mg2",
+      "title": "D2 — Canal de Denúncia",
+      "type": "decision",
+      "position": 8,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 10 },
+      "description": "TODO — Pedro com expressão de quem está pensando. Seu Zé e Técnico Emater aguardando. Apiário ao fundo. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "decision": {
+        "prompt": "Como o cidadão pode denunciar irregularidades no uso de recursos públicos como o PRONAF?",
+        "interaction_type": "single_choice",
+        "options": [
+          {
+            "label": "CGU — Canal Fala.BR: 0800-910-0148 ou falabr.cgu.gov.br — denúncia pode ser anônima",
+            "next_scene_id": "mg2_s10",
+            "score": 10
+          },
+          {
+            "label": "Só o contador ou advogado do produtor pode formalizar uma denúncia ao governo",
+            "next_scene_id": "mg2_s9",
+            "score": 3
+          }
+        ]
+      },
+      "dialogues": []
+    },
+    {
+      "_id": "mg2_s9",
+      "story_id": "mg2",
+      "title": "C3B — Transparência Pública",
+      "type": "scene",
+      "position": 9,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 14 },
+      "description": "TODO — Tela do Portal da Transparência mostrando contratos de crédito rural por município. Fundo suave. Estilo cartoon Gravity Falls — visual diferente de C3.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "mg2_s10",
+      "dialogues": [
+        {
+          "character_id": "mg2_c3",
+          "voice_profile": "alloy",
+          "text": "O Portal da Transparência registra todos os contratos com recursos públicos. Qualquer cidadão consulta o que foi contratado e quanto foi liberado.",
+          "audio_url": ""
+        },
+        {
+          "character_id": null,
+          "voice_profile": "nova",
+          "text": "Transparência não é só dever do governo. É também a proteção do produtor que usa certo — porque o histórico fica registrado.",
+          "audio_url": ""
+        }
+      ]
+    },
+    {
+      "_id": "mg2_s10",
+      "story_id": "mg2",
+      "title": "C4 — Histórico que Abre Portas",
+      "type": "scene",
+      "position": 10,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 14 },
+      "description": "TODO — Seu Zé lendo comunicado do banco: aprovado para nova linha de crédito rural maior. Pedro ao lado com expressão animada. Apiário expandido com novas colmeias ao fundo. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "mg2_s11",
+      "dialogues": [
+        {
+          "character_id": "mg2_c1",
+          "voice_profile": "onyx",
+          "text": "Paguei em dia, usei certo, documentei tudo. O banco aprovou uma linha maior do que a primeira.",
+          "audio_url": ""
+        },
+        {
+          "character_id": "mg2_c2",
+          "voice_profile": "alloy",
+          "text": "Então honestidade com recurso público é também estratégia de longo prazo?",
+          "audio_url": ""
+        },
+        {
+          "character_id": "mg2_c1",
+          "voice_profile": "onyx",
+          "text": "O histórico limpo é o maior ativo do produtor. Não tem preço.",
+          "audio_url": ""
+        }
+      ]
+    },
+    {
+      "_id": "mg2_s11",
+      "story_id": "mg2",
+      "title": "C5 — A Escolha do Produtor",
+      "type": "scene",
+      "position": 11,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 14 },
+      "description": "TODO — Seu Zé e Pedro olhando para o apiário no entardecer. Expressão de quem construiu algo com integridade. Caatinga ao fundo com luz dourada. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "mg2_s12",
+      "dialogues": [
+        {
+          "character_id": null,
+          "voice_profile": "nova",
+          "text": "Recursos públicos são do povo. O produtor que usa certo cuida do próprio futuro — e do de todos.",
+          "audio_url": ""
+        },
+        {
+          "character_id": "mg2_c2",
+          "voice_profile": "alloy",
+          "text": "Por que manter notas fiscais e prestação de contas correta protege o apicultor?",
+          "audio_url": ""
+        },
+        {
+          "character_id": "mg2_c1",
+          "voice_profile": "onyx",
+          "text": "Porque prova quem você é. E abre crédito quando você mais precisa.",
+          "audio_url": ""
+        }
+      ]
+    },
+    {
+      "_id": "mg2_s12",
+      "story_id": "mg2",
+      "title": "D3 — Por Que Documentar",
+      "type": "decision",
+      "position": 12,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 10 },
+      "description": "TODO — Pedro com expressão reflexiva diante do apiário. Seu Zé ao lado aguardando. Entardecer na Caatinga. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "decision": {
+        "prompt": "Por que manter notas fiscais e prestação de contas correta protege o apicultor?",
+        "interaction_type": "single_choice",
+        "options": [
+          {
+            "label": "Comprova o uso correto dos recursos, mantém o CAF limpo e garante acesso a novos financiamentos",
+            "next_scene_id": "mg2_s13",
+            "score": 10
+          },
+          {
+            "label": "É apenas uma exigência burocrática do banco — não tem efeito prático sobre o acesso futuro ao crédito",
+            "next_scene_id": "mg2_s14",
+            "score": 3
+          }
+        ]
+      },
+      "dialogues": []
+    },
+    {
+      "_id": "mg2_s13",
+      "story_id": "mg2",
+      "title": "C6A — O Histórico",
+      "type": "end",
+      "position": 13,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 18 },
+      "description": "TODO — Seu Zé assinando novo contrato de crédito rural. Técnico Emater e Pedro ao lado sorrindo. Apiário expandido com novas colmeias ao fundo. Estilo cartoon Gravity Falls — épica e calorosa.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "end_label": "O Produtor de Histórico Limpo",
+      "end_score": 10,
+      "dialogues": [
+        {
+          "character_id": null,
+          "voice_profile": "nova",
+          "text": "Nota fiscal. Prestação de contas. Contrato novo.",
+          "audio_url": ""
+        },
+        {
+          "character_id": "mg2_c2",
+          "voice_profile": "alloy",
+          "text": "O vizinho vai ter que devolver tudo com juros. Você abriu uma nova linha.",
+          "audio_url": ""
+        },
+        {
+          "character_id": "mg2_c1",
+          "voice_profile": "onyx",
+          "text": "Porque usei certo. Desde o começo. E vou continuar assim.",
+          "audio_url": ""
+        }
+      ]
+    },
+    {
+      "_id": "mg2_s14",
+      "story_id": "mg2",
+      "title": "C6B — A Organização",
+      "type": "end",
+      "position": 14,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 16 },
+      "description": "TODO — Pedro organizando notas fiscais numa pasta rotulada por ano. Seu Zé ao lado aprovando com expressão satisfeita. Mesa da cozinha. Estilo cartoon Gravity Falls, paleta suave.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "end_label": "O Primeiro Passo da Organização",
+      "end_score": 5,
+      "dialogues": [
+        {
+          "character_id": null,
+          "voice_profile": "nova",
+          "text": "Primeiro passo: organizar o que já existe.",
+          "audio_url": ""
+        },
+        {
+          "character_id": "mg2_c2",
+          "voice_profile": "alloy",
+          "text": "Vou digitalizar todas as notas. Criar uma pasta por ano. Do primeiro contrato até hoje.",
+          "audio_url": ""
+        },
+        {
+          "character_id": "mg2_c1",
+          "voice_profile": "onyx",
+          "text": "Produtor que documenta tem histórico. E histórico vira crédito.",
+          "audio_url": ""
+        }
+      ]
+    }
+  ]
+}

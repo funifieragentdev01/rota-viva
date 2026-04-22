@@ -1,0 +1,660 @@
+{
+  "story": {
+    "_id": "in1",
+    "title": "Um Presente da Caatinga",
+    "synopsis": "Numa manhã qualquer no sertão do Piauí, um enxame de abelhas pousa no umbuzeiro do quintal da família Costa. Dona Maria chama o marido, os filhos correm para ver, e Seu Zé — apicultor de décadas — sorri: isso não é problema, é oportunidade.\n\nAtravés dos olhos de Pedro e Ana, o jogador descobre como funciona uma colmeia, o papel de cada abelha e por que o mel da Caatinga vale ouro. Uma história de família, curiosidade e o primeiro passo de quem decide crescer junto.",
+    "cover_image": "",
+    "aspect_ratio": "9:16",
+    "subtitle_font_size": 22,
+    "default_scene_duration": 6,
+    "passing_score": 28,
+    "genre": "Drama",
+    "show_cover_first": true,
+    "first_scene_id": "in1_s1",
+    "background_audio": {
+      "loop": true,
+      "volume": 0.25,
+      "url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/documents/69e7aaf8501f000cfda76559_enlivening.mp3"
+    },
+    "status": "active"
+  },
+
+  "characters": [
+    {
+      "_id": "in1_c1",
+      "story_id": "in1",
+      "name": "Seu Zé",
+      "description": "José Costa, apicultor de 52 anos, do Piauí. Pele curtida de sol, chapéu de palha, roupa simples de campo. Sério, experiente e acolhedor. Aprendeu sozinho e quer deixar algo maior para os filhos.",
+      "avatar_thumbnail": "",
+      "reference_image": "",
+      "voice_profile": "onyx"
+    },
+    {
+      "_id": "in1_c2",
+      "story_id": "in1",
+      "name": "Dona Maria",
+      "description": "Maria Costa, 48 anos, esposa de Seu Zé. Vestido florido, cabelos compridos presos. Participativa na gestão do apiário, determinada e prática. É ela quem faz as contas da família.",
+      "avatar_thumbnail": "",
+      "reference_image": "",
+      "voice_profile": "shimmer"
+    },
+    {
+      "_id": "in1_c3",
+      "story_id": "in1",
+      "name": "Pedro",
+      "description": "Pedro Costa, 19 anos, filho mais velho de Seu Zé e Dona Maria. Cabelos curtos, camiseta e chapéu. Curioso e um pouco impaciente — quer modernizar o apiário e aprender rápido.",
+      "avatar_thumbnail": "",
+      "reference_image": "",
+      "voice_profile": "alloy"
+    },
+    {
+      "_id": "in1_c4",
+      "story_id": "in1",
+      "name": "Ana",
+      "description": "Ana Costa, 14 anos, filha caçula de Seu Zé e Dona Maria. Tranças, vestidinho simples, olhos grandes. Encantada com as abelhas. Faz as perguntas que todo iniciante precisaria fazer.",
+      "avatar_thumbnail": "",
+      "reference_image": "",
+      "voice_profile": "nova"
+    }
+  ],
+
+  "scenes": [
+
+    {
+      "_id": "in1_s1",
+      "story_id": "in1",
+      "title": "O Quintal da Família Costa",
+      "type": "scene",
+      "position": 1,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": {
+        "type": "image",
+        "url": "",
+        "duration": 14
+      },
+      "description": "TODO — Quintal rural no interior do Piauí sob o sol da manhã. Um pé de umbuzeiro carregado com um enorme enxame de abelhas douradas — uma massa viva e zumbindo. Dona Maria (mulher nordestina de 48 anos, vestido florido, cabelos presos) para com o regador na mão, boca aberta de espanto. Ana (menina de 14 anos, tranças, vestidinho simples) chega correndo e aponta. Expressão das duas: susto misturado com curiosidade. Estilo cartoon Gravity Falls — cores quentes dourado, verde-caatinga, traços expressivos.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "dialogues": [
+        {
+          "position": 0,
+          "text": "Na propriedade da família Costa, as manhãs têm cheiro de caatinga e zumbido de abelhas. Mas hoje o zumbido estava diferente.",
+          "audio_url": ""
+        },
+        {
+          "position": 1,
+          "character_id": "in1_c2",
+          "text": "Zé! Vem cá! Olha o que apareceu no umbuzeiro!",
+          "audio_url": ""
+        }
+      ],
+      "next_scene_id": "in1_s2"
+    },
+
+    {
+      "_id": "in1_s2",
+      "story_id": "in1",
+      "title": "Seu Zé Reconhece o Presente",
+      "type": "scene",
+      "position": 2,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": {
+        "type": "image",
+        "url": "",
+        "duration": 14
+      },
+      "description": "TODO — Mesmo quintal, agora com toda a família reunida. Seu Zé (homem nordestino de 52 anos, chapéu de palha, pele curtida, roupa de campo) olha para o enxame com um grande sorriso — ele reconhece o que é isso. Dona Maria ao lado com expressão de dúvida. Pedro (jovem de 19 anos, camiseta e chapéu) e Ana (14 anos, tranças) atrás, Pedro inclinado para frente de curiosidade. Família unida, clima de descoberta. Estilo cartoon Gravity Falls, cores quentes da Caatinga.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "dialogues": [
+        {
+          "position": 0,
+          "character_id": "in1_c4",
+          "text": "Pai! Que tanto de abelha! Pode morder a gente?",
+          "audio_url": ""
+        },
+        {
+          "position": 1,
+          "character_id": "in1_c1",
+          "text": "Pode não, filha. Esse é um enxame — elas tão procurando um novo lar. Olha que presente nos caiu no quintal!",
+          "audio_url": ""
+        },
+        {
+          "position": 2,
+          "character_id": "in1_c3",
+          "text": "Um presente? É tanta abelha... Como você vai capturar isso, pai?",
+          "audio_url": ""
+        }
+      ],
+      "next_scene_id": "in1_s3"
+    },
+
+    {
+      "_id": "in1_s3",
+      "story_id": "in1",
+      "title": "O Que Fazer com o Enxame?",
+      "type": "decision",
+      "position": 3,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": {
+        "type": "image",
+        "url": "",
+        "duration": 8
+      },
+      "description": "TODO — Close no enxame pousado nos galhos do umbuzeiro — massa densa de abelhas douradas formando um cacho vivo, algumas voando ao redor. Nos cantos da cena, os quatro membros da família observam de pontos diferentes. Seu Zé já foi buscar a caixa e o véu de apicultor. Clima de decisão. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "dialogues": [
+        {
+          "position": 0,
+          "character_id": "in1_c2",
+          "text": "Você consegue capturar sem machucar a família, Zé? As crianças tão por perto.",
+          "audio_url": ""
+        },
+        {
+          "position": 1,
+          "character_id": "in1_c1",
+          "text": "Enxame pacífico não ataca. Mas a decisão é da família.",
+          "audio_url": ""
+        }
+      ],
+      "decision": {
+        "prompt": "O que a família decide?",
+        "interaction_type": "click",
+        "options": [
+          {
+            "label": "Vamos capturar — queremos mais colmeias!",
+            "next_scene_id": "in1_s4",
+            "score": 10
+          },
+          {
+            "label": "Melhor espantar — é muita abelha perto de casa",
+            "next_scene_id": "in1_s5",
+            "score": 1
+          }
+        ]
+      }
+    },
+
+    {
+      "_id": "in1_s4",
+      "story_id": "in1",
+      "title": "A Família Trabalha Junto",
+      "type": "scene",
+      "position": 4,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": {
+        "type": "image",
+        "url": "",
+        "duration": 12
+      },
+      "description": "TODO — Cena de trabalho em família no quintal. Seu Zé com véu branco e luvas move suavemente a caixa de madeira para perto do enxame. Pedro segura a caixa firme com expressão concentrada. Ana e Dona Maria observam de perto, animadas. Abelhas entrando na caixa sem agitação. Luz quente da manhã, sombras longas. Cena transmite cooperação, calma e técnica. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "dialogues": [
+        {
+          "position": 0,
+          "character_id": "in1_c1",
+          "text": "Esse é trabalho de família! Pedro, segura a caixa firme. Ana, fica do meu lado e observa tudo.",
+          "audio_url": ""
+        },
+        {
+          "position": 1,
+          "text": "Em menos de 20 minutos, o enxame inteiro estava dentro da caixa. Família unida, nem uma abelha perdida.",
+          "audio_url": ""
+        },
+        {
+          "position": 2,
+          "character_id": "in1_c4",
+          "text": "Pai, quem é o chefe de todas essas abelhas? Tem uma rainha aí dentro?",
+          "audio_url": ""
+        }
+      ],
+      "next_scene_id": "in1_s6"
+    },
+
+    {
+      "_id": "in1_s5",
+      "story_id": "in1",
+      "title": "Uma Oportunidade Perdida",
+      "type": "scene",
+      "position": 5,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": {
+        "type": "image",
+        "url": "",
+        "duration": 10
+      },
+      "description": "TODO — Umbuzeiro agora sem abelhas, galhos vazios contra o céu azul do Piauí. A família parada no quintal, olhando para onde estava o enxame. Seu Zé com expressão calma e gentil, não punitiva. Pedro com a cabeça levemente inclinada de arrependimento. Ana olha para o pai curiosa. Dona Maria cruza os braços pensativa. Paleta mais suave, clima reflexivo mas não dramático. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "dialogues": [
+        {
+          "position": 0,
+          "character_id": "in1_c1",
+          "text": "Não tem problema. Elas foram embora quietas. Mas era uma boa colônia — umas 8 mil abelhas. Ia dar uma colmeia bem produtiva.",
+          "audio_url": ""
+        },
+        {
+          "position": 1,
+          "character_id": "in1_c3",
+          "text": "Oito mil? Eu não sabia que enxame era tanta abelha assim.",
+          "audio_url": ""
+        },
+        {
+          "position": 2,
+          "text": "O enxame foi embora — mas a curiosidade da família ficou. Seu Zé aproveita para explicar o que cada abelha faz.",
+          "audio_url": ""
+        }
+      ],
+      "next_scene_id": "in1_s6"
+    },
+
+    {
+      "_id": "in1_s6",
+      "story_id": "in1",
+      "title": "Quem Manda na Colmeia?",
+      "type": "decision",
+      "position": 6,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": {
+        "type": "image",
+        "url": "",
+        "duration": 9
+      },
+      "description": "TODO — Ilustração didática de uma colmeia em corte transversal, mostrando favos dourados e uma abelha maior no centro (a rainha) cercada por abelhas menores. Seu Zé aponta para a rainha com um galho enquanto a família o rodeia — Pedro de braços cruzados inclinado para ver, Ana de olhos arregalados, Dona Maria atenta. Mesa rústica ao ar livre com o corte da colmeia à frente. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "dialogues": [
+        {
+          "position": 0,
+          "character_id": "in1_c1",
+          "text": "Toda colmeia tem três tipos de abelha: a rainha, as operárias e os zangões. Cada uma com um papel que não pode falhar.",
+          "audio_url": ""
+        },
+        {
+          "position": 1,
+          "character_id": "in1_c4",
+          "text": "Pai, qual é a função da rainha? Por que ela é tão importante?",
+          "audio_url": ""
+        }
+      ],
+      "decision": {
+        "prompt": "Qual é o papel principal da rainha na colmeia?",
+        "interaction_type": "click",
+        "options": [
+          {
+            "label": "Ela é a única que bota ovos — é a mãe de toda a colônia",
+            "next_scene_id": "in1_s7",
+            "score": 10
+          },
+          {
+            "label": "É ela quem produz mais mel e organiza o trabalho",
+            "next_scene_id": "in1_s8",
+            "score": 1
+          },
+          {
+            "label": "Não sei ainda",
+            "next_scene_id": "in1_s8",
+            "score": 1
+          }
+        ]
+      }
+    },
+
+    {
+      "_id": "in1_s7",
+      "story_id": "in1",
+      "title": "O Segredo da Colônia",
+      "type": "scene",
+      "position": 7,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": {
+        "type": "image",
+        "url": "",
+        "duration": 13
+      },
+      "description": "TODO — Vista interna de colmeia em tons âmbar e dourado. A rainha no centro depositando ovos em células abertas, cercada de operárias em semicírculo que a alimentam. Outras células fechadas com mel brilhante. Pequenas larvas visíveis. Em moldura ao redor, os rostos da família reagindo: Ana encantada, Pedro impressionado, Dona Maria sorrindo, Seu Zé orgulhoso de explicar. Estilo cartoon Gravity Falls, detalhado e rico em cores.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "dialogues": [
+        {
+          "position": 0,
+          "character_id": "in1_c1",
+          "text": "Isso mesmo, Ana! A rainha pode botar até 2 mil ovos por dia. Ela é a mãe de toda a colônia.",
+          "audio_url": ""
+        },
+        {
+          "position": 1,
+          "text": "As operárias são fêmeas que não reproduzem. São elas que coletam néctar, produzem mel, constroem o favo, cuidam das larvas e defendem a colmeia.",
+          "audio_url": ""
+        },
+        {
+          "position": 2,
+          "character_id": "in1_c3",
+          "text": "E os zangões? O que fazem os machos?",
+          "audio_url": ""
+        },
+        {
+          "position": 3,
+          "character_id": "in1_c1",
+          "text": "Os zangões só existem pra fecundar uma nova rainha. Depois disso, as próprias operárias os expulsam. Na colmeia, não tem espaço pra quem não trabalha!",
+          "audio_url": ""
+        }
+      ],
+      "next_scene_id": "in1_s9"
+    },
+
+    {
+      "_id": "in1_s8",
+      "story_id": "in1",
+      "title": "Aprendendo a Biologia da Colmeia",
+      "type": "scene",
+      "position": 8,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": {
+        "type": "image",
+        "url": "",
+        "duration": 12
+      },
+      "description": "TODO — Quadro visual comparativo com três abelhas lado a lado, identificadas por setas: RAINHA (maior, abdome longo), OPERÁRIA (menor, cestinhos de pólen nas patas), ZANGÃO (olhos grandes, sem ferrão). Seu Zé aponta para cada uma com um galho, como um professor paciente. A família ao redor presta atenção. Fundo bege ou amarelo suave. Estilo cartoon Gravity Falls, visual didático, diferente da cena S6.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "dialogues": [
+        {
+          "position": 0,
+          "character_id": "in1_c1",
+          "text": "A rainha não produz mel — ela só reproduz. É ela quem garante que a colônia continue existindo, botando ovos todo dia.",
+          "audio_url": ""
+        },
+        {
+          "position": 1,
+          "character_id": "in1_c1",
+          "text": "Quem produz mel são as operárias. Elas saem, coletam néctar das flores e transformam aqui dentro da colmeia.",
+          "audio_url": ""
+        },
+        {
+          "position": 2,
+          "character_id": "in1_c1",
+          "text": "Agora que você entendeu — qual é mesmo a função principal da rainha?",
+          "audio_url": ""
+        }
+      ],
+      "next_scene_id": "in1_s6"
+    },
+
+    {
+      "_id": "in1_s9",
+      "story_id": "in1",
+      "title": "O Mel da Caatinga Vale Ouro",
+      "type": "scene",
+      "position": 9,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": {
+        "type": "image",
+        "url": "",
+        "duration": 14
+      },
+      "description": "TODO — Varanda rústica da casa da família Costa. Mesa de madeira com fileira de potes de mel dourado e âmbar brilhante, etiquetas artesanais escritas à mão. Seu Zé segura um pote com orgulho, Dona Maria ao lado com expressão de satisfação. Pedro e Ana olham para os potes com admiração. Ao fundo, campo de flores nativas: mandacaru em flor, jurema. Luz quente da tarde. Estilo cartoon Gravity Falls, cores saturadas douradas e verdes.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "dialogues": [
+        {
+          "position": 0,
+          "character_id": "in1_c2",
+          "text": "Seu Zé, conta pra eles quanto vale o nosso mel.",
+          "audio_url": ""
+        },
+        {
+          "position": 1,
+          "character_id": "in1_c1",
+          "text": "O mel da Caatinga é especial. As abelhas trabalham com o néctar do mandacaru, da jurema, do angico — flores nativas que dão um mel diferenciado.",
+          "audio_url": ""
+        },
+        {
+          "position": 2,
+          "text": "Por isso o mel do Piauí tem alta demanda no mercado nacional. Na venda direta, pode chegar a R$ 30 o quilo.",
+          "audio_url": ""
+        },
+        {
+          "position": 3,
+          "character_id": "in1_c3",
+          "text": "R$ 30 o quilo! Quantos quilos uma colmeia produz por safra, pai?",
+          "audio_url": ""
+        }
+      ],
+      "next_scene_id": "in1_s10"
+    },
+
+    {
+      "_id": "in1_s10",
+      "story_id": "in1",
+      "title": "Quanto Rende uma Colmeia?",
+      "type": "decision",
+      "position": 10,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": {
+        "type": "image",
+        "url": "",
+        "duration": 8
+      },
+      "description": "TODO — Ilustração com uma colmeia ao centro e seta indicando quilos de mel. Potes empilhados ao lado para comparação visual. A família em torno, Dona Maria com caneta e caderninho, Pedro com braços cruzados pensando, Ana com dedo no queixo. Contexto ao ar livre ensolarado. Estilo cartoon Gravity Falls, foco em elementos de negócio.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "dialogues": [
+        {
+          "position": 0,
+          "character_id": "in1_c2",
+          "text": "Essa é a pergunta certa, Pedro. Quanto a gente pode produzir com mais colmeias?",
+          "audio_url": ""
+        },
+        {
+          "position": 1,
+          "text": "A família quer entender os números antes de planejar o crescimento do apiário.",
+          "audio_url": ""
+        }
+      ],
+      "decision": {
+        "prompt": "Quanto mel uma colmeia saudável produz por safra, aqui no Piauí?",
+        "interaction_type": "click",
+        "options": [
+          {
+            "label": "Entre 15 e 30 quilos",
+            "next_scene_id": "in1_s11",
+            "score": 10
+          },
+          {
+            "label": "Mais de 100 quilos",
+            "next_scene_id": "in1_s12",
+            "score": 3
+          },
+          {
+            "label": "Menos de 5 quilos",
+            "next_scene_id": "in1_s12",
+            "score": 3
+          }
+        ]
+      }
+    },
+
+    {
+      "_id": "in1_s11",
+      "story_id": "in1",
+      "title": "A Família Decide Crescer",
+      "type": "scene",
+      "position": 11,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": {
+        "type": "image",
+        "url": "",
+        "duration": 12
+      },
+      "description": "TODO — Os quatro membros da família Costa no quintal ao sol, ao redor da caixa de colmeia nova. Seu Zé com a mão no ombro de Pedro. Ana com sorriso largo de entusiasmo. Dona Maria com o caderninho de contas aberto, expressão satisfeita. Abelhas voando ao redor suavemente. Luz quente e dourada do Piauí. Cena transmite família unida e decidida. Estilo cartoon Gravity Falls, cores vibrantes.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "dialogues": [
+        {
+          "position": 0,
+          "character_id": "in1_c1",
+          "text": "Isso mesmo! De 15 a 30 kg por safra. Com mais 5 colmeias, a gente aumenta a renda e ainda ajuda a polinizar toda a região.",
+          "audio_url": ""
+        },
+        {
+          "position": 1,
+          "character_id": "in1_c4",
+          "text": "Eu quero ajudar a cuidar das abelhas, pai! Posso?",
+          "audio_url": ""
+        },
+        {
+          "position": 2,
+          "character_id": "in1_c2",
+          "text": "Então tá decidido. Família unida, apiário crescendo. Vamos aprender juntos no Rota Viva.",
+          "audio_url": ""
+        }
+      ],
+      "next_scene_id": "in1_s13"
+    },
+
+    {
+      "_id": "in1_s12",
+      "story_id": "in1",
+      "title": "Entendendo os Números Reais",
+      "type": "scene",
+      "position": 12,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": {
+        "type": "image",
+        "url": "",
+        "duration": 10
+      },
+      "description": "TODO — Seu Zé mostrando o caderno de anotações com números de produção por safra. Dona Maria ao lado conferindo. Pedro lê com atenção e expressão de quem está processando a correção. Ana por trás, curiosa. Ambiente de varanda rústica, luz natural. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "dialogues": [
+        {
+          "position": 0,
+          "character_id": "in1_c1",
+          "text": "A produção real aqui no Piauí fica entre 15 e 30 kg por colmeia na safra. Com manejo certo, vai crescendo com o tempo.",
+          "audio_url": ""
+        },
+        {
+          "position": 1,
+          "text": "Os números são diferentes do esperado — mas o potencial é real. Com a família trabalhando junto, o apiário cresce.",
+          "audio_url": ""
+        },
+        {
+          "position": 2,
+          "character_id": "in1_c3",
+          "text": "Então vale a pena investir — mas precisa aprender direitinho primeiro.",
+          "audio_url": ""
+        }
+      ],
+      "next_scene_id": "in1_s14"
+    },
+
+    {
+      "_id": "in1_s13",
+      "story_id": "in1",
+      "title": "Uma Família de Apicultores",
+      "type": "end",
+      "position": 13,
+      "transition": "fade",
+      "transition_duration": 300,
+      "end_label": "Uma família que voa junto!",
+      "end_score": 10,
+      "media_mode": "image",
+      "media": {
+        "type": "image",
+        "url": "",
+        "duration": 13
+      },
+      "description": "TODO — Cena panorâmica e inspiradora: os quatro membros da família Costa diante do apiário ao pôr do sol dourado da Caatinga. Seu Zé e Dona Maria no centro, Pedro e Ana aos lados. Todos sorrindo, postura confiante. Abelhas voando ao redor como pontos de luz. Luz âmbar intensa no horizonte. Cena de conquista familiar. Estilo cartoon Gravity Falls, épica e emocionante.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "dialogues": [
+        {
+          "position": 0,
+          "text": "Não é só mel que essa família produz — é futuro. Com o Rota Viva, cada módulo traz mais conhecimento e mais renda.",
+          "audio_url": ""
+        },
+        {
+          "position": 1,
+          "character_id": "in1_c1",
+          "text": "A apicultura é uma herança que a gente constrói. Abelhas bem cuidadas, terra preservada — e um negócio que os filhos podem carregar.",
+          "audio_url": ""
+        },
+        {
+          "position": 2,
+          "character_id": "in1_c2",
+          "text": "E nessa família, todo mundo trabalha junto. Essa é a nossa força.",
+          "audio_url": ""
+        }
+      ]
+    },
+
+    {
+      "_id": "in1_s14",
+      "story_id": "in1",
+      "title": "O Aprendizado Começa em Família",
+      "type": "end",
+      "position": 14,
+      "transition": "fade",
+      "transition_duration": 300,
+      "end_label": "O aprendizado começa em família",
+      "end_score": 5,
+      "media_mode": "image",
+      "media": {
+        "type": "image",
+        "url": "",
+        "duration": 11
+      },
+      "description": "TODO — A família Costa caminhando em direção ao apiário ao fim da tarde, de costas para a câmera. Seu Zé e Dona Maria de mãos dadas, Pedro e Ana ao lado. Apiário ao fundo com luz suave de fim de tarde. Cena transmite caminho pela frente, aprendizado conjunto. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "dialogues": [
+        {
+          "position": 0,
+          "text": "Os números ainda estão sendo descobertos. Mas a vontade está ali — e no Rota Viva, o conhecimento vem junto com a prática.",
+          "audio_url": ""
+        },
+        {
+          "position": 1,
+          "character_id": "in1_c1",
+          "text": "Não precisa saber tudo de uma vez. Fui aprendendo enquanto fazia. Agora aprendo de outro jeito — com vocês.",
+          "audio_url": ""
+        },
+        {
+          "position": 2,
+          "character_id": "in1_c4",
+          "text": "A gente aprende junto, pai. Começando agora.",
+          "audio_url": ""
+        }
+      ]
+    }
+
+  ]
+}

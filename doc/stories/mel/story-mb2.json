@@ -1,0 +1,576 @@
+{
+  "story": {
+    "_id": "mb2",
+    "title": "O Mel da Escola",
+    "synopsis": "O contrato do PNAE está assinado. Ana ajuda Dona Maria na primeira extração para a escola — e aprende que cada etapa da extração tem uma razão. Sequência correta, refratômetro, filtragem e recipiente adequado fazem a diferença entre o mel aprovado e o contrato perdido.",
+    "cover_image": "",
+    "aspect_ratio": "9:16",
+    "subtitle_font_size": 22,
+    "default_scene_duration": 6,
+    "passing_score": 28,
+    "genre": "Drama",
+    "show_cover_first": true,
+    "first_scene_id": "mb2_s1",
+    "background_audio": {
+      "loop": true,
+      "volume": 0.25,
+      "url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/documents/69e7aaf8501f000cfda76559_enlivening.mp3"
+    },
+    "status": "active"
+  },
+  "characters": [
+    {
+      "_id": "mb2_c1",
+      "story_id": "mb2",
+      "name": "Ana",
+      "full_name": "Ana Costa",
+      "description": "Filha de 14 anos da família Costa. Tranças, avental sobre vestidinho simples, olhos grandes. Encantada com as abelhas, primeira vez ajudando na extração completa.",
+      "voice_profile": "nova",
+      "avatar_thumbnail": "",
+      "reference_image": ""
+    },
+    {
+      "_id": "mb2_c2",
+      "story_id": "mb2",
+      "name": "Dona Maria",
+      "full_name": "Maria Costa",
+      "description": "Mãe de 48 anos da família Costa. Vestido florido, avental, cabelos compridos presos. Participativa na gestão do apiário, determinada e rigorosa com qualidade.",
+      "voice_profile": "shimmer",
+      "avatar_thumbnail": "",
+      "reference_image": ""
+    },
+    {
+      "_id": "mb2_c3",
+      "story_id": "mb2",
+      "name": "Pedro",
+      "full_name": "Pedro Costa",
+      "description": "Filho de 19 anos da família Costa. Camiseta e chapéu. Aparece brevemente como apoio à mãe e irmã na semana da entrega.",
+      "voice_profile": "alloy",
+      "avatar_thumbnail": "",
+      "reference_image": ""
+    }
+  ],
+  "scenes": [
+    {
+      "_id": "mb2_s1",
+      "story_id": "mb2",
+      "title": "CAPA — O Mel da Escola",
+      "type": "scene",
+      "position": 1,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 10 },
+      "description": "TODO — Casa de mel da família Costa. Ana (14 anos, tranças, avental branco) ao lado de centrífuga artesanal de madeira, mãos apoiadas na manivela. Dona Maria (48 anos, vestido florido, avental) com refratômetro nas mãos olhando a leitura com expressão concentrada. Quadros de mel dourado sobre a mesa. Janela aberta com apiário verde visível ao fundo. Estilo cartoon Gravity Falls — paleta quente amarelo-dourado, verde-caatinga, luz interior aconchegante.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "mb2_s2",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": null,
+          "text": "O contrato está assinado. A escola espera. E o mel precisa ser perfeito.",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        }
+      ]
+    },
+    {
+      "_id": "mb2_s2",
+      "story_id": "mb2",
+      "title": "C0 — A Semana da Entrega",
+      "type": "scene",
+      "position": 2,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 14 },
+      "description": "TODO — Casa da família Costa, sala simples. Dona Maria segurando o papel do contrato do PNAE com expressão séria de responsabilidade. Pedro (19 anos, camiseta) ao lado sorrindo com orgulho. Ana (14 anos) na frente com expressão animada e curiosa, levantando a mão. Atmosfera de conquista familiar com responsabilidade real. Estilo cartoon Gravity Falls — paleta quente.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "mb2_s3",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": null,
+          "text": "Chamada pública vencida, contrato assinado, primeira entrega marcada para sexta-feira.",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        },
+        {
+          "position": 2,
+          "character_id": "mb2_c2",
+          "text": "Duzentas crianças vão comer nosso mel na merenda essa semana. Nada de corte.",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        },
+        {
+          "position": 3,
+          "character_id": "mb2_c1",
+          "text": "Mãe, posso ajudar na extração? Nunca fiz o processo completo.",
+          "audio_url": "",
+          "voice_profile": "nova"
+        }
+      ]
+    },
+    {
+      "_id": "mb2_s3",
+      "story_id": "mb2",
+      "title": "C0.1 — A Casa de Mel",
+      "type": "scene",
+      "position": 3,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 12 },
+      "description": "TODO — Interior da casa de mel da família Costa: piso de cimento lavável limpo, paredes caiadas, tela nas janelas, centrífuga artesanal ao centro da sala, baldes de polietileno e filtros sobre mesa de madeira. Dona Maria de avental mostrando o espaço para Ana. Expressão de quem cuida do ambiente como parte do produto. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "mb2_s4",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "mb2_c2",
+          "text": "Antes de começar, tudo limpo e seco. O mel que sai da colmeia é perfeito — o que estraga é o que a gente faz depois.",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        },
+        {
+          "position": 2,
+          "character_id": "mb2_c1",
+          "text": "Então por onde a gente começa, mãe? Coloca na centrífuga logo?",
+          "audio_url": "",
+          "voice_profile": "nova"
+        }
+      ]
+    },
+    {
+      "_id": "mb2_s4",
+      "story_id": "mb2",
+      "title": "C1 — A Primeira Etapa",
+      "type": "decision",
+      "position": 4,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 12 },
+      "description": "TODO — Dona Maria ao lado da centrífuga e da mesa com quadros operculados de mel. Ana olha para os quadros e para a centrífuga pensativa, com expressão de quem quer acertar. Mesa de desoperculação e garfos desoperculadores visíveis ao lado. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "decision": {
+        "prompt": "Qual é o primeiro passo correto na extração do mel?",
+        "interaction_type": "single_choice",
+        "options": [
+          {
+            "label": "Desoperculação — retirar os opérculos de cera com garfo ou faca antes de colocar na centrífuga",
+            "next_scene_id": "mb2_s6",
+            "score": 10
+          },
+          {
+            "label": "Centrifugação direta — colocar os quadros na centrífuga sem retirar a cera primeiro",
+            "next_scene_id": "mb2_s5",
+            "score": 1
+          },
+          {
+            "label": "Não sei ainda",
+            "next_scene_id": "mb2_s5",
+            "score": 1
+          }
+        ]
+      },
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "mb2_c2",
+          "text": "Qual é o primeiro passo, Ana?",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        }
+      ]
+    },
+    {
+      "_id": "mb2_s5",
+      "story_id": "mb2",
+      "title": "C1B — Por Que Desopercular Primeiro",
+      "type": "scene",
+      "position": 5,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 16 },
+      "description": "TODO — Ilustração comparativa em dois quadros: esquerda mostra quadro com cera intacta colocado na centrífuga — seta indicando que o mel não sai, favo se rompe sem resultado; direita mostra quadro devidamente desoperculado — mel escorre livremente pelas paredes da centrífuga. Dona Maria aponta para a diferença com expressão didática. Fundo amarelo suave. Estilo cartoon Gravity Falls — mais diagramático, diferente de C0.1.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "mb2_s4",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "mb2_c2",
+          "text": "A cera sela o mel. Se você jogar na centrífuga sem retirar os opérculos, o mel não consegue sair — você gira em vão e ainda estraga o favo.",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        },
+        {
+          "position": 2,
+          "character_id": "mb2_c2",
+          "text": "A desoperculação abre a porta. Sem ela, não tem extração eficiente.",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        },
+        {
+          "position": 3,
+          "character_id": "mb2_c2",
+          "text": "Então — qual é o primeiro passo?",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        }
+      ]
+    },
+    {
+      "_id": "mb2_s6",
+      "story_id": "mb2",
+      "title": "C2 — A Primeira Desoperculação de Ana",
+      "type": "scene",
+      "position": 6,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 12 },
+      "description": "TODO — Ana com garfo desoperculador nas mãos, retirando cuidadosamente os opérculos de cera de um quadro sobre a bacia de desoperculação. Expressão de concentração intensa e cuidado. Dona Maria ao lado observando com aprovação discreta. Mel dourado brilhando nos favos abertos. Cera branca caindo na bacia. Estilo cartoon Gravity Falls — luz dourada interior.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "mb2_s7",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "mb2_c1",
+          "text": "É mais difícil do que parece — tem que ir com cuidado pra não furar o favo.",
+          "audio_url": "",
+          "voice_profile": "nova"
+        },
+        {
+          "position": 2,
+          "character_id": "mb2_c2",
+          "text": "Exato. O mel que cai na bacia durante a desoperculação a gente aproveita também — não desperdiça nada.",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        },
+        {
+          "position": 3,
+          "character_id": null,
+          "text": "O primeiro quadro desoperculado de Ana. O mel que vai para a escola começa aqui.",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        }
+      ]
+    },
+    {
+      "_id": "mb2_s7",
+      "story_id": "mb2",
+      "title": "C3 — A Centrífuga",
+      "type": "scene",
+      "position": 7,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 12 },
+      "description": "TODO — Ana e Dona Maria colocando quadros desoperculados na centrífuga artesanal. Dona Maria girando a manivela progressivamente com expressão técnica. Mel dourado escorrendo pelas paredes internas e acumulando no fundo da centrífuga. Ana olhando fascinada através de abertura lateral. Estilo cartoon Gravity Falls — paleta dourada intensa.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "mb2_s8",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "mb2_c1",
+          "text": "Mãe, é lindo! O mel vai saindo das células sozinho.",
+          "audio_url": "",
+          "voice_profile": "nova"
+        },
+        {
+          "position": 2,
+          "character_id": "mb2_c2",
+          "text": "Progressivo — começa devagar e aumenta. Girar rápido demais quebra os favos.",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        }
+      ]
+    },
+    {
+      "_id": "mb2_s8",
+      "story_id": "mb2",
+      "title": "C4 — O Refratômetro",
+      "type": "decision",
+      "position": 8,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 14 },
+      "description": "TODO — Dona Maria com refratômetro pequeno na mão, colocando uma gota de mel na lente com conta-gotas. Olha para a leitura com expressão séria: 22% de umidade visível na escala. Ana ao lado com expressão de preocupação. Mesa com quadros prontos para envasar aguardando. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "decision": {
+        "prompt": "O mel marcou 22% de umidade — acima do limite de 20%. O que Dona Maria deve fazer?",
+        "interaction_type": "single_choice",
+        "options": [
+          {
+            "label": "Não envasar — aguardar ou devolver os quadros para as abelhas completarem a secagem",
+            "next_scene_id": "mb2_s10",
+            "score": 10
+          },
+          {
+            "label": "Envasar mesmo assim — a diferença de 2% é pequena e o prazo de entrega está próximo",
+            "next_scene_id": "mb2_s9",
+            "score": 3
+          }
+        ]
+      },
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "mb2_c2",
+          "text": "22% de umidade. Acima do limite.",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        },
+        {
+          "position": 2,
+          "character_id": "mb2_c1",
+          "text": "Mas o mel estava nas células, mãe. Parecia pronto.",
+          "audio_url": "",
+          "voice_profile": "nova"
+        },
+        {
+          "position": 3,
+          "character_id": "mb2_c2",
+          "text": "Parecia. O que eu devo fazer?",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        }
+      ]
+    },
+    {
+      "_id": "mb2_s9",
+      "story_id": "mb2",
+      "title": "C4B — O Mel que Fermenta",
+      "type": "scene",
+      "position": 9,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 14 },
+      "description": "TODO — Ilustração comparativa: pote de mel envasado com 22% de umidade — tampa visivelmente estufada, bolhas e espuma visíveis no interior, rótulo com selo 'REPROVADO' em vermelho. Ao lado, pote com 18% de umidade — âmbar dourado limpo, lacrado hermeticamente, rótulo 'APROVADO'. Dona Maria explica com expressão firme. Estilo cartoon Gravity Falls — diferente de C4.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "mb2_s10",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "mb2_c2",
+          "text": "Mel com mais de 20% de umidade começa a fermentar em dias. A tampa estufa, o gosto muda — e a escola devolve tudo.",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        },
+        {
+          "position": 2,
+          "character_id": null,
+          "text": "Dona Maria separa os quadros problemáticos. Eles voltam para as abelhas finalizarem a secagem.",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        },
+        {
+          "position": 3,
+          "character_id": "mb2_c2",
+          "text": "Dois por cento faz a diferença entre o contrato mantido e o contrato perdido.",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        }
+      ]
+    },
+    {
+      "_id": "mb2_s10",
+      "story_id": "mb2",
+      "title": "C5 — Filtragem e Decantação",
+      "type": "scene",
+      "position": 10,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 14 },
+      "description": "TODO — Dona Maria e Ana passando mel pela filtragem de malha fina fixada sobre balde de polietileno. Pequenas partículas de cera presas no filtro visíveis. Mel limpo e dourado escorrendo para o balde abaixo. Ao lado, decantador com mel em repouso, bolhas e cera subindo naturalmente para a superfície. Estilo cartoon Gravity Falls — paleta dourada e âmbar.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "mb2_s11",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "mb2_c1",
+          "text": "Por que filtrar se o mel parece limpo?",
+          "audio_url": "",
+          "voice_profile": "nova"
+        },
+        {
+          "position": 2,
+          "character_id": "mb2_c2",
+          "text": "Tem pedaço de cera, asinha de abelha — coisas que você não vê mas que o comprador vai ver no pote.",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        },
+        {
+          "position": 3,
+          "character_id": "mb2_c2",
+          "text": "Depois do filtro, o mel descansa no decantador por 48 horas. A cera e as bolhas sobem. O mel limpo fica embaixo — pronto para envasar.",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        }
+      ]
+    },
+    {
+      "_id": "mb2_s11",
+      "story_id": "mb2",
+      "title": "C6 — A Hora do Envase",
+      "type": "scene",
+      "position": 11,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 12 },
+      "description": "TODO — Dona Maria e Ana preparando potes de vidro limpos e secos sobre a mesa para o envase. Fileira de potes de vidro alinhados, tampas ao lado. Ana encontra uma velha lata de metal em um canto e a mostra para Dona Maria questionando. Dona Maria afasta a lata com gesto firme e definitivo. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "mb2_s12",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "mb2_c1",
+          "text": "Mãe, posso usar essa lata pra parte do mel? Sobrou espaço.",
+          "audio_url": "",
+          "voice_profile": "nova"
+        },
+        {
+          "position": 2,
+          "character_id": "mb2_c2",
+          "text": "Não. Metal oxida e passa gosto pro mel. Qual é o recipiente certo para armazenar mel, Ana?",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        }
+      ]
+    },
+    {
+      "_id": "mb2_s12",
+      "story_id": "mb2",
+      "title": "C7 — Qual Recipiente?",
+      "type": "decision",
+      "position": 12,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 12 },
+      "description": "TODO — Ana olhando para a lata de metal de um lado e para os potes de vidro do outro. Expressão de quem está decidindo com cuidado. Dona Maria ao fundo esperando a resposta. Mesa com potes de vidro e a lata de metal visíveis em paralelo. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "decision": {
+        "prompt": "Qual é o recipiente correto para armazenar mel após a extração?",
+        "interaction_type": "single_choice",
+        "options": [
+          {
+            "label": "Pote de vidro com tampa hermética ou balde de polietileno alimentício",
+            "next_scene_id": "mb2_s13",
+            "score": 10
+          },
+          {
+            "label": "Qualquer recipiente limpo disponível — lata de metal, plástico reciclado ou vidro",
+            "next_scene_id": "mb2_s14",
+            "score": 3
+          }
+        ]
+      },
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "mb2_c1",
+          "text": "Vidro ou polietileno alimentício. Nunca metal ou plástico reciclado.",
+          "audio_url": "",
+          "voice_profile": "nova"
+        }
+      ]
+    },
+    {
+      "_id": "mb2_s13",
+      "story_id": "mb2",
+      "title": "C8A — O Mel na Merenda",
+      "type": "end",
+      "position": 13,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 16 },
+      "description": "TODO — Cena dupla: sala de aula de escola municipal com crianças tomando café com mel, professora lendo o rótulo da família Costa com sorriso. Corte para Dona Maria e Ana abraçadas na casa de mel, potes de vidro lacrados e etiquetados à sua frente, apiário visível pela janela. Cena de conquista familiar e dignidade. Estilo cartoon Gravity Falls — paleta vibrante dourada e quente.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "end_label": "Mel Aprovado",
+      "end_score": 10,
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": null,
+          "text": "Vinte e dois potes de vidro, lacrados, etiquetados. Mel operculado, umidade correta, sem metal.",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        },
+        {
+          "position": 2,
+          "character_id": "mb2_c1",
+          "text": "Mãe, esse mel vai ser o café da manhã de duzentas crianças essa semana.",
+          "audio_url": "",
+          "voice_profile": "nova"
+        },
+        {
+          "position": 3,
+          "character_id": "mb2_c2",
+          "text": "É por isso que cada etapa importa, Ana. Não é trabalho — é respeito.",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        }
+      ]
+    },
+    {
+      "_id": "mb2_s14",
+      "story_id": "mb2",
+      "title": "C8B — Uma Parte do Mel",
+      "type": "end",
+      "position": 14,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 16 },
+      "description": "TODO — Dona Maria separando caixas de mel — algumas aprovadas, algumas com problemas. Ana observa os potes aprovados e os que foram separados, expressão reflexiva e de quem está aprendendo com a experiência. Ambiente da casa de mel ao fim do dia, luz mais suave. Estilo cartoon Gravity Falls — paleta suave e calorosa.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "end_label": "Quase Perfeito",
+      "end_score": 5,
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": null,
+          "text": "Dezoito potes aprovados. Quatro separados por problemas de qualidade.",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        },
+        {
+          "position": 2,
+          "character_id": "mb2_c1",
+          "text": "A gente entrega o que tem aprovado e repõe na próxima semana?",
+          "audio_url": "",
+          "voice_profile": "nova"
+        },
+        {
+          "position": 3,
+          "character_id": "mb2_c2",
+          "text": "Exato. O contrato está mantido — e o erro não se repete.",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,583 @@
+{
+  "story": {
+    "_id": "pd1",
+    "title": "A Conta da Saída",
+    "synopsis": "Lucas volta de uma boa saída de pesca, orgulhoso: 60 kg de mapará vendidos, R$240 na mão. Dona Graça pede para fazer a conta direitinho — combustível, gelo, petrechos, manutenção. Quando chega na depreciação do motor e no próprio trabalho de Lucas, o resultado surpreende: o custo real está acima do preço de venda.",
+    "cover_image": "",
+    "aspect_ratio": "9:16",
+    "subtitle_font_size": 22,
+    "default_scene_duration": 6,
+    "passing_score": 28,
+    "genre": "Drama",
+    "show_cover_first": true,
+    "first_scene_id": "pd1_s1",
+    "background_audio": {
+      "loop": true,
+      "volume": 0.25,
+      "url": ""
+    },
+    "status": "active"
+  },
+  "characters": [
+    {
+      "_id": "pd1_c1",
+      "story_id": "pd1",
+      "name": "Lucas",
+      "full_name": "Lucas Lopes",
+      "description": "Filho mais velho da família Lopes, 18 anos. Colete de pescador, cabelo curto. Animado e orgulhoso após uma boa saída — mas nunca calculou formalmente o custo real da pescaria.",
+      "voice_profile": "alloy",
+      "avatar_thumbnail": "",
+      "reference_image": ""
+    },
+    {
+      "_id": "pd1_c2",
+      "story_id": "pd1",
+      "name": "Seu Raimundo",
+      "full_name": "Raimundo Lopes",
+      "description": "Pescador de 50 anos, patriarca da família Lopes. Colete surrado, rosto marcado pelo rio. Experiente na pesca, mas nunca calculou formalmente os custos de cada saída em trinta anos de atividade.",
+      "voice_profile": "onyx",
+      "avatar_thumbnail": "",
+      "reference_image": ""
+    },
+    {
+      "_id": "pd1_c3",
+      "story_id": "pd1",
+      "name": "Dona Graça",
+      "full_name": "Graça Lopes",
+      "description": "Esposa de Seu Raimundo, 46 anos. Organizada e prática — ela cuida das contas da família. É a primeira a perceber que o preço de venda não cobre todos os custos reais da pescaria.",
+      "voice_profile": "shimmer",
+      "avatar_thumbnail": "",
+      "reference_image": ""
+    }
+  ],
+  "scenes": [
+    {
+      "_id": "pd1_s1",
+      "story_id": "pd1",
+      "title": "CAPA — A Conta da Saída",
+      "type": "scene",
+      "position": 1,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 10 },
+      "description": "TODO — Lucas (18 anos, colete) chegando ao cais com caixas de peixe, expressão satisfeita. Dona Graça (46 anos) com caderno de custos na mão, expressão de quem vai fazer a conta. Seu Raimundo (50 anos, colete) ao fundo amarrando o barco. Rio ao fundo, tarde dourada. Estilo cartoon Gravity Falls — paleta azul-rio, verde-ribeirinha, dourado.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "pd1_s2",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": null,
+          "text": "Peixe bom, saída boa. Mas quanto sobrou depois de pagar tudo?",
+          "audio_url": "",
+          "voice_profile": "nova"
+        }
+      ]
+    },
+    {
+      "_id": "pd1_s2",
+      "story_id": "pd1",
+      "title": "C0 — A Boa Saída",
+      "type": "scene",
+      "position": 2,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 14 },
+      "description": "TODO — Lucas no cais descarregando caixas de isopor com gelo e mapará. Expressão orgulhosa e animada. Dona Graça aguardando com caderno. Seu Raimundo ao fundo. Cais fluvial do Amapá, fim de tarde. Estilo cartoon Gravity Falls — paleta azul e dourado.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "pd1_s3",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": null,
+          "text": "Lucas voltou com 60kg de mapará — uma das melhores saídas do mês.",
+          "audio_url": "",
+          "voice_profile": "nova"
+        },
+        {
+          "position": 2,
+          "character_id": "pd1_c1",
+          "text": "Mãe, vendi tudo a R$4/kg. Deu R$240 de uma vez!",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 3,
+          "character_id": "pd1_c3",
+          "text": "R$240. Mas vamos ver quanto ficou de verdade depois de pagar a saída.",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        }
+      ]
+    },
+    {
+      "_id": "pd1_s3",
+      "story_id": "pd1",
+      "title": "C0.1 — A Conta do Cais",
+      "type": "scene",
+      "position": 3,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 12 },
+      "description": "TODO — Dona Graça na mesa em casa com caderno aberto. Lucas sentado à frente. Itens listados no caderno: combustível, gelo, isca. Dona Graça perguntando o que falta. Expressão de Lucas: confiante no começo, depois incerto. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "pd1_s4",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "pd1_c1",
+          "text": "Gastei R$80 de combustível e R$40 de gelo. Ficou R$120 de custo.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 2,
+          "character_id": "pd1_c3",
+          "text": "E o anzol e a linha que você gastou? A manutenção do motor? O teu tempo de 8 horas?",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        },
+        {
+          "position": 3,
+          "character_id": "pd1_c1",
+          "text": "Não contei isso... O que entra no custo de uma saída de pesca?",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        }
+      ]
+    },
+    {
+      "_id": "pd1_s4",
+      "story_id": "pd1",
+      "title": "C1 — O Que Entra no Custo da Saída?",
+      "type": "decision",
+      "position": 4,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 12 },
+      "description": "TODO — Lucas olhando para o caderno de Dona Graça, pensativo. Seu Raimundo ao fundo, sério. Motor do barco visível pela janela. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "decision": {
+        "prompt": "O que entra no custo de uma saída de pesca?",
+        "interaction_type": "single_choice",
+        "options": [
+          {
+            "label": "Combustível, gelo, petrechos (anzol, linha), manutenção/depreciação do barco e motor, e o tempo do pescador",
+            "next_scene_id": "pd1_s6",
+            "score": 10
+          },
+          {
+            "label": "Apenas o combustível e o gelo — o resto é custo fixo que não muda",
+            "next_scene_id": "pd1_s5",
+            "score": 1
+          },
+          {
+            "label": "Não sei ainda",
+            "next_scene_id": "pd1_s5",
+            "score": 1
+          }
+        ]
+      },
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "pd1_c3",
+          "text": "O que entra no custo de uma saída de pesca?",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        }
+      ]
+    },
+    {
+      "_id": "pd1_s5",
+      "story_id": "pd1",
+      "title": "C1B — O Custo que Fica no Barco",
+      "type": "scene",
+      "position": 5,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 16 },
+      "description": "TODO — Dona Graça apontando para dois cenários no caderno: pescador que conta só combustível e gelo (acha que lucrou R$120); pescador que conta tudo, incluindo depreciação e trabalho (custo real = R$200, sobram R$40). Expressão didática. Fundo azul suave. Estilo cartoon Gravity Falls — diferente de C0.1.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "pd1_s4",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "pd1_c3",
+          "text": "Quem não conta o desgaste do motor e o próprio trabalho acha que lucrou — mas pagou de bolso sem saber.",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        },
+        {
+          "position": 2,
+          "character_id": "pd1_c3",
+          "text": "O motor se desgasta em cada saída. Esse desgaste tem custo, mesmo que você não pague nada hoje.",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        },
+        {
+          "position": 3,
+          "character_id": "pd1_c3",
+          "text": "Então — o que entra no custo de uma saída de pesca?",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        }
+      ]
+    },
+    {
+      "_id": "pd1_s6",
+      "story_id": "pd1",
+      "title": "C2 — A Planilha de Dona Graça",
+      "type": "scene",
+      "position": 6,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 14 },
+      "description": "TODO — Dona Graça escrevendo planilha completa no caderno para Lucas e Seu Raimundo. Colunas visíveis: combustível R$80, gelo R$40, anzol+linha R$15, alimentação R$10, manutenção proporcional R$25, depreciação motor R$30. Total: R$200 por saída. Expressão séria e didática. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "pd1_s7",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "pd1_c3",
+          "text": "Combustível, gelo, petrechos, alimentação, manutenção proporcional e depreciação do motor. Custo real por saída: R$200.",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        },
+        {
+          "position": 2,
+          "character_id": "pd1_c1",
+          "text": "Mas eu ganhei R$240...",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 3,
+          "character_id": "pd1_c2",
+          "text": "Ficou R$40 para 8 horas de trabalho. Que é teu tempo, Lucas.",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        }
+      ]
+    },
+    {
+      "_id": "pd1_s7",
+      "story_id": "pd1",
+      "title": "C3 — O Custo Real",
+      "type": "scene",
+      "position": 7,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 12 },
+      "description": "TODO — Lucas olhando para a planilha com expressão de quem acabou de entender algo importante. Seu Raimundo ao lado com expressão grave — calculando mentalmente suas próprias saídas. Cálculo visível: R$200 custo ÷ 60kg = R$3,33/kg de custo. Vendendo a R$4/kg. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "pd1_s8",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "pd1_c1",
+          "text": "R$40 limpos para 8 horas de trabalho... Isso dá menos que R$5 a hora.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 2,
+          "character_id": "pd1_c2",
+          "text": "E se o motor quebrar esse mês, esse R$40 não cobre nem metade do conserto.",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        },
+        {
+          "position": 3,
+          "character_id": "pd1_c3",
+          "text": "Por que o pescador pode estar quase no prejuízo mesmo achando que ganhou?",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        }
+      ]
+    },
+    {
+      "_id": "pd1_s8",
+      "story_id": "pd1",
+      "title": "C3D — Por Que Pode Estar no Prejuízo?",
+      "type": "decision",
+      "position": 8,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 12 },
+      "description": "TODO — Lucas e Seu Raimundo olhando para a planilha. Expressão de quem está processando o impacto. Dona Graça aguardando. Barco ao fundo pela janela. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "decision": {
+        "prompt": "Por que o pescador pode estar com lucro muito baixo ou no prejuízo mesmo achando que ganhou?",
+        "interaction_type": "single_choice",
+        "options": [
+          {
+            "label": "Porque não incluiu a depreciação do barco, do motor e o próprio trabalho no custo — o custo real por kg é maior que parece",
+            "next_scene_id": "pd1_s10",
+            "score": 10
+          },
+          {
+            "label": "Porque o preço de R$4/kg está acima do mercado e vai perder clientes para outros pescadores",
+            "next_scene_id": "pd1_s9",
+            "score": 3
+          }
+        ]
+      },
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "pd1_c2",
+          "text": "Por que o pescador pode estar com lucro muito baixo ou no prejuízo mesmo achando que ganhou?",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        }
+      ]
+    },
+    {
+      "_id": "pd1_s9",
+      "story_id": "pd1",
+      "title": "C3B — A Depreciação do Motor",
+      "type": "scene",
+      "position": 9,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 14 },
+      "description": "TODO — Ilustração: motor de popa com linha do tempo — motor novo (R$3.000), desgaste em cada saída, motor precisando de troca (3 anos de uso intenso). Cálculo visível: R$3.000 ÷ 36 meses = R$83/mês de depreciação. Dona Graça explica. Fundo azul suave. Estilo cartoon Gravity Falls — diferente de C3.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "pd1_s10",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "pd1_c3",
+          "text": "O motor custa R$3.000 e dura 3 anos com uso intenso. Isso é R$83/mês — ou R$20 por saída semanal.",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        },
+        {
+          "position": 2,
+          "character_id": "pd1_c3",
+          "text": "Quando o motor quebrar, esse dinheiro vai ter que sair de algum lugar. Quem não guardou — tira do bolso ou para de pescar.",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        },
+        {
+          "position": 3,
+          "character_id": null,
+          "text": "Depreciar é guardar aos poucos para não ser pego de surpresa. É o custo invisível mais importante da pesca.",
+          "audio_url": "",
+          "voice_profile": "nova"
+        }
+      ]
+    },
+    {
+      "_id": "pd1_s10",
+      "story_id": "pd1",
+      "title": "C4 — O Custo por Kg de Verdade",
+      "type": "scene",
+      "position": 10,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 14 },
+      "description": "TODO — Seu Raimundo, Lucas e Dona Graça finalizando a planilha. Custo total por saída: R$200. Dividido por 60kg = R$3,33/kg. Com margem de 30%: preço mínimo = R$4,33/kg. Expressão de todos: entendimento e determinação. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "pd1_s11",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "pd1_c3",
+          "text": "R$200 de custo, 60kg de peixe — custo por kg é R$3,33. Com margem de 30%, o preço mínimo é R$4,33/kg.",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        },
+        {
+          "position": 2,
+          "character_id": "pd1_c1",
+          "text": "Estou vendendo a R$4. Tem que ajustar pra R$4,50 pelo menos.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 3,
+          "character_id": "pd1_c2",
+          "text": "Trinta anos pescando sem saber esse número. A partir de hoje muda.",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        }
+      ]
+    },
+    {
+      "_id": "pd1_s11",
+      "story_id": "pd1",
+      "title": "C5 — O Preço Mínimo do Mapará",
+      "type": "scene",
+      "position": 11,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 14 },
+      "description": "TODO — Dona Graça escrevendo a fórmula no caderno: 'Preço mínimo = (custo total da saída ÷ kg pescados) × (1 + margem)'. Aplicando: (R$200 ÷ 60) × 1,30 = R$4,33/kg. Lucas entendendo. Seu Raimundo calculando para as próprias saídas no papel. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "pd1_s12",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "pd1_c1",
+          "text": "Então pra cada saída eu preciso refazer essa conta?",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 2,
+          "character_id": "pd1_c3",
+          "text": "Só no começo. Depois você vai saber de cabeça quanto custa cada kg.",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        },
+        {
+          "position": 3,
+          "character_id": "pd1_c3",
+          "text": "Como o pescador calcula o preço mínimo de venda do pescado?",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        }
+      ]
+    },
+    {
+      "_id": "pd1_s12",
+      "story_id": "pd1",
+      "title": "C5D — Como Calcular o Preço Mínimo?",
+      "type": "decision",
+      "position": 12,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 12 },
+      "description": "TODO — Lucas olhando para a fórmula no caderno, pensando. Seu Raimundo e Dona Graça aguardando. Caixas de peixe ao fundo com etiqueta de preço em branco. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "decision": {
+        "prompt": "Como o pescador calcula o preço mínimo de venda do pescado?",
+        "interaction_type": "single_choice",
+        "options": [
+          {
+            "label": "Soma todos os custos da saída (combustível, gelo, petrechos, depreciação, trabalho) ÷ kg pescados e adiciona margem de 20–30%",
+            "next_scene_id": "pd1_s13",
+            "score": 10
+          },
+          {
+            "label": "Pesquisa o preço do peixe na feira e cobra igual aos outros pescadores",
+            "next_scene_id": "pd1_s14",
+            "score": 3
+          }
+        ]
+      },
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "pd1_c2",
+          "text": "Como se calcula o preço mínimo de venda do pescado sem entrar no prejuízo?",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        }
+      ]
+    },
+    {
+      "_id": "pd1_s13",
+      "story_id": "pd1",
+      "title": "C6A — Peixe com Margem Real",
+      "type": "end",
+      "position": 13,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 16 },
+      "description": "TODO — Lucas no cais com novo preço: R$4,50/kg. Entregando caixa para restaurante com etiqueta de preço e nota simples. Seu Raimundo ao lado com expressão de orgulho. Dona Graça com caderno mostrando margem positiva. Rio dourado ao fundo. Estilo cartoon Gravity Falls — épica e calorosa.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "end_label": "Peixe com Margem Real",
+      "end_score": 10,
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": null,
+          "text": "Custo calculado. Preço ajustado. Margem de 30% garantida a partir de hoje.",
+          "audio_url": "",
+          "voice_profile": "nova"
+        },
+        {
+          "position": 2,
+          "character_id": "pd1_c1",
+          "text": "Vendo menos volume, mas o que entra cobre o custo e sobra pra reinvestir.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 3,
+          "character_id": "pd1_c2",
+          "text": "Trinta anos pescando. Só hoje aprendi quanto cada kg de peixe me custa de verdade.",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        }
+      ]
+    },
+    {
+      "_id": "pd1_s14",
+      "story_id": "pd1",
+      "title": "C6B — A Planilha do Rio",
+      "type": "end",
+      "position": 14,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 16 },
+      "description": "TODO — Lucas saindo do cais com a planilha de Dona Graça na mão. Barco ao fundo. Expressão de quem entendeu o caminho mas ainda está ajustando o preço. Rio e fim de tarde. Estilo cartoon Gravity Falls, paleta suave.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "end_label": "A Planilha do Rio",
+      "end_score": 5,
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": null,
+          "text": "O custo está calculado. O preço ainda vai ser ajustado na próxima entrega.",
+          "audio_url": "",
+          "voice_profile": "nova"
+        },
+        {
+          "position": 2,
+          "character_id": "pd1_c1",
+          "text": "Semana que vem já saio sabendo qual preço mínimo aceitar.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 3,
+          "character_id": "pd1_c3",
+          "text": "Quem sabe o custo nunca vende no prejuízo. Quem não sabe — aceita o que oferecem.",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        }
+      ]
+    }
+  ]
+}

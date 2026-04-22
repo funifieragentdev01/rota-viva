@@ -1,0 +1,583 @@
+{
+  "story": {
+    "_id": "pe1",
+    "title": "O Tamanho Certo",
+    "synopsis": "Lucas puxa uma rede no igarapé e encontra maparás abaixo do tamanho mínimo de 17 cm. Uma agente do MPA chega para fiscalização rotineira. Lucas não sabia os tamanhos mínimos nem que a malha estava fora da norma. A agente explica as regras, o impacto nos estoques e como o próprio pescador se protege cumprindo as normas.",
+    "cover_image": "",
+    "aspect_ratio": "9:16",
+    "subtitle_font_size": 22,
+    "default_scene_duration": 6,
+    "passing_score": 28,
+    "genre": "Drama",
+    "show_cover_first": true,
+    "first_scene_id": "pe1_s1",
+    "background_audio": {
+      "loop": true,
+      "volume": 0.25,
+      "url": ""
+    },
+    "status": "active"
+  },
+  "characters": [
+    {
+      "_id": "pe1_c1",
+      "story_id": "pe1",
+      "name": "Lucas",
+      "full_name": "Lucas Lopes",
+      "description": "Filho mais velho da família Lopes, 18 anos. Colete de pescador, cabelo curto. Pescou desde criança, mas nunca soube os tamanhos mínimos de captura — aprende agora que pescar certo é pescar para o futuro.",
+      "voice_profile": "alloy",
+      "avatar_thumbnail": "",
+      "reference_image": ""
+    },
+    {
+      "_id": "pe1_c2",
+      "story_id": "pe1",
+      "name": "Dona Graça",
+      "full_name": "Graça Lopes",
+      "description": "Esposa de Seu Raimundo, 46 anos. Extrovertida e forte. Estava no cais quando a agente chegou — apoia a fiscalização e vê nela uma oportunidade de Lucas aprender o que a família nunca ensinou formalmente.",
+      "voice_profile": "shimmer",
+      "avatar_thumbnail": "",
+      "reference_image": ""
+    },
+    {
+      "_id": "pe1_c3",
+      "story_id": "pe1",
+      "name": "Agente MPA",
+      "full_name": "Agente do Ministério da Pesca e Aquicultura",
+      "description": "Agente de fiscalização do MPA, 35 anos. Uniforme, prancheta e régua de medição. Firme mas didática — usa a fiscalização como oportunidade educativa, não punitiva.",
+      "voice_profile": "shimmer",
+      "avatar_thumbnail": "",
+      "reference_image": ""
+    }
+  ],
+  "scenes": [
+    {
+      "_id": "pe1_s1",
+      "story_id": "pe1",
+      "title": "CAPA — O Tamanho Certo",
+      "type": "scene",
+      "position": 1,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 10 },
+      "description": "TODO — Lucas (18 anos, colete) segurando peixe pequeno ao lado de régua de medição. Agente do MPA (35 anos, uniforme feminino) apontando para a medida mínima. Dona Graça (46 anos) ao fundo com caderno. Rio e vegetação ribeirinha ao fundo. Estilo cartoon Gravity Falls — paleta azul-rio e verde-ribeirinha.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "pe1_s2",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": null,
+          "text": "O peixe que volta ao rio hoje é o pescado de amanhã. Tamanho não é detalhe — é futuro.",
+          "audio_url": "",
+          "voice_profile": "nova"
+        }
+      ]
+    },
+    {
+      "_id": "pe1_s2",
+      "story_id": "pe1",
+      "title": "C0 — A Rede Subiu",
+      "type": "scene",
+      "position": 2,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 14 },
+      "description": "TODO — Lucas puxando rede de embarcação no igarapé, manhã cedo. Caixote com peixes variados — alguns maparás visivelmente pequenos. Expressão de satisfação que vai mudando quando vê o tamanho dos peixes. Dona Graça no cais observando. Estilo cartoon Gravity Falls — paleta azul e verde.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "pe1_s3",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": null,
+          "text": "A rede estava cheia — mas nem tudo que entrou deveria ter ficado.",
+          "audio_url": "",
+          "voice_profile": "nova"
+        },
+        {
+          "position": 2,
+          "character_id": "pe1_c1",
+          "text": "Mãe, deu bastante! Mas esses maparás tão pequenos...",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 3,
+          "character_id": "pe1_c2",
+          "text": "A agente do MPA está chegando. Revisão de rotina.",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        }
+      ]
+    },
+    {
+      "_id": "pe1_s3",
+      "story_id": "pe1",
+      "title": "C0.1 — A Agente no Cais",
+      "type": "scene",
+      "position": 3,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 12 },
+      "description": "TODO — Agente do MPA chegando ao cais com uniforme, prancheta e régua. Lucas com expressão nervosa ao lado do caixote. Dona Graça ao fundo. Agente medindo mapará com régua — número visível: 13 cm. Marcação da régua indicando mínimo de 17 cm. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "pe1_s4",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "pe1_c3",
+          "text": "Bom dia. Posso verificar o pescado?",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        },
+        {
+          "position": 2,
+          "character_id": "pe1_c1",
+          "text": "Pode, sim... Eu não sabia o tamanho exato do mapará.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 3,
+          "character_id": "pe1_c3",
+          "text": "Mapará mínimo é 17 cm. Esse aqui tem 13. O que deve ser feito com peixe capturado abaixo do tamanho mínimo?",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        }
+      ]
+    },
+    {
+      "_id": "pe1_s4",
+      "story_id": "pe1",
+      "title": "C1 — O Que Fazer com Peixe Submedido?",
+      "type": "decision",
+      "position": 4,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 12 },
+      "description": "TODO — Lucas olhando para os maparás pequenos no caixote, pensando. Dona Graça e Agente MPA aguardando. Rio ao fundo. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "decision": {
+        "prompt": "O que deve ser feito com peixe capturado abaixo do tamanho mínimo legal?",
+        "interaction_type": "single_choice",
+        "options": [
+          {
+            "label": "Devolver vivo imediatamente ao mesmo local de captura — sem manter no caixote",
+            "next_scene_id": "pe1_s6",
+            "score": 10
+          },
+          {
+            "label": "Pode guardar se o volume total estiver dentro da cota de pesca permitida",
+            "next_scene_id": "pe1_s5",
+            "score": 1
+          },
+          {
+            "label": "Não sei ainda",
+            "next_scene_id": "pe1_s5",
+            "score": 1
+          }
+        ]
+      },
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "pe1_c2",
+          "text": "O que deve ser feito com peixe capturado abaixo do tamanho mínimo legal?",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        }
+      ]
+    },
+    {
+      "_id": "pe1_s5",
+      "story_id": "pe1",
+      "title": "C1B — Por que Devolver?",
+      "type": "scene",
+      "position": 5,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 16 },
+      "description": "TODO — Ilustração dividida: peixe submedido devolvido ao rio → cresce → reproduz → novos peixes (ciclo positivo); peixe submedido mantido → sem reprodução → estoque cai → menos peixe no futuro. Fundo azul suave. Estilo cartoon Gravity Falls — diferente de C0.1.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "pe1_s4",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "pe1_c3",
+          "text": "Peixe submedido ainda não se reproduziu. Cada mapará pequeno guardado é dez maparás a menos daqui a dois anos.",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        },
+        {
+          "position": 2,
+          "character_id": "pe1_c3",
+          "text": "O pescador que devolve hoje protege o estoque — e a própria renda futura. Não é obrigação só do governo.",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        },
+        {
+          "position": 3,
+          "character_id": "pe1_c3",
+          "text": "Então — o que fazer com o peixe abaixo do mínimo?",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        }
+      ]
+    },
+    {
+      "_id": "pe1_s6",
+      "story_id": "pe1",
+      "title": "C2 — Tamanhos Mínimos do Amapá",
+      "type": "scene",
+      "position": 6,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 14 },
+      "description": "TODO — Agente mostrando tabela plastificada para Lucas e Dona Graça: mapará 17 cm, dourada 45 cm, tucunaré 25 cm, tambaqui 45 cm, pirarucu (cota IBAMA). Expressão de Lucas: nunca tinha visto essa tabela. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "pe1_s7",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "pe1_c3",
+          "text": "Cada espécie tem tamanho mínimo definido pelo IBAMA e pelo MPA. Mapará: 17 cm. Dourada: 45 cm. Tucunaré: 25 cm.",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        },
+        {
+          "position": 2,
+          "character_id": "pe1_c1",
+          "text": "Nunca vi essa tabela antes. Onde consigo uma?",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 3,
+          "character_id": "pe1_c3",
+          "text": "Na colônia, no site do IBAMA e no MPA. Todo RGP habilitado tem obrigação de conhecer.",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        }
+      ]
+    },
+    {
+      "_id": "pe1_s7",
+      "story_id": "pe1",
+      "title": "C3 — A Malha da Rede",
+      "type": "scene",
+      "position": 7,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 12 },
+      "description": "TODO — Agente examinando a rede de Lucas com régua medindo o espaço entre os nós. Diagrama ao lado: peixe adulto passa pela malha grande (volta ao rio); peixe pequeno preso em malha fina (não deveria ter sido capturado). Lucas prestando atenção. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "pe1_s8",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "pe1_c3",
+          "text": "A malha da rede define o que você captura. Malha muito fina prende filhotes que deveriam voltar ao rio.",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        },
+        {
+          "position": 2,
+          "character_id": "pe1_c1",
+          "text": "Qual o tamanho mínimo da malha?",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 3,
+          "character_id": "pe1_c3",
+          "text": "Varia por espécie e corpo d'água — entre 50 e 80 mm para a maioria das espécies do Amapá. Qual petrecho é proibido na pesca artesanal?",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        }
+      ]
+    },
+    {
+      "_id": "pe1_s8",
+      "story_id": "pe1",
+      "title": "C3D — Qual Petrecho É Proibido?",
+      "type": "decision",
+      "position": 8,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 12 },
+      "description": "TODO — Lucas olhando para a rede, pensando. Dona Graça e Agente MPA aguardando. Barco ao fundo no rio. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "decision": {
+        "prompt": "Qual petrecho é proibido na pesca artesanal no Brasil?",
+        "interaction_type": "single_choice",
+        "options": [
+          {
+            "label": "Bombinha d'água (pesca por turbulência), veneno, explosivo e rede com malha abaixo do mínimo para a espécie",
+            "next_scene_id": "pe1_s10",
+            "score": 10
+          },
+          {
+            "label": "Tarrafa e espinhel — não são permitidos para pescador artesanal com RGP",
+            "next_scene_id": "pe1_s9",
+            "score": 3
+          }
+        ]
+      },
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "pe1_c2",
+          "text": "Qual petrecho é proibido na pesca artesanal no Brasil?",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        }
+      ]
+    },
+    {
+      "_id": "pe1_s9",
+      "story_id": "pe1",
+      "title": "C3B — Petrechos Proibidos",
+      "type": "scene",
+      "position": 9,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 16 },
+      "description": "TODO — Painel com duas colunas: proibidos (bombinha, veneno, explosivo, rede fina) marcados com ✗ vermelho; permitidos com RGP (tarrafa, espinhel, rede acima do mínimo) com ✓ verde. Agente explicando. Fundo azul suave. Estilo cartoon Gravity Falls — diferente de C3.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "pe1_s10",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "pe1_c3",
+          "text": "Bombinha d'água mata por turbulência e destrói ovos e larvas no leito do rio — elimina toda uma geração de peixes.",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        },
+        {
+          "position": 2,
+          "character_id": "pe1_c3",
+          "text": "Rede abaixo do mínimo de malha é crime ambiental — apreensão do petrecho, multa e risco de cassação do RGP.",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        },
+        {
+          "position": 3,
+          "character_id": null,
+          "text": "O petrecho certo não é só questão de lei — é questão de ter rio pra pescar no próximo ano.",
+          "audio_url": "",
+          "voice_profile": "nova"
+        }
+      ]
+    },
+    {
+      "_id": "pe1_s10",
+      "story_id": "pe1",
+      "title": "C4 — O Registro de Captura",
+      "type": "scene",
+      "position": 10,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 14 },
+      "description": "TODO — Lucas com caderneta de campo anotando: espécie, tamanho médio, quantidade, data, zona de pesca. Dona Graça ao lado validando. Agente MPA com expressão de aprovação. Cais ao fundo. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "pe1_s11",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "pe1_c3",
+          "text": "Um registro de captura simples — espécie, tamanho médio, quantidade, zona — te protege em qualquer fiscalização.",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        },
+        {
+          "position": 2,
+          "character_id": "pe1_c2",
+          "text": "E serve para provar que não pegou peixe submedido intencionalmente.",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        },
+        {
+          "position": 3,
+          "character_id": "pe1_c1",
+          "text": "Nunca pensei em anotar isso. Mas faz todo sentido.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        }
+      ]
+    },
+    {
+      "_id": "pe1_s11",
+      "story_id": "pe1",
+      "title": "C5 — Pesca Sustentável é Futuro",
+      "type": "scene",
+      "position": 11,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 12 },
+      "description": "TODO — Lucas devolvendo maparás pequenos ao rio com expressão de quem entendeu o valor do gesto. Agente e Dona Graça observando. Rio ao fundo com vegetação ribeirinha. Expressão de determinação e esperança. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "pe1_s12",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "pe1_c1",
+          "text": "Quantos pescadores eu conheço que nunca souberam esse número — 17 cm — e pescaram a vida toda assim.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 2,
+          "character_id": "pe1_c3",
+          "text": "O estoque do mapará no Amapá caiu nos últimos anos. Não por falta de peixe — por falta de informação.",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        },
+        {
+          "position": 3,
+          "character_id": "pe1_c3",
+          "text": "Por que a pesca seletiva protege a renda do pescador a longo prazo?",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        }
+      ]
+    },
+    {
+      "_id": "pe1_s12",
+      "story_id": "pe1",
+      "title": "C5D — Por que a Pesca Seletiva Protege?",
+      "type": "decision",
+      "position": 12,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 12 },
+      "description": "TODO — Lucas olhando para o rio com peixe nadando embaixo da superfície, pensando. Dona Graça e Agente MPA aguardando. Rio e floresta ao fundo. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "decision": {
+        "prompt": "Por que a pesca seletiva com tamanhos mínimos protege a renda futura do pescador?",
+        "interaction_type": "single_choice",
+        "options": [
+          {
+            "label": "Porque mantém os estoques pesqueiros — o peixe que reproduz hoje garante captura nos próximos anos",
+            "next_scene_id": "pe1_s13",
+            "score": 10
+          },
+          {
+            "label": "Porque maximiza o volume capturado agora, garantindo mais renda no presente",
+            "next_scene_id": "pe1_s14",
+            "score": 3
+          }
+        ]
+      },
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "pe1_c2",
+          "text": "Por que a pesca seletiva com tamanhos mínimos protege a renda futura do pescador?",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        }
+      ]
+    },
+    {
+      "_id": "pe1_s13",
+      "story_id": "pe1",
+      "title": "C6A — Pescaria para o Futuro",
+      "type": "end",
+      "position": 13,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 16 },
+      "description": "TODO — Lucas no rio devolvendo peixe submedido com expressão determinada. Seu Raimundo ao fundo observando com orgulho. Caixote com pescado de tamanho correto ao lado. Rio dourado ao fundo. Estilo cartoon Gravity Falls — épica e calorosa.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "end_label": "Pescaria para o Futuro",
+      "end_score": 10,
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": null,
+          "text": "Tamanho mínimo respeitado. Petrechos corretos. Registro iniciado.",
+          "audio_url": "",
+          "voice_profile": "nova"
+        },
+        {
+          "position": 2,
+          "character_id": "pe1_c1",
+          "text": "Os pequenos voltam. Daqui a dois anos a gente pesca o dobro do mesmo peixe.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 3,
+          "character_id": "pe1_c2",
+          "text": "Quem respeita o rio, o rio respeita de volta.",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        }
+      ]
+    },
+    {
+      "_id": "pe1_s14",
+      "story_id": "pe1",
+      "title": "C6B — A Rede Certa",
+      "type": "end",
+      "position": 14,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 16 },
+      "description": "TODO — Lucas saindo do cais com tabela de tamanhos mínimos na mão. Rede ao fundo. Expressão de quem entendeu o que precisa mudar. Rio tranquilo, tarde suave. Estilo cartoon Gravity Falls, paleta suave.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "end_label": "A Rede Certa",
+      "end_score": 5,
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": null,
+          "text": "Tabela em mãos. Rede precisa ser ajustada.",
+          "audio_url": "",
+          "voice_profile": "nova"
+        },
+        {
+          "position": 2,
+          "character_id": "pe1_c1",
+          "text": "Próxima saída — rede com malha correta e régua de medição na embarcação.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 3,
+          "character_id": "pe1_c2",
+          "text": "Quem conhece as regras, pesca com tranquilidade. Quem não conhece — paga multa e perde o RGP.",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        }
+      ]
+    }
+  ]
+}

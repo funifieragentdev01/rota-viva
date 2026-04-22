@@ -1,0 +1,569 @@
+{
+  "story": {
+    "_id": "pd2",
+    "title": "O Canal do Peixe",
+    "synopsis": "Um restaurante de Macapá liga para Seu Raimundo: quer comprar pescado direto toda semana, mas precisa de nota fiscal. Dona Graça está animada, mas Seu Raimundo nunca emitiu nota na vida. Carlos do RURAP aparece para mostrar que é mais simples do que parece — e que o restaurante está longe de ser o único canal que pode abrir para a família.",
+    "cover_image": "",
+    "aspect_ratio": "9:16",
+    "subtitle_font_size": 22,
+    "default_scene_duration": 6,
+    "passing_score": 28,
+    "genre": "Drama",
+    "show_cover_first": true,
+    "first_scene_id": "pd2_s1",
+    "background_audio": {
+      "loop": true,
+      "volume": 0.25,
+      "url": ""
+    },
+    "status": "active"
+  },
+  "characters": [
+    {
+      "_id": "pd2_c1",
+      "story_id": "pd2",
+      "name": "Seu Raimundo",
+      "full_name": "Raimundo Lopes",
+      "description": "Pescador de 50 anos, patriarca da família Lopes. Colete surrado, rosto marcado pelo rio. Trinta anos vendendo para o atravessador — nunca precisou de nota fiscal, nunca pensou em outros canais de venda.",
+      "voice_profile": "onyx",
+      "avatar_thumbnail": "",
+      "reference_image": ""
+    },
+    {
+      "_id": "pd2_c2",
+      "story_id": "pd2",
+      "name": "Dona Graça",
+      "full_name": "Graça Lopes",
+      "description": "Esposa de Seu Raimundo, 46 anos. Animada e prática — foi ela quem recebeu a mensagem do restaurante e ligou para o RURAP. Está com o bloco de notas pronto para anotar tudo que Carlos explicar.",
+      "voice_profile": "shimmer",
+      "avatar_thumbnail": "",
+      "reference_image": ""
+    },
+    {
+      "_id": "pd2_c3",
+      "story_id": "pd2",
+      "name": "Carlos",
+      "full_name": "Carlos — Agente do RURAP",
+      "description": "Agente de extensão rural do RURAP (Amapá), 35 anos. Óculos, camiseta RURAP. Didático e entusiasmado — explica a hierarquia de canais de venda para pescadores e o processo de Nota Fiscal de Produtor Rural pela SEFAZ-AP.",
+      "voice_profile": "alloy",
+      "avatar_thumbnail": "",
+      "reference_image": ""
+    }
+  ],
+  "scenes": [
+    {
+      "_id": "pd2_s1",
+      "story_id": "pd2",
+      "title": "CAPA — O Canal do Peixe",
+      "type": "scene",
+      "position": 1,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 10 },
+      "description": "TODO — Seu Raimundo (50 anos, colete) no cais com caixas de peixe, olhando para uma placa com setas apontando para: feira do peixe, restaurante, supermercado, cooperativa. Carlos — Agente do RURAP (35 anos, óculos, camiseta RURAP) ao lado apontando para as opções. Dona Graça (46 anos) com bloco de notas. Rio ao fundo. Estilo cartoon Gravity Falls — paleta azul-rio, verde-ribeirinha, dourado.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "pd2_s2",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": null,
+          "text": "O mesmo peixe. Canais diferentes. Preços completamente diferentes.",
+          "audio_url": "",
+          "voice_profile": "nova"
+        }
+      ]
+    },
+    {
+      "_id": "pd2_s2",
+      "story_id": "pd2",
+      "title": "C0 — O Restaurante Ligou",
+      "type": "scene",
+      "position": 2,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 14 },
+      "description": "TODO — Dona Graça com celular, expressão animada. Seu Raimundo ao lado com expressão de quem está surpreso e um pouco inseguro. Cozinha da família Lopes, tarde. Mensagem no celular visível: restaurante de Macapá quer pescado direto toda semana. Estilo cartoon Gravity Falls — paleta quente interior.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "pd2_s3",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": null,
+          "text": "Uma mensagem mudou a semana da família Lopes.",
+          "audio_url": "",
+          "voice_profile": "nova"
+        },
+        {
+          "position": 2,
+          "character_id": "pd2_c2",
+          "text": "Raimundo, um restaurante de Macapá quer comprar peixe direto da gente toda semana. Pagam 70% acima da feira. Mas pedem nota fiscal.",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        },
+        {
+          "position": 3,
+          "character_id": "pd2_c1",
+          "text": "Nota fiscal. Trinta anos pescando e nunca precisei disso pro atravessador.",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        }
+      ]
+    },
+    {
+      "_id": "pd2_s3",
+      "story_id": "pd2",
+      "title": "C0.1 — A Dúvida da Nota",
+      "type": "scene",
+      "position": 3,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 12 },
+      "description": "TODO — Seu Raimundo e Dona Graça na mesa em casa com o celular. Dona Graça consultou e sabe que Carlos do RURAP pode ajudar. Expressão de Seu Raimundo: seria simples ou complicado? Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "pd2_s4",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "pd2_c2",
+          "text": "Liguei para o Carlos do RURAP. Ele vem amanhã.",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        },
+        {
+          "position": 2,
+          "character_id": "pd2_c1",
+          "text": "Mas antes — me diz: qual canal de venda paga mais ao pescador por kg de peixe fresco?",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        }
+      ]
+    },
+    {
+      "_id": "pd2_s4",
+      "story_id": "pd2",
+      "title": "C1 — Qual Canal Paga Mais?",
+      "type": "decision",
+      "position": 4,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 12 },
+      "description": "TODO — Seu Raimundo e Dona Graça à mesa, pensando. Cais ao fundo pela janela. Celular com mensagem do restaurante sobre a mesa. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "decision": {
+        "prompt": "Qual canal de venda geralmente paga o maior preço ao pescador por kg de pescado?",
+        "interaction_type": "single_choice",
+        "options": [
+          {
+            "label": "Venda direta ao consumidor final (feira do peixe, restaurante, WhatsApp) — sem intermediários",
+            "next_scene_id": "pd2_s6",
+            "score": 10
+          },
+          {
+            "label": "Atravessador — compra tudo em volume mas paga o menor preço",
+            "next_scene_id": "pd2_s5",
+            "score": 1
+          },
+          {
+            "label": "Não sei ainda",
+            "next_scene_id": "pd2_s5",
+            "score": 1
+          }
+        ]
+      },
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "pd2_c1",
+          "text": "Qual canal de venda geralmente paga o maior preço ao pescador por kg de pescado?",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        }
+      ]
+    },
+    {
+      "_id": "pd2_s5",
+      "story_id": "pd2",
+      "title": "C1B — O Preço de Cada Canal",
+      "type": "scene",
+      "position": 5,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 16 },
+      "description": "TODO — Carlos do RURAP mostrando gráfico de barras simples para Seu Raimundo e Dona Graça: atravessador (menor preço), intermediário, supermercado, feira direta, restaurante/peixaria especializada (maior preço). Carlos explica. Fundo azul suave. Estilo cartoon Gravity Falls — diferente de C0.1.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "pd2_s4",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "pd2_c3",
+          "text": "O atravessador paga menos porque fica com a margem. Quem vende direto ao restaurante ou na feira fica com tudo.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 2,
+          "character_id": "pd2_c3",
+          "text": "Restaurante especializado paga até 2x mais que o atravessador — porque o cliente deles exige frescor e origem conhecida.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 3,
+          "character_id": "pd2_c3",
+          "text": "Então — qual canal paga mais por kg?",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        }
+      ]
+    },
+    {
+      "_id": "pd2_s6",
+      "story_id": "pd2",
+      "title": "C2 — A Hierarquia de Canais",
+      "type": "scene",
+      "position": 6,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 14 },
+      "description": "TODO — Carlos desenhando escada com 5 degraus para Seu Raimundo e Dona Graça: 'Atravessador (menor)', 'Intermediário local', 'Supermercado', 'Feira do peixe', 'Restaurante/peixaria (maior)'. Requisitos de cada degrau ao lado. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "pd2_s7",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "pd2_c3",
+          "text": "Feira do peixe: RGP e conservação adequada. Supermercado: SIE ou SIF com nota fiscal. Restaurante: entrega direto, nota fiscal e qualidade constante.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 2,
+          "character_id": "pd2_c1",
+          "text": "Posso fornecer para o restaurante e ainda vender na feira ao mesmo tempo?",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        },
+        {
+          "position": 3,
+          "character_id": "pd2_c3",
+          "text": "Exato. E quanto mais canais, menos você depende de qualquer um.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        }
+      ]
+    },
+    {
+      "_id": "pd2_s7",
+      "story_id": "pd2",
+      "title": "C3 — Nota Fiscal: Como Tirar?",
+      "type": "scene",
+      "position": 7,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 12 },
+      "description": "TODO — Seu Raimundo olhando para Carlos com a pergunta que guardou: nunca tirou nota fiscal. Carlos abre pasta com formulário da SEFAZ-AP. Dona Graça com caneta pronta para anotar. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "pd2_s8",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "pd2_c1",
+          "text": "Nota fiscal. Nunca tirei. Precisa de contador? CNPJ?",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        },
+        {
+          "position": 2,
+          "character_id": "pd2_c3",
+          "text": "Muito mais simples do que parece. Como o pescador artesanal emite nota fiscal no Amapá?",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        }
+      ]
+    },
+    {
+      "_id": "pd2_s8",
+      "story_id": "pd2",
+      "title": "C3D — Como Emitir Nota Fiscal no Amapá?",
+      "type": "decision",
+      "position": 8,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 12 },
+      "description": "TODO — Seu Raimundo e Dona Graça olhando para a pasta do Carlos com atenção. Formulário da SEFAZ-AP visível. Carlos aguardando. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "decision": {
+        "prompt": "Como o pescador artesanal emite nota fiscal para formalizar a venda do pescado?",
+        "interaction_type": "single_choice",
+        "options": [
+          {
+            "label": "Nota Fiscal de Produtor Rural pela SEFAZ-AP — gratuita com CAF e RGP, sem precisar abrir empresa ou ter CNPJ",
+            "next_scene_id": "pd2_s10",
+            "score": 10
+          },
+          {
+            "label": "Abrindo MEI ou empresa — é o único jeito de emitir nota fiscal para venda de pescado",
+            "next_scene_id": "pd2_s9",
+            "score": 3
+          }
+        ]
+      },
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "pd2_c1",
+          "text": "Como o pescador artesanal emite nota fiscal para formalizar a venda do pescado?",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        }
+      ]
+    },
+    {
+      "_id": "pd2_s9",
+      "story_id": "pd2",
+      "title": "C3B — Nota Fiscal Não É CNPJ",
+      "type": "scene",
+      "position": 9,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 16 },
+      "description": "TODO — Carlos mostrando dois documentos para Seu Raimundo: 'Nota Fiscal de Produtor Rural (SEFAZ-AP) — CAF + RGP + inscrição estadual gratuita' e 'MEI — CNPJ + R$70/mês + obrigações extras'. São opções complementares, não obrigatórias. Seu Raimundo com expressão de alívio. Estilo cartoon Gravity Falls — diferente de C3.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "pd2_s10",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "pd2_c3",
+          "text": "A Nota Fiscal de Produtor Rural é gratuita na SEFAZ-AP — só precisa do CAF, RGP e inscrição estadual de produtor.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 2,
+          "character_id": "pd2_c3",
+          "text": "O MEI é outra opção — tem CNPJ, previdência, até R$81.000/ano de faturamento. E o MEI e o CAF coexistem — não perde o PRONAF nem o Seguro-Defeso.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 3,
+          "character_id": null,
+          "text": "Formalizar a venda não significa abrir empresa. Significa ter o documento certo para o comprador certo.",
+          "audio_url": "",
+          "voice_profile": "nova"
+        }
+      ]
+    },
+    {
+      "_id": "pd2_s10",
+      "story_id": "pd2",
+      "title": "C4 — SEFAZ-AP na Prática",
+      "type": "scene",
+      "position": 10,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 14 },
+      "description": "TODO — Carlos, Seu Raimundo e Dona Graça em frente ao computador acessando o portal da SEFAZ-AP. Tela simples com formulário de inscrição estadual de produtor rural. Seu Raimundo digitando CPF, CAF e RGP. Expressão de surpresa positiva — é mais fácil do que esperava. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "pd2_s11",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "pd2_c3",
+          "text": "Com o CAF e o RGP, a inscrição estadual sai em menos de uma semana. Daí é só emitir a nota a cada venda — no talonário ou pelo portal digital.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 2,
+          "character_id": "pd2_c2",
+          "text": "E o restaurante aceita essa nota?",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        },
+        {
+          "position": 3,
+          "character_id": "pd2_c3",
+          "text": "Aceita. Todo comprador formal no Amapá aceita nota de produtor rural.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        }
+      ]
+    },
+    {
+      "_id": "pd2_s11",
+      "story_id": "pd2",
+      "title": "C5 — Colônia e Diversificação",
+      "type": "scene",
+      "position": 11,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 12 },
+      "description": "TODO — Carlos mostrando diagrama para Seu Raimundo: colônia de pescadores (Seguro-Defeso, representação) + cooperativa (SIF, grandes mercados) + múltiplos compradores diretos. Seu Raimundo calculando no papel: restaurante + feira + PAA eventual. Expressão de quem está vendo o futuro. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "pd2_s12",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "pd2_c1",
+          "text": "A colônia pode ajudar a acessar o PAA também?",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        },
+        {
+          "position": 2,
+          "character_id": "pd2_c3",
+          "text": "A colônia tem papel no Seguro-Defeso e na representação. Para o PAA, você usa o CAF e o RGP.",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        },
+        {
+          "position": 3,
+          "character_id": "pd2_c3",
+          "text": "Como o pescador se protege de depender do atravessador?",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        }
+      ]
+    },
+    {
+      "_id": "pd2_s12",
+      "story_id": "pd2",
+      "title": "C5D — Como Se Proteger do Atravessador?",
+      "type": "decision",
+      "position": 12,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 12 },
+      "description": "TODO — Seu Raimundo olhando para o diagrama de canais de Carlos, pensando. Dona Graça com bloco de notas. Carlos aguardando. Cais ao fundo. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "decision": {
+        "prompt": "Como o pescador se protege de depender de um único comprador (especialmente o atravessador)?",
+        "interaction_type": "single_choice",
+        "options": [
+          {
+            "label": "Diversificando canais — parte na feira, parte para restaurante, parte para o PAA — para não ficar refém do preço de ninguém",
+            "next_scene_id": "pd2_s13",
+            "score": 10
+          },
+          {
+            "label": "Vendendo tudo para o atravessador que compra o maior volume sem exigir documentação",
+            "next_scene_id": "pd2_s14",
+            "score": 3
+          }
+        ]
+      },
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "pd2_c1",
+          "text": "Como o pescador se protege de depender de um único comprador?",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        }
+      ]
+    },
+    {
+      "_id": "pd2_s13",
+      "story_id": "pd2",
+      "title": "C6A — Peixe em Três Canais",
+      "type": "end",
+      "position": 13,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 16 },
+      "description": "TODO — Seu Raimundo com três entregas diferentes numa mesma semana: caixas para o restaurante com nota fiscal, barraca na feira do peixe no sábado, entrega para a cooperativa. Dona Graça registrando no caderno. Margem de lucro maior em cada canal. Rio dourado ao fundo. Estilo cartoon Gravity Falls — épica e calorosa.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "end_label": "Peixe em Três Canais",
+      "end_score": 10,
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": null,
+          "text": "Nota fiscal emitida. Três canais ativos. Renda mais estável e preço melhor na média.",
+          "audio_url": "",
+          "voice_profile": "nova"
+        },
+        {
+          "position": 2,
+          "character_id": "pd2_c2",
+          "text": "Restaurante, feira e cooperativa — se um cair, os outros seguram. E o preço médio subiu 40%.",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        },
+        {
+          "position": 3,
+          "character_id": "pd2_c1",
+          "text": "O peixe sempre foi bom. Agora finalmente vai para onde merece.",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        }
+      ]
+    },
+    {
+      "_id": "pd2_s14",
+      "story_id": "pd2",
+      "title": "C6B — O Primeiro Canal Novo",
+      "type": "end",
+      "position": 14,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "media": { "type": "image", "url": "", "duration": 16 },
+      "description": "TODO — Seu Raimundo saindo do RURAP com a inscrição estadual impressa em mãos. Dona Graça ao lado. Cais ao fundo com barco. Expressão de quem tem o caminho mas ainda está no começo. Estilo cartoon Gravity Falls, paleta suave.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "end_label": "O Primeiro Canal Novo",
+      "end_score": 5,
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": null,
+          "text": "Inscrição estadual em mãos. O restaurante vai esperar mais uma semana.",
+          "audio_url": "",
+          "voice_profile": "nova"
+        },
+        {
+          "position": 2,
+          "character_id": "pd2_c1",
+          "text": "Nota fiscal resolvida. Essa semana o restaurante confirma.",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        },
+        {
+          "position": 3,
+          "character_id": "pd2_c2",
+          "text": "Trinta anos vendendo pro atravessador. Agora a gente escolhe.",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        }
+      ]
+    }
+  ]
+}

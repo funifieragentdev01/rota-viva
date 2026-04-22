@@ -229,6 +229,11 @@ angular.module('rotaViva')
           }
         }
 
+        function safeVolume(val, fallback) {
+          var v = parseFloat(val);
+          return (!isNaN(v) && v >= 0 && v <= 1) ? v : fallback;
+        }
+
         function playStoryBackgroundAudio() {
           if (!$scope.story || !$scope.story.background_audio || !$scope.story.background_audio.url) return;
           $timeout(function () {
@@ -236,7 +241,7 @@ angular.module('rotaViva')
             if (!el) return;
             el.src    = $scope.story.background_audio.url;
             el.loop   = $scope.story.background_audio.loop !== false;
-            el.volume = $scope.story.background_audio.volume !== undefined ? $scope.story.background_audio.volume : 0.5;
+            el.volume = safeVolume($scope.story.background_audio.volume, 0.5);
             el.play();
           }, 80);
         }
@@ -253,7 +258,7 @@ angular.module('rotaViva')
             if (scene.background_audio && scene.background_audio.url) {
               el.src    = scene.background_audio.url;
               el.loop   = !!scene.background_audio.loop;
-              el.volume = scene.background_audio.volume !== undefined ? scene.background_audio.volume : 1;
+              el.volume = safeVolume(scene.background_audio.volume, 1);
               el.play();
             } else {
               el.pause(); el.src = '';
