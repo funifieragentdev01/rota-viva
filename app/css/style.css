@@ -1331,6 +1331,10 @@ h1, h2, h3, h4 { font-family: var(--font-display); }
     background: #000;
 }
 
+.video-responsive.video-responsive-portrait {
+    padding-bottom: 177.78%; /* 9:16 — vertical/portrait */
+}
+
 .video-responsive iframe {
     position: absolute;
     top: 0;

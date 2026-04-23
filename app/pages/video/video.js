@@ -22,19 +22,37 @@ angular.module('rotaViva')
     var ytPlayer = null;
     var progressInterval = null;
 
-    function setVideo(title, url) {
+    function detectSource(url, source) {
+        if (source && source !== 'unknown') return source;
+        if (!url) return 'direct';
+        if (/vimeo\.com/.test(url)) return 'vimeo';
+        if (/youtu\.be|youtube\.com/.test(url)) return 'youtube';
+        return 'direct';
+    }
+
+    function setVideo(title, url, source) {
         $scope.title = title || 'Vídeo';
-        var videoId = extractYouTubeId(url);
-        $scope.rawVideoId = videoId;
-        if (videoId) {
-            // Use enablejsapi=1 so IFrame API can attach
+        var src = detectSource(url, source);
+        $scope.videoSource = src;
+
+        if (src === 'youtube') {
+            var yid = extractYouTubeId(url);
+            $scope.rawVideoId = yid;
+            $scope.isPortrait = false;
             $scope.embedUrl = $sce.trustAsResourceUrl(
-                'https://www.youtube.com/embed/' + videoId + '?rel=0&enablejsapi=1&origin=' + encodeURIComponent(window.location.origin)
+                'https://www.youtube.com/embed/' + yid + '?rel=0&enablejsapi=1&origin=' + encodeURIComponent(window.location.origin)
             );
-            initYouTubePlayer(videoId);
+            initYouTubePlayer(yid);
+        } else if (src === 'vimeo') {
+            var vid = extractVimeoId(url);
+            $scope.isPortrait = true;
+            $scope.embedUrl = $sce.trustAsResourceUrl(
+                'https://player.vimeo.com/video/' + vid + '?portrait=0&title=0&byline=0'
+            );
+            initVimeoPlayer();
         } else {
+            $scope.isPortrait = false;
             $scope.embedUrl = $sce.trustAsResourceUrl(url);
-            // Non-YouTube: unlock button immediately
             $scope.videoReady = true;
         }
     }
@@ -45,11 +63,36 @@ angular.module('rotaViva')
         return m ? m[1] : '';
     }
 
-    function toEmbedUrl(url) {
+    function extractVimeoId(url) {
         if (!url) return '';
-        var id = extractYouTubeId(url);
-        if (id) return 'https://www.youtube.com/embed/' + id + '?rel=0';
-        return url;
+        var m = url.match(/vimeo\.com\/(?:video\/)?(\d+)/);
+        return m ? m[1] : '';
+    }
+
+    function initVimeoPlayer() {
+        function tryAttach() {
+            var iframe = document.querySelector('.video-responsive iframe');
+            if (!iframe || !window.Vimeo || !window.Vimeo.Player) {
+                $timeout(tryAttach, 400);
+                return;
+            }
+            var player = new window.Vimeo.Player(iframe);
+            player.on('timeupdate', function(data) {
+                if (!$scope.videoReady && data.percent >= 0.9) {
+                    $scope.$apply(function() { $scope.videoReady = true; });
+                }
+            });
+        }
+
+        if (!document.getElementById('vimeo-player-api')) {
+            var tag = document.createElement('script');
+            tag.id = 'vimeo-player-api';
+            tag.src = 'https://player.vimeo.com/api/player.js';
+            tag.onload = function() { $timeout(tryAttach, 400); };
+            document.head.appendChild(tag);
+        } else {
+            $timeout(tryAttach, 500);
+        }
     }
 
     function initYouTubePlayer(videoId) {
@@ -109,7 +152,7 @@ angular.module('rotaViva')
     function init() {
         ApiService.dbGet('video__c', videoId).then(function(data) {
             if (data && data.url) {
-                setVideo(data.title, data.url);
+                setVideo(data.title, data.url, data.source);
                 $scope.loading = false;
             } else {
                 loadFromFolderContent();

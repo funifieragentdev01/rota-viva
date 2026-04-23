@@ -74,45 +74,126 @@
   .rv-story-cast-name { font-size: 13px; font-weight: 700; color: var(--color-primary, #FF9600); }
   .rv-story-cast-desc { font-size: 11px; color: #888; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 
-  /* Controls bar */
-  .rv-story-controls {
-    padding: 8px 12px;
-    background: rgba(0,0,0,0.9);
-    display: flex; align-items: center; justify-content: flex-end; gap: 8px;
-    min-height: 44px;
+  /* Decision overlay — inside media, slides up from bottom */
+  .rv-story-decision-overlay {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    background: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.88) 12%);
+    padding: 80px 16px 20px;
+    z-index: 20;
+    animation: rvStorySlideUp 0.25s ease-out;
   }
-  .rv-story-btn {
-    background: rgba(255,255,255,0.1);
-    border: 1px solid rgba(255,255,255,0.15);
-    border-radius: 8px;
+  .rv-story-decision-prompt {
+    font-size: 28px;
     color: #fff;
-    font-size: 13px;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.9);
+    margin-bottom: 10px;
+    line-height: 1.3;
     font-family: var(--font-ui, Inter, sans-serif);
-    padding: 6px 14px;
-    cursor: pointer;
-    display: flex; align-items: center; gap: 6px;
-    transition: background 0.15s;
   }
-  .rv-story-btn:active { background: rgba(255,255,255,0.2); }
-  .rv-story-btn-cast { margin-right: auto; }
-
-  /* Decision options */
-  .rv-story-decision-wrap {
-    padding: 14px 16px;
-    background: rgba(0,0,0,0.92);
-    border-top: 1px solid #222;
-  }
-  .rv-story-decision-prompt { font-size: 14px; color: #ddd; margin-bottom: 10px; }
   .rv-story-option-btn {
     display: block; width: 100%; text-align: left;
-    margin-bottom: 8px; background: rgba(255,255,255,0.06);
-    color: #fff; border: 1px solid rgba(255,255,255,0.12);
-    border-radius: 10px; padding: 10px 14px; font-size: 14px;
-    cursor: pointer; font-family: var(--font-ui, Inter, sans-serif);
+    margin-bottom: 8px;
+    background: rgba(255,255,255,0.12);
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.35);
+    border-radius: 10px;
+    padding: 10px 16px;
+    font-size: 20px;
+    cursor: pointer;
+    font-family: var(--font-ui, Inter, sans-serif);
     transition: background 0.15s, border-color 0.15s;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
   }
   .rv-story-option-btn:last-child { margin-bottom: 0; }
-  .rv-story-option-btn:active { background: rgba(255,255,255,0.12); border-color: var(--color-primary, #FF9600); }
+  .rv-story-option-btn:active {
+    background: rgba(255,255,255,0.22);
+    border-color: var(--color-primary, #FF9600);
+  }
+
+  /* Amazon Prime Video-style controls overlay */
+  .rv-story-media-controls {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: 25;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s;
+    background: linear-gradient(
+      to bottom,
+      rgba(0,0,0,0.55) 0%,
+      transparent 22%,
+      transparent 62%,
+      rgba(0,0,0,0.72) 100%
+    );
+  }
+  .rv-story-media-controls.smc-visible {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .rv-smc-top {
+    padding: 12px 14px 0;
+    pointer-events: none;
+  }
+  .rv-smc-title {
+    font-size: 13px; font-weight: 700; color: #fff;
+    text-align: center;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.9);
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
+  .rv-smc-center {
+    flex: 1; display: flex; align-items: center; justify-content: center;
+  }
+  .rv-smc-playpause {
+    width: 60px; height: 60px;
+    border-radius: 50%;
+    background: rgba(0,0,0,0.5);
+    border: 2px solid rgba(255,255,255,0.7);
+    color: #fff; font-size: 24px;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    transition: background 0.15s, transform 0.1s;
+    padding: 0;
+  }
+  .rv-smc-playpause:active { background: rgba(0,0,0,0.7); transform: scale(0.92); }
+  .rv-smc-bottom { padding: 0 12px 10px; }
+  .rv-smc-actions {
+    display: flex; align-items: center; gap: 6px;
+    justify-content: flex-end; margin-top: 6px;
+  }
+  .rv-smc-btn {
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 8px; color: #fff;
+    font-size: 13px; font-family: var(--font-ui, Inter, sans-serif);
+    padding: 5px 12px; cursor: pointer;
+    display: flex; align-items: center; gap: 5px;
+    transition: background 0.15s;
+  }
+  .rv-smc-btn:active { background: rgba(255,255,255,0.28); }
+  .rv-smc-btn-primary {
+    background: var(--color-primary, #FF9600);
+    border-color: var(--color-primary, #FF9600);
+    color: #000; font-weight: 700;
+  }
+  .rv-smc-btn-primary:active { opacity: 0.8; }
+
+  /* Progress bars (inside controls overlay) */
+  .rv-story-progress-bars { padding: 8px 0 6px; }
+  .rv-story-progress-row  { display: flex; align-items: center; gap: 8px; margin-bottom: 5px; }
+  .rv-story-progress-row:last-child { margin-bottom: 0; }
+  .rv-story-progress-label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.5px; color: rgba(255,255,255,0.5); width: 36px; flex-shrink: 0; }
+  .rv-story-progress-track { flex: 1; height: 4px; background: rgba(255,255,255,0.15); border-radius: 2px; overflow: hidden; }
+  .rv-story-progress-fill  { height: 100%; border-radius: 2px; transition: width 0.1s linear; }
+  .rv-story-progress-fill-scene { background: var(--color-primary, #FF9600); }
+  .rv-story-progress-fill-story { background: rgba(255,255,255,0.55); }
+  .rv-story-progress-time { font-size: 10px; color: rgba(255,255,255,0.5); width: 52px; text-align: right; flex-shrink: 0; white-space: nowrap; }
 
   /* End scene */
   .rv-story-end-wrap {
@@ -177,17 +258,16 @@
     transition: opacity 0.15s;
   }
   .rv-story-cover-play-btn:active { opacity: 0.8; }
-
-  /* Progress bars */
-  .rv-story-progress-bars { padding: 8px 12px 6px; background: rgba(0,0,0,0.92); border-top: 1px solid #1a1a1a; }
-  .rv-story-progress-row  { display: flex; align-items: center; gap: 8px; margin-bottom: 5px; }
-  .rv-story-progress-row:last-child { margin-bottom: 0; }
-  .rv-story-progress-label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.5px; color: #666; width: 36px; flex-shrink: 0; }
-  .rv-story-progress-track { flex: 1; height: 4px; background: rgba(255,255,255,0.1); border-radius: 2px; overflow: hidden; }
-  .rv-story-progress-fill  { height: 100%; border-radius: 2px; transition: width 0.1s linear; }
-  .rv-story-progress-fill-scene { background: var(--color-primary, #FF9600); }
-  .rv-story-progress-fill-story { background: rgba(255,255,255,0.55); }
-  .rv-story-progress-time { font-size: 10px; color: #666; width: 52px; text-align: right; flex-shrink: 0; white-space: nowrap; }
+  .rv-story-cover-cast-btn {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 8px; color: #fff;
+    font-size: 13px; font-family: var(--font-ui, Inter, sans-serif);
+    padding: 6px 14px; cursor: pointer;
+    display: flex; align-items: center; gap: 6px;
+    margin-right: auto;
+  }
+  .rv-story-cover-cast-btn:active { background: rgba(255,255,255,0.2); }
 </style>
 
 <div class="rv-story-player">
@@ -214,9 +294,7 @@
           <i class="fas fa-book-open"></i>
         </div>
         <div class="rv-story-cover-overlay">
-          <!-- Title at top -->
           <h2 class="rv-story-cover-title">{{story.title}}</h2>
-          <!-- Synopsis + cast at bottom -->
           <div class="rv-story-cover-bottom">
             <p ng-if="story.synopsis" class="rv-story-cover-synopsis">
               {{story.synopsis.length > 130 ? (story.synopsis | limitTo:130) + '…' : story.synopsis}}
@@ -253,7 +331,7 @@
     <div class="rv-story-cover-controls">
       <button ng-if="getAllCast().length > 0"
               ng-click="showCoverCast = !showCoverCast"
-              class="rv-story-btn rv-story-btn-cast">
+              class="rv-story-cover-cast-btn">
         <i class="fas fa-users"></i>
         {{showCoverCast ? 'Fechar' : 'Elenco'}}
       </button>
@@ -267,7 +345,8 @@
   <div ng-if="currentScene" class="rv-story-scene-wrap" ng-class="{'rv-story-transitioning': transitioning}">
 
     <!-- Media: image / video -->
-    <div class="rv-story-media" ng-style="{'padding-top': getMediaPaddingTop()}">
+    <div class="rv-story-media" ng-style="{'padding-top': getMediaPaddingTop()}"
+         ng-click="tapMedia()" ng-mouseenter="onMediaEnter()" ng-mouseleave="onMediaLeave()">
       <div class="rv-story-media-inner">
 
         <img ng-if="currentScene.media && currentScene.media.url && currentScene.media.type === 'image'"
@@ -301,7 +380,7 @@
         </div>
 
         <!-- Painel de elenco -->
-        <div ng-if="showCast" class="rv-story-cast-panel" ng-click="toggleCast()">
+        <div ng-if="showCast" class="rv-story-cast-panel" ng-click="toggleCast(); $event.stopPropagation()">
           <div class="rv-story-cast-title">Em cena</div>
           <div ng-repeat="char in getCastForScene()" class="rv-story-cast-item">
             <img ng-if="char.avatar_thumbnail" ng-src="{{char.avatar_thumbnail}}"
@@ -319,44 +398,86 @@
           </div>
         </div>
 
+        <!-- Decision overlay — dentro da mídia, bottom half -->
+        <div ng-if="allDialoguesDone() && currentScene.type === 'decision'"
+             class="rv-story-decision-overlay"
+             ng-click="$event.stopPropagation()">
+          <div class="rv-story-decision-prompt">{{currentScene.decision.prompt}}</div>
+          <button ng-repeat="opt in currentScene.decision.options"
+                  class="rv-story-option-btn"
+                  ng-click="chooseOption(opt)">
+            {{opt.label}}
+          </button>
+        </div>
+
+        <!-- Amazon Prime Video-style controls overlay -->
+        <div class="rv-story-media-controls"
+             ng-if="currentScene.type !== 'end' && !(allDialoguesDone() && currentScene.type === 'decision')"
+             ng-class="{'smc-visible': controlsVisible || hoverVisible}">
+          <div class="rv-smc-top">
+            <div class="rv-smc-title">{{story.title}}</div>
+          </div>
+          <div class="rv-smc-center">
+            <button class="rv-smc-playpause"
+                    ng-click="togglePlayback(); $event.stopPropagation()">
+              <i ng-class="isPaused ? 'fas fa-play' : 'fas fa-pause'"></i>
+            </button>
+          </div>
+          <div class="rv-smc-bottom" ng-click="$event.stopPropagation()">
+            <div class="rv-story-progress-bars">
+              <div class="rv-story-progress-row">
+                <span class="rv-story-progress-label">Cena</span>
+                <div class="rv-story-progress-track">
+                  <div class="rv-story-progress-fill rv-story-progress-fill-scene"
+                       ng-style="{'width': (sceneDuration ? ((sceneElapsed / sceneDuration) * 100) : 100) + '%'}"></div>
+                </div>
+                <span class="rv-story-progress-time" ng-if="sceneDuration">
+                  {{sceneElapsed | number:0}}s / {{sceneDuration | number:0}}s
+                </span>
+                <span class="rv-story-progress-time" ng-if="!sceneDuration" style="color:rgba(255,255,255,0.2)">—</span>
+              </div>
+              <div class="rv-story-progress-row">
+                <span class="rv-story-progress-label">Story</span>
+                <div class="rv-story-progress-track">
+                  <div class="rv-story-progress-fill rv-story-progress-fill-story"
+                       ng-style="{'width': (totalScenes ? ((sceneIndex / totalScenes) * 100) : 0) + '%'}"></div>
+                </div>
+                <span class="rv-story-progress-time">{{sceneIndex}} / {{totalScenes}}</span>
+              </div>
+            </div>
+            <div class="rv-smc-actions">
+              <button ng-if="getCastForScene().length > 0"
+                      ng-click="toggleCast()"
+                      class="rv-smc-btn">
+                <i class="fas fa-users"></i>
+                {{showCast ? 'Fechar' : 'Elenco'}}
+              </button>
+              <button ng-if="hasMoreDialogues()"
+                      ng-click="nextDialogue()"
+                      class="rv-smc-btn">
+                Pular <i class="fas fa-forward-step"></i>
+              </button>
+              <button ng-if="allDialoguesDone() && currentScene.type === 'scene' && currentScene.next_scene_id"
+                      ng-click="advance()"
+                      class="rv-smc-btn">
+                Continuar <i class="fas fa-chevron-right"></i>
+              </button>
+              <button ng-if="allDialoguesDone() && currentScene.type === 'credits'"
+                      ng-click="advance()"
+                      class="rv-smc-btn rv-smc-btn-primary">
+                Concluir <i class="fas fa-check"></i>
+              </button>
+              <span ng-if="allDialoguesDone() && currentScene.type === 'scene' && !currentScene.next_scene_id"
+                    style="color:rgba(255,255,255,0.4); font-size:12px;">— Fim —</span>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div><!-- /.rv-story-media -->
 
     <!-- Áudio oculto para diálogos -->
     <audio id="rv-story-dialogue-audio" style="display:none"></audio>
-
-    <!-- Barra de controles (fora da imagem) -->
-    <div class="rv-story-controls" ng-if="currentScene.type !== 'end'">
-      <button ng-if="getCastForScene().length > 0"
-              ng-click="toggleCast()"
-              class="rv-story-btn rv-story-btn-cast">
-        <i class="fas fa-users"></i>
-        {{showCast ? 'Fechar' : 'Elenco'}}
-      </button>
-      <button ng-if="hasMoreDialogues()"
-              ng-click="nextDialogue()"
-              class="rv-story-btn">
-        Pular <i class="fas fa-forward-step"></i>
-      </button>
-      <button ng-if="allDialoguesDone() && currentScene.type === 'scene' && currentScene.next_scene_id"
-              ng-click="advance()"
-              class="rv-story-btn">
-        Continuar <i class="fas fa-chevron-right"></i>
-      </button>
-      <span ng-if="allDialoguesDone() && currentScene.type === 'scene' && !currentScene.next_scene_id"
-            style="color:#555; font-size:12px;">— Fim —</span>
-    </div>
-
-    <!-- Opções de decisão (fora da imagem) -->
-    <div class="rv-story-decision-wrap"
-         ng-if="allDialoguesDone() && currentScene.type === 'decision'">
-      <div class="rv-story-decision-prompt">{{currentScene.decision.prompt}}</div>
-      <button ng-repeat="opt in currentScene.decision.options"
-              class="rv-story-option-btn"
-              ng-click="chooseOption(opt)">
-        {{opt.label}}
-      </button>
-    </div>
 
     <!-- Cena de fim -->
     <div class="rv-story-end-wrap" ng-if="currentScene.type === 'end'">
@@ -368,31 +489,6 @@
     </div>
 
   </div><!-- /.rv-story-scene-wrap -->
-
-  <!-- Barras de progresso -->
-  <div class="rv-story-progress-bars" ng-if="currentScene && currentScene.type !== 'end'">
-    <div class="rv-story-progress-row">
-      <span class="rv-story-progress-label">Cena</span>
-      <div class="rv-story-progress-track">
-        <div class="rv-story-progress-fill rv-story-progress-fill-scene"
-             ng-style="{'width': (sceneDuration ? ((sceneElapsed / sceneDuration) * 100) : 100) + '%'}">
-        </div>
-      </div>
-      <span class="rv-story-progress-time" ng-if="sceneDuration">
-        {{sceneElapsed | number:0}}s / {{sceneDuration | number:0}}s
-      </span>
-      <span class="rv-story-progress-time" ng-if="!sceneDuration" style="color:#444">—</span>
-    </div>
-    <div class="rv-story-progress-row">
-      <span class="rv-story-progress-label">Story</span>
-      <div class="rv-story-progress-track">
-        <div class="rv-story-progress-fill rv-story-progress-fill-story"
-             ng-style="{'width': (totalScenes ? ((sceneIndex / totalScenes) * 100) : 0) + '%'}">
-        </div>
-      </div>
-      <span class="rv-story-progress-time">{{sceneIndex}} / {{totalScenes}}</span>
-    </div>
-  </div>
 
   <!-- Áudios globais -->
   <audio id="rv-story-global-audio" style="display:none"></audio>

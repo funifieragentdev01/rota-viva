@@ -39,8 +39,12 @@
                     <div class="duo-character-float duo-cartoon-float"
                          ng-if="item._cartoon"
                          ng-style="getCartoonFloatStyle(item)">
+                        <div class="duo-cartoon-pending-arrow"
+                             ng-if="item._cartoon.is_unlocked && item._cartoon.percent < 100">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
                         <div class="duo-cartoon-checkpoint"
-                             ng-class="{'duo-cartoon-done': item._cartoon.percent >= 100, 'duo-cartoon-locked': !item._cartoon.is_unlocked}"
+                             ng-class="{'duo-cartoon-done': item._cartoon.percent >= 100, 'duo-cartoon-locked': !item._cartoon.is_unlocked, 'duo-cartoon-pending': item._cartoon.is_unlocked && item._cartoon.percent < 100}"
                              ng-click="selectLesson(item._cartoon, $event)">
                             <img ng-src="{{item._cartoon._charImg}}"
                                  class="duo-cartoon-checkpoint-img"

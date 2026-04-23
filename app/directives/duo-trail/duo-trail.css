@@ -390,6 +390,31 @@
     color: rgba(255,255,255,0.25);
 }
 
+/* ── Cartoon Pending — unlocked, not yet done ───────────────── */
+@keyframes duo-cartoon-glow {
+  0%, 100% { filter: drop-shadow(0 8px 16px rgba(0,0,0,0.4)); }
+  50%       { filter: drop-shadow(0 0 18px rgba(255, 184, 0, 0.75)) drop-shadow(0 8px 16px rgba(0,0,0,0.4)); }
+}
+
+@keyframes duo-arrow-bounce {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(7px); }
+}
+
+.duo-cartoon-pending .duo-cartoon-checkpoint-img {
+  animation: duo-char-float 3s ease-in-out infinite, duo-cartoon-glow 1.8s ease-in-out infinite;
+}
+
+.duo-cartoon-pending-arrow {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2px;
+  color: #FFB800;
+  font-size: 22px;
+  animation: duo-arrow-bounce 1s ease-in-out infinite;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
+}
+
 /* ── Empty state ──────────────────────────────────────────── */
 .duo-trail-empty {
     text-align: center;

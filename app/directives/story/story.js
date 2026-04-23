@@ -58,6 +58,7 @@ angular.module('rotaViva')
           $scope.sceneDuration = durationSec;
           $scope.sceneElapsed  = 0;
           _timerInterval = $interval(function () {
+            if ($scope.isPaused) return;
             if ($scope.sceneElapsed < durationSec) {
               $scope.sceneElapsed = Math.min($scope.sceneElapsed + 0.1, durationSec);
             }
@@ -69,7 +70,9 @@ angular.module('rotaViva')
         }
 
         function getSceneDuration(scene) {
-          if (!scene || scene.type !== 'scene' || !scene.next_scene_id) return null;
+          if (!scene) return null;
+          var canAutoAdvance = (scene.type === 'scene' && scene.next_scene_id) || scene.type === 'credits';
+          if (!canAutoAdvance) return null;
           if (scene.media && scene.media.duration) {
             var d = parseFloat(scene.media.duration);
             if (d > 0) return d;
@@ -79,7 +82,9 @@ angular.module('rotaViva')
         }
 
         function setupVideoAutoAdvance(scene) {
-          if (!scene || scene.media.type !== 'video' || scene.type !== 'scene' || !scene.next_scene_id) return;
+          if (!scene || scene.media.type !== 'video') return;
+          var canAutoAdvance = (scene.type === 'scene' && scene.next_scene_id) || scene.type === 'credits';
+          if (!canAutoAdvance) return;
           $timeout(function () {
             var vid = document.querySelector('.rv-story-media video');
             if (!vid) return;
@@ -139,6 +144,8 @@ angular.module('rotaViva')
           $scope.currentScene   = scene;
           $scope.dialogueIndex  = 0;
           $scope.transitioning  = false;
+          $scope.isPaused       = false;
+          $scope.controlsVisible = false;
 
           for (var i = 0; i < $scope.scenesList.length; i++) {
             if ($scope.scenesList[i]._id === scene._id) { $scope.sceneIndex = i + 1; break; }
@@ -207,14 +214,14 @@ angular.module('rotaViva')
         function playDialogueAudio() {
           var d = $scope.currentDialogue();
           if (!d) return;
-          // Suppress dialogue audio when the scene video has native audio
           if (sceneVideoSuppressesAudio($scope.currentScene)) return;
 
           if (d.audio_url) {
             $timeout(function () {
               var el = document.getElementById('rv-story-dialogue-audio');
               if (!el) return;
-              el.src = d.audio_url;
+              el.src    = d.audio_url;
+              el.volume = safeVolume($scope.story && $scope.story.dialog_volume, 1.0);
               el.onended = function () { $scope.$apply(function () { advanceDialogueIfMore(); }); };
               el.play();
             }, 80);
@@ -250,7 +257,6 @@ angular.module('rotaViva')
           $timeout(function () {
             var el = document.getElementById('rv-story-bg-audio');
             if (!el) return;
-            // Suppress scene bg audio when video has its own audio track
             if (sceneVideoSuppressesAudio(scene)) {
               el.pause(); el.src = '';
               return;
@@ -277,10 +283,14 @@ angular.module('rotaViva')
           $scope.goToScene(opt.next_scene_id);
         };
 
-        // ── Advance (type=scene) ──────────────────────────────────────────
+        // ── Advance ───────────────────────────────────────────────────────
         $scope.advance = function () {
-          if (!$scope.currentScene || $scope.currentScene.type !== 'scene') return;
-          if ($scope.currentScene.next_scene_id) $scope.goToScene($scope.currentScene.next_scene_id);
+          if (!$scope.currentScene) return;
+          if ($scope.currentScene.type === 'scene' && $scope.currentScene.next_scene_id) {
+            $scope.goToScene($scope.currentScene.next_scene_id);
+          } else if ($scope.currentScene.type === 'credits') {
+            handleOnComplete();
+          }
         };
 
         // ── Characters ────────────────────────────────────────────────────
@@ -334,10 +344,11 @@ angular.module('rotaViva')
           return '56.25%'; // default 16:9
         };
 
-        // ── End ───────────────────────────────────────────────────────────
-        function handleEnd() {
-          var scene = $scope.currentScene;
-          $scope.score += (scene.end_score || 0);
+        // ── End / Credits ─────────────────────────────────────────────────
+        $scope._pendingEndScene = null;
+
+        function handleOnComplete() {
+          var scene = $scope._pendingEndScene || $scope.currentScene;
           var passed = $scope.story && $scope.story.passing_score
             ? $scope.score >= $scope.story.passing_score
             : null;
@@ -348,17 +359,76 @@ angular.module('rotaViva')
                 score:           $scope.score,
                 passing_score:   $scope.story ? ($scope.story.passing_score || null) : null,
                 passed:          passed,
-                end_label:       scene.end_label || null,
-                end_scene_id:    scene._id,
+                end_label:       scene ? (scene.end_label || null) : null,
+                end_scene_id:    scene ? scene._id : null,
                 decisions_taken: $scope.decisionsTaken
               }
             });
           }
         }
 
+        function handleEnd() {
+          var scene = $scope.currentScene;
+          $scope.score += (scene.end_score || 0);
+          var creditsId = $scope.story && $scope.story.credits_scene_id;
+          if (creditsId && $scope.sceneMap[creditsId]) {
+            $scope._pendingEndScene = scene;
+            $scope.goToScene(creditsId);
+          } else {
+            handleOnComplete();
+          }
+        }
+
+        // ── Controls (Amazon Prime Video style) ───────────────────────────
+        $scope.isPaused        = false;
+        $scope.controlsVisible = false;
+        $scope.hoverVisible    = false;
+        var _hideControlsTimer = null;
+        var _leaveTimer        = null;
+
+        $scope.togglePlayback = function () {
+          $scope.isPaused = !$scope.isPaused;
+          ['rv-story-dialogue-audio', 'rv-story-bg-audio', 'rv-story-global-audio'].forEach(function (id) {
+            var el = document.getElementById(id);
+            if (!el) return;
+            if ($scope.isPaused) { try { el.pause(); } catch (e) {} }
+            else if (el.src)    { try { el.play();  } catch (e) {} }
+          });
+          var vid = document.querySelector('.rv-story-media video');
+          if (vid) { if ($scope.isPaused) { vid.pause(); } else { vid.play(); } }
+        };
+
+        $scope.showMediaControls = function () {
+          $scope.controlsVisible = true;
+          if (_hideControlsTimer) { $timeout.cancel(_hideControlsTimer); }
+          _hideControlsTimer = $timeout(function () { $scope.controlsVisible = false; }, 3000);
+        };
+
+        $scope.tapMedia = function () {
+          if (!$scope.controlsVisible && !$scope.hoverVisible) {
+            $scope.showMediaControls();
+          } else {
+            $scope.togglePlayback();
+            $scope.showMediaControls();
+          }
+        };
+
+        $scope.onMediaEnter = function () {
+          if (_leaveTimer) { $timeout.cancel(_leaveTimer); _leaveTimer = null; }
+          $scope.hoverVisible = true;
+        };
+
+        $scope.onMediaLeave = function () {
+          _leaveTimer = $timeout(function () { $scope.hoverVisible = false; }, 200);
+        };
+
         // ── Stop all playback ─────────────────────────────────────────────
         $scope.stop = function () {
           clearTimer();
+          if (_hideControlsTimer) { $timeout.cancel(_hideControlsTimer); _hideControlsTimer = null; }
+          if (_leaveTimer)        { $timeout.cancel(_leaveTimer);        _leaveTimer = null; }
+          $scope.controlsVisible = false;
+          $scope.hoverVisible    = false;
           if (window.speechSynthesis) window.speechSynthesis.cancel();
           ['rv-story-dialogue-audio', 'rv-story-bg-audio', 'rv-story-global-audio'].forEach(function (id) {
             var el = document.getElementById(id);
@@ -398,17 +468,18 @@ angular.module('rotaViva')
         $scope.$watch('storyId', function (val) {
           if (val) {
             $scope.stop();
-            $scope.sceneMap       = {};
-            $scope.characterMap   = {};
-            $scope.scenesList     = [];
-            $scope.currentScene   = null;
-            $scope.score          = 0;
-            $scope.decisionsTaken = [];
-            $scope.sceneIndex     = 0;
-            $scope.totalScenes    = 0;
-            $scope.showCover      = false;
-            $scope.showCoverCast  = false;
-            $scope.isLoading      = true;
+            $scope.sceneMap         = {};
+            $scope.characterMap     = {};
+            $scope.scenesList       = [];
+            $scope.currentScene     = null;
+            $scope.score            = 0;
+            $scope.decisionsTaken   = [];
+            $scope.sceneIndex       = 0;
+            $scope.totalScenes      = 0;
+            $scope.showCover        = false;
+            $scope.showCoverCast    = false;
+            $scope._pendingEndScene = null;
+            $scope.isLoading        = true;
             load();
           }
         });

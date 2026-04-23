@@ -17,7 +17,7 @@
 
     <!-- Video Player -->
     <div class="video-container" ng-if="!loading && embedUrl">
-        <div class="video-responsive">
+        <div class="video-responsive" ng-class="{'video-responsive-portrait': isPortrait}">
             <iframe ng-src="{{embedUrl}}"
                     frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
