@@ -126,3 +126,39 @@ Na diretiva de story precisamos fazer alguns ajustes na funcionalidade de dialog
 
 5. O botao de stop/play esta cobrindo as opcoes de decisao. Precisa ajustar isso. Eu acho que deveriamos usar o modelo da amazon prime video, onde o botao de play e stop aparece quando eu passo o mouse sobre a imagem ou video, bem como a barra de progresso do tempo que esta percorrendo, e o titulo da historia no topo. Veja aqui nesta imagem /jarvis/rota-viva/doc/assets/issue/amazon-prime-video.png. O que voce acha? 
 
+---
+
+Quero discutir uma coisa com voce antes de implementar, para saber a sua opiniao. Eu estou sentindo falta de no final da historia, independente de termos varias cenas finais possiveis, eu estou sentindo falta de ter uma cena de creditos, onde eu posso mostrar uma cena com o fechamento geral, com creditos, ou algo mais, entao eu estava pensando em poder criar uma cena deste tipo "credits", e na aba de configuracao da story eu poder definir qual a cena de creditos. E se tiver uma cena de creditos, ela ser apresentada logo apos terminar qualquer cena do tipo end. E o evento de end so ser chamado, neste caso, quando a cena de creditos for apresentada. Ou seja, se nao tiver cena de creditos o evento de termino acontece na cena de end, se tiver creditos o evento de termino acontece na cena de creditos. O que voce acha de fazermos este ajuste tanto da diretiva <story> como na interface de administracao de story.
+
+/funifier/funifier-studio/app/views/directives/story.html
+/funifier/funifier-studio/app/scripts/directives/story.js
+/funifier/funifier-studio/app/views/studio/story/form.html
+/funifier/funifier-studio/app/scripts/controllers/studio/story/form.js
+
+O que voce acha destas alteracoes? Pode implementar? 
+
+---
+
+# MELHORIAS NA DIRETIVA STORY
+Preciso fazer mais alguns ajustes nestes arquivos:
+- /funifier/funifier-studio/app/views/directives/story.html
+- /funifier/funifier-studio/app/scripts/directives/story.js
+- /funifier/funifier-studio/app/views/studio/story/form.html
+- /funifier/funifier-studio/app/scripts/controllers/studio/story/form.js
+
+## VOLUME DO AUDIO DE BACKGROUND
+- A diretiva de <story> nao esta refletindo o volume do audio de background da story. Independente do volume configurado na story, o audio esta sendo reproduzido em volume muito alto. Eu gostaria de ajustar isso na diretiva <story>
+- Tambem quero que na tela de administracao das story, quando eu alterar a configuracao do volume, isso reflita imediatamente na altura do audio que eu posso ouvir ao dar play no audio da story. No local onde eu cadastro o audio de background, tem um botao para eu ouvir o audio cadastrado, eu quero que ele toque, na hora que eu der play no audio, no mesmo volume que vai ser tocado na diretiva <story>, para que eu possa saber exatamente a altura que o usuario vai ouvir quando ele estiver assistindo a story. 
+- Eu tambem acho que pode ser interessante, permitir na diretiva <story> que o usuario possa desabilitar o audio de background caso exista. Assim, se o audio estiver incomogando o usuario pode desabilita-lo, ou talvez seja melhor colocar o volume do audio de background para o usuario poder ajustar na diretiva, no overlay de controles. 
+
+## TEMPO DE DURACAO DA SCENA DO TIPO END
+- Alem disso, na diretiva <story> o tempo de duracao da cena do tipo end, parece nao estar sendo respeitado, ou seja, a cena aparece e instantaneamente ja termina a historia, mesmo que exista uma cena do tipo credits configurada, e a cena final tenha um tempo de duracao de varios segundos. Esse tempo nao esta sendo respeitado. 
+
+## TOOGLE DO OVERLAY DE CONTROLES
+- Na diretiva de <story> precisa ajustar o toogle do overlay de controles (onde aparece o botao de play/pause), ele nao esta funcionando corretamente para o mobile. Como ele e' acionado por click no mobile. Quando eu clico uma vez ele aparece, mas nao some quando clico novamente. Ele deveria alternar entre mostrar e esconder o overlay. Ele so esconde o overlay quando eu clico fora da area do overlay. 
+
+## PREPARACAO
+Dieta, Respiracao, Mantra, Perfume, Cor. 
+Vuelta de Espalda. 
+Perdoar a si e outros. 
+Respiracao de perito. 

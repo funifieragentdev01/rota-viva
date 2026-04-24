@@ -115,8 +115,8 @@ angular.module('rotaViva')
             ApiService.folderLog(folderContentId, playerId, 100).catch(function() {});
         }
         if (playerId) {
-            ApiService.logAction('complete_lesson', playerId, {
-                lesson_type: 'reading',
+            ApiService.logAction('complete_lesson', {
+                type: 'chest',
                 lesson_id: readingId,
                 score: 100
             }).catch(function() {});

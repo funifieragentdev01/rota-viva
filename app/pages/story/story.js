@@ -51,14 +51,13 @@ angular.module('rotaViva')
 
         // Register gamification action
         if (playerId) {
-            ApiService.logAction('complete_lesson', playerId, {
-                lesson_type: 'cartoon',
-                type:        'story',
-                story_id:    result.story_id,
-                lesson_id:   lessonId,
-                score:       stars,
-                end_label:   result.end_label   || null,
-                passed:      result.passed       !== undefined ? result.passed : null
+            ApiService.logAction('complete_lesson', {
+                type:      'cartoon',
+                story_id:  result.story_id,
+                lesson_id: lessonId,
+                score:     stars,
+                end_label: result.end_label  || null,
+                passed:    result.passed     !== undefined ? result.passed : null
             }).catch(function() {});
 
             // Bust trail cache so progress updates on next visit

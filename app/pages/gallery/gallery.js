@@ -74,14 +74,10 @@ angular.module('rotaViva')
 
     // ─── Player stats ─────────────────────────────────────────────────────────
     if (playerId) {
-        ApiService.getPlayerStatus(playerId).then(function(status) {
-            $scope.playerPoints = Math.floor(status.total_points || 0);
-            var wallets = status.wallets || status.virtual_currencies || [];
-            wallets.forEach(function(w) {
-                if (w.virtualCurrency === 'cristais' || (w.name && w.name.toLowerCase().indexOf('cristal') >= 0)) {
-                    $scope.playerCoins = Math.floor(w.balance || 0);
-                }
-            });
+        ApiService.getPlayerStatus().then(function(status) {
+            var cats = status.point_categories || {};
+            $scope.playerPoints = Math.floor(cats.xp    || 0);
+            $scope.playerCoins  = Math.floor(cats.coins || 0);
         }).catch(function() {});
 
         ApiService.getActionLogs(playerId, 60).then(function(logs) {
@@ -710,6 +706,12 @@ angular.module('rotaViva')
             var p = normalizePost(postData);
             $scope.posts.unshift(p);
             $scope.closeNewPost();
+            if (playerId && created && created._id) {
+                ApiService.logAction('publish_post', {
+                    post_id: created._id,
+                    route: routeId
+                }).catch(function() {});
+            }
         }).catch(function() {
             alert('Erro ao publicar. Verifique sua conexão e tente novamente.');
         }).finally(function() {

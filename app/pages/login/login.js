@@ -93,7 +93,7 @@ angular.module('rotaViva')
                     ThemeService.clearPreTheme();
                     // Busca player completo (login não retorna extra) para checar onboarding
                     var playerId = (data.player || {})._id;
-                    ApiService.getPlayer(playerId).then(function(fullPlayer) {
+                    ApiService.getPlayer().then(function(fullPlayer) {
                         if (fullPlayer) {
                             // Persiste o player completo com extra na sessão
                             var updated = angular.extend({}, data.player || {}, fullPlayer);

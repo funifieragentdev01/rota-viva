@@ -17,7 +17,7 @@
     "first_scene_id": "in2_s1",
     "cover_image": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69e97583b5fee93883c17be2_original_Story Mel - ma1 (19).jpg",
     "status": "active",
-    "$$hashKey": "object:2096"
+    "$$hashKey": "object:219"
   },
   "characters": [
     {
@@ -39,21 +39,21 @@
       "reference_image": ""
     },
     {
-      "_id": "in2_c4",
-      "avatar_thumbnail": "",
-      "voice_profile": "nova",
-      "story_id": "in2",
-      "name": "Ana",
-      "description": "Ana Costa, 14 anos, filha caçula. Tranças, vestidinho simples. Curiosa e observadora — faz as perguntas que todo iniciante precisaria fazer.",
-      "reference_image": ""
-    },
-    {
       "_id": "in2_c2",
       "avatar_thumbnail": "",
       "voice_profile": "shimmer",
       "story_id": "in2",
       "name": "Dona Maria",
       "description": "Maria Costa, 48 anos, esposa de Seu Zé. Vestido florido, luvas de apicultor. Participativa na colheita, prática e determinada. É ela quem garante a qualidade na embalagem.",
+      "reference_image": ""
+    },
+    {
+      "_id": "in2_c4",
+      "avatar_thumbnail": "",
+      "voice_profile": "nova",
+      "story_id": "in2",
+      "name": "Ana",
+      "description": "Ana Costa, 14 anos, filha caçula. Tranças, vestidinho simples. Curiosa e observadora — faz as perguntas que todo iniciante precisaria fazer.",
       "reference_image": ""
     }
   ],
@@ -73,7 +73,7 @@
         "loop": false,
         "volume": 1
       },
-      "description": "TODO — Apiário da família Costa ao amanhecer, luz dourada nascendo sobre as fileiras de colmeias de madeira na Caatinga. Pedro (19 anos, camiseta e chapéu) já está de pé com os equipamentos de apicultura, expressão animada e impaciente. Seu Zé (52 anos, chapéu de palha) aparece pelo caminho, calmo. Abelhas já voando ao redor das colmeias. Estilo cartoon Gravity Falls — paleta quente amarelo-dourado, sombras longas da manhã.",
+      "description": "Apiário da família Costa ao amanhecer, luz dourada nascendo sobre as fileiras de colmeias de madeira na Caatinga. Pedro (19 anos, camiseta e chapéu) já está de pé com os equipamentos de apicultura, expressão animada e impaciente. Seu Zé (52 anos, chapéu de palha) aparece pelo caminho, calmo. Abelhas já voando ao redor das colmeias. Estilo cartoon Gravity Falls — paleta quente amarelo-dourado, sombras longas da manhã.",
       "media": {
         "type": "image",
         "url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69e96bceb5fee93883c15ed7_original_Story Mel - ma1 (17).jpg",
@@ -134,7 +134,7 @@
       "media": {
         "type": "image",
         "url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69e96b1eb5fee93883c15ed5_original_Story Mel - ma1 (16).jpg",
-        "duration": 13
+        "duration": 14
       },
       "title": "O Fumigador",
       "type": "scene",
@@ -144,23 +144,29 @@
           "position": 0,
           "character_id": "in2_c1",
           "text": "Antes de abrir qualquer colmeia, a gente usa o fumigador. Sem fumaça, a colmeia vira uma zona de guerra.",
-          "audio_url": ""
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea4907b5fee93883c2e5c0_story-tts-69ea4907b5fee93883c2e5bf.mp3",
+          "_ttsGenerating": false,
+          "_audioDuration": 6.504
         },
         {
           "position": 1,
           "character_id": "in2_c4",
           "text": "Por que a fumaça, pai? A gente não tá tentando machucar elas?",
-          "audio_url": ""
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea490eb5fee93883c2e5c2_story-tts-69ea490eb5fee93883c2e5c1.mp3",
+          "_ttsGenerating": false,
+          "_audioDuration": 3.12
         },
         {
           "position": 2,
           "character_id": "in2_c1",
           "text": "Boa pergunta. Pensa bem — pra que serve a fumaça numa colmeia?",
-          "audio_url": ""
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea4915b5fee93883c2e5c4_story-tts-69ea4915b5fee93883c2e5c3.mp3",
+          "_ttsGenerating": false,
+          "_audioDuration": 3.816
         }
       ],
       "next_scene_id": "in2_s3",
-      "_minDuration": 13,
+      "_minDuration": 14,
       "subtitles_enabled": true,
       "position": 2
     },
@@ -199,7 +205,7 @@
       "media": {
         "type": "image",
         "url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69e95ff0b5fee93883c1440b_original_Story Mel - ma1 (4).jpg",
-        "duration": 8
+        "duration": 10
       },
       "title": "Para Que Serve a Fumaça?",
       "type": "decision",
@@ -208,115 +214,22 @@
         {
           "position": 0,
           "text": "Antes de abrir a primeira colmeia, Seu Zé para. Essa resposta vai determinar se Pedro está pronto.",
-          "audio_url": ""
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea4921b5fee93883c2e5e5_story-tts-69ea4921b5fee93883c2e5e4.mp3",
+          "_ttsGenerating": false,
+          "_audioDuration": 6.216
         },
         {
           "position": 1,
           "character_id": "in2_c3",
           "text": "Hmm... é pra acalmar as abelhas, né? Mas como exatamente?",
-          "audio_url": ""
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea4926b5fee93883c2e5ec_story-tts-69ea4926b5fee93883c2e5eb.mp3",
+          "_ttsGenerating": false,
+          "_audioDuration": 3.48
         }
       ],
-      "_minDuration": 8,
+      "_minDuration": 10,
       "subtitles_enabled": true,
       "position": 3
-    },
-    {
-      "_id": "in2_s4",
-      "media_mode": "image",
-      "decision": {
-        "prompt": "",
-        "interaction_type": "click",
-        "options": []
-      },
-      "transition_duration": 300,
-      "image_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69e96127b5fee93883c14414_original_Story Mel - ma1 (5).jpg",
-      "story_id": "in2",
-      "background_audio": {
-        "loop": false,
-        "volume": 1
-      },
-      "description": "TODO — Ilustração didática em dois painéis lado a lado: painel esquerdo mostra abelhas em estado de alarme (ferrão levantado, feromônio representado como ondas vermelhas); painel direito mostra abelhas tranquilas enchendo o papo de mel sob fumaça branca suave. Seu Zé aponta para cada painel como um professor. Fundo bege ou amarelo suave. Estilo cartoon Gravity Falls, diferente da cena S3.",
-      "media": {
-        "type": "image",
-        "url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69e96127b5fee93883c14414_original_Story Mel - ma1 (5).jpg",
-        "duration": 14
-      },
-      "title": "Entendendo a Fumaça",
-      "type": "scene",
-      "transition": "fade",
-      "dialogues": [
-        {
-          "position": 0,
-          "character_id": "in2_c1",
-          "text": "A fumaça não mata nada — ela imita um incêndio florestal. As abelhas enchem o papo de mel, preparando pra fugir.",
-          "audio_url": ""
-        },
-        {
-          "position": 1,
-          "character_id": "in2_c1",
-          "text": "Com o papo cheio, elas ficam dóceis e é difícil usar o ferrão. É o instinto natural delas trabalhando a nosso favor.",
-          "audio_url": ""
-        },
-        {
-          "position": 2,
-          "character_id": "in2_c1",
-          "text": "Agora que você entendeu — pra que serve mesmo a fumaça?",
-          "audio_url": ""
-        }
-      ],
-      "next_scene_id": "in2_s3",
-      "_minDuration": 14,
-      "subtitles_enabled": true,
-      "position": 4
-    },
-    {
-      "_id": "in2_s5",
-      "media_mode": "image",
-      "decision": {
-        "prompt": "",
-        "interaction_type": "click",
-        "options": []
-      },
-      "transition_duration": 300,
-      "image_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69e961cfb5fee93883c15e08_original_ChatGPT Image 22 de abr. de 2026, 21_02_23.png",
-      "story_id": "in2",
-      "background_audio": {
-        "loop": false,
-        "volume": 1
-      },
-      "description": "TODO — Pedro com véu e luvas abrindo a colmeia de madeira com movimentos lentos e seguros. Abelhas ao redor, calmas. Seu Zé ao lado com fumigador aplicando fumaça suave, sorriso de aprovação no rosto. Dona Maria e Ana observando ao fundo com admiração. Favo dourado brilhante visível dentro da colmeia aberta. Luz quente da manhã. Estilo cartoon Gravity Falls, cena técnica e harmoniosa.",
-      "media": {
-        "type": "image",
-        "url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69e961cfb5fee93883c15e08_original_ChatGPT Image 22 de abr. de 2026, 21_02_23.png",
-        "duration": 13
-      },
-      "title": "Abrindo a Colmeia",
-      "type": "scene",
-      "transition": "fade",
-      "dialogues": [
-        {
-          "position": 0,
-          "character_id": "in2_c1",
-          "text": "Exato! A fumaça imita sinal de incêndio — as abelhas enchem o papo de mel pra fugir e ficam dóceis. Um truque que usa o instinto natural delas.",
-          "audio_url": ""
-        },
-        {
-          "position": 1,
-          "text": "Com a técnica certa, Pedro abre a primeira colmeia. As abelhas continuam trabalhando, sem agitação.",
-          "audio_url": ""
-        },
-        {
-          "position": 2,
-          "character_id": "in2_c2",
-          "text": "Olha que lindo! Todo o favo cheio. Mas será que está no ponto?",
-          "audio_url": ""
-        }
-      ],
-      "next_scene_id": "in2_s6",
-      "_minDuration": 13,
-      "subtitles_enabled": true,
-      "position": 5
     },
     {
       "_id": "in2_s6",
@@ -344,11 +257,11 @@
         "loop": false,
         "volume": 1
       },
-      "description": "TODO — Interior de colmeia aberta em detalhe. Favo dourado em close: algumas células fechadas com fina capa de cera branca (operculadas), outras abertas com mel brilhante visível. Pedro levanta o quadro de favo, olhando de perto com expressão de quem quer saber a resposta. Seu Zé ao lado com expressão de quem espera a resposta certa. Luz dourada da manhã refletida no mel. Estilo cartoon Gravity Falls.",
+      "description": "Interior de colmeia aberta em detalhe. Favo dourado em close: algumas células fechadas com fina capa de cera branca (operculadas), outras abertas com mel brilhante visível. Pedro levanta o quadro de favo, olhando de perto com expressão de quem quer saber a resposta. Seu Zé ao lado com expressão de quem espera a resposta certa. Luz dourada da manhã refletida no mel. Estilo cartoon Gravity Falls.",
       "media": {
         "type": "image",
         "url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69e96268b5fee93883c15e57_original_ChatGPT Image 22 de abr. de 2026, 21_05_22.png",
-        "duration": 9
+        "duration": 10
       },
       "title": "O Mel Está Pronto?",
       "type": "decision",
@@ -358,18 +271,131 @@
           "position": 0,
           "character_id": "in2_c1",
           "text": "Antes de colher, precisamos verificar se o mel está no ponto. Mel tirado cedo tem muita água — fermenta em dias e perde tudo.",
-          "audio_url": ""
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea4962b5fee93883c2e620_story-tts-69ea4962b5fee93883c2e61f.mp3",
+          "_ttsGenerating": false,
+          "_audioDuration": 7.776
         },
         {
           "position": 1,
           "character_id": "in2_c3",
           "text": "Como eu sei que está pronto, pai?",
-          "audio_url": ""
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea4966b5fee93883c2e622_story-tts-69ea4966b5fee93883c2e621.mp3",
+          "_ttsGenerating": false,
+          "_audioDuration": 1.632
         }
       ],
-      "_minDuration": 9,
+      "_minDuration": 10,
       "subtitles_enabled": true,
       "position": 6
+    },
+    {
+      "_id": "in2_s5",
+      "media_mode": "image",
+      "decision": {
+        "prompt": "",
+        "interaction_type": "click",
+        "options": []
+      },
+      "transition_duration": 300,
+      "image_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69e961cfb5fee93883c15e08_original_ChatGPT Image 22 de abr. de 2026, 21_02_23.png",
+      "story_id": "in2",
+      "background_audio": {
+        "loop": false,
+        "volume": 1
+      },
+      "description": "Pedro com véu e luvas abrindo a colmeia de madeira com movimentos lentos e seguros. Abelhas ao redor, calmas. Seu Zé ao lado com fumigador aplicando fumaça suave, sorriso de aprovação no rosto. Dona Maria e Ana observando ao fundo com admiração. Favo dourado brilhante visível dentro da colmeia aberta. Luz quente da manhã. Estilo cartoon Gravity Falls, cena técnica e harmoniosa.",
+      "media": {
+        "type": "image",
+        "url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69e961cfb5fee93883c15e08_original_ChatGPT Image 22 de abr. de 2026, 21_02_23.png",
+        "duration": 20
+      },
+      "title": "Abrindo a Colmeia",
+      "type": "scene",
+      "transition": "fade",
+      "dialogues": [
+        {
+          "position": 0,
+          "character_id": "in2_c1",
+          "text": "Exato! A fumaça imita sinal de incêndio — as abelhas enchem o papo de mel pra fugir e ficam dóceis. Um truque que usa o instinto natural delas.",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea494db5fee93883c2e618_story-tts-69ea494db5fee93883c2e617.mp3",
+          "_ttsGenerating": false,
+          "_audioDuration": 9
+        },
+        {
+          "position": 1,
+          "text": "Com a técnica certa, Pedro abre a primeira colmeia. As abelhas continuam trabalhando, sem agitação.",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea4952b5fee93883c2e61c_story-tts-69ea4952b5fee93883c2e61b.mp3",
+          "_ttsGenerating": false,
+          "_audioDuration": 6.168
+        },
+        {
+          "position": 2,
+          "character_id": "in2_c2",
+          "text": "Olha que lindo! Todo o favo cheio. Mas será que está no ponto?",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea4956b5fee93883c2e61e_story-tts-69ea4956b5fee93883c2e61d.mp3",
+          "_ttsGenerating": false,
+          "_audioDuration": 3.864
+        }
+      ],
+      "next_scene_id": "in2_s6",
+      "_minDuration": 20,
+      "subtitles_enabled": true,
+      "position": 5
+    },
+    {
+      "_id": "in2_s4",
+      "media_mode": "image",
+      "decision": {
+        "prompt": "",
+        "interaction_type": "click",
+        "options": []
+      },
+      "transition_duration": 300,
+      "image_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69e96127b5fee93883c14414_original_Story Mel - ma1 (5).jpg",
+      "story_id": "in2",
+      "background_audio": {
+        "loop": false,
+        "volume": 1
+      },
+      "description": "TODO — Ilustração didática em dois painéis lado a lado: painel esquerdo mostra abelhas em estado de alarme (ferrão levantado, feromônio representado como ondas vermelhas); painel direito mostra abelhas tranquilas enchendo o papo de mel sob fumaça branca suave. Seu Zé aponta para cada painel como um professor. Fundo bege ou amarelo suave. Estilo cartoon Gravity Falls, diferente da cena S3.",
+      "media": {
+        "type": "image",
+        "url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69e96127b5fee93883c14414_original_Story Mel - ma1 (5).jpg",
+        "duration": 18
+      },
+      "title": "Entendendo a Fumaça",
+      "type": "scene",
+      "transition": "fade",
+      "dialogues": [
+        {
+          "position": 0,
+          "character_id": "in2_c1",
+          "text": "A fumaça não mata nada — ela imita um incêndio florestal. As abelhas enchem o papo de mel, preparando pra fugir.",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea4931b5fee93883c2e5f2_story-tts-69ea4931b5fee93883c2e5f1.mp3",
+          "_ttsGenerating": false,
+          "_audioDuration": 6.912
+        },
+        {
+          "position": 1,
+          "character_id": "in2_c1",
+          "text": "Com o papo cheio, elas ficam dóceis e é difícil usar o ferrão. É o instinto natural delas trabalhando a nosso favor.",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea4937b5fee93883c2e5fd_story-tts-69ea4937b5fee93883c2e5fc.mp3",
+          "_ttsGenerating": false,
+          "_audioDuration": 7.344
+        },
+        {
+          "position": 2,
+          "character_id": "in2_c1",
+          "text": "Agora que você entendeu — pra que serve mesmo a fumaça?",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea493cb5fee93883c2e604_story-tts-69ea493cb5fee93883c2e603.mp3",
+          "_ttsGenerating": false,
+          "_audioDuration": 2.88
+        }
+      ],
+      "next_scene_id": "in2_s3",
+      "_minDuration": 18,
+      "subtitles_enabled": true,
+      "position": 4
     },
     {
       "_id": "in2_s7",
@@ -386,11 +412,11 @@
         "loop": false,
         "volume": 1
       },
-      "description": "TODO — Detalhe de favo com células operculadas — células fechadas com fina camada de cera branca, algumas ainda abertas com mel dourado brilhante. Pedro conta as células operculadas com expressão concentrada e satisfeita. Seu Zé observa com satisfação e orgulho. Cores âmbar e dourado intensos. Estilo cartoon Gravity Falls.",
+      "description": "Detalhe de favo com células operculadas — células fechadas com fina camada de cera branca, algumas ainda abertas com mel dourado brilhante. Pedro conta as células operculadas com expressão concentrada e satisfeita. Seu Zé observa com satisfação e orgulho. Cores âmbar e dourado intensos. Estilo cartoon Gravity Falls.",
       "media": {
         "type": "image",
         "url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69e9634fb5fee93883c15e66_original_Story Mel - ma1 (7).jpg",
-        "duration": 14
+        "duration": 15
       },
       "title": "O Ponto Certo",
       "type": "scene",
@@ -400,16 +426,20 @@
           "position": 0,
           "character_id": "in2_c1",
           "text": "Isso mesmo! Quando as abelhas fecham a célula com cera — opercular — é o sinal que o mel está maduro. Elas só fecham quando a umidade está certa.",
-          "audio_url": ""
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea4973b5fee93883c2e624_story-tts-69ea4973b5fee93883c2e623.mp3",
+          "_ttsGenerating": false,
+          "_audioDuration": 9.072
         },
         {
           "position": 1,
           "text": "Pedro confere o quadro: mais de 80% das células operculadas. Está pronto.",
-          "audio_url": ""
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea4976b5fee93883c2e628_story-tts-69ea4976b5fee93883c2e627.mp3",
+          "_ttsGenerating": false,
+          "_audioDuration": 4.944
         }
       ],
       "next_scene_id": "in2_s15",
-      "_minDuration": 14,
+      "_minDuration": 15,
       "subtitles_enabled": true,
       "position": 7
     },
@@ -428,7 +458,7 @@
         "loop": false,
         "volume": 1
       },
-      "description": "TODO — Close em Pedro segurando um quadro de favo com células abertas e fechadas misturadas. Expressão curiosa e concentrada. Seu Zé aponta para as células abertas com seriedade, como quem alerta para um risco real. Ao fundo, sobre a mesa, um pote de mel levemente turvo — mel colhido cedo — como exemplo visual. Estilo cartoon Gravity Falls, paleta âmbar.",
+      "description": "Close em Pedro segurando um quadro de favo com células abertas e fechadas misturadas. Expressão curiosa e concentrada. Seu Zé aponta para as células abertas com seriedade, como quem alerta para um risco real. Ao fundo, sobre a mesa, um pote de mel levemente turvo — mel colhido cedo — como exemplo visual. Estilo cartoon Gravity Falls, paleta âmbar.",
       "media": {
         "type": "image",
         "url": "",
@@ -442,17 +472,21 @@
           "position": 0,
           "character_id": "in2_c3",
           "text": "Então quanto mais células fechadas, melhor o mel?",
-          "audio_url": ""
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea4983b5fee93883c2e62d_story-tts-69ea4983b5fee93883c2e62c.mp3",
+          "_ttsGenerating": false,
+          "_audioDuration": 3.048
         },
         {
           "position": 1,
           "character_id": "in2_c1",
           "text": "Exatamente. E se tirar cedo? Fermenta. E fermenta rápido. Você perde o pote e a reputação.",
-          "audio_url": ""
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea4988b5fee93883c2e630_story-tts-69ea4988b5fee93883c2e62f.mp3",
+          "_ttsGenerating": false,
+          "_audioDuration": 5.544
         }
       ],
       "next_scene_id": "in2_s9",
-      "_minDuration": 12,
+      "_minDuration": 9,
       "subtitles_enabled": true,
       "position": 8
     },
@@ -471,11 +505,11 @@
         "loop": false,
         "volume": 1
       },
-      "description": "TODO — Dois potes de mel lado a lado como comparação: um dourado e cristalino sobre a mesa com etiqueta 'Operculado — pronto'; outro turvo e opaco com etiqueta 'Colhido cedo — fermentando'. Seu Zé aponta para a diferença com expressão didática. Dona Maria ao lado com expressão de quem já viu mel fermentado antes. Fundo rústico da varanda. Estilo cartoon Gravity Falls.",
+      "description": "Dois potes de mel lado a lado como comparação: um dourado e cristalino sobre a mesa com etiqueta 'Operculado — pronto'; outro turvo e opaco com etiqueta 'Colhido cedo — fermentando'. Seu Zé aponta para a diferença com expressão didática. Dona Maria ao lado com expressão de quem já viu mel fermentado antes. Fundo rústico da varanda. Estilo cartoon Gravity Falls.",
       "media": {
         "type": "image",
         "url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69e963f5b5fee93883c15e6c_original_Story Mel - ma1 (8).jpg",
-        "duration": 13
+        "duration": 22
       },
       "title": "Entendendo o Ponto do Mel",
       "type": "scene",
@@ -485,110 +519,31 @@
           "position": 0,
           "character_id": "in2_c1",
           "text": "A cor escura não determina o ponto — ela varia conforme a flor. Mel de jurema é escuro, mel de angico é mais claro.",
-          "audio_url": ""
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea4993b5fee93883c2e633_story-tts-69ea4993b5fee93883c2e632.mp3",
+          "_ttsGenerating": false,
+          "_audioDuration": 7.08
         },
         {
           "position": 1,
           "character_id": "in2_c1",
           "text": "O que determina se está pronto é a operculação — as células fechadas com cera. São as próprias abelhas que garantem a umidade certa.",
-          "audio_url": ""
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea49a6b5fee93883c2e63a_story-tts-69ea49a6b5fee93883c2e639.mp3",
+          "_ttsGenerating": false,
+          "_audioDuration": 8.52
         },
         {
           "position": 2,
           "character_id": "in2_c2",
           "text": "Se colher antes de operculado, o mel fermenta em poucos dias e a venda vai por água abaixo.",
-          "audio_url": ""
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea49a0b5fee93883c2e637_story-tts-69ea49a0b5fee93883c2e636.mp3",
+          "_ttsGenerating": false,
+          "_audioDuration": 5.784
         }
       ],
       "next_scene_id": "in2_s9",
-      "_minDuration": 13,
+      "_minDuration": 22,
       "subtitles_enabled": true,
       "position": 9
-    },
-    {
-      "_id": "in2_s9",
-      "media_mode": "image",
-      "decision": {
-        "prompt": "",
-        "interaction_type": "click",
-        "options": []
-      },
-      "transition_duration": 300,
-      "image_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69e96498b5fee93883c15e81_original_Story Mel - ma1 (9).jpg",
-      "story_id": "in2",
-      "background_audio": {
-        "loop": false,
-        "volume": 1
-      },
-      "description": "TODO — Cena animada da extração em família: Pedro e Seu Zé ao lado de uma centrífuga manual, quadros de favo girando, mel escorrendo dourado. Ana e Dona Maria em mesa separada com garfo desoperculador, retirando a tampa de cera das células com movimentos cuidadosos. Todos concentrados, cada um no seu papel. Ambiente de trabalho familiar animado com mel dourado por todo lado. Estilo cartoon Gravity Falls, cores douradas e quentes.",
-      "media": {
-        "type": "image",
-        "url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69e96498b5fee93883c15e81_original_Story Mel - ma1 (9).jpg",
-        "duration": 14
-      },
-      "title": "A Extração em Família",
-      "type": "scene",
-      "transition": "fade",
-      "dialogues": [
-        {
-          "position": 0,
-          "text": "Com os quadros certos selecionados, a família se organiza para a extração. Cada um tem seu papel.",
-          "audio_url": ""
-        },
-        {
-          "position": 1,
-          "character_id": "in2_c4",
-          "text": "Eu fico na desoperculação — tirando a tampinha de cera?",
-          "audio_url": ""
-        }
-      ],
-      "next_scene_id": "in2_s16",
-      "_minDuration": 14,
-      "subtitles_enabled": true,
-      "position": 10
-    },
-    {
-      "_id": "in2_s16",
-      "media_mode": "image",
-      "decision": {
-        "prompt": "",
-        "interaction_type": "click",
-        "options": []
-      },
-      "transition_duration": 300,
-      "image_url": "",
-      "story_id": "in2",
-      "background_audio": {
-        "loop": false,
-        "volume": 1
-      },
-      "description": "TODO — A família distribuída em duas estações de trabalho: Pedro e Seu Zé posicionados junto à centrífuga manual, braços no equipamento, expressão de concentração. Ana e Dona Maria na mesa de desoperculação com garfos, trabalhando lado a lado. Mel dourado escorrendo dos quadros. Ambiente de galpão rústico com luz quente. Estilo cartoon Gravity Falls, dinâmico e cheio de vida.",
-      "media": {
-        "type": "image",
-        "url": "",
-        "duration": 12
-      },
-      "title": "A Divisão do Trabalho",
-      "type": "scene",
-      "transition": "fade",
-      "dialogues": [
-        {
-          "position": 0,
-          "character_id": "in2_c1",
-          "text": "Você e a mãe. Eu e Pedro centrifugamos. Depois filtramos juntos e embalamos.",
-          "audio_url": ""
-        },
-        {
-          "position": 1,
-          "character_id": "in2_c2",
-          "text": "Família unida, mel de qualidade. É assim que funciona.",
-          "audio_url": ""
-        }
-      ],
-      "next_scene_id": "in2_s10",
-      "_minDuration": 12,
-      "subtitles_enabled": true,
-      "position": 11
     },
     {
       "_id": "in2_s10",
@@ -616,7 +571,7 @@
         "loop": false,
         "volume": 1
       },
-      "description": "TODO — Colmeia aberta, quadros sendo analisados. Pedro segura um quadro ainda com bastante mel, hesitante, olhando para Seu Zé. Expressão de quem quer tirar tudo mas está em dúvida. Abelhas ao redor na colmeia. Seu Zé aguarda a resposta com paciência. Luz quente do dia. Estilo cartoon Gravity Falls.",
+      "description": "Colmeia aberta, quadros sendo analisados. Pedro segura um quadro ainda com bastante mel, hesitante, olhando para Seu Zé. Expressão de quem quer tirar tudo mas está em dúvida. Abelhas ao redor na colmeia. Seu Zé aguarda a resposta com paciência. Luz quente do dia. Estilo cartoon Gravity Falls.",
       "media": {
         "type": "image",
         "url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69e9652fb5fee93883c15e86_original_Story Mel - ma1 (10).jpg",
@@ -630,18 +585,115 @@
           "position": 0,
           "character_id": "in2_c1",
           "text": "Pedro, antes de fechar a colmeia — uma última pergunta.",
-          "audio_url": ""
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea49e8b5fee93883c2e649_story-tts-69ea49e8b5fee93883c2e648.mp3",
+          "_ttsGenerating": false,
+          "_audioDuration": 3.408
         },
         {
           "position": 1,
           "character_id": "in2_c3",
           "text": "Quanto mel a gente pode tirar? Tem que deixar alguma reserva pra elas?",
-          "audio_url": ""
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea49edb5fee93883c2e64b_story-tts-69ea49edb5fee93883c2e64a.mp3",
+          "_ttsGenerating": false,
+          "_audioDuration": 4.368
         }
       ],
-      "_minDuration": 9,
+      "_minDuration": 8,
       "subtitles_enabled": true,
       "position": 12
+    },
+    {
+      "_id": "in2_s9",
+      "media_mode": "image",
+      "decision": {
+        "prompt": "",
+        "interaction_type": "click",
+        "options": []
+      },
+      "transition_duration": 300,
+      "image_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69e96498b5fee93883c15e81_original_Story Mel - ma1 (9).jpg",
+      "story_id": "in2",
+      "background_audio": {
+        "loop": false,
+        "volume": 1
+      },
+      "description": "Cena animada da extração em família: Pedro e Seu Zé ao lado de uma centrífuga manual, quadros de favo girando, mel escorrendo dourado. Ana e Dona Maria em mesa separada com garfo desoperculador, retirando a tampa de cera das células com movimentos cuidadosos. Todos concentrados, cada um no seu papel. Ambiente de trabalho familiar animado com mel dourado por todo lado. Estilo cartoon Gravity Falls, cores douradas e quentes.",
+      "media": {
+        "type": "image",
+        "url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69e96498b5fee93883c15e81_original_Story Mel - ma1 (9).jpg",
+        "duration": 14
+      },
+      "title": "A Extração em Família",
+      "type": "scene",
+      "transition": "fade",
+      "dialogues": [
+        {
+          "position": 0,
+          "text": "Com os quadros certos selecionados, a família se organiza para a extração. Cada um tem seu papel.",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea49b5b5fee93883c2e63c_story-tts-69ea49b5b5fee93883c2e63b.mp3",
+          "_ttsGenerating": false,
+          "_audioDuration": 6.12
+        },
+        {
+          "position": 1,
+          "character_id": "in2_c4",
+          "text": "Eu fico na desoperculação — tirando a tampinha de cera?",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea49bab5fee93883c2e63e_story-tts-69ea49bab5fee93883c2e63d.mp3",
+          "_ttsGenerating": false,
+          "_audioDuration": 3.48
+        }
+      ],
+      "next_scene_id": "in2_s16",
+      "_minDuration": 10,
+      "subtitles_enabled": true,
+      "position": 10
+    },
+    {
+      "_id": "in2_s16",
+      "media_mode": "image",
+      "decision": {
+        "prompt": "",
+        "interaction_type": "click",
+        "options": []
+      },
+      "transition_duration": 300,
+      "image_url": "",
+      "story_id": "in2",
+      "background_audio": {
+        "loop": false,
+        "volume": 1
+      },
+      "description": "A família distribuída em duas estações de trabalho: Pedro e Seu Zé posicionados junto à centrífuga manual, braços no equipamento, expressão de concentração. Ana e Dona Maria na mesa de desoperculação com garfos, trabalhando lado a lado. Mel dourado escorrendo dos quadros. Ambiente de galpão rústico com luz quente. Estilo cartoon Gravity Falls, dinâmico e cheio de vida.",
+      "media": {
+        "type": "image",
+        "url": "",
+        "duration": 12
+      },
+      "title": "A Divisão do Trabalho",
+      "type": "scene",
+      "transition": "fade",
+      "dialogues": [
+        {
+          "position": 0,
+          "character_id": "in2_c1",
+          "text": "Você e a mãe. Eu e Pedro centrifugamos. Depois filtramos juntos e embalamos.",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea49c5b5fee93883c2e640_story-tts-69ea49c5b5fee93883c2e63f.mp3",
+          "_ttsGenerating": false,
+          "_audioDuration": 4.488
+        },
+        {
+          "position": 1,
+          "character_id": "in2_c2",
+          "text": "Família unida, mel de qualidade. É assim que funciona.",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea49d9b5fee93883c2e647_story-tts-69ea49d9b5fee93883c2e646.mp3",
+          "_ttsGenerating": false,
+          "_audioDuration": 3.36
+        }
+      ],
+      "next_scene_id": "in2_s10",
+      "_minDuration": 8,
+      "subtitles_enabled": true,
+      "position": 11
     },
     {
       "_id": "in2_s11",
@@ -658,11 +710,11 @@
         "loop": false,
         "volume": 1
       },
-      "description": "TODO — Pedro fechando cuidadosamente a colmeia com expressão satisfeita. Ao fundo, mesa com potes de mel dourado embalados, etiquetas artesanais prontas. A família ao redor admirando o resultado do dia — Seu Zé sorrindo, Dona Maria com os braços cruzados e expressão orgulhosa, Ana pulando de alegria. Luz quente da tarde. Estilo cartoon Gravity Falls, energia positiva.",
+      "description": "Pedro fechando cuidadosamente a colmeia com expressão satisfeita. Ao fundo, mesa com potes de mel dourado embalados, etiquetas artesanais prontas. A família ao redor admirando o resultado do dia — Seu Zé sorrindo, Dona Maria com os braços cruzados e expressão orgulhosa, Ana pulando de alegria. Luz quente da tarde. Estilo cartoon Gravity Falls, energia positiva.",
       "media": {
         "type": "image",
         "url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69e965c7b5fee93883c15e88_original_Story Mel - ma1 (11).jpg",
-        "duration": 12
+        "duration": 19
       },
       "title": "Um Dia Bem Feito",
       "type": "scene",
@@ -672,22 +724,28 @@
           "position": 0,
           "character_id": "in2_c1",
           "text": "Certo! Se tirar tudo, a colônia passa fome na entressafra. Colmeia fraca produz menos na próxima safra — e pode ser abandonada pela rainha.",
-          "audio_url": ""
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea49fcb5fee93883c2e650_story-tts-69ea49fcb5fee93883c2e64f.mp3",
+          "_ttsGenerating": false,
+          "_audioDuration": 8.664
         },
         {
           "position": 1,
           "text": "A família Costa embala os potes com o mel da safra. Cor dourada, aroma intenso, umidade certa.",
-          "audio_url": ""
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea4a02b5fee93883c2e652_story-tts-69ea4a02b5fee93883c2e651.mp3",
+          "_ttsGenerating": false,
+          "_audioDuration": 5.856
         },
         {
           "position": 2,
           "character_id": "in2_c3",
           "text": "Cuida dela bem e ela cuida da gente. Agora eu entendo, pai.",
-          "audio_url": ""
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea4a09b5fee93883c2e654_story-tts-69ea4a09b5fee93883c2e653.mp3",
+          "_ttsGenerating": false,
+          "_audioDuration": 3.624
         }
       ],
       "next_scene_id": "in2_s13",
-      "_minDuration": 12,
+      "_minDuration": 19,
       "subtitles_enabled": true,
       "position": 13
     },
@@ -706,11 +764,11 @@
         "loop": false,
         "volume": 1
       },
-      "description": "TODO — Ilustração comparativa: colmeia com reserva de mel ao lado de colmeia vazia. A colmeia com reserva mostra abelhas ativas e saudáveis voando ao redor; a colmeia vazia mostra abelhas enfraquecidas ou ausentes. Seu Zé aponta para a diferença com expressão didática. Fundo suave. Estilo cartoon Gravity Falls.",
+      "description": "Ilustração comparativa: colmeia com reserva de mel ao lado de colmeia vazia. A colmeia com reserva mostra abelhas ativas e saudáveis voando ao redor; a colmeia vazia mostra abelhas enfraquecidas ou ausentes. Seu Zé aponta para a diferença com expressão didática. Fundo suave. Estilo cartoon Gravity Falls.",
       "media": {
         "type": "image",
         "url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69e966f7b5fee93883c15e91_original_Story Mel - ma1 (12).jpg",
-        "duration": 13
+        "duration": 22
       },
       "title": "A Reserva das Abelhas",
       "type": "scene",
@@ -720,22 +778,28 @@
           "position": 0,
           "character_id": "in2_c1",
           "text": "Tirar tudo enfraquece a colmeia — especialmente na entressafra, quando as flores são poucas. Uma colmeia faminta pode ser abandonada pela rainha.",
-          "audio_url": ""
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea4a19b5fee93883c2e65c_story-tts-69ea4a19b5fee93883c2e65b.mp3",
+          "_ttsGenerating": false,
+          "_audioDuration": 9.048
         },
         {
           "position": 1,
           "text": "Deixar reserva não é perda — é investimento na próxima safra. Colônia forte em outubro garante colheita abundante em março.",
-          "audio_url": ""
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea4a1fb5fee93883c2e670_story-tts-69ea4a1fb5fee93883c2e66f.mp3",
+          "_ttsGenerating": false,
+          "_audioDuration": 7.92
         },
         {
           "position": 2,
           "character_id": "in2_c3",
           "text": "Então a colmeia é uma parceira. A gente cuida dela pra ela cuidar da gente.",
-          "audio_url": ""
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea4a22b5fee93883c2e672_story-tts-69ea4a22b5fee93883c2e671.mp3",
+          "_ttsGenerating": false,
+          "_audioDuration": 4.776
         }
       ],
       "next_scene_id": "in2_s14",
-      "_minDuration": 13,
+      "_minDuration": 22,
       "subtitles_enabled": true,
       "position": 14
     },
@@ -755,11 +819,11 @@
         "loop": false,
         "volume": 1
       },
-      "description": "TODO — Mesa da família Costa coberta de potes de mel dourado embalados, todos sorrindo em volta. Pedro segura um pote com orgulho, Seu Zé com a mão no ombro do filho. Dona Maria e Ana ao lado, expressões de realização. Apiário ao fundo na luz dourada da tarde da Caatinga. Cena épica e calorosa. Estilo cartoon Gravity Falls.",
+      "description": "Mesa da família Costa coberta de potes de mel dourado embalados, todos sorrindo em volta. Pedro segura um pote com orgulho, Seu Zé com a mão no ombro do filho. Dona Maria e Ana ao lado, expressões de realização. Apiário ao fundo na luz dourada da tarde da Caatinga. Cena épica e calorosa. Estilo cartoon Gravity Falls.",
       "media": {
         "type": "image",
         "url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69e967a2b5fee93883c15e93_original_Story Mel - ma1 (13).jpg",
-        "duration": 14
+        "duration": 18
       },
       "title": "A Família Colhe os Frutos",
       "type": "end",
@@ -768,22 +832,28 @@
         {
           "position": 0,
           "text": "Potes de mel da família Costa, prontos para venda. Pedro fez sua primeira colheita — com técnica, cuidado e respeito pelas abelhas.",
-          "audio_url": ""
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea4a30b5fee93883c2e675_story-tts-69ea4a30b5fee93883c2e674.mp3",
+          "_ttsGenerating": false,
+          "_audioDuration": 8.088
         },
         {
           "position": 1,
           "character_id": "in2_c1",
           "text": "Você não só tirou mel hoje. Você entendeu o ciclo. É isso que faz um apicultor de verdade.",
-          "audio_url": ""
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea4a35b5fee93883c2e677_story-tts-69ea4a35b5fee93883c2e676.mp3",
+          "_ttsGenerating": false,
+          "_audioDuration": 5.712
         },
         {
           "position": 2,
           "character_id": "in2_c2",
           "text": "E essa família vai longe. Cada safra melhor que a anterior.",
-          "audio_url": ""
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea4a39b5fee93883c2e679_story-tts-69ea4a39b5fee93883c2e678.mp3",
+          "_ttsGenerating": false,
+          "_audioDuration": 3.744
         }
       ],
-      "_minDuration": 14,
+      "_minDuration": 18,
       "subtitles_enabled": true,
       "position": 15,
       "end_label": "Safra completa, família unida!"
@@ -804,11 +874,11 @@
         "loop": false,
         "volume": 1
       },
-      "description": "TODO — Pedro e Ana sentados na beira do apiário ao fim da tarde, conversando. Potes de mel ao lado deles. Apiário ao fundo com luz suave. Clima de reflexão tranquila entre irmãos. Estilo cartoon Gravity Falls.",
+      "description": "Pedro e Ana sentados na beira do apiário ao fim da tarde, conversando. Potes de mel ao lado deles. Apiário ao fundo com luz suave. Clima de reflexão tranquila entre irmãos. Estilo cartoon Gravity Falls.",
       "media": {
         "type": "image",
         "url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69e97156b5fee93883c17b9b_original_Story Mel - ma1 (18).jpg",
-        "duration": 12
+        "duration": 13
       },
       "title": "O Aprendizado da Safra",
       "type": "end",
@@ -817,22 +887,28 @@
         {
           "position": 0,
           "text": "O mel dessa safra foi colhido — nem tudo perfeito, mas com muito aprendizado.",
-          "audio_url": ""
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea4a50b5fee93883c2e67b_story-tts-69ea4a50b5fee93883c2e67a.mp3",
+          "_ttsGenerating": false,
+          "_audioDuration": 4.752
         },
         {
           "position": 1,
           "character_id": "in2_c1",
           "text": "Cada colheita ensina algo novo. Os erros de hoje são a experiência de amanhã.",
-          "audio_url": ""
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea4a56b5fee93883c2e67d_story-tts-69ea4a56b5fee93883c2e67c.mp3",
+          "_ttsGenerating": false,
+          "_audioDuration": 4.944
         },
         {
           "position": 2,
           "character_id": "in2_c4",
           "text": "Ano que vem a gente faz melhor, irmão. Promessa.",
-          "audio_url": ""
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea4a5cb5fee93883c2e67f_story-tts-69ea4a5cb5fee93883c2e67e.mp3",
+          "_ttsGenerating": false,
+          "_audioDuration": 2.544
         }
       ],
-      "_minDuration": 12,
+      "_minDuration": 13,
       "subtitles_enabled": true,
       "position": 16,
       "end_label": "O aprendizado da safra"

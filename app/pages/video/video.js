@@ -208,8 +208,8 @@ angular.module('rotaViva')
             });
         }
         if (playerId) {
-            ApiService.logAction('complete_lesson', playerId, {
-                lesson_type: 'video',
+            ApiService.logAction('complete_lesson', {
+                type: 'video',
                 lesson_id: videoId,
                 score: 100
             }).catch(function() {});

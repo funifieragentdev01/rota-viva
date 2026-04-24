@@ -81,6 +81,24 @@ angular.module('rotaViva')
           return def ? parseFloat(def) : null;
         }
 
+        function getEndDelay(scene) {
+          if (scene.media && scene.media.duration) {
+            var d = parseFloat(scene.media.duration);
+            if (d > 0) { return d * 1000; }
+          }
+          var def = $scope.story && $scope.story.default_scene_duration;
+          return def ? parseFloat(def) * 1000 : 800;
+        }
+
+        function setupEndVideoWait() {
+          $timeout(function () {
+            var vid = document.querySelector('.rv-story-media video');
+            if (!vid) { handleEnd(); return; }
+            vid.addEventListener('ended', function () { $scope.$apply(function () { handleEnd(); }); });
+            vid.addEventListener('error', function () { $scope.$apply(function () { handleEnd(); }); });
+          }, 200);
+        }
+
         function setupVideoAutoAdvance(scene) {
           if (!scene || scene.media.type !== 'video') return;
           var canAutoAdvance = (scene.type === 'scene' && scene.next_scene_id) || scene.type === 'credits';
@@ -158,7 +176,11 @@ angular.module('rotaViva')
           preloadAdjacent(scene);
 
           if (scene.type === 'end') {
-            $timeout(handleEnd, 800);
+            if (scene.media && scene.media.type === 'video') {
+              setupEndVideoWait();
+            } else {
+              $timeout(handleEnd, getEndDelay(scene));
+            }
           } else if (scene.media && scene.media.type === 'video') {
             setupVideoAutoAdvance(scene);
           } else {
@@ -243,12 +265,13 @@ angular.module('rotaViva')
 
         function playStoryBackgroundAudio() {
           if (!$scope.story || !$scope.story.background_audio || !$scope.story.background_audio.url) return;
+          $scope.bgVolume = safeVolume($scope.story.background_audio.volume, 0.5);
           $timeout(function () {
             var el = document.getElementById('rv-story-global-audio');
             if (!el) return;
             el.src    = $scope.story.background_audio.url;
             el.loop   = $scope.story.background_audio.loop !== false;
-            el.volume = safeVolume($scope.story.background_audio.volume, 0.5);
+            el.volume = $scope.bgVolume;
             el.play();
           }, 80);
         }
@@ -346,8 +369,11 @@ angular.module('rotaViva')
 
         // ── End / Credits ─────────────────────────────────────────────────
         $scope._pendingEndScene = null;
+        var _completeFired = false;
 
         function handleOnComplete() {
+          if (_completeFired) return;
+          _completeFired = true;
           var scene = $scope._pendingEndScene || $scope.currentScene;
           var passed = $scope.story && $scope.story.passing_score
             ? $scope.score >= $scope.story.passing_score
@@ -383,6 +409,7 @@ angular.module('rotaViva')
         $scope.isPaused        = false;
         $scope.controlsVisible = false;
         $scope.hoverVisible    = false;
+        $scope.bgVolume        = 0.5;
         var _hideControlsTimer = null;
         var _leaveTimer        = null;
 
@@ -405,12 +432,18 @@ angular.module('rotaViva')
         };
 
         $scope.tapMedia = function () {
-          if (!$scope.controlsVisible && !$scope.hoverVisible) {
-            $scope.showMediaControls();
+          if ($scope.controlsVisible || $scope.hoverVisible) {
+            if (_hideControlsTimer) { $timeout.cancel(_hideControlsTimer); _hideControlsTimer = null; }
+            $scope.controlsVisible = false;
           } else {
-            $scope.togglePlayback();
             $scope.showMediaControls();
           }
+        };
+
+        $scope.setBgVolume = function (v) {
+          $scope.bgVolume = safeVolume(v, $scope.bgVolume);
+          var el = document.getElementById('rv-story-global-audio');
+          if (el) { el.volume = $scope.bgVolume; }
         };
 
         $scope.onMediaEnter = function () {

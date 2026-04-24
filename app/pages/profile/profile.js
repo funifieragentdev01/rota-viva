@@ -31,7 +31,7 @@ angular.module('rotaViva')
 
     // Refresh player data on load to pick up photo changes made in previous sessions
     if (playerId) {
-        ApiService.getPlayer(playerId).then(function(fresh) {
+        ApiService.getPlayer().then(function(fresh) {
             if (!fresh) return;
             freshPlayer = fresh;
             var freshPhoto = (fresh.image && fresh.image.original && fresh.image.original.url) || fresh.photo || null;
@@ -227,7 +227,7 @@ angular.module('rotaViva')
         if (p.lat) extraUpdate.passaporte_lat = p.lat;
         if (p.lng) extraUpdate.passaporte_lng = p.lng;
         var playerUpdate = angular.extend({}, freshPlayer, { extra: extraUpdate });
-        ApiService.updatePlayer(playerId, playerUpdate)
+        ApiService.updatePlayer(playerUpdate)
             .then(function() {
                 freshPlayer = playerUpdate;
                 localStorage.setItem('rv_player', JSON.stringify(freshPlayer));
@@ -237,7 +237,7 @@ angular.module('rotaViva')
                 $scope.passaporte.email = freshPlayer.email || p.email || '';
                 $scope.passaporteModal = false;
                 _checkPassaporteIncomplete();
-                ApiService.logAction('complete_passport', playerId, { route: routeId });
+                ApiService.logAction('complete_passport', { route: routeId });
                 $timeout(function() { _renderPassaporteQr(); });
             })
             .catch(function() {})
@@ -301,7 +301,7 @@ angular.module('rotaViva')
             myRef = Math.random().toString(36).substr(2, 8).toUpperCase();
             var extraWithRef = angular.extend({}, freshPlayer.extra || {}, { ref: myRef });
             var playerWithRef = angular.extend({}, freshPlayer, { extra: extraWithRef });
-            ApiService.updatePlayer(playerId, playerWithRef).then(function() {
+            ApiService.updatePlayer(playerWithRef).then(function() {
                 freshPlayer = playerWithRef;
                 localStorage.setItem('rv_player', JSON.stringify(freshPlayer));
             }).catch(function() {});
@@ -369,11 +369,12 @@ angular.module('rotaViva')
     // ─── Stats + conquistas ────────────────────────────────────────────────────
     if (playerId) {
         // Carrega status e catálogo de challenges em paralelo
-        var statusPromise = ApiService.getPlayerStatus(playerId);
+        var statusPromise = ApiService.getPlayerStatus();
         var challengesPromise = ApiService.getChallenges();
 
         statusPromise.then(function(status) {
-            $scope.playerPoints = Math.floor(status.total_points || 0);
+            var cats = status.point_categories || {};
+            $scope.playerPoints = Math.floor(cats.xp || 0);
             var lp = status.level_progress || {};
             $scope.playerLevel = (lp.level || {}).position || 1;
             $scope.playerLevelName = (lp.level || {}).name || null;
@@ -384,12 +385,7 @@ angular.module('rotaViva')
             } else {
                 $scope.pointsToNextLevel = null;
             }
-            var wallets = status.wallets || status.virtual_currencies || [];
-            wallets.forEach(function(w) {
-                if (w.virtualCurrency === 'cristais' || (w.name && w.name.toLowerCase().indexOf('cristal') >= 0)) {
-                    $scope.playerCoins = Math.floor(w.balance || 0);
-                }
-            });
+            $scope.playerCoins = Math.floor(cats.coins || 0);
 
             // Aguarda catálogo de challenges para cruzar com earned + in-progress
             challengesPromise.then(function(allChallenges) {
@@ -540,7 +536,7 @@ angular.module('rotaViva')
                         name: $scope.playerName,
                         image: imgObj
                     });
-                    return ApiService.updatePlayer(playerId, playerWithPhoto).then(function() {
+                    return ApiService.updatePlayer(playerWithPhoto).then(function() {
                         freshPlayer = playerWithPhoto;
                         localStorage.setItem('rv_player', JSON.stringify(freshPlayer));
                     });
@@ -568,7 +564,7 @@ angular.module('rotaViva')
         $scope.playerName = name;
         $scope.editingName = false;
         var playerWithName = angular.extend({}, freshPlayer, { name: name });
-        ApiService.updatePlayer(playerId, playerWithName).then(function() {
+        ApiService.updatePlayer(playerWithName).then(function() {
             freshPlayer = playerWithName;
             localStorage.setItem('rv_player', JSON.stringify(freshPlayer));
         }).catch(function() {});
@@ -593,7 +589,7 @@ angular.module('rotaViva')
     $scope.confirmDeleteAccount = function() {
         $scope.showModal = null;
         $scope.deletingAccount = true;
-        AuthService.deleteAccount(playerId).then(function() {
+        AuthService.deleteAccount().then(function() {
             $location.path('/login');
         }).catch(function() {
             $scope.deletingAccount = false;

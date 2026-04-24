@@ -17,9 +17,27 @@
     "first_scene_id": "in1_s1",
     "cover_image": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69e98df7b5fee93883c1a17e_original_Story Mel - ma1 (15).png",
     "status": "draft",
-    "$$hashKey": "object:1092"
+    "$$hashKey": "object:218"
   },
   "characters": [
+    {
+      "_id": "in1_c2",
+      "avatar_thumbnail": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69ea39aab5fee93883c2c42f_original_11.png",
+      "voice_profile": "shimmer",
+      "story_id": "in1",
+      "name": "Dona Maria",
+      "description": "Maria Costa, 48 anos, esposa de Seu Zé. Vestido florido, cabelos compridos presos. Participativa na gestão do apiário, determinada e prática. É ela quem faz as contas da família.",
+      "reference_image": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69ea39b0b5fee93883c2c431_original_12.png"
+    },
+    {
+      "_id": "in1_c1",
+      "avatar_thumbnail": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69ea39c9b5fee93883c2c437_original_1.png",
+      "voice_profile": "onyx",
+      "story_id": "in1",
+      "name": "Seu Zé",
+      "description": "José Costa, apicultor de 52 anos, do Piauí. Pele curtida de sol, chapéu de palha, roupa simples de campo. Sério, experiente e acolhedor. Aprendeu sozinho e quer deixar algo maior para os filhos.",
+      "reference_image": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69ea39d6b5fee93883c2c439_original_2.png"
+    },
     {
       "_id": "in1_c4",
       "avatar_thumbnail": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69ea399bb5fee93883c2c428_original_13.png",
@@ -37,24 +55,6 @@
       "name": "Pedro",
       "description": "Pedro Costa, 19 anos, filho mais velho de Seu Zé e Dona Maria. Cabelos curtos, camiseta e chapéu. Curioso e um pouco impaciente — quer modernizar o apiário e aprender rápido.",
       "reference_image": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69ea39bfb5fee93883c2c435_original_10.png"
-    },
-    {
-      "_id": "in1_c1",
-      "avatar_thumbnail": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69ea39c9b5fee93883c2c437_original_1.png",
-      "voice_profile": "onyx",
-      "story_id": "in1",
-      "name": "Seu Zé",
-      "description": "José Costa, apicultor de 52 anos, do Piauí. Pele curtida de sol, chapéu de palha, roupa simples de campo. Sério, experiente e acolhedor. Aprendeu sozinho e quer deixar algo maior para os filhos.",
-      "reference_image": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69ea39d6b5fee93883c2c439_original_2.png"
-    },
-    {
-      "_id": "in1_c2",
-      "avatar_thumbnail": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69ea39aab5fee93883c2c42f_original_11.png",
-      "voice_profile": "shimmer",
-      "story_id": "in1",
-      "name": "Dona Maria",
-      "description": "Maria Costa, 48 anos, esposa de Seu Zé. Vestido florido, cabelos compridos presos. Participativa na gestão do apiário, determinada e prática. É ela quem faz as contas da família.",
-      "reference_image": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69ea39b0b5fee93883c2c431_original_12.png"
     }
   ],
   "scenes": [
@@ -88,7 +88,8 @@
           "text": "Na propriedade da família Costa, as manhãs têm cheiro de caatinga e zumbido de abelhas. Mas hoje o zumbido estava diferente.",
           "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea2e0fb5fee93883c2a61f_story-tts-69ea2e0fb5fee93883c2a61e.mp3",
           "_ttsGenerating": false,
-          "_audioDuration": 7.896
+          "_audioDuration": 7.896,
+          "_playing": false
         },
         {
           "position": 1,
@@ -96,68 +97,23 @@
           "text": "Zé! Vem cá! Olha o que apareceu no umbuzeiro!",
           "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea2e15b5fee93883c2a621_story-tts-69ea2e15b5fee93883c2a620.mp3",
           "_ttsGenerating": false,
-          "_audioDuration": 2.808
+          "_audioDuration": 2.808,
+          "_playing": false
+        },
+        {
+          "character_id": "in1_c1",
+          "text": "Estou indo mulher. O que foi?",
+          "position": 2,
+          "_playing": false,
+          "_audioDuration": 1.728,
+          "_ttsGenerating": false,
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea56c0b5fee93883c2fd9c_story-tts-69ea56c0b5fee93883c2fd9b.mp3"
         }
       ],
       "next_scene_id": "in1_s2",
-      "_minDuration": 11,
-      "subtitles_enabled": true,
-      "position": 1
-    },
-    {
-      "_id": "in1_s2",
-      "media_mode": "image",
-      "decision": {
-        "prompt": "",
-        "interaction_type": "click",
-        "options": []
-      },
-      "transition_duration": 300,
-      "image_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69e976d2b5fee93883c17bec_original_Story Mel - ma1 (21).jpg",
-      "story_id": "in1",
-      "background_audio": {
-        "loop": false,
-        "volume": 1
-      },
-      "description": "Mesmo quintal, agora com toda a família reunida. Seu Zé (homem nordestino de 52 anos, chapéu de palha, pele curtida, roupa de campo) olha para o enxame com um grande sorriso — ele reconhece o que é isso. Dona Maria ao lado com expressão de dúvida. Pedro (jovem de 19 anos, camiseta e chapéu) e Ana (14 anos, tranças) atrás, Pedro inclinado para frente de curiosidade. Família unida, clima de descoberta. Estilo cartoon Gravity Falls, cores quentes da Caatinga.",
-      "media": {
-        "type": "image",
-        "url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69e976d2b5fee93883c17bec_original_Story Mel - ma1 (21).jpg",
-        "duration": 14
-      },
-      "title": "Seu Zé Reconhece o Presente",
-      "type": "scene",
-      "transition": "fade",
-      "dialogues": [
-        {
-          "position": 0,
-          "character_id": "in1_c4",
-          "text": "Pai! Que tanto de abelha! Pode morder a gente?",
-          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea2e35b5fee93883c2a628_story-tts-69ea2e35b5fee93883c2a627.mp3",
-          "_ttsGenerating": false,
-          "_audioDuration": 2.232
-        },
-        {
-          "position": 1,
-          "character_id": "in1_c1",
-          "text": "Pode não, filha. Esse é um enxame — elas tão procurando um novo lar. Olha que presente nos caiu no quintal!",
-          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea2e3bb5fee93883c2a62a_story-tts-69ea2e3bb5fee93883c2a629.mp3",
-          "_ttsGenerating": false,
-          "_audioDuration": 6.168
-        },
-        {
-          "position": 2,
-          "character_id": "in1_c3",
-          "text": "Um presente? É tanta abelha... Como você vai capturar isso, pai?",
-          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea2e41b5fee93883c2a62d_story-tts-69ea2e41b5fee93883c2a62c.mp3",
-          "_ttsGenerating": false,
-          "_audioDuration": 3.84
-        }
-      ],
-      "next_scene_id": "in1_s3",
       "_minDuration": 13,
       "subtitles_enabled": true,
-      "position": 2
+      "position": 1
     },
     {
       "_id": "in1_s3",
@@ -215,6 +171,61 @@
       "_minDuration": 9,
       "subtitles_enabled": true,
       "position": 3
+    },
+    {
+      "_id": "in1_s2",
+      "media_mode": "image",
+      "decision": {
+        "prompt": "",
+        "interaction_type": "click",
+        "options": []
+      },
+      "transition_duration": 300,
+      "image_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69e976d2b5fee93883c17bec_original_Story Mel - ma1 (21).jpg",
+      "story_id": "in1",
+      "background_audio": {
+        "loop": false,
+        "volume": 1
+      },
+      "description": "Mesmo quintal, agora com toda a família reunida. Seu Zé (homem nordestino de 52 anos, chapéu de palha, pele curtida, roupa de campo) olha para o enxame com um grande sorriso — ele reconhece o que é isso. Dona Maria ao lado com expressão de dúvida. Pedro (jovem de 19 anos, camiseta e chapéu) e Ana (14 anos, tranças) atrás, Pedro inclinado para frente de curiosidade. Família unida, clima de descoberta. Estilo cartoon Gravity Falls, cores quentes da Caatinga.",
+      "media": {
+        "type": "image",
+        "url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69e976d2b5fee93883c17bec_original_Story Mel - ma1 (21).jpg",
+        "duration": 14
+      },
+      "title": "Seu Zé Reconhece o Presente",
+      "type": "scene",
+      "transition": "fade",
+      "dialogues": [
+        {
+          "position": 0,
+          "character_id": "in1_c4",
+          "text": "Pai! Que tanto de abelha! Pode morder a gente?",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea2e35b5fee93883c2a628_story-tts-69ea2e35b5fee93883c2a627.mp3",
+          "_ttsGenerating": false,
+          "_audioDuration": 2.232
+        },
+        {
+          "position": 1,
+          "character_id": "in1_c1",
+          "text": "Pode não, filha. Esse é um enxame — elas tão procurando um novo lar. Olha que presente nos caiu no quintal!",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea2e3bb5fee93883c2a62a_story-tts-69ea2e3bb5fee93883c2a629.mp3",
+          "_ttsGenerating": false,
+          "_audioDuration": 6.168
+        },
+        {
+          "position": 2,
+          "character_id": "in1_c3",
+          "text": "Um presente? É tanta abelha... Como você vai capturar isso, pai?",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea2e41b5fee93883c2a62d_story-tts-69ea2e41b5fee93883c2a62c.mp3",
+          "_ttsGenerating": false,
+          "_audioDuration": 3.84
+        }
+      ],
+      "next_scene_id": "in1_s3",
+      "_minDuration": 13,
+      "subtitles_enabled": true,
+      "position": 2
     },
     {
       "_id": "in1_s4",
@@ -387,68 +398,6 @@
       "position": 6
     },
     {
-      "_id": "in1_s7",
-      "media_mode": "image",
-      "decision": {
-        "prompt": "",
-        "interaction_type": "click",
-        "options": []
-      },
-      "transition_duration": 300,
-      "image_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69e98774b5fee93883c191af_original_Story Mel - ma1 (10).png",
-      "story_id": "in1",
-      "background_audio": {
-        "loop": false,
-        "volume": 1
-      },
-      "description": "Vista interna de colmeia em tons âmbar e dourado. A rainha no centro depositando ovos em células abertas, cercada de operárias em semicírculo que a alimentam. Outras células fechadas com mel brilhante. Pequenas larvas visíveis. Em moldura ao redor, os rostos da família reagindo: Ana encantada, Pedro impressionado, Dona Maria sorrindo, Seu Zé orgulhoso de explicar. Estilo cartoon Gravity Falls, detalhado e rico em cores.",
-      "media": {
-        "type": "image",
-        "url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69e98774b5fee93883c191af_original_Story Mel - ma1 (10).png",
-        "duration": 27
-      },
-      "title": "O Segredo da Colônia",
-      "type": "scene",
-      "transition": "fade",
-      "dialogues": [
-        {
-          "position": 0,
-          "character_id": "in1_c1",
-          "text": "Isso mesmo, Ana! A rainha pode botar até 2 mil ovos por dia. Ela é a mãe de toda a colônia.",
-          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea2d61b5fee93883c2a5fe_story-tts-69ea2d61b5fee93883c2a5fd.mp3",
-          "_ttsGenerating": false,
-          "_audioDuration": 5.64
-        },
-        {
-          "position": 1,
-          "text": "As operárias são fêmeas que não reproduzem. São elas que coletam néctar, produzem mel, constroem o favo, cuidam das larvas e defendem a colmeia.",
-          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea2d6ab5fee93883c2a601_story-tts-69ea2d6ab5fee93883c2a600.mp3",
-          "_ttsGenerating": false,
-          "_audioDuration": 9.072
-        },
-        {
-          "position": 2,
-          "character_id": "in1_c3",
-          "text": "E os zangões? O que fazem os machos?",
-          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea2d71b5fee93883c2a603_story-tts-69ea2d71b5fee93883c2a602.mp3",
-          "_ttsGenerating": false,
-          "_audioDuration": 2.136
-        },
-        {
-          "position": 3,
-          "character_id": "in1_c1",
-          "text": "Os zangões só existem pra fecundar uma nova rainha. Depois disso, as próprias operárias os expulsam. Na colmeia, não tem espaço pra quem não trabalha!",
-          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea2d77b5fee93883c2a605_story-tts-69ea2d77b5fee93883c2a604.mp3",
-          "_ttsGenerating": false,
-          "_audioDuration": 9.552
-        }
-      ],
-      "next_scene_id": "in1_s9",
-      "_minDuration": 27,
-      "subtitles_enabled": true,
-      "position": 7
-    },
-    {
       "_id": "in1_s8",
       "media_mode": "image",
       "decision": {
@@ -566,6 +515,121 @@
       "position": 9
     },
     {
+      "_id": "in1_s7",
+      "media_mode": "image",
+      "decision": {
+        "prompt": "",
+        "interaction_type": "click",
+        "options": []
+      },
+      "transition_duration": 300,
+      "image_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69e98774b5fee93883c191af_original_Story Mel - ma1 (10).png",
+      "story_id": "in1",
+      "background_audio": {
+        "loop": false,
+        "volume": 1
+      },
+      "description": "Vista interna de colmeia em tons âmbar e dourado. A rainha no centro depositando ovos em células abertas, cercada de operárias em semicírculo que a alimentam. Outras células fechadas com mel brilhante. Pequenas larvas visíveis. Em moldura ao redor, os rostos da família reagindo: Ana encantada, Pedro impressionado, Dona Maria sorrindo, Seu Zé orgulhoso de explicar. Estilo cartoon Gravity Falls, detalhado e rico em cores.",
+      "media": {
+        "type": "image",
+        "url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69e98774b5fee93883c191af_original_Story Mel - ma1 (10).png",
+        "duration": 27
+      },
+      "title": "O Segredo da Colônia",
+      "type": "scene",
+      "transition": "fade",
+      "dialogues": [
+        {
+          "position": 0,
+          "character_id": "in1_c1",
+          "text": "Isso mesmo, Ana! A rainha pode botar até 2 mil ovos por dia. Ela é a mãe de toda a colônia.",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea2d61b5fee93883c2a5fe_story-tts-69ea2d61b5fee93883c2a5fd.mp3",
+          "_ttsGenerating": false,
+          "_audioDuration": 5.64
+        },
+        {
+          "position": 1,
+          "text": "As operárias são fêmeas que não reproduzem. São elas que coletam néctar, produzem mel, constroem o favo, cuidam das larvas e defendem a colmeia.",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea2d6ab5fee93883c2a601_story-tts-69ea2d6ab5fee93883c2a600.mp3",
+          "_ttsGenerating": false,
+          "_audioDuration": 9.072
+        },
+        {
+          "position": 2,
+          "character_id": "in1_c3",
+          "text": "E os zangões? O que fazem os machos?",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea2d71b5fee93883c2a603_story-tts-69ea2d71b5fee93883c2a602.mp3",
+          "_ttsGenerating": false,
+          "_audioDuration": 2.136
+        },
+        {
+          "position": 3,
+          "character_id": "in1_c1",
+          "text": "Os zangões só existem pra fecundar uma nova rainha. Depois disso, as próprias operárias os expulsam. Na colmeia, não tem espaço pra quem não trabalha!",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea2d77b5fee93883c2a605_story-tts-69ea2d77b5fee93883c2a604.mp3",
+          "_ttsGenerating": false,
+          "_audioDuration": 9.552
+        }
+      ],
+      "next_scene_id": "in1_s9",
+      "_minDuration": 27,
+      "subtitles_enabled": true,
+      "position": 7
+    },
+    {
+      "_id": "in1_s11",
+      "decision": {
+        "prompt": "",
+        "interaction_type": "click",
+        "options": []
+      },
+      "transition_duration": 300,
+      "story_id": "in1",
+      "background_audio": {
+        "loop": false,
+        "volume": 1
+      },
+      "description": "Os quatro membros da família Costa no quintal ao sol, ao redor da caixa de colmeia nova. Seu Zé com a mão no ombro de Pedro. Ana com sorriso largo de entusiasmo. Dona Maria com o caderninho de contas aberto, expressão satisfeita. Abelhas voando ao redor suavemente. Luz quente e dourada do Piauí. Cena transmite família unida e decidida. Estilo cartoon Gravity Falls, cores vibrantes.",
+      "media": {
+        "type": "image",
+        "url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69e9856ab5fee93883c19153_original_Story Mel - ma1 (8).png",
+        "duration": 17
+      },
+      "title": "A Família Decide Crescer",
+      "type": "scene",
+      "transition": "fade",
+      "dialogues": [
+        {
+          "character_id": "in1_c1",
+          "text": "Isso mesmo! De 15 a 30 kg por safra. Com mais 5 colmeias, a gente aumenta a renda e ainda ajuda a polinizar toda a região.",
+          "position": 0,
+          "_ttsGenerating": false,
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea3160b5fee93883c2a697_story-tts-69ea3160b5fee93883c2a696.mp3",
+          "_audioDuration": 7.848
+        },
+        {
+          "character_id": "in1_c4",
+          "text": "Eu quero ajudar a cuidar das abelhas, pai! Posso?",
+          "position": 1,
+          "_ttsGenerating": false,
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea3164b5fee93883c2a699_story-tts-69ea3164b5fee93883c2a698.mp3",
+          "_audioDuration": 3
+        },
+        {
+          "character_id": "in1_c2",
+          "text": "Então tá decidido. Família unida, apiário crescendo. Vamos aprender juntos no Rota Viva.",
+          "position": 2,
+          "_ttsGenerating": false,
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea3169b5fee93883c2a69b_story-tts-69ea3169b5fee93883c2a69a.mp3",
+          "_audioDuration": 5.52
+        }
+      ],
+      "next_scene_id": "in1_s13",
+      "_minDuration": 17,
+      "subtitles_enabled": true,
+      "position": 11
+    },
+    {
       "_id": "in1_s10",
       "media_mode": "image",
       "decision": {
@@ -625,59 +689,6 @@
       "_minDuration": 10,
       "subtitles_enabled": true,
       "position": 10
-    },
-    {
-      "_id": "in1_s11",
-      "decision": {
-        "prompt": "",
-        "interaction_type": "click",
-        "options": []
-      },
-      "transition_duration": 300,
-      "story_id": "in1",
-      "background_audio": {
-        "loop": false,
-        "volume": 1
-      },
-      "description": "Os quatro membros da família Costa no quintal ao sol, ao redor da caixa de colmeia nova. Seu Zé com a mão no ombro de Pedro. Ana com sorriso largo de entusiasmo. Dona Maria com o caderninho de contas aberto, expressão satisfeita. Abelhas voando ao redor suavemente. Luz quente e dourada do Piauí. Cena transmite família unida e decidida. Estilo cartoon Gravity Falls, cores vibrantes.",
-      "media": {
-        "type": "image",
-        "url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69e9856ab5fee93883c19153_original_Story Mel - ma1 (8).png",
-        "duration": 17
-      },
-      "title": "A Família Decide Crescer",
-      "type": "scene",
-      "transition": "fade",
-      "dialogues": [
-        {
-          "character_id": "in1_c1",
-          "text": "Isso mesmo! De 15 a 30 kg por safra. Com mais 5 colmeias, a gente aumenta a renda e ainda ajuda a polinizar toda a região.",
-          "position": 0,
-          "_ttsGenerating": false,
-          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea3160b5fee93883c2a697_story-tts-69ea3160b5fee93883c2a696.mp3",
-          "_audioDuration": 7.848
-        },
-        {
-          "character_id": "in1_c4",
-          "text": "Eu quero ajudar a cuidar das abelhas, pai! Posso?",
-          "position": 1,
-          "_ttsGenerating": false,
-          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea3164b5fee93883c2a699_story-tts-69ea3164b5fee93883c2a698.mp3",
-          "_audioDuration": 3
-        },
-        {
-          "character_id": "in1_c2",
-          "text": "Então tá decidido. Família unida, apiário crescendo. Vamos aprender juntos no Rota Viva.",
-          "position": 2,
-          "_ttsGenerating": false,
-          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea3169b5fee93883c2a69b_story-tts-69ea3169b5fee93883c2a69a.mp3",
-          "_audioDuration": 5.52
-        }
-      ],
-      "next_scene_id": "in1_s13",
-      "_minDuration": 17,
-      "subtitles_enabled": true,
-      "position": 11
     },
     {
       "_id": "in1_s12",
@@ -789,6 +800,48 @@
       "end_label": "O aprendizado começa em família"
     },
     {
+      "_id": "in1_s15",
+      "media_mode": "image",
+      "decision": {
+        "prompt": "",
+        "interaction_type": "click",
+        "options": []
+      },
+      "transition_duration": 300,
+      "image_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69ea3b81b5fee93883c2c467_original_ROTA DO MEL (1).jpg",
+      "story_id": "in1",
+      "background_audio": {
+        "loop": false,
+        "volume": 1
+      },
+      "description": "TODO — Ilustração cômica e expressiva: zangões (machos com olhos grandes e sem ferrão) sendo empurrados para fora da colmeia por operárias menores mas determinadas. Expressão dos zangões: surpresa e indignação. Seu Zé gesticulando com humor ao explicar, a família rindo. Cena leve e divertida. Estilo cartoon Gravity Falls, exagero expressivo.",
+      "media": {
+        "type": "image",
+        "url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69ea3b81b5fee93883c2c467_original_ROTA DO MEL (1).jpg"
+      },
+      "title": "Os Zangões da Colmeia",
+      "type": "scene",
+      "transition": "fade",
+      "dialogues": [
+        {
+          "position": 0,
+          "character_id": "in1_c3",
+          "text": "E os zangões? O que fazem os machos?",
+          "audio_url": ""
+        },
+        {
+          "position": 1,
+          "character_id": "in1_c1",
+          "text": "Os zangões só existem pra fecundar uma nova rainha. Depois disso, as próprias operárias os expulsam. Na colmeia, não tem espaço pra quem não trabalha!",
+          "audio_url": ""
+        }
+      ],
+      "next_scene_id": "in1_s9",
+      "_minDuration": 12,
+      "subtitles_enabled": true,
+      "position": 8
+    },
+    {
       "_id": "in1_s13",
       "end_score": 10,
       "media_mode": "image",
@@ -842,48 +895,6 @@
       "subtitles_enabled": true,
       "position": 13,
       "end_label": "Uma família que voa junto!"
-    },
-    {
-      "_id": "in1_s15",
-      "media_mode": "image",
-      "decision": {
-        "prompt": "",
-        "interaction_type": "click",
-        "options": []
-      },
-      "transition_duration": 300,
-      "image_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69ea3b81b5fee93883c2c467_original_ROTA DO MEL (1).jpg",
-      "story_id": "in1",
-      "background_audio": {
-        "loop": false,
-        "volume": 1
-      },
-      "description": "TODO — Ilustração cômica e expressiva: zangões (machos com olhos grandes e sem ferrão) sendo empurrados para fora da colmeia por operárias menores mas determinadas. Expressão dos zangões: surpresa e indignação. Seu Zé gesticulando com humor ao explicar, a família rindo. Cena leve e divertida. Estilo cartoon Gravity Falls, exagero expressivo.",
-      "media": {
-        "type": "image",
-        "url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69ea3b81b5fee93883c2c467_original_ROTA DO MEL (1).jpg"
-      },
-      "title": "Os Zangões da Colmeia",
-      "type": "scene",
-      "transition": "fade",
-      "dialogues": [
-        {
-          "position": 0,
-          "character_id": "in1_c3",
-          "text": "E os zangões? O que fazem os machos?",
-          "audio_url": ""
-        },
-        {
-          "position": 1,
-          "character_id": "in1_c1",
-          "text": "Os zangões só existem pra fecundar uma nova rainha. Depois disso, as próprias operárias os expulsam. Na colmeia, não tem espaço pra quem não trabalha!",
-          "audio_url": ""
-        }
-      ],
-      "next_scene_id": "in1_s9",
-      "_minDuration": 12,
-      "subtitles_enabled": true,
-      "position": 8
     },
     {
       "_id": "in1_s16",

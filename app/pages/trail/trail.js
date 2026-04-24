@@ -77,15 +77,10 @@ angular.module('rotaViva')
 
     // ── Player stats ─────────────────────────────────────────────────────
     if (playerId) {
-        ApiService.getPlayerStatus(playerId).then(function(status) {
-            $scope.playerPoints = Math.floor(status.total_points || 0);
-            var wallets = status.wallets || status.virtual_currencies || [];
-            wallets.forEach(function(w) {
-                if (w.virtualCurrency === 'cristais' ||
-                    (w.name && w.name.toLowerCase().indexOf('cristal') >= 0)) {
-                    $scope.playerCoins = Math.floor(w.balance || 0);
-                }
-            });
+        ApiService.getPlayerStatus().then(function(status) {
+            var cats = status.point_categories || {};
+            $scope.playerPoints = Math.floor(cats.xp    || 0);
+            $scope.playerCoins  = Math.floor(cats.coins || 0);
         }).catch(angular.noop);
     }
 

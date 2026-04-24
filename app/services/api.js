@@ -107,15 +107,17 @@ angular.module('rotaViva')
 
     // === Player ===
 
-    api.getPlayerStatus = function(playerId) {
-        return $http.get(baseUrl + '/v3/player/' + playerId + '/status', trailHeaders()).then(function(res) {
+    api.getPlayerStatus = function() {
+        return $http.get(baseUrl + '/v3/player/me/status', trailHeaders()).then(function(res) {
             return res.data || {};
         });
     };
 
-    api.logAction = function(actionId, playerId, attributes) {
-        var body = { actionId: actionId, userId: playerId, attributes: attributes || {} };
-        return $http.post(baseUrl + '/v3/action/log', body, trailHeaders());
+    api.logAction = function(actionId, attributes) {
+        return $http.post(baseUrl + '/v3/action/log',
+            { actionId: actionId, attributes: attributes || {} },
+            trailHeaders()
+        );
     };
 
     api.getActionLogs = function(playerId, limit) {
@@ -358,15 +360,15 @@ angular.module('rotaViva')
         });
     };
 
-    // Busca dados frescos do player (incluindo imagem atualizada)
-    api.getPlayer = function(playerId) {
-        return $http.get(baseUrl + '/v3/player/' + playerId, trailHeaders())
+    // Busca dados frescos do player autenticado
+    api.getPlayer = function() {
+        return $http.get(baseUrl + '/v3/player/me', trailHeaders())
             .then(function(res) { return res.data; });
     };
 
-    // Atualiza dados do player (nome, foto)
-    api.updatePlayer = function(playerId, data) {
-        return $http.post(baseUrl + '/v3/player', angular.extend({ _id: playerId }, data), trailHeaders())
+    // Atualiza dados do player autenticado — servidor extrai _id do token
+    api.updatePlayer = function(data) {
+        return $http.put(baseUrl + '/v3/player/me', data, trailHeaders())
             .then(function(res) { return res.data; });
     };
 

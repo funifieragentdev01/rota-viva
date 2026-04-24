@@ -45,17 +45,17 @@ angular.module('rotaViva')
     };
 
     service.logout = function() {
-        var keys = ['rv_token', 'rv_token_expires_at', 'rv_api_key', 'rv_route', 'rv_player', 'rv_route_id'];
-        keys.forEach(function(k) { localStorage.removeItem(k); });
+        localStorage.clear();
+        sessionStorage.clear();
         ThemeService.reset();
         $location.path('/login');
     };
 
-    service.deleteAccount = function(playerId) {
+    service.deleteAccount = function() {
         var token = localStorage.getItem('rv_token');
         return $q(function(resolve, reject) {
             var xhr = new XMLHttpRequest();
-            xhr.open('DELETE', CONFIG.API_URL + '/v3/player/' + playerId);
+            xhr.open('DELETE', CONFIG.API_URL + '/v3/player/me');
             xhr.setRequestHeader('Authorization', token);
             xhr.onload = function() {
                 if (xhr.status >= 200 && xhr.status < 300) {

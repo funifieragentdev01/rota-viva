@@ -99,13 +99,13 @@ angular.module('rotaViva')
         var extraUpdate  = angular.extend({}, player.extra || {}, { onboarding_done: true });
         var playerUpdate = angular.extend({}, player, { extra: extraUpdate });
 
-        ApiService.updatePlayer(playerId, playerUpdate)
+        ApiService.updatePlayer(playerUpdate)
             .then(function() {
                 // Atualiza player em sessão local
                 localStorage.setItem('rv_player', JSON.stringify(playerUpdate));
 
                 // Dispara ação +50 XP no Funifier
-                ApiService.logAction('onboarding_complete', playerId, { route: routeId });
+                ApiService.logAction('complete_onboarding', { route: routeId });
             })
             .catch(angular.noop) // Não bloqueia o fluxo se falhar
             .finally(function() {

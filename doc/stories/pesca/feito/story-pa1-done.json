@@ -1,0 +1,817 @@
+{
+  "story": {
+    "_id": "pa1",
+    "aspect_ratio": "9:16",
+    "subtitle_font_size": 22,
+    "default_scene_duration": 6,
+    "show_cover_first": true,
+    "background_audio": {
+      "loop": true,
+      "volume": 0.1,
+      "url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/documents/69eaee02b5fee93883c42061_Lukrembo - River (freetouse.com).mp3"
+    },
+    "synopsis": "O defeso começa em três semanas — e Seu Raimundo acabou de descobrir que seu RGP está vencido há dois anos.\n\nSem o registro atualizado, ele perde o direito ao seguro-defeso: um salário mínimo por mês enquanto a pesca está proibida. Lucas convence o pai a ir à Colônia de Pescadores antes que seja tarde.\n\nNa sede da colônia, Seu Raimundo descobre que o documento vencido é a menor parte do problema. E que, com o RGP em dia, há muito mais à sua disposição do que imaginava.",
+    "title": "Módulo A1 - Antes do Defeso",
+    "passing_score": 28,
+    "genre": "Drama",
+    "first_scene_id": "pa1_s1",
+    "cover_image": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story/69eaee21b5fee93883c42063_original_freepik_agora-faz-a-capa-dessa-hi_2854778462 (1).png",
+    "status": "active",
+    "$$hashKey": "object:3690"
+  },
+  "characters": [
+    {
+      "_id": "pa1_c3",
+      "avatar_thumbnail": "",
+      "voice_profile": "alloy",
+      "story_id": "pa1",
+      "name": "Técnico do RURAP",
+      "description": "Marcos, técnico do RURAP (Instituto de Desenvolvimento Rural do Amapá), 30 anos. Óculos, camiseta do RURAP, prancheta. Vai toda semana à Colônia orientar pescadores. Entusiasta do PRONAF Pesca.",
+      "reference_image": ""
+    },
+    {
+      "_id": "pa1_c2",
+      "avatar_thumbnail": "",
+      "voice_profile": "shimmer",
+      "story_id": "pa1",
+      "name": "Agente da Colônia",
+      "description": "Funcionária da Colônia de Pescadores, 35 anos. Uniforme simples, cabelos presos, expressão acolhedora e profissional. Conhece cada detalhe do Seguro-Defeso e do RGP — e tem paciência para explicar a quem nunca entendeu.",
+      "reference_image": ""
+    },
+    {
+      "_id": "pa1_c1",
+      "avatar_thumbnail": "",
+      "voice_profile": "onyx",
+      "story_id": "pa1",
+      "name": "Seu Raimundo",
+      "description": "Raimundo Lopes, pescador artesanal de 50 anos do interior do Nordeste. Pele curtida, barba rala, colete de pescador. Trinta anos de rio — orgulhoso, trabalhador e avesso a burocracia. Nunca precisou pedir ajuda ao governo.",
+      "reference_image": ""
+    },
+    {
+      "_id": "69eae7acb5fee93883c40a27",
+      "voice_profile": "alloy",
+      "story_id": "pa1",
+      "name": "Lucas",
+      "description": "Lucas Lopes, 18 anos, filho mais velho. Colete de pescador, olhar determinado. Está em sua primeira saída como parceiro do pai — quer provar que pode pescar como adulto."
+    }
+  ],
+  "scenes": [
+    {
+      "_id": "pa1_s1",
+      "decision": {
+        "prompt": "",
+        "interaction_type": "click",
+        "options": []
+      },
+      "transition_duration": 0,
+      "story_id": "pa1",
+      "background_audio": {
+        "loop": false,
+        "volume": 1
+      },
+      "media": {
+        "type": "image",
+        "url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story/69eae80fb5fee93883c40a3e_original_freepik_todo-casa-ribeirinha-simp_2854507581 (1).png",
+        "duration": 26
+      },
+      "title": "O Defeso Se Aproxima",
+      "type": "scene",
+      "transition": "slide",
+      "dialogues": [
+        {
+          "text": "Três semanas antes do defeso, Lucas chega com uma mensagem da colônia no celular.",
+          "position": 0,
+          "_ttsGenerating": false,
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story_audio/69eaea6fb5fee93883c415af_story-tts-69eaea6fb5fee93883c415ae.mp3",
+          "_audioDuration": 5.088
+        },
+        {
+          "character_id": "69eae7acb5fee93883c40a27",
+          "text": "Pai, chegou aviso da colônia. 'Pescadores com RGP vencido não recebem o seguro-defeso este ano. Prazo de renovação: 10 dias.",
+          "position": 1,
+          "_ttsGenerating": false,
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story_audio/69eaea7eb5fee93883c415b1_story-tts-69eaea7eb5fee93883c415b0.mp3",
+          "_audioDuration": 8.088
+        },
+        {
+          "character_id": "pa1_c1",
+          "text": "Quanto tempo faz que não renovo esse negócio?",
+          "position": 2,
+          "_ttsGenerating": false,
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story_audio/69eaea8db5fee93883c415b3_story-tts-69eaea8db5fee93883c415b2.mp3",
+          "_audioDuration": 2.976
+        },
+        {
+          "character_id": "69eae7acb5fee93883c40a27",
+          "text": "Dois anos, pai. Dois anos.",
+          "position": 3,
+          "_ttsGenerating": false,
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story_audio/69eaea9ab5fee93883c415b5_story-tts-69eaea9ab5fee93883c415b4.mp3",
+          "_audioDuration": 1.512
+        }
+      ],
+      "next_scene_id": "pa1_s2",
+      "_minDuration": 18,
+      "subtitles_enabled": true,
+      "position": 1
+    },
+    {
+      "_id": "pa1_s2",
+      "decision": {
+        "prompt": "",
+        "interaction_type": "click",
+        "options": []
+      },
+      "story_id": "pa1",
+      "background_audio": {
+        "loop": false,
+        "volume": 1
+      },
+      "media": {
+        "type": "image",
+        "url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story/69eae81ab5fee93883c40a40_original_freepik_retire-esse-z-21-town-nam_2854518478 (1) (2).png",
+        "duration": 15
+      },
+      "title": "Na Porta da Colônia",
+      "type": "scene",
+      "transition": "slide",
+      "dialogues": [
+        {
+          "character_id": "pa1_c1",
+          "text": "Tô entrando aqui porque se não entrar, perco o seguro. E a família fica sem renda no defeso.",
+          "position": 0,
+          "_ttsGenerating": false,
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story_audio/69eaead1b5fee93883c415b7_story-tts-69eaead1b5fee93883c415b6.mp3",
+          "_audioDuration": 5.832
+        },
+        {
+          "text": "Vamos pai.",
+          "position": 1,
+          "character_id": "69eae7acb5fee93883c40a27",
+          "_ttsGenerating": false,
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story_audio/69eaeae8b5fee93883c415bb_story-tts-69eaeae8b5fee93883c415ba.mp3",
+          "_audioDuration": 0.6
+        }
+      ],
+      "next_scene_id": "pa1_s3",
+      "_minDuration": 7,
+      "subtitles_enabled": true,
+      "position": 2
+    },
+    {
+      "_id": "pa1_s3",
+      "dialogues": [
+        {
+          "character_id": "pa1_c2",
+          "text": "Seu Raimundo, esse RGP venceu há dois anos. Sem renovação, o INSS vai negar o seguro-defeso automaticamente.",
+          "position": 0,
+          "_ttsGenerating": false,
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story_audio/69eaeb0cb5fee93883c415bd_story-tts-69eaeb0cb5fee93883c415bc.mp3",
+          "_audioDuration": 6.768
+        },
+        {
+          "text": "O prazo está acabando. O que o senhor quer fazer?",
+          "position": 1,
+          "character_id": "pa1_c2",
+          "_ttsGenerating": false,
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story_audio/69eaeb18b5fee93883c41857_story-tts-69eaeb18b5fee93883c41856.mp3",
+          "_audioDuration": 3.048
+        }
+      ],
+      "decision": {
+        "prompt": "O que Seu Raimundo deve fazer?",
+        "interaction_type": "click",
+        "options": [
+          {
+            "label": "Renovar agora — o defeso começa em três semanas e não dá pra perder o seguro",
+            "next_scene_id": "pa1_s5",
+            "score": 10
+          },
+          {
+            "label": "Deixar pra outra vez — três semanas ainda é tempo suficiente",
+            "next_scene_id": "pa1_s4",
+            "score": 1
+          }
+        ]
+      },
+      "_minDuration": 10,
+      "story_id": "pa1",
+      "background_audio": {
+        "loop": false,
+        "volume": 1
+      },
+      "subtitles_enabled": true,
+      "media": {
+        "type": "image",
+        "url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story/69eae831b5fee93883c40a42_original_freepik_deixe-a-roupa-de-lucas-ig_2854523786 (1).png",
+        "duration": 10
+      },
+      "position": 3,
+      "title": "O RGP Está Desatualizado",
+      "type": "decision",
+      "transition": "fade"
+    },
+    {
+      "_id": "pa1_s4",
+      "decision": {
+        "prompt": "",
+        "interaction_type": "click",
+        "options": []
+      },
+      "story_id": "pa1",
+      "background_audio": {
+        "loop": false,
+        "volume": 1
+      },
+      "media": {
+        "type": "image",
+        "url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story/69eae858b5fee93883c40a48_original_freepik_todo-agente-da-colonia-mo_2854527843 (1).png",
+        "duration": 20
+      },
+      "title": "O Custo do Adiamento",
+      "type": "scene",
+      "transition": "slide",
+      "dialogues": [
+        {
+          "character_id": "pa1_c2",
+          "text": "Deixa eu mostrar o que está em jogo. O defeso dura três meses. O seguro paga um salário mínimo por mês.",
+          "position": 0,
+          "_ttsGenerating": false,
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story_audio/69eaeb83b5fee93883c41da8_story-tts-69eaeb83b5fee93883c41da7.mp3",
+          "_audioDuration": 6.6
+        },
+        {
+          "character_id": "pa1_c2",
+          "text": "Três semanas podem parecer muito — mas a documentação leva dias. Se chegar atrasado, o INSS nega.",
+          "position": 1,
+          "_ttsGenerating": false,
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story_audio/69eaeb8fb5fee93883c41ec2_story-tts-69eaeb8fb5fee93883c41ec1.mp3",
+          "_audioDuration": 5.976
+        },
+        {
+          "character_id": "pa1_c1",
+          "text": "R$ 4.236. É o que a família perde se eu não resolver agora.",
+          "position": 2,
+          "_ttsGenerating": false,
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story_audio/69eaeb9db5fee93883c4201c_story-tts-69eaeb9db5fee93883c4201b.mp3",
+          "_audioDuration": 4.392
+        }
+      ],
+      "next_scene_id": "pa1_s6",
+      "_minDuration": 17,
+      "subtitles_enabled": true,
+      "position": 4
+    },
+    {
+      "_id": "pa1_s5",
+      "media_mode": "image",
+      "decision": {
+        "prompt": "",
+        "interaction_type": "click",
+        "options": []
+      },
+      "transition_duration": 300,
+      "image_url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/images/69eaefdab5fee93883c42065_original_freepik_todo-seu-raimundo-sentado_2854532742 (1).png",
+      "story_id": "pa1",
+      "background_audio": {
+        "loop": false,
+        "volume": 1
+      },
+      "description": "TODO — Seu Raimundo sentado na mesa de atendimento da Colônia, preenchendo formulários com atenção. A Agente ao lado orientando com paciência, apontando para cada campo. Documentos organizados na mesa: RGP, CPF, comprovante de filiação. Cartaz na parede: 'Seus Direitos Como Pescador Artesanal'. Estilo cartoon Gravity Falls, ambiente de trabalho acolhedor.",
+      "media": {
+        "type": "image",
+        "url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/images/69eaefdab5fee93883c42065_original_freepik_todo-seu-raimundo-sentado_2854532742 (1).png",
+        "duration": 23
+      },
+      "title": "Abrindo o Processo",
+      "type": "scene",
+      "transition": "fade",
+      "dialogues": [
+        {
+          "position": 0,
+          "character_id": "pa1_c2",
+          "text": "Certo. Vamos renovar o RGP e já iniciar o processo do seguro-defeso. Para o seguro, precisamos do RGP renovado, comprovante de filiação e declaração de que o senhor não exerce outra atividade remunerada.",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story_audio/69eae861b5fee93883c40a4a_story-tts-69eae861b5fee93883c40a49.mp3",
+          "_ttsGenerating": false,
+          "_audioDuration": 12.864
+        },
+        {
+          "position": 1,
+          "character_id": "pa1_c1",
+          "text": "Nunca exerço outra atividade. Sou pescador há trinta anos.",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story_audio/69eae867b5fee93883c40a4c_story-tts-69eae867b5fee93883c40a4b.mp3",
+          "_ttsGenerating": false,
+          "_audioDuration": 3.72
+        },
+        {
+          "position": 2,
+          "text": "Uma a uma, as documentações são organizadas. Mas há algo que Seu Raimundo ainda não entende bem.",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story_audio/69eae86db5fee93883c40a4e_story-tts-69eae86db5fee93883c40a4d.mp3",
+          "_ttsGenerating": false,
+          "_audioDuration": 6.12
+        }
+      ],
+      "next_scene_id": "pa1_s6",
+      "_minDuration": 23,
+      "subtitles_enabled": true,
+      "position": 5
+    },
+    {
+      "_id": "pa1_s7",
+      "decision": {
+        "prompt": "",
+        "interaction_type": "click",
+        "options": []
+      },
+      "story_id": "pa1",
+      "background_audio": {
+        "loop": false,
+        "volume": 1
+      },
+      "description": "Os Requisitos do Seguro** | Agente da Colônia com lista na mão, explicando os três requisitos para Seu Raimundo. Seu Raimundo anotando num caderno. Expressão de quem está finalmente entendendo um direito que sempre foi seu. Estilo cartoon Gravity Falls. | **Agente da Colônia:** \"Exato! Um salário mínimo por mês durante todo o período de defeso — é pago pelo INSS. Não é favor, é direito garantido em lei.\"<br>**Narrador:** \"Para receber, Seu Raimundo precisa de três coisas: RGP válido, filiação ativa à colônia, e declaração de que não exerce outra atividade remunerada.\"<br>**Seu Raimundo:** \"Trinta anos pesando, e nunca soube que tinha esse direito. Quantos defesos eu perdi?\" | ▶️ Continuar |",
+      "media": {
+        "type": "image",
+        "url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story/69eae920b5fee93883c4112f_original_freepik_todo-agente-da-colonia-co_2854553687 (1).png",
+        "duration": 24
+      },
+      "title": "Os Requisitos do Seguro",
+      "type": "scene",
+      "transition": "slide",
+      "dialogues": [
+        {
+          "character_id": "pa1_c2",
+          "text": "Exato! Um salário mínimo por mês durante todo o período de defeso — é pago pelo INSS. Não é favor, é direito garantido em lei.",
+          "position": 0,
+          "_ttsGenerating": false,
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story_audio/69eaeca3b5fee93883c4203e_story-tts-69eaeca3b5fee93883c4203d.mp3",
+          "_audioDuration": 7.968
+        },
+        {
+          "text": "Para receber, Seu Raimundo precisa de três coisas: RGP válido, filiação ativa à colônia, e declaração de que não exerce outra atividade remunerada.",
+          "position": 1,
+          "_ttsGenerating": false,
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story_audio/69eaecadb5fee93883c42040_story-tts-69eaecadb5fee93883c4203f.mp3",
+          "_audioDuration": 9.288
+        },
+        {
+          "character_id": "pa1_c1",
+          "text": "Trinta anos pesando, e nunca soube que tinha esse direito. Quantos defesos eu perdi?",
+          "position": 2,
+          "_ttsGenerating": false,
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story_audio/69eaecb9b5fee93883c42042_story-tts-69eaecb9b5fee93883c42041.mp3",
+          "_audioDuration": 5.28
+        }
+      ],
+      "next_scene_id": "pa1_s8",
+      "_minDuration": 23,
+      "subtitles_enabled": true,
+      "position": 7
+    },
+    {
+      "_id": "pa1_s6",
+      "media_mode": "image",
+      "decision": {
+        "prompt": "O que é o Seguro-Defeso?",
+        "interaction_type": "click",
+        "options": [
+          {
+            "label": "Um salário mínimo por mês enquanto a pesca da espécie está proibida por lei",
+            "next_scene_id": "pa1_s7",
+            "score": 10
+          },
+          {
+            "label": "Uma ajuda emergencial para doença, acidente ou morte do pescador",
+            "next_scene_id": "pa1_s8",
+            "score": 1
+          },
+          {
+            "label": "Não sei ainda",
+            "next_scene_id": "pa1_s8",
+            "score": 1
+          }
+        ]
+      },
+      "transition_duration": 300,
+      "image_url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story/69eae882b5fee93883c40a54_original_freepik_nao-tampe-as-pessoas-ne_2854545477 (1).png",
+      "story_id": "pa1",
+      "background_audio": {
+        "loop": false,
+        "volume": 1
+      },
+      "description": "TODO — Cartaz colorido na parede da Colônia em destaque: 'SEGURO-DEFESO — Seu direito garantido pelo governo federal'. A Agente aponta para o cartaz enquanto Seu Raimundo lê com atenção e expressão de quem está processando algo importante que nunca entendeu direito. Estilo cartoon Gravity Falls.",
+      "media": {
+        "type": "image",
+        "url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story/69eae882b5fee93883c40a54_original_freepik_nao-tampe-as-pessoas-ne_2854545477 (1).png",
+        "duration": 10
+      },
+      "title": "O Que é o Seguro-Defeso?",
+      "type": "decision",
+      "transition": "fade",
+      "dialogues": [
+        {
+          "position": 0,
+          "character_id": "pa1_c1",
+          "text": "Esse seguro-defeso... quantas vezes ouvi falar. Mas nunca entendi direito o que é.",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story_audio/69eae87bb5fee93883c40a52_story-tts-69eae87bb5fee93883c40a51.mp3",
+          "_ttsGenerating": false,
+          "_audioDuration": 5.088
+        },
+        {
+          "position": 1,
+          "character_id": "pa1_c2",
+          "text": "É exatamente o que está nesse cartaz. Me diz o que você entende.",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story_audio/69eae88ab5fee93883c40a56_story-tts-69eae88ab5fee93883c40a55.mp3",
+          "_ttsGenerating": false,
+          "_audioDuration": 4.056
+        }
+      ],
+      "_minDuration": 10,
+      "subtitles_enabled": true,
+      "position": 6
+    },
+    {
+      "_id": "pa1_s8",
+      "media_mode": "image",
+      "decision": {
+        "prompt": "",
+        "interaction_type": "click",
+        "options": []
+      },
+      "transition_duration": 300,
+      "image_url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story/69eae8c5b5fee93883c40c6f_original_freepik_ilustracao-educativa-divi_2854563247 (1).png",
+      "story_id": "pa1",
+      "background_audio": {
+        "loop": false,
+        "volume": 1
+      },
+      "description": "TODO — Ilustração educativa dividida em dois painéis: painel esquerdo mostra 'DEFESO' com símbolo de proibição de pesca e peixe com ovos; painel direito mostra 'SEGURO-DEFESO' com símbolo de proteção e valor 'R$1 salário mínimo/mês'. Agente aponta para cada painel explicando com paciência. Fundo azul suave, visual didático. Estilo cartoon Gravity Falls — diferente de S6.",
+      "media": {
+        "type": "image",
+        "url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story/69eae8c5b5fee93883c40c6f_original_freepik_ilustracao-educativa-divi_2854563247 (1).png",
+        "duration": 20
+      },
+      "title": "Entendendo o Seguro-Defeso",
+      "type": "scene",
+      "transition": "fade",
+      "dialogues": [
+        {
+          "position": 0,
+          "character_id": "",
+          "text": "O seguro de vida é outra coisa — esse é o seguro-desemprego do pescador. Quando a lei proíbe a pesca pra proteger a reprodução, você fica sem renda.",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story_audio/69eae8d0b5fee93883c40c72_story-tts-69eae8d0b5fee93883c40c71.mp3",
+          "_ttsGenerating": false,
+          "_audioDuration": 8.64
+        },
+        {
+          "position": 1,
+          "character_id": "",
+          "text": "O Seguro-Defeso existe pra compensar isso. O governo reconhece que você está cumprindo a lei — e paga um salário mínimo por mês como compensação.",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story_audio/69eae8d8b5fee93883c40c74_story-tts-69eae8d8b5fee93883c40c73.mp3",
+          "_ttsGenerating": false,
+          "_audioDuration": 9.24
+        },
+        {
+          "position": 2,
+          "character_id": "",
+          "text": "Então, o que é o Seguro-Defeso?",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story_audio/69eae8e0b5fee93883c40c76_story-tts-69eae8e0b5fee93883c40c75.mp3",
+          "_ttsGenerating": false,
+          "_audioDuration": 1.968
+        }
+      ],
+      "next_scene_id": "pa1_s9",
+      "_minDuration": 20,
+      "subtitles_enabled": true,
+      "position": 8
+    },
+    {
+      "_id": "pa1_s9",
+      "media_mode": "image",
+      "decision": {
+        "prompt": "",
+        "interaction_type": "click",
+        "options": []
+      },
+      "transition_duration": 300,
+      "story_id": "pa1",
+      "background_audio": {
+        "loop": false,
+        "volume": 1
+      },
+      "description": "TODO — Técnico do RURAP (jovem de 30 anos, óculos, camiseta com logo do RURAP, prancheta na mão) entra pela porta da Colônia com cumprimento familiar à Agente. A Agente o apresenta a Seu Raimundo com sorriso. Os três estão no espaço de atendimento, clima de equipe que trabalha junto. Estilo cartoon Gravity Falls.",
+      "media": {
+        "type": "image",
+        "url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story/69eae8efb5fee93883c40c78_original_freepik_tecnico-do-rurap-jovem-de_2854565860 (1).png",
+        "duration": 33
+      },
+      "title": "O Técnico do RURAP Aparece",
+      "type": "scene",
+      "transition": "fade",
+      "dialogues": [
+        {
+          "position": 0,
+          "character_id": "pa1_c2",
+          "text": "Seu Raimundo, esse aqui é o Marcos, técnico do RURAP. Ele vem toda semana pra orientar os pescadores.",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story_audio/69eae8f5b5fee93883c40c7a_story-tts-69eae8f5b5fee93883c40c79.mp3",
+          "_ttsGenerating": false,
+          "_audioDuration": 6.312
+        },
+        {
+          "position": 1,
+          "character_id": "pa1_c3",
+          "text": "Boa tarde, seu Raimundo. Eu ouvi o início da conversa — o senhor tem RGP e é filiado à colônia. Sabia que com esses dois documentos mais um terceiro, o senhor pode financiar motor e equipamentos novos pelo PRONAF Pesca?",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story_audio/69eae8fbb5fee93883c40c7c_story-tts-69eae8fbb5fee93883c40c7b.mp3",
+          "_ttsGenerating": false,
+          "_audioDuration": 13.752
+        },
+        {
+          "position": 2,
+          "character_id": "pa1_c1",
+          "text": "PRONAF Pesca? Isso é pra agricultor, não pra pescador.",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story_audio/69eae8ffb5fee93883c40c7e_story-tts-69eae8ffb5fee93883c40c7d.mp3",
+          "_ttsGenerating": false,
+          "_audioDuration": 3.408
+        },
+        {
+          "position": 3,
+          "character_id": "pa1_c3",
+          "text": "Era o que todo mundo pensava. Desde 2008, pescador artesanal é produtor familiar. Só falta um documento — e não é difícil de tirar.",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story_audio/69eae904b5fee93883c40c80_story-tts-69eae904b5fee93883c40c7f.mp3",
+          "_ttsGenerating": false,
+          "_audioDuration": 8.928
+        }
+      ],
+      "next_scene_id": "pa1_s10",
+      "_minDuration": 33,
+      "subtitles_enabled": true,
+      "position": 9
+    },
+    {
+      "_id": "pa1_s10",
+      "dialogues": [
+        {
+          "character_id": "pa1_c3",
+          "text": "Para o PRONAF Pesca, o senhor precisa do RGP mais um segundo cadastro que comprova que é produtor familiar. Sem ele, o banco nem abre o processo.",
+          "position": 0,
+          "_ttsGenerating": false,
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story_audio/69eaecffb5fee93883c4204c_story-tts-69eaecffb5fee93883c4204b.mp3",
+          "_audioDuration": 8.976
+        },
+        {
+          "character_id": "pa1_c1",
+          "text": "Que cadastro é esse?",
+          "position": 1,
+          "_ttsGenerating": false,
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story_audio/69eaed0ab5fee93883c4204e_story-tts-69eaed0ab5fee93883c4204d.mp3",
+          "_audioDuration": 1.32
+        }
+      ],
+      "decision": {
+        "prompt": "Além do RGP, qual documento é necessário para acessar o PRONAF Pesca?",
+        "interaction_type": "click",
+        "options": [
+          {
+            "label": "CAF — Cadastro de Agricultor Familiar, emitido pelo MDA",
+            "next_scene_id": "pa1_s11",
+            "score": 10
+          },
+          {
+            "label": "CNPJ — Cadastro Nacional de Pessoa Jurídica no governo federal",
+            "next_scene_id": "pa1_s12",
+            "score": 1
+          }
+        ]
+      },
+      "_minDuration": 11,
+      "story_id": "pa1",
+      "background_audio": {
+        "loop": false,
+        "volume": 1
+      },
+      "subtitles_enabled": true,
+      "media": {
+        "type": "image",
+        "url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story/69eae914b5fee93883c40c82_original_freepik_todo-tecnico-do-rurap-com_2854569496 (1).png",
+        "duration": 11
+      },
+      "position": 10,
+      "title": "Qual Documento Para o PRONAF?",
+      "type": "decision",
+      "transition": "fade"
+    },
+    {
+      "_id": "pa1_s11",
+      "media_mode": "image",
+      "decision": {
+        "prompt": "",
+        "interaction_type": "click",
+        "options": []
+      },
+      "transition_duration": 300,
+      "story_id": "pa1",
+      "background_audio": {
+        "loop": false,
+        "volume": 1
+      },
+      "description": "TODO — Técnico do RURAP e Seu Raimundo lado a lado olhando para uma tabela impressa de financiamento: 'Motor de popa 15HP: R$8.500 pelo PRONAF a 4,5% ao ano / 5 anos'. Seu Raimundo com expressão de quem vê uma possibilidade real pela primeira vez. Agente ao fundo fazendo anotações. Tons dourados e azuis, atmosfera de esperança. Estilo cartoon Gravity Falls.",
+      "media": {
+        "type": "image",
+        "url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story/69eae93cb5fee93883c4147b_original_freepik_na-mesma-imagem-img8-refa_2854580978 (1).png",
+        "duration": 24
+      },
+      "title": "O Plano de Crescimento",
+      "type": "scene",
+      "transition": "fade",
+      "dialogues": [
+        {
+          "position": 0,
+          "character_id": "pa1_c3",
+          "text": "Isso mesmo — o CAF. A gente do RURAP ajuda o senhor a tirar sem custo nenhum. Com o CAF, o PRONAF financia motor, malhadeiras, caixa de gelo, GPS. Juros de 4% a 6% ao ano.",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story_audio/69eae943b5fee93883c41547_story-tts-69eae943b5fee93883c41546.mp3",
+          "_ttsGenerating": false,
+          "_audioDuration": 10.512
+        },
+        {
+          "position": 1,
+          "text": "O mesmo motor que Seu Raimundo tenta consertar há dois anos poderia ser comprado novo, com parcelas menores do que o custo atual das peças.",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story_audio/69eae949b5fee93883c41586_story-tts-69eae949b5fee93883c41585.mp3",
+          "_ttsGenerating": false,
+          "_audioDuration": 8.88
+        },
+        {
+          "position": 2,
+          "character_id": "pa1_c1",
+          "text": "Trinta anos pescando sem saber que podia ter ajuda. Isso muda tudo.",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story_audio/69eae94fb5fee93883c41588_story-tts-69eae94fb5fee93883c41587.mp3",
+          "_ttsGenerating": false,
+          "_audioDuration": 4.104
+        }
+      ],
+      "next_scene_id": "pa1_s13",
+      "_minDuration": 24,
+      "subtitles_enabled": true,
+      "position": 11
+    },
+    {
+      "_id": "pa1_s12",
+      "media_mode": "image",
+      "decision": {
+        "prompt": "",
+        "interaction_type": "click",
+        "options": []
+      },
+      "transition_duration": 300,
+      "story_id": "pa1",
+      "background_audio": {
+        "loop": false,
+        "volume": 1
+      },
+      "description": "TODO — Técnico do RURAP com expressão didática, mostrando comparação na prancheta: dois quadros lado a lado — 'CNPJ = Empresa (MEI, LTDA...)' e 'CAF = Produtor Familiar (pescador, agricultor...)'. Seu Raimundo processando a diferença com expressão de quem está aprendendo algo novo. Agente da Colônia ao lado com sorriso acolhedor. Estilo cartoon Gravity Falls.",
+      "media": {
+        "type": "image",
+        "url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story/69eae95ab5fee93883c4158a_original_freepik_todo-tecnico-do-rurap-com_2854578772 (1).png",
+        "duration": 23
+      },
+      "title": "Não É CNPJ",
+      "type": "scene",
+      "transition": "fade",
+      "dialogues": [
+        {
+          "position": 0,
+          "character_id": "pa1_c3",
+          "text": "O CNPJ é para empresa. O pescador artesanal é produtor familiar — ele usa o CAF. São documentos completamente diferentes.",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story_audio/69eae960b5fee93883c4158c_story-tts-69eae960b5fee93883c4158b.mp3",
+          "_ttsGenerating": false,
+          "_audioDuration": 7.512
+        },
+        {
+          "position": 1,
+          "text": "Com o CAF, o pescador artesanal acessa o PRONAF, o PAA e outros programas do MDA — sem precisar abrir empresa, sem contador, sem custo.",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story_audio/69eae965b5fee93883c41590_story-tts-69eae965b5fee93883c4158f.mp3",
+          "_ttsGenerating": false,
+          "_audioDuration": 8.136
+        },
+        {
+          "position": 2,
+          "character_id": "pa1_c3",
+          "text": "Boa notícia: a gente do RURAP ajuda o senhor a tirar o CAF. Semana que vem, venha aqui de manhã que a gente resolve.",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story_audio/69eae969b5fee93883c41597_story-tts-69eae969b5fee93883c41596.mp3",
+          "_ttsGenerating": false,
+          "_audioDuration": 7.248
+        }
+      ],
+      "next_scene_id": "pa1_s14",
+      "_minDuration": 23,
+      "subtitles_enabled": true,
+      "position": 12
+    },
+    {
+      "_id": "pa1_s13",
+      "end_score": 10,
+      "media_mode": "image",
+      "decision": {
+        "prompt": "",
+        "interaction_type": "click",
+        "options": []
+      },
+      "transition_duration": 300,
+      "story_id": "pa1",
+      "background_audio": {
+        "loop": false,
+        "volume": 1
+      },
+      "description": "TODO — Seu Raimundo na saída da Colônia de Pescadores, RGP renovado na mão, expressão de alívio e satisfação genuína. Lucas do lado de fora, sorrindo ao ver o pai. Rio dourado ao fundo no fim da tarde. Através da janela, a Agente e o Técnico ainda trabalhando — equipe que ajudou. Cena de realização e passagem de conhecimento entre gerações. Estilo cartoon Gravity Falls.",
+      "media": {
+        "type": "image",
+        "url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story/69eae976b5fee93883c4159d_original_freepik_retire-o-z21-rn-da-img10_2854594293 (1).png",
+        "duration": 18
+      },
+      "title": "A Carteira Renovada",
+      "type": "end",
+      "transition": "fade",
+      "dialogues": [
+        {
+          "position": 0,
+          "text": "Seu Raimundo sai com o RGP renovado, o processo do seguro-defeso aberto e uma agenda com o RURAP para a semana seguinte.",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story_audio/69eae986b5fee93883c415a1_story-tts-69eae986b5fee93883c415a0.mp3",
+          "_ttsGenerating": false,
+          "_audioDuration": 7.536
+        },
+        {
+          "position": 1,
+          "character_id": "69eae7acb5fee93883c40a27",
+          "text": "E aí, pai? Deu certo?",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story_audio/69eae98bb5fee93883c415a3_story-tts-69eae98bb5fee93883c415a2.mp3",
+          "_ttsGenerating": false,
+          "_audioDuration": 1.224
+        },
+        {
+          "position": 2,
+          "character_id": "pa1_c1",
+          "text": "Deu. E aprendi mais em duas horas aqui do que em trinta anos pescando sozinho. A informação também é um equipamento, filho — e eu não tinha nenhum.",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story_audio/69eae990b5fee93883c415a5_story-tts-69eae990b5fee93883c415a4.mp3",
+          "_ttsGenerating": false,
+          "_audioDuration": 8.856
+        }
+      ],
+      "_minDuration": 18,
+      "subtitles_enabled": true,
+      "position": 13,
+      "end_label": "O pescador que conhece seus direitos!"
+    },
+    {
+      "_id": "pa1_s14",
+      "end_score": 5,
+      "media_mode": "image",
+      "decision": {
+        "prompt": "",
+        "interaction_type": "click",
+        "options": []
+      },
+      "transition_duration": 300,
+      "story_id": "pa1",
+      "background_audio": {
+        "loop": false,
+        "volume": 1
+      },
+      "description": "TODO — Seu Raimundo saindo pensativo pela porta da Colônia, documentos na mão. Lucas o encontra na calçada com expressão curiosa. Rio ao fundo com luz suave de fim de tarde. Clima de reflexão — algo foi feito, mas ainda há caminho. Estilo cartoon Gravity Falls, tons suaves.",
+      "media": {
+        "type": "image",
+        "url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story/69eae982b5fee93883c4159f_original_freepik_a-roupa-de-lucas-esta-dif_2854601655 (1).png",
+        "duration": 14
+      },
+      "title": "O Primeiro Passo",
+      "type": "end",
+      "transition": "fade",
+      "dialogues": [
+        {
+          "position": 0,
+          "text": "O RGP está no processo de renovação. Ainda há passos para completar — mas o pior já passou: começar.",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story_audio/69eae999b5fee93883c415a7_story-tts-69eae999b5fee93883c415a6.mp3",
+          "_ttsGenerating": false,
+          "_audioDuration": 6.312
+        },
+        {
+          "position": 1,
+          "character_id": "pa1_c1",
+          "text": "Não resolve tudo hoje não. Mas pelo menos sei o que precisa ser feito.",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story_audio/69eae99eb5fee93883c415a9_story-tts-69eae99eb5fee93883c415a8.mp3",
+          "_ttsGenerating": false,
+          "_audioDuration": 4.2
+        },
+        {
+          "position": 2,
+          "character_id": "69eae7acb5fee93883c40a27",
+          "text": "Agora a gente sabe, pai. E sabendo, a gente resolve.",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story_audio/69eae9a5b5fee93883c415ab_story-tts-69eae9a5b5fee93883c415aa.mp3",
+          "_ttsGenerating": false,
+          "_audioDuration": 2.952
+        }
+      ],
+      "_minDuration": 14,
+      "subtitles_enabled": true,
+      "position": 14,
+      "end_label": "O primeiro passo está dado"
+    }
+  ]
+}

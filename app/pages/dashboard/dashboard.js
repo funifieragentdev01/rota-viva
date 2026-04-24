@@ -33,8 +33,9 @@ angular.module('rotaViva')
 
     // ─── Status do player ──────────────────────────────────────────────────────
     if (playerId) {
-        ApiService.getPlayerStatus(playerId).then(function(status) {
-            $scope.totalPoints = Math.floor(status.total_points || 0);
+        ApiService.getPlayerStatus().then(function(status) {
+            var cats = status.point_categories || {};
+            $scope.totalPoints = Math.floor(cats.xp || 0);
             var lp = status.level_progress || {};
             var level = lp.level || {};
             $scope.levelName = level.level || 'Iniciante';

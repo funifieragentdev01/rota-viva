@@ -15,10 +15,10 @@
     "passing_score": 28,
     "genre": "Drama",
     "first_scene_id": "mb1_s1",
-    "cover_image": "",
-    "status": "active"
+    "cover_image": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69ea4d85b5fee93883c2e7f2_original__A Colheita de Pedro (21).jpg",
+    "status": "active",
+    "$$hashKey": "object:222"
   },
-
   "characters": [
     {
       "_id": "mb1_c1",
@@ -31,16 +31,6 @@
       "reference_image": ""
     },
     {
-      "_id": "mb1_c2",
-      "avatar_thumbnail": "",
-      "voice_profile": "onyx",
-      "full_name": "José Costa",
-      "story_id": "mb1",
-      "name": "Seu Zé",
-      "description": "Apicultor de 52 anos. Pele curtida de sol, chapéu de palha, roupa simples de campo. Sério, experiente e acolhedor.",
-      "reference_image": ""
-    },
-    {
       "_id": "mb1_c3",
       "avatar_thumbnail": "",
       "voice_profile": "nova",
@@ -49,154 +39,176 @@
       "name": "Ana",
       "description": "Filha de 14 anos da família Costa. Tranças, vestidinho simples, olhos grandes. Encantada com as abelhas.",
       "reference_image": ""
+    },
+    {
+      "_id": "mb1_c2",
+      "avatar_thumbnail": "",
+      "voice_profile": "onyx",
+      "full_name": "José Costa",
+      "story_id": "mb1",
+      "name": "Seu Zé",
+      "description": "Apicultor de 52 anos. Pele curtida de sol, chapéu de palha, roupa simples de campo. Sério, experiente e acolhedor.",
+      "reference_image": ""
     }
   ],
-
   "scenes": [
-
     {
       "_id": "mb1_s1",
-      "story_id": "mb1",
-      "title": "CAPA — A Colheita de Pedro",
-      "type": "scene",
-      "position": 1,
-      "transition": "fade",
-      "transition_duration": 300,
       "media_mode": "image",
+      "decision": {
+        "prompt": "",
+        "interaction_type": "click",
+        "options": []
+      },
+      "transition_duration": 300,
       "image_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69ea4384b5fee93883c2e2e4_original__A Colheita de Pedro (1).jpg",
+      "story_id": "mb1",
+      "background_audio": {
+        "loop": false,
+        "volume": 1
+      },
+      "description": "Apiário da família Costa após período chuvoso. Pedro (19 anos, chapéu apícola, camiseta laranja) examina quadro de mel parcialmente operculado com expressão curiosa. Seu Zé (52 anos, chapéu de palha, macacão apícola) aponta para as células ainda abertas com gesto didático e paciente. Colmeias enfileiradas, vegetação verde-exuberante pós-chuva ao fundo, flores silvestres visíveis. Estilo cartoon Gravity Falls — paleta amarelo-dourado e verde-caatinga, luz matinal quente.",
       "media": {
         "type": "image",
         "url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69ea4384b5fee93883c2e2e4_original__A Colheita de Pedro (1).jpg",
         "duration": 10
       },
-      "description": "TODO — Apiário da família Costa após período chuvoso. Pedro (19 anos, chapéu apícola, camiseta laranja) examina quadro de mel parcialmente operculado com expressão curiosa. Seu Zé (52 anos, chapéu de palha, macacão apícola) aponta para as células ainda abertas com gesto didático e paciente. Colmeias enfileiradas, vegetação verde-exuberante pós-chuva ao fundo, flores silvestres visíveis. Estilo cartoon Gravity Falls — paleta amarelo-dourado e verde-caatinga, luz matinal quente.",
-      "subtitles_enabled": true,
-      "background_audio": { "loop": false, "volume": 1 },
+      "title": "CAPA — A Colheita de Pedro",
+      "type": "scene",
+      "transition": "fade",
       "next_scene_id": "mb1_s2",
       "dialogues": [
         {
           "position": 1,
           "text": "Mel cheio não é mel pronto. Pedro ainda vai aprender isso.",
-          "audio_url": "",
-          "voice_profile": "shimmer"
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea4d9cb5fee93883c2e805_story-tts-69ea4d9cb5fee93883c2e804.mp3",
+          "voice_profile": "shimmer",
+          "_ttsGenerating": false,
+          "_audioDuration": 3.696
         }
-      ]
+      ],
+      "_minDuration": 4,
+      "subtitles_enabled": true,
+      "position": 1
     },
-
     {
       "_id": "mb1_s2",
-      "story_id": "mb1",
-      "title": "C0 — Depois das Chuvas",
-      "type": "scene",
-      "position": 2,
-      "transition": "fade",
-      "transition_duration": 300,
       "media_mode": "image",
+      "decision": {
+        "prompt": "",
+        "interaction_type": "click",
+        "options": []
+      },
+      "transition_duration": 300,
       "image_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69ea43bdb5fee93883c2e324_original__A Colheita de Pedro (3).jpg",
+      "story_id": "mb1",
+      "background_audio": {
+        "loop": false,
+        "volume": 1
+      },
+      "description": "Apiário familiar, manhã de março. Vegetação exuberante pós-chuva. Pedro (19 anos, camiseta, chapéu) caminhando animado entre colmeias com grande movimentação de abelhas. Ana (14 anos, tranças) ao lado com caderninho aberto, expressão atenta e curiosa. Sol da manhã dourando as caixas das colmeias. Estilo cartoon Gravity Falls — paleta verde e dourado, luz matinal.",
       "media": {
         "type": "image",
         "url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69ea43bdb5fee93883c2e324_original__A Colheita de Pedro (3).jpg",
         "duration": 14
       },
-      "description": "TODO — Apiário familiar, manhã de março. Vegetação exuberante pós-chuva. Pedro (19 anos, camiseta, chapéu) caminhando animado entre colmeias com grande movimentação de abelhas. Ana (14 anos, tranças) ao lado com caderninho aberto, expressão atenta e curiosa. Sol da manhã dourando as caixas das colmeias. Estilo cartoon Gravity Falls — paleta verde e dourado, luz matinal.",
-      "subtitles_enabled": true,
-      "background_audio": { "loop": false, "volume": 1 },
+      "title": "C0 — Depois das Chuvas",
+      "type": "scene",
+      "transition": "fade",
       "next_scene_id": "mb1_s3",
       "dialogues": [
         {
           "position": 1,
           "text": "Março no Piauí. As chuvas fecharam bem. O apiário nunca esteve tão cheio.",
-          "audio_url": "",
-          "voice_profile": "shimmer"
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea4dafb5fee93883c2e80d_story-tts-69ea4dafb5fee93883c2e80c.mp3",
+          "voice_profile": "shimmer",
+          "_ttsGenerating": false,
+          "_audioDuration": 4.656
         },
         {
           "position": 2,
           "character_id": "mb1_c1",
           "text": "Ana, olha o volume dessas colmeias. Dá pra colher essa semana — preço do mel está ótimo agora.",
-          "audio_url": "",
-          "voice_profile": "alloy"
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea4db4b5fee93883c2e811_story-tts-69ea4db4b5fee93883c2e810.mp3",
+          "voice_profile": "alloy",
+          "_ttsGenerating": false,
+          "_audioDuration": 5.88
         },
         {
           "position": 3,
           "character_id": "mb1_c3",
           "text": "Mas pai não falou pra esperar o mel selar?",
-          "audio_url": "",
-          "voice_profile": "nova"
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea4db9b5fee93883c2e814_story-tts-69ea4db9b5fee93883c2e813.mp3",
+          "voice_profile": "nova",
+          "_ttsGenerating": false,
+          "_audioDuration": 2.376
         }
-      ]
+      ],
+      "_minDuration": 13,
+      "subtitles_enabled": true,
+      "position": 2
     },
-
     {
       "_id": "mb1_s3",
-      "story_id": "mb1",
-      "title": "C0.1 — O Apressado Come Cru",
-      "type": "scene",
-      "position": 3,
-      "transition": "fade",
-      "transition_duration": 300,
       "media_mode": "image",
+      "decision": {
+        "prompt": "",
+        "interaction_type": "click",
+        "options": []
+      },
+      "transition_duration": 300,
       "image_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69ea43dcb5fee93883c2e33c_original__A Colheita de Pedro (4).jpg",
+      "story_id": "mb1",
+      "background_audio": {
+        "loop": false,
+        "volume": 1
+      },
+      "description": "Seu Zé (52 anos, macacão apícola completo, fumegador na mão esquerda) segura um quadro de colmeia aberto mostrando para Pedro. Metade das células do quadro está aberta e brilhante com mel líquido; a outra metade está operculada com cera branca. Pedro se inclina para ver de perto, expressão de quem ainda não percebe a diferença. Estilo cartoon Gravity Falls — detalhe claro das células abertas vs operculadas.",
       "media": {
         "type": "image",
         "url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69ea43dcb5fee93883c2e33c_original__A Colheita de Pedro (4).jpg",
         "duration": 12
       },
-      "description": "TODO — Seu Zé (52 anos, macacão apícola completo, fumegador na mão esquerda) segura um quadro de colmeia aberto mostrando para Pedro. Metade das células do quadro está aberta e brilhante com mel líquido; a outra metade está operculada com cera branca. Pedro se inclina para ver de perto, expressão de quem ainda não percebe a diferença. Estilo cartoon Gravity Falls — detalhe claro das células abertas vs operculadas.",
-      "subtitles_enabled": true,
-      "background_audio": { "loop": false, "volume": 1 },
+      "title": "C0.1 — O Apressado Come Cru",
+      "type": "scene",
+      "transition": "fade",
       "next_scene_id": "mb1_s4",
       "dialogues": [
         {
           "position": 1,
           "character_id": "mb1_c2",
           "text": "Pedro, vem aqui. Esse lado está selado com cera branca. Esse outro lado, ainda aberto.",
-          "audio_url": "",
-          "voice_profile": "onyx"
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea4dc7b5fee93883c2e818_story-tts-69ea4dc7b5fee93883c2e817.mp3",
+          "voice_profile": "onyx",
+          "_ttsGenerating": false,
+          "_audioDuration": 5.232
         },
         {
           "position": 2,
           "character_id": "mb1_c1",
           "text": "Mas tá tudo cheio de mel nos dois lados, pai.",
-          "audio_url": "",
-          "voice_profile": "alloy"
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea4dcbb5fee93883c2e81a_story-tts-69ea4dcbb5fee93883c2e819.mp3",
+          "voice_profile": "alloy",
+          "_ttsGenerating": false,
+          "_audioDuration": 2.808
         },
         {
           "position": 3,
           "character_id": "mb1_c2",
           "text": "Cheio não é maduro. São coisas diferentes.",
-          "audio_url": "",
-          "voice_profile": "onyx"
-        }
-      ]
-    },
-
-    {
-      "_id": "mb1_s4",
-      "story_id": "mb1",
-      "title": "C1 — Mel Pronto ou Não?",
-      "type": "decision",
-      "position": 4,
-      "transition": "fade",
-      "transition_duration": 300,
-      "media_mode": "image",
-      "image_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69ea4401b5fee93883c2e364_original__A Colheita de Pedro (5).jpg",
-      "media": {
-        "type": "image",
-        "url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69ea4401b5fee93883c2e364_original__A Colheita de Pedro (5).jpg",
-        "duration": 14
-      },
-      "description": "TODO — Seu Zé com o quadro na mão, olhando para Pedro com expressão didática e serena. Pedro com as mãos nos bolsos, curioso e levemente frustrado pela paciência do pai. Apiário ao fundo, colmeias com abelhas voando. Estilo cartoon Gravity Falls — paleta amarelo-dourado e verde.",
-      "subtitles_enabled": true,
-      "background_audio": { "loop": false, "volume": 1 },
-      "dialogues": [
-        {
-          "position": 1,
-          "character_id": "mb1_c2",
-          "text": "Me diz — quando o mel está pronto para colher?",
-          "audio_url": "",
-          "voice_profile": "onyx"
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea4dceb5fee93883c2e81c_story-tts-69ea4dceb5fee93883c2e81b.mp3",
+          "voice_profile": "onyx",
+          "_ttsGenerating": false,
+          "_audioDuration": 2.664
         }
       ],
+      "_minDuration": 11,
+      "subtitles_enabled": true,
+      "position": 3
+    },
+    {
+      "_id": "mb1_s4",
+      "media_mode": "image",
       "decision": {
         "prompt": "Quando o mel está pronto para ser colhido?",
         "interaction_type": "single_choice",
@@ -217,160 +229,205 @@
             "score": 1
           }
         ]
-      }
-    },
-
-    {
-      "_id": "mb1_s5",
-      "story_id": "mb1",
-      "title": "C1B — A Umidade que Fermenta",
-      "type": "scene",
-      "position": 5,
-      "transition": "fade",
+      },
       "transition_duration": 300,
-      "media_mode": "image",
-      "image_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69ea441db5fee93883c2e38a_original__A Colheita de Pedro (6).jpg",
+      "image_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69ea4401b5fee93883c2e364_original__A Colheita de Pedro (5).jpg",
+      "story_id": "mb1",
+      "background_audio": {
+        "loop": false,
+        "volume": 1
+      },
+      "description": "Seu Zé com o quadro na mão, olhando para Pedro com expressão didática e serena. Pedro com as mãos nos bolsos, curioso e levemente frustrado pela paciência do pai. Apiário ao fundo, colmeias com abelhas voando. Estilo cartoon Gravity Falls — paleta amarelo-dourado e verde.",
       "media": {
         "type": "image",
-        "url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69ea441db5fee93883c2e38a_original__A Colheita de Pedro (6).jpg",
-        "duration": 16
+        "url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69ea4401b5fee93883c2e364_original__A Colheita de Pedro (5).jpg",
+        "duration": 14
       },
-      "description": "TODO — Ilustração didática em dois quadros: esquerda mostra pote de mel operculado com rótulo '18% umidade — não fermenta, qualidade garantida'; direita mostra pote de mel não operculado com rótulo '24% umidade — fermenta em semanas, perde o contrato'. Seu Zé aponta para os dois potes com expressão séria e explicativa. Fundo amarelo-suave. Estilo cartoon Gravity Falls — diferente da cena anterior, mais diagramático.",
-      "subtitles_enabled": true,
-      "background_audio": { "loop": false, "volume": 1 },
-      "next_scene_id": "mb1_s4",
+      "title": "C1 — Mel Pronto ou Não?",
+      "type": "decision",
+      "transition": "fade",
       "dialogues": [
         {
           "position": 1,
           "character_id": "mb1_c2",
-          "text": "Mel não operculado tem umidade alta — acima de 20%. Com uns dias de calor, começa a fermentar.",
-          "audio_url": "",
-          "voice_profile": "onyx"
-        },
-        {
-          "position": 2,
-          "character_id": "mb1_c2",
-          "text": "Se eu entregar mel fermentado pro PNAE, perco o contrato. E não recupero a confiança depois.",
-          "audio_url": "",
-          "voice_profile": "onyx"
-        },
-        {
-          "position": 3,
-          "character_id": "mb1_c2",
-          "text": "Então — quando o mel está pronto para colher?",
-          "audio_url": "",
-          "voice_profile": "onyx"
+          "text": "Me diz — quando o mel está pronto para colher?",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea4dd7b5fee93883c2e81e_story-tts-69ea4dd7b5fee93883c2e81d.mp3",
+          "voice_profile": "onyx",
+          "_ttsGenerating": false,
+          "_audioDuration": 2.904
         }
-      ]
-    },
-
-    {
-      "_id": "mb1_s6",
-      "story_id": "mb1",
-      "title": "C2 — O Quadro Operculado",
-      "type": "scene",
-      "position": 6,
-      "transition": "fade",
-      "transition_duration": 300,
-      "media_mode": "image",
-      "image_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69ea444fb5fee93883c2e3c7_original__A Colheita de Pedro (8).jpg",
-      "media": {
-        "type": "image",
-        "url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69ea444fb5fee93883c2e3c7_original__A Colheita de Pedro (8).jpg",
-        "duration": 12
-      },
-      "description": "TODO — Pedro segurando um quadro totalmente operculado com as duas mãos — cera branca uniforme cobrindo todas as células do quadro. Expressão de compreensão e orgulho no rosto. Seu Zé ao lado com sorriso de satisfação. Luz dourada do sol da manhã no apiário. Estilo cartoon Gravity Falls — paleta dourada e quente.",
+      ],
+      "_minDuration": 3,
       "subtitles_enabled": true,
-      "background_audio": { "loop": false, "volume": 1 },
-      "next_scene_id": "mb1_s7",
-      "dialogues": [
-        {
-          "position": 1,
-          "character_id": "mb1_c1",
-          "text": "Esse aqui está pronto. Cera branca do começo ao fim.",
-          "audio_url": "",
-          "voice_profile": "alloy"
-        },
-        {
-          "position": 2,
-          "character_id": "mb1_c2",
-          "text": "Exato. Esse mel tem menos de 20% de umidade. Vai durar, vai vender, vai chegar bom na escola.",
-          "audio_url": "",
-          "voice_profile": "onyx"
-        },
-        {
-          "position": 3,
-          "text": "A pressa de Pedro virou paciência. A colheita certa fica pra semana seguinte — quando o calendário mandar.",
-          "audio_url": "",
-          "voice_profile": "shimmer"
-        }
-      ]
+      "position": 4
     },
-
     {
       "_id": "mb1_s7",
-      "story_id": "mb1",
-      "title": "C3 — A Revisão da Semana",
-      "type": "scene",
-      "position": 7,
-      "transition": "fade",
-      "transition_duration": 300,
       "media_mode": "image",
+      "decision": {
+        "prompt": "",
+        "interaction_type": "click",
+        "options": []
+      },
+      "transition_duration": 300,
       "image_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69ea4487b5fee93883c2e406_original__A Colheita de Pedro (10).jpg",
+      "story_id": "mb1",
+      "background_audio": {
+        "loop": false,
+        "volume": 1
+      },
+      "description": "Pedro e Seu Zé ao lado de uma colmeia aberta em revisão completa. Seu Zé examina cada quadro sistematicamente com formão apícola. Pedro ao lado anotando em caderninho com expressão concentrada. Estilo cartoon Gravity Falls — paleta verde e dourada do apiário.",
       "media": {
         "type": "image",
         "url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69ea4487b5fee93883c2e406_original__A Colheita de Pedro (10).jpg",
         "duration": 12
       },
-      "description": "TODO — Pedro e Seu Zé ao lado de uma colmeia aberta em revisão completa. Seu Zé examina cada quadro sistematicamente com formão apícola. Pedro ao lado anotando em caderninho com expressão concentrada. Estilo cartoon Gravity Falls — paleta verde e dourada do apiário.",
-      "subtitles_enabled": true,
-      "background_audio": { "loop": false, "volume": 1 },
+      "title": "C3 — A Revisão da Semana",
+      "type": "scene",
+      "transition": "fade",
       "next_scene_id": "mb1_s8",
       "dialogues": [
         {
           "position": 1,
           "character_id": "mb1_c2",
           "text": "Enquanto esperamos o mel selar, a gente faz revisão. É aqui que pega o problema antes que se espalhe.",
-          "audio_url": "",
-          "voice_profile": "onyx"
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea4e07b5fee93883c2e999_story-tts-69ea4e07b5fee93883c2e998.mp3",
+          "voice_profile": "onyx",
+          "_ttsGenerating": false,
+          "_audioDuration": 6.072
         },
         {
           "position": 2,
           "character_id": "mb1_c1",
           "text": "Quantas vezes você faz isso, pai?",
-          "audio_url": "",
-          "voice_profile": "alloy"
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea4e0db5fee93883c2e99b_story-tts-69ea4e0db5fee93883c2e99a.mp3",
+          "voice_profile": "alloy",
+          "_ttsGenerating": false,
+          "_audioDuration": 1.848
         }
-      ]
+      ],
+      "_minDuration": 8,
+      "subtitles_enabled": true,
+      "position": 7
     },
-
     {
-      "_id": "mb1_s8",
-      "story_id": "mb1",
-      "title": "C4 — Com Que Frequência?",
-      "type": "decision",
-      "position": 8,
-      "transition": "fade",
-      "transition_duration": 300,
+      "_id": "mb1_s6",
       "media_mode": "image",
-      "image_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69ea44a7b5fee93883c2e411_original__A Colheita de Pedro (11).jpg",
+      "decision": {
+        "prompt": "",
+        "interaction_type": "click",
+        "options": []
+      },
+      "transition_duration": 300,
+      "image_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69ea444fb5fee93883c2e3c7_original__A Colheita de Pedro (8).jpg",
+      "story_id": "mb1",
+      "background_audio": {
+        "loop": false,
+        "volume": 1
+      },
+      "description": "Pedro segurando um quadro totalmente operculado com as duas mãos — cera branca uniforme cobrindo todas as células do quadro. Expressão de compreensão e orgulho no rosto. Seu Zé ao lado com sorriso de satisfação. Luz dourada do sol da manhã no apiário. Estilo cartoon Gravity Falls — paleta dourada e quente.",
       "media": {
         "type": "image",
-        "url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69ea44a7b5fee93883c2e411_original__A Colheita de Pedro (11).jpg",
-        "duration": 14
+        "url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69ea444fb5fee93883c2e3c7_original__A Colheita de Pedro (8).jpg",
+        "duration": 17
       },
-      "description": "TODO — Seu Zé de pé ao lado da colmeia aberta, olhando para Pedro com expressão didática. Pedro com o caderninho na mão, pronto para anotar. Quadros de cria e mel visíveis dentro da colmeia. Estilo cartoon Gravity Falls.",
+      "title": "C2 — O Quadro Operculado",
+      "type": "scene",
+      "transition": "fade",
+      "next_scene_id": "mb1_s7",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "mb1_c1",
+          "text": "Esse aqui está pronto. Cera branca do começo ao fim.",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea4df4b5fee93883c2e993_story-tts-69ea4df4b5fee93883c2e992.mp3",
+          "voice_profile": "alloy",
+          "_ttsGenerating": false,
+          "_audioDuration": 3.264
+        },
+        {
+          "position": 2,
+          "character_id": "mb1_c2",
+          "text": "Exato. Esse mel tem menos de 20% de umidade. Vai durar, vai vender, vai chegar bom na escola.",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea4df9b5fee93883c2e995_story-tts-69ea4df9b5fee93883c2e994.mp3",
+          "voice_profile": "onyx",
+          "_ttsGenerating": false,
+          "_audioDuration": 6.072
+        },
+        {
+          "position": 3,
+          "text": "A pressa de Pedro virou paciência. A colheita certa fica pra semana seguinte — quando o calendário mandar.",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea4dfcb5fee93883c2e997_story-tts-69ea4dfcb5fee93883c2e996.mp3",
+          "voice_profile": "shimmer",
+          "_ttsGenerating": false,
+          "_audioDuration": 6.696
+        }
+      ],
+      "_minDuration": 17,
       "subtitles_enabled": true,
-      "background_audio": { "loop": false, "volume": 1 },
+      "position": 6
+    },
+    {
+      "_id": "mb1_s5",
+      "media_mode": "image",
+      "decision": {
+        "prompt": "",
+        "interaction_type": "click",
+        "options": []
+      },
+      "transition_duration": 300,
+      "image_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69ea441db5fee93883c2e38a_original__A Colheita de Pedro (6).jpg",
+      "story_id": "mb1",
+      "background_audio": {
+        "loop": false,
+        "volume": 1
+      },
+      "description": "Ilustração didática em dois quadros: esquerda mostra pote de mel operculado com rótulo '18% umidade — não fermenta, qualidade garantida'; direita mostra pote de mel não operculado com rótulo '24% umidade — fermenta em semanas, perde o contrato'. Seu Zé aponta para os dois potes com expressão séria e explicativa. Fundo amarelo-suave. Estilo cartoon Gravity Falls — diferente da cena anterior, mais diagramático.",
+      "media": {
+        "type": "image",
+        "url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69ea441db5fee93883c2e38a_original__A Colheita de Pedro (6).jpg",
+        "duration": 16
+      },
+      "title": "C1B — A Umidade que Fermenta",
+      "type": "scene",
+      "transition": "fade",
+      "next_scene_id": "mb1_s4",
       "dialogues": [
         {
           "position": 1,
           "character_id": "mb1_c2",
-          "text": "Depende da época. Durante a florada, com que frequência o apicultor deve fazer revisão completa das colmeias?",
-          "audio_url": "",
-          "voice_profile": "onyx"
+          "text": "Mel não operculado tem umidade alta — acima de 20%. Com uns dias de calor, começa a fermentar.",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea4de3b5fee93883c2e820_story-tts-69ea4de3b5fee93883c2e81f.mp3",
+          "voice_profile": "onyx",
+          "_ttsGenerating": false,
+          "_audioDuration": 6.216
+        },
+        {
+          "position": 2,
+          "character_id": "mb1_c2",
+          "text": "Se eu entregar mel fermentado pro PNAE, perco o contrato. E não recupero a confiança depois.",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea4de6b5fee93883c2e925_story-tts-69ea4de6b5fee93883c2e924.mp3",
+          "voice_profile": "onyx",
+          "_ttsGenerating": false,
+          "_audioDuration": 5.736
+        },
+        {
+          "position": 3,
+          "character_id": "mb1_c2",
+          "text": "Então — quando o mel está pronto para colher?",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea4deab5fee93883c2e971_story-tts-69ea4deab5fee93883c2e970.mp3",
+          "voice_profile": "onyx",
+          "_ttsGenerating": false,
+          "_audioDuration": 2.808
         }
       ],
+      "_minDuration": 15,
+      "subtitles_enabled": true,
+      "position": 5
+    },
+    {
+      "_id": "mb1_s8",
+      "media_mode": "image",
       "decision": {
         "prompt": "Com que frequência o apicultor deve fazer revisão completa das colmeias durante a florada?",
         "interaction_type": "single_choice",
@@ -391,122 +448,187 @@
             "score": 1
           }
         ]
-      }
+      },
+      "transition_duration": 300,
+      "image_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69ea44a7b5fee93883c2e411_original__A Colheita de Pedro (11).jpg",
+      "story_id": "mb1",
+      "background_audio": {
+        "loop": false,
+        "volume": 1
+      },
+      "description": "Seu Zé de pé ao lado da colmeia aberta, olhando para Pedro com expressão didática. Pedro com o caderninho na mão, pronto para anotar. Quadros de cria e mel visíveis dentro da colmeia. Estilo cartoon Gravity Falls.",
+      "media": {
+        "type": "image",
+        "url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69ea44a7b5fee93883c2e411_original__A Colheita de Pedro (11).jpg",
+        "duration": 14
+      },
+      "title": "C4 — Com Que Frequência?",
+      "type": "decision",
+      "transition": "fade",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "mb1_c2",
+          "text": "Depende da época. Durante a florada, com que frequência o apicultor deve fazer revisão completa das colmeias?",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea4e1cb5fee93883c2e9a0_story-tts-69ea4e1cb5fee93883c2e99f.mp3",
+          "voice_profile": "onyx",
+          "_ttsGenerating": false,
+          "_audioDuration": 6.936
+        }
+      ],
+      "_minDuration": 7,
+      "subtitles_enabled": true,
+      "position": 8
     },
-
     {
       "_id": "mb1_s9",
-      "story_id": "mb1",
-      "title": "C3B — A Varroa que Ninguém Viu",
-      "type": "scene",
-      "position": 9,
-      "transition": "fade",
-      "transition_duration": 300,
       "media_mode": "image",
+      "decision": {
+        "prompt": "",
+        "interaction_type": "click",
+        "options": []
+      },
+      "transition_duration": 300,
       "image_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69ea44c5b5fee93883c2e41d_original__A Colheita de Pedro (12).jpg",
+      "story_id": "mb1",
+      "background_audio": {
+        "loop": false,
+        "volume": 1
+      },
+      "description": "Ilustração comparativa em dois quadros: esquerda mostra 'Revisão Regular (7-15 dias)' com abelhas saudáveis, colmeia produtiva, produção alta; direita mostra 'Revisão Só na Colheita' com colmeia enfraquecida, ácaro Varroa visível nos favos, produção em queda acentuada. Seu Zé aponta para a diferença com expressão preocupada. Estilo cartoon Gravity Falls — diferente de C3, mais comparativo.",
       "media": {
         "type": "image",
         "url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69ea44c5b5fee93883c2e41d_original__A Colheita de Pedro (12).jpg",
         "duration": 16
       },
-      "description": "TODO — Ilustração comparativa em dois quadros: esquerda mostra 'Revisão Regular (7-15 dias)' com abelhas saudáveis, colmeia produtiva, produção alta; direita mostra 'Revisão Só na Colheita' com colmeia enfraquecida, ácaro Varroa visível nos favos, produção em queda acentuada. Seu Zé aponta para a diferença com expressão preocupada. Estilo cartoon Gravity Falls — diferente de C3, mais comparativo.",
-      "subtitles_enabled": true,
-      "background_audio": { "loop": false, "volume": 1 },
+      "title": "C3B — A Varroa que Ninguém Viu",
+      "type": "scene",
+      "transition": "fade",
       "next_scene_id": "mb1_s8",
       "dialogues": [
         {
           "position": 1,
           "character_id": "mb1_c2",
           "text": "Varroa se espalha rápido. Se você só abre na colheita, quando percebe, já perdeu metade da colônia.",
-          "audio_url": "",
-          "voice_profile": "onyx"
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea4e2bb5fee93883c2e9a5_story-tts-69ea4e2bb5fee93883c2e9a4.mp3",
+          "voice_profile": "onyx",
+          "_ttsGenerating": false,
+          "_audioDuration": 6.264
         },
         {
           "position": 2,
           "character_id": "mb1_c2",
           "text": "Revisão a cada 7 a 15 dias durante a florada pega o problema cedo — quando ainda tem cura simples.",
-          "audio_url": "",
-          "voice_profile": "onyx"
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea4e2fb5fee93883c2e9a7_story-tts-69ea4e2fb5fee93883c2e9a6.mp3",
+          "voice_profile": "onyx",
+          "_ttsGenerating": false,
+          "_audioDuration": 6.336
         },
         {
           "position": 3,
           "character_id": "mb1_c2",
           "text": "Então — com que frequência o apicultor faz revisão?",
-          "audio_url": "",
-          "voice_profile": "onyx"
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea4e35b5fee93883c2e9aa_story-tts-69ea4e35b5fee93883c2e9a9.mp3",
+          "voice_profile": "onyx",
+          "_ttsGenerating": false,
+          "_audioDuration": 3.264
         }
-      ]
+      ],
+      "_minDuration": 16,
+      "subtitles_enabled": true,
+      "position": 9
     },
-
     {
       "_id": "mb1_s10",
-      "story_id": "mb1",
-      "title": "C4 — A Varroa Encontrada",
-      "type": "scene",
-      "position": 10,
-      "transition": "fade",
-      "transition_duration": 300,
       "media_mode": "image",
+      "decision": {
+        "prompt": "",
+        "interaction_type": "click",
+        "options": []
+      },
+      "transition_duration": 300,
       "image_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69ea4512b5fee93883c2e432_original__A Colheita de Pedro (15).jpg",
+      "story_id": "mb1",
+      "background_audio": {
+        "loop": false,
+        "volume": 1
+      },
+      "description": "Seu Zé examinando um quadro de cria de perto, inclinado sobre o quadro. Pedro ao seu lado olhando com atenção intensa. Seu Zé aponta com o dedo para um ponto minúsculo numa larva — o ácaro Varroa. Expressão de Seu Zé: séria mas tranquila, encontrou cedo, tem solução. Estilo cartoon Gravity Falls.",
       "media": {
         "type": "image",
         "url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69ea4512b5fee93883c2e432_original__A Colheita de Pedro (15).jpg",
         "duration": 14
       },
-      "description": "TODO — Seu Zé examinando um quadro de cria de perto, inclinado sobre o quadro. Pedro ao seu lado olhando com atenção intensa. Seu Zé aponta com o dedo para um ponto minúsculo numa larva — o ácaro Varroa. Expressão de Seu Zé: séria mas tranquila, encontrou cedo, tem solução. Estilo cartoon Gravity Falls.",
-      "subtitles_enabled": true,
-      "background_audio": { "loop": false, "volume": 1 },
+      "title": "C4 — A Varroa Encontrada",
+      "type": "scene",
+      "transition": "fade",
       "next_scene_id": "mb1_s11",
       "dialogues": [
         {
           "position": 1,
           "character_id": "mb1_c2",
           "text": "Viu? Varroa. Pequena, mas tá aqui.",
-          "audio_url": "",
-          "voice_profile": "onyx"
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea4e43b5fee93883c2e9ac_story-tts-69ea4e43b5fee93883c2e9ab.mp3",
+          "voice_profile": "onyx",
+          "_ttsGenerating": false,
+          "_audioDuration": 2.016
         },
         {
           "position": 2,
           "character_id": "mb1_c1",
           "text": "E agora?",
-          "audio_url": "",
-          "voice_profile": "alloy"
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea4e49b5fee93883c2eb35_story-tts-69ea4e49b5fee93883c2eb34.mp3",
+          "voice_profile": "alloy",
+          "_ttsGenerating": false,
+          "_audioDuration": 0.528
         },
         {
           "position": 3,
           "character_id": "mb1_c2",
           "text": "Agora a gente trata antes de virar praga. É isso que a revisão regular faz — a diferença entre tratar uma colmeia e perder cinco.",
-          "audio_url": "",
-          "voice_profile": "onyx"
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea4e4fb5fee93883c2ece0_story-tts-69ea4e4fb5fee93883c2ecdf.mp3",
+          "voice_profile": "onyx",
+          "_ttsGenerating": false,
+          "_audioDuration": 8.064
         }
-      ]
+      ],
+      "_minDuration": 11,
+      "subtitles_enabled": true,
+      "position": 10
     },
-
     {
       "_id": "mb1_s11",
-      "story_id": "mb1",
-      "title": "C5 — A Entressafra Chega",
-      "type": "scene",
-      "position": 11,
-      "transition": "fade",
-      "transition_duration": 300,
       "media_mode": "image",
+      "decision": {
+        "prompt": "",
+        "interaction_type": "click",
+        "options": []
+      },
+      "transition_duration": 300,
       "image_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69ea4698b5fee93883c2e510_original__A Colheita de Pedro (16).jpg",
+      "story_id": "mb1",
+      "background_audio": {
+        "loop": false,
+        "volume": 1
+      },
+      "description": "Apiário em outubro, vegetação seca da Caatinga ao fundo — tons ocres e marrons substituindo o verde exuberante. Colmeias com menos movimentação de abelhas na entrada. Pedro observa as colmeias com expressão preocupada. Luz quente e seca da estiagem avançada. Estilo cartoon Gravity Falls — paleta mais árida e seca, contraste com cenas anteriores.",
       "media": {
         "type": "image",
         "url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69ea4698b5fee93883c2e510_original__A Colheita de Pedro (16).jpg",
         "duration": 12
       },
-      "description": "TODO — Apiário em outubro, vegetação seca da Caatinga ao fundo — tons ocres e marrons substituindo o verde exuberante. Colmeias com menos movimentação de abelhas na entrada. Pedro observa as colmeias com expressão preocupada. Luz quente e seca da estiagem avançada. Estilo cartoon Gravity Falls — paleta mais árida e seca, contraste com cenas anteriores.",
-      "subtitles_enabled": true,
-      "background_audio": { "loop": false, "volume": 1 },
+      "title": "C5 — A Entressafra Chega",
+      "type": "scene",
+      "transition": "fade",
       "next_scene_id": "mb1_s12",
       "dialogues": [
         {
           "position": 1,
           "text": "Outubro. A seca se instalou. A última florada acabou há semanas.",
-          "audio_url": "",
-          "voice_profile": "shimmer"
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea4e5cb5fee93883c2ee42_story-tts-69ea4e5cb5fee93883c2ee41.mp3",
+          "voice_profile": "shimmer",
+          "_ttsGenerating": false,
+          "_audioDuration": 4.008
         },
         {
           "position": 2,
@@ -519,53 +641,135 @@
           "position": 3,
           "character_id": "mb1_c2",
           "text": "É a entressafra. E agora vem a decisão mais importante do ano.",
-          "audio_url": "",
-          "voice_profile": "onyx"
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea4e61b5fee93883c2eec4_story-tts-69ea4e61b5fee93883c2eec3.mp3",
+          "voice_profile": "onyx",
+          "_ttsGenerating": false,
+          "_audioDuration": 3.864
         }
-      ]
+      ],
+      "_minDuration": 8,
+      "subtitles_enabled": true,
+      "position": 11
     },
-
     {
-      "_id": "mb1_s12",
-      "story_id": "mb1",
-      "title": "C6 — A Escolha da Entressafra",
-      "type": "decision",
-      "position": 12,
-      "transition": "fade",
-      "transition_duration": 300,
+      "_id": "mb1_s13",
+      "end_score": 10,
       "media_mode": "image",
-      "image_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69ea4759b5fee93883c2e544_original__A Colheita de Pedro (17).jpg",
+      "decision": {
+        "prompt": "",
+        "interaction_type": "click",
+        "options": []
+      },
+      "transition_duration": 300,
+      "image_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69ea4858b5fee93883c2e56b_original__A Colheita de Pedro (19).jpg",
+      "story_id": "mb1",
+      "background_audio": {
+        "loop": false,
+        "volume": 1
+      },
+      "description": "Apiário da família Costa no início do ano seguinte — novas chuvas chegando, colmeias cheias e saudáveis com grande movimentação de abelhas. Pedro e Seu Zé lado a lado segurando quadros completamente operculados. Ana ao fundo com caderninho registrando. Expressões de conquista e continuidade. Cena épica e calorosa. Estilo cartoon Gravity Falls — paleta vibrante amarelo-dourado e verde-caatinga.",
       "media": {
         "type": "image",
-        "url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69ea4759b5fee93883c2e544_original__A Colheita de Pedro (17).jpg",
-        "duration": 16
+        "url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69ea4858b5fee93883c2e56b_original__A Colheita de Pedro (19).jpg",
+        "duration": 17
       },
-      "description": "TODO — Seu Zé abrindo uma colmeia na entressafra — colônia menor, menos mel restante nas células. Pedro olhando para o pouco mel que sobrou com expressão de quem está tentado. Cena de tensão narrativa e escolha moral. Estilo cartoon Gravity Falls — paleta seca e ocre da estiagem.",
-      "subtitles_enabled": true,
-      "background_audio": { "loop": false, "volume": 1 },
+      "title": "C7A — O Ritmo da Natureza",
+      "type": "end",
+      "transition": "fade",
       "dialogues": [
         {
           "position": 1,
-          "character_id": "mb1_c2",
-          "text": "As colônias estão fracas. O mel que sobrou é reserva das abelhas — não da gente.",
-          "audio_url": "",
-          "voice_profile": "onyx"
+          "text": "Xarope na entressafra. Revisão regular na florada. Colheita só do mel operculado. Um ano de calendário apícola correto.",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea4e83b5fee93883c2eed0_story-tts-69ea4e83b5fee93883c2eecf.mp3",
+          "voice_profile": "shimmer",
+          "_ttsGenerating": false,
+          "_audioDuration": 7.512
         },
         {
           "position": 2,
           "character_id": "mb1_c1",
-          "text": "Mas o preço está alto agora, pai. Dá pra tirar mais um pouco.",
-          "audio_url": "",
-          "voice_profile": "alloy"
+          "text": "Pai, esse apiário produziu 40% a mais esse ano. O calendário funcionou.",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea4e8ab5fee93883c2eed2_story-tts-69ea4e8ab5fee93883c2eed1.mp3",
+          "voice_profile": "alloy",
+          "_ttsGenerating": false,
+          "_audioDuration": 4.656
         },
         {
           "position": 3,
           "character_id": "mb1_c2",
-          "text": "O que o apicultor deve fazer quando as colônias ficam fracas na entressafra seca?",
-          "audio_url": "",
-          "voice_profile": "onyx"
+          "text": "A abelha não erra o ritmo. A gente é que às vezes acha que sabe mais que ela.",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea4e8db5fee93883c2eed4_story-tts-69ea4e8db5fee93883c2eed3.mp3",
+          "voice_profile": "onyx",
+          "_ttsGenerating": false,
+          "_audioDuration": 4.536
         }
       ],
+      "_minDuration": 17,
+      "subtitles_enabled": true,
+      "position": 13,
+      "end_label": "Safra Completa"
+    },
+    {
+      "_id": "mb1_s14",
+      "end_score": 5,
+      "media_mode": "image",
+      "decision": {
+        "prompt": "",
+        "interaction_type": "click",
+        "options": []
+      },
+      "transition_duration": 300,
+      "image_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69ea49ceb5fee93883c2e642_original__A Colheita de Pedro (20).jpg",
+      "story_id": "mb1",
+      "background_audio": {
+        "loop": false,
+        "volume": 1
+      },
+      "description": "Pedro olhando para o apiário na seca — colmeias menos produtivas que poderiam estar. Seu Zé ao lado com o braço no ombro do filho, expressão de paciência e ensinamento. Luz quente e seca da estiagem. Cena introspectiva e não punitiva. Estilo cartoon Gravity Falls — paleta suave e ocre.",
+      "media": {
+        "type": "image",
+        "url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69ea49ceb5fee93883c2e642_original__A Colheita de Pedro (20).jpg",
+        "duration": 16
+      },
+      "title": "C7B — A Próxima Florada",
+      "type": "end",
+      "transition": "fade",
+      "dialogues": [
+        {
+          "position": 1,
+          "text": "A entressafra foi dura. Mas a lição ficou registrada no caderninho de Pedro.",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea4e9ab5fee93883c2eed9_story-tts-69ea4e9ab5fee93883c2eed8.mp3",
+          "voice_profile": "shimmer",
+          "_ttsGenerating": false,
+          "_audioDuration": 4.8
+        },
+        {
+          "position": 2,
+          "character_id": "mb1_c1",
+          "text": "Na próxima florada, eu sigo o calendário direito. Do começo ao fim.",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea4ea1b5fee93883c2eedb_story-tts-69ea4ea1b5fee93883c2eeda.mp3",
+          "voice_profile": "alloy",
+          "_ttsGenerating": false,
+          "_audioDuration": 4.152
+        },
+        {
+          "position": 3,
+          "character_id": "mb1_c2",
+          "text": "É assim que o apicultor cresce — não acertando tudo, mas aprendendo de cada safra.",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea4eadb5fee93883c2eee0_story-tts-69ea4eadb5fee93883c2eedf.mp3",
+          "voice_profile": "onyx",
+          "_ttsGenerating": false,
+          "_audioDuration": 5.184
+        }
+      ],
+      "_minDuration": 15,
+      "subtitles_enabled": true,
+      "position": 14,
+      "end_label": "Aprendendo o Ritmo"
+    },
+    {
+      "_id": "mb1_s12",
+      "media_mode": "image",
       "decision": {
         "prompt": "O que o apicultor deve fazer na entressafra seca quando as colônias ficam fracas?",
         "interaction_type": "single_choice",
@@ -581,96 +785,55 @@
             "score": 3
           }
         ]
-      }
-    },
-
-    {
-      "_id": "mb1_s13",
-      "story_id": "mb1",
-      "title": "C7A — O Ritmo da Natureza",
-      "type": "end",
-      "position": 13,
-      "transition": "fade",
+      },
       "transition_duration": 300,
-      "end_label": "Safra Completa",
-      "end_score": 10,
-      "media_mode": "image",
-      "image_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69ea4858b5fee93883c2e56b_original__A Colheita de Pedro (19).jpg",
+      "image_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69ea4759b5fee93883c2e544_original__A Colheita de Pedro (17).jpg",
+      "story_id": "mb1",
+      "background_audio": {
+        "loop": false,
+        "volume": 1
+      },
+      "description": "Seu Zé abrindo uma colmeia na entressafra — colônia menor, menos mel restante nas células. Pedro olhando para o pouco mel que sobrou com expressão de quem está tentado. Cena de tensão narrativa e escolha moral. Estilo cartoon Gravity Falls — paleta seca e ocre da estiagem.",
       "media": {
         "type": "image",
-        "url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69ea4858b5fee93883c2e56b_original__A Colheita de Pedro (19).jpg",
+        "url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69ea4759b5fee93883c2e544_original__A Colheita de Pedro (17).jpg",
         "duration": 16
       },
-      "description": "TODO — Apiário da família Costa no início do ano seguinte — novas chuvas chegando, colmeias cheias e saudáveis com grande movimentação de abelhas. Pedro e Seu Zé lado a lado segurando quadros completamente operculados. Ana ao fundo com caderninho registrando. Expressões de conquista e continuidade. Cena épica e calorosa. Estilo cartoon Gravity Falls — paleta vibrante amarelo-dourado e verde-caatinga.",
-      "subtitles_enabled": true,
-      "background_audio": { "loop": false, "volume": 1 },
+      "title": "C6 — A Escolha da Entressafra",
+      "type": "decision",
+      "transition": "fade",
       "dialogues": [
         {
           "position": 1,
-          "text": "Xarope na entressafra. Revisão regular na florada. Colheita só do mel operculado. Um ano de calendário apícola correto.",
-          "audio_url": "",
-          "voice_profile": "shimmer"
+          "character_id": "mb1_c2",
+          "text": "As colônias estão fracas. O mel que sobrou é reserva das abelhas — não da gente.",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea4e6bb5fee93883c2eec6_story-tts-69ea4e6bb5fee93883c2eec5.mp3",
+          "voice_profile": "onyx",
+          "_ttsGenerating": false,
+          "_audioDuration": 5.064
         },
         {
           "position": 2,
           "character_id": "mb1_c1",
-          "text": "Pai, esse apiário produziu 40% a mais esse ano. O calendário funcionou.",
-          "audio_url": "",
-          "voice_profile": "alloy"
+          "text": "Mas o preço está alto agora, pai. Dá pra tirar mais um pouco.",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea4e71b5fee93883c2eec8_story-tts-69ea4e71b5fee93883c2eec7.mp3",
+          "voice_profile": "alloy",
+          "_ttsGenerating": false,
+          "_audioDuration": 3.864
         },
         {
           "position": 3,
           "character_id": "mb1_c2",
-          "text": "A abelha não erra o ritmo. A gente é que às vezes acha que sabe mais que ela.",
-          "audio_url": "",
-          "voice_profile": "onyx"
+          "text": "O que o apicultor deve fazer quando as colônias ficam fracas na entressafra seca?",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea4e76b5fee93883c2eeca_story-tts-69ea4e76b5fee93883c2eec9.mp3",
+          "voice_profile": "onyx",
+          "_ttsGenerating": false,
+          "_audioDuration": 4.944
         }
-      ]
-    },
-
-    {
-      "_id": "mb1_s14",
-      "story_id": "mb1",
-      "title": "C7B — A Próxima Florada",
-      "type": "end",
-      "position": 14,
-      "transition": "fade",
-      "transition_duration": 300,
-      "end_label": "Aprendendo o Ritmo",
-      "end_score": 5,
-      "media_mode": "image",
-      "image_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69ea49ceb5fee93883c2e642_original__A Colheita de Pedro (20).jpg",
-      "media": {
-        "type": "image",
-        "url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69ea49ceb5fee93883c2e642_original__A Colheita de Pedro (20).jpg",
-        "duration": 16
-      },
-      "description": "TODO — Pedro olhando para o apiário na seca — colmeias menos produtivas que poderiam estar. Seu Zé ao lado com o braço no ombro do filho, expressão de paciência e ensinamento. Luz quente e seca da estiagem. Cena introspectiva e não punitiva. Estilo cartoon Gravity Falls — paleta suave e ocre.",
+      ],
+      "_minDuration": 14,
       "subtitles_enabled": true,
-      "background_audio": { "loop": false, "volume": 1 },
-      "dialogues": [
-        {
-          "position": 1,
-          "text": "A entressafra foi dura. Mas a lição ficou registrada no caderninho de Pedro.",
-          "audio_url": "",
-          "voice_profile": "shimmer"
-        },
-        {
-          "position": 2,
-          "character_id": "mb1_c1",
-          "text": "Na próxima florada, eu sigo o calendário direito. Do começo ao fim.",
-          "audio_url": "",
-          "voice_profile": "alloy"
-        },
-        {
-          "position": 3,
-          "character_id": "mb1_c2",
-          "text": "É assim que o apicultor cresce — não acertando tudo, mas aprendendo de cada safra.",
-          "audio_url": "",
-          "voice_profile": "onyx"
-        }
-      ]
+      "position": 12
     }
-
   ]
 }

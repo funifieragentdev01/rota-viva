@@ -149,11 +149,11 @@
     flex: 1; display: flex; align-items: center; justify-content: center;
   }
   .rv-smc-playpause {
-    width: 60px; height: 60px;
+    width: 120px; height: 120px;
     border-radius: 50%;
     background: rgba(0,0,0,0.5);
     border: 2px solid rgba(255,255,255,0.7);
-    color: #fff; font-size: 24px;
+    color: #fff; font-size: 60px;
     display: flex; align-items: center; justify-content: center;
     cursor: pointer;
     backdrop-filter: blur(4px);
@@ -424,6 +424,16 @@
             </button>
           </div>
           <div class="rv-smc-bottom" ng-click="$event.stopPropagation()">
+            <div ng-if="story && story.background_audio && story.background_audio.url"
+                 style="display:flex; align-items:center; gap:8px; margin-bottom:8px;">
+              <i class="fas fa-volume-up" style="color:rgba(255,255,255,0.55); font-size:12px; flex-shrink:0;"></i>
+              <input type="range" min="0" max="1" step="0.05"
+                     ng-model="bgVolume"
+                     style="flex:1; cursor:pointer; accent-color:var(--color-primary,#FF9600); height:4px;"
+                     title="Volume do áudio de fundo"
+                     oninput="var s=angular.element(this).scope(); s.setBgVolume(this.value); s.$apply();" />
+              <span style="font-size:10px; color:rgba(255,255,255,0.4); width:28px; text-align:right; flex-shrink:0;">{{(bgVolume * 100) | number:0}}%</span>
+            </div>
             <div class="rv-story-progress-bars">
               <div class="rv-story-progress-row">
                 <span class="rv-story-progress-label">Cena</span>

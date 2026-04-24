@@ -1,0 +1,735 @@
+{
+  "story": {
+    "_id": "mb2",
+    "aspect_ratio": "9:16",
+    "subtitle_font_size": 22,
+    "default_scene_duration": 6,
+    "show_cover_first": true,
+    "background_audio": {
+      "loop": true,
+      "volume": 0.25,
+      "url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/documents/69e7aaf8501f000cfda76559_enlivening.mp3"
+    },
+    "synopsis": "O contrato do PNAE está assinado. Ana ajuda Dona Maria na primeira extração para a escola — e aprende que cada etapa da extração tem uma razão. Sequência correta, refratômetro, filtragem e recipiente adequado fazem a diferença entre o mel aprovado e o contrato perdido.",
+    "title": "Módulo B2 - O Mel da Escola",
+    "passing_score": 28,
+    "genre": "Drama",
+    "first_scene_id": "mb2_s1",
+    "cover_image": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69ea62f1b5fee93883c31506_original__O Mel da Escola (13).jpg",
+    "status": "active"
+  },
+
+  "characters": [
+    {
+      "_id": "mb2_c1",
+      "avatar_thumbnail": "",
+      "voice_profile": "nova",
+      "full_name": "Ana Costa",
+      "story_id": "mb2",
+      "name": "Ana",
+      "description": "Filha de 14 anos da família Costa. Tranças, avental sobre vestidinho simples, olhos grandes. Encantada com as abelhas, primeira vez ajudando na extração completa.",
+      "reference_image": ""
+    },
+    {
+      "_id": "mb2_c2",
+      "avatar_thumbnail": "",
+      "voice_profile": "shimmer",
+      "full_name": "Maria Costa",
+      "story_id": "mb2",
+      "name": "Dona Maria",
+      "description": "Mãe de 48 anos da família Costa. Vestido florido, avental, cabelos compridos presos. Participativa na gestão do apiário, determinada e rigorosa com qualidade.",
+      "reference_image": ""
+    },
+    {
+      "_id": "mb2_c3",
+      "avatar_thumbnail": "",
+      "voice_profile": "alloy",
+      "full_name": "Pedro Costa",
+      "story_id": "mb2",
+      "name": "Pedro",
+      "description": "Filho de 19 anos da família Costa. Camiseta e chapéu. Aparece brevemente como apoio à mãe e irmã na semana da entrega.",
+      "reference_image": ""
+    }
+  ],
+
+  "scenes": [
+
+    {
+      "_id": "mb2_s1",
+      "story_id": "mb2",
+      "title": "CAPA — O Mel da Escola",
+      "type": "scene",
+      "position": 1,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "image_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69ea4f2db5fee93883c2eefb_original__O Mel da Escola.jpg",
+      "media": {
+        "type": "image",
+        "url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69ea4f2db5fee93883c2eefb_original__O Mel da Escola.jpg",
+        "duration": 10
+      },
+      "description": "TODO — Casa de mel da família Costa. Ana (14 anos, tranças, avental branco) ao lado de centrífuga artesanal de madeira, mãos apoiadas na manivela. Dona Maria (48 anos, vestido florido, avental) com refratômetro nas mãos olhando a leitura com expressão concentrada. Quadros de mel dourado sobre a mesa. Janela aberta com apiário verde visível ao fundo. Estilo cartoon Gravity Falls — paleta quente amarelo-dourado, verde-caatinga, luz interior aconchegante.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "mb2_s2",
+      "_minDuration": 5,
+      "dialogues": [
+        {
+          "position": 1,
+          "text": "O contrato está assinado. A escola espera. E o mel precisa ser perfeito.",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea96e8b5fee93883c3618c_story-tts-69ea96e8b5fee93883c3618b.mp3",
+          "voice_profile": "onyx",
+          "_ttsGenerating": false,
+          "_audioDuration": 4.44
+        }
+      ]
+    },
+
+    {
+      "_id": "mb2_s2",
+      "story_id": "mb2",
+      "title": "C0 — A Semana da Entrega",
+      "type": "scene",
+      "position": 2,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "image_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69ea503cb5fee93883c2ef1f_original__O Mel da Escola (2).jpg",
+      "media": {
+        "type": "image",
+        "url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69ea503cb5fee93883c2ef1f_original__O Mel da Escola (2).jpg",
+        "duration": 15
+      },
+      "description": "TODO — Casa da família Costa, sala simples. Dona Maria segurando o papel do contrato do PNAE com expressão séria de responsabilidade. Pedro (19 anos, camiseta) ao lado sorrindo com orgulho. Ana (14 anos) na frente com expressão animada e curiosa, levantando a mão. Atmosfera de conquista familiar com responsabilidade real. Estilo cartoon Gravity Falls — paleta quente.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "mb2_s3",
+      "_minDuration": 15,
+      "dialogues": [
+        {
+          "position": 1,
+          "text": "Chamada pública vencida, contrato assinado, primeira entrega marcada para sexta-feira.",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea96eeb5fee93883c36190_story-tts-69ea96eeb5fee93883c3618f.mp3",
+          "voice_profile": "onyx",
+          "_ttsGenerating": false,
+          "_audioDuration": 5.4
+        },
+        {
+          "position": 2,
+          "character_id": "mb2_c2",
+          "text": "Duzentas crianças vão comer nosso mel na merenda essa semana. Nada de corte.",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea96f1b5fee93883c36194_story-tts-69ea96f1b5fee93883c36193.mp3",
+          "voice_profile": "shimmer",
+          "_ttsGenerating": false,
+          "_audioDuration": 4.896
+        },
+        {
+          "position": 3,
+          "character_id": "mb2_c1",
+          "text": "Mãe, posso ajudar na extração? Nunca fiz o processo completo.",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea96f4b5fee93883c36198_story-tts-69ea96f4b5fee93883c36197.mp3",
+          "voice_profile": "nova",
+          "_ttsGenerating": false,
+          "_audioDuration": 3.888
+        }
+      ]
+    },
+
+    {
+      "_id": "mb2_s3",
+      "story_id": "mb2",
+      "title": "C0.1 — A Casa de Mel",
+      "type": "scene",
+      "position": 3,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "image_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69ea5137b5fee93883c2fcbe_original__O Mel da Escola.jpg",
+      "media": {
+        "type": "image",
+        "url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69ea5137b5fee93883c2fcbe_original__O Mel da Escola.jpg",
+        "duration": 12
+      },
+      "description": "TODO — Interior da casa de mel da família Costa: piso de cimento lavável limpo, paredes caiadas, tela nas janelas, centrífuga artesanal ao centro da sala, baldes de polietileno e filtros sobre mesa de madeira. Dona Maria de avental mostrando o espaço para Ana. Expressão de quem cuida do ambiente como parte do produto. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "mb2_s4",
+      "_minDuration": 11,
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "mb2_c2",
+          "text": "Antes de começar, tudo limpo e seco. O mel que sai da colmeia é perfeito — o que estraga é o que a gente faz depois.",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea96ffb5fee93883c36425_story-tts-69ea96ffb5fee93883c36424.mp3",
+          "voice_profile": "shimmer",
+          "_ttsGenerating": false,
+          "_audioDuration": 7.296
+        },
+        {
+          "position": 2,
+          "character_id": "mb2_c1",
+          "text": "Então por onde a gente começa, mãe? Coloca na centrífuga logo?",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea9704b5fee93883c364a9_story-tts-69ea9704b5fee93883c364a8.mp3",
+          "voice_profile": "nova",
+          "_ttsGenerating": false,
+          "_audioDuration": 3.696
+        }
+      ]
+    },
+
+    {
+      "_id": "mb2_s4",
+      "story_id": "mb2",
+      "title": "C1 — A Primeira Etapa",
+      "type": "decision",
+      "position": 4,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "image_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69ea540fb5fee93883c2fd6d_original__O Mel da Escola (1).jpg",
+      "media": {
+        "type": "image",
+        "url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69ea540fb5fee93883c2fd6d_original__O Mel da Escola (1).jpg",
+        "duration": 12
+      },
+      "description": "TODO — Dona Maria ao lado da centrífuga e da mesa com quadros operculados de mel. Ana olha para os quadros e para a centrífuga pensativa, com expressão de quem quer acertar. Mesa de desoperculação e garfos desoperculadores visíveis ao lado. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "_minDuration": 2,
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "mb2_c2",
+          "text": "Qual é o primeiro passo, Ana?",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea9746b5fee93883c36591_story-tts-69ea9746b5fee93883c36590.mp3",
+          "voice_profile": "shimmer",
+          "_ttsGenerating": false,
+          "_audioDuration": 1.8
+        }
+      ],
+      "decision": {
+        "prompt": "Qual é o primeiro passo correto na extração do mel?",
+        "interaction_type": "single_choice",
+        "options": [
+          {
+            "label": "Desoperculação — retirar os opérculos de cera com garfo ou faca antes de colocar na centrífuga",
+            "next_scene_id": "mb2_s6",
+            "score": 10
+          },
+          {
+            "label": "Centrifugação direta — colocar os quadros na centrífuga sem retirar a cera primeiro",
+            "next_scene_id": "mb2_s5",
+            "score": 1
+          },
+          {
+            "label": "Não sei ainda",
+            "next_scene_id": "mb2_s5",
+            "score": 1
+          }
+        ]
+      }
+    },
+
+    {
+      "_id": "mb2_s5",
+      "story_id": "mb2",
+      "title": "C1B — Por Que Desopercular Primeiro",
+      "type": "scene",
+      "position": 5,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "image_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69ea54c4b5fee93883c2fd86_original__O Mel da Escola (2).jpg",
+      "media": {
+        "type": "image",
+        "url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69ea54c4b5fee93883c2fd86_original__O Mel da Escola (2).jpg",
+        "duration": 16
+      },
+      "description": "TODO — Ilustração comparativa em dois quadros: esquerda mostra quadro com cera intacta colocado na centrífuga — seta indicando que o mel não sai, favo se rompe sem resultado; direita mostra quadro devidamente desoperculado — mel escorre livremente pelas paredes da centrífuga. Dona Maria aponta para a diferença com expressão didática. Fundo amarelo suave. Estilo cartoon Gravity Falls — mais diagramático, diferente de C0.1.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "mb2_s4",
+      "_minDuration": 14,
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "mb2_c2",
+          "text": "A cera sela o mel. Se você jogar na centrífuga sem retirar os opérculos, o mel não consegue sair — você gira em vão e ainda estraga o favo.",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea974cb5fee93883c36598_story-tts-69ea974cb5fee93883c36597.mp3",
+          "voice_profile": "shimmer",
+          "_ttsGenerating": false,
+          "_audioDuration": 8.88
+        },
+        {
+          "position": 2,
+          "character_id": "mb2_c2",
+          "text": "A desoperculação abre a porta. Sem ela, não tem extração eficiente.",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea974fb5fee93883c3659d_story-tts-69ea974fb5fee93883c3659c.mp3",
+          "voice_profile": "shimmer",
+          "_ttsGenerating": false,
+          "_audioDuration": 4.296
+        },
+        {
+          "position": 3,
+          "character_id": "mb2_c2",
+          "text": "Então — qual é o primeiro passo?",
+          "audio_url": "",
+          "voice_profile": "shimmer"
+        }
+      ]
+    },
+
+    {
+      "_id": "mb2_s6",
+      "story_id": "mb2",
+      "title": "C2 — A Primeira Desoperculação de Ana",
+      "type": "scene",
+      "position": 6,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "image_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69ea556ab5fee93883c2fd8c_original__O Mel da Escola (3).jpg",
+      "media": {
+        "type": "image",
+        "url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69ea556ab5fee93883c2fd8c_original__O Mel da Escola (3).jpg",
+        "duration": 17
+      },
+      "description": "TODO — Ana com garfo desoperculador nas mãos, retirando cuidadosamente os opérculos de cera de um quadro sobre a bacia de desoperculação. Expressão de concentração intensa e cuidado. Dona Maria ao lado observando com aprovação discreta. Mel dourado brilhando nos favos abertos. Cera branca caindo na bacia. Estilo cartoon Gravity Falls — luz dourada interior.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "mb2_s7",
+      "_minDuration": 17,
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "mb2_c1",
+          "text": "É mais difícil do que parece — tem que ir com cuidado pra não furar o favo.",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea9780b5fee93883c365c0_story-tts-69ea9780b5fee93883c365bf.mp3",
+          "voice_profile": "nova",
+          "_ttsGenerating": false,
+          "_audioDuration": 4.824
+        },
+        {
+          "position": 2,
+          "character_id": "mb2_c2",
+          "text": "Exato. O mel que cai na bacia durante a desoperculação a gente aproveita também — não desperdiça nada.",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea9786b5fee93883c365c6_story-tts-69ea9786b5fee93883c365c5.mp3",
+          "voice_profile": "shimmer",
+          "_ttsGenerating": false,
+          "_audioDuration": 6.528
+        },
+        {
+          "position": 3,
+          "text": "O primeiro quadro desoperculado de Ana. O mel que vai para a escola começa aqui.",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea979eb5fee93883c365d8_story-tts-69ea979eb5fee93883c365d7.mp3",
+          "voice_profile": "onyx",
+          "_ttsGenerating": false,
+          "_audioDuration": 5.064
+        }
+      ]
+    },
+
+    {
+      "_id": "mb2_s7",
+      "story_id": "mb2",
+      "title": "C3 — A Centrífuga",
+      "type": "scene",
+      "position": 7,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "image_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69ea5628b5fee93883c2fd91_original__O Mel da Escola (4).jpg",
+      "media": {
+        "type": "image",
+        "url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69ea5628b5fee93883c2fd91_original__O Mel da Escola (4).jpg",
+        "duration": 12
+      },
+      "description": "TODO — Ana e Dona Maria colocando quadros desoperculados na centrífuga artesanal. Dona Maria girando a manivela progressivamente com expressão técnica. Mel dourado escorrendo pelas paredes internas e acumulando no fundo da centrífuga. Ana olhando fascinada através de abertura lateral. Estilo cartoon Gravity Falls — paleta dourada intensa.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "mb2_s8",
+      "_minDuration": 8,
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "mb2_c1",
+          "text": "Mãe, é lindo! O mel vai saindo das células sozinho.",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea97a4b5fee93883c365de_story-tts-69ea97a4b5fee93883c365dd.mp3",
+          "voice_profile": "nova",
+          "_ttsGenerating": false,
+          "_audioDuration": 3.144
+        },
+        {
+          "position": 2,
+          "character_id": "mb2_c2",
+          "text": "Progressivo — começa devagar e aumenta. Girar rápido demais quebra os favos.",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea97a8b5fee93883c365e4_story-tts-69ea97a8b5fee93883c365e3.mp3",
+          "voice_profile": "shimmer",
+          "_ttsGenerating": false,
+          "_audioDuration": 4.776
+        }
+      ]
+    },
+
+    {
+      "_id": "mb2_s8",
+      "story_id": "mb2",
+      "title": "C4 — O Refratômetro",
+      "type": "decision",
+      "position": 8,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "image_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69ea56e8b5fee93883c2fda4_original__O Mel da Escola (5).jpg",
+      "media": {
+        "type": "image",
+        "url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69ea56e8b5fee93883c2fda4_original__O Mel da Escola (5).jpg",
+        "duration": 14
+      },
+      "description": "TODO — Dona Maria com refratômetro pequeno na mão, colocando uma gota de mel na lente com conta-gotas. Olha para a leitura com expressão séria: 22% de umidade visível na escala. Ana ao lado com expressão de preocupação. Mesa com quadros prontos para envasar aguardando. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "_minDuration": 8,
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "mb2_c2",
+          "text": "22% de umidade. Acima do limite.",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea97adb5fee93883c365e8_story-tts-69ea97adb5fee93883c365e7.mp3",
+          "voice_profile": "shimmer",
+          "_ttsGenerating": false,
+          "_audioDuration": 2.28
+        },
+        {
+          "position": 2,
+          "character_id": "mb2_c1",
+          "text": "Mas o mel estava nas células, mãe. Parecia pronto.",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea97b0b5fee93883c365ea_story-tts-69ea97b0b5fee93883c365e9.mp3",
+          "voice_profile": "nova",
+          "_ttsGenerating": false,
+          "_audioDuration": 3.096
+        },
+        {
+          "position": 3,
+          "character_id": "mb2_c2",
+          "text": "Parecia. O que eu devo fazer?",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea97b3b5fee93883c365ec_story-tts-69ea97b3b5fee93883c365eb.mp3",
+          "voice_profile": "shimmer",
+          "_ttsGenerating": false,
+          "_audioDuration": 1.728
+        }
+      ],
+      "decision": {
+        "prompt": "O mel marcou 22% de umidade — acima do limite de 20%. O que Dona Maria deve fazer?",
+        "interaction_type": "single_choice",
+        "options": [
+          {
+            "label": "Não envasar — aguardar ou devolver os quadros para as abelhas completarem a secagem",
+            "next_scene_id": "mb2_s10",
+            "score": 10
+          },
+          {
+            "label": "Envasar mesmo assim — a diferença de 2% é pequena e o prazo de entrega está próximo",
+            "next_scene_id": "mb2_s9",
+            "score": 3
+          }
+        ]
+      }
+    },
+
+    {
+      "_id": "mb2_s9",
+      "story_id": "mb2",
+      "title": "C4B — O Mel que Fermenta",
+      "type": "scene",
+      "position": 9,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "image_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69ea590bb5fee93883c2fdc3_original__O Mel da Escola (7).jpg",
+      "media": {
+        "type": "image",
+        "url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69ea590bb5fee93883c2fdc3_original__O Mel da Escola (7).jpg",
+        "duration": 19
+      },
+      "description": "TODO — Ilustração comparativa: pote de mel envasado com 22% de umidade — tampa visivelmente estufada, bolhas e espuma visíveis no interior, rótulo com selo 'REPROVADO' em vermelho. Ao lado, pote com 18% de umidade — âmbar dourado limpo, lacrado hermeticamente, rótulo 'APROVADO'. Dona Maria explica com expressão firme. Estilo cartoon Gravity Falls — diferente de C4.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "mb2_s10",
+      "_minDuration": 19,
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "mb2_c2",
+          "text": "Mel com mais de 20% de umidade começa a fermentar em dias. A tampa estufa, o gosto muda — e a escola devolve tudo.",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea97b9b5fee93883c365ee_story-tts-69ea97b9b5fee93883c365ed.mp3",
+          "voice_profile": "shimmer",
+          "_ttsGenerating": false,
+          "_audioDuration": 7.488
+        },
+        {
+          "position": 2,
+          "text": "Dona Maria separa os quadros problemáticos. Eles voltam para as abelhas finalizarem a secagem.",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea97bfb5fee93883c365fc_story-tts-69ea97bfb5fee93883c365fb.mp3",
+          "voice_profile": "onyx",
+          "_ttsGenerating": false,
+          "_audioDuration": 5.928
+        },
+        {
+          "position": 3,
+          "character_id": "mb2_c2",
+          "text": "Dois por cento faz a diferença entre o contrato mantido e o contrato perdido.",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea97dcb5fee93883c3661c_story-tts-69ea97dcb5fee93883c3661b.mp3",
+          "voice_profile": "shimmer",
+          "_ttsGenerating": false,
+          "_audioDuration": 4.92
+        }
+      ]
+    },
+
+    {
+      "_id": "mb2_s10",
+      "story_id": "mb2",
+      "title": "C5 — Filtragem e Decantação",
+      "type": "scene",
+      "position": 10,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "image_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69ea59e8b5fee93883c2fdd0_original__O Mel da Escola (8).jpg",
+      "media": {
+        "type": "image",
+        "url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69ea59e8b5fee93883c2fdd0_original__O Mel da Escola (8).jpg",
+        "duration": 18
+      },
+      "description": "TODO — Dona Maria e Ana passando mel pela filtragem de malha fina fixada sobre balde de polietileno. Pequenas partículas de cera presas no filtro visíveis. Mel limpo e dourado escorrendo para o balde abaixo. Ao lado, decantador com mel em repouso, bolhas e cera subindo naturalmente para a superfície. Estilo cartoon Gravity Falls — paleta dourada e âmbar.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "mb2_s11",
+      "_minDuration": 18,
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "mb2_c1",
+          "text": "Por que filtrar se o mel parece limpo?",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea97e3b5fee93883c3661f_story-tts-69ea97e3b5fee93883c3661e.mp3",
+          "voice_profile": "nova",
+          "_ttsGenerating": false,
+          "_audioDuration": 2.4
+        },
+        {
+          "position": 2,
+          "character_id": "mb2_c2",
+          "text": "Tem pedaço de cera, asinha de abelha — coisas que você não vê mas que o comprador vai ver no pote.",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea97e7b5fee93883c36621_story-tts-69ea97e7b5fee93883c36620.mp3",
+          "voice_profile": "shimmer",
+          "_ttsGenerating": false,
+          "_audioDuration": 6.264
+        },
+        {
+          "position": 3,
+          "character_id": "mb2_c2",
+          "text": "Depois do filtro, o mel descansa no decantador por 48 horas. A cera e as bolhas sobem. O mel limpo fica embaixo — pronto para envasar.",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea97ebb5fee93883c36623_story-tts-69ea97ebb5fee93883c36622.mp3",
+          "voice_profile": "shimmer",
+          "_ttsGenerating": false,
+          "_audioDuration": 8.616
+        }
+      ]
+    },
+
+    {
+      "_id": "mb2_s11",
+      "story_id": "mb2",
+      "title": "C6 — A Hora do Envase",
+      "type": "scene",
+      "position": 11,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "image_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69ea5d79b5fee93883c30258_original__O Mel da Escola (9).jpg",
+      "media": {
+        "type": "image",
+        "url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69ea5d79b5fee93883c30258_original__O Mel da Escola (9).jpg",
+        "duration": 12
+      },
+      "description": "TODO — Dona Maria e Ana preparando potes de vidro limpos e secos sobre a mesa para o envase. Fileira de potes de vidro alinhados, tampas ao lado. Ana encontra uma velha lata de metal em um canto e a mostra para Dona Maria questionando. Dona Maria afasta a lata com gesto firme e definitivo. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "next_scene_id": "mb2_s12",
+      "_minDuration": 10,
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "mb2_c1",
+          "text": "Mãe, posso usar essa lata pra parte do mel? Sobrou espaço.",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea97f1b5fee93883c36628_story-tts-69ea97f1b5fee93883c36627.mp3",
+          "voice_profile": "nova",
+          "_ttsGenerating": false,
+          "_audioDuration": 3.456
+        },
+        {
+          "position": 2,
+          "character_id": "mb2_c2",
+          "text": "Não. Metal oxida e passa gosto pro mel. Qual é o recipiente certo para armazenar mel, Ana?",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea9806b5fee93883c36630_story-tts-69ea9806b5fee93883c3662f.mp3",
+          "voice_profile": "shimmer",
+          "_ttsGenerating": false,
+          "_audioDuration": 5.592
+        }
+      ]
+    },
+
+    {
+      "_id": "mb2_s12",
+      "story_id": "mb2",
+      "title": "C7 — Qual Recipiente?",
+      "type": "decision",
+      "position": 12,
+      "transition": "fade",
+      "transition_duration": 300,
+      "media_mode": "image",
+      "image_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69ea5e53b5fee93883c303a4_original__O Mel da Escola (10).jpg",
+      "media": {
+        "type": "image",
+        "url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69ea5e53b5fee93883c303a4_original__O Mel da Escola (10).jpg",
+        "duration": 12
+      },
+      "description": "TODO — Ana olhando para a lata de metal de um lado e para os potes de vidro do outro. Expressão de quem está decidindo com cuidado. Dona Maria ao fundo esperando a resposta. Mesa com potes de vidro e a lata de metal visíveis em paralelo. Estilo cartoon Gravity Falls.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "_minDuration": 5,
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "mb2_c1",
+          "text": "Vidro ou polietileno alimentício. Nunca metal ou plástico reciclado.",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea980cb5fee93883c36636_story-tts-69ea980cb5fee93883c36635.mp3",
+          "voice_profile": "nova",
+          "_ttsGenerating": false,
+          "_audioDuration": 4.344
+        }
+      ],
+      "decision": {
+        "prompt": "Qual é o recipiente correto para armazenar mel após a extração?",
+        "interaction_type": "single_choice",
+        "options": [
+          {
+            "label": "Pote de vidro com tampa hermética ou balde de polietileno alimentício",
+            "next_scene_id": "mb2_s13",
+            "score": 10
+          },
+          {
+            "label": "Qualquer recipiente limpo disponível — lata de metal, plástico reciclado ou vidro",
+            "next_scene_id": "mb2_s14",
+            "score": 3
+          }
+        ]
+      }
+    },
+
+    {
+      "_id": "mb2_s13",
+      "story_id": "mb2",
+      "title": "C8A — O Mel na Merenda",
+      "type": "end",
+      "position": 13,
+      "transition": "fade",
+      "transition_duration": 300,
+      "end_label": "Mel Aprovado",
+      "end_score": 10,
+      "media_mode": "image",
+      "image_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69ea6007b5fee93883c3149f_original__O Mel da Escola (11).jpg",
+      "media": {
+        "type": "image",
+        "url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69ea6007b5fee93883c3149f_original__O Mel da Escola (11).jpg",
+        "duration": 16
+      },
+      "description": "TODO — Cena dupla: sala de aula de escola municipal com crianças tomando café com mel, professora lendo o rótulo da família Costa com sorriso. Corte para Dona Maria e Ana abraçadas na casa de mel, potes de vidro lacrados e etiquetados à sua frente, apiário visível pela janela. Cena de conquista familiar e dignidade. Estilo cartoon Gravity Falls — paleta vibrante dourada e quente.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "_minDuration": 15,
+      "dialogues": [
+        {
+          "position": 1,
+          "text": "Vinte e dois potes de vidro, lacrados, etiquetados. Mel operculado, umidade correta, sem metal.",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea9813b5fee93883c36639_story-tts-69ea9813b5fee93883c36638.mp3",
+          "voice_profile": "onyx",
+          "_ttsGenerating": false,
+          "_audioDuration": 5.712
+        },
+        {
+          "position": 2,
+          "character_id": "mb2_c1",
+          "text": "Mãe, esse mel vai ser o café da manhã de duzentas crianças essa semana.",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea9828b5fee93883c3663b_story-tts-69ea9828b5fee93883c3663a.mp3",
+          "voice_profile": "nova",
+          "_ttsGenerating": false,
+          "_audioDuration": 4.176
+        },
+        {
+          "position": 3,
+          "character_id": "mb2_c2",
+          "text": "É por isso que cada etapa importa, Ana. Não é trabalho — é respeito.",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea9830b5fee93883c3663f_story-tts-69ea9830b5fee93883c3663e.mp3",
+          "voice_profile": "shimmer",
+          "_ttsGenerating": false,
+          "_audioDuration": 4.248
+        }
+      ]
+    },
+
+    {
+      "_id": "mb2_s14",
+      "story_id": "mb2",
+      "title": "C8B — Uma Parte do Mel",
+      "type": "end",
+      "position": 14,
+      "transition": "fade",
+      "transition_duration": 300,
+      "end_label": "Quase Perfeito",
+      "end_score": 5,
+      "media_mode": "image",
+      "image_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69ea613eb5fee93883c314d5_original__O Mel da Escola (12).jpg",
+      "media": {
+        "type": "image",
+        "url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69ea613eb5fee93883c314d5_original__O Mel da Escola (12).jpg",
+        "duration": 16
+      },
+      "description": "TODO — Dona Maria separando caixas de mel — algumas aprovadas, algumas com problemas. Ana observa os potes aprovados e os que foram separados, expressão reflexiva e de quem está aprendendo com a experiência. Ambiente da casa de mel ao fim do dia, luz mais suave. Estilo cartoon Gravity Falls — paleta suave e calorosa.",
+      "subtitles_enabled": true,
+      "background_audio": { "loop": false, "volume": 1 },
+      "_minDuration": 12,
+      "dialogues": [
+        {
+          "position": 1,
+          "text": "Dezoito potes aprovados. Quatro separados por problemas de qualidade.",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea9835b5fee93883c36641_story-tts-69ea9835b5fee93883c36640.mp3",
+          "voice_profile": "onyx",
+          "_ttsGenerating": false,
+          "_audioDuration": 4.344
+        },
+        {
+          "position": 2,
+          "character_id": "mb2_c1",
+          "text": "A gente entrega o que tem aprovado e repõe na próxima semana?",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea9838b5fee93883c36643_story-tts-69ea9838b5fee93883c36642.mp3",
+          "voice_profile": "nova",
+          "_ttsGenerating": false,
+          "_audioDuration": 3.984
+        },
+        {
+          "position": 3,
+          "character_id": "mb2_c2",
+          "text": "Exato. O contrato está mantido — e o erro não se repete.",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea983cb5fee93883c36649_story-tts-69ea983cb5fee93883c36648.mp3",
+          "voice_profile": "shimmer",
+          "_ttsGenerating": false,
+          "_audioDuration": 3.504
+        }
+      ]
+    }
+
+  ]
+}

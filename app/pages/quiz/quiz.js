@@ -797,13 +797,12 @@ angular.module('rotaViva')
             }
 
             if (playerId) {
-                ApiService.logAction('complete_lesson', playerId, isCartoon ? {
-                    lesson_type: 'cartoon',
+                ApiService.logAction('complete_lesson', isCartoon ? {
                     type: 'cartoon',
                     lesson_id: lessonId,
                     score: $scope.cartoonStars
                 } : {
-                    lesson_type: 'quiz',
+                    type: contentType || 'quiz',
                     lesson_id: quizId,
                     score: $scope.scorePercent
                 }).catch(function() {});

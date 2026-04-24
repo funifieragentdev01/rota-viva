@@ -1,0 +1,751 @@
+{
+  "story": {
+    "_id": "mc1",
+    "aspect_ratio": "9:16",
+    "subtitle_font_size": 22,
+    "default_scene_duration": 6,
+    "show_cover_first": true,
+    "background_audio": {
+      "loop": true,
+      "volume": 0.25,
+      "url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/documents/69e7aaf8501f000cfda76559_enlivening.mp3"
+    },
+    "synopsis": "Pedro descobre que uma rede de farmácias quer comprar mel local com preço três vezes maior — mas exige SIE mínimo. Com a ajuda do técnico da Emater-PI, a família Costa entende que a certificação não é obstáculo: é a porta. E que existe uma escada — SIM, SIE, cooperativa para o SIF.",
+    "title": "Módulo C1 - O Mel Que Passa da Porta",
+    "passing_score": 28,
+    "genre": "Drama",
+    "first_scene_id": "mc1_s1",
+    "cover_image": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69ea8c84b5fee93883c34e5f_original_O Mel Que Passa da Porta (16).jpg",
+    "status": "active",
+    "$$hashKey": "object:224"
+  },
+  "characters": [
+    {
+      "_id": "mc1_c4",
+      "avatar_thumbnail": "",
+      "voice_profile": "alloy",
+      "full_name": "Técnico da Emater-PI",
+      "story_id": "mc1",
+      "name": "Técnico Emater",
+      "description": "Técnico de extensão rural da Emater-PI, 35 anos. Óculos, colete verde. Especialista em apicultura familiar e certificação. Paciente, didático e prático.",
+      "reference_image": ""
+    },
+    {
+      "_id": "mc1_c2",
+      "avatar_thumbnail": "",
+      "voice_profile": "onyx",
+      "full_name": "José Costa",
+      "story_id": "mc1",
+      "name": "Seu Zé",
+      "description": "Apicultor de 55 anos, patriarca da família Costa. Rosto curtido de sol, chapéu de palha, voz firme. Criou abelhas pela tradição; agora aprende com o filho que o mel pode ir mais longe.",
+      "reference_image": ""
+    },
+    {
+      "_id": "mc1_c3",
+      "avatar_thumbnail": "",
+      "voice_profile": "shimmer",
+      "full_name": "Maria Costa",
+      "story_id": "mc1",
+      "name": "Dona Maria",
+      "description": "Esposa de Seu Zé, 48 anos, vestido florido. Organizada, prática, sempre com papel e caneta na mão. Âncora da família nos momentos de decisão.",
+      "reference_image": ""
+    },
+    {
+      "_id": "mc1_c1",
+      "avatar_thumbnail": "",
+      "voice_profile": "alloy",
+      "full_name": "Pedro Costa",
+      "story_id": "mc1",
+      "name": "Pedro",
+      "description": "Filho mais velho da família Costa, 19 anos. Chapéu de palha, camiseta. Curioso, empreendedor. O primeiro da família a ver no mel uma carreira, não só uma tradição.",
+      "reference_image": ""
+    }
+  ],
+  "scenes": [
+    {
+      "_id": "mc1_s1",
+      "media_mode": "image",
+      "transition_duration": 300,
+      "image_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69ea66d0b5fee93883c31549_original_O Mel Que Passa da Porta.jpg",
+      "story_id": "mc1",
+      "background_audio": {
+        "loop": false,
+        "volume": 1
+      },
+      "description": "TODO — Pedro (19 anos, camiseta, chapéu) segurando pote de mel na frente de vitrine de farmácia. Do lado de dentro, gerente com expressão interessada aponta para documento que falta. Seu Zé e Dona Maria aguardando ao fundo com expressão expectante. Estilo cartoon Gravity Falls — paleta amarelo-dourado e verde-caatinga.",
+      "media": {
+        "type": "image",
+        "url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69ea66d0b5fee93883c31549_original_O Mel Que Passa da Porta.jpg",
+        "duration": 10
+      },
+      "title": "CAPA — O Mel Que Passa da Porta",
+      "type": "scene",
+      "transition": "fade",
+      "next_scene_id": "mc1_s2",
+      "dialogues": [
+        {
+          "position": 1,
+          "text": "O mel está bom. O preço está ótimo. Só falta o papel certo.",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea95afb5fee93883c356fa_story-tts-69ea95afb5fee93883c356f9.mp3",
+          "voice_profile": "nova",
+          "_ttsGenerating": false,
+          "_audioDuration": 3.768
+        }
+      ],
+      "_minDuration": 4,
+      "subtitles_enabled": true,
+      "position": 1
+    },
+    {
+      "_id": "mc1_s2",
+      "media_mode": "image",
+      "transition_duration": 300,
+      "image_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69ea67bcb5fee93883c3154e_original_O Mel Que Passa da Porta (1).jpg",
+      "story_id": "mc1",
+      "background_audio": {
+        "loop": false,
+        "volume": 1
+      },
+      "description": "TODO — Pedro (19 anos) mostrando mensagem no celular para Seu Zé e Dona Maria em volta da mesa da cozinha. Expressões de animação e surpresa. Mensagem de texto visível na tela com oferta de farmácia para compra de mel local. Interior de casa da Caatinga, luz da tarde. Estilo cartoon Gravity Falls — paleta quente interior.",
+      "media": {
+        "type": "image",
+        "url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69ea67bcb5fee93883c3154e_original_O Mel Que Passa da Porta (1).jpg",
+        "duration": 18
+      },
+      "title": "C0 — A Farmácia Quer Mel",
+      "type": "scene",
+      "transition": "fade",
+      "next_scene_id": "mc1_s3",
+      "dialogues": [
+        {
+          "position": 1,
+          "text": "Uma mensagem de uma rede de farmácias do Piauí mudou os planos da família Costa.",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea95b4b5fee93883c356fc_story-tts-69ea95b4b5fee93883c356fb.mp3",
+          "voice_profile": "nova",
+          "_ttsGenerating": false,
+          "_audioDuration": 5.136
+        },
+        {
+          "position": 2,
+          "character_id": "mc1_c1",
+          "text": "Pai, uma rede de farmácias quer comprar mel artesanal local. Preço três vezes maior que o mercado informal. Mas eles pedem inspeção sanitária.",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea95b9b5fee93883c356fe_story-tts-69ea95b9b5fee93883c356fd.mp3",
+          "voice_profile": "alloy",
+          "_ttsGenerating": false,
+          "_audioDuration": 8.976
+        },
+        {
+          "position": 3,
+          "character_id": "mc1_c2",
+          "text": "Inspeção. Nunca precisamos de papel pra vender até hoje.",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea95bdb5fee93883c35700_story-tts-69ea95bdb5fee93883c356ff.mp3",
+          "voice_profile": "onyx",
+          "_ttsGenerating": false,
+          "_audioDuration": 3.552
+        }
+      ],
+      "_minDuration": 18,
+      "subtitles_enabled": true,
+      "position": 2
+    },
+    {
+      "_id": "mc1_s3",
+      "media_mode": "image",
+      "transition_duration": 300,
+      "image_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69ea6f50b5fee93883c329f7_original_O Mel Que Passa da Porta (4).jpg",
+      "story_id": "mc1",
+      "background_audio": {
+        "loop": false,
+        "volume": 1
+      },
+      "description": "TODO — Seu Zé e Pedro sentados à mesa em casa revisando o papel que Pedro trouxe. Lista de requisitos da farmácia visível: nota fiscal e inspeção sanitária mínima SIE. Dona Maria ao lado com papel e caneta. Expressão de Seu Zé: sério, reconhecendo um obstáculo real. Estilo cartoon Gravity Falls.",
+      "media": {
+        "type": "image",
+        "url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69ea6f50b5fee93883c329f7_original_O Mel Que Passa da Porta (4).jpg",
+        "duration": 11
+      },
+      "title": "C0.1 — O Que É Inspeção?",
+      "type": "scene",
+      "transition": "fade",
+      "next_scene_id": "mc1_s4",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "mc1_c3",
+          "text": "A Emater-PI pode esclarecer isso hoje. O técnico atende de manhã.",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea95c2b5fee93883c35702_story-tts-69ea95c2b5fee93883c35701.mp3",
+          "voice_profile": "shimmer",
+          "_ttsGenerating": false,
+          "_audioDuration": 4.104
+        },
+        {
+          "position": 2,
+          "character_id": "mc1_c1",
+          "text": "Mas antes de ir — pra vender mel pro estado inteiro, qual inspeção a gente precisa ter no mínimo?",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea95c5b5fee93883c35704_story-tts-69ea95c5b5fee93883c35703.mp3",
+          "voice_profile": "alloy",
+          "_ttsGenerating": false,
+          "_audioDuration": 6.072
+        }
+      ],
+      "_minDuration": 11,
+      "subtitles_enabled": true,
+      "position": 3
+    },
+    {
+      "_id": "mc1_s4",
+      "media_mode": "image",
+      "decision": {
+        "prompt": "Para vender mel em todo o Piauí (supermercados, farmácias, PNAE estadual), qual inspeção mínima o apicultor precisa?",
+        "interaction_type": "single_choice",
+        "options": [
+          {
+            "label": "SIE — Serviço de Inspeção Estadual emitido pela ADAPI, permite venda em todo o estado",
+            "next_scene_id": "mc1_s6",
+            "score": 10
+          },
+          {
+            "label": "Não precisa de inspeção — venda informal funciona para qualquer canal",
+            "next_scene_id": "mc1_s5",
+            "score": 1
+          },
+          {
+            "label": "Não sei ainda",
+            "next_scene_id": "mc1_s5",
+            "score": 1
+          }
+        ]
+      },
+      "transition_duration": 300,
+      "image_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69ea6f59b5fee93883c329f9_original_O Mel Que Passa da Porta (3).jpg",
+      "story_id": "mc1",
+      "background_audio": {
+        "loop": false,
+        "volume": 1
+      },
+      "description": "TODO — Pedro, Seu Zé e Dona Maria olhando para a lista de requisitos da farmácia sobre a mesa. Expressão de dúvida e expectativa. Pote de mel dourado ao centro da mesa. Estilo cartoon Gravity Falls.",
+      "media": {
+        "type": "image",
+        "url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69ea6f59b5fee93883c329f9_original_O Mel Que Passa da Porta (3).jpg",
+        "duration": 12
+      },
+      "title": "C1 — Qual Inspeção para o Estado?",
+      "type": "decision",
+      "transition": "fade",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "mc1_c2",
+          "text": "Para vender mel em todo o Piauí — qual inspeção mínima a gente precisa ter?",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea95cbb5fee93883c35706_story-tts-69ea95cbb5fee93883c35705.mp3",
+          "voice_profile": "onyx",
+          "_ttsGenerating": false,
+          "_audioDuration": 4.824
+        }
+      ],
+      "_minDuration": 5,
+      "subtitles_enabled": true,
+      "position": 4
+    },
+    {
+      "_id": "mc1_s5",
+      "media_mode": "image",
+      "transition_duration": 300,
+      "image_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69ea71b4b5fee93883c32a18_original_O Mel Que Passa da Porta (5).jpg",
+      "story_id": "mc1",
+      "background_audio": {
+        "loop": false,
+        "volume": 1
+      },
+      "description": "TODO — Ilustração comparativa: esquerda mostra mel sem inspeção em supermercado sendo apreendido pela Vigilância Sanitária — caixas vermelhas, fiscal com auto de infração, multa visível; direita mostra mel com SIE em prateleira de farmácia, etiqueta de preço 3x maior, cliente satisfeito. Seu Zé observa as duas cenas com expressão séria. Fundo amarelo suave. Estilo cartoon Gravity Falls — diferente de C0.1.",
+      "media": {
+        "type": "image",
+        "url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69ea71b4b5fee93883c32a18_original_O Mel Que Passa da Porta (5).jpg",
+        "duration": 16
+      },
+      "title": "C1B — O Produto Apreendido",
+      "type": "scene",
+      "transition": "fade",
+      "next_scene_id": "mc1_s4",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "mc1_c2",
+          "text": "Venda sem inspeção em supermercado ou farmácia — a Vigilância Sanitária pode apreender tudo e multar. O produto some e a confiança também.",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea95d1b5fee93883c35708_story-tts-69ea95d1b5fee93883c35707.mp3",
+          "voice_profile": "onyx",
+          "_ttsGenerating": false,
+          "_audioDuration": 8.928
+        },
+        {
+          "position": 2,
+          "character_id": "mc1_c2",
+          "text": "Com SIE, o mel entra nas prateleiras legalmente — e com preço justo.",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea95ebb5fee93883c3570f_story-tts-69ea95ebb5fee93883c3570e.mp3",
+          "voice_profile": "onyx",
+          "_ttsGenerating": false,
+          "_audioDuration": 4.056
+        },
+        {
+          "position": 3,
+          "character_id": "mc1_c2",
+          "text": "Então — qual inspeção mínima pra vender em todo o estado?",
+          "audio_url": "",
+          "voice_profile": "onyx"
+        }
+      ],
+      "_minDuration": 13,
+      "subtitles_enabled": true,
+      "position": 5
+    },
+    {
+      "_id": "mc1_s6",
+      "media_mode": "image",
+      "transition_duration": 300,
+      "image_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69ea7694b5fee93883c32a82_original_O Mel Que Passa da Porta (7).jpg",
+      "story_id": "mc1",
+      "background_audio": {
+        "loop": false,
+        "volume": 1
+      },
+      "description": "TODO — Técnico da Emater-PI (35 anos, óculos, colete verde) mostrando diagrama desenhado à mão para Pedro, Seu Zé e Dona Maria: escada com três degraus — 'SIM: município', 'SIE: estado inteiro', 'SIF: Brasil + exportação'. Expressões de quem está entendendo que existe um caminho claro. Escritório simples da Emater-PI. Estilo cartoon Gravity Falls.",
+      "media": {
+        "type": "image",
+        "url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69ea7694b5fee93883c32a82_original_O Mel Que Passa da Porta (7).jpg",
+        "duration": 15
+      },
+      "title": "C2 — A Escada da Inspeção",
+      "type": "scene",
+      "transition": "fade",
+      "next_scene_id": "mc1_s7",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "mc1_c4",
+          "text": "É uma escada. SIM primeiro — vende dentro do município. SIE — abre o Piauí todo. SIF — Brasil, farmácias nacionais, exportação.",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea9610b5fee93883c3571b_story-tts-69ea9610b5fee93883c3571a.mp3",
+          "voice_profile": "alloy",
+          "_ttsGenerating": false,
+          "_audioDuration": 7.608
+        },
+        {
+          "position": 2,
+          "character_id": "mc1_c1",
+          "text": "A farmácia pede SIE mínimo. A gente pode começar pelo SIM?",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea9614b5fee93883c3571d_story-tts-69ea9614b5fee93883c3571c.mp3",
+          "voice_profile": "alloy",
+          "_ttsGenerating": false,
+          "_audioDuration": 3.744
+        },
+        {
+          "position": 3,
+          "character_id": "mc1_c4",
+          "text": "Exato. E o SIM começa com a casa de mel em ordem.",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea9617b5fee93883c3571f_story-tts-69ea9617b5fee93883c3571e.mp3",
+          "voice_profile": "alloy",
+          "_ttsGenerating": false,
+          "_audioDuration": 2.976
+        }
+      ],
+      "_minDuration": 15,
+      "subtitles_enabled": true,
+      "position": 6
+    },
+    {
+      "_id": "mc1_s7",
+      "media_mode": "image",
+      "transition_duration": 300,
+      "image_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69ea77ddb5fee93883c32aac_original_O Mel Que Passa da Porta (8).jpg",
+      "story_id": "mc1",
+      "background_audio": {
+        "loop": false,
+        "volume": 1
+      },
+      "description": "TODO — Técnico da Emater-PI inspecionando a casa de mel da família Costa — verificando piso de cimento liso, paredes claras, janelas com tela anti-insetos. Fazendo anotações numa prancheta. Pedro e Dona Maria acompanhando. Expressão de quem está descobrindo o que precisa ajustar. Estilo cartoon Gravity Falls.",
+      "media": {
+        "type": "image",
+        "url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69ea77ddb5fee93883c32aac_original_O Mel Que Passa da Porta (8).jpg",
+        "duration": 12
+      },
+      "title": "C3 — A Casa de Mel em Foco",
+      "type": "scene",
+      "transition": "fade",
+      "next_scene_id": "mc1_s8",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "mc1_c4",
+          "text": "Pra emitir o SIM, a prefeitura verifica: piso lavável, paredes lisas, tela nas janelas, ralos com proteção. E a BPF — Boas Práticas de Fabricação — documentada.",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea961eb5fee93883c35721_story-tts-69ea961eb5fee93883c35720.mp3",
+          "voice_profile": "alloy",
+          "_ttsGenerating": false,
+          "_audioDuration": 9.864
+        },
+        {
+          "position": 2,
+          "character_id": "mc1_c1",
+          "text": "O que é BPF documentada?",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea9641b5fee93883c3572e_story-tts-69ea9641b5fee93883c3572d.mp3",
+          "voice_profile": "alloy",
+          "_ttsGenerating": false,
+          "_audioDuration": 1.584
+        }
+      ],
+      "_minDuration": 12,
+      "subtitles_enabled": true,
+      "position": 7
+    },
+    {
+      "_id": "mc1_s8",
+      "media_mode": "image",
+      "decision": {
+        "prompt": "O que a casa de mel precisa para obter o SIM (inspeção municipal)?",
+        "interaction_type": "single_choice",
+        "options": [
+          {
+            "label": "Piso lavável, paredes lisas, tela nas janelas e BPF documentada — avaliada pela prefeitura",
+            "next_scene_id": "mc1_s10",
+            "score": 10
+          },
+          {
+            "label": "CNPJ como microempresa e alvará federal de funcionamento",
+            "next_scene_id": "mc1_s9",
+            "score": 3
+          }
+        ]
+      },
+      "transition_duration": 300,
+      "image_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69ea7d57b5fee93883c33e9d_original_O Mel Que Passa da Porta (9).jpg",
+      "story_id": "mc1",
+      "background_audio": {
+        "loop": false,
+        "volume": 1
+      },
+      "description": "TODO — Pedro olhando para a casa de mel com expressão pensativa, avaliando o que precisa mudar. Técnico ao lado com prancheta aberta, aguardando. Piso da casa de mel visível em primeiro plano. Estilo cartoon Gravity Falls.",
+      "media": {
+        "type": "image",
+        "url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69ea7d57b5fee93883c33e9d_original_O Mel Que Passa da Porta (9).jpg",
+        "duration": 12
+      },
+      "title": "C3D — O Que a Casa de Mel Precisa?",
+      "type": "decision",
+      "transition": "fade",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "mc1_c4",
+          "text": "Me diz — o que a casa de mel precisa para obter o SIM?",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea9646b5fee93883c35730_story-tts-69ea9646b5fee93883c3572f.mp3",
+          "voice_profile": "alloy",
+          "_ttsGenerating": false,
+          "_audioDuration": 3.288
+        }
+      ],
+      "_minDuration": 4,
+      "subtitles_enabled": true,
+      "position": 8
+    },
+    {
+      "_id": "mc1_s9",
+      "media_mode": "image",
+      "transition_duration": 300,
+      "image_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69ea7e9cb5fee93883c33eea_original_O Mel Que Passa da Porta (10).jpg",
+      "story_id": "mc1",
+      "background_audio": {
+        "loop": false,
+        "volume": 1
+      },
+      "description": "TODO — Técnico mostrando duas listas lado a lado: 'SIM exige: piso lavável, paredes lisas, tela nas janelas, BPF documentada' com ícone verde de aprovação; 'Empresa exige: CNPJ, contador, obrigações fiscais mensais' com ícone de complexidade vermelho. Dona Maria e Pedro olhando com expressão de alívio. Estilo cartoon Gravity Falls — diferente de C3.",
+      "media": {
+        "type": "image",
+        "url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69ea7e9cb5fee93883c33eea_original_O Mel Que Passa da Porta (10).jpg",
+        "duration": 14
+      },
+      "title": "C3B — Estrutura, Não Empresa",
+      "type": "scene",
+      "transition": "fade",
+      "next_scene_id": "mc1_s10",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "mc1_c4",
+          "text": "SIM não exige empresa. Exige estrutura física mínima e documentação de processo.",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea964fb5fee93883c35732_story-tts-69ea964fb5fee93883c35731.mp3",
+          "voice_profile": "alloy",
+          "_ttsGenerating": false,
+          "_audioDuration": 5.136
+        },
+        {
+          "position": 2,
+          "character_id": "mc1_c4",
+          "text": "O produtor rural com CAF pode ter SIM — sem CNPJ, sem contador.",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea9652b5fee93883c35734_story-tts-69ea9652b5fee93883c35733.mp3",
+          "voice_profile": "alloy",
+          "_ttsGenerating": false,
+          "_audioDuration": 3.888
+        },
+        {
+          "position": 3,
+          "text": "Uma revelação simples que muda tudo: ser formal não significa ser empresa.",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea9655b5fee93883c35736_story-tts-69ea9655b5fee93883c35735.mp3",
+          "voice_profile": "nova",
+          "_ttsGenerating": false,
+          "_audioDuration": 4.752
+        }
+      ],
+      "_minDuration": 14,
+      "subtitles_enabled": true,
+      "position": 9
+    },
+    {
+      "_id": "mc1_s10",
+      "media_mode": "image",
+      "transition_duration": 300,
+      "image_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69ea8244b5fee93883c33f46_original_O Mel Que Passa da Porta (11).jpg",
+      "story_id": "mc1",
+      "background_audio": {
+        "loop": false,
+        "volume": 1
+      },
+      "description": "TODO — Técnico, Pedro e Dona Maria em volta da mesa, preenchendo juntos o formulário de solicitação do SIM. Seu Zé ao fundo com expressão de quem está vendo um futuro novo se abrir. Formulário da prefeitura, CAF e documentos sobre a mesa. Estilo cartoon Gravity Falls.",
+      "media": {
+        "type": "image",
+        "url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69ea8244b5fee93883c33f46_original_O Mel Que Passa da Porta (11).jpg",
+        "duration": 15
+      },
+      "title": "C4 — O Formulário do SIM",
+      "type": "scene",
+      "transition": "fade",
+      "next_scene_id": "mc1_s11",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "mc1_c4",
+          "text": "Com o formulário da prefeitura, o CAF e a casa de mel adequada, o SIM sai em 30 dias. Daí partimos pro SIE.",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea9667b5fee93883c3573a_story-tts-69ea9667b5fee93883c35739.mp3",
+          "voice_profile": "alloy",
+          "_ttsGenerating": false,
+          "_audioDuration": 7.032
+        },
+        {
+          "position": 2,
+          "character_id": "mc1_c3",
+          "text": "E o SIE da ADAPI — quanto tempo?",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea9672b5fee93883c35740_story-tts-69ea9672b5fee93883c3573f.mp3",
+          "voice_profile": "shimmer",
+          "_ttsGenerating": false,
+          "_audioDuration": 1.944
+        },
+        {
+          "position": 3,
+          "character_id": "mc1_c4",
+          "text": "Mais uns 60 a 90 dias após o SIM. Mas tem mais uma coisa que eu preciso mostrar.",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea966fb5fee93883c3573e_story-tts-69ea966fb5fee93883c3573d.mp3",
+          "voice_profile": "alloy",
+          "_ttsGenerating": false,
+          "_audioDuration": 5.688
+        }
+      ],
+      "_minDuration": 15,
+      "subtitles_enabled": true,
+      "position": 10
+    },
+    {
+      "_id": "mc1_s11",
+      "media_mode": "image",
+      "transition_duration": 300,
+      "image_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69ea82e5b5fee93883c33f52_original_O Mel Que Passa da Porta (12).jpg",
+      "story_id": "mc1",
+      "background_audio": {
+        "loop": false,
+        "volume": 1
+      },
+      "description": "TODO — Técnico mostrando foto impressa de cooperativa apícola com SIF para Pedro — instalações com câmara fria, caminhão refrigerado com logo da cooperativa, etiquetas para venda nacional. Pedro com entusiasmo crescente. Seu Zé ao lado com expressão de quem está recalibrando os próprios sonhos. Estilo cartoon Gravity Falls.",
+      "media": {
+        "type": "image",
+        "url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69ea82e5b5fee93883c33f52_original_O Mel Que Passa da Porta (12).jpg",
+        "duration": 17
+      },
+      "title": "C5 — O Horizonte do SIF",
+      "type": "scene",
+      "transition": "fade",
+      "next_scene_id": "mc1_s12",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "mc1_c4",
+          "text": "O SIF individual exige uma estrutura cara. Mas existe a cooperativa com SIF — o apicultor entrega mel a granel e a cooperativa processa, embala e vende para o Brasil todo.",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea9679b5fee93883c35743_story-tts-69ea9679b5fee93883c35742.mp3",
+          "voice_profile": "alloy",
+          "_ttsGenerating": false,
+          "_audioDuration": 10.728
+        },
+        {
+          "position": 2,
+          "character_id": "mc1_c1",
+          "text": "A gente entra na cooperativa e acessa o mercado nacional sem ter indústria própria?",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea968bb5fee93883c3574c_story-tts-69ea968bb5fee93883c3574b.mp3",
+          "voice_profile": "alloy",
+          "_ttsGenerating": false,
+          "_audioDuration": 5.376
+        }
+      ],
+      "_minDuration": 17,
+      "subtitles_enabled": true,
+      "position": 11
+    },
+    {
+      "_id": "mc1_s12",
+      "media_mode": "image",
+      "decision": {
+        "prompt": "Como o apicultor familiar pode acessar o SIF sem ter infraestrutura industrial própria?",
+        "interaction_type": "single_choice",
+        "options": [
+          {
+            "label": "Através de uma cooperativa que já possui SIF — o apicultor entrega mel a granel e a cooperativa processa, embala e vende",
+            "next_scene_id": "mc1_s13",
+            "score": 10
+          },
+          {
+            "label": "Tirando o SIF individualmente — é o único caminho para venda nacional",
+            "next_scene_id": "mc1_s14",
+            "score": 3
+          }
+        ]
+      },
+      "transition_duration": 300,
+      "image_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69ea848cb5fee93883c33f68_original_O Mel Que Passa da Porta (13).jpg",
+      "story_id": "mc1",
+      "background_audio": {
+        "loop": false,
+        "volume": 1
+      },
+      "description": "TODO — Pedro e Seu Zé olhando para a foto da cooperativa, pensando. Técnico aguardando a resposta com expressão encorajadora. Interior da Emater-PI. Estilo cartoon Gravity Falls.",
+      "media": {
+        "type": "image",
+        "url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69ea848cb5fee93883c33f68_original_O Mel Que Passa da Porta (13).jpg",
+        "duration": 12
+      },
+      "title": "C5D — Como Acessar o SIF?",
+      "type": "decision",
+      "transition": "fade",
+      "dialogues": [
+        {
+          "position": 1,
+          "character_id": "mc1_c4",
+          "text": "Como o apicultor familiar acessa o SIF?",
+          "audio_url": "",
+          "voice_profile": "alloy"
+        }
+      ],
+      "subtitles_enabled": true,
+      "position": 12
+    },
+    {
+      "_id": "mc1_s13",
+      "end_score": 10,
+      "media_mode": "image",
+      "transition_duration": 300,
+      "image_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69ea8620b5fee93883c33f95_original_O Mel Que Passa da Porta (14).jpg",
+      "story_id": "mc1",
+      "background_audio": {
+        "loop": false,
+        "volume": 1
+      },
+      "description": "TODO — Pedro entregando primeiro pote de mel com rótulo SIM aprovado à gerente da farmácia. Expressão de ambos: satisfação e parceria. Seu Zé e Dona Maria do lado de fora da farmácia sorrindo, visíveis através do vidro. Pote de mel dourado com rótulo bonito em primeiro plano. Sol da tarde. Estilo cartoon Gravity Falls — épica e calorosa.",
+      "media": {
+        "type": "image",
+        "url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69ea8620b5fee93883c33f95_original_O Mel Que Passa da Porta (14).jpg",
+        "duration": 16
+      },
+      "title": "C6A — A Porta Aberta",
+      "type": "end",
+      "transition": "fade",
+      "dialogues": [
+        {
+          "position": 1,
+          "text": "SIM solicitado. SIE no planejamento. Cooperativa no radar para o SIF.",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea9698b5fee93883c3590f_story-tts-69ea9698b5fee93883c3590e.mp3",
+          "voice_profile": "nova",
+          "_ttsGenerating": false,
+          "_audioDuration": 4.296
+        },
+        {
+          "position": 2,
+          "character_id": "mc1_c1",
+          "text": "Pai, o mel sempre foi bom. Agora vai poder entrar onde merece.",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea969bb5fee93883c3593f_story-tts-69ea969bb5fee93883c3593e.mp3",
+          "voice_profile": "alloy",
+          "_ttsGenerating": false,
+          "_audioDuration": 3.624
+        },
+        {
+          "position": 3,
+          "character_id": "mc1_c2",
+          "text": "A qualidade abre a porta. O documento passa nela. Mas o mel que vai lá dentro — esse é nosso.",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea96aab5fee93883c35941_story-tts-69ea96aab5fee93883c35940.mp3",
+          "voice_profile": "onyx",
+          "_ttsGenerating": false,
+          "_audioDuration": 5.784
+        }
+      ],
+      "_minDuration": 14,
+      "subtitles_enabled": true,
+      "position": 13,
+      "end_label": "A Porta Aberta"
+    },
+    {
+      "_id": "mc1_s14",
+      "end_score": 5,
+      "media_mode": "image",
+      "transition_duration": 300,
+      "image_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69ea870cb5fee93883c344bd_original_O Mel Que Passa da Porta (15).jpg",
+      "story_id": "mc1",
+      "background_audio": {
+        "loop": false,
+        "volume": 1
+      },
+      "description": "TODO — Pedro e Dona Maria saindo da Emater-PI com o formulário do SIM nas mãos. Rua tranquila do interior, tarde. Expressão de quem tem o caminho claro mas ainda tem muito a percorrer. Vegetação da Caatinga ao fundo. Estilo cartoon Gravity Falls — paleta suave.",
+      "media": {
+        "type": "image",
+        "url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story/69ea870cb5fee93883c344bd_original_O Mel Que Passa da Porta (15).jpg",
+        "duration": 16
+      },
+      "title": "C6B — O Primeiro Degrau",
+      "type": "end",
+      "transition": "fade",
+      "dialogues": [
+        {
+          "position": 1,
+          "text": "O SIM ainda vai levar 30 dias. Mas hoje a família Costa sabe exatamente o que precisa.",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea96b1b5fee93883c35d46_story-tts-69ea96b1b5fee93883c35d45.mp3",
+          "voice_profile": "nova",
+          "_ttsGenerating": false,
+          "_audioDuration": 5.808
+        },
+        {
+          "position": 2,
+          "character_id": "mc1_c1",
+          "text": "Um degrau de cada vez. SIM primeiro, SIE depois.",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea96c7b5fee93883c36174_story-tts-69ea96c7b5fee93883c36173.mp3",
+          "voice_profile": "alloy",
+          "_ttsGenerating": false,
+          "_audioDuration": 2.88
+        },
+        {
+          "position": 3,
+          "character_id": "mc1_c3",
+          "text": "A farmácia pode esperar. E quando a gente chegar lá, é pra ficar.",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d24e6650e26dad21537/story_audio/69ea96d3b5fee93883c3617d_story-tts-69ea96d3b5fee93883c3617c.mp3",
+          "voice_profile": "shimmer",
+          "_ttsGenerating": false,
+          "_audioDuration": 4.104
+        }
+      ],
+      "_minDuration": 13,
+      "subtitles_enabled": true,
+      "position": 14,
+      "end_label": "O Primeiro Degrau"
+    }
+  ]
+}

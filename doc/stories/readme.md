@@ -356,3 +356,42 @@ Encontrei o problema. No story-ma1.json os diálogos usam character_id: "ma1_c1"
 
 PROMPT
 Interior da agência bancária do Banco do Nordeste. Ambiente simples, balcão de atendimento. A atendente @img4 confere o CAF de Seu Zé @img3 e sorri. Ela abre uma pasta com folhetos do PRONAF e começa a explicar as modalidades disponíveis. Seu Zé escuta com atenção, segurando seus documentos. Cena transmite oportunidade, clareza e esperança.. A imagem deve ficar com o estilo do desenho Gravity Falls dessa forma @img2
+
+
+---
+
+
+# PROMPTS DE ANALISE
+
+## ROTA DO MEL
+Agora eu gostaria que voce fizesse a mesma checagem de consistencia comparando a estrutura da historia /mel/story-mc1.json com a historia preenchida pela equipe /mel/feito/story-mc1-done.json, e atue como um diretor de desenhos animados profissional fazendo os ajustes necessarios e aplicando as melhorias de fluidez para essa historia ficar super agradavel e interessante para seres humanos. 
+
+
+## ROTA DA PESCA
+Agora eu gostaria que voce fizesse a mesma checagem de consistencia comparando a estrutura da historia /pesca/story-pa1.json com a historia preenchida pela equipe /pesca/feito/story-pa1-done.json, e atue como um diretor de desenhos animados profissional fazendo os ajustes necessarios e aplicando as melhorias de fluidez para essa historia ficar super agradavel e interessante para seres humanos. 
+
+
+---
+# AJUSTES NAS HISTORIAS
+
+## ROTA DA PESCA
+Acabei de analisar a historia "Início 1 - O Rio que Alimenta", fiz alguns ajustes no JSON e percebi que precisamos fazer mais alguns ajustes, pois a historia ainda nao ficou fluida o suficiente. Veja o arquivo "/pesca/feito/story-pin1-done.json".
+
+Na cena 2 "A Primeira Saída Solo" o lucas esta grande (deveria ser um menino igual nas outras cenas). Alem disso tem muito texto nesta cena, ficaria melhor mostrar o dialogo da Julia "Conta pra ele sobre a piracema, pai! Conta o que o senhor me ensinou!" em uma outra cena, mostrando ela puxando o braco do pai. 
+
+Na cena 3 "O Vizinho que Não Espera" deveria mostrar uma imagem do Seu Raimundo apontando para o pescador que esta no rio. E ele e o lucas olhando na direcao do pescador. 
+
+A imagem das cenas 7 e 8 estao iguais (isso e' ruim), a cena 8 "A Semente do Rio" deveria mostrar a Julia em destaque falando. 
+
+As imagens das cenas 10, 11, e 12 sao as mesmas (isso e' ruim), elas deveriam ser diferentes, para dar mais dinamismo.  
+
+A cena final "Um Pescador Completo" poderia ser dividida em duas cenas. A primeira mostrando a imagem atual do lucas, com o primeiro dialogo. E a segunda (essa sim, sera a cena final) mostrando os dois ultimos dialogos, e uma imagem mostrando algo relacionado a heranca e familia que aprende juntos. 
+
+A cena 5 "O Custo do Descuido" poderia ser dividida em duas cenas menores, uma mostrando a fiscalizacao chegando, e a outra mostrando o pescador sendo multado. 
+
+Por favor, veja as imagens, voce consegue fazer isso atravez das urls que estao no arquivo JSON. Assim voce vai entender melhor o que estou falando e os ajustes que precisa fazer para deixar a historia mais fluida e agradavel para um ser humano. Nos locais onde precisar gerar uma nova imagem de cena, coloque a descricao da cena, e remova a url atual da imagem, para que a equipe gere a nova imagem. Preciso que voce se comporte como um diretor de cinema profissional da disney. 
+
+---
+
+## AJUSTES DE SEGURANCA
+Pegar o relatorio de seguranca do Breno e Enzo e aplicar no app. 
