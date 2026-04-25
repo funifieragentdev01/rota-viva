@@ -13,21 +13,22 @@
     },
     "synopsis": "Lucas Lopes, 18 anos, está prestes a sair sozinho de barco pela primeira vez. Mas antes de largar as amarras, Seu Raimundo — pescador de décadas — para o filho: pescar não é só lançar rede. É entender o rio.\n\nAtravés da conversa entre pai, filho, mãe e filha, o jogador descobre o que é a piracema, por que respeitá-la garante a fartura futura, e como o cuidado com o peixe na hora certa pode dobrar a renda da safra.\n\nUma história de rio, família e o conhecimento que passa de geração em geração.",
     "title": "Início 1 - O Rio que Alimenta",
+    "subtitle_karaoke": true,
     "passing_score": 28,
     "genre": "Drama",
     "first_scene_id": "pin1_s1",
     "cover_image": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story/69e990feb5fee93883c1a1f4_original_freepik_agora-faca-uma-capa-bem-c_2846172850 (2).png",
     "status": "draft",
-    "$$hashKey": "object:1073"
+    "$$hashKey": "object:854"
   },
   "characters": [
     {
-      "_id": "pin1_c1",
+      "_id": "pin1_c4",
       "avatar_thumbnail": "",
-      "voice_profile": "onyx",
+      "voice_profile": "nova",
       "story_id": "pin1",
-      "name": "Seu Raimundo",
-      "description": "Raimundo Lopes, pescador artesanal de 50 anos, do interior do Nordeste. Pele curtida de sol e rio, barba rala, colete de pescador. Conhece as águas como ninguém. Sério, digno e com muito a ensinar.",
+      "name": "Júlia",
+      "description": "Júlia Lopes, 13 anos, filha caçula de Seu Raimundo e Dona Graça. Cabelos crespos soltos, olhos grandes e curiosos. Adora o rio e os peixes. Observadora e aprende rápido.",
       "reference_image": ""
     },
     {
@@ -40,15 +41,6 @@
       "reference_image": ""
     },
     {
-      "_id": "pin1_c4",
-      "avatar_thumbnail": "",
-      "voice_profile": "nova",
-      "story_id": "pin1",
-      "name": "Júlia",
-      "description": "Júlia Lopes, 13 anos, filha caçula de Seu Raimundo e Dona Graça. Cabelos crespos soltos, olhos grandes e curiosos. Adora o rio e os peixes. Observadora e aprende rápido.",
-      "reference_image": ""
-    },
-    {
       "_id": "pin1_c3",
       "avatar_thumbnail": "",
       "voice_profile": "alloy",
@@ -56,53 +48,28 @@
       "name": "Lucas",
       "description": "Lucas Lopes, 18 anos, filho mais velho de Seu Raimundo e Dona Graça. Aprendiz de pescador, sonha em profissionalizar o negócio. Questionador e com vontade de crescer.",
       "reference_image": ""
+    },
+    {
+      "_id": "pin1_c1",
+      "avatar_thumbnail": "",
+      "voice_profile": "onyx",
+      "story_id": "pin1",
+      "name": "Seu Raimundo",
+      "description": "Raimundo Lopes, pescador artesanal de 50 anos, do interior do Nordeste. Pele curtida de sol e rio, barba rala, colete de pescador. Conhece as águas como ninguém. Sério, digno e com muito a ensinar.",
+      "reference_image": ""
     }
   ],
   "scenes": [
     {
-      "_id": "pin1_s1",
-      "media_mode": "image",
-      "transition_duration": 300,
-      "story_id": "pin1",
-      "background_audio": {
-        "loop": false,
-        "volume": 1
-      },
-      "description": "TODO — Margem de rio do interior do Nordeste ao amanhecer. Névoa suave sobre a água azul-esverdeada, luz dourada nascente filtrando pelas árvores ribeirinhas. Dona Graça (mulher nordestina de 46 anos, cabelos crespos presos, avental simples) chama os filhos da beira d'água. Júlia (menina de 13 anos, cabelos crespos soltos, olhos grandes) já está olhando fascinada para o rio. Lucas (jovem de 18 anos) se aproxima carregando equipamento de pesca, animado. Barco de madeira amarrado na margem ao fundo. Estilo cartoon Gravity Falls — paleta azul-rio, verde-ribeirinha, dourado do sol nascente.",
-      "media": {
-        "type": "image",
-        "url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story/69e98fd1b5fee93883c1a1c7_original_freepik_agora-vamos-comecar-novam_2846047391 (1).png",
-        "duration": 15
-      },
-      "title": "A Beira do Rio",
-      "type": "scene",
-      "transition": "fade",
-      "next_scene_id": "pin1_s2",
-      "dialogues": [
-        {
-          "position": 0,
-          "text": "No interior do Nordeste, há famílias que vivem da terra. E há famílias que vivem da água. A família Lopes conhece o rio há gerações.",
-          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story_audio/69e99132b5fee93883c1a208_story-tts-69e99132b5fee93883c1a207.mp3",
-          "_ttsGenerating": false,
-          "_audioDuration": 8.496
-        },
-        {
-          "position": 1,
-          "character_id": "pin1_c2",
-          "text": "Lucas! Júlia! Vem cá. Seu pai tem algo importante pra dizer antes de você sair de barco hoje.",
-          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story_audio/69e99191b5fee93883c1a21e_story-tts-69e99191b5fee93883c1a21d.mp3",
-          "_ttsGenerating": false,
-          "_audioDuration": 5.808
-        }
-      ],
-      "_minDuration": 15,
-      "subtitles_enabled": true,
-      "position": 1
-    },
-    {
       "_id": "pin1_s2",
-      "media_mode": "image",
+      "media_mode": "video",
+      "decision": {
+        "prompt": "",
+        "interaction_type": "click",
+        "options": []
+      },
       "transition_duration": 300,
+      "image_url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story/69ecacaa9ee30f3253d2a6fe_original_C��pia de  A Hora Certa (1).jpg",
       "story_id": "pin1",
       "background_audio": {
         "loop": false,
@@ -110,9 +77,16 @@
       },
       "description": "NOVA IMAGEM NECESSÁRIA — Beira do rio, barco de madeira amarrado ao fundo. Lucas (18 anos — jovem esguio, feições ainda adolescentes, boné branco, regata listrada e shorts — visivelmente mais novo e menos robusto que o pai, diferença de geração clara) de pé com redes no ombro, expressão empolgada e impaciente. Seu Raimundo (50 anos, pele curtida de sol, barba rala, colete de pescador — ombros largos, postura firme de homem experiente, claramente mais alto e robusto que o filho) de braços cruzados, olhar calmo e sábio para o filho. Os dois frente a frente. CRÍTICO: Lucas deve ser visivelmente jovem — 18 anos é transição entre adolescência e fase adulta, não adulto formado. A diferença de porte entre pai e filho deve ser nítida. Rio brilhando ao fundo com luz do amanhecer. Estilo cartoon Gravity Falls, paleta quente do sol nascente.",
       "media": {
-        "type": "image",
-        "url": "",
-        "duration": 14
+        "type": "video",
+        "url": "https://s3.amazonaws.com/funifier/games/69e40d77c7ea8706a3ff4968/story_videos/69ed3914719195040a3d83a6_story-video-69ed3914719195040a3d83a5.mp4",
+        "duration": 12
+      },
+      "video": {
+        "status": "completed",
+        "job_id": "video_69ed383a98288190a41c8c362edebd1d06447e49d881b0ec",
+        "model": "sora-2",
+        "url": "https://s3.amazonaws.com/funifier/games/69e40d77c7ea8706a3ff4968/story_videos/69ed3914719195040a3d83a6_story-video-69ed3914719195040a3d83a5.mp4",
+        "duration_sec": 12
       },
       "title": "A Primeira Saída Solo",
       "type": "scene",
@@ -125,7 +99,8 @@
           "text": "Pai, o barco já tá pronto! Redes conferidas, isca preparada. Pode deixar que eu sei o que faço.",
           "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story_audio/69e99155b5fee93883c1a20c_story-tts-69e99155b5fee93883c1a20b.mp3",
           "_ttsGenerating": false,
-          "_audioDuration": 5.808
+          "_audioDuration": 5.808,
+          "_playing": false
         },
         {
           "position": 1,
@@ -133,7 +108,8 @@
           "text": "Sei que sabe, filho. Mas saber pescar não é só lançar rede. Vem cá — você precisa entender o rio antes de ir sozinho.",
           "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story_audio/69e991a4b5fee93883c1a221_story-tts-69e991a4b5fee93883c1a220.mp3",
           "_ttsGenerating": false,
-          "_audioDuration": 7.128
+          "_audioDuration": 7.128,
+          "_playing": false
         }
       ],
       "_minDuration": 13,
@@ -141,9 +117,287 @@
       "position": 2
     },
     {
+      "_id": "pin1_s1",
+      "media_mode": "video",
+      "decision": {
+        "prompt": "",
+        "interaction_type": "click",
+        "options": []
+      },
+      "transition_duration": 300,
+      "image_url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story/69e98fd1b5fee93883c1a1c7_original_freepik_agora-vamos-comecar-novam_2846047391 (1).png",
+      "story_id": "pin1",
+      "background_audio": {
+        "loop": false,
+        "volume": 1
+      },
+      "description": "Margem de rio do interior do Nordeste ao amanhecer. Névoa suave sobre a água azul-esverdeada, luz dourada nascente filtrando pelas árvores ribeirinhas. Dona Graça (mulher nordestina de 46 anos, cabelos crespos presos, avental simples) chama os filhos da beira d'água. Júlia (menina de 13 anos, cabelos crespos soltos, olhos grandes) já está olhando fascinada para o rio. Lucas (jovem de 18 anos) se aproxima carregando equipamento de pesca, animado. Barco de madeira amarrado na margem ao fundo. Estilo cartoon Gravity Falls — paleta azul-rio, verde-ribeirinha, dourado do sol nascente.",
+      "media": {
+        "type": "video",
+        "url": "https://s3.amazonaws.com/funifier/games/69e40d77c7ea8706a3ff4968/story_videos/69ed327e719195040a3d83a1_story-video-69ed327e719195040a3d83a0.mp4",
+        "duration": 12
+      },
+      "video": {
+        "status": "completed",
+        "job_id": "video_69ed3194427c81919cf565d1476f25be0cadce0136162a1d",
+        "model": "sora-2",
+        "url": "https://s3.amazonaws.com/funifier/games/69e40d77c7ea8706a3ff4968/story_videos/69ed327e719195040a3d83a1_story-video-69ed327e719195040a3d83a0.mp4",
+        "duration_sec": 12
+      },
+      "title": "A Beira do Rio",
+      "type": "scene",
+      "transition": "fade",
+      "next_scene_id": "pin1_s2",
+      "dialogues": [
+        {
+          "position": 0,
+          "text": "No interior do Nordeste, há famílias que vivem da terra. E há famílias que vivem da água. A família Lopes conhece o rio há gerações.",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69e40d77c7ea8706a3ff4968/story_audio/69ed26badeb60e12a1dd650f_story-tts-69ed26badeb60e12a1dd650e.mp3",
+          "_ttsGenerating": false,
+          "_audioDuration": 8.424,
+          "word_timestamps": [
+            {
+              "start": 0,
+              "end": 0.23999999463558197,
+              "word": "No"
+            },
+            {
+              "start": 0.23999999463558197,
+              "end": 0.5799999833106995,
+              "word": "interior"
+            },
+            {
+              "start": 0.5799999833106995,
+              "end": 0.8999999761581421,
+              "word": "do"
+            },
+            {
+              "start": 0.8999999761581421,
+              "end": 1.2999999523162842,
+              "word": "Nordeste"
+            },
+            {
+              "start": 1.2999999523162842,
+              "end": 1.5800000429153442,
+              "word": "há"
+            },
+            {
+              "start": 1.5800000429153442,
+              "end": 1.8799999952316284,
+              "word": "famílias"
+            },
+            {
+              "start": 1.8799999952316284,
+              "end": 2.200000047683716,
+              "word": "que"
+            },
+            {
+              "start": 2.200000047683716,
+              "end": 2.380000114440918,
+              "word": "vivem"
+            },
+            {
+              "start": 2.380000114440918,
+              "end": 2.5799999237060547,
+              "word": "da"
+            },
+            {
+              "start": 2.5799999237060547,
+              "end": 2.8399999141693115,
+              "word": "terra"
+            },
+            {
+              "start": 2.8399999141693115,
+              "end": 3.2799999713897705,
+              "word": "e"
+            },
+            {
+              "start": 3.2799999713897705,
+              "end": 3.819999933242798,
+              "word": "há"
+            },
+            {
+              "start": 3.819999933242798,
+              "end": 3.819999933242798,
+              "word": "famílias"
+            },
+            {
+              "start": 3.819999933242798,
+              "end": 4.159999847412109,
+              "word": "que"
+            },
+            {
+              "start": 4.159999847412109,
+              "end": 4.340000152587891,
+              "word": "vivem"
+            },
+            {
+              "start": 4.340000152587891,
+              "end": 4.480000019073486,
+              "word": "da"
+            },
+            {
+              "start": 4.480000019073486,
+              "end": 4.800000190734863,
+              "word": "água"
+            },
+            {
+              "start": 5.360000133514404,
+              "end": 5.5,
+              "word": "A"
+            },
+            {
+              "start": 5.5,
+              "end": 5.739999771118164,
+              "word": "família"
+            },
+            {
+              "start": 5.739999771118164,
+              "end": 6.099999904632568,
+              "word": "Lopes"
+            },
+            {
+              "start": 6.099999904632568,
+              "end": 6.619999885559082,
+              "word": "conhece"
+            },
+            {
+              "start": 6.619999885559082,
+              "end": 6.960000038146973,
+              "word": "o"
+            },
+            {
+              "start": 6.960000038146973,
+              "end": 6.960000038146973,
+              "word": "rio"
+            },
+            {
+              "start": 6.960000038146973,
+              "end": 7.21999979019165,
+              "word": "há"
+            },
+            {
+              "start": 7.21999979019165,
+              "end": 7.679999828338623,
+              "word": "gerações"
+            }
+          ]
+        },
+        {
+          "position": 1,
+          "character_id": "pin1_c2",
+          "text": "Lucas! Júlia! Vem cá. Seu pai tem algo importante pra dizer antes de você sair de barco hoje.",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69e40d77c7ea8706a3ff4968/story_audio/69ed26d5deb60e12a1dd6511_story-tts-69ed26d5deb60e12a1dd6510.mp3",
+          "_ttsGenerating": false,
+          "_audioDuration": 5.808,
+          "word_timestamps": [
+            {
+              "start": 0,
+              "end": 0.5600000023841858,
+              "word": "Lucas"
+            },
+            {
+              "start": 1.2799999713897705,
+              "end": 1.2799999713897705,
+              "word": "Júlia"
+            },
+            {
+              "start": 1.559999942779541,
+              "end": 1.600000023841858,
+              "word": "vem"
+            },
+            {
+              "start": 1.600000023841858,
+              "end": 2.0399999618530273,
+              "word": "cá"
+            },
+            {
+              "start": 2.440000057220459,
+              "end": 2.5399999618530273,
+              "word": "seu"
+            },
+            {
+              "start": 2.5399999618530273,
+              "end": 2.680000066757202,
+              "word": "pai"
+            },
+            {
+              "start": 2.680000066757202,
+              "end": 2.9200000762939453,
+              "word": "tem"
+            },
+            {
+              "start": 2.9200000762939453,
+              "end": 3.119999885559082,
+              "word": "algo"
+            },
+            {
+              "start": 3.119999885559082,
+              "end": 3.680000066757202,
+              "word": "importante"
+            },
+            {
+              "start": 3.680000066757202,
+              "end": 3.880000114440918,
+              "word": "pra"
+            },
+            {
+              "start": 3.880000114440918,
+              "end": 4.139999866485596,
+              "word": "dizer"
+            },
+            {
+              "start": 4.139999866485596,
+              "end": 4.360000133514404,
+              "word": "antes"
+            },
+            {
+              "start": 4.360000133514404,
+              "end": 4.539999961853027,
+              "word": "de"
+            },
+            {
+              "start": 4.539999961853027,
+              "end": 4.820000171661377,
+              "word": "você"
+            },
+            {
+              "start": 4.820000171661377,
+              "end": 4.900000095367432,
+              "word": "sair"
+            },
+            {
+              "start": 4.900000095367432,
+              "end": 5.139999866485596,
+              "word": "de"
+            },
+            {
+              "start": 5.139999866485596,
+              "end": 5.360000133514404,
+              "word": "barco"
+            },
+            {
+              "start": 5.360000133514404,
+              "end": 5.619999885559082,
+              "word": "hoje"
+            }
+          ]
+        }
+      ],
+      "_minDuration": 15,
+      "subtitles_enabled": true,
+      "position": 1
+    },
+    {
       "_id": "pin1_s17",
       "media_mode": "image",
+      "decision": {
+        "prompt": "",
+        "interaction_type": "click",
+        "options": []
+      },
       "transition_duration": 300,
+      "image_url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story/69ecace49ee30f3253d2a700_original_C��pia de  A Hora Certa (2).jpg",
       "story_id": "pin1",
       "background_audio": {
         "loop": false,
@@ -152,7 +406,7 @@
       "description": "NOVA IMAGEM NECESSÁRIA — Júlia (menina de 13 anos, cabelos crespos soltos, olhos grandes e brilhantes, regata listrada — cheia de energia e entusiasmo) puxando animada o braço de Seu Raimundo com as duas mãos, apontando para o rio. Raimundo sorri com carinho para a filha, se deixando puxar com bom humor. Lucas ao fundo ainda com as redes no ombro, virando-se para ouvir o que a irmã tem a dizer. Beira do rio com luz dourada do amanhecer. JÚLIA é a protagonista desta cena — ela puxa literalmente o braço do pai, com energia e amor. Estilo cartoon Gravity Falls, paleta quente e acolhedora.",
       "media": {
         "type": "image",
-        "url": "",
+        "url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story/69ecace49ee30f3253d2a700_original_C��pia de  A Hora Certa (2).jpg",
         "duration": 8
       },
       "title": "Júlia Puxa o Pai",
@@ -166,71 +420,22 @@
           "text": "Conta pra ele sobre a piracema, pai! Conta o que o senhor me ensinou!",
           "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story_audio/69eb73cdb5fee93883c4ac61_story-tts-69eb73cdb5fee93883c4ac60.mp3",
           "_ttsGenerating": false,
-          "_audioDuration": 4.056
+          "_audioDuration": 4.056,
+          "_playing": false
         }
       ],
-      "_minDuration": 7,
+      "_minDuration": 5,
       "subtitles_enabled": true,
       "position": 3
     },
     {
-      "_id": "pin1_s3",
-      "media_mode": "image",
-      "decision": {
-        "prompt": "O que Lucas faz?",
-        "interaction_type": "click",
-        "options": [
-          {
-            "label": "Vai até o vizinho avisar e explicar as regras",
-            "next_scene_id": "pin1_s4",
-            "score": 10
-          },
-          {
-            "label": "Aproveita também — todo mundo faz, não vai fazer diferença",
-            "next_scene_id": "pin1_s5",
-            "score": 1
-          }
-        ]
-      },
-      "transition_duration": 300,
-      "story_id": "pin1",
-      "background_audio": {
-        "loop": false,
-        "volume": 1
-      },
-      "description": "NOVA IMAGEM NECESSÁRIA — Beira do rio, cena de tensão suave. Seu Raimundo e Lucas LADO A LADO, ambos de perfil, VIRADOS PARA O RIO — olhando na mesma direção. Seu Raimundo estende o braço apontando firmemente com o dedo indicador para o rio, onde uma canoa pequena está ao longe com um pescador pescando. Lucas olha exatamente na direção apontada pelo pai, sobrancelha franzida, expressão de curiosidade e dúvida. Placa de 'DEFESO — Pesca proibida neste trecho' visível na margem esquerda. Rio ao fundo com névoa matinal leve. CRÍTICO: os dois personagens devem estar VIRADOS DE LADO/PARA O RIO, não encarando o espectador — a cena é deles olhando juntos para o pescador distante. Estilo cartoon Gravity Falls, azul-rio profundo.",
-      "media": {
-        "type": "image",
-        "url": "",
-        "duration": 16
-      },
-      "title": "O Vizinho que Não Espera",
-      "type": "decision",
-      "transition": "fade",
-      "dialogues": [
-        {
-          "position": 0,
-          "text": "Seu Raimundo aponta para uma canoa rio abaixo. Um vizinho está pescando — mas o período de defeso ainda não encerrou oficialmente nesse trecho do rio.",
-          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story_audio/69e99171b5fee93883c1a212_story-tts-69e99171b5fee93883c1a211.mp3",
-          "_ttsGenerating": false,
-          "_audioDuration": 9.432
-        },
-        {
-          "position": 1,
-          "character_id": "pin1_c3",
-          "text": "Pai... aquele ali tá pescando no defeso. Não seria uma chance boa, com tanto peixe concentrado no rio?",
-          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story_audio/69e99179b5fee93883c1a218_story-tts-69e99179b5fee93883c1a217.mp3",
-          "_ttsGenerating": false,
-          "_audioDuration": 6.336
-        }
-      ],
-      "_minDuration": 16,
-      "subtitles_enabled": true,
-      "position": 4
-    },
-    {
       "_id": "pin1_s4",
       "media_mode": "image",
+      "decision": {
+        "prompt": "",
+        "interaction_type": "click",
+        "options": []
+      },
       "transition_duration": 300,
       "story_id": "pin1",
       "background_audio": {
@@ -241,7 +446,7 @@
       "media": {
         "type": "image",
         "url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story/69e9900fb5fee93883c1a1cf_original_freepik_retire-dona-graca-e-coloq_2846112354 (1).png",
-        "duration": 22
+        "duration": 24
       },
       "title": "A Lição de Seu Raimundo",
       "type": "scene",
@@ -277,6 +482,64 @@
       "position": 5
     },
     {
+      "_id": "pin1_s3",
+      "media_mode": "image",
+      "decision": {
+        "prompt": "O que Lucas faz?",
+        "interaction_type": "click",
+        "options": [
+          {
+            "label": "Vai até o vizinho avisar e explicar as regras",
+            "next_scene_id": "pin1_s4",
+            "score": 10
+          },
+          {
+            "label": "Aproveita também — todo mundo faz, não vai fazer diferença",
+            "next_scene_id": "pin1_s5",
+            "score": 1
+          }
+        ]
+      },
+      "transition_duration": 300,
+      "image_url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story/69ecafb19ee30f3253d2ac27_original_C��pia de  A Hora Certa (4).jpg",
+      "story_id": "pin1",
+      "background_audio": {
+        "loop": false,
+        "volume": 1
+      },
+      "description": "NOVA IMAGEM NECESSÁRIA — Beira do rio, cena de tensão suave. Seu Raimundo e Lucas LADO A LADO, ambos de perfil, VIRADOS PARA O RIO — olhando na mesma direção. Seu Raimundo estende o braço apontando firmemente com o dedo indicador para o rio, onde uma canoa pequena está ao longe com um pescador pescando. Lucas olha exatamente na direção apontada pelo pai, sobrancelha franzida, expressão de curiosidade e dúvida. Placa de 'DEFESO — Pesca proibida neste trecho' visível na margem esquerda. Rio ao fundo com névoa matinal leve. CRÍTICO: os dois personagens devem estar VIRADOS DE LADO/PARA O RIO, não encarando o espectador — a cena é deles olhando juntos para o pescador distante. Estilo cartoon Gravity Falls, azul-rio profundo.",
+      "media": {
+        "type": "image",
+        "url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story/69ecafb19ee30f3253d2ac27_original_C��pia de  A Hora Certa (4).jpg",
+        "duration": 16
+      },
+      "title": "O Vizinho que Não Espera",
+      "type": "decision",
+      "transition": "fade",
+      "dialogues": [
+        {
+          "position": 0,
+          "text": "Seu Raimundo aponta para uma canoa rio abaixo. Um vizinho está pescando — mas o período de defeso ainda não encerrou oficialmente nesse trecho do rio.",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story_audio/69e99171b5fee93883c1a212_story-tts-69e99171b5fee93883c1a211.mp3",
+          "_ttsGenerating": false,
+          "_audioDuration": 9.432,
+          "_playing": true
+        },
+        {
+          "position": 1,
+          "character_id": "pin1_c3",
+          "text": "Pai... aquele ali tá pescando no defeso. Não seria uma chance boa, com tanto peixe concentrado no rio?",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story_audio/69e99179b5fee93883c1a218_story-tts-69e99179b5fee93883c1a217.mp3",
+          "_ttsGenerating": false,
+          "_audioDuration": 6.336,
+          "_playing": false
+        }
+      ],
+      "_minDuration": 16,
+      "subtitles_enabled": true,
+      "position": 4
+    },
+    {
       "_id": "pin1_s5",
       "media_mode": "image",
       "transition_duration": 300,
@@ -309,9 +572,62 @@
       "position": 6
     },
     {
+      "_id": "pin1_s16",
+      "media_mode": "image",
+      "decision": {
+        "prompt": "",
+        "interaction_type": "click",
+        "options": []
+      },
+      "transition_duration": 300,
+      "image_url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story/69ecb2589ee30f3253d2ac2e_original_C��pia de  A Hora Certa (6).jpg",
+      "story_id": "pin1",
+      "background_audio": {
+        "loop": false,
+        "volume": 1
+      },
+      "description": "NOVA IMAGEM NECESSÁRIA — JÚLIA EM DESTAQUE no centro do quadro, expressão iluminada de quem acabou de ter uma grande revelação. Ela gesticula animada com as mãos, como se estivesse descrevendo uma semente crescendo — olhos brilhantes, sorriso contagiante. Seu Raimundo ao lado dela, olhando para a filha com orgulho paternal imenso — sorriso genuíno de pai que percebe que a filha entendeu algo profundo. Lucas ao fundo com a boca ligeiramente aberta de surpresa, processando a analogia. Rio dourado ao fundo. JÚLIA domina este quadro — ela é a estrela deste momento emocional. Estilo cartoon Gravity Falls, luz quente de descoberta e orgulho familiar.",
+      "media": {
+        "type": "image",
+        "url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story/69ecb2589ee30f3253d2ac2e_original_C��pia de  A Hora Certa (6).jpg",
+        "duration": 10
+      },
+      "title": "A Semente do Rio",
+      "type": "scene",
+      "transition": "fade",
+      "next_scene_id": "pin1_s9",
+      "dialogues": [
+        {
+          "position": 0,
+          "character_id": "pin1_c4",
+          "text": "É igual plantar, né pai? A gente não come a semente pra colher mais depois.",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story_audio/69e991e9b5fee93883c1a23b_story-tts-69e991e9b5fee93883c1a23a.mp3",
+          "_ttsGenerating": false,
+          "_audioDuration": 4.296
+        },
+        {
+          "position": 1,
+          "character_id": "pin1_c1",
+          "text": "Essa menina entendeu em dois minutos o que leva anos pra alguns aprenderem.",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story_audio/69e9931eb5fee93883c1a277_story-tts-69e9931eb5fee93883c1a276.mp3",
+          "_ttsGenerating": false,
+          "_audioDuration": 4.728
+        }
+      ],
+      "_minDuration": 10,
+      "subtitles_enabled": true,
+      "position": 10
+    },
+    {
       "_id": "pin1_s18",
       "media_mode": "image",
+      "decision": {
+        "prompt": "",
+        "interaction_type": "click",
+        "options": []
+      },
       "transition_duration": 300,
+      "image_url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story/69ecb04b9ee30f3253d2ac29_original_C��pia de  A Hora Certa (5).jpg",
       "story_id": "pin1",
       "background_audio": {
         "loop": false,
@@ -320,7 +636,7 @@
       "description": "NOVA IMAGEM NECESSÁRIA — Cena dramática na margem do rio. Agente ambiental uniformizado (colete verde, boné oficial) entrega o auto de infração ao pescador vizinho, que está com a cabeça baixa, expressão abatida e envergonhada. Ao fundo, o barco do pescador sendo rebocado por outro agente. A rede apreendida está empilhada na margem. À distância, Lucas e Seu Raimundo observam a cena — Lucas com expressão séria e reflexiva, aprendendo com o erro alheio; Raimundo com braços cruzados, sério mas sem julgamento. Paleta com tons mais frios e acinzentados, clima de consequência grave. Estilo cartoon Gravity Falls.",
       "media": {
         "type": "image",
-        "url": "",
+        "url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story/69ecb04b9ee30f3253d2ac29_original_C��pia de  A Hora Certa (5).jpg",
         "duration": 17
       },
       "title": "O Preço do Descuido",
@@ -348,6 +664,95 @@
       "_minDuration": 16,
       "subtitles_enabled": true,
       "position": 7
+    },
+    {
+      "_id": "pin1_s8",
+      "media_mode": "image",
+      "transition_duration": 300,
+      "story_id": "pin1",
+      "background_audio": {
+        "loop": false,
+        "volume": 1
+      },
+      "description": "TODO — Ilustração didática comparativa: lado esquerdo mostra rio cheio na época das chuvas com setas de peixes subindo (etiqueta 'PIRACEMA — reprodução'); lado direito mostra rio com nível médio na seca (etiqueta 'NÃO é piracema'). Seu Raimundo aponta para cada lado explicando. Fundo azul suave, visual educativo. Estilo cartoon Gravity Falls — visual distinto da cena S6.",
+      "media": {
+        "type": "image",
+        "url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story/69e9905ab5fee93883c1a1e3_original_freepik_todo-vista-subaquatica-do_2846138339 (2).png",
+        "duration": 18
+      },
+      "title": "Entendendo a Piracema",
+      "type": "scene",
+      "transition": "fade",
+      "next_scene_id": "pin1_s6",
+      "dialogues": [
+        {
+          "position": 0,
+          "character_id": "pin1_c1",
+          "text": "Não é a seca — a piracema acontece na época das chuvas, quando o rio enche. Os peixes precisam de água alta pra migrar.",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story_audio/69e991f3b5fee93883c1a23f_story-tts-69e991f3b5fee93883c1a23e.mp3",
+          "_ttsGenerating": false,
+          "_audioDuration": 7.464
+        },
+        {
+          "position": 1,
+          "character_id": "pin1_c1",
+          "text": "É o período de reprodução. Eles sobem o rio em cardumes pra desovar — garantir a próxima geração de peixes.",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story_audio/69ea1cb2b5fee93883c29345_story-tts-69ea1cb2b5fee93883c29344.mp3",
+          "_ttsGenerating": false,
+          "_audioDuration": 6.816
+        },
+        {
+          "position": 2,
+          "character_id": "pin1_c1",
+          "text": "Agora que você entendeu — o que é a piracema?",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story_audio/69ea1cc2b5fee93883c29347_story-tts-69ea1cc2b5fee93883c29346.mp3",
+          "_ttsGenerating": false,
+          "_audioDuration": 2.856
+        }
+      ],
+      "_minDuration": 18,
+      "subtitles_enabled": true,
+      "position": 11
+    },
+    {
+      "_id": "pin1_s7",
+      "media_mode": "image",
+      "transition_duration": 300,
+      "story_id": "pin1",
+      "background_audio": {
+        "loop": false,
+        "volume": 1
+      },
+      "description": "TODO — Vista subaquática do rio, luz verde-azulada. Cardume de peixes de várias espécies nadando juntos em direção ao fundo do quadro, representando a migração. Ovos em suspensão, filhotes minúsculos ao redor. Cena transmite abundância e ciclo natural. Em moldura ao redor, os rostos da família reagindo: Júlia encantada, Lucas surpreso, Dona Graça sorrindo, Seu Raimundo orgulhoso. Estilo cartoon Gravity Falls, cores tropicais ricas.",
+      "media": {
+        "type": "image",
+        "url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story/69e99051b5fee93883c1a1e1_original_freepik_todo-ilustracao-didatica-_2846133776 (2).png",
+        "duration": 17
+      },
+      "title": "O Ciclo que Alimenta",
+      "type": "scene",
+      "transition": "fade",
+      "next_scene_id": "pin1_s16",
+      "dialogues": [
+        {
+          "position": 0,
+          "character_id": "pin1_c1",
+          "text": "Isso mesmo! Os peixes sobem o rio em cardumes imensos pra desovar. Uma fêmea pode botar milhares de ovos numa única migração.",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story_audio/69e991e2b5fee93883c1a237_story-tts-69e991e2b5fee93883c1a236.mp3",
+          "_ttsGenerating": false,
+          "_audioDuration": 7.92
+        },
+        {
+          "position": 1,
+          "text": "É por isso que a pesca é proibida nesse período. Cada peixe que sobrevive à piracema se torna dezenas de peixes na próxima safra.",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story_audio/69e991e5b5fee93883c1a239_story-tts-69e991e5b5fee93883c1a238.mp3",
+          "_ttsGenerating": false,
+          "_audioDuration": 8.256
+        }
+      ],
+      "_minDuration": 17,
+      "subtitles_enabled": true,
+      "position": 9
     },
     {
       "_id": "pin1_s6",
@@ -411,139 +816,15 @@
       "position": 8
     },
     {
-      "_id": "pin1_s7",
-      "media_mode": "image",
-      "transition_duration": 300,
-      "story_id": "pin1",
-      "background_audio": {
-        "loop": false,
-        "volume": 1
-      },
-      "description": "TODO — Vista subaquática do rio, luz verde-azulada. Cardume de peixes de várias espécies nadando juntos em direção ao fundo do quadro, representando a migração. Ovos em suspensão, filhotes minúsculos ao redor. Cena transmite abundância e ciclo natural. Em moldura ao redor, os rostos da família reagindo: Júlia encantada, Lucas surpreso, Dona Graça sorrindo, Seu Raimundo orgulhoso. Estilo cartoon Gravity Falls, cores tropicais ricas.",
-      "media": {
-        "type": "image",
-        "url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story/69e99051b5fee93883c1a1e1_original_freepik_todo-ilustracao-didatica-_2846133776 (2).png",
-        "duration": 17
-      },
-      "title": "O Ciclo que Alimenta",
-      "type": "scene",
-      "transition": "fade",
-      "next_scene_id": "pin1_s16",
-      "dialogues": [
-        {
-          "position": 0,
-          "character_id": "pin1_c1",
-          "text": "Isso mesmo! Os peixes sobem o rio em cardumes imensos pra desovar. Uma fêmea pode botar milhares de ovos numa única migração.",
-          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story_audio/69e991e2b5fee93883c1a237_story-tts-69e991e2b5fee93883c1a236.mp3",
-          "_ttsGenerating": false,
-          "_audioDuration": 7.92
-        },
-        {
-          "position": 1,
-          "text": "É por isso que a pesca é proibida nesse período. Cada peixe que sobrevive à piracema se torna dezenas de peixes na próxima safra.",
-          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story_audio/69e991e5b5fee93883c1a239_story-tts-69e991e5b5fee93883c1a238.mp3",
-          "_ttsGenerating": false,
-          "_audioDuration": 8.256
-        }
-      ],
-      "_minDuration": 17,
-      "subtitles_enabled": true,
-      "position": 9
-    },
-    {
-      "_id": "pin1_s16",
-      "media_mode": "image",
-      "transition_duration": 300,
-      "story_id": "pin1",
-      "background_audio": {
-        "loop": false,
-        "volume": 1
-      },
-      "description": "NOVA IMAGEM NECESSÁRIA — JÚLIA EM DESTAQUE no centro do quadro, expressão iluminada de quem acabou de ter uma grande revelação. Ela gesticula animada com as mãos, como se estivesse descrevendo uma semente crescendo — olhos brilhantes, sorriso contagiante. Seu Raimundo ao lado dela, olhando para a filha com orgulho paternal imenso — sorriso genuíno de pai que percebe que a filha entendeu algo profundo. Lucas ao fundo com a boca ligeiramente aberta de surpresa, processando a analogia. Rio dourado ao fundo. JÚLIA domina este quadro — ela é a estrela deste momento emocional. Estilo cartoon Gravity Falls, luz quente de descoberta e orgulho familiar.",
-      "media": {
-        "type": "image",
-        "url": "",
-        "duration": 10
-      },
-      "title": "A Semente do Rio",
-      "type": "scene",
-      "transition": "fade",
-      "next_scene_id": "pin1_s9",
-      "dialogues": [
-        {
-          "position": 0,
-          "character_id": "pin1_c4",
-          "text": "É igual plantar, né pai? A gente não come a semente pra colher mais depois.",
-          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story_audio/69e991e9b5fee93883c1a23b_story-tts-69e991e9b5fee93883c1a23a.mp3",
-          "_ttsGenerating": false,
-          "_audioDuration": 4.296
-        },
-        {
-          "position": 1,
-          "character_id": "pin1_c1",
-          "text": "Essa menina entendeu em dois minutos o que leva anos pra alguns aprenderem.",
-          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story_audio/69e9931eb5fee93883c1a277_story-tts-69e9931eb5fee93883c1a276.mp3",
-          "_ttsGenerating": false,
-          "_audioDuration": 4.728
-        }
-      ],
-      "_minDuration": 10,
-      "subtitles_enabled": true,
-      "position": 10
-    },
-    {
-      "_id": "pin1_s8",
-      "media_mode": "image",
-      "transition_duration": 300,
-      "story_id": "pin1",
-      "background_audio": {
-        "loop": false,
-        "volume": 1
-      },
-      "description": "TODO — Ilustração didática comparativa: lado esquerdo mostra rio cheio na época das chuvas com setas de peixes subindo (etiqueta 'PIRACEMA — reprodução'); lado direito mostra rio com nível médio na seca (etiqueta 'NÃO é piracema'). Seu Raimundo aponta para cada lado explicando. Fundo azul suave, visual educativo. Estilo cartoon Gravity Falls — visual distinto da cena S6.",
-      "media": {
-        "type": "image",
-        "url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story/69e9905ab5fee93883c1a1e3_original_freepik_todo-vista-subaquatica-do_2846138339 (2).png",
-        "duration": 18
-      },
-      "title": "Entendendo a Piracema",
-      "type": "scene",
-      "transition": "fade",
-      "next_scene_id": "pin1_s6",
-      "dialogues": [
-        {
-          "position": 0,
-          "character_id": "pin1_c1",
-          "text": "Não é a seca — a piracema acontece na época das chuvas, quando o rio enche. Os peixes precisam de água alta pra migrar.",
-          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story_audio/69e991f3b5fee93883c1a23f_story-tts-69e991f3b5fee93883c1a23e.mp3",
-          "_ttsGenerating": false,
-          "_audioDuration": 7.464
-        },
-        {
-          "position": 1,
-          "character_id": "pin1_c1",
-          "text": "É o período de reprodução. Eles sobem o rio em cardumes pra desovar — garantir a próxima geração de peixes.",
-          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story_audio/69ea1cb2b5fee93883c29345_story-tts-69ea1cb2b5fee93883c29344.mp3",
-          "_ttsGenerating": false,
-          "_audioDuration": 6.816
-        },
-        {
-          "position": 2,
-          "character_id": "pin1_c1",
-          "text": "Agora que você entendeu — o que é a piracema?",
-          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story_audio/69ea1cc2b5fee93883c29347_story-tts-69ea1cc2b5fee93883c29346.mp3",
-          "_ttsGenerating": false,
-          "_audioDuration": 2.856
-        }
-      ],
-      "_minDuration": 18,
-      "subtitles_enabled": true,
-      "position": 11
-    },
-    {
       "_id": "pin1_s9",
       "media_mode": "image",
+      "decision": {
+        "prompt": "",
+        "interaction_type": "click",
+        "options": []
+      },
       "transition_duration": 300,
+      "image_url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story/69ecb3ee9ee30f3253d2ac30_original_C��pia de  A Hora Certa (7).jpg",
       "story_id": "pin1",
       "background_audio": {
         "loop": false,
@@ -552,8 +833,8 @@
       "description": "NOVA IMAGEM NECESSÁRIA — Dona Graça ATRÁS de uma bancada rústica de venda de peixe à beira do rio, no papel de dona do negócio. Ela está animada, gesticulando com confiança enquanto explica o negócio para a família. Seu Raimundo ao lado segurando um tambaqui grande com orgulho. FOCO: Dona Graça é a protagonista desta cena, ela comanda este espaço comercial. Peixes frescos sobre gelo picado à frente da bancada, etiquetas de preço escritas à mão. Lucas e Júlia na frente, atentos. Ângulo levemente de baixo para cima, mostrando a autoridade de Dona Graça. Estilo cartoon Gravity Falls, cores vibrantes, luz quente de início de manhã.",
       "media": {
         "type": "image",
-        "url": "",
-        "duration": 16
+        "url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story/69ecb3ee9ee30f3253d2ac30_original_C��pia de  A Hora Certa (7).jpg",
+        "duration": 18
       },
       "title": "O Negócio da Pesca",
       "type": "scene",
@@ -582,46 +863,6 @@
       "position": 12
     },
     {
-      "_id": "pin1_s15",
-      "media_mode": "image",
-      "transition_duration": 300,
-      "story_id": "pin1",
-      "background_audio": {
-        "loop": false,
-        "volume": 1
-      },
-      "description": "NOVA IMAGEM NECESSÁRIA — CLOSE em Lucas e Júlia examinando de perto um peixe fresco sobre gelo. Lucas está ligeiramente agachado, rosto próximo ao peixe, franzindo a testa em análise cuidadosa — estudando a qualidade. Júlia ao lado, apontando para o peixe com certeza. Dona Graça ao fundo com sorriso aprovador, braços cruzados. A cena é íntima e de aprendizado — o foco está nos rostos de Lucas e Júlia E no detalhe do peixe brilhante sobre o gelo. Composição: close/médio, diferente das outras cenas de feira. Estilo cartoon Gravity Falls, detalhes nítidos do peixe e das expressões.",
-      "media": {
-        "type": "image",
-        "url": "",
-        "duration": 14
-      },
-      "title": "A Fórmula do Preço",
-      "type": "scene",
-      "transition": "fade",
-      "next_scene_id": "pin1_s10",
-      "dialogues": [
-        {
-          "position": 0,
-          "text": "A pesca artesanal familiar movimenta bilhões de reais no Brasil. Com planejamento certo, a família Lopes pode aumentar muito a renda a cada safra.",
-          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story_audio/69ea1d0db5fee93883c29354_story-tts-69ea1d0db5fee93883c29353.mp3",
-          "_ttsGenerating": false,
-          "_audioDuration": 9.264
-        },
-        {
-          "position": 1,
-          "character_id": "pin1_c3",
-          "text": "O que faz o peixe valer mais, pai? Como a gente garante o melhor preço?",
-          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story_audio/69e99238b5fee93883c1a24d_story-tts-69e99238b5fee93883c1a24c.mp3",
-          "_ttsGenerating": false,
-          "_audioDuration": 4.416
-        }
-      ],
-      "_minDuration": 14,
-      "subtitles_enabled": true,
-      "position": 13
-    },
-    {
       "_id": "pin1_s10",
       "media_mode": "image",
       "decision": {
@@ -641,6 +882,7 @@
         ]
       },
       "transition_duration": 300,
+      "image_url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story/69ecba1a9ee30f3253d2ae5f_original_freepik_nova-imagem-necessaria-pa_2863431673.png",
       "story_id": "pin1",
       "background_audio": {
         "loop": false,
@@ -649,7 +891,7 @@
       "description": "NOVA IMAGEM NECESSÁRIA — Painel educativo ESTILO INFOGRÁFICO integrado à cena. Visual limpo dividido ao meio: À ESQUERDA, peixe brilhante e fresco sobre gelo abundante com etiqueta verde estilizada 'R$22/kg' e ícones de estrela e aprovação. À DIREITA, peixe sem brilho, sem gelo, aparência opaca com etiqueta vermelha 'R$12/kg' e ícone de X. Os dois peixes são grandes e em destaque, como um anúncio comparativo didático. Dona Graça ao lado do painel, apontando com expressão de quem está aplicando um teste. Lucas e Júlia olham para o painel com expressões pensativas. VISUAL COMPLETAMENTE DIFERENTE das outras cenas de feira — foco no INFOGRÁFICO comparativo, não na bancada. Estilo cartoon Gravity Falls com elementos gráficos didáticos integrados.",
       "media": {
         "type": "image",
-        "url": "",
+        "url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story/69ecba1a9ee30f3253d2ae5f_original_freepik_nova-imagem-necessaria-pa_2863431673.png",
         "duration": 11
       },
       "title": "O Que Aumenta o Valor do Peixe?",
@@ -677,7 +919,132 @@
       "position": 14
     },
     {
-      "_id": "pin1_s11",
+      "_id": "pin1_s15",
+      "media_mode": "image",
+      "decision": {
+        "prompt": "",
+        "interaction_type": "click",
+        "options": []
+      },
+      "transition_duration": 300,
+      "image_url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story/69ecb65e9ee30f3253d2ac33_original_C��pia de  A Hora Certa (8).jpg",
+      "story_id": "pin1",
+      "background_audio": {
+        "loop": false,
+        "volume": 1
+      },
+      "description": "NOVA IMAGEM NECESSÁRIA — CLOSE em Lucas e Júlia examinando de perto um peixe fresco sobre gelo. Lucas está ligeiramente agachado, rosto próximo ao peixe, franzindo a testa em análise cuidadosa — estudando a qualidade. Júlia ao lado, apontando para o peixe com certeza. Dona Graça ao fundo com sorriso aprovador, braços cruzados. A cena é íntima e de aprendizado — o foco está nos rostos de Lucas e Júlia E no detalhe do peixe brilhante sobre o gelo. Composição: close/médio, diferente das outras cenas de feira. Estilo cartoon Gravity Falls, detalhes nítidos do peixe e das expressões.",
+      "media": {
+        "type": "image",
+        "url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story/69ecb65e9ee30f3253d2ac33_original_C��pia de  A Hora Certa (8).jpg",
+        "duration": 17
+      },
+      "title": "A Fórmula do Preço",
+      "type": "scene",
+      "transition": "fade",
+      "next_scene_id": "pin1_s10",
+      "dialogues": [
+        {
+          "position": 0,
+          "text": "A pesca artesanal familiar movimenta bilhões de reais no Brasil. Com planejamento certo, a família Lopes pode aumentar muito a renda a cada safra.",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story_audio/69ea1d0db5fee93883c29354_story-tts-69ea1d0db5fee93883c29353.mp3",
+          "_ttsGenerating": false,
+          "_audioDuration": 9.264
+        },
+        {
+          "position": 1,
+          "character_id": "pin1_c3",
+          "text": "O que faz o peixe valer mais, pai? Como a gente garante o melhor preço?",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story_audio/69e99238b5fee93883c1a24d_story-tts-69e99238b5fee93883c1a24c.mp3",
+          "_ttsGenerating": false,
+          "_audioDuration": 4.416
+        }
+      ],
+      "_minDuration": 14,
+      "subtitles_enabled": true,
+      "position": 13
+    },
+    {
+      "_id": "69eb9f5eb5fee93883c4ff96",
+      "media_mode": "image",
+      "decision": {
+        "prompt": "",
+        "interaction_type": "click",
+        "options": []
+      },
+      "transition_duration": 300,
+      "image_url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story/69ecbd589ee30f3253d2b101_original_rota da pesca.jpg",
+      "story_id": "pin1",
+      "background_audio": {
+        "loop": false,
+        "volume": 1
+      },
+      "media": {
+        "type": "image",
+        "url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story/69ecbd589ee30f3253d2b101_original_rota da pesca.jpg"
+      },
+      "title": "Creditos",
+      "type": "credits",
+      "transition": "fade",
+      "dialogues": [],
+      "position": 20
+    },
+    {
+      "_id": "pin1_s14",
+      "end_score": 5,
+      "media_mode": "image",
+      "decision": {
+        "prompt": "",
+        "interaction_type": "click",
+        "options": []
+      },
+      "transition_duration": 300,
+      "story_id": "pin1",
+      "background_audio": {
+        "loop": false,
+        "volume": 1
+      },
+      "description": "Lucas e Seu Raimundo sentados lado a lado no barco amarrado na margem, olhando para o rio juntos. Dona Graça e Júlia na margem próximas. O sol nascendo ao fundo, reflexo dourado na água. Cena tranquila de conversa entre pai e filho, aprendizado em andamento. Estilo cartoon Gravity Falls, paleta suave de fim de madrugada virando amanhecer.",
+      "media": {
+        "type": "image",
+        "url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story/69e990c8b5fee93883c1a1f2_original_freepik_todo-lucas-e-seu-raimundo_2846156222 (2).png",
+        "duration": 16
+      },
+      "title": "O Aprendizado Começa Agora",
+      "type": "end",
+      "transition": "fade",
+      "dialogues": [
+        {
+          "position": 0,
+          "text": "Os números ainda estão se encaixando na cabeça de Lucas. Mas a vontade de aprender está ali — e o Rota Viva vai ensinar cada detalhe.",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story_audio/69e9929ab5fee93883c1a26d_story-tts-69e9929ab5fee93883c1a26c.mp3",
+          "_ttsGenerating": false,
+          "_audioDuration": 8.472
+        },
+        {
+          "position": 1,
+          "character_id": "pin1_c1",
+          "text": "Não aprende tudo de uma vez, filho. O rio ensina quem tem paciência.",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story_audio/69ea1dcab5fee93883c29386_story-tts-69ea1dcab5fee93883c29385.mp3",
+          "_ttsGenerating": false,
+          "_audioDuration": 4.032
+        },
+        {
+          "position": 2,
+          "character_id": "pin1_c4",
+          "text": "A gente aprende junto, Lucas. Começando agora.",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story_audio/69ea1dd5b5fee93883c29388_story-tts-69ea1dd5b5fee93883c29387.mp3",
+          "_ttsGenerating": false,
+          "_audioDuration": 2.784
+        }
+      ],
+      "_minDuration": 16,
+      "subtitles_enabled": true,
+      "position": 19,
+      "end_label": "O aprendizado começa agora"
+    },
+    {
+      "_id": "pin1_s19",
       "media_mode": "image",
       "transition_duration": 300,
       "story_id": "pin1",
@@ -685,45 +1052,76 @@
         "loop": false,
         "volume": 1
       },
-      "description": "TODO — Lucas e Seu Raimundo lado a lado no barco de madeira, rio ao fundo com luz dourada da manhã. Lucas segura um peixe com cuidado, usando luvas, colocando-o em caixa de isopor com gelo. Seu Raimundo observa com sorriso orgulhoso. Dona Graça e Júlia na margem acenando. Cena de transmissão de conhecimento entre gerações. Estilo cartoon Gravity Falls, luz quente e dourada sobre o rio.",
+      "description": "TODO — Lucas de pé no barco de madeira saindo para o rio, postura confiante, olhar no horizonte. Na margem, a família toda acenando: Seu Raimundo com polegar levantado e sorriso orgulhoso, Dona Graça sorrindo, Júlia agitando as mãos animada. Peixes saltando na superfície do rio ao fundo. Luz dourada do amanhecer refletindo na água. Cena épica de partida — Lucas começando sua jornada solo. Estilo cartoon Gravity Falls, inspiradora.",
       "media": {
         "type": "image",
-        "url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story/69e99080b5fee93883c1a1ea_original_freepik_todo-lucas-e-seu-raimundo_2846146006 (2).png",
-        "duration": 18
+        "url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story/69e990a5b5fee93883c1a1ee_original_freepik_todo-lucas-de-pe-no-barco_2846153987 (2).png",
+        "duration": 12
       },
-      "title": "O Pescador Completo",
+      "title": "A Partida",
       "type": "scene",
       "transition": "fade",
-      "next_scene_id": "pin1_s19",
+      "next_scene_id": "pin1_s13",
+      "dialogues": [
+        {
+          "position": 0,
+          "text": "Lucas não sai mais como um jovem que quer pescar. Sai como um pescador que entende o rio, respeita as regras e sabe cuidar do que traz pra casa.",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story_audio/69e99283b5fee93883c1a266_story-tts-69e99283b5fee93883c1a265.mp3",
+          "_ttsGenerating": false,
+          "_audioDuration": 9
+        }
+      ],
+      "_minDuration": 11,
+      "subtitles_enabled": true,
+      "position": 17
+    },
+    {
+      "_id": "pin1_s13",
+      "end_score": 10,
+      "media_mode": "image",
+      "decision": {
+        "prompt": "",
+        "interaction_type": "click",
+        "options": []
+      },
+      "transition_duration": 300,
+      "image_url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story/69ecbb3d9ee30f3253d2b0f0_original_C��pia de  A Hora Certa (11).jpg",
+      "story_id": "pin1",
+      "background_audio": {
+        "loop": false,
+        "volume": 1
+      },
+      "description": "NOVA IMAGEM NECESSÁRIA — Cena épica e emocionante de HERANÇA FAMILIAR à beira do rio. Seu Raimundo de pé, coloca as duas mãos nos ombros de Lucas em gesto solene de bênção e passagem de conhecimento — olhando nos olhos do filho com orgulho imenso. Lucas com postura ereta, olhar determinado e grato. Dona Graça ao lado com a mão sobre o coração, olhos maternais brilhantes de emoção. Júlia do outro lado de Lucas, segurando a mão do irmão, sorrindo com amor. O rio dourado ao fundo reflete o sol nascente, peixes saltando suavemente ao longe. Árvores ribeirinhas emolduram a cena como uma pintura de legado. Luz épica e calorosa, tons dourados e âmbar. Estilo cartoon Gravity Falls — cena final inspiradora, como o encerramento de um filme da Disney.",
+      "media": {
+        "type": "image",
+        "url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story/69ecbb3d9ee30f3253d2b0f0_original_C��pia de  A Hora Certa (11).jpg",
+        "duration": 16
+      },
+      "title": "Um Pescador Completo",
+      "type": "end",
+      "transition": "fade",
       "dialogues": [
         {
           "position": 0,
           "character_id": "pin1_c1",
-          "text": "Isso mesmo, Lucas! Peixe com gelo e bem tratado vale 30% a mais que peixe largado no calor. O comprador paga pela qualidade.",
-          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story_audio/69e99250b5fee93883c1a259_story-tts-69e99250b5fee93883c1a258.mp3",
+          "text": "A pesca é herança, filho. O rio nos dá — se a gente cuidar. Quem cuida do rio garante que seus filhos também vão pescar aqui.",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story_audio/69e99287b5fee93883c1a268_story-tts-69e99287b5fee93883c1a267.mp3",
           "_ttsGenerating": false,
-          "_audioDuration": 8.04
+          "_audioDuration": 7.8
         },
         {
           "position": 1,
           "character_id": "pin1_c2",
-          "text": "E quem cuida bem do peixe faz nome na feira. Voltam sempre, pagam melhor, recomendam pra todo mundo.",
-          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story_audio/69e99257b5fee93883c1a25b_story-tts-69e99257b5fee93883c1a25a.mp3",
+          "text": "E nessa família, a gente aprende junto. É assim que a família Lopes trabalha há gerações.",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story_audio/69e9928cb5fee93883c1a26a_story-tts-69e9928cb5fee93883c1a269.mp3",
           "_ttsGenerating": false,
-          "_audioDuration": 6.192
-        },
-        {
-          "position": 2,
-          "character_id": "pin1_c3",
-          "text": "Então é conhecimento mais do que força. Entendi, pai.",
-          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story_audio/69e9925ab5fee93883c1a25d_story-tts-69e9925ab5fee93883c1a25c.mp3",
-          "_ttsGenerating": false,
-          "_audioDuration": 3.24
+          "_audioDuration": 5.736
         }
       ],
-      "_minDuration": 18,
+      "_minDuration": 15,
       "subtitles_enabled": true,
-      "position": 15
+      "position": 18,
+      "end_label": "Um pescador completo!"
     },
     {
       "_id": "pin1_s12",
@@ -774,131 +1172,8 @@
       "position": 16
     },
     {
-      "_id": "pin1_s19",
+      "_id": "pin1_s11",
       "media_mode": "image",
-      "transition_duration": 300,
-      "story_id": "pin1",
-      "background_audio": {
-        "loop": false,
-        "volume": 1
-      },
-      "description": "TODO — Lucas de pé no barco de madeira saindo para o rio, postura confiante, olhar no horizonte. Na margem, a família toda acenando: Seu Raimundo com polegar levantado e sorriso orgulhoso, Dona Graça sorrindo, Júlia agitando as mãos animada. Peixes saltando na superfície do rio ao fundo. Luz dourada do amanhecer refletindo na água. Cena épica de partida — Lucas começando sua jornada solo. Estilo cartoon Gravity Falls, inspiradora.",
-      "media": {
-        "type": "image",
-        "url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story/69e990a5b5fee93883c1a1ee_original_freepik_todo-lucas-de-pe-no-barco_2846153987 (2).png",
-        "duration": 12
-      },
-      "title": "A Partida",
-      "type": "scene",
-      "transition": "fade",
-      "next_scene_id": "pin1_s13",
-      "dialogues": [
-        {
-          "position": 0,
-          "text": "Lucas não sai mais como um jovem que quer pescar. Sai como um pescador que entende o rio, respeita as regras e sabe cuidar do que traz pra casa.",
-          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story_audio/69e99283b5fee93883c1a266_story-tts-69e99283b5fee93883c1a265.mp3",
-          "_ttsGenerating": false,
-          "_audioDuration": 9
-        }
-      ],
-      "_minDuration": 11,
-      "subtitles_enabled": true,
-      "position": 17
-    },
-    {
-      "_id": "pin1_s13",
-      "end_score": 10,
-      "media_mode": "image",
-      "transition_duration": 300,
-      "story_id": "pin1",
-      "background_audio": {
-        "loop": false,
-        "volume": 1
-      },
-      "description": "NOVA IMAGEM NECESSÁRIA — Cena épica e emocionante de HERANÇA FAMILIAR à beira do rio. Seu Raimundo de pé, coloca as duas mãos nos ombros de Lucas em gesto solene de bênção e passagem de conhecimento — olhando nos olhos do filho com orgulho imenso. Lucas com postura ereta, olhar determinado e grato. Dona Graça ao lado com a mão sobre o coração, olhos maternais brilhantes de emoção. Júlia do outro lado de Lucas, segurando a mão do irmão, sorrindo com amor. O rio dourado ao fundo reflete o sol nascente, peixes saltando suavemente ao longe. Árvores ribeirinhas emolduram a cena como uma pintura de legado. Luz épica e calorosa, tons dourados e âmbar. Estilo cartoon Gravity Falls — cena final inspiradora, como o encerramento de um filme da Disney.",
-      "media": {
-        "type": "image",
-        "url": "",
-        "duration": 16
-      },
-      "title": "Um Pescador Completo",
-      "type": "end",
-      "transition": "fade",
-      "dialogues": [
-        {
-          "position": 0,
-          "character_id": "pin1_c1",
-          "text": "A pesca é herança, filho. O rio nos dá — se a gente cuidar. Quem cuida do rio garante que seus filhos também vão pescar aqui.",
-          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story_audio/69e99287b5fee93883c1a268_story-tts-69e99287b5fee93883c1a267.mp3",
-          "_ttsGenerating": false,
-          "_audioDuration": 7.8
-        },
-        {
-          "position": 1,
-          "character_id": "pin1_c2",
-          "text": "E nessa família, a gente aprende junto. É assim que a família Lopes trabalha há gerações.",
-          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story_audio/69e9928cb5fee93883c1a26a_story-tts-69e9928cb5fee93883c1a269.mp3",
-          "_ttsGenerating": false,
-          "_audioDuration": 5.736
-        }
-      ],
-      "_minDuration": 15,
-      "subtitles_enabled": true,
-      "position": 18,
-      "end_label": "Um pescador completo!"
-    },
-    {
-      "_id": "pin1_s14",
-      "end_score": 5,
-      "media_mode": "image",
-      "transition_duration": 300,
-      "story_id": "pin1",
-      "background_audio": {
-        "loop": false,
-        "volume": 1
-      },
-      "description": "TODO — Lucas e Seu Raimundo sentados lado a lado no barco amarrado na margem, olhando para o rio juntos. Dona Graça e Júlia na margem próximas. O sol nascendo ao fundo, reflexo dourado na água. Cena tranquila de conversa entre pai e filho, aprendizado em andamento. Estilo cartoon Gravity Falls, paleta suave de fim de madrugada virando amanhecer.",
-      "media": {
-        "type": "image",
-        "url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story/69e990c8b5fee93883c1a1f2_original_freepik_todo-lucas-e-seu-raimundo_2846156222 (2).png",
-        "duration": 16
-      },
-      "title": "O Aprendizado Começa Agora",
-      "type": "end",
-      "transition": "fade",
-      "dialogues": [
-        {
-          "position": 0,
-          "text": "Os números ainda estão se encaixando na cabeça de Lucas. Mas a vontade de aprender está ali — e o Rota Viva vai ensinar cada detalhe.",
-          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story_audio/69e9929ab5fee93883c1a26d_story-tts-69e9929ab5fee93883c1a26c.mp3",
-          "_ttsGenerating": false,
-          "_audioDuration": 8.472
-        },
-        {
-          "position": 1,
-          "character_id": "pin1_c1",
-          "text": "Não aprende tudo de uma vez, filho. O rio ensina quem tem paciência.",
-          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story_audio/69ea1dcab5fee93883c29386_story-tts-69ea1dcab5fee93883c29385.mp3",
-          "_ttsGenerating": false,
-          "_audioDuration": 4.032
-        },
-        {
-          "position": 2,
-          "character_id": "pin1_c4",
-          "text": "A gente aprende junto, Lucas. Começando agora.",
-          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story_audio/69ea1dd5b5fee93883c29388_story-tts-69ea1dd5b5fee93883c29387.mp3",
-          "_ttsGenerating": false,
-          "_audioDuration": 2.784
-        }
-      ],
-      "_minDuration": 16,
-      "subtitles_enabled": true,
-      "position": 19,
-      "end_label": "O aprendizado começa agora"
-    },
-    {
-      "_id": "69eb9f5eb5fee93883c4ff96",
-      "dialogues": [],
       "decision": {
         "prompt": "",
         "interaction_type": "click",
@@ -910,13 +1185,45 @@
         "loop": false,
         "volume": 1
       },
-      "position": 20,
+      "description": "TODO — Lucas e Seu Raimundo lado a lado no barco de madeira, rio ao fundo com luz dourada da manhã. Lucas segura um peixe com cuidado, usando luvas, colocando-o em caixa de isopor com gelo. Seu Raimundo observa com sorriso orgulhoso. Dona Graça e Júlia na margem acenando. Cena de transmissão de conhecimento entre gerações. Estilo cartoon Gravity Falls, luz quente e dourada sobre o rio.",
       "media": {
-        "type": "none"
+        "type": "image",
+        "url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story/69e99080b5fee93883c1a1ea_original_freepik_todo-lucas-e-seu-raimundo_2846146006 (2).png",
+        "duration": 20
       },
-      "title": "Creditos",
-      "type": "credits",
-      "transition": "fade"
+      "title": "O Pescador Completo",
+      "type": "scene",
+      "transition": "fade",
+      "next_scene_id": "pin1_s19",
+      "dialogues": [
+        {
+          "position": 0,
+          "character_id": "pin1_c1",
+          "text": "Isso mesmo, Lucas! Peixe com gelo e bem tratado vale 30% a mais que peixe largado no calor. O comprador paga pela qualidade.",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story_audio/69e99250b5fee93883c1a259_story-tts-69e99250b5fee93883c1a258.mp3",
+          "_ttsGenerating": false,
+          "_audioDuration": 8.04
+        },
+        {
+          "position": 1,
+          "character_id": "pin1_c2",
+          "text": "E quem cuida bem do peixe faz nome na feira. Voltam sempre, pagam melhor, recomendam pra todo mundo.",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story_audio/69e99257b5fee93883c1a25b_story-tts-69e99257b5fee93883c1a25a.mp3",
+          "_ttsGenerating": false,
+          "_audioDuration": 6.192
+        },
+        {
+          "position": 2,
+          "character_id": "pin1_c3",
+          "text": "Então é conhecimento mais do que força. Entendi, pai.",
+          "audio_url": "https://s3.amazonaws.com/funifier/games/69c58d4de6650e26dad215b2/story_audio/69e9925ab5fee93883c1a25d_story-tts-69e9925ab5fee93883c1a25c.mp3",
+          "_ttsGenerating": false,
+          "_audioDuration": 3.24
+        }
+      ],
+      "_minDuration": 18,
+      "subtitles_enabled": true,
+      "position": 15
     }
   ]
 }

@@ -111,6 +111,11 @@
     background: rgba(255,255,255,0.22);
     border-color: var(--color-primary, #FF9600);
   }
+  .rv-story-word-active {
+    color: var(--color-primary, #FF9600);
+    font-weight: bold;
+    text-shadow: 0 0 8px rgba(255, 150, 0, 0.7);
+  }
 
   /* Amazon Prime Video-style controls overlay */
   .rv-story-media-controls {
@@ -368,7 +373,17 @@
                  ng-src="{{getCharacter(currentDialogue().character_id).avatar_thumbnail}}"
                  class="rv-story-char-avatar" alt="" />
             <div style="flex:1; min-width:0;">
-              <p class="rv-story-dialogue-text"
+              <!-- Karaokê: word-by-word highlight when timestamps exist -->
+              <p ng-if="currentDialogue().word_timestamps && currentDialogue().word_timestamps.length"
+                 class="rv-story-dialogue-text"
+                 ng-style="{'font-size': (story.subtitle_font_size || 15) + 'px'}">
+                <span ng-repeat="(wi, wt) in currentDialogue().word_timestamps"
+                      ng-class="{'rv-story-word-active': activeWordIndex === wi}"
+                >{{wt.word}} </span>
+              </p>
+              <!-- Plain text when no timestamps -->
+              <p ng-if="!currentDialogue().word_timestamps || !currentDialogue().word_timestamps.length"
+                 class="rv-story-dialogue-text"
                  ng-style="{'font-size': (story.subtitle_font_size || 15) + 'px'}">
                 {{currentDialogue().text}}
               </p>

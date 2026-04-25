@@ -480,3 +480,12 @@ Após validação na Rota do Mel, cada nova rota recebe:
 4. Fazer login em dias consecutivos → verificar action_log com `actionId: 'login'` e progress de `presenca_diaria`
 5. Publicar post na galeria → verificar `publish_post` no action_log
 6. Completar todas as lições de um módulo → verificar `complete_module` no action_log
+
+---
+
+## DIRETIVA STORY
+O codigo da diretiva story do funifier studio esta em:
+/funifier/funifier-studio/app/views/directives/story.html
+/funifier/funifier-studio/app/scripts/directives/story.js
+
+Preciso que seja feito um ajuste na diretiva story. Quando o usuário clica na tela onde aparece a imagem ou vídeo, é apresentado o overlay de controles, onde está o botão play/stop. Eu quero discutir com você, como implementar a mesma experiência que temos na tela no Amazon Prime Video! Eu vi que no Amazon Prime Video, ele funciona assim: quando a cena está passando na tela, se eu clico na cena ele mostra o overlay de controles, mas a cena continua tocando, então eu clico no botão stop, e a cena para e ele mostra o botão de play. E em 3 segundos ele esconde o overlay de controles. Eu posso clicar novamente na tela para mostrar outra vez o overlay de controles. Então quando eu clico no botão play, ele volta a tocar a cena, troca o botão para stop, e 3 segundos depois ele esconde o overlay de controles. Entendeu como funciona essa experiência do usuário? Pode implementar dessa forma na diretiva por favor?

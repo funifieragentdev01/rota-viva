@@ -164,6 +164,7 @@ angular.module('rotaViva')
           $scope.transitioning  = false;
           $scope.isPaused       = false;
           $scope.controlsVisible = false;
+          $scope.activeWordIndex = -1;
 
           for (var i = 0; i < $scope.scenesList.length; i++) {
             if ($scope.scenesList[i]._id === scene._id) { $scope.sceneIndex = i + 1; break; }
@@ -244,7 +245,25 @@ angular.module('rotaViva')
               if (!el) return;
               el.src    = d.audio_url;
               el.volume = safeVolume($scope.story && $scope.story.dialog_volume, 1.0);
-              el.onended = function () { $scope.$apply(function () { advanceDialogueIfMore(); }); };
+              el.onended = function () {
+                $scope.$apply(function () { $scope.activeWordIndex = -1; advanceDialogueIfMore(); });
+              };
+              if (d.word_timestamps && d.word_timestamps.length > 0) {
+                $scope.activeWordIndex = -1;
+                (function (timestamps) {
+                  el.ontimeupdate = function () {
+                    var ct = el.currentTime;
+                    var idx = -1;
+                    for (var i = 0; i < timestamps.length; i++) {
+                      if (ct >= timestamps[i].start && ct < timestamps[i].end) { idx = i; break; }
+                    }
+                    $scope.$apply(function () { $scope.activeWordIndex = idx; });
+                  };
+                })(d.word_timestamps);
+              } else {
+                el.ontimeupdate = null;
+                $scope.activeWordIndex = -1;
+              }
               el.play();
             }, 80);
           } else if (d.text && window.speechSynthesis) {
@@ -410,6 +429,7 @@ angular.module('rotaViva')
         $scope.controlsVisible = false;
         $scope.hoverVisible    = false;
         $scope.bgVolume        = 0.5;
+        $scope.activeWordIndex = -1;
         var _hideControlsTimer = null;
         var _leaveTimer        = null;
 
@@ -423,12 +443,20 @@ angular.module('rotaViva')
           });
           var vid = document.querySelector('.rv-story-media video');
           if (vid) { if ($scope.isPaused) { vid.pause(); } else { vid.play(); } }
+          if ($scope.isPaused) {
+            if (_hideControlsTimer) { $timeout.cancel(_hideControlsTimer); _hideControlsTimer = null; }
+            $scope.controlsVisible = true;
+          } else {
+            $scope.showMediaControls();
+          }
         };
 
         $scope.showMediaControls = function () {
           $scope.controlsVisible = true;
-          if (_hideControlsTimer) { $timeout.cancel(_hideControlsTimer); }
-          _hideControlsTimer = $timeout(function () { $scope.controlsVisible = false; }, 3000);
+          if (_hideControlsTimer) { $timeout.cancel(_hideControlsTimer); _hideControlsTimer = null; }
+          if (!$scope.isPaused) {
+            _hideControlsTimer = $timeout(function () { $scope.controlsVisible = false; }, 3000);
+          }
         };
 
         $scope.tapMedia = function () {
@@ -462,10 +490,11 @@ angular.module('rotaViva')
           if (_leaveTimer)        { $timeout.cancel(_leaveTimer);        _leaveTimer = null; }
           $scope.controlsVisible = false;
           $scope.hoverVisible    = false;
+          $scope.activeWordIndex = -1;
           if (window.speechSynthesis) window.speechSynthesis.cancel();
           ['rv-story-dialogue-audio', 'rv-story-bg-audio', 'rv-story-global-audio'].forEach(function (id) {
             var el = document.getElementById(id);
-            if (el) { try { el.pause(); el.src = ''; } catch (e) {} }
+            if (el) { try { el.ontimeupdate = null; el.pause(); el.src = ''; } catch (e) {} }
           });
         };
 
