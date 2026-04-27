@@ -51,18 +51,23 @@
 
             <!-- FRENTE -->
             <div class="passport-id-front">
-                <div class="passport-id-top">
-                    <img src="img/logo-midr.png" class="passport-id-logo" alt="MIDR">
-                    <div class="passport-id-title-block">
-                        <div class="passport-id-brand">ROTA VIVA</div>
-                        <div class="passport-id-subtitle">{{cardTitle}}</div>
+                <!-- Mapa do Brasil: decorativo, canto superior direito -->
+                <img src="img/card/mapa-brasil.png" class="pid2-mapa-front" aria-hidden="true" alt="">
+
+                <!-- Header: logo + título, sem faixa escura -->
+                <div class="pid2-front-top">
+                    <img src="img/card/logo-horizontal.png" class="pid2-midr-logo" alt="MIDR">
+                    <div class="pid2-title-block">
+                        <div class="pid2-brand">ROTA VIVA</div>
+                        <div class="pid2-subtitle">{{cardTitle}}</div>
                     </div>
                 </div>
-                <div class="passport-id-body">
-                    <!-- Foto: clicável para trocar, sem propagar o flip -->
+
+                <!-- Body: foto + info + digital -->
+                <div class="pid2-body">
                     <div class="passport-id-photo" ng-click="$event.stopPropagation(); triggerPhotoUpload()">
                         <img ng-if="playerPhoto && !uploadingPhoto" ng-src="{{playerPhoto}}" alt="">
-                        <div ng-if="!playerPhoto && !uploadingPhoto" class="passport-id-photo-initial">
+                        <div ng-if="!playerPhoto && !uploadingPhoto" class="pid2-photo-initial">
                             {{playerName | firstWord | limitTo:1}}
                         </div>
                         <div class="passport-id-photo-overlay" ng-class="{'is-loading': uploadingPhoto}">
@@ -70,16 +75,15 @@
                             <i class="fas fa-camera" ng-if="!uploadingPhoto"></i>
                         </div>
                     </div>
-                    <div class="passport-id-info">
-                        <!-- Nome: editável inline, sem propagar o flip -->
-                        <div class="passport-id-name"
+                    <div class="pid2-info">
+                        <div class="pid2-name"
                              ng-if="!editingName"
                              ng-click="$event.stopPropagation(); startEditName()">
-                            {{playerName}} <i class="fas fa-pen" style="font-size:9px; opacity:0.5;"></i>
+                            {{playerName}} <i class="fas fa-pen" style="font-size:8px;opacity:0.3;"></i>
                         </div>
                         <div class="passport-id-name-edit" ng-if="editingName"
                              ng-click="$event.stopPropagation()">
-                            <input id="profile-name-input" type="text" class="passport-name-input"
+                            <input id="profile-name-input" type="text" class="pid2-name-input"
                                    ng-model="editName"
                                    ng-keyup="$event.keyCode === 13 && saveName()"
                                    maxlength="60" />
@@ -87,51 +91,62 @@
                                     ng-style="{'background': theme.colors && theme.colors.primary || '#FF9600'}"
                                     ng-click="saveName()">✓</button>
                         </div>
-                        <div class="passport-id-cpf">CPF: {{passaporteCpf}}</div>
-                        <div class="passport-id-route">{{routeName}}</div>
-                        <div class="passport-id-municipio" ng-if="passaporte.municipio">{{passaporte.municipio}}</div>
+                        <div class="pid2-cpf">CPF: {{passaporteCpf}}</div>
+                        <div class="pid2-route">{{routeName}}</div>
+                        <div class="pid2-municipio" ng-if="passaporte.municipio">{{passaporte.municipio}}</div>
+                        <div class="pid2-verified">DADOS DO PRODUTOR VERIFICADOS</div>
                     </div>
+                    <!-- Digital: canto direito -->
+                    <img src="img/card/digital.png" class="pid2-digital-front" aria-hidden="true" alt="">
                 </div>
-                <div class="passport-id-footer-brand">Emitido em {{passaporteEmitidoEm}} pelo MIDR através do Programa Rota Viva</div>
-                <div class="passport-id-flip-hint">Toque para ver o verso →</div>
+
+                <div class="pid2-footer-text">Emitido em {{passaporteEmitidoEm}} pelo MIDR através do Programa Rota Viva</div>
+                <div class="pid2-bar">
+                    <span>MIDR | ROTA VIVA | {{passaporteEmitidoEm}}</span>
+                    <span>VEJA O VERSO →</span>
+                </div>
             </div>
 
             <!-- VERSO -->
             <div class="passport-id-back">
-                <div class="passport-id-back-top">
-                    <div class="passport-id-qr-col">
+                <!-- Mapa do Brasil: decorativo, canto superior esquerdo -->
+                <img src="img/card/mapa-brasil.png" class="pid2-mapa-verso" aria-hidden="true" alt="">
+
+                <!-- Dados produtivos em destaque -->
+                <div class="pid2-verso-data">
+                    <div class="pid2-verso-row" ng-if="!isPesca">
+                        <strong>CAF (Agricultura Familiar):</strong> {{fmtPassaporteOpt(passaporte.caf) || '—'}}
+                    </div>
+                    <div class="pid2-verso-row" ng-if="isPesca">
+                        <strong>RGP (Registro Geral da Pesca):</strong> {{fmtPassaporteOpt(passaporte.rgp) || '—'}}
+                    </div>
+                    <div class="pid2-verso-row" ng-if="passaporte.cooperativa === true && passaporte.cooperativa_nome">
+                        <strong>COOPERATIVA:</strong> {{passaporte.cooperativa_nome}}
+                    </div>
+                    <div class="pid2-verso-row" ng-if="passaporte.municipio">
+                        <strong>MUNICÍPIO DE OPERAÇÃO:</strong> {{passaporte.municipio}}
+                    </div>
+                </div>
+
+                <!-- Digital + QR lado a lado -->
+                <div class="pid2-verso-mid">
+                    <div class="pid2-verso-security">
+                        <img src="img/card/digital.png" class="pid2-digital-verso" alt="">
+                        <span>IMPRESSÃO DIGITAL<br>DE SEGURANÇA</span>
+                    </div>
+                    <div class="pid2-qr-block">
+                        <div class="pid2-qr-title">CÓDIGO DE VALIDAÇÃO QR</div>
                         <div class="passport-id-qr-wrap">
                             <div id="passport-qr"></div>
                         </div>
-                        <div class="passport-id-qr-label">Convide um produtor · escaneie</div>
-                    </div>
-                    <div class="passport-id-back-info">
-                        <div class="passport-id-back-points">
-                            <i class="fas fa-star"></i> <strong>{{playerPoints}}</strong> pts
-                        </div>
-                        <div class="passport-id-back-level" ng-if="playerLevelName">
-                            Nível {{playerLevel}} · {{playerLevelName}}
-                        </div>
-                        <div class="passport-id-back-level" ng-if="!playerLevelName">
-                            Nível {{playerLevel}}
-                        </div>
-                        <div class="passport-id-back-next" ng-if="pointsToNextLevel">
-                            Faltam {{pointsToNextLevel}} pts para o próximo nível
-                        </div>
-                        <div class="passport-id-back-next" ng-if="!pointsToNextLevel && playerPoints === 0">
-                            Complete uma lição para ganhar pontos!
-                        </div>
-                        <div class="passport-id-back-sep" ng-if="passaporte.cooperativa || passaporte.phone || passaporte.email"></div>
-                        <div ng-if="passaporte.cooperativa !== '' && passaporte.cooperativa !== undefined">
-                            <strong>Cooperativa:</strong>
-                            {{passaporte.cooperativa === true ? (passaporte.cooperativa_nome || 'Sim') : 'Não'}}
-                        </div>
-                        <div ng-if="passaporte.phone"><strong>WhatsApp:</strong> {{passaporte.phone}}</div>
-                        <div ng-if="passaporte.email"><strong>Email:</strong> {{passaporte.email}}</div>
                     </div>
                 </div>
-                <div class="passport-id-back-footer">Compartilhe com agentes do MIDR · Programa Rota Viva</div>
-                <div class="passport-id-flip-hint">← Toque para ver a frente</div>
+
+                <div class="pid2-support">INFORMAÇÕES E SUPORTE: WWW.MIDR.GOV.BR</div>
+                <div class="pid2-bar">
+                    <span>MIDR | ROTA VIVA | {{passaporteEmitidoEm}}</span>
+                    <span>← VEJA A FRENTE</span>
+                </div>
             </div>
         </div>
 

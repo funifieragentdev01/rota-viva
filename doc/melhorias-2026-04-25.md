@@ -2,6 +2,176 @@
 
 ---
 
+## 4. Video auto-play e auto-finish — `/jarvis/rota-viva/app/pages/video`
+
+### Comportamento atual
+
+O usuário entra na tela do vídeo, precisa apertar play manualmente, e após assistir 90% do vídeo aparece o botão "Avançar" que ele precisa clicar para registrar a conclusão e voltar à trilha.
+
+### Comportamento desejado
+
+1. **Auto-play:** o vídeo começa a tocar automaticamente ao entrar na tela
+2. **Auto-finish:** quando o vídeo termina, `markDone()` é chamado automaticamente — celebração + retorno à trilha sem interação do usuário
+
+O botão "Avançar" permanece como **fallback manual**: se o usuário assistiu 90% mas não terminou o vídeo (saiu antes do final), ele pode avançar manualmente. O fluxo principal passa a ser automático.
+
+### Considerações técnicas
+
+**Autoplay em browsers:** browsers modernos bloqueiam autoplay de vídeo sem mute em desktop. Em mobile (contexto do PWA), o autoplay funciona desde que haja interação prévia do usuário — garantida pelo clique na lição na trilha. O plano é implementar sem `mute=1` para não prejudicar o áudio educacional. Em desktop, o vídeo simplesmente não inicia sozinho (comportamento aceitável — público-alvo é mobile).
+
+**Infraestrutura existente:** o `VideoCtrl` já tem toda a estrutura necessária:
+- YouTube: `onStateChange` com estado `1` (playing) e progress check por interval
+- Vimeo: listener `timeupdate` com threshold de 90%
+- `markDone()` já implementado com folder/log, action log, confetti, toast XP, vibração e volta automática à trilha após 2,5s
+
+### Mudanças em `video.js`
+
+**1. Autoplay — YouTube:** adicionar `autoplay=1` na URL de embed:
+```javascript
+// ANTES:
+'https://www.youtube.com/embed/' + yid + '?rel=0&enablejsapi=1&origin=...'
+// DEPOIS:
+'https://www.youtube.com/embed/' + yid + '?rel=0&enablejsapi=1&autoplay=1&origin=...'
+```
+
+**2. Autoplay — Vimeo:** adicionar `autoplay=1` na URL de embed:
+```javascript
+// ANTES:
+'https://player.vimeo.com/video/' + vid + '?portrait=0&title=0&byline=0'
+// DEPOIS:
+'https://player.vimeo.com/video/' + vid + '?portrait=0&title=0&byline=0&autoplay=1'
+```
+
+**3. Auto-finish — YouTube:** em `onStateChange`, estado `0` = vídeo terminou → chamar `markDone()`:
+```javascript
+onStateChange: function(e) {
+    if (e.data === 0) {                             // NOVO: ended → auto-finish
+        $scope.$apply(function() { $scope.markDone(); });
+    } else if (e.data === 1) startProgressCheck();  // existente
+    else stopProgressCheck();                        // existente
+}
+```
+
+**4. Auto-finish — Vimeo:** adicionar listener `ended` no player:
+```javascript
+player.on('ended', function() {
+    $scope.$apply(function() { $scope.markDone(); });
+});
+// listener timeupdate existente permanece (para mostrar botão Avançar como fallback)
+```
+
+### Mudanças em `video.html`
+
+Nenhuma mudança estrutural. O botão "Avançar" permanece exatamente como está — ele aparece aos 90% como fallback.
+
+### Arquivos alterados
+
+- `app/pages/video/video.js` — 4 mudanças cirúrgicas: 2 URLs de embed + 2 event listeners
+
+---
+
+## 5. Redesign do Cartão do Produtor — `/jarvis/rota-viva/app/pages/profile`
+
+### Análise do design atual
+
+O cartão atual tem fundo laranja/âmbar, bordas arredondadas e layout de app de fidelidade. Os problemas:
+- Estética informal — não transmite credencial profissional
+- CPF mascarado (`***.***.***-**`) — em documentos oficiais o CPF é exibido completo
+- Verso fraco — só QR code, pontos e nível (não há dados da atividade produtiva)
+- Muito espaço vazio — documentos oficiais são densos em informação
+
+### Decisão de design: Proposta 2
+
+**Frente:** fundo branco/cinza claro, foto do produtor à esquerda com moldura, logo MIDR + ROTA VIVA, dados do produtor (nome, CPF completo, rota, município), impressão digital gráfica como elemento de segurança, banner "DADOS DO PRODUTOR VERIFICADOS", barra inferior com `MIDR | ROTA VIVA | data de emissão`.
+
+**Por quê a Proposta 2 e não a 1 (azul escuro)?**
+A Proposta 1 tem estética de fintech/banco — bonita, mas não lida como "documento oficial". A Proposta 2 replica a linguagem visual de documentos do Estado (CNH, carteira profissional, RG): fundo claro institucional, layout denso de informação, elemento de segurança biométrico (impressão digital). Qualquer pessoa que veja instantaneamente reconhece como credencial.
+
+**Verso:** dados da atividade produtiva específicos para cada rota — esse é o diferencial que transforma o cartão de badge em credencial profissional:
+
+| Campo | Rota do Mel | Rota da Pesca |
+|-------|-------------|---------------|
+| Registro profissional | CAF | RGP |
+| Cooperativa | nome da cooperativa | nome da cooperativa |
+| Município de operação | município | município |
+| Código de rastreabilidade | `ref` do player | `ref` do player |
+| QR Code | QR de verificação | QR de verificação |
+
+### CPF sem mascaramento
+
+O código atual usa `_maskCpf(playerId)` que formata como `***.***.***-**`. Alterar para exibir o CPF completo formatado como `XXX.XXX.XXX-XX`. Isso alinha com o comportamento de documentos reais e com a solicitação do usuário.
+
+### Limitações do modelo de dados atual e plano em fases
+
+**Fase 1 (implementar agora):** usar os dados já coletados no passaporte:
+- Frente: nome, CPF completo, rota, município (`passaporte.municipio`)
+- Verso: CAF ou RGP, nome da cooperativa (`passaporte.cooperativa_nome`), município, código de rastreabilidade (`player.extra.ref`)
+
+**Fase 2 (evolução futura):** adicionar campos específicos por rota ao formulário do passaporte:
+- Rota do Mel: número de colmeias atual, principais floradas, práticas de manejo
+- Rota da Pesca: número de embarcações, principais pesqueiros, espécies trabalhadas
+
+Esses campos aparecerão no verso do cartão quando preenchidos.
+
+### Impressão digital — elemento gráfico
+
+A impressão digital no design é um **elemento gráfico** (SVG ou imagem), não dados biométricos reais. Serve como símbolo de autenticação/verificação, igual ao que documentos usam como holografia ou marca d'água.
+
+### Arquivos a alterar
+
+- `app/pages/profile/profile.js` — remover `_maskCpf`, expor CPF formatado completo no scope
+- `app/pages/profile/profile.html` — redesign da seção do cartão (frente e verso)
+- `app/styles/` ou CSS inline — novos estilos para o cartão (branco, layout documento)
+
+---
+
+## 3. Controle de acesso às funcionalidades de IA no formulário de Story
+
+### O que é
+
+Os botões que disparam recursos de Inteligência Artificial (geração de imagens, vídeos e áudios) no formulário de edição de story agora só são exibidos para usuários com permissão de acesso à página `/studio/ai` no Funifier Studio — o mesmo padrão de controle de acesso usado em outros módulos (request, widget, challenge, trigger, etc.).
+
+### Padrão adotado
+
+Idêntico ao implementado em `request/list.js` e demais controladores do Studio:
+
+**Controller** (`form.js`):
+```js
+$scope.isAiEnabled = function () {
+  return Marketplace.acl.checkAccess({ type: 'page', object: '/studio/ai', operation: 'read' });
+};
+```
+
+**Template** (`form.html`): cada botão de IA recebe `ng-if="isAiEnabled()"` (ou combinado com condições existentes via `&&`).
+
+### Botões protegidos
+
+| Localização | Botão |
+|---|---|
+| Aba Configurações — capa | "Gerar com IA" (capa da story) |
+| Aba Personagens — voz | "Ouvir voz" (preview TTS do personagem) |
+| Aba Personagens — avatar | "IA" (gerar avatar com IA) |
+| Aba Personagens — imagem de referência | "IA" (gerar imagem de referência com IA) |
+| Aba Cenas — toolbar | "Gerar estrutura com IA" |
+| Aba Cenas — toolbar | "Continuar a partir desta cena" |
+| Aba Cenas — mídia da cena | "Gerar imagem" |
+| Aba Cenas — mídia da cena | "Gerar vídeo" |
+| Aba Cenas — diálogo | "Gerar áudio" (TTS por diálogo) |
+| Modal de imagem da cena | "Gerar com IA" |
+
+### Elementos não protegidos (intencionais)
+
+- **Campos de texto / selects** de configuração (prompt, modelo, duração, etc.) dentro dos modais de IA — os modais só abrem via botões já protegidos, tornando a proteção redundante.
+- **Botão "Ouvir TTS"** e **"Ouvir áudio"** nos diálogos — são de reprodução, não de geração com IA (usam o áudio já armazenado ou o TTS nativo do browser).
+- **Checkbox `subtitle_karaoke`** — é configuração de comportamento, não dispara IA diretamente.
+
+### Arquivos alterados
+
+- `funifier-studio/app/scripts/controllers/studio/story/form.js` — adição de `$scope.isAiEnabled()`
+- `funifier-studio/app/views/studio/story/form.html` — `ng-if="isAiEnabled()"` em 10 pontos
+
+---
+
 ## 1. Karaokê de legendas na diretiva `<story>` (highlight de palavras em sincronia com o áudio)
 
 ### O que é

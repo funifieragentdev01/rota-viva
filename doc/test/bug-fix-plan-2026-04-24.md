@@ -460,6 +460,138 @@ App → DELETE /v3/player/me
 
 ---
 
+### S5 — Blocking Triggers para `/v3/database`: `TriggerManager.executeStrict()`
+
+**Contexto e motivação:**
+
+O S1 atual usa um workaround (`POST /v3/database/remove_post`) para contornar uma limitação arquitetural: o método `execute()` de `TriggerManager` nunca propaga exceções — por design, pois as triggers nasceram para o fluxo de `POST /v3/action/log`, onde nenhuma falha pode interromper a fila. Essa característica faz sentido para actions, mas não para os endpoints `INSERT`, `UPDATE` e `DELETE` de `/v3/database`, onde operações pontuais podem e devem ser interrompidas se uma trigger sinalizar erro.
+
+**O que foi observado no `DatabaseRest.java`:**
+
+- `delete()` (linha 480) já extrai `player` do token e já passa para `execute()` como `List<String> ids`
+- `insert()` (linha 196) já extrai `player` e passa o documento como `HashMap`
+- `update()` (linha 318) já extrai `player` e passa o documento como `HashMap`
+- Em todos os 3 métodos, o `item` na trigger `before_*` corresponde ao dado correto (IDs ou documento)
+- Em todos os 3 métodos, `player` no método `trigger(event, item, player, db)` já contém o userId do token
+
+A única coisa que falta é um método que leia o resultado de `runner.run()` e lance exceção se houver falhas.
+
+**Proposta: novo método `executeStrict()` em `TriggerManager`:**
+
+```java
+// Novo método — lança FunifierException se a trigger registrar qualquer exceção.
+// Usar APENAS em before_create / before_update / before_delete de DatabaseRest.
+@SuppressWarnings("unchecked")
+public void executeStrict(String id, Object o, String entity, String event, String player, TriggerContext context) throws FunifierException {
+    TriggerRunner runner = new TriggerRunner();
+    for (Trigger trigger : findByEntityAndEvent(entity, event)) {
+        try {
+            boolean limitOk = SystemFactory.getInstance().getStatisticManager(manager.getApiKey()).newTriggerExecution(trigger.id);
+            if (limitOk) {
+                Map<String, Object> result = runner.run(trigger, o, player, manager, context);
+                List<String> exceptions = (List<String>) result.get("exceptions");
+                if (exceptions != null && !exceptions.isEmpty()) {
+                    throw new FunifierException(exceptions.get(0));
+                }
+            }
+        } catch (FunifierException e) {
+            throw e; // repropaga — bloqueia a operação
+        } catch (Exception e) {
+            throw new FunifierException(e.getMessage()); // qualquer outra falha também bloqueia
+        }
+    }
+}
+```
+
+**Alterações em `DatabaseRest.java` — apenas 3 linhas:**
+
+```java
+// insert() — substituir before_create:
+manager.getTriggerManager().executeStrict(null, object, collection, Trigger.EVENT_BEFORE_CREATE, player, null);
+
+// update() — substituir before_update:
+manager.getTriggerManager().executeStrict(null, object, collection, Trigger.EVENT_BEFORE_UPDATE, player, null);
+
+// delete() — substituir before_delete:
+manager.getTriggerManager().executeStrict(null, ids, collection, Trigger.EVENT_BEFORE_DELETE, player, null);
+
+// Os after_create / after_update / after_delete continuam usando execute() — sem mudança.
+```
+
+**Impacto e garantias:**
+
+| Contexto | Método usado | Comportamento em exceção |
+|----------|-------------|--------------------------|
+| `POST /v3/action/log` e todos os outros | `execute()` — inalterado | Silencia exceções, não bloqueia |
+| `before_*` em `POST/PUT/DELETE /v3/database` | `executeStrict()` — novo | Lança `FunifierException`, aborta a operação |
+| `after_*` em `POST/PUT/DELETE /v3/database` | `execute()` — sem mudança | Silencia exceções, não bloqueia |
+
+**Como o script Groovy sinaliza falha:**
+
+`throw new RuntimeException("mensagem")` dentro do método `trigger()`. O `SecureASTCustomizer` restringe *tokens de operador* (como `<<`), não *keywords* como `throw` — portanto funciona. A exceção é capturada pelo `TriggerRunner.executor()` como `ExecutionException`, adicionada à lista `"exceptions"`, e o `executeStrict()` a propaga como `FunifierException`.
+
+**Trigger `post__c / before_delete` (substitui o workaround `remove_post`):**
+
+```groovy
+// item = List<String> com os IDs sendo deletados (conforme DatabaseRest.delete() linha 477)
+// player = userId do token (extraído em DatabaseRest.delete() linha 480)
+void trigger(def event, def item, def player, def db) {
+    if (item == null || item.size() == 0 || player == null) { return }
+    String postId = (String) item.get(0)
+    def jongo = manager.getJongoConnection()
+    Map post = jongo.getCollection("post__c")
+        .findOne("{_id:#}", postId)
+        .as(Map.class)
+    if (post == null) { return }
+    String postOwner = (String) post.get("player")
+    if (postOwner == null || !postOwner.equals(player)) {
+        throw new RuntimeException("Unauthorized: player does not own this post")
+    }
+}
+```
+
+**Trigger `post_like__c / before_delete` (substitui o workaround `remove_post_like`):**
+
+```groovy
+// item = List<String> com os IDs dos likes sendo deletados
+// Nota: o DELETE de unlike usa query ?q=post:'X',player:'Y' — os IDs são os likes do player
+// A trigger confirma que todos os likes na lista pertencem ao player do token
+void trigger(def event, def item, def player, def db) {
+    if (item == null || item.size() == 0 || player == null) { return }
+    def jongo = manager.getJongoConnection()
+    for (String likeId : item) {
+        Map like = jongo.getCollection("post_like__c")
+            .findOne("{_id:#}", likeId)
+            .as(Map.class)
+        if (like != null) {
+            String likeOwner = (String) like.get("player")
+            if (likeOwner == null || !likeOwner.equals(player)) {
+                throw new RuntimeException("Unauthorized: player does not own this like")
+            }
+        }
+    }
+}
+```
+
+**Benefícios vs. workaround atual (`remove_post`):**
+
+| Aspecto | Workaround atual (S1) | Com `executeStrict` (S5) |
+|---------|----------------------|--------------------------|
+| API no PWA | `POST /v3/database/remove_post` | `DELETE /v3/database/post__c?q=_id:'X'` — intuitivo |
+| Coleções temporárias | `remove_post`, `remove_post_like` | Nenhuma |
+| Limpeza de registros | Trigger precisa limpar `remove_post` | Desnecessário |
+| Generalização | Workaround por coleção | Qualquer coleção via `before_delete` |
+| Complexidade | Alta (insert fake → trigger → delete real) | Baixa (delete direto + trigger de veto) |
+
+**Comportamento fail-safe:**
+
+Qualquer exceção no `before_*` — inclusive bugs involuntários como NPE — bloqueia a operação. Isso é desejável do ponto de vista de segurança (fail-safe), mas requer que triggers de `/v3/database` sejam bem testadas antes de ativação em produção. Triggers com bugs em `before_*` podem tornar a coleção temporariamente inacessível.
+
+**Status:** Planejado. A implementar após validação do workaround atual (S1) em produção.
+Quando implementado: remover triggers `Fsbqf1O` (`remove_post/after_create`) e `FsbqgbD` (`remove_post_like/after_create`); reverter `api.js` `deletePost` e `unlikePost` para DELETE direto; criar triggers `post__c/before_delete` e `post_like__c/before_delete`.
+
+---
+
 ## Plano de migração para novas rotas
 
 Após validação na Rota do Mel, cada nova rota recebe:
@@ -489,3 +621,60 @@ O codigo da diretiva story do funifier studio esta em:
 /funifier/funifier-studio/app/scripts/directives/story.js
 
 Preciso que seja feito um ajuste na diretiva story. Quando o usuário clica na tela onde aparece a imagem ou vídeo, é apresentado o overlay de controles, onde está o botão play/stop. Eu quero discutir com você, como implementar a mesma experiência que temos na tela no Amazon Prime Video! Eu vi que no Amazon Prime Video, ele funciona assim: quando a cena está passando na tela, se eu clico na cena ele mostra o overlay de controles, mas a cena continua tocando, então eu clico no botão stop, e a cena para e ele mostra o botão de play. E em 3 segundos ele esconde o overlay de controles. Eu posso clicar novamente na tela para mostrar outra vez o overlay de controles. Então quando eu clico no botão play, ele volta a tocar a cena, troca o botão para stop, e 3 segundos depois ele esconde o overlay de controles. Entendeu como funciona essa experiência do usuário? Pode implementar dessa forma na diretiva por favor?
+
+---
+
+# MELHORIAS NO APP
+
+## VIDEO AUTO PLAY
+Quando entrar em um conteudo do tipo "video" quero que o video comece a tocar automaticamente (atualmente o usuario precisa clicar no botao de play, mas isso nao esta bom do ponto de vista de experiencia do usuario). E quando terminar de assistir o video, ele ja deve acionar automaticamente a finalizacao do video e retorno para a trilha, sem precisar clicar no botao de "Avancar". Isso deve ser implementado em "/jarvis/rota-viva/app/pages/video". 
+
+## DESIGN CARTAO PRODUTOR
+O design do cartao do produtor nao esta muito profissional na pagina "/jarvis/rota-viva/app/pages/profile". Ele precisa se parecer com um cartao profissional de banco ou de governo, para passar credibilidade. Alem disso, os cartoes de banco ou documentos os dados do usuario estao visiveis no cartao, e nao mascarados. Eu gostaria de discutir com voce o que voce acha do design atual, e das propostas de design novos que eu estou trazendo aqui, e o que podemos melhorar. 
+
+Este é o design atual:
+/jarvis/rota-viva/doc/assets/design/app/card-atual-frente.png
+/jarvis/rota-viva/doc/assets/design/app/card-atual-verso.png
+
+Este é um documento oficial de motorista:
+/jarvis/rota-viva/doc/assets/design/app/card-oficial-motorista.png
+
+Esta é a proposta de design 1:
+/jarvis/rota-viva/doc/assets/design/app/card-1-frente.png
+/jarvis/rota-viva/doc/assets/design/app/card-1-verso.png
+
+Esta é a proposta de design 2:
+/jarvis/rota-viva/doc/assets/design/app/card-2-frente.png
+/jarvis/rota-viva/doc/assets/design/app/card-2-verso.png
+
+---
+
+Eu gostaria de discutir com voce sobre estas duas melhorias a serem feitas no app antes de iniciar a implementacao. Quero saber sua opiniao e registrar no documento "/jarvis/rota-viva/doc/melhorias-2026-04-25.md" o que foi planejado antes de iniciar a implementacao. 
+
+
+---
+
+Sua implementacao do cartao na pagina "/jarvis/rota-viva/app/pages/profile" ainda estao muito distante do design proposto. 
+
+Esta é uma imagem de como ficou o cartao apos sua implementacao:
+/jarvis/rota-viva/doc/assets/design/app/card-atual-2-frente.png
+/jarvis/rota-viva/doc/assets/design/app/card-atual-2-verso.png
+
+Eu nao sei o porque voce colocou uma faixa preta no topo do cartao, isso nao esta no design proposto. As letras tambem ficaram muito pequenas em relacao ao design proposto. E ficou faltando a logomarca do midr no canto superior esquerdo da frente do cartao, bem como o background do mapa do brasil no canto superior direito, e o icone de digital.
+
+No verso do cartao, voce colocou um background escuro que nao existe no design proposto. E colocou um codigo de rastreabilidade fake, que eu acho que pode tirar, apesar de ele estar no design proposto. 
+
+Este é o design que voce deveria ter implementado:
+/jarvis/rota-viva/doc/assets/design/app/card-2-frente.png
+/jarvis/rota-viva/doc/assets/design/app/card-2-verso.png
+
+Para te ajudar eu separei as imagens usadas no design proposto para voce usar na implementacao do card.
+
+Aqui esta a imagem da logomarca horizontal do midr que aparece no canto superior esquerdo da frente do cartao:
+/jarvis/rota-viva/app/img/card/logo-horizontal.png
+
+Aqui esta a imagem do mapa do banco do brasil que aparece no background da frente do cartao no canto superior direito com transparencia, voce tambem pode usar esta imagem no canto superior esquerdo do verso do cartao: 
+/jarvis/rota-viva/app/img/card/mapa-brasil.png
+
+Aqui esta a imagem da digital que aparece no canto direito da frente e no verso do cartao:
+/jarvis/rota-viva/app/img/card/digital.png

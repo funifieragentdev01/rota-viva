@@ -66,7 +66,7 @@ angular.module('rotaViva')
     $scope.routeThemeClass = 'card-theme-' + routeId;  // card-theme-mel | card-theme-pesca
     $scope.totalEmitidos = 0;
 
-    ApiService.countEmitidos(routeId).then(function(count) {
+    ApiService.countEmitidos().then(function(count) {
         $scope.totalEmitidos = count;
     }).catch(angular.noop);
 
@@ -88,13 +88,14 @@ angular.module('rotaViva')
     $scope.contatoSolicitando = {};  // programaId -> true (loading)
     $scope.contatoSuccess    = null; // nome do programa confirmado
 
-    function _maskCpf(cpf) {
+    function _formatCpf(cpf) {
         if (!cpf) return '';
         cpf = String(cpf).replace(/\D/g, '');
         if (cpf.length !== 11) return cpf;
-        return '***.' + cpf.substr(3, 3) + '.' + cpf.substr(6, 3) + '-**';
+        return cpf.substr(0, 3) + '.' + cpf.substr(3, 3) + '.' + cpf.substr(6, 3) + '-' + cpf.substr(9, 2);
     }
-    $scope.passaporteCpf = _maskCpf(playerId);
+    $scope.passaporteCpf = _formatCpf(playerId);
+    $scope.rastreabilidadeCode = '';
 
     // Converte valor salvo (boolean/null ou string legada) para o valor do radio button
     function _boolLoad(v) {
@@ -131,6 +132,10 @@ angular.module('rotaViva')
         $scope.passaporteEmitido = !!extra.passaporte_emitido_em;
         if (extra.passaporte_emitido_em) {
             $scope.passaporteEmitidoEm = new Date(extra.passaporte_emitido_em).toLocaleDateString('pt-BR');
+            var _ref = (freshPlayer.extra && freshPlayer.extra.ref) || '';
+            if (_ref) {
+                $scope.rastreabilidadeCode = 'RV-' + _ref.toUpperCase() + '-' + new Date(extra.passaporte_emitido_em).getFullYear();
+            }
         }
         _checkPassaporteIncomplete();
         if ($scope.passaporteEmitido) {

@@ -191,7 +191,7 @@ angular.module('rotaViva')
     };
 
     // ─── Load posts ────────────────────────────────────────────────────────────
-    ApiService.getGalleryPosts(playerId, 20, 0).then(function(data) {
+    ApiService.getGalleryPosts(20, 0).then(function(data) {
         $scope.posts = (data || []).map(normalizePost);
     }).catch(function() {
         $scope.posts = [];

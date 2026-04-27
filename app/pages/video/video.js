@@ -40,14 +40,14 @@ angular.module('rotaViva')
             $scope.rawVideoId = yid;
             $scope.isPortrait = false;
             $scope.embedUrl = $sce.trustAsResourceUrl(
-                'https://www.youtube.com/embed/' + yid + '?rel=0&enablejsapi=1&origin=' + encodeURIComponent(window.location.origin)
+                'https://www.youtube.com/embed/' + yid + '?rel=0&enablejsapi=1&autoplay=1&origin=' + encodeURIComponent(window.location.origin)
             );
             initYouTubePlayer(yid);
         } else if (src === 'vimeo') {
             var vid = extractVimeoId(url);
             $scope.isPortrait = true;
             $scope.embedUrl = $sce.trustAsResourceUrl(
-                'https://player.vimeo.com/video/' + vid + '?portrait=0&title=0&byline=0'
+                'https://player.vimeo.com/video/' + vid + '?portrait=0&title=0&byline=0&autoplay=1'
             );
             initVimeoPlayer();
         } else {
@@ -82,6 +82,9 @@ angular.module('rotaViva')
                     $scope.$apply(function() { $scope.videoReady = true; });
                 }
             });
+            player.on('ended', function() {
+                $scope.$apply(function() { $scope.markDone(); });
+            });
         }
 
         if (!document.getElementById('vimeo-player-api')) {
@@ -106,9 +109,14 @@ angular.module('rotaViva')
             ytPlayer = new window.YT.Player(iframe, {
                 events: {
                     onStateChange: function(e) {
-                        // State 1 = playing
-                        if (e.data === 1) startProgressCheck();
-                        else stopProgressCheck();
+                        if (e.data === 0) {
+                            stopProgressCheck();
+                            $scope.$apply(function() { $scope.markDone(); });
+                        } else if (e.data === 1) {
+                            startProgressCheck();
+                        } else {
+                            stopProgressCheck();
+                        }
                     }
                 }
             });

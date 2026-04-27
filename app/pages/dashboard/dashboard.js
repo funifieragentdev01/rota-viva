@@ -147,7 +147,7 @@ angular.module('rotaViva')
 
     // ─── Preview da galeria ────────────────────────────────────────────────────
     function loadCommunityPreview() {
-        ApiService.getGalleryPosts(playerId, 3, 0).then(function(posts) {
+        ApiService.getGalleryPosts(3, 0).then(function(posts) {
             $scope.communityPosts = posts.filter(function(p) { return !!p.image_url; }).slice(0, 3);
         }).catch(function() {});
     }

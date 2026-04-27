@@ -129,67 +129,19 @@ angular.module('rotaViva')
 
     // === Gallery ===
 
-    api.getGalleryPosts = function(playerId, limit, skip) {
-        var pipeline = [
-            { $sort:  { created: -1 } },
-            { $skip:  skip  || 0 },
-            { $limit: limit || 20 },
-            // Likes: contagem total + flag se o usuário atual curtiu
-            { $lookup: { from: 'post_like__c',    localField: '_id', foreignField: 'post', as: '_likes'    } },
-            // Comentários: contagem total
-            { $lookup: { from: 'post_comment__c', localField: '_id', foreignField: 'post', as: '_comments' } },
-            // Player: foto de perfil
-            { $lookup: { from: 'player', localField: 'player', foreignField: '_id', as: '_player_data' } },
-            { $addFields: { _player: { $arrayElemAt: ['$_player_data', 0] } } },
-            { $addFields: {
-                like_count:    { $size: '$_likes' },
-                comment_count: { $size: '$_comments' },
-                user_liked: { $gt: [
-                    { $size: { $filter: { input: '$_likes', as: 'l', cond: { $eq: ['$$l.player', playerId || ''] } } } },
-                    0
-                ]},
-                player_photo: '$_player.image.original.url'
-            }},
-            { $project: { _likes: 0, _comments: 0, _player_data: 0, _player: 0 } }
-        ];
+    api.getGalleryPosts = function(limit, skip) {
         return $http.post(
-            baseUrl + '/v3/database/post__c/aggregate?strict=true',
-            pipeline,
+            baseUrl + '/v3/find/gallery_posts',
+            { skip: skip || 0, limit: limit || 20 },
             trailHeaders()
         ).then(function(res) {
             return Array.isArray(res.data) ? res.data : [];
         });
     };
 
-    // Stories bar: ranked players who posted recently, fixed-slot profiles always first
     api.getStoriesBar = function() {
-        var pipeline = [
-            { $sort:  { created: -1 } },
-            { $limit: 100 },
-            { $group: {
-                _id:               '$player',
-                last_post_created: { $first: '$created' },
-                player_name:       { $first: '$player_name' }
-            }},
-            { $lookup: { from: 'player', localField: '_id', foreignField: '_id', as: '_pd' } },
-            { $addFields: { pd: { $arrayElemAt: ['$_pd', 0] } } },
-            { $addFields: {
-                name:       { $ifNull: ['$pd.name', '$player_name'] },
-                photo:      '$pd.image.original.url',
-                weight:     { $ifNull: ['$pd.extra.weight', 1] },
-                fixed_slot: { $ifNull: ['$pd.extra.fixed_slot', false] }
-            }},
-            { $sort: { fixed_slot: -1, weight: -1, last_post_created: -1 } },
-            { $limit: 20 },
-            { $project: { _id: 1, name: 1, photo: 1, weight: 1, fixed_slot: 1, last_post_created: 1 } }
-        ];
-        return $http.post(
-            baseUrl + '/v3/database/post__c/aggregate?strict=true',
-            pipeline,
-            trailHeaders()
-        ).then(function(res) {
-            return Array.isArray(res.data) ? res.data : [];
-        });
+        return $http.post(baseUrl + '/v3/find/stories_bar', {}, trailHeaders())
+            .then(function(res) { return Array.isArray(res.data) ? res.data : []; });
     };
 
     api.likePost = function(postId, playerId) {
@@ -201,10 +153,9 @@ angular.module('rotaViva')
     };
 
     api.unlikePost = function(postId, playerId) {
-        var token = localStorage.getItem('rv_token');
         return $http.delete(
             baseUrl + '/v3/database/post_like__c?q=post:\'' + postId + '\',player:\'' + playerId + '\'',
-            { headers: { 'Authorization': token } }
+            trailHeaders()
         );
     };
 
@@ -213,12 +164,10 @@ angular.module('rotaViva')
             .then(function(res) { return res.data; });
     };
 
-    // Funifier não aceita DELETE /collection/{id} — usa query param
     api.deletePost = function(postId) {
-        var token = localStorage.getItem('rv_token');
         return $http.delete(
             baseUrl + '/v3/database/post__c?q=_id:\'' + postId + '\'',
-            { headers: { 'Authorization': token } }
+            trailHeaders()
         );
     };
 
@@ -309,34 +258,18 @@ angular.module('rotaViva')
 
     // === Prova de Campo (Galeria ↔ Trilha) ===
 
-    // Busca posts da comunidade para uma lição específica (para exibir antes/depois do Diário)
     api.getProvasDeCampo = function(lessonId, limit) {
-        var pipeline = [
-            { $match: { 'extra.lesson_id': lessonId } },
-            { $sort:  { created: -1 } },
-            { $limit: limit || 3 },
-            { $lookup: { from: 'player', localField: 'player', foreignField: '_id', as: '_pd' } },
-            { $addFields: { _p: { $arrayElemAt: ['$_pd', 0] } } },
-            { $addFields: {
-                player_name:  '$_p.name',
-                player_photo: '$_p.image.original.url'
-            }},
-            { $project: { _pd: 0, _p: 0 } }
-        ];
         return $http.post(
-            baseUrl + '/v3/database/post__c/aggregate?strict=true',
-            pipeline,
+            baseUrl + '/v3/find/provas_de_campo',
+            { lesson_id: lessonId, limit: limit || 3 },
             trailHeaders()
-        ).then(function(res) {
-            return Array.isArray(res.data) ? res.data : [];
-        });
+        ).then(function(res) { return Array.isArray(res.data) ? res.data : []; });
     };
 
-    // Conta total de produtores que fizeram o Diário de uma lição
     api.countProvasDeCampo = function(lessonId) {
         return $http.post(
-            baseUrl + '/v3/database/post__c/aggregate?strict=true',
-            [{ $match: { 'extra.lesson_id': lessonId } }, { $count: 'total' }],
+            baseUrl + '/v3/find/count_provas',
+            { lesson_id: lessonId },
             trailHeaders()
         ).then(function(res) {
             var data = res.data;
@@ -379,23 +312,19 @@ angular.module('rotaViva')
             .then(function(res) { return Array.isArray(res.data) ? res.data : []; });
     };
 
-    api.countEmitidos = function(routeId) {
-        var match = { 'extra.passaporte_emitido_em': { $exists: true } };
-        return $http.post(
-            baseUrl + '/v3/database/player/aggregate?strict=true',
-            [{ $match: match }, { $count: 'total' }],
-            trailHeaders()
-        ).then(function(res) {
-            var data = res.data;
-            if (Array.isArray(data) && data.length > 0) return data[0].total || 0;
-            return 0;
-        });
+    api.countEmitidos = function() {
+        return $http.post(baseUrl + '/v3/find/count_emitidos', {}, trailHeaders())
+            .then(function(res) {
+                var data = res.data;
+                if (Array.isArray(data) && data.length > 0) return data[0].total || 0;
+                return 0;
+            });
     };
 
     api.getReferralCount = function(refCode) {
         return $http.post(
-            baseUrl + '/v3/database/player/aggregate?strict=true',
-            [{ $match: { 'extra.ref_by': refCode } }, { $count: 'total' }],
+            baseUrl + '/v3/find/referral_count',
+            { ref_code: refCode },
             trailHeaders()
         ).then(function(res) {
             var data = res.data;
@@ -421,39 +350,20 @@ angular.module('rotaViva')
 
     // === Search ===
 
-    // Busca tags que começam com o texto digitado (agrupa posts__c por tag)
     api.searchTags = function(query) {
-        var pipeline = [
-            { $match: { tags: { $regex: query, $options: 'i' } } },
-            { $unwind: '$tags' },
-            { $match: { tags: { $regex: '^' + query, $options: 'i' } } },
-            { $group: { _id: '$tags', count: { $sum: 1 } } },
-            { $sort: { count: -1 } },
-            { $limit: 10 }
-        ];
         return $http.post(
-            baseUrl + '/v3/database/post__c/aggregate?strict=true',
-            pipeline,
+            baseUrl + '/v3/find/search_tags',
+            { query: query },
             trailHeaders()
-        ).then(function(res) {
-            return Array.isArray(res.data) ? res.data : [];
-        });
+        ).then(function(res) { return Array.isArray(res.data) ? res.data : []; });
     };
 
-    // Busca players por nome (para search modal e marcação de pessoas)
     api.searchPlayers = function(query) {
-        var pipeline = [
-            { $match: { name: { $regex: query, $options: 'i' } } },
-            { $limit: 10 },
-            { $project: { _id: 1, name: 1, profile: 1, 'image.original.url': 1, 'extra.municipality': 1 } }
-        ];
         return $http.post(
-            baseUrl + '/v3/database/player/aggregate?strict=true',
-            pipeline,
+            baseUrl + '/v3/find/search_players',
+            { query: query },
             trailHeaders()
-        ).then(function(res) {
-            return Array.isArray(res.data) ? res.data : [];
-        });
+        ).then(function(res) { return Array.isArray(res.data) ? res.data : []; });
     };
 
     // === Relacionamentos (Item I — Marcação de Pessoas) ===
