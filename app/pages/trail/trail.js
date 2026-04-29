@@ -138,7 +138,20 @@ angular.module('rotaViva')
     }
 
     function _fetchTrailFromApi(subjectId) {
-        ApiService.folderProgress(subjectId, playerId).then(function(data) {
+        // 2 chamadas paralelas — progresso (árvore completa) + metadados dos módulos (extra.color)
+        $q.all([
+            ApiService.folderProgress(subjectId, playerId),
+            ApiService.getFoldersByParent(subjectId)
+        ]).then(function(results) {
+            var data      = results[0];
+            var metaList  = results[1];
+
+            // Mapa _id → extra.color a partir dos metadados dos folders
+            var colorMap = {};
+            metaList.forEach(function(f) {
+                if (f._id && f.extra && f.extra.color) colorMap[f._id] = f.extra.color;
+            });
+
             var modules = (data.items || []).filter(function(i) { return i.folder !== false; });
 
             if (!modules.length) {
@@ -148,51 +161,39 @@ angular.module('rotaViva')
                 return;
             }
 
-            // Fetch lessons for every module in parallel
-            var promises = modules.map(function(mod, modIdx) {
-                var color = (mod.extra && mod.extra.color) || MODULE_COLORS[modIdx % MODULE_COLORS.length];
+            // Lições já estão aninhadas em mod.items — sem chamadas adicionais
+            var GENERIC_TYPES = ['lesson', 'module', 'subject', 'quiz', 'folder'];
 
-                return ApiService.folderProgress(mod._id, playerId).then(function(lessonData) {
-                    var lessons = (lessonData.items || []).filter(function(i) { return i.folder !== false; });
-                    // Generic folder types — not content-type icons
-                    var GENERIC_TYPES = ['lesson', 'module', 'subject', 'quiz', 'folder'];
-                    return {
-                        _id:      mod._id,
-                        title:    mod.title,
-                        color:    color,
-                        percent:  mod.percent  || 0,
-                        position: mod.position || modIdx,
-                        lessons:  lessons.map(function(l, lIdx) {
-                            var firstContent = (l.items || [])[0] || {};
-                            // Prefer lesson's own type for specific interaction types (e.g. 'listen', 'diy')
-                            // This prevents the icon from changing when items order changes after completion
-                            var lessonType = (l.type && GENERIC_TYPES.indexOf(l.type) === -1) ? l.type : '';
-                            var contentType = lessonType || firstContent.type || '';
-                            return {
-                                _id:         l._id,
-                                title:       l.title,
-                                contentType: contentType,
-                                contentId:   firstContent.content || firstContent._id || '',
-                                percent:     l.percent      || 0,
-                                is_unlocked: l.is_unlocked !== false,
-                                position:    l.position    || lIdx
-                            };
-                        })
-                    };
-                }).catch(function() {
-                    return { _id: mod._id, title: mod.title, color: color,
-                             percent: 0, position: modIdx, lessons: [] };
-                });
+            var enrichedModules = modules.map(function(mod, modIdx) {
+                var color   = colorMap[mod._id] || MODULE_COLORS[modIdx % MODULE_COLORS.length];
+                var lessons = (mod.items || []).filter(function(i) { return i.folder !== false; });
+
+                return {
+                    _id:      mod._id,
+                    title:    mod.title,
+                    color:    color,
+                    percent:  mod.percent  || 0,
+                    position: mod.position || modIdx,
+                    lessons:  lessons.map(function(l, lIdx) {
+                        var firstContent = (l.items || [])[0] || {};
+                        var lessonType   = (l.type && GENERIC_TYPES.indexOf(l.type) === -1) ? l.type : '';
+                        var contentType  = lessonType || firstContent.type || '';
+                        return {
+                            _id:         l._id,
+                            title:       l.title,
+                            contentType: contentType,
+                            contentId:   firstContent.content || firstContent._id || '',
+                            percent:     l.percent      || 0,
+                            is_unlocked: l.is_unlocked !== false,
+                            position:    l.position    || lIdx
+                        };
+                    })
+                };
             });
 
-            $q.all(promises).then(function(enrichedModules) {
-                $scope.trailModules = enrichedModules;
-                $scope.loading      = false;
-                _writeCache(subjectId, enrichedModules); // persist fresh data
-            }).catch(function() {
-                $scope.loading      = false;
-                if (!$scope.trailModules) $scope.trailModules = [];
-            });
+            $scope.trailModules = enrichedModules;
+            $scope.loading      = false;
+            _writeCache(subjectId, enrichedModules);
 
         }).catch(function() {
             $scope.loading = false;

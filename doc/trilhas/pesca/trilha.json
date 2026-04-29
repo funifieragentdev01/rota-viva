@@ -1,0 +1,1629 @@
+{
+  "folder" : true,
+  "title" : "Rota da Pesca",
+  "type" : "subject",
+  "items" : [ {
+    "folder" : true,
+    "title" : "Início",
+    "type" : "module",
+    "items" : [ {
+      "folder" : true,
+      "title" : "Os Rios do Amapá Dependem de Você",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Os Rios do Amapá Dependem de Você",
+        "type" : "video",
+        "content" : "69dbaabed95d627e2bdbbe62",
+        "percent" : 100.0,
+        "time" : 1777331984988,
+        "_id" : "69dbaabed95d627e2bdbbe63"
+      } ],
+      "total" : 1,
+      "done" : 1,
+      "percent" : 100.0,
+      "time" : 1777334269150,
+      "is_unlocked" : true,
+      "_id" : "69dbaabdd95d627e2bdbbe60"
+    }, {
+      "folder" : true,
+      "title" : "Avaliação: Os Rios do Amapá Dependem de Você",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Avaliação: Os Rios do Amapá Dependem de Você",
+        "type" : "quiz",
+        "content" : "69dbaabed95d627e2bdbbe65",
+        "percent" : 100.0,
+        "time" : 1777332514848,
+        "_id" : "69dbaac0d95d627e2bdbbe73"
+      } ],
+      "total" : 1,
+      "done" : 1,
+      "percent" : 100.0,
+      "time" : 1777333287489,
+      "is_unlocked" : true,
+      "_id" : "69dbaabed95d627e2bdbbe64"
+    }, {
+      "folder" : true,
+      "title" : "Como Funciona a Pesca Artesanal",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Como Funciona a Pesca Artesanal",
+        "type" : "video",
+        "content" : "69dbaac1d95d627e2bdbbe7a",
+        "percent" : 100.0,
+        "time" : 1777333447056,
+        "_id" : "69dbaac1d95d627e2bdbbe7b"
+      } ],
+      "total" : 1,
+      "done" : 1,
+      "percent" : 100.0,
+      "time" : 1777333447056,
+      "is_unlocked" : true,
+      "_id" : "69dbaac0d95d627e2bdbbe76"
+    }, {
+      "folder" : true,
+      "title" : "Cartoon 1 — Início",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Cartoon 1",
+        "type" : "cartoon",
+        "content" : "pin1",
+        "percent" : 0.0,
+        "_id" : "69dbb5a7d95d627e2bdbd556"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : true,
+      "_id" : "69dbaac9d95d627e2bdbbeb9"
+    }, {
+      "folder" : true,
+      "title" : "Avaliação: Como Funciona a Pesca Artesanal",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Avaliação: Como Funciona a Pesca Artesanal",
+        "type" : "quiz",
+        "content" : "69dbaac1d95d627e2bdbbe7d",
+        "percent" : 0.0,
+        "_id" : "69dbaac3d95d627e2bdbbe8c"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69dbaac1d95d627e2bdbbe7c"
+    }, {
+      "folder" : true,
+      "title" : "Um Dia na Vida de Um Pescador Artesanal",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Um Dia na Vida de Um Pescador Artesanal",
+        "type" : "video",
+        "content" : "69dbaac4d95d627e2bdbbe91",
+        "percent" : 0.0,
+        "_id" : "69dbaac4d95d627e2bdbbe92"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69dbaac4d95d627e2bdbbe90"
+    }, {
+      "folder" : true,
+      "title" : "Avaliação: Um Dia na Vida de Um Pescador Artesanal",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Avaliação: Um Dia na Vida de Um Pescador Artesanal",
+        "type" : "quiz",
+        "content" : "69dbaac4d95d627e2bdbbe94",
+        "percent" : 0.0,
+        "_id" : "69dbaac6d95d627e2bdbbea2"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69dbaac4d95d627e2bdbbe93"
+    }, {
+      "folder" : true,
+      "title" : "O Negócio do Pescado",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "O Negócio do Pescado",
+        "type" : "reading",
+        "content" : "69dbaac7d95d627e2bdbbea6",
+        "percent" : 0.0,
+        "_id" : "69dbaac7d95d627e2bdbbea7"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69dbaac6d95d627e2bdbbea3"
+    }, {
+      "folder" : true,
+      "title" : "Avaliação: O Negócio do Pescado",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Avaliação: O Negócio do Pescado",
+        "type" : "quiz",
+        "content" : "69dbaac7d95d627e2bdbbea9",
+        "percent" : 0.0,
+        "_id" : "69dbaac9d95d627e2bdbbeb8"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69dbaac7d95d627e2bdbbea8"
+    }, {
+      "folder" : true,
+      "title" : "Cartoon 2 — Início",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Início 2 - Antes do Sol Nascer",
+        "type" : "cartoon",
+        "content" : "pin2",
+        "percent" : 0.0,
+        "_id" : "FrSm4Ky"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69dba356d95d627e2bdbb90c"
+    }, {
+      "folder" : true,
+      "title" : "Escuta Ativa: Minha Trajetória na Pesca",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Escuta Ativa: Minha Trajetória na Pesca",
+        "type" : "listen",
+        "content" : "69dbaacad95d627e2bdbbebd",
+        "percent" : 0.0,
+        "_id" : "69dbaacbd95d627e2bdbbec5"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69dbaacad95d627e2bdbbebc"
+    }, {
+      "folder" : true,
+      "title" : "Diário: Meu Pesqueiro no Mapa",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Diário: Meu Pesqueiro no Mapa",
+        "type" : "chest",
+        "content" : "69dbaacbd95d627e2bdbbec7",
+        "percent" : 0.0,
+        "_id" : "69dbaacbd95d627e2bdbbeca"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69dbaacbd95d627e2bdbbec6"
+    }, {
+      "folder" : true,
+      "title" : "Revisão Geral: Módulo Início",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Revisão Geral: Módulo Início",
+        "type" : "review",
+        "content" : "69dbaaccd95d627e2bdbbecc",
+        "percent" : 0.0,
+        "_id" : "69dbaaced95d627e2bdbbedc"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69dbaaccd95d627e2bdbbecb"
+    } ],
+    "total" : 13,
+    "done" : 3,
+    "percent" : 23.076923076923077,
+    "time" : 1777334269150,
+    "is_unlocked" : true,
+    "_id" : "69d7a4e228fe032bb25242e3"
+  }, {
+    "folder" : true,
+    "title" : "Módulo A — Programas do Governo",
+    "type" : "module",
+    "items" : [ {
+      "folder" : true,
+      "title" : "Seus Direitos Como Pescador",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Seus Direitos Como Pescador",
+        "type" : "video",
+        "content" : "69d7ab9128fe032bb25244a0",
+        "percent" : 0.0,
+        "_id" : "69d7ab9128fe032bb25244a1"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : true,
+      "_id" : "69d7ab9128fe032bb252449f"
+    }, {
+      "folder" : true,
+      "title" : "Avaliação: Seus Direitos Como Pescador",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Avaliação: Seus Direitos Como Pescador",
+        "type" : "quiz",
+        "content" : "69d7ab9228fe032bb25244a3",
+        "percent" : 0.0,
+        "_id" : "69d7ab9428fe032bb25244ae"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69d7ab9128fe032bb25244a2"
+    }, {
+      "folder" : true,
+      "title" : "RGP e o Seguro do Defeso",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "RGP e o Seguro do Defeso",
+        "type" : "video",
+        "content" : "69d7ab9428fe032bb25244b1",
+        "percent" : 0.0,
+        "_id" : "69d7ab9428fe032bb25244b2"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69d7ab9428fe032bb25244af"
+    }, {
+      "folder" : true,
+      "title" : "Checkpoint 1 — Módulo A",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Módulo A1 - Antes do Defeso",
+        "type" : "cartoon",
+        "content" : "pa1",
+        "percent" : 0.0,
+        "_id" : "FrSnfG3"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69dbd6d1d95d627e2bdc00c4"
+    }, {
+      "folder" : true,
+      "title" : "Avaliação: RGP e Defeso",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Avaliação: RGP e Defeso",
+        "type" : "quiz",
+        "content" : "69d7ab9428fe032bb25244b5",
+        "percent" : 0.0,
+        "_id" : "69d7ab9728fe032bb25244c0"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69d7ab9428fe032bb25244b3"
+    }, {
+      "folder" : true,
+      "title" : "PRONAF Pesca, PAA e ATER no Amapá",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "PRONAF Pesca, PAA e ATER no Amapá",
+        "type" : "reading",
+        "content" : "69d7ab9728fe032bb25244c2",
+        "percent" : 0.0,
+        "_id" : "69d7ab9728fe032bb25244c3"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69d7ab9728fe032bb25244c1"
+    }, {
+      "folder" : true,
+      "title" : "Avaliação: PRONAF Pesca, PAA e ATER",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Avaliação: PRONAF Pesca, PAA e ATER",
+        "type" : "quiz",
+        "content" : "69d7ab9828fe032bb25244c5",
+        "percent" : 0.0,
+        "_id" : "69d7ab9a28fe032bb25244d3"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69d7ab9728fe032bb25244c4"
+    }, {
+      "folder" : true,
+      "title" : "Minha Situação com os Programas",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Minha Situação com os Programas",
+        "type" : "listen",
+        "content" : "69d7ab9a28fe032bb25244d5",
+        "percent" : 0.0,
+        "_id" : "69d7ab9c28fe032bb25244db"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69d7ab9a28fe032bb25244d4"
+    }, {
+      "folder" : true,
+      "title" : "Checkpoint 2 — Módulo A",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Módulo A2 - O Motor e o Mercado",
+        "type" : "cartoon",
+        "content" : "pa2",
+        "percent" : 0.0,
+        "_id" : "FrSnkXI"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69dbd6d1d95d627e2bdc00c6"
+    }, {
+      "folder" : true,
+      "title" : "Meu RGP",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Meu RGP",
+        "type" : "chest",
+        "content" : "69d7ab9c28fe032bb25244dd",
+        "percent" : 0.0,
+        "_id" : "69d7ab9c28fe032bb25244e0"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69d7ab9c28fe032bb25244dc"
+    }, {
+      "folder" : true,
+      "title" : "Revisão Geral: Módulo A",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Revisão Geral: Módulo A",
+        "type" : "review",
+        "content" : "69d7ab9d28fe032bb25244e2",
+        "percent" : 0.0,
+        "_id" : "69d7ab9f28fe032bb25244ed"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69d7ab9d28fe032bb25244e1"
+    } ],
+    "total" : 11,
+    "done" : 0,
+    "percent" : 0.0,
+    "is_unlocked" : false,
+    "_id" : "69d7ab9028fe032bb252449e"
+  }, {
+    "folder" : true,
+    "title" : "Módulo B — Boas Práticas Produtivas",
+    "type" : "module",
+    "items" : [ {
+      "folder" : true,
+      "title" : "Pescando com Responsabilidade",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Pescando com Responsabilidade",
+        "type" : "video",
+        "content" : "69d7aec128fe032bb25246c3",
+        "percent" : 0.0,
+        "_id" : "69d7aec128fe032bb25246c6"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : true,
+      "_id" : "69d7aec028fe032bb25246c1"
+    }, {
+      "folder" : true,
+      "title" : "Avaliação: Pescando com Responsabilidade",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Avaliação: Pescando com Responsabilidade",
+        "type" : "quiz",
+        "content" : "69d7aec128fe032bb25246c8",
+        "percent" : 0.0,
+        "_id" : "69d7aec328fe032bb25246d3"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69d7aec128fe032bb25246c7"
+    }, {
+      "folder" : true,
+      "title" : "Do Barco à Mesa — Conservação do Pescado",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Do Barco à Mesa — Conservação do Pescado",
+        "type" : "video",
+        "content" : "69d7aec328fe032bb25246d5",
+        "percent" : 0.0,
+        "_id" : "69d7aec328fe032bb25246d6"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69d7aec328fe032bb25246d4"
+    }, {
+      "folder" : true,
+      "title" : "Checkpoint 1 — Módulo B",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Módulo B1 - O Peixe Que Volta",
+        "type" : "cartoon",
+        "content" : "pb1",
+        "percent" : 0.0,
+        "_id" : "FrSnrPx"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69dbd86ad95d627e2bdc00e2"
+    }, {
+      "folder" : true,
+      "title" : "Avaliação: Conservação do Pescado",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Avaliação: Conservação do Pescado",
+        "type" : "quiz",
+        "content" : "69d7aec428fe032bb25246d8",
+        "percent" : 0.0,
+        "_id" : "69d7aec628fe032bb25246e4"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69d7aec428fe032bb25246d7"
+    }, {
+      "folder" : true,
+      "title" : "Rastreabilidade e Inspeção Sanitária",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Rastreabilidade e Inspeção Sanitária",
+        "type" : "reading",
+        "content" : "69d7aec628fe032bb25246e6",
+        "percent" : 0.0,
+        "_id" : "69d7aec628fe032bb25246e7"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69d7aec628fe032bb25246e5"
+    }, {
+      "folder" : true,
+      "title" : "Avaliação: Rastreabilidade e Inspeção",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Avaliação: Rastreabilidade e Inspeção",
+        "type" : "quiz",
+        "content" : "69d7aec728fe032bb25246e9",
+        "percent" : 0.0,
+        "_id" : "69d7aec928fe032bb2524721"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69d7aec628fe032bb25246e8"
+    }, {
+      "folder" : true,
+      "title" : "Checkpoint 2 — Módulo B",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Módulo B2 - Do Barco ao Mercado",
+        "type" : "cartoon",
+        "content" : "pb2",
+        "percent" : 0.0,
+        "_id" : "FrSnwO3"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69dbd86bd95d627e2bdc00eb"
+    }, {
+      "folder" : true,
+      "title" : "Minhas Práticas na Pesca",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Minhas Práticas na Pesca",
+        "type" : "listen",
+        "content" : "69d7aec928fe032bb252475d",
+        "percent" : 0.0,
+        "_id" : "69d7aeca28fe032bb2524778"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69d7aec928fe032bb2524759"
+    }, {
+      "folder" : true,
+      "title" : "Minha Prática de Hoje",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Minha Prática de Hoje",
+        "type" : "chest",
+        "content" : "69d7aeca28fe032bb2524782",
+        "percent" : 0.0,
+        "_id" : "69d7aecb28fe032bb252478b"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69d7aeca28fe032bb252477c"
+    }, {
+      "folder" : true,
+      "title" : "Revisão Geral: Módulo B",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Revisão Geral: Módulo B",
+        "type" : "review",
+        "content" : "69d7aecb28fe032bb2524794",
+        "percent" : 0.0,
+        "_id" : "69d7aecd28fe032bb25247c3"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69d7aecb28fe032bb2524790"
+    } ],
+    "total" : 11,
+    "done" : 0,
+    "percent" : 0.0,
+    "is_unlocked" : false,
+    "_id" : "69d7aec028fe032bb25246c0"
+  }, {
+    "folder" : true,
+    "title" : "Módulo C — Qualidade e Certificação",
+    "type" : "module",
+    "items" : [ {
+      "folder" : true,
+      "title" : "Pescado com Qualidade: O Que Isso Significa?",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Pescado com Qualidade: O Que Isso Significa?",
+        "type" : "video",
+        "content" : "69d7b0cd28fe032bb2524da8",
+        "percent" : 0.0,
+        "_id" : "69d7b0cd28fe032bb2524da9"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : true,
+      "_id" : "69d7b0cd28fe032bb2524da7"
+    }, {
+      "folder" : true,
+      "title" : "Avaliação: Pescado com Qualidade",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Avaliação: Pescado com Qualidade",
+        "type" : "quiz",
+        "content" : "69d7b0ce28fe032bb2524dab",
+        "percent" : 0.0,
+        "_id" : "69d7b0d028fe032bb2524db6"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69d7b0cd28fe032bb2524daa"
+    }, {
+      "folder" : true,
+      "title" : "Inspeção Sanitária do Pescado: DIPOA, SIF e SIE",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Inspeção Sanitária do Pescado: DIPOA, SIF e SIE",
+        "type" : "video",
+        "content" : "69d7b0d028fe032bb2524db8",
+        "percent" : 0.0,
+        "_id" : "69d7b0d028fe032bb2524db9"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69d7b0d028fe032bb2524db7"
+    }, {
+      "folder" : true,
+      "title" : "Checkpoint 1 — Módulo C",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Módulo C1 - O Peixe do Restaurante",
+        "type" : "cartoon",
+        "content" : "pc1",
+        "percent" : 0.0,
+        "_id" : "FrSnEmN"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69dbd870d95d627e2bdc0106"
+    }, {
+      "folder" : true,
+      "title" : "Avaliação: Inspeção Sanitária do Pescado",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Avaliação: Inspeção Sanitária do Pescado",
+        "type" : "quiz",
+        "content" : "69d7b0d028fe032bb2524dbb",
+        "percent" : 0.0,
+        "_id" : "69d7b0d228fe032bb2524dc6"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69d7b0d028fe032bb2524dba"
+    }, {
+      "folder" : true,
+      "title" : "Rastreabilidade, Rotulagem e Certificação Sustentável",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Rastreabilidade, Rotulagem e Certificação Sustentável",
+        "type" : "reading",
+        "content" : "69d7b0d328fe032bb2524dc8",
+        "percent" : 0.0,
+        "_id" : "69d7b0d328fe032bb2524dc9"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69d7b0d228fe032bb2524dc7"
+    }, {
+      "folder" : true,
+      "title" : "Avaliação: Rastreabilidade e Rotulagem",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Avaliação: Rastreabilidade e Rotulagem",
+        "type" : "quiz",
+        "content" : "69d7b0d328fe032bb2524dcb",
+        "percent" : 0.0,
+        "_id" : "69d7b0d528fe032bb2524dd7"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69d7b0d328fe032bb2524dca"
+    }, {
+      "folder" : true,
+      "title" : "Minha Situação com Qualidade",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Minha Situação com Qualidade",
+        "type" : "listen",
+        "content" : "69d7b0d528fe032bb2524dd9",
+        "percent" : 0.0,
+        "_id" : "69d7b0d628fe032bb2524ddf"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69d7b0d528fe032bb2524dd8"
+    }, {
+      "folder" : true,
+      "title" : "Checkpoint 2 — Módulo C",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Módulo C2 - O Lote 2024-11",
+        "type" : "cartoon",
+        "content" : "pc2",
+        "percent" : 0.0,
+        "_id" : "FrSnJJD"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69dbd872d95d627e2bdc010f"
+    }, {
+      "folder" : true,
+      "title" : "Meu Pescado com Qualidade",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Meu Pescado com Qualidade",
+        "type" : "chest",
+        "content" : "69d7b0d728fe032bb2524de1",
+        "percent" : 0.0,
+        "_id" : "69d7b0d728fe032bb2524de3"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69d7b0d628fe032bb2524de0"
+    }, {
+      "folder" : true,
+      "title" : "Revisão Geral: Módulo C",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Revisão Geral: Módulo C",
+        "type" : "review",
+        "content" : "69d7b0d728fe032bb2524de5",
+        "percent" : 0.0,
+        "_id" : "69d7b0d928fe032bb2524df1"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69d7b0d728fe032bb2524de4"
+    } ],
+    "total" : 11,
+    "done" : 0,
+    "percent" : 0.0,
+    "is_unlocked" : false,
+    "_id" : "69d7b0cd28fe032bb2524da6"
+  }, {
+    "folder" : true,
+    "title" : "Módulo D — Venda Justa",
+    "type" : "module",
+    "items" : [ {
+      "folder" : true,
+      "title" : "Quanto Vale o Seu Pescado?",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Quanto Vale o Seu Pescado?",
+        "type" : "video",
+        "content" : "69d7d3c828fe032bb2527e22",
+        "percent" : 0.0,
+        "_id" : "69d7d3c828fe032bb2527e23"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : true,
+      "_id" : "69d7d3c828fe032bb2527e21"
+    }, {
+      "folder" : true,
+      "title" : "Avaliação: Quanto Vale o Seu Pescado?",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Avaliação: Quanto Vale o Seu Pescado?",
+        "type" : "quiz",
+        "content" : "69d7d3c828fe032bb2527e25",
+        "percent" : 0.0,
+        "_id" : "69d7d3ca28fe032bb2527e30"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69d7d3c828fe032bb2527e24"
+    }, {
+      "folder" : true,
+      "title" : "Onde e Para Quem Vender o Pescado",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Onde e Para Quem Vender o Pescado",
+        "type" : "video",
+        "content" : "69d7d3cb28fe032bb2527e32",
+        "percent" : 0.0,
+        "_id" : "69d7d3cb28fe032bb2527e33"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69d7d3ca28fe032bb2527e31"
+    }, {
+      "folder" : true,
+      "title" : "Checkpoint 1 — Módulo D",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Módulo D1 - A Conta da Saída",
+        "type" : "cartoon",
+        "content" : "pd1",
+        "percent" : 0.0,
+        "_id" : "FrSnQuu"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69dbd876d95d627e2bdc012a"
+    }, {
+      "folder" : true,
+      "title" : "Avaliação: Onde e Para Quem Vender",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Avaliação: Onde e Para Quem Vender",
+        "type" : "quiz",
+        "content" : "69d7d3cb28fe032bb2527e35",
+        "percent" : 0.0,
+        "_id" : "69d7d3cd28fe032bb2527e41"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69d7d3cb28fe032bb2527e34"
+    }, {
+      "folder" : true,
+      "title" : "Nota Fiscal, Colônia e a Cooperativa como Parceira",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Nota Fiscal, Colônia e a Cooperativa como Parceira",
+        "type" : "reading",
+        "content" : "69d7d3cd28fe032bb2527e43",
+        "percent" : 0.0,
+        "_id" : "69d7d3ce28fe032bb2527e44"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69d7d3cd28fe032bb2527e42"
+    }, {
+      "folder" : true,
+      "title" : "Avaliação: Nota Fiscal, Colônia e Cooperativa",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Avaliação: Nota Fiscal, Colônia e Cooperativa",
+        "type" : "quiz",
+        "content" : "69d7d3ce28fe032bb2527e46",
+        "percent" : 0.0,
+        "_id" : "69d7d3cf28fe032bb2527e50"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69d7d3ce28fe032bb2527e45"
+    }, {
+      "folder" : true,
+      "title" : "Minha Situação na Venda do Pescado",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Minha Situação na Venda do Pescado",
+        "type" : "listen",
+        "content" : "69d7d3d028fe032bb2527e52",
+        "percent" : 0.0,
+        "_id" : "69d7d3d128fe032bb2527e58"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69d7d3d028fe032bb2527e51"
+    }, {
+      "folder" : true,
+      "title" : "Checkpoint 2 — Módulo D",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Módulo D2 - O Canal do Peixe",
+        "type" : "cartoon",
+        "content" : "pd2",
+        "percent" : 0.0,
+        "_id" : "FrSnVvR"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69dbd878d95d627e2bdc0133"
+    }, {
+      "folder" : true,
+      "title" : "Meu Registro de Venda",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Meu Registro de Venda",
+        "type" : "chest",
+        "content" : "69d7d3d128fe032bb2527e5a",
+        "percent" : 0.0,
+        "_id" : "69d7d3d228fe032bb2527e5d"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69d7d3d128fe032bb2527e59"
+    }, {
+      "folder" : true,
+      "title" : "Revisão Geral: Módulo D",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Revisão Geral: Módulo D",
+        "type" : "review",
+        "content" : "69d7d3d228fe032bb2527e5f",
+        "percent" : 0.0,
+        "_id" : "69d7d3d428fe032bb2527e6a"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69d7d3d228fe032bb2527e5e"
+    } ],
+    "total" : 11,
+    "done" : 0,
+    "percent" : 0.0,
+    "is_unlocked" : false,
+    "_id" : "69d7d3c728fe032bb2527e20"
+  }, {
+    "folder" : true,
+    "title" : "Módulo E — Guardiões dos Rios",
+    "type" : "module",
+    "items" : [ {
+      "folder" : true,
+      "title" : "Pesca Seletiva: Malhas, Tamanhos Mínimos e Espécies Protegidas",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Pesca Seletiva: Malhas, Tamanhos Mínimos e Espécies Protegidas",
+        "type" : "video",
+        "content" : "69d7d75928fe032bb2527f4f",
+        "percent" : 0.0,
+        "_id" : "69d7d75a28fe032bb2527f50"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : true,
+      "_id" : "69d7d75928fe032bb2527f4e"
+    }, {
+      "folder" : true,
+      "title" : "Avaliação: Pesca Seletiva e Espécies Protegidas",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Avaliação: Pesca Seletiva e Espécies Protegidas",
+        "type" : "quiz",
+        "content" : "69d7d75a28fe032bb2527f52",
+        "percent" : 0.0,
+        "_id" : "69d7d75c28fe032bb2527f5e"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69d7d75a28fe032bb2527f51"
+    }, {
+      "folder" : true,
+      "title" : "Qualidade do Pescado: Do Barco à Mesa",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Qualidade do Pescado: Do Barco à Mesa",
+        "type" : "video",
+        "content" : "69d7d75c28fe032bb2527f60",
+        "percent" : 0.0,
+        "_id" : "69d7d75c28fe032bb2527f61"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69d7d75c28fe032bb2527f5f"
+    }, {
+      "folder" : true,
+      "title" : "Checkpoint 1 — Módulo E",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Módulo E1 - O Tamanho Certo",
+        "type" : "cartoon",
+        "content" : "pe1",
+        "percent" : 0.0,
+        "_id" : "FrSn0JY"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69dbd9d5d95d627e2bdc014f"
+    }, {
+      "folder" : true,
+      "title" : "Avaliação: Qualidade Sanitária do Pescado",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Avaliação: Qualidade Sanitária do Pescado",
+        "type" : "quiz",
+        "content" : "69d7d75d28fe032bb2527f63",
+        "percent" : 0.0,
+        "_id" : "69d7d75f28fe032bb2527f6f"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69d7d75d28fe032bb2527f62"
+    }, {
+      "folder" : true,
+      "title" : "Acordos de Pesca e as RESEX no Amapá",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Acordos de Pesca e as RESEX no Amapá",
+        "type" : "reading",
+        "content" : "69d7d75f28fe032bb2527f71",
+        "percent" : 0.0,
+        "_id" : "69d7d75f28fe032bb2527f72"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69d7d75f28fe032bb2527f70"
+    }, {
+      "folder" : true,
+      "title" : "Avaliação: Acordos de Pesca e RESEX",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Avaliação: Acordos de Pesca e RESEX",
+        "type" : "quiz",
+        "content" : "69d7d75f28fe032bb2527f76",
+        "percent" : 0.0,
+        "_id" : "69d7d76128fe032bb2527f81"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69d7d75f28fe032bb2527f75"
+    }, {
+      "folder" : true,
+      "title" : "Minha Relação com os Rios e os Recursos",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Minha Relação com os Rios e os Recursos",
+        "type" : "listen",
+        "content" : "69d7d76128fe032bb2527f83",
+        "percent" : 0.0,
+        "_id" : "69d7d76228fe032bb2527f89"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69d7d76128fe032bb2527f82"
+    }, {
+      "folder" : true,
+      "title" : "Checkpoint 2 — Módulo E",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Módulo E2 - O Guardião das Águas",
+        "type" : "cartoon",
+        "content" : "pe2",
+        "percent" : 0.0,
+        "_id" : "FrSn5hS"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69dbd9d6d95d627e2bdc0158"
+    }, {
+      "folder" : true,
+      "title" : "Meu Registro de Boas Práticas",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Meu Registro de Boas Práticas",
+        "type" : "chest",
+        "content" : "69d7d76328fe032bb2527f8b",
+        "percent" : 0.0,
+        "_id" : "69d7d76328fe032bb2527f8d"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69d7d76328fe032bb2527f8a"
+    }, {
+      "folder" : true,
+      "title" : "Revisão Geral: Módulo E",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Revisão Geral: Módulo E",
+        "type" : "review",
+        "content" : "69d7d76328fe032bb2527f8f",
+        "percent" : 0.0,
+        "_id" : "69d7d76528fe032bb2527f9b"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69d7d76328fe032bb2527f8e"
+    } ],
+    "total" : 11,
+    "done" : 0,
+    "percent" : 0.0,
+    "is_unlocked" : false,
+    "_id" : "69d7d75928fe032bb2527f4d"
+  }, {
+    "folder" : true,
+    "title" : "Módulo F — Sua Voz Vale: Liderança e Participação",
+    "type" : "module",
+    "items" : [ {
+      "folder" : true,
+      "title" : "Sua Voz nos Rios: Colônia, FEPA-AP e Conselhos",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Sua Voz nos Rios: Colônia, FEPA-AP e Conselhos",
+        "type" : "video",
+        "content" : "69d7db4028fe032bb2528506",
+        "percent" : 0.0,
+        "_id" : "69d7db4028fe032bb2528507"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : true,
+      "_id" : "69d7db4028fe032bb2528505"
+    }, {
+      "folder" : true,
+      "title" : "Avaliação: Colônia, FEPA-AP e Participação Coletiva",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Avaliação: Colônia, FEPA-AP e Participação Coletiva",
+        "type" : "quiz",
+        "content" : "69d7db4028fe032bb2528509",
+        "percent" : 0.0,
+        "_id" : "69d7db4228fe032bb2528514"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69d7db4028fe032bb2528508"
+    }, {
+      "folder" : true,
+      "title" : "Audiências Públicas e Como a Voz do Pescador Chega ao Governo",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Audiências Públicas e Como a Voz do Pescador Chega ao Governo",
+        "type" : "video",
+        "content" : "69d7db4328fe032bb2528516",
+        "percent" : 0.0,
+        "_id" : "69d7db4328fe032bb2528517"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69d7db4228fe032bb2528515"
+    }, {
+      "folder" : true,
+      "title" : "Checkpoint 1 — Módulo F",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Módulo F1 - A Colônia que nos Representa",
+        "type" : "cartoon",
+        "content" : "pf1",
+        "percent" : 0.0,
+        "_id" : "FrSoaJW"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69dbd9dbd95d627e2bdc0173"
+    }, {
+      "folder" : true,
+      "title" : "Avaliação: Audiências Públicas e Incidência Política",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Avaliação: Audiências Públicas e Incidência Política",
+        "type" : "quiz",
+        "content" : "69d7db4328fe032bb2528519",
+        "percent" : 0.0,
+        "_id" : "69d7db4528fe032bb2528524"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69d7db4328fe032bb2528518"
+    }, {
+      "folder" : true,
+      "title" : "Rota Viva: O Pescador como Fonte de Política Pública",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Rota Viva: O Pescador como Fonte de Política Pública",
+        "type" : "reading",
+        "content" : "69d7db4628fe032bb2528526",
+        "percent" : 0.0,
+        "_id" : "69d7db4628fe032bb2528527"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69d7db4628fe032bb2528525"
+    }, {
+      "folder" : true,
+      "title" : "Avaliação: Liderança, Participação e Rota Viva",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Avaliação: Liderança, Participação e Rota Viva",
+        "type" : "quiz",
+        "content" : "69d7db4628fe032bb2528529",
+        "percent" : 0.0,
+        "_id" : "69d7db4828fe032bb2528536"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69d7db4628fe032bb2528528"
+    }, {
+      "folder" : true,
+      "title" : "Minha Voz e Minha Comunidade",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Minha Voz e Minha Comunidade",
+        "type" : "listen",
+        "content" : "69d7db4928fe032bb2528538",
+        "percent" : 0.0,
+        "_id" : "69d7db4a28fe032bb252853e"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69d7db4828fe032bb2528537"
+    }, {
+      "folder" : true,
+      "title" : "Checkpoint 2 — Módulo F",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Módulo F2 - O Pescador na Câmara",
+        "type" : "cartoon",
+        "content" : "pf2",
+        "percent" : 0.0,
+        "_id" : "FrSog0V"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69dbd9dcd95d627e2bdc017c"
+    }, {
+      "folder" : true,
+      "title" : "Meu Compromisso de Participação",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Meu Compromisso de Participação",
+        "type" : "chest",
+        "content" : "69d7db4a28fe032bb2528540",
+        "percent" : 0.0,
+        "_id" : "69d7db4a28fe032bb2528542"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69d7db4a28fe032bb252853f"
+    }, {
+      "folder" : true,
+      "title" : "Revisão Geral: Módulo F",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Revisão Geral: Módulo F",
+        "type" : "review",
+        "content" : "69d7db4b28fe032bb2528544",
+        "percent" : 0.0,
+        "_id" : "69d7db4d28fe032bb252854f"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69d7db4a28fe032bb2528543"
+    } ],
+    "total" : 11,
+    "done" : 0,
+    "percent" : 0.0,
+    "is_unlocked" : false,
+    "_id" : "69d7db3f28fe032bb2528504"
+  }, {
+    "folder" : true,
+    "title" : "Módulo G — Integridade e Cidadania",
+    "type" : "module",
+    "items" : [ {
+      "folder" : true,
+      "title" : "Seus Direitos como Participante do Rota Viva",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Seus Direitos como Participante do Rota Viva",
+        "type" : "video",
+        "content" : "69d7e90f28fe032bb2529c9d",
+        "percent" : 0.0,
+        "_id" : "69d7e90f28fe032bb2529c9e"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : true,
+      "_id" : "69d7e90f28fe032bb2529c9c"
+    }, {
+      "folder" : true,
+      "title" : "Avaliação: Seus Direitos como Participante",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Avaliação: Seus Direitos como Participante",
+        "type" : "quiz",
+        "content" : "69d7e90f28fe032bb2529ca0",
+        "percent" : 0.0,
+        "_id" : "69d7e91228fe032bb2529cac"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69d7e90f28fe032bb2529c9f"
+    }, {
+      "folder" : true,
+      "title" : "Como Denunciar Irregularidades — Seus Canais de Proteção",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Como Denunciar Irregularidades — Seus Canais de Proteção",
+        "type" : "video",
+        "content" : "69d7e91228fe032bb2529cae",
+        "percent" : 0.0,
+        "_id" : "69d7e91228fe032bb2529caf"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69d7e91228fe032bb2529cad"
+    }, {
+      "folder" : true,
+      "title" : "Checkpoint 1 — Módulo G",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Módulo G1 - Seus Direitos no Rota Viva",
+        "type" : "cartoon",
+        "content" : "pg1",
+        "percent" : 0.0,
+        "_id" : "FrSonlj"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69dbd9e0d95d627e2bdc0197"
+    }, {
+      "folder" : true,
+      "title" : "Avaliação: Canais de Denúncia e Proteção",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Avaliação: Canais de Denúncia e Proteção",
+        "type" : "quiz",
+        "content" : "69d7e91228fe032bb2529cb1",
+        "percent" : 0.0,
+        "_id" : "69d7e91528fe032bb2529cbd"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69d7e91228fe032bb2529cb0"
+    }, {
+      "folder" : true,
+      "title" : "Uso Correto dos Recursos Públicos: Seu Compromisso com a Integridade",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Uso Correto dos Recursos Públicos: Seu Compromisso com a Integridade",
+        "type" : "reading",
+        "content" : "69d7e91528fe032bb2529cbf",
+        "percent" : 0.0,
+        "_id" : "69d7e91528fe032bb2529cc0"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69d7e91528fe032bb2529cbe"
+    }, {
+      "folder" : true,
+      "title" : "Avaliação: Integridade e Uso dos Recursos Públicos",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Avaliação: Integridade e Uso dos Recursos Públicos",
+        "type" : "quiz",
+        "content" : "69d7e91528fe032bb2529cc2",
+        "percent" : 0.0,
+        "_id" : "69d7e91728fe032bb2529ccd"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69d7e91528fe032bb2529cc1"
+    }, {
+      "folder" : true,
+      "title" : "Minha Experiência com os Programas do Governo",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Minha Experiência com os Programas do Governo",
+        "type" : "listen",
+        "content" : "69d7e91828fe032bb2529ccf",
+        "percent" : 0.0,
+        "_id" : "69d7e91928fe032bb2529cd5"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69d7e91728fe032bb2529cce"
+    }, {
+      "folder" : true,
+      "title" : "Checkpoint 2 — Módulo G",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Módulo G2 - O Peixe e o Recurso Público",
+        "type" : "cartoon",
+        "content" : "pg2",
+        "percent" : 0.0,
+        "_id" : "FrSousw"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69dbd9e2d95d627e2bdc01a0"
+    }, {
+      "folder" : true,
+      "title" : "Meu Compromisso com a Integridade",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Meu Compromisso com a Integridade",
+        "type" : "chest",
+        "content" : "69d7e91928fe032bb2529cd7",
+        "percent" : 0.0,
+        "_id" : "69d7e91928fe032bb2529cd9"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69d7e91928fe032bb2529cd6"
+    }, {
+      "folder" : true,
+      "title" : "Revisão Geral: Módulo G",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Revisão Geral: Módulo G",
+        "type" : "review",
+        "content" : "69d7e91a28fe032bb2529cdb",
+        "percent" : 0.0,
+        "_id" : "69d7e91c28fe032bb2529ce6"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69d7e91a28fe032bb2529cda"
+    } ],
+    "total" : 11,
+    "done" : 0,
+    "percent" : 0.0,
+    "is_unlocked" : false,
+    "_id" : "69d7e90e28fe032bb2529c9b"
+  } ],
+  "player" : "3087432610",
+  "total" : 90,
+  "done" : 3,
+  "percent" : 3.3333333333333335,
+  "time" : 1777334269150,
+  "_id" : "69d28273505f02177b0d9658"
+}

@@ -84,6 +84,11 @@ angular.module('rotaViva')
         });
     };
 
+    api.getFoldersByParent = function(parentId) {
+        return $http.get(baseUrl + '/v3/database/folder?q=parent:\'' + parentId + '\'', trailHeaders())
+            .then(function(res) { return Array.isArray(res.data) ? res.data : []; });
+    };
+
     api.folderBreadcrumb = function(folderId) {
         return $http.post(baseUrl + '/v3/folder/breadcrumb', { folder: folderId }, trailHeaders()).then(function(res) {
             return res.data || [];

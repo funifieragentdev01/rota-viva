@@ -1,0 +1,1629 @@
+{
+  "folder" : true,
+  "title" : "Rota do Mel",
+  "type" : "subject",
+  "items" : [ {
+    "folder" : true,
+    "title" : "Início",
+    "type" : "module",
+    "items" : [ {
+      "folder" : true,
+      "title" : "O Mundo Depende de Você",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "O Mundo Depende de Você",
+        "type" : "video",
+        "content" : "69dbaaaad95d627e2bdbbdd3",
+        "percent" : 100.0,
+        "time" : 1777061472437,
+        "_id" : "69dbaaaad95d627e2bdbbdd5"
+      } ],
+      "total" : 1,
+      "done" : 1,
+      "percent" : 100.0,
+      "time" : 1777374897815,
+      "is_unlocked" : true,
+      "_id" : "69dbaaaad95d627e2bdbbdd2"
+    }, {
+      "folder" : true,
+      "title" : "Avaliação: O Mundo Depende de Você",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Avaliação: O Mundo Depende de Você",
+        "type" : "quiz",
+        "content" : "69dbaaabd95d627e2bdbbdd7",
+        "percent" : 100.0,
+        "time" : 1777061520166,
+        "_id" : "69dbaaadd95d627e2bdbbde8"
+      } ],
+      "total" : 1,
+      "done" : 1,
+      "percent" : 100.0,
+      "time" : 1777061520166,
+      "is_unlocked" : true,
+      "_id" : "69dbaaaad95d627e2bdbbdd6"
+    }, {
+      "folder" : true,
+      "title" : "Como Funciona Uma Colmeia",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Como Funciona Uma Colmeia",
+        "type" : "video",
+        "content" : "69dbaaadd95d627e2bdbbdea",
+        "percent" : 100.0,
+        "time" : 1777061548800,
+        "_id" : "69dbaaadd95d627e2bdbbded"
+      } ],
+      "total" : 1,
+      "done" : 1,
+      "percent" : 100.0,
+      "time" : 1777331657077,
+      "is_unlocked" : true,
+      "_id" : "69dbaaadd95d627e2bdbbde9"
+    }, {
+      "folder" : true,
+      "title" : "Cartoon 1",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Início 1 - Um Presente da Caatinga",
+        "type" : "cartoon",
+        "content" : "in1",
+        "percent" : 0.0,
+        "_id" : "69dbb59cd95d627e2bdbd553"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : true,
+      "_id" : "69dbaaafd95d627e2bdbbe00"
+    }, {
+      "folder" : true,
+      "title" : "Avaliação: Como Funciona Uma Colmeia",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Avaliação: Como Funciona Uma Colmeia",
+        "type" : "quiz",
+        "content" : "69dbaaadd95d627e2bdbbdf0",
+        "percent" : 0.0,
+        "_id" : "69dbaaafd95d627e2bdbbdff"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : true,
+      "_id" : "69dbaaadd95d627e2bdbbdef"
+    }, {
+      "folder" : true,
+      "title" : "Um Dia na Vida de Um Apicultor",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Um Dia na Vida de Um Apicultor",
+        "type" : "video",
+        "content" : "69dbaab0d95d627e2bdbbe03",
+        "percent" : 0.0,
+        "_id" : "69dbaab0d95d627e2bdbbe05"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69dbaab0d95d627e2bdbbe02"
+    }, {
+      "folder" : true,
+      "title" : "Avaliação: Um Dia na Vida de Um Apicultor",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Avaliação: Um Dia na Vida de Um Apicultor",
+        "type" : "quiz",
+        "content" : "69dbaab0d95d627e2bdbbe07",
+        "percent" : 0.0,
+        "_id" : "69dbaab2d95d627e2bdbbe18"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69dbaab0d95d627e2bdbbe06"
+    }, {
+      "folder" : true,
+      "title" : "O Negócio do Mel",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "O Negócio do Mel",
+        "type" : "reading",
+        "content" : "69dbaab2d95d627e2bdbbe1a",
+        "percent" : 0.0,
+        "_id" : "69dbaab3d95d627e2bdbbe1b"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69dbaab2d95d627e2bdbbe19"
+    }, {
+      "folder" : true,
+      "title" : "Cartoon 2",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Início 2 - A Hora Certa",
+        "type" : "cartoon",
+        "content" : "in2",
+        "percent" : 0.0,
+        "_id" : "69dbb59cd95d627e2bdbd554"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69dbaab5d95d627e2bdbbe32"
+    }, {
+      "folder" : true,
+      "title" : "Avaliação: O Negócio do Mel",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Avaliação: O Negócio do Mel",
+        "type" : "quiz",
+        "content" : "69dbaab3d95d627e2bdbbe1f",
+        "percent" : 0.0,
+        "_id" : "69dbaab5d95d627e2bdbbe2e"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : true,
+      "_id" : "69dbaab3d95d627e2bdbbe1c"
+    }, {
+      "folder" : true,
+      "title" : "Escuta Ativa: Minha Trajetória na Apicultura",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Escuta Ativa: Minha Trajetória na Apicultura",
+        "type" : "essay",
+        "content" : "69dbaab5d95d627e2bdbbe35",
+        "percent" : 0.0,
+        "_id" : "69dbaab6d95d627e2bdbbe3c"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69dbaab5d95d627e2bdbbe34"
+    }, {
+      "folder" : true,
+      "title" : "Diário: Meu Apiário no Mapa",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Diário: Meu Apiário no Mapa",
+        "type" : "chest",
+        "content" : "69dbaab7d95d627e2bdbbe40",
+        "percent" : 0.0,
+        "_id" : "69dbaab7d95d627e2bdbbe43"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69dbaab7d95d627e2bdbbe3d"
+    }, {
+      "folder" : true,
+      "title" : "Revisão Geral: Módulo Início",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Revisão Geral: Módulo Início",
+        "type" : "review",
+        "content" : "69dbaab7d95d627e2bdbbe45",
+        "percent" : 0.0,
+        "_id" : "69dbaab9d95d627e2bdbbe55"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69dbaab7d95d627e2bdbbe44"
+    } ],
+    "total" : 13,
+    "done" : 3,
+    "percent" : 23.076923076923077,
+    "time" : 1777374897815,
+    "is_unlocked" : true,
+    "_id" : "69d7a4ca28fe032bb2524289"
+  }, {
+    "folder" : true,
+    "title" : "Módulo A — Programas do Governo",
+    "type" : "module",
+    "items" : [ {
+      "folder" : true,
+      "title" : "Você Tem Direitos — Conheça os Programas",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Você Tem Direitos — Conheça os Programas",
+        "type" : "video",
+        "content" : "69d7ab7e28fe032bb2524456",
+        "percent" : 0.0,
+        "_id" : "69d7ab7f28fe032bb2524457"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : true,
+      "_id" : "69d7ab7e28fe032bb2524455"
+    }, {
+      "folder" : true,
+      "title" : "Avaliação: Você Tem Direitos",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Avaliação: Você Tem Direitos",
+        "type" : "quiz",
+        "content" : "69d7ab7f28fe032bb2524459",
+        "percent" : 0.0,
+        "_id" : "69d7ab8128fe032bb2524464"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69d7ab7f28fe032bb2524458"
+    }, {
+      "folder" : true,
+      "title" : "CAF e PRONAF: Como Acessar Crédito Rural",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "CAF e PRONAF: Como Acessar Crédito Rural",
+        "type" : "video",
+        "content" : "69d7ab8228fe032bb2524466",
+        "percent" : 0.0,
+        "_id" : "69d7ab8228fe032bb2524467"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69d7ab8228fe032bb2524465"
+    }, {
+      "folder" : true,
+      "title" : "Cartoon 1 — Módulo A",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Módulo A1 - O Dia do Mutirão",
+        "type" : "cartoon",
+        "content" : "ma1",
+        "percent" : 0.0,
+        "_id" : "69dbd6cbd95d627e2bdc00b3"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69dbd6cbd95d627e2bdc00b2"
+    }, {
+      "folder" : true,
+      "title" : "Avaliação: CAF e PRONAF",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Avaliação: CAF e PRONAF",
+        "type" : "quiz",
+        "content" : "69d7ab8228fe032bb2524469",
+        "percent" : 0.0,
+        "_id" : "69d7ab8528fe032bb2524474"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69d7ab8228fe032bb2524468"
+    }, {
+      "folder" : true,
+      "title" : "Mel na Merenda: PAA, PNAE e ATER",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Mel na Merenda: PAA, PNAE e ATER",
+        "type" : "reading",
+        "content" : "69d7ab8528fe032bb2524476",
+        "percent" : 0.0,
+        "_id" : "69d7ab8528fe032bb2524477"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69d7ab8528fe032bb2524475"
+    }, {
+      "folder" : true,
+      "title" : "Avaliação: PAA, PNAE e ATER",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Avaliação: PAA, PNAE e ATER",
+        "type" : "quiz",
+        "content" : "69d7ab8628fe032bb2524479",
+        "percent" : 0.0,
+        "_id" : "69d7ab8728fe032bb2524484"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69d7ab8528fe032bb2524478"
+    }, {
+      "folder" : true,
+      "title" : "Minha Situação com os Programas",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Minha Situação com os Programas",
+        "type" : "listen",
+        "content" : "69d7ab8828fe032bb2524486",
+        "percent" : 0.0,
+        "_id" : "69d7ab8928fe032bb252448c"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69d7ab8828fe032bb2524485"
+    }, {
+      "folder" : true,
+      "title" : "Cartoon 2 — Módulo A",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Módulo A2 - O Mel na Merenda",
+        "type" : "cartoon",
+        "content" : "ma2",
+        "percent" : 0.0,
+        "_id" : "69dbd6ccd95d627e2bdc00b5"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69dbd6ccd95d627e2bdc00b4"
+    }, {
+      "folder" : true,
+      "title" : "Meu CAF",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Meu CAF",
+        "type" : "chest",
+        "content" : "69d7ab8928fe032bb252448e",
+        "percent" : 0.0,
+        "_id" : "69d7ab8a28fe032bb2524490"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69d7ab8928fe032bb252448d"
+    }, {
+      "folder" : true,
+      "title" : "Revisão Geral: Módulo A",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Revisão Geral: Módulo A",
+        "type" : "review",
+        "content" : "69d7ab8a28fe032bb2524492",
+        "percent" : 0.0,
+        "_id" : "69d7ab8c28fe032bb252449d"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69d7ab8a28fe032bb2524491"
+    } ],
+    "total" : 11,
+    "done" : 0,
+    "percent" : 0.0,
+    "is_unlocked" : false,
+    "_id" : "69d7ab7e28fe032bb2524454"
+  }, {
+    "folder" : true,
+    "title" : "Módulo B — Boas Práticas Produtivas",
+    "type" : "module",
+    "items" : [ {
+      "folder" : true,
+      "title" : "O Calendário Apícola — Quando Fazer o Quê",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "O Calendário Apícola — Quando Fazer o Quê",
+        "type" : "video",
+        "content" : "69d7aeb028fe032bb2524662",
+        "percent" : 0.0,
+        "_id" : "69d7aeb128fe032bb2524663"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : true,
+      "_id" : "69d7aeb028fe032bb2524661"
+    }, {
+      "folder" : true,
+      "title" : "Avaliação: O Calendário Apícola",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Avaliação: O Calendário Apícola",
+        "type" : "quiz",
+        "content" : "69d7aeb128fe032bb2524665",
+        "percent" : 0.0,
+        "_id" : "69d7aeb328fe032bb2524670"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69d7aeb128fe032bb2524664"
+    }, {
+      "folder" : true,
+      "title" : "Manejo das Colmeias com Segurança",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Manejo das Colmeias com Segurança",
+        "type" : "video",
+        "content" : "69d7aeb328fe032bb2524679",
+        "percent" : 0.0,
+        "_id" : "69d7aeb328fe032bb252467b"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69d7aeb328fe032bb2524672"
+    }, {
+      "folder" : true,
+      "title" : "Checkpoint 1 — Módulo B",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Módulo B1 - A Colheita de Pedro",
+        "type" : "cartoon",
+        "content" : "mb1",
+        "percent" : 0.0,
+        "_id" : "69dbd867d95d627e2bdc00d1"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69dbd867d95d627e2bdc00d0"
+    }, {
+      "folder" : true,
+      "title" : "Avaliação: Manejo das Colmeias",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Avaliação: Manejo das Colmeias",
+        "type" : "quiz",
+        "content" : "69d7aeb428fe032bb2524686",
+        "percent" : 0.0,
+        "_id" : "69d7aeb628fe032bb2524691"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69d7aeb428fe032bb2524685"
+    }, {
+      "folder" : true,
+      "title" : "Extração e Processamento com Qualidade",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Extração e Processamento com Qualidade",
+        "type" : "reading",
+        "content" : "69d7aeb628fe032bb2524693",
+        "percent" : 0.0,
+        "_id" : "69d7aeb628fe032bb2524694"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69d7aeb628fe032bb2524692"
+    }, {
+      "folder" : true,
+      "title" : "Avaliação: Extração e Processamento",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Avaliação: Extração e Processamento",
+        "type" : "quiz",
+        "content" : "69d7aeb728fe032bb2524696",
+        "percent" : 0.0,
+        "_id" : "69d7aeb828fe032bb25246a3"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69d7aeb628fe032bb2524695"
+    }, {
+      "folder" : true,
+      "title" : "Minhas Práticas no Apiário",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Minhas Práticas no Apiário",
+        "type" : "listen",
+        "content" : "69d7aeb928fe032bb25246a5",
+        "percent" : 0.0,
+        "_id" : "69d7aeba28fe032bb25246ab"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69d7aeb928fe032bb25246a4"
+    }, {
+      "folder" : true,
+      "title" : "Checkpoint 2 — Módulo B",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Módulo B2 - O Mel da Escola",
+        "type" : "cartoon",
+        "content" : "mb2",
+        "percent" : 0.0,
+        "_id" : "69dbd868d95d627e2bdc00da"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69dbd868d95d627e2bdc00d9"
+    }, {
+      "folder" : true,
+      "title" : "Meu Manejo de Hoje",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Meu Manejo de Hoje",
+        "type" : "chest",
+        "content" : "69d7aeba28fe032bb25246ae",
+        "percent" : 0.0,
+        "_id" : "69d7aebb28fe032bb25246b0"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69d7aeba28fe032bb25246ad"
+    }, {
+      "folder" : true,
+      "title" : "Revisão Geral: Módulo B",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Revisão Geral: Módulo B",
+        "type" : "review",
+        "content" : "69d7aebb28fe032bb25246b2",
+        "percent" : 0.0,
+        "_id" : "69d7aebd28fe032bb25246bd"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69d7aebb28fe032bb25246b1"
+    } ],
+    "total" : 11,
+    "done" : 0,
+    "percent" : 0.0,
+    "is_unlocked" : false,
+    "_id" : "69d7aeb028fe032bb2524660"
+  }, {
+    "folder" : true,
+    "title" : "Módulo C — Qualidade e Certificação",
+    "type" : "module",
+    "items" : [ {
+      "folder" : true,
+      "title" : "O Mel de Qualidade Abre Portas",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "O Mel de Qualidade Abre Portas",
+        "type" : "video",
+        "content" : "69d7b0bd28fe032bb2524d4b",
+        "percent" : 0.0,
+        "_id" : "69d7b0bd28fe032bb2524d4c"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : true,
+      "_id" : "69d7b0bd28fe032bb2524d4a"
+    }, {
+      "folder" : true,
+      "title" : "Avaliação: O Mel de Qualidade Abre Portas",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Avaliação: O Mel de Qualidade Abre Portas",
+        "type" : "quiz",
+        "content" : "69d7b0be28fe032bb2524d4e",
+        "percent" : 0.0,
+        "_id" : "69d7b0c028fe032bb2524d59"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69d7b0be28fe032bb2524d4d"
+    }, {
+      "folder" : true,
+      "title" : "Inspeção Sanitária: SIM, SIE e SIF",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Inspeção Sanitária: SIM, SIE e SIF",
+        "type" : "video",
+        "content" : "69d7b0c028fe032bb2524d5b",
+        "percent" : 0.0,
+        "_id" : "69d7b0c028fe032bb2524d5c"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69d7b0c028fe032bb2524d5a"
+    }, {
+      "folder" : true,
+      "title" : "Checkpoint 1 — Módulo C",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Módulo C1 - O Mel Que Passa da Porta",
+        "type" : "cartoon",
+        "content" : "mc1",
+        "percent" : 0.0,
+        "_id" : "69dbd86dd95d627e2bdc00f5"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69dbd86dd95d627e2bdc00f4"
+    }, {
+      "folder" : true,
+      "title" : "Avaliação: Inspeção Sanitária do Mel",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Avaliação: Inspeção Sanitária do Mel",
+        "type" : "quiz",
+        "content" : "69d7b0c128fe032bb2524d5e",
+        "percent" : 0.0,
+        "_id" : "69d7b0c228fe032bb2524d69"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69d7b0c028fe032bb2524d5d"
+    }, {
+      "folder" : true,
+      "title" : "Certificação Orgânica e Rotulagem do Mel",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Certificação Orgânica e Rotulagem do Mel",
+        "type" : "reading",
+        "content" : "69d7b0c328fe032bb2524d6b",
+        "percent" : 0.0,
+        "_id" : "69d7b0c328fe032bb2524d6c"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69d7b0c328fe032bb2524d6a"
+    }, {
+      "folder" : true,
+      "title" : "Avaliação: Certificação Orgânica e Rotulagem",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Avaliação: Certificação Orgânica e Rotulagem",
+        "type" : "quiz",
+        "content" : "69d7b0c328fe032bb2524d6e",
+        "percent" : 0.0,
+        "_id" : "69d7b0c528fe032bb2524d79"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69d7b0c328fe032bb2524d6d"
+    }, {
+      "folder" : true,
+      "title" : "Minha Situação com Qualidade",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Minha Situação com Qualidade",
+        "type" : "listen",
+        "content" : "69d7b0c628fe032bb2524d7b",
+        "percent" : 0.0,
+        "_id" : "69d7b0c728fe032bb2524d81"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69d7b0c528fe032bb2524d7a"
+    }, {
+      "folder" : true,
+      "title" : "Checkpoint 2 — Módulo C",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Módulo C2 - O Rótulo de Dona Maria",
+        "type" : "cartoon",
+        "content" : "mc2",
+        "percent" : 0.0,
+        "_id" : "69dbd86fd95d627e2bdc00fe"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69dbd86fd95d627e2bdc00fd"
+    }, {
+      "folder" : true,
+      "title" : "Meu Mel tem Qualidade",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Meu Mel tem Qualidade",
+        "type" : "chest",
+        "content" : "69d7b0c728fe032bb2524d83",
+        "percent" : 0.0,
+        "_id" : "69d7b0c728fe032bb2524d85"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69d7b0c728fe032bb2524d82"
+    }, {
+      "folder" : true,
+      "title" : "Revisão Geral: Módulo C",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Revisão Geral: Módulo C",
+        "type" : "review",
+        "content" : "69d7b0c828fe032bb2524d87",
+        "percent" : 0.0,
+        "_id" : "69d7b0ca28fe032bb2524da1"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69d7b0c828fe032bb2524d86"
+    } ],
+    "total" : 11,
+    "done" : 0,
+    "percent" : 0.0,
+    "is_unlocked" : false,
+    "_id" : "69d7b0bd28fe032bb2524d49"
+  }, {
+    "folder" : true,
+    "title" : "Módulo D — Venda Justa",
+    "type" : "module",
+    "items" : [ {
+      "folder" : true,
+      "title" : "Quanto Vale o Seu Mel?",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Quanto Vale o Seu Mel?",
+        "type" : "video",
+        "content" : "69d7d3b828fe032bb2527dd8",
+        "percent" : 0.0,
+        "_id" : "69d7d3b828fe032bb2527dd9"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : true,
+      "_id" : "69d7d3b828fe032bb2527dd7"
+    }, {
+      "folder" : true,
+      "title" : "Avaliação: Quanto Vale o Seu Mel?",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Avaliação: Quanto Vale o Seu Mel?",
+        "type" : "quiz",
+        "content" : "69d7d3b828fe032bb2527ddb",
+        "percent" : 0.0,
+        "_id" : "69d7d3ba28fe032bb2527de6"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69d7d3b828fe032bb2527dda"
+    }, {
+      "folder" : true,
+      "title" : "Onde e Para Quem Vender o Mel",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Onde e Para Quem Vender o Mel",
+        "type" : "video",
+        "content" : "69d7d3bb28fe032bb2527de8",
+        "percent" : 0.0,
+        "_id" : "69d7d3bb28fe032bb2527de9"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69d7d3ba28fe032bb2527de7"
+    }, {
+      "folder" : true,
+      "title" : "Checkpoint 1 — Módulo D",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Módulo D1 - O Preço que o Mel Não Mostra",
+        "type" : "cartoon",
+        "content" : "md1",
+        "percent" : 0.0,
+        "_id" : "69dbd873d95d627e2bdc0119"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69dbd873d95d627e2bdc0118"
+    }, {
+      "folder" : true,
+      "title" : "Avaliação: Onde e Para Quem Vender",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Avaliação: Onde e Para Quem Vender",
+        "type" : "quiz",
+        "content" : "69d7d3bb28fe032bb2527deb",
+        "percent" : 0.0,
+        "_id" : "69d7d3bd28fe032bb2527df7"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69d7d3bb28fe032bb2527dea"
+    }, {
+      "folder" : true,
+      "title" : "Nota Fiscal, MEI e a Cooperativa como Parceira",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Nota Fiscal, MEI e a Cooperativa como Parceira",
+        "type" : "reading",
+        "content" : "69d7d3bd28fe032bb2527df9",
+        "percent" : 0.0,
+        "_id" : "69d7d3bd28fe032bb2527dfa"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69d7d3bd28fe032bb2527df8"
+    }, {
+      "folder" : true,
+      "title" : "Avaliação: Nota Fiscal, MEI e Cooperativa",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Avaliação: Nota Fiscal, MEI e Cooperativa",
+        "type" : "quiz",
+        "content" : "69d7d3be28fe032bb2527dfc",
+        "percent" : 0.0,
+        "_id" : "69d7d3bf28fe032bb2527e06"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69d7d3be28fe032bb2527dfb"
+    }, {
+      "folder" : true,
+      "title" : "Minha Situação na Venda do Mel",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Minha Situação na Venda do Mel",
+        "type" : "listen",
+        "content" : "69d7d3c028fe032bb2527e08",
+        "percent" : 0.0,
+        "_id" : "69d7d3c128fe032bb2527e0e"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69d7d3c028fe032bb2527e07"
+    }, {
+      "folder" : true,
+      "title" : "Checkpoint 2 — Módulo D",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Módulo D2 - A Porta do Mercado",
+        "type" : "cartoon",
+        "content" : "md2",
+        "percent" : 0.0,
+        "_id" : "69dbd875d95d627e2bdc0122"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69dbd875d95d627e2bdc0121"
+    }, {
+      "folder" : true,
+      "title" : "Meu Registro de Venda",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Meu Registro de Venda",
+        "type" : "chest",
+        "content" : "69d7d3c128fe032bb2527e10",
+        "percent" : 0.0,
+        "_id" : "69d7d3c128fe032bb2527e12"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69d7d3c128fe032bb2527e0f"
+    }, {
+      "folder" : true,
+      "title" : "Revisão Geral: Módulo D",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Revisão Geral: Módulo D",
+        "type" : "review",
+        "content" : "69d7d3c228fe032bb2527e14",
+        "percent" : 0.0,
+        "_id" : "69d7d3c328fe032bb2527e1f"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69d7d3c228fe032bb2527e13"
+    } ],
+    "total" : 11,
+    "done" : 0,
+    "percent" : 0.0,
+    "is_unlocked" : false,
+    "_id" : "69d7d3b728fe032bb2527dd4"
+  }, {
+    "folder" : true,
+    "title" : "Módulo E — Cuide da Colmeia, Cuide do Planeta",
+    "type" : "module",
+    "items" : [ {
+      "folder" : true,
+      "title" : "Saúde das Colmeias: Varroa, Loque e Medicamentos",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Saúde das Colmeias: Varroa, Loque e Medicamentos",
+        "type" : "video",
+        "content" : "69d7d74928fe032bb2527efc",
+        "percent" : 0.0,
+        "_id" : "69d7d74928fe032bb2527efd"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : true,
+      "_id" : "69d7d74928fe032bb2527efb"
+    }, {
+      "folder" : true,
+      "title" : "Avaliação: Saúde das Colmeias",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Avaliação: Saúde das Colmeias",
+        "type" : "quiz",
+        "content" : "69d7d74a28fe032bb2527eff",
+        "percent" : 0.0,
+        "_id" : "69d7d74c28fe032bb2527f0b"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69d7d74a28fe032bb2527efe"
+    }, {
+      "folder" : true,
+      "title" : "Boas Práticas na Casa de Mel",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Boas Práticas na Casa de Mel",
+        "type" : "video",
+        "content" : "69d7d74c28fe032bb2527f0d",
+        "percent" : 0.0,
+        "_id" : "69d7d74c28fe032bb2527f0e"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69d7d74c28fe032bb2527f0c"
+    }, {
+      "folder" : true,
+      "title" : "Checkpoint 1 — Módulo E",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Módulo E1 - O Inimigo da Colmeia",
+        "type" : "cartoon",
+        "content" : "me1",
+        "percent" : 0.0,
+        "_id" : "69dbd9d2d95d627e2bdc013e"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69dbd9d2d95d627e2bdc013d"
+    }, {
+      "folder" : true,
+      "title" : "Avaliação: Boas Práticas na Casa de Mel",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Avaliação: Boas Práticas na Casa de Mel",
+        "type" : "quiz",
+        "content" : "69d7d74d28fe032bb2527f10",
+        "percent" : 0.0,
+        "_id" : "69d7d74f28fe032bb2527f1c"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69d7d74c28fe032bb2527f0f"
+    }, {
+      "folder" : true,
+      "title" : "O Apicultor como Guardião da Caatinga",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "O Apicultor como Guardião da Caatinga",
+        "type" : "reading",
+        "content" : "69d7d74f28fe032bb2527f1e",
+        "percent" : 0.0,
+        "_id" : "69d7d74f28fe032bb2527f1f"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69d7d74f28fe032bb2527f1d"
+    }, {
+      "folder" : true,
+      "title" : "Avaliação: Apicultor e a Caatinga",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Avaliação: Apicultor e a Caatinga",
+        "type" : "quiz",
+        "content" : "69d7d75028fe032bb2527f21",
+        "percent" : 0.0,
+        "_id" : "69d7d75228fe032bb2527f2c"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69d7d74f28fe032bb2527f20"
+    }, {
+      "folder" : true,
+      "title" : "Minha Relação com as Colmeias e o Ambiente",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Minha Relação com as Colmeias e o Ambiente",
+        "type" : "listen",
+        "content" : "69d7d75228fe032bb2527f2e",
+        "percent" : 0.0,
+        "_id" : "69d7d75328fe032bb2527f36"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69d7d75228fe032bb2527f2d"
+    }, {
+      "folder" : true,
+      "title" : "Checkpoint 2 — Módulo E",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Módulo E2 - As Abelhas da Caatinga",
+        "type" : "cartoon",
+        "content" : "me2",
+        "percent" : 0.0,
+        "_id" : "69dbd9d4d95d627e2bdc0147"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69dbd9d4d95d627e2bdc0146"
+    }, {
+      "folder" : true,
+      "title" : "Meu Registro de Manejo Sanitário",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Meu Registro de Manejo Sanitário",
+        "type" : "chest",
+        "content" : "69d7d75328fe032bb2527f38",
+        "percent" : 0.0,
+        "_id" : "69d7d75428fe032bb2527f3a"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69d7d75328fe032bb2527f37"
+    }, {
+      "folder" : true,
+      "title" : "Revisão Geral: Módulo E",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Revisão Geral: Módulo E",
+        "type" : "review",
+        "content" : "69d7d75428fe032bb2527f3c",
+        "percent" : 0.0,
+        "_id" : "69d7d75628fe032bb2527f4a"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69d7d75428fe032bb2527f3b"
+    } ],
+    "total" : 11,
+    "done" : 0,
+    "percent" : 0.0,
+    "is_unlocked" : false,
+    "_id" : "69d7d74928fe032bb2527efa"
+  }, {
+    "folder" : true,
+    "title" : "Módulo F — Sua Voz Vale: Liderança e Participação",
+    "type" : "module",
+    "items" : [ {
+      "folder" : true,
+      "title" : "Sua Voz no Campo: CMDR, Associações e Conselhos",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Sua Voz no Campo: CMDR, Associações e Conselhos",
+        "type" : "video",
+        "content" : "69d7db3028fe032bb25284b9",
+        "percent" : 0.0,
+        "_id" : "69d7db3028fe032bb25284ba"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : true,
+      "_id" : "69d7db2f28fe032bb25284b8"
+    }, {
+      "folder" : true,
+      "title" : "Avaliação: CMDR, Associações e Participação Coletiva",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Avaliação: CMDR, Associações e Participação Coletiva",
+        "type" : "quiz",
+        "content" : "69d7db3028fe032bb25284bc",
+        "percent" : 0.0,
+        "_id" : "69d7db3228fe032bb25284c9"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69d7db3028fe032bb25284bb"
+    }, {
+      "folder" : true,
+      "title" : "Audiências Públicas e Como Fazer Sua Voz Chegar ao Governo",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Audiências Públicas e Como Fazer Sua Voz Chegar ao Governo",
+        "type" : "video",
+        "content" : "69d7db3328fe032bb25284cb",
+        "percent" : 0.0,
+        "_id" : "69d7db3328fe032bb25284cc"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69d7db3228fe032bb25284ca"
+    }, {
+      "folder" : true,
+      "title" : "Checkpoint 1 — Módulo F",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Módulo F1 - Sua Voz no Conselho",
+        "type" : "cartoon",
+        "content" : "mf1",
+        "percent" : 0.0,
+        "_id" : "69dbd9d8d95d627e2bdc0162"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69dbd9d8d95d627e2bdc0161"
+    }, {
+      "folder" : true,
+      "title" : "Avaliação: Audiências Públicas e Incidência Política",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Avaliação: Audiências Públicas e Incidência Política",
+        "type" : "quiz",
+        "content" : "69d7db3328fe032bb25284ce",
+        "percent" : 0.0,
+        "_id" : "69d7db3528fe032bb25284da"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69d7db3328fe032bb25284cd"
+    }, {
+      "folder" : true,
+      "title" : "Rota Viva: Você é Fonte de Política Pública",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Rota Viva: Você é Fonte de Política Pública",
+        "type" : "reading",
+        "content" : "69d7db3628fe032bb25284dc",
+        "percent" : 0.0,
+        "_id" : "69d7db3628fe032bb25284dd"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69d7db3528fe032bb25284db"
+    }, {
+      "folder" : true,
+      "title" : "Avaliação: Liderança, Participação e Rota Viva",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Avaliação: Liderança, Participação e Rota Viva",
+        "type" : "quiz",
+        "content" : "69d7db3628fe032bb25284df",
+        "percent" : 0.0,
+        "_id" : "69d7db3828fe032bb25284ea"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69d7db3628fe032bb25284de"
+    }, {
+      "folder" : true,
+      "title" : "Minha Voz e Minha Comunidade",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Minha Voz e Minha Comunidade",
+        "type" : "listen",
+        "content" : "69d7db3828fe032bb25284ec",
+        "percent" : 0.0,
+        "_id" : "69d7db3928fe032bb25284f2"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69d7db3828fe032bb25284eb"
+    }, {
+      "folder" : true,
+      "title" : "Checkpoint 2 — Módulo F",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Módulo F2 - A Voz na Audiência",
+        "type" : "cartoon",
+        "content" : "mf2",
+        "percent" : 0.0,
+        "_id" : "69dbd9dad95d627e2bdc016b"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69dbd9d9d95d627e2bdc016a"
+    }, {
+      "folder" : true,
+      "title" : "Meu Compromisso de Participação",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Meu Compromisso de Participação",
+        "type" : "chest",
+        "content" : "69d7db3a28fe032bb25284f4",
+        "percent" : 0.0,
+        "_id" : "69d7db3a28fe032bb25284f6"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69d7db3a28fe032bb25284f3"
+    }, {
+      "folder" : true,
+      "title" : "Revisão Geral: Módulo F",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Revisão Geral: Módulo F",
+        "type" : "review",
+        "content" : "69d7db3a28fe032bb25284f8",
+        "percent" : 0.0,
+        "_id" : "69d7db3c28fe032bb2528503"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69d7db3a28fe032bb25284f7"
+    } ],
+    "total" : 11,
+    "done" : 0,
+    "percent" : 0.0,
+    "is_unlocked" : false,
+    "_id" : "69d7db2f28fe032bb25284b7"
+  }, {
+    "folder" : true,
+    "title" : "Módulo G — Integridade e Cidadania",
+    "type" : "module",
+    "items" : [ {
+      "folder" : true,
+      "title" : "Seus Direitos como Participante do Rota Viva",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Seus Direitos como Participante do Rota Viva",
+        "type" : "video",
+        "content" : "69d7e8fd28fe032bb2529c51",
+        "percent" : 0.0,
+        "_id" : "69d7e8fd28fe032bb2529c52"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : true,
+      "_id" : "69d7e8fd28fe032bb2529c50"
+    }, {
+      "folder" : true,
+      "title" : "Avaliação: Seus Direitos como Participante",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Avaliação: Seus Direitos como Participante",
+        "type" : "quiz",
+        "content" : "69d7e8fd28fe032bb2529c54",
+        "percent" : 0.0,
+        "_id" : "69d7e90028fe032bb2529c60"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69d7e8fd28fe032bb2529c53"
+    }, {
+      "folder" : true,
+      "title" : "Como Denunciar Irregularidades — Seus Canais de Proteção",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Como Denunciar Irregularidades — Seus Canais de Proteção",
+        "type" : "video",
+        "content" : "69d7e90028fe032bb2529c62",
+        "percent" : 0.0,
+        "_id" : "69d7e90028fe032bb2529c63"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69d7e90028fe032bb2529c61"
+    }, {
+      "folder" : true,
+      "title" : "Checkpoint 1 — Módulo G",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Módulo G1 - Seus Direitos no Rota Viva",
+        "type" : "cartoon",
+        "content" : "mg1",
+        "percent" : 0.0,
+        "_id" : "69dbd9ded95d627e2bdc0186"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69dbd9ded95d627e2bdc0185"
+    }, {
+      "folder" : true,
+      "title" : "Avaliação: Canais de Denúncia e Proteção",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Avaliação: Canais de Denúncia e Proteção",
+        "type" : "quiz",
+        "content" : "69d7e90028fe032bb2529c65",
+        "percent" : 0.0,
+        "_id" : "69d7e90228fe032bb2529c71"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69d7e90028fe032bb2529c64"
+    }, {
+      "folder" : true,
+      "title" : "Uso Correto dos Recursos Públicos: Seu Compromisso com a Integridade",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Uso Correto dos Recursos Públicos: Seu Compromisso com a Integridade",
+        "type" : "reading",
+        "content" : "69d7e90328fe032bb2529c73",
+        "percent" : 0.0,
+        "_id" : "69d7e90328fe032bb2529c74"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69d7e90328fe032bb2529c72"
+    }, {
+      "folder" : true,
+      "title" : "Avaliação: Integridade e Uso dos Recursos Públicos",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Avaliação: Integridade e Uso dos Recursos Públicos",
+        "type" : "quiz",
+        "content" : "69d7e90328fe032bb2529c76",
+        "percent" : 0.0,
+        "_id" : "69d7e90528fe032bb2529c81"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69d7e90328fe032bb2529c75"
+    }, {
+      "folder" : true,
+      "title" : "Minha Experiência com os Programas do Governo",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Minha Experiência com os Programas do Governo",
+        "type" : "listen",
+        "content" : "69d7e90628fe032bb2529c83",
+        "percent" : 0.0,
+        "_id" : "69d7e90728fe032bb2529c89"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69d7e90528fe032bb2529c82"
+    }, {
+      "folder" : true,
+      "title" : "Checkpoint 2 — Módulo G",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Módulo G2 - O Mel e o Recurso Público",
+        "type" : "cartoon",
+        "content" : "mg2",
+        "percent" : 0.0,
+        "_id" : "69dbd9dfd95d627e2bdc018f"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69dbd9dfd95d627e2bdc018e"
+    }, {
+      "folder" : true,
+      "title" : "Meu Compromisso com a Integridade",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Meu Compromisso com a Integridade",
+        "type" : "chest",
+        "content" : "69d7e90728fe032bb2529c8b",
+        "percent" : 0.0,
+        "_id" : "69d7e90728fe032bb2529c8d"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69d7e90728fe032bb2529c8a"
+    }, {
+      "folder" : true,
+      "title" : "Revisão Geral: Módulo G",
+      "type" : "lesson",
+      "items" : [ {
+        "folder" : false,
+        "title" : "Revisão Geral: Módulo G",
+        "type" : "review",
+        "content" : "69d7e90828fe032bb2529c8f",
+        "percent" : 0.0,
+        "_id" : "69d7e90a28fe032bb2529c9a"
+      } ],
+      "total" : 1,
+      "done" : 0,
+      "percent" : 0.0,
+      "is_unlocked" : false,
+      "_id" : "69d7e90828fe032bb2529c8e"
+    } ],
+    "total" : 11,
+    "done" : 0,
+    "percent" : 0.0,
+    "is_unlocked" : false,
+    "_id" : "69d7e8fc28fe032bb2529c4f"
+  } ],
+  "player" : "69549486168",
+  "total" : 90,
+  "done" : 3,
+  "percent" : 3.3333333333333335,
+  "time" : 1777374897815,
+  "_id" : "69c9336fdf494d3199c2a6ba"
+}

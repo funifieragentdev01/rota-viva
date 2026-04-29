@@ -2,7 +2,7 @@
 // Versão deve ser sincronizada com CONFIG.VERSION em config.js.
 // Mudar CACHE_VERSION força reinstalação e limpeza dos caches antigos.
 
-var CACHE_VERSION = 'rv-v1.4.16';
+var CACHE_VERSION = 'rv-v1.4.18';
 var API_CACHE     = 'rv-api-v1.4.15';
 
 // ── App shell: pré-cacheado no install ──────────────────────────────────────
